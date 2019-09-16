@@ -18,8 +18,8 @@
 .umi-production
 
 # 排除非模板内容
-module/src/pages/*
-!module/src/pages/document.ejs
-!module/src/pages/index.js
-!module/src/pages/index.less
-!module/src/pages/Login.js
+src/pages/*
+!src/pages/document.ejs
+!src/pages/index.js
+!src/pages/index.less
+!src/pages/Login.js
