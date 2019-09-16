@@ -18,14 +18,14 @@
 .umi-production
 
 # 排除模板内容
-# src/actionItemType/path.js
-# src/components/Details
-# src/layouts/index.js
-# src/framework
-# src/listAction/onPath.js
-# src/pages/document.ejs
-# src/pages/index.js
-# src/pages/index.less
-# src/pages/Login.js
-# src/valueType/icon.js
-# src/valueType/path.js
+src/actionItemType/path.js
+src/components/Details
+src/layouts/index.js
+src/framework
+src/listAction/onPath.js
+src/pages/document.ejs
+src/pages/index.js
+src/pages/index.less
+src/pages/Login.js
+src/valueType/icon.js
+src/valueType/path.js
