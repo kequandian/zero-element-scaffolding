@@ -29,10 +29,30 @@ function BasicLayout(props) {
   const [state, dispatch] = useReducer(reducer, {
     breadcrumb: [],
   });
+
+  function handleBreadcrumb(breadcrumb) {
+    dispatch({
+      type: 'save',
+      payload: {
+        breadcrumb,
+      },
+    });
+  }
+  function handleBreadcrumbClear() {
+    dispatch({
+      type: 'clearBc',
+    });
+  }
+
   return (
     <GlobalContext.Provider value={state}>
-      <PrimaryLayout {...props} breadcrumb={state.breadcrumb}>
-        {injectChildren(props.children, { dispatch, global: state })}
+      <PrimaryLayout {...props} breadcrumb={state.breadcrumb} >
+        {injectChildren(props.children, {
+          // dispatch,
+          // global: state,
+          OnBreadcrumb: handleBreadcrumb,
+          OnBreadcrumbClear: handleBreadcrumbClear
+        })}
       </PrimaryLayout>
     </GlobalContext.Provider>
   );
