@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import ZEleA from 'zero-element-antd';
+import model from '@/models';
 
 import { set as golbalSet } from 'zero-element-global/lib/global';
 import { set as APIConfig } from 'zero-element-global/lib/APIConfig';

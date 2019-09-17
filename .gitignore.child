@@ -20,9 +20,10 @@
 # 排除模板内容
 src/actionItemType/path.js
 src/components/Details
-src/layouts/index.js
 src/framework
+src/layouts/index.js
 src/listAction/onPath.js
+src/models/demo.js
 src/pages/document.ejs
 src/pages/index.js
 src/pages/index.less
