@@ -22,6 +22,7 @@ src/actionItemType/path.js
 src/components/Details
 src/framework
 src/layouts/index.js
+src/layouts/Content.js
 src/listAction/onPath.js
 src/models/demo.js
 src/pages/document.ejs
