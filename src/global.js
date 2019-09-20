@@ -1,4 +1,4 @@
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-vars */
 import ZEleA from 'zero-element-antd';
 import model from '@/models';
 
@@ -8,7 +8,7 @@ import { set as APIConfig } from 'zero-element-global/lib/APIConfig';
 import { set as setEndpoint } from 'zero-element/lib/utils/request/endpoint';
 import { saveToken } from 'zero-element/lib/utils/request/token';
 
-// import { set as CSet } from 'zero-element-global/lib/container';
+import { set as CSet } from 'zero-element-global/lib/container';
 import { set as LASet } from 'zero-element-global/lib/listAction';
 import { set as AITSet } from 'zero-element-global/lib/actionItemType';
 import { set as VTSet } from 'zero-element-global/lib/valueType';
