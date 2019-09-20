@@ -2,6 +2,7 @@ import React from 'react';
 import router from 'umi/router';
 import { Layout, Form, Icon, Input, Button, Checkbox } from 'antd';
 import { post } from 'zero-element/lib/utils/request';
+import { saveToken } from 'zero-element/lib/utils/request/token';
 
 import styles from './index.less';
 
@@ -13,8 +14,12 @@ class LoginForm extends React.Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         post('/api/sys/oauth/login', values).then((response) => {
-          const { data } = response;
-          if (data.code === 200) {
+          const { code, data } = response.data;
+          if (code === 200) {
+            saveToken({
+              token: data.accessToken,
+              permissions: formatPerms(data.perms),
+            });
             router.push('/');
           }
         });
@@ -74,4 +79,33 @@ export default (props) => {
       <WrappedLoginForm />
     </Content>
   </Layout>
+}
+
+function formatPerms(perms) {
+  const permsObj = {};
+
+  if (!Array.isArray(perms)) {
+    console.warn('非预期的权限数据格式: ', perms);
+  } else {
+    const permsFlat = arrayFlat(perms);
+    permsFlat.forEach(perm => {
+      permsObj[perm.identifier] = true;
+    });
+  }
+  return permsObj;
+}
+
+function arrayFlat(arr) {
+  const stack = [...arr];
+  const rst = [];
+
+  while (stack.length) {
+    const item = stack.shift();
+    if (Array.isArray(item.perms)) {
+      stack.push(...item.perms);
+    }
+    rst.push(item);
+  }
+
+  return rst;
 }

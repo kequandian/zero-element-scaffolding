@@ -6,7 +6,7 @@ import { set as golbalSet } from 'zero-element-global/lib/global';
 import { set as APIConfig } from 'zero-element-global/lib/APIConfig';
 
 import { set as setEndpoint } from 'zero-element/lib/utils/request/endpoint';
-import { saveToken } from 'zero-element/lib/utils/request/token';
+import { saveToken, removeToken } from 'zero-element/lib/utils/request/token';
 
 import { set as CSet } from 'zero-element-global/lib/container';
 import { set as LASet } from 'zero-element-global/lib/listAction';
@@ -34,12 +34,10 @@ APIConfig({
   'RESPONSE_FIELD_pageSize': 'size',
 });
 golbalSet({
-  // Unauthorized: () => {
-  //   saveToken({
-  //     token: '',
-  //   });
-  //   history.push('/login');
-  // },
+  Unauthorized: () => {
+    removeToken();
+    history.push('/login');
+  },
   RequestError: ({ data = {} }) => {
     if (data.errors && data.errors.length) {
       data.errors.forEach(msg => {
