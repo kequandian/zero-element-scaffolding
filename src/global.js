@@ -2,6 +2,8 @@
 import ZEleA from 'zero-element-antd';
 import model from '@/models';
 
+import router from 'umi/router';
+
 import { set as golbalSet } from 'zero-element-global/lib/global';
 import { set as APIConfig } from 'zero-element-global/lib/APIConfig';
 
@@ -36,7 +38,7 @@ APIConfig({
 golbalSet({
   Unauthorized: () => {
     removeToken();
-    history.push('/login');
+    router.push('/login');
   },
   RequestError: ({ data = {} }) => {
     if (data.errors && data.errors.length) {

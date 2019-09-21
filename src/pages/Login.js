@@ -19,6 +19,7 @@ class LoginForm extends React.Component {
             saveToken({
               token: data.accessToken,
               permissions: formatPerms(data.perms),
+              remember: values.remember,
             });
             router.push('/');
           }
