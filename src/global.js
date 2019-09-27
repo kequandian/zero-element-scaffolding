@@ -29,7 +29,7 @@ APIConfig({
   'DEFAULT_current': 1,
   'DEFAULT_pageSize': 10,
 
-  'REQUEST_FIELD_current': 'current',
+  'REQUEST_FIELD_current': 'pageNum',
   'REQUEST_FIELD_pageSize': 'pageSize',
 
   'RESPONSE_FIELD_current': 'current',

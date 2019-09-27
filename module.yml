@@ -1,0 +1,5 @@
+namespace: test
+copy:
+  - src/pages/test
+model:
+  - src/models/test.js
