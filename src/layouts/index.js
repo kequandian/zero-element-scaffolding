@@ -3,6 +3,8 @@ import { Switch } from 'react-router';
 import PrimaryLayout from '@/framework/PrimaryLayout';
 import GlobalContext from '@/framework/GlobalContext';
 
+import styleConfig from '@/config/style.config';
+
 function reducer(state, { type, payload }) {
   const method = {
     save() {
@@ -28,6 +30,7 @@ function reducer(state, { type, payload }) {
 function BasicLayout(props) {
   const [state, dispatch] = useReducer(reducer, {
     breadcrumb: [],
+    style: styleConfig,
   });
 
   function handleBreadcrumb(breadcrumb) {
