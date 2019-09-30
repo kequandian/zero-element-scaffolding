@@ -6,6 +6,7 @@ module.exports = [
   // },
   // {
   //   name: '分割线',
+  //   key: 'divider',
   // },
   // {
   //   name: '一级菜单',
