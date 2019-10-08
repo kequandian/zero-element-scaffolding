@@ -27,12 +27,7 @@ export default {
       },
     }],
   ],
-  copy: [
-    {
-      from: "./src/config.js",
-      to: "./config.js"
-    },
-  ],
+
   ignoreMomentLocale: true, // 忽略 moment 的 locale 文件
   lessLoaderOptions: {
     javascriptEnabled: true,

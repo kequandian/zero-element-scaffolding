@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useContext, useMemo, useEffect } from 'react';
 import { Layout } from 'antd';
 import Breadcrumb from './Breadcrumb';
 import Login from './Login';
@@ -8,18 +8,24 @@ import GlobalContext from '@/framework/GlobalContext';
 import menuData from '@/config/router.config';
 
 import selectNavStyle from './utils/selectNavStyle';
+import { init, changeTheme } from './theme';
+init();
 
 const { Header, Content } = Layout;
 
 export default function PrimaryLayout({ location, breadcrumb, children }) {
   const { style } = useContext(GlobalContext);
+  const { nav, theme } = style;
 
   const [
     TopNav, TopNavData,
     LeftNav, LeftNavData
   ] = useMemo(_ => {
-    return selectNavStyle(style.nav, menuData, location.pathname);
-  }, [style.nav, location.pathname]);
+    return selectNavStyle(nav, menuData, location.pathname);
+  }, [nav, location.pathname]);
+  useEffect(_ => {
+    changeTheme(theme);
+  }, [theme]);
 
   if (location.pathname === '/login') {
     return children;

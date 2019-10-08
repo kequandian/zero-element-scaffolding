@@ -2,8 +2,8 @@ import React, { useReducer } from 'react';
 import { Switch } from 'react-router';
 import PrimaryLayout from '@/framework/PrimaryLayout';
 import GlobalContext from '@/framework/GlobalContext';
+import window from 'zero-element/lib/utils/window';
 
-import styleConfig from '@/config/style.config';
 
 function reducer(state, { type, payload }) {
   const method = {
@@ -30,7 +30,10 @@ function reducer(state, { type, payload }) {
 function BasicLayout(props) {
   const [state, dispatch] = useReducer(reducer, {
     breadcrumb: [],
-    style: styleConfig,
+    style: {
+      nav: window.ZEle.nav,
+      theme: window.ZEle.theme,
+    },
   });
 
   function handleBreadcrumb(breadcrumb) {
