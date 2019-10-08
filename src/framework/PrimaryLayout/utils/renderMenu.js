@@ -18,6 +18,10 @@ export default function renderMenu(menuData, divider) {
   while (stack.length) {
     const menu = stack.shift();
 
+    if (!menu) {
+      break;
+    };
+
     if (Array.isArray(menu)) {
       stack.push(...menu);
     } else {

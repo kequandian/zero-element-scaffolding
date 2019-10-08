@@ -1,13 +1,14 @@
 {
   "private": true,
   "scripts": {
-    "start": "umi dev",
-    "build": "umi build",
+    "start": "node color && umi dev",
+    "build": "node color && umi build",
     "buildA": "set ANALYZE=1 && umi build",
     "test": "umi test"
   },
   "dependencies": {
     "antd": "^3.23.2",
+    "antd-theme-generator": "^1.1.7",
     "gg-editor": "^2.0.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
