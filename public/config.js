@@ -5,4 +5,4 @@ window.ZEle.endpoint = "http://192.168.0.1:8080";
 window.ZEle.nav = "both";
 window.ZEle.theme = "#1890ff";
 
-window.ZEle.hotConfig = [];
+window.ZEle.remoteConfig = {};
