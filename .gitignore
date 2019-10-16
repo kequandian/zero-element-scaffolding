@@ -22,4 +22,4 @@ src/pages/*
 !src/pages/document.ejs
 !src/pages/index.js
 !src/pages/index.less
-!src/pages/Login.js
+!src/pages/login.js
