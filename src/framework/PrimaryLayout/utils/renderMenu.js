@@ -21,6 +21,9 @@ export default function renderMenu(menuData, divider) {
     if (!menu) {
       break;
     };
+    if (menu.invisible) {
+      continue;
+    }
 
     if (Array.isArray(menu)) {
       stack.push(...menu);
