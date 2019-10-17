@@ -2,6 +2,7 @@ import React from 'react';
 import { Flex } from 'layout-flex';
 import { Spin, Divider, Col } from 'antd';
 import BaseList from 'zero-element-antd/lib/container/List/BaseList';
+import useDetails from './hooks';
 import styles from './index.less';
 
 const { FlexItem } = Flex;
@@ -63,6 +64,10 @@ export default function Details(props) {
   </Spin>
 }
 
+export {
+  useDetails,
+}
+
 function readValue(data, field, defaultValue, map) {
 
   if (defaultValue !== undefined) {
@@ -93,6 +98,7 @@ function RenderList({ columns, data = [] }) {
     config={{
       fields: columns.map(col => {
         return {
+          ...col,
           key: col.field,
           dataIndex: col.field,
           title: col.label,
