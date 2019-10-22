@@ -1,5 +1,16 @@
-namespace: test
+namespace: name
+menu: /test/name
+map: 
+  p: test
+  c: name
+  P: Test
+  C: Name
 copy:
-  - src/pages/test
+  - src/pages/<p>/<c>.js
+  - src/pages/<p>/config/<C>
 model:
-  - src/models/modules/test.js
+# 添加模块到项目时，需要先指定的数据
+extraData:
+  - 
+    file: src/pages/<p>/<c>.js
+    value: test
