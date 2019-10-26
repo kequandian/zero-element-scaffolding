@@ -14,3 +14,7 @@ extraData:
   - 
     file: src/pages/<p>/<c>.js
     value: test
+container:
+  -
+    file: src/container/Test
+    value: Test
