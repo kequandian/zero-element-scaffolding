@@ -36,6 +36,12 @@ APIConfig({
   'RESPONSE_FIELD_pageSize': 'size',
 });
 golbalSet({
+  router: (path) => {
+    router.push(path);
+  },
+  goBack: () => {
+    router.goBack();
+  },
   Unauthorized: () => {
     removeToken();
     router.push('/login');

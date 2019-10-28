@@ -16,5 +16,5 @@ extraData:
     value: test
 container:
   -
-    file: src/container/Test
+    file: src/container/<C>
     value: Test
