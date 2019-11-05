@@ -8,10 +8,13 @@ import styles from './index.less';
 const { FlexItem } = Flex;
 
 export default function Details(props) {
-  const { loading = false, col = 2, fields = [], data = {} } = props;
+  const {
+    loading = false, className = '',
+    col = 2, fields = [], data = {}
+  } = props;
 
   return <Spin spinning={loading}>
-    <Flex className={styles.container}>
+    <Flex className={`${styles.container} ${className}`}>
       {fields.map((option, i) => {
 
         const {
