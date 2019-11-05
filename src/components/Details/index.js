@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex } from 'layout-flex';
-import { Spin, Divider, Col } from 'antd';
+import { Spin, Divider, Row, Col } from 'antd';
 import BaseList from 'zero-element-antd/lib/container/List/BaseList';
 import useDetails from './hooks';
 import styles from './index.less';
@@ -18,6 +18,7 @@ export default function Details(props) {
       {fields.map((option, i) => {
 
         const {
+          justify = 'start', align = 'top',
           title, divider,
           empty,
           label,
@@ -51,7 +52,7 @@ export default function Details(props) {
           className={styles.valueContainer}
         >
           {empty ? null : (
-            <div>
+            <Row type="flex" justify={justify} align={align}>
               <Col sm={6} className={styles.label}>
                 {label}:
               </Col>
@@ -59,7 +60,7 @@ export default function Details(props) {
                 {readValue(data, field, value, map) || '-'}
                 {readAppendValue(data, append)}
               </Col>
-            </div>
+            </Row>
           )}
         </FlexItem>
       })}
