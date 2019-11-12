@@ -12,11 +12,12 @@ const { FlexItem } = Flex;
 export default function Details(props) {
   const {
     loading = false, className = '',
-    col = 2, fields = [], data = {}
+    col = 2, fields = [], data = {},
+    goBack: gb = false
   } = props;
 
   return <Spin spinning={loading}>
-    {goBack ? (
+    {gb && goBack ? (
       <>
         <Button onClick={goBack}>返回</Button>
         <br /><br />
