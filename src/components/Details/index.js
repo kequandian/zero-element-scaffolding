@@ -1,10 +1,12 @@
 import React from 'react';
 import { Flex } from 'layout-flex';
-import { Spin, Divider, Row, Col } from 'antd';
+import { Spin, Divider, Row, Col, Button } from 'antd';
 import BaseList from 'zero-element-antd/lib/container/List/BaseList';
+import global from 'zero-element-global/lib/global';
 import useDetails from './hooks';
 import styles from './index.less';
 
+const { goBack } = global;
 const { FlexItem } = Flex;
 
 export default function Details(props) {
@@ -14,6 +16,12 @@ export default function Details(props) {
   } = props;
 
   return <Spin spinning={loading}>
+    {goBack ? (
+      <>
+        <Button onClick={goBack}>返回</Button>
+        <br /><br />
+      </>
+    ) : null}
     <Flex className={`${styles.container} ${className}`}>
       {fields.map((option, i) => {
 
@@ -26,6 +34,7 @@ export default function Details(props) {
           map,  // 映射关系
           value, // 显示为固定值, 一般用于 React Element
           append = [], // 追加显示
+          alone,
           columns,  // 显示为列表 
         } = option;
 
@@ -36,6 +45,11 @@ export default function Details(props) {
         }
         if (divider) {
           return <Divider key={i}>{divider.label || ''}</Divider>
+        }
+        if (value && alone) {
+          return <div key={i}>
+            {value}
+          </div>
         }
         if (columns) {
           return <FlexItem flex={`0 0 100%`} key={i}>
