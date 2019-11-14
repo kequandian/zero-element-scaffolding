@@ -12,6 +12,7 @@ import { saveToken, removeToken } from 'zero-element/lib/utils/request/token';
 
 import { set as CSet } from 'zero-element-global/lib/container';
 import { set as LASet } from 'zero-element-global/lib/listAction';
+import { set as FITSet } from 'zero-element-global/lib/formItemType';
 import { set as AITSet } from 'zero-element-global/lib/actionItemType';
 import { set as VTSet } from 'zero-element-global/lib/valueType';
 
