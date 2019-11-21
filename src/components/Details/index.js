@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flex } from 'layout-flex';
 import { Spin, Divider, Row, Col, Button } from 'antd';
-import BaseList from 'zero-element-antd/lib/container/List/BaseList';
+import ReportList from 'zero-element-antd/lib/container/List/ReportList';
 import global from 'zero-element-global/lib/global';
 import useDetails from './hooks';
 import styles from './index.less';
@@ -40,9 +40,12 @@ export default function Details(props) {
         } = option;
 
         if (title) {
-          return <h3 className={styles.title} key={i}>
-            {title}
-          </h3>
+          return <div key={i} className={styles.title}>
+            <div className={styles.titleDecoration}></div>
+            <div>
+              {title}
+            </div>
+          </div>
         }
         if (divider) {
           return <Divider key={i}>{divider.label || ''}</Divider>
@@ -54,9 +57,11 @@ export default function Details(props) {
         }
         if (columns) {
           return <FlexItem flex={`0 0 100%`} key={i}>
-            <div className={styles.labelTitle}>
-              {label}:
-            </div>
+            {label ? (
+              <div className={styles.labelTitle}>
+                {label}:
+              </div>
+            ) : null}
             <RenderList columns={columns} data={data[field]} />
           </FlexItem>
         }
@@ -113,7 +118,7 @@ function readAppendValue(data, append) {
 }
 
 function RenderList({ columns, data = [] }) {
-  return <BaseList
+  return <ReportList
     config={{
       fields: columns.map(col => {
         return {
