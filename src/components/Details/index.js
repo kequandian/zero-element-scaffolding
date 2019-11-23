@@ -3,7 +3,11 @@ import { Flex } from 'layout-flex';
 import { Spin, Divider, Row, Col, Button } from 'antd';
 import ReportList from 'zero-element-antd/lib/container/List/ReportList';
 import global from 'zero-element-global/lib/global';
-import useDetails from './hooks';
+import useDetails from './hooks'
+
+import Group from './type/Group';
+import Title from './type/Title';
+
 import styles from './index.less';
 
 const { goBack } = global;
@@ -28,7 +32,7 @@ export default function Details(props) {
 
         const {
           justify = 'start', align = 'top',
-          title, divider,
+          title, group, divider,
           empty,
           label,
           field,
@@ -40,12 +44,10 @@ export default function Details(props) {
         } = option;
 
         if (title) {
-          return <div key={i} className={styles.title}>
-            <div className={styles.titleDecoration}></div>
-            <div>
-              {title}
-            </div>
-          </div>
+          return <Title key={i} title={title} />;
+        }
+        if (group) {
+          return <Group key={i} group={group} />;
         }
         if (divider) {
           return <Divider key={i}>{divider.label || ''}</Divider>
