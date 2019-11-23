@@ -10,7 +10,10 @@ export default function LeftNav({ path, menuData }) {
   const selectedKeys = useSelectedKeys(path);
   const [openKeys, setOpendKeys] = useOpenKeys(null);
 
-  return <Sider width={200} style={{ background: '#fff' }}>
+  return <Sider width={200} style={{
+    background: '#fff',
+    overflow: 'hidden auto',
+  }}>
     <Menu
       mode="inline"
       style={{ height: '100%', borderRight: 0 }}
