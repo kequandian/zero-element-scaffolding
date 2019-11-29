@@ -113,7 +113,7 @@ function readValue(data, field, defaultValue, map) {
 
 function readAppendValue(data, append) {
   return append.map(opt => {
-    return <div style={{ color: '#666' }}>
+    return <div key={opt.field} style={{ color: '#666' }}>
       {data[opt.field]}
     </div>
   });
