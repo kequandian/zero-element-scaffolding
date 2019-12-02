@@ -53,7 +53,7 @@ export default function Details(props) {
           return <Divider key={i}>{divider.label || ''}</Divider>
         }
         if (value && alone) {
-          return <div key={i}>
+          return <div key={i} className={styles.alone}>
             {value}
           </div>
         }
