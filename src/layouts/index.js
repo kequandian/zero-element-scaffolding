@@ -3,6 +3,7 @@ import { Switch } from 'react-router';
 import PrimaryLayout from '@/framework/PrimaryLayout';
 import GlobalContext from '@/framework/GlobalContext';
 import window from 'zero-element/lib/utils/window';
+import { BackTop } from 'antd';
 
 
 function reducer(state, { type, payload }) {
@@ -52,6 +53,9 @@ function BasicLayout(props) {
 
   return (
     <GlobalContext.Provider value={state}>
+      <BackTop
+        target={_ => document.getElementById('contentContainer')}
+      />
       <PrimaryLayout {...props} breadcrumb={state.breadcrumb} >
         {injectChildren(props.children, {
           // dispatch,

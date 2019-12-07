@@ -12,8 +12,20 @@ body {
   height: 100%;
 }
 
+header.ant-layout-header {
+  padding: 0 30px;
+}
+
+#root .ant-back-top {
+  right: 20px;
+}
+
 .ant-select {
   min-width: 6em;
+}
+
+.ant-typography {
+  word-break: break-all;
 }
 
 .ZEleA-margin-left {
