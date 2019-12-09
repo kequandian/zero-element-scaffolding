@@ -40,7 +40,7 @@ export default function PrimaryLayout({ location, breadcrumb, children }) {
     </Header>
     <Layout className="ant-layout-has-sider">
       <LeftNav path={location.pathname} menuData={LeftNavData} />
-      <Layout style={{ padding: '0 24px 24px' }}>
+      <Layout id="contentContainer" style={{ padding: '0 24px 24px' }}>
         <Breadcrumb path={location.pathname} breadcrumb={breadcrumb} />
         <Content>
           {children}
