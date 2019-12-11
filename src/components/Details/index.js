@@ -24,7 +24,6 @@ export default function Details(props) {
     {gb && goBack ? (
       <>
         <Button onClick={goBack}>返回</Button>
-        <br /><br />
       </>
     ) : null}
     <Flex className={`${styles.container} ${className}`}>

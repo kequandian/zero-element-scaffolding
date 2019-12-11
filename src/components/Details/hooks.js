@@ -24,7 +24,7 @@ export default function useDetails(namespace, props) {
       type: 'getDetailsData',
       payload: {
         id: location.query.id,
-        path: location.pathname,
+        pathname: location.pathname,
       }
     });
   }
