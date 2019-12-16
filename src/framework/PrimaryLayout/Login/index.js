@@ -1,18 +1,26 @@
 import React from 'react';
 import router from 'umi/router';
-import { Avatar, Menu, Dropdown } from 'antd';
+import { removeToken } from 'zero-element/lib/utils/request/token';
+import { Icon, Avatar, Menu, Dropdown } from 'antd';
 
 function handleLogOut() {
   router.push('/login');
+  removeToken();
 }
+function handleRouteToProfile() {
+  router.push('/profile/security');
+}
+
 const menu = (
   <Menu>
-    <Menu.Item disabled>
-      个人信息
+    <Menu.Item onClick={handleRouteToProfile}>
+      <Icon type="appstore" />
+      <span className="ZEleA-margin-left">个人中心</span>
     </Menu.Item>
     <Menu.Divider />
     <Menu.Item onClick={handleLogOut}>
-      退出账号
+      <Icon type="logout" />
+      <span className="ZEleA-margin-left">退出账号</span>
     </Menu.Item>
   </Menu>
 );

@@ -5,7 +5,6 @@ import Login from './Login';
 import styles from './index.less';
 
 import GlobalContext from '@/framework/GlobalContext';
-import menuData from '@/config/router.config';
 
 import selectNavStyle from './utils/selectNavStyle';
 import { init, changeTheme } from './theme';
@@ -13,7 +12,10 @@ init();
 
 const { Header, Content } = Layout;
 
-export default function PrimaryLayout({ location, breadcrumb, children }) {
+export default function PrimaryLayout({
+  location, children,
+  menuData, breadcrumb,
+}) {
   const { style } = useContext(GlobalContext);
   const { nav, theme } = style;
 
@@ -22,7 +24,7 @@ export default function PrimaryLayout({ location, breadcrumb, children }) {
     LeftNav, LeftNavData
   ] = useMemo(_ => {
     return selectNavStyle(nav, menuData, location.pathname);
-  }, [nav, location.pathname]);
+  }, [nav, menuData, location.pathname]);
   useEffect(_ => {
     changeTheme(theme);
   }, [theme]);

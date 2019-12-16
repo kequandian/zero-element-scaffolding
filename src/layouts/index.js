@@ -5,6 +5,8 @@ import GlobalContext from '@/framework/GlobalContext';
 import window from 'zero-element/lib/utils/window';
 import { BackTop } from 'antd';
 
+import menuData from '@/config/router.config';
+import profileMenuData from '@/config/profile.config';
 
 function reducer(state, { type, payload }) {
   const method = {
@@ -29,6 +31,9 @@ function reducer(state, { type, payload }) {
 };
 
 function BasicLayout(props) {
+  const { location } = props;
+  const { pathname } = location;
+
   const [state, dispatch] = useReducer(reducer, {
     breadcrumb: [],
     style: {
@@ -56,7 +61,11 @@ function BasicLayout(props) {
       <BackTop
         target={_ => document.getElementById('contentContainer')}
       />
-      <PrimaryLayout {...props} breadcrumb={state.breadcrumb} >
+      <PrimaryLayout
+        {...props}
+        breadcrumb={state.breadcrumb}
+        menuData={switchMenuData(pathname)}
+      >
         {injectChildren(props.children, {
           // dispatch,
           // global: state,
@@ -68,6 +77,14 @@ function BasicLayout(props) {
   );
 }
 
+const reg = /^\/profile\//;
+function switchMenuData(pathname) {
+  if (reg.test(pathname)) {
+    return profileMenuData;
+  }
+
+  return menuData;
+}
 function injectChildren(children, props) {
   return React.Children.map(children, child => {
     if (child.type === Switch) {
