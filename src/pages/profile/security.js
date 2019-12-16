@@ -26,7 +26,7 @@ const config = {
 
 export default function (props) {
   useBreadcrumb(props, [
-    { title: '首页', path: '/' },
+    { title: '主页', path: '/' },
     { title: '个人中心' },
     { title: '修改密码' },
   ]);
