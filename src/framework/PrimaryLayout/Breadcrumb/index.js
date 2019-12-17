@@ -39,7 +39,7 @@ export default ({ path, breadcrumb }) => {
     {pathAry.map((item, i) => {
       if (item === '/') {
         return <Breadcrumb.Item key={item}>
-          <Link to="/">主页</Link>
+          <Link to="/">首页</Link>
         </Breadcrumb.Item>;
       }
       return <Breadcrumb.Item key={item}>

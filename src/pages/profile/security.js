@@ -12,7 +12,7 @@ const config = {
       config: {
         goBack: false,
         API: {
-          createAPI: '/api/sys/password/reset_password',
+          createAPI: '/api/u/crud/accounts/reset_password',
         },
         fields: [
           { field: 'oldPassword', label: '原密码', type: 'password' },
@@ -26,7 +26,7 @@ const config = {
 
 export default function (props) {
   useBreadcrumb(props, [
-    { title: '主页', path: '/' },
+    { title: '首页', path: '/' },
     { title: '个人中心' },
     { title: '修改密码' },
   ]);
