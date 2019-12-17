@@ -29,21 +29,32 @@ export default function PrimaryLayout({
     changeTheme(theme);
   }, [theme]);
 
-  if (location.pathname === '/login') {
-    return children;
-  }
+  const aloneView = location.pathname === '/login';
 
   return <Layout>
-    <Header className={styles.topNav}>
-      <TopNav path={location.pathname} menuData={TopNavData} />
-      <div className={styles.login}>
-        <Login />
-      </div>
-    </Header>
+    {aloneView ? null : (
+      <Header className={styles.topNav}>
+        <div className={styles.logo}>
+          <a href="/">
+            Zero Code
+        </a>
+        </div>
+        <TopNav path={location.pathname} menuData={TopNavData} />
+        <div className={styles.login}>
+          <Login />
+        </div>
+      </Header>
+    )}
     <Layout className="ant-layout-has-sider">
-      <LeftNav path={location.pathname} menuData={LeftNavData} />
-      <Layout id="contentContainer" style={{ padding: '0 24px 24px' }}>
-        <Breadcrumb path={location.pathname} breadcrumb={breadcrumb} />
+      {aloneView ? null : (
+        <LeftNav path={location.pathname} menuData={LeftNavData} />
+      )}
+      <Layout id="contentContainer" style={
+        aloneView ? undefined : { padding: '0 24px 24px' }
+      }>
+        {aloneView ? null : (
+          <Breadcrumb path={location.pathname} breadcrumb={breadcrumb} />
+        )}
         <Content>
           {children}
         </Content>
