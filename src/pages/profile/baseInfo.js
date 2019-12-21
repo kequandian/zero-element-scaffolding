@@ -23,7 +23,8 @@ const config = {
           {
             field: 'avatar', label: '头像', type: 'upload-image',
             options: {
-              API: '/api/uploadx',
+              API: '/api/u/uploadfile',
+              max: 1,
             },
             span: 24,
           },
