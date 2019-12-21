@@ -8,7 +8,7 @@ function handleLogOut() {
   removeToken();
 }
 function handleRouteToProfile() {
-  router.push('/profile/security');
+  router.push('/profile/baseInfo');
 }
 
 const menu = (
