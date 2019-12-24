@@ -1,5 +1,15 @@
 namespace: name
-menu: /test/name
+# 会根据 menu, 生成对应的 菜单
+menu: 
+  - 
+    path: /pages
+    name: 一级菜单
+    icon: tags
+    items:
+      - 
+        path: /pages/test
+        name: 二级菜单
+        icon: tag
 map: 
   p: test
   c: name
