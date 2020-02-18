@@ -10,6 +10,7 @@
     "antd": "^3.23.2",
     "antd-theme-generator": "^1.1.7",
     "gg-editor": "^2.0.4",
+    "jparticles": "^2.0.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "zero-element": "^1.0.0-beta.26",
