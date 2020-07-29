@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button, Checkbox } from 'antd';
+import { MobileOutlined } from '@ant-design/icons';
 
 import styles from '../index.less';
 import Captcha from './Captcha';
@@ -16,7 +17,7 @@ export default class PhoneForm extends Component {
             rules: [{ required: true, message: '请输入手机号' }],
           })(
             <Input
-              prefix={<Icon type="mobile" style={{ color: 'rgba(0,0,0,.25)' }} />}
+              prefix={<MobileOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="手机号"
             />,
           )}

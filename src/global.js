@@ -1,30 +1,32 @@
 /* eslint-disable no-unused-vars */
-import ZEleA from 'zero-element-antd';
 import model from '@/models';
+import zeroAntd from './zero-antd-dep';
 
-import router from 'umi/router';
+import { history } from 'umi';
 
-import { set as golbalSet } from 'zero-element-global/lib/global';
-import { set as APIConfig } from 'zero-element-global/lib/APIConfig';
+import { set as golbalSet } from 'zero-element/lib/config/global';
+import { set as APIConfig } from 'zero-element/lib/config/APIConfig';
 
 import { set as setEndpoint } from 'zero-element/lib/utils/request/endpoint';
 import { saveToken, removeToken } from 'zero-element/lib/utils/request/token';
 
-import { set as CSet } from 'zero-element-global/lib/container';
-import { set as LASet } from 'zero-element-global/lib/listAction';
-import { set as FITSet } from 'zero-element-global/lib/formItemType';
-import { set as AITSet } from 'zero-element-global/lib/actionItemType';
-import { set as VTSet } from 'zero-element-global/lib/valueType';
+import { set as LayoutSet } from 'zero-element/lib/config/layout';
+import { set as CSet } from 'zero-element/lib/config/container';
+import { set as LASet } from 'zero-element/lib/config/listAction';
+import { set as FITSet } from 'zero-element/lib/config/formItemType';
+import { set as AITSet } from 'zero-element/lib/config/actionItemType';
+import { set as VTSet } from 'zero-element/lib/config/valueType';
 
 
-import onPath from './listAction/onPath';
+import onPath from '@/listAction/onPath';
 
-import path from './actionItemType/path';
+import path from '@/actionItemType/path';
 
-import icon from './valueType/icon';
-import vPath from './valueType/path';
+import vPath from '@/valueType/path';
 
 import { message } from 'antd';
+
+import Content from '@/../zero-antd-dep/layout/Content';
 
 APIConfig({
   'DEFAULT_current': 1,
@@ -32,20 +34,26 @@ APIConfig({
 
   'REQUEST_FIELD_current': 'pageNum',
   'REQUEST_FIELD_pageSize': 'pageSize',
+  'REQUEST_FIELD_field': 'orderBy',
+  'REQUEST_FIELD_order': 'sort',
+  'REQUEST_FIELD_ascend': 'ASC',
+  'REQUEST_FIELD_descend': 'DESC',
 
   'RESPONSE_FIELD_current': 'current',
   'RESPONSE_FIELD_pageSize': 'size',
+  'RESPONSE_FIELD_total': 'total',
+  'RESPONSE_FIELD_records': 'records',
 });
 golbalSet({
   router: (path) => {
-    router.push(path);
+    history.push(path);
   },
   goBack: () => {
-    router.goBack();
+    history.goBack();
   },
   Unauthorized: () => {
     removeToken();
-    router.push('/login');
+    history.push('/login');
   },
   RequestError: ({ data = {} }) => {
     if (data.errors && data.errors.length) {
@@ -60,13 +68,16 @@ golbalSet({
 
 
 if (process.env.NODE_ENV === 'development') {
-  setEndpoint('http://127.0.0.1:8080');
+  setEndpoint('http://192.168.0.1:8080');
 
   saveToken({
     token: '',
   });
 }
 
+LayoutSet({
+  Content,
+});
 LASet({
   'onPath': onPath,
 });
@@ -76,6 +87,5 @@ AITSet({
 });
 
 VTSet({
-  icon,
   'path': vPath,
 });

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Form, Icon, Input, Button } from 'antd';
+import { Form, Input, Button } from 'antd';
+import { MailOutlined, ClockCircleOutlined } from '@ant-design/icons';
 
 import styles from '../index.less';
 import Captcha from './Captcha';
@@ -16,7 +17,7 @@ export default class MailRegForm extends Component {
             rules: [{ required: true, message: '请输入邮箱' }],
           })(
             <Input
-              prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
+              prefix={<MailOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="邮箱"
             />,
           )}
@@ -26,7 +27,7 @@ export default class MailRegForm extends Component {
             rules: [{ required: true, message: '请输入密码' }],
           })(
             <Input
-              prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+              prefix={<ClockCircleOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
               type="password"
               placeholder="密码"
             />,

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
-import withRouter from 'umi/withRouter';
-import router from 'umi/router';
+import { history, withRouter } from 'umi';
 
 function ActionOnPath(props) {
   const { title, options, location } = props;
@@ -13,7 +12,7 @@ function ActionOnPath(props) {
       const formKey = query[toKey];
       data[toKey] = location.query[formKey] || formKey;
     });
-    router.push({
+    history.push({
       pathname: options.path,
       query: data,
     });

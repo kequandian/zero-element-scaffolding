@@ -1,9 +1,9 @@
 import React from 'react';
-import router from 'umi/router';
+import { history } from 'umi';
 import { Button } from 'antd';
 
 function handleClick(path, data) {
-  router.push({
+  history.push({
     pathname: path,
     query: data,
   });

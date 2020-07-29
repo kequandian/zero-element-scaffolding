@@ -2,7 +2,7 @@
 import TopNav from '../TopNav';
 import LeftNav from '../LeftNav';
 
-function selectNavStyle(type, menuData, path) {
+function selectNavStyle(type, menuData, path, switchLeftNav) {
   if (type === 'top') {
     return [
       TopNav, menuData,
@@ -16,8 +16,13 @@ function selectNavStyle(type, menuData, path) {
     ];
   }
 
-  // 提取 父 path
-  const fPath = path.replace(/(\/\w+)[\/\w]*/, '$1');
+  let fPath;
+  if (switchLeftNav) {
+    fPath = switchLeftNav;
+  } else {
+    // 提取 父 path
+    fPath = path.replace(/(\/\w+)[\/\w-]*/, '$1');
+  }
   // 定位到 父path 的数据
   const leftNavData =
     menuData.find(menu => menu.path === fPath)

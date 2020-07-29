@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex } from 'layout-flex';
 import { Spin, Divider, Row, Col, Button } from 'antd';
 import ReportList from 'zero-element-antd/lib/container/List/ReportList';
-import global from 'zero-element-global/lib/global';
+import global from 'zero-element/lib/config/global';
 import useDetails from './hooks'
 
 import Group from './type/Group';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useWillMount } from 'zero-element/lib/utils/hooks/lifeCycle';
 import { saveToken } from 'zero-element/lib/utils/request/token';
-import { router } from 'umi';
+import { history } from 'umi';
 import { Layout, Result } from 'antd';
 import getUserInfo from './utils/getUserInfo';
 
@@ -20,10 +20,10 @@ export default function Oauth(props) {
       });
       getUserInfo()
         .then(_ => {
-          router.push('/');
+          history.push('/');
         })
     } else {
-      router.push('/login/oauthErr');
+      history.push('/login/oauthErr');
     }
   });
 

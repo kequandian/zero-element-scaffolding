@@ -9,6 +9,7 @@
 
 # production
 /dist
+/zero-antd-dep
 
 # misc
 .DS_Store

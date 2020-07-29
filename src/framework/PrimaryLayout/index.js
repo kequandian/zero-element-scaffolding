@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useEffect } from 'react';
+import React, { useContext, useMemo, useEffect, useState } from 'react';
 import { Layout } from 'antd';
 import Breadcrumb from './Breadcrumb';
 import Login from './Login';
@@ -18,38 +18,51 @@ export default function PrimaryLayout({
 }) {
   const { style } = useContext(GlobalContext);
   const { nav, theme } = style;
+  const [switchLeftNav, setSwitchLeftNav] = useState();
 
   const [
     TopNav, TopNavData,
     LeftNav, LeftNavData
   ] = useMemo(_ => {
-    return selectNavStyle(nav, menuData, location.pathname);
-  }, [nav, menuData, location.pathname]);
+    return selectNavStyle(nav, menuData, location.pathname, switchLeftNav);
+  }, [nav, menuData, location.pathname, switchLeftNav]);
+
   useEffect(_ => {
     changeTheme(theme);
   }, [theme]);
+
+  // 当导航类型既不是 top 也不是 left 时, 应该在 top 渲染第一级菜单, left 渲染第二级
+  // 此时，点击 top 的导航时需要替换 left, 但不应该被路由
+  function handleSwitchLeftNav(path) {
+    setSwitchLeftNav(path);
+  }
 
   const aloneView = location.pathname === '/login';
 
   return <Layout>
     {aloneView ? null : (
-      <Header className={styles.topNav}>
+      <Header className={`header ${styles.topNav}`}>
         <div className={styles.logo}>
           <a href="/">
             Zero Code
         </a>
         </div>
-        <TopNav path={location.pathname} menuData={TopNavData} />
+        <TopNav
+          path={location.pathname}
+          menuData={TopNavData}
+          navType={nav}
+          onClick={nav === 'both' ? handleSwitchLeftNav : undefined}
+        />
         <div className={styles.login}>
           <Login />
         </div>
       </Header>
     )}
-    <Layout className="ant-layout-has-sider">
+    <Layout className={styles.pageContainer}>
       {aloneView ? null : (
         <LeftNav path={location.pathname} menuData={LeftNavData} />
       )}
-      <Layout id="contentContainer" style={
+      <Layout id="contentContainer" className={styles.contentContainer} style={
         aloneView ? undefined : { padding: '0 24px 24px' }
       }>
         {aloneView ? null : (

@@ -1,4 +1,4 @@
-import router from 'umi/router';
+import { history } from 'umi';
 
 export default function onPath({ options, record }) {
   const { path, query = { id: 'id' } } = options;
@@ -8,7 +8,7 @@ export default function onPath({ options, record }) {
     data[toKey] = record[formKey] || formKey;
   });
 
-  router.push({
+  history.push({
     pathname: path,
     query: data,
   });

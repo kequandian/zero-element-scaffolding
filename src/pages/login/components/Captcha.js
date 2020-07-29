@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Icon, Input, Button } from 'antd';
+import { Input, Button } from 'antd';
 import { LS } from 'zero-element/lib/utils/storage';
 import { post } from 'zero-element-antd/lib/utils/request';
+import { KeyOutlined } from '@ant-design/icons';
 
 const InputGroup = Input.Group;
 
@@ -70,7 +71,7 @@ export default class Captcha extends Component {
     return <InputGroup compact>
       <Input
         style={{ width: '70%' }}
-        prefix={<Icon type="key" style={{ color: 'rgba(0,0,0,.25)' }} />}
+        prefix={<KeyOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
         placeholder="验证码"
         onChange={onChange}
       />

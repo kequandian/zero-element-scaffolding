@@ -5,7 +5,7 @@ import renderMenu from '../utils/renderMenu';
 
 import styles from '../index.less';
 
-export default function TopNav({ path, menuData }) {
+export default function TopNav({ navType, path, menuData, onClick }) {
   const selectedKeys = useSelectedKeys(path);
 
   return <Menu
@@ -15,6 +15,6 @@ export default function TopNav({ path, menuData }) {
     style={{ lineHeight: '64px' }}
     selectedKeys={selectedKeys}
   >
-    {renderMenu(menuData)}
+    {renderMenu({ menuData, navType, onClick })}
   </Menu>
 }

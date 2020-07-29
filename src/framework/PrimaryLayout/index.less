@@ -1,6 +1,8 @@
 .topNav {
   display        : flex;
   justify-content: flex-end;
+  height         : 64px;
+  line-height    : 64px;
 
   .logo {
     img {
@@ -22,5 +24,15 @@
 
   .login {
     color: white;
+    width: 40px;
   }
+}
+
+.pageContainer {
+  display: flex;
+  height : calc(100% - 64px);
+}
+
+.contentContainer {
+  flex: 1;
 }

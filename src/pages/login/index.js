@@ -1,6 +1,6 @@
-import React from 'react';
-import router from 'umi/router';
-import { Layout, Form, Button, message } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { history } from 'umi';
+import { Layout, Button, message } from 'antd';
 import { saveToken } from 'zero-element/lib/utils/request/token';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 import JParticles from 'jparticles';
@@ -20,13 +20,12 @@ const cType = {
   'mailReg': MailReg,
   'RFE': RFE,
 };
-class LoginForm extends React.Component {
-  state = {
-    formType: 'account',
-    loading: false,
-  }
 
-  componentDidMount() {
+function LoginForm(props) {
+  const [formType, setFormType] = useState('account');
+  const [loading, setLoading] = useState(false);
+
+  useEffect(_ => {
     new JParticles.particle('#loginBG', {
       color: '#25bfff',
       lineShape: 'cube',
@@ -35,168 +34,137 @@ class LoginForm extends React.Component {
       // 开启视差效果
       // parallax: true,
     });
+  }, []);
+
+  function handleSubmit(values) {
+    setLoading(true);
+    post('/api/oauth/login', values, {
+      message: null,
+    }).then((data) => {
+      saveToken({
+        token: data.accessToken,
+        permissions: formatPerms(data.perms),
+        remember: values.remember,
+      });
+    })
+      // .then(getUserInfo)
+      .then(_ => {
+        history.push('/');
+      })
+      .finally(_ => {
+        setLoading(false);
+      });
   }
 
-  handleSubmit = e => {
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        this.setState({
-          loading: true,
-        });
-        post('/api/sys/oauth/accounts/login', values, {
-          message: null,
-        }).then((data) => {
-          saveToken({
-            token: data.accessToken,
-            permissions: formatPerms(data.perms),
-            remember: values.remember,
-          });
-        })
-          .then(getUserInfo)
-          .then(_ => {
-            router.push('/');
-          })
-          .finally(_ => {
-            this.setState({
-              loading: false,
-            });
-          });
+  function handleReg(values) {
+    setLoading(true);
+    post('/api/sys/oauth/accounts/register', values, {
+      message: null,
+    }).then(_ => {
+      message.success('注册成功');
+      if (values.email) {
+        this.handleChangeFormType('account');
       }
-    });
-  };
-  handleReg = e => {
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        this.setState({
-          loading: true,
-        });
-        post('/api/sys/oauth/accounts/register', values, {
-          message: null,
-        }).then(_ => {
-          message.success('注册成功');
-          if (values.email) {
-            this.handleChangeFormType('account');
-          }
-        })
-          .finally(_ => {
-            this.setState({
-              loading: false,
-            });
-          });
-      }
-    });
-  };
-
-  handleChangeFormType = type => {
-    this.setState({
-      formType: type,
-    });
-    this.props.form.resetFields();
-  }
-  switchRePasswordForm = () => {
-    this.handleChangeFormType('RFE');
-  }
-  handleReFEmail = e => {
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        this.setState({
-          loading: true,
-        });
-        query('/api/pub/password/normal/sendResetEmail', values)
-          .then(() => {
-            message.success('重置邮件发送成功');
-            if (values.email) {
-              this.handleChangeFormType('account');
-            }
-          })
-          .finally(_ => {
-            this.setState({
-              loading: false,
-            });
-          });
-      }
-    });
+    })
+      .finally(_ => {
+        setLoading(false);
+      });
   }
 
-  render() {
-    const { formType, loading } = this.state;
-    const MatchC = cType[formType];
-    return (
-      <>
-        <div
-          id="loginBG"
-          className={styles.loginBG}
-          style={{
-            width: '100%',
-            height: '100%',
-          }}
+  function handleChangeFormType(type) {
+    setFormType(type);
+    // this.props.form.resetFields();
+  }
+  function switchRePasswordForm() {
+    handleChangeFormType('RFE')
+  }
+
+  function handleReFEmail(values) {
+    setLoading(true);
+
+    query('/api/pub/password/normal/sendResetEmail', values)
+      .then(() => {
+        message.success('重置邮件发送成功');
+        if (values.email) {
+          this.handleChangeFormType('account');
+        }
+      })
+      .finally(_ => {
+        setLoading(false);
+      });
+  }
+
+  const MatchC = cType[formType];
+
+  return <>
+    <div
+      id="loginBG"
+      className={styles.loginBG}
+      style={{
+        width: '100%',
+        height: '100%',
+      }}
+    >
+    </div>
+    <div className={styles.formContainer}>
+      <div className={styles.logo}>Zero Code</div>
+
+      <MatchC
+        {...props}
+        className={styles.Form}
+        onSubmit={handleSubmit}
+        onReg={handleReg}
+        onRePW={switchRePasswordForm}
+        onReFEmial={handleReFEmail}
+        loading={loading}
+      />
+
+
+      <div className={styles.options}>
+        <Button type="link" size="small"
+          disabled={formType === 'account'}
+          onClick={handleChangeFormType.bind(null, 'account')}
         >
-        </div>
-        <div className={styles.formContainer}>
-          <div className={styles.logo}>Zero Code</div>
-
-          <MatchC
-            {...this.props}
-            onSubmit={this.handleSubmit}
-            onReg={this.handleReg}
-            onRePW={this.switchRePasswordForm}
-            onReFEmial={this.handleReFEmail}
-            loading={loading}
-          />
-
-
-          <div className={styles.options}>
-            <Button type="link" size="small"
-              disabled={formType === 'account'}
-              onClick={this.handleChangeFormType.bind(this, 'account')}
-            >
-              账号登录
-            </Button>
-            <Button type="link"
-              title="使用 Github 登录"
-              icon="github"
-              size="large"
-              href={`${getEndpoint()}/api/pub/github/normal/login`}
-            >
-            </Button>
-            {/* <Button type="link" size="small"
-              disabled={formType === 'phone'}
-              onClick={this.handleChangeFormType.bind(this, 'phone')}
-            >
-              手机登录
-            </Button> */}
-            {/* <Button type="link" size="small"
-              disabled={formType === 'github'}
-              onClick={this.handleChangeFormType.bind(this, 'github')}
-            >
-              Github 登录
-            </Button> */}
-          </div>
+          账号登录
+      </Button>
+        <Button type="link"
+          title="使用 Github 登录"
+          icon="github"
+          size="large"
+          href={`${getEndpoint()}/api/pub/github/normal/login`}
+        >
+        </Button>
+        {/* <Button type="link" size="small"
+        disabled={formType === 'phone'}
+        onClick={handleChangeFormType.bind(null, 'phone')}
+      >
+        手机登录
+      </Button> */}
+        {/* <Button type="link" size="small"
+        disabled={formType === 'github'}
+        onClick={handleChangeFormType.bind(null, 'github')}
+      >
+        Github 登录
+      </Button> */}
+      </div>
 
 
-          <div className={styles.regGuided}>
-            <Button type="link" size="small"
-              disabled={formType === 'mailReg'}
-              onClick={this.handleChangeFormType.bind(this, 'mailReg')}
-            >
-              立即注册
-            </Button>
-          </div>
-        </div>
-      </>
-    );
-  }
+      <div className={styles.regGuided}>
+        <Button type="link" size="small"
+          disabled={formType === 'mailReg'}
+          onClick={handleChangeFormType.bind(null, 'mailReg')}
+        >
+          立即注册
+      </Button>
+      </div>
+    </div>
+  </>
 }
-
-const WrappedLoginForm = Form.create({})(LoginForm);
 
 export default (props) => {
   return <Layout>
     <Content>
-      <WrappedLoginForm />
+      <LoginForm />
     </Content>
   </Layout>
 }

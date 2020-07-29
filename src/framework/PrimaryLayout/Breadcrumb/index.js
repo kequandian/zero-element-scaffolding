@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Breadcrumb } from 'antd';
-import Link from 'umi/link';
+import { Link } from 'umi';
 import router from '@/config/router.config';
 
 export default ({ path, breadcrumb }) => {
@@ -15,6 +15,8 @@ export default ({ path, breadcrumb }) => {
     if (rst[1] === '/') {
       rst.splice(1, 1);
     }
+    rst[rst.length - 1] = rst[rst.length - 1].replace(/[_-](add|edit|view)$/g, '');
+
     return rst;
 
   }, [path]);

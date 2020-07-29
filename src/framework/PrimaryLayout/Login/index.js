@@ -1,25 +1,30 @@
 import React from 'react';
-import router from 'umi/router';
+import { history } from 'umi';
 import { removeToken } from 'zero-element/lib/utils/request/token';
-import { Icon, Avatar, Menu, Dropdown } from 'antd';
+import { Avatar, Menu, Dropdown } from 'antd';
+import {
+  UserOutlined,
+  // AppstoreOutlined,
+  LogoutOutlined
+} from '@ant-design/icons';
 
 function handleLogOut() {
-  router.push('/login');
+  history.push('/login');
   removeToken();
 }
-function handleRouteToProfile() {
-  router.push('/profile/baseInfo');
-}
+// function handleRouteToProfile() {
+//   history.push('/profile/baseInfo');
+// }
 
 const menu = (
   <Menu>
-    <Menu.Item onClick={handleRouteToProfile}>
-      <Icon type="appstore" />
+    {/* <Menu.Item onClick={handleRouteToProfile}>
+      <AppstoreOutlined />
       <span className="ZEleA-margin-left">个人中心</span>
     </Menu.Item>
-    <Menu.Divider />
+    <Menu.Divider /> */}
     <Menu.Item onClick={handleLogOut}>
-      <Icon type="logout" />
+      <LogoutOutlined />
       <span className="ZEleA-margin-left">退出账号</span>
     </Menu.Item>
   </Menu>
@@ -27,6 +32,6 @@ const menu = (
 
 export default (props) => {
   return <Dropdown overlay={menu} placement="bottomRight">
-    <Avatar icon="user" />
+    <Avatar icon={<UserOutlined />} size={40} />
   </Dropdown>
 }

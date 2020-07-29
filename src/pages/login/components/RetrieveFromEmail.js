@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Form, Icon, Input, Button } from 'antd';
+import { Form, Input, Button } from 'antd';
+import { MailOutlined } from '@ant-design/icons';
 
 import styles from '../index.less';
 
@@ -15,7 +16,7 @@ export default class RetrieveFromEmail extends Component {
             rules: [{ required: true, message: '请输入邮箱' }],
           })(
             <Input
-              prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
+              prefix={<MailOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="邮箱"
             />,
           )}

@@ -21,7 +21,7 @@ export default function LeftNav({ path, menuData }) {
       openKeys={openKeys.length ? openKeys : selectedKeys}
       onOpenChange={setOpendKeys}
     >
-      {renderMenu(menuData, true)}
+      {renderMenu({ menuData, divider: true })}
     </Menu>
   </Sider>
 }

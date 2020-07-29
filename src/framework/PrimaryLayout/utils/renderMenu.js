@@ -1,6 +1,6 @@
 import React from 'react';
-import { Menu, Icon } from 'antd';
-import Link from 'umi/link';
+import { Menu } from 'antd';
+import { Link } from 'umi';
 
 const { SubMenu } = Menu;
 
@@ -10,9 +10,10 @@ const { SubMenu } = Menu;
  * @export
  * @param {Array} menuData
  * @param {boolean} divider 是否要把没有 path 的子项渲染成 分割线
+ * @param {string} navType 导航的类型 top or left
  * @returns React.element
  */
-export default function renderMenu(menuData, divider) {
+export default function renderMenu({ menuData, divider, navType, onClick }) {
   const stack = [menuData];
   const rst = [];
   while (stack.length) {
@@ -33,22 +34,30 @@ export default function renderMenu(menuData, divider) {
       if (Array.isArray(items)) {
         rst.push(<SubMenu key={path} title={
           <>
-            <Icon type={icon} />
             {name}
           </>
         }>
-          {renderMenu(items)}
+          {renderMenu({ menuData: items })}
         </SubMenu>);
       } else {
         if (path) {
-          rst.push(<Menu.Item key={path}>
-            <Link to={path}>
+          let topNavItem;
+          if (typeof onClick === 'function') {
+            topNavItem = <Menu.Item key={path} onClick={onClick.bind(null, path)}>
               <div>
-                <Icon type={icon} />
                 <span>{name}</span>
               </div>
-            </Link>
-          </Menu.Item>);
+            </Menu.Item>
+          } else {
+            topNavItem = <Menu.Item key={path}>
+              <Link to={path}>
+                <div>
+                  <span>{name}</span>
+                </div >
+              </Link >
+            </Menu.Item>
+          }
+          rst.push(topNavItem);
         } else {
           divider && rst.push(<Menu.Divider key={menu.key || name} />);
         }

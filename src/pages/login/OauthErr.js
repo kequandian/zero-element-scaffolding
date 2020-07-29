@@ -1,5 +1,5 @@
 import React from 'react';
-import { router } from 'umi';
+import { history } from 'umi';
 import { Layout, Result, Button } from 'antd';
 
 const { Content } = Layout;
@@ -7,7 +7,7 @@ const { Content } = Layout;
 export default function Oauth(props) {
 
   function routeLogin() {
-    router.push('/login');
+    history.push('/login');
   }
 
   return <Content style={{ background: '#fff' }}>
