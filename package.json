@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "start": "umi dev",
-    "build": "node color && umi build",
+    "start": "node init.js && umi dev",
+    "build": "node init.js && node color && umi build",
     "buildA": "set ANALYZE=1 && umi build",
     "test": "umi test"
   },
