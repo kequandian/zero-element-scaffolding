@@ -66,9 +66,11 @@ export default function PrimaryLayout({
       <Layout id="contentContainer" className={styles.contentContainer} style={
         aloneView ? undefined : { padding: '0 24px 24px' }
       }>
-        {win.ZEle.breadcrumb && aloneView ? null : (
-          <Breadcrumb path={location.pathname} breadcrumb={breadcrumb} />
-        )}
+        {win.ZEle.breadcrumb ? (
+          aloneView ? null : (
+            <Breadcrumb path={location.pathname} breadcrumb={breadcrumb} />
+          )
+        ) : null}
         <Content>
           {children}
         </Content>
