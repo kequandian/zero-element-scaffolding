@@ -4,7 +4,7 @@ import win from 'zero-element/lib/utils/window';
 
 export default function () {
   if (win.ZEle.indexPage) {
-    history.push(indexPage);
+    history.push(win.ZEle.indexPage);
   }
 
   return (
