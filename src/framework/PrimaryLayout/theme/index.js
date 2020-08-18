@@ -23,14 +23,9 @@ function init() {
 }
 
 function changeTheme(value) {
-  if (window.less && typeof window.less.modifyVars === 'function') {
-    window.less.modifyVars({
-      '@primary-color': value,
-    });
-  } else {
-    console.warn(`未能改变主题颜色: ${value}, 可能是 less 未能正确加载`);
-
-  }
+  window.less.modifyVars({
+    '@primary-color': value,
+  });
 }
 
 export {

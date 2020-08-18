@@ -28,6 +28,8 @@ import { message } from 'antd';
 
 import Content from '@/../zero-antd-dep/layout/Content';
 
+import './rewrite.less';
+
 APIConfig({
   'DEFAULT_current': 1,
   'DEFAULT_pageSize': 10,

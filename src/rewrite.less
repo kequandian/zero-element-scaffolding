@@ -1,0 +1,79 @@
+@import './theme.less';
+
+// #1890ff
+
+a {
+  color: @ZEle-primary-color;
+
+  &:focus,
+  &:hover {
+    color: @ZEle-primary-color-light;
+  }
+}
+
+.ant-btn-primary {
+  background-color: @ZEle-primary-color;
+  border-color    : @ZEle-primary-color;
+
+  &:focus,
+  &:hover {
+    background-color: @ZEle-primary-color-light;
+    border-color    : @ZEle-primary-color-light;
+  }
+}
+
+.ant-menu-item:hover,
+.ant-menu-item-active,
+.ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
+.ant-menu-submenu-active,
+.ant-menu-submenu-title:hover {
+  color: @ZEle-primary-color;
+}
+
+.ant-menu.ant-menu-dark .ant-menu-item-selected,
+.ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+  background: @ZEle-primary-color;
+}
+
+.ant-menu-dark.ant-menu-horizontal>.ant-menu-item:hover {
+  background: @ZEle-primary-color-light;
+}
+
+.ant-menu-submenu-vertical>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow::after,
+.ant-menu-submenu-vertical-left>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow::after,
+.ant-menu-submenu-vertical-right>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow::after,
+.ant-menu-submenu-inline>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow::after,
+.ant-menu-submenu-vertical>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow::before,
+.ant-menu-submenu-vertical-left>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow::before,
+.ant-menu-submenu-vertical-right>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow::before,
+.ant-menu-submenu-inline>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow::before {
+  background: linear-gradient(to right, @ZEle-primary-color, @ZEle-primary-color);
+}
+
+.ant-menu-item {
+
+  a:hover {
+    color: @ZEle-primary-color-light;
+  }
+}
+
+.ant-menu-item-selected,
+.ant-menu-submenu-selected {
+  color: @ZEle-primary-color;
+
+  a,
+  a:hover {
+    color: @ZEle-primary-color;
+  }
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: @ZEle-primary-color-bgColor;
+}
+
+.ant-menu-vertical .ant-menu-item::after,
+.ant-menu-vertical-left .ant-menu-item::after,
+.ant-menu-vertical-right .ant-menu-item::after,
+.ant-menu-inline .ant-menu-item::after {
+  border-right-color: @ZEle-primary-color;
+}
