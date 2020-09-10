@@ -21,6 +21,7 @@ import { set as VTSet } from 'zero-element/lib/config/valueType';
 import onPath from '@/listAction/onPath';
 
 import path from '@/actionItemType/path';
+import tabs from '@/actionItemType/tabs';
 
 import vPath from '@/valueType/path';
 
@@ -86,6 +87,7 @@ LASet({
 
 AITSet({
   path,
+  tabs,
 });
 
 VTSet({
