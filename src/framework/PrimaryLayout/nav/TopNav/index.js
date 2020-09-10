@@ -1,27 +1,26 @@
 import React from 'react';
-import { Menu } from 'antd';
 import useSelectedKeys from '../../utils/useSelectedKeys';
 import renderMenu from '../../utils/renderMenu';
 
+import SubMenu from './SubMenu';
+import MenuItem from './MenuItem';
+import './index.less';
+
 const cMap = {
-  SubMenu: Menu.SubMenu,
-  MenuItem: Menu.Item,
+  SubMenu,
+  MenuItem,
 };
 
 export default function TopNav({ navType, path, menuData, onClick }) {
   const selectedKeys = useSelectedKeys(path);
 
-  return <Menu
-    className="menu"
-    theme="dark"
-    mode="horizontal"
-    style={{ lineHeight: '64px' }}
-    selectedKeys={selectedKeys}
-  >
+  return <div className="TopNav">
     {renderMenu({
-      menuData, navType, onClick,
+      menuData,
+      divider: false,
       selectedKeys,
       component: cMap,
-    })}
-  </Menu>
+    })
+    }
+  </div>
 }

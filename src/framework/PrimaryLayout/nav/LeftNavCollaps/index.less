@@ -1,12 +1,12 @@
 @import '../../../../theme.less';
 
 .LeftNavCollaps {
-  background-color: white;
+  background-color: @ZEle-menu-left-bgColor;
   overflow        : hidden auto;
   padding         : 12px;
 
   svg {
-    fill  : black;
+    fill  : @ZEle-menu-icon;
     width : 20px;
     height: 20px;
   }
@@ -51,8 +51,13 @@
   }
 
   .nav-item.selected,
+  .nav-item:hover,
   .nav-item-container.collaps.selected {
-    background-color: @ZEle-primary-color-bgColor;
+    background-color: @ZEle-menu-left-active-bgColor;
+
+    .nav-name {
+      color: @ZEle-menu-left-active-fontColor;
+    }
   }
 
   // .nav-item-container.collaps.selected {
@@ -79,7 +84,8 @@
     }
 
     .nav-name {
-      font-size: 18px;
+      color    : @ZEle-menu-left-fontColor;
+      font-size: @ZEle-menu-left-fontSize;
     }
   }
 }
