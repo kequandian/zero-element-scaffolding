@@ -54,7 +54,7 @@ export default function PrimaryLayout({
     )}
     <Layout className="pageContainer">
       {aloneView && LeftNav ? null : (
-        <LeftNav path={location.pathname} menuData={LeftNavData} />
+        <LeftNav navType={nav} path={location.pathname} menuData={LeftNavData} />
       )}
       <Layout id="contentContainer" className="contentContainer" style={
         aloneView ? undefined : { padding: '0 24px 24px' }
