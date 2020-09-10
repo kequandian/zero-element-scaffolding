@@ -17,7 +17,8 @@ const cMap = {
 export default function LeftNav({ path, menuData }) {
   const selectedKeys = useSelectedKeys(path);
 
-  return <Sider width={200}
+  return <Sider
+    width={menuData ? 200 : 0}
     style={{
       background: '#fff',
       overflow: 'hidden auto',
