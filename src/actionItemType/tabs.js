@@ -8,7 +8,7 @@ const { FlexItem } = Flex;
 
 function ActionOnTabs(props) {
   const { options = {}, handle = {} } = props;
-  const { all, field, tags = [] } = options;
+  const { all, field, tabs = [] } = options;
   const { onGetList } = handle;
 
   function handleClick(key) {
@@ -23,9 +23,9 @@ function ActionOnTabs(props) {
   }
 
   return <FlexItem flex={1}>
-    <Tabs defaultActiveKey={all ? 'all' : tags[0] && tags[0].value} onChange={handleClick}>
+    <Tabs defaultActiveKey={all ? 'all' : tabs[0] && tabs[0].value} onChange={handleClick}>
       {all ? <TabPane tab="全部（1234）" key="all" /> : null}
-      {tags.map(tag => <TabPane key={tag.value} tab={`${tag.label}（123）`} />)}
+      {tabs.map(tag => <TabPane key={tag.value} tab={`${tag.label}（123）`} />)}
     </Tabs>
   </FlexItem>
 }
