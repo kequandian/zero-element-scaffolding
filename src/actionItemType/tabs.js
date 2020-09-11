@@ -14,11 +14,18 @@ function ActionOnTabs(props) {
   function handleClick(key) {
 
     if (typeof onGetList === 'function') {
+      const queryData = {
+        [field]: key,
+      };
+      if (key === 'all') {
+        queryData[field] = undefined;
+      }
       onGetList({
-        queryData: {
-          [field]: key,
-        }
-      });
+        queryData: queryData,
+      })
+        .then(data => {
+          console.log(data);
+        })
     }
   }
 
