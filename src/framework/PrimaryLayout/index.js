@@ -26,7 +26,7 @@ export default function PrimaryLayout({
   }, [nav, menuData, location.pathname, switchLeftNav]);
 
   // 当导航类型既不是 top 也不是 left 时, 应该在 top 渲染第一级菜单, left 渲染第二级
-  // 此时，点击 top 的导航时需要替换 left, 但不应该被路由
+  // 此时, 点击 top 的导航时需要替换 left, 但不应该被路由
   function handleSwitchLeftNav(path) {
     setSwitchLeftNav(path);
   }
