@@ -8,14 +8,15 @@ const { FlexItem } = Flex;
 export default function ({ title, children }) {
   const [child, extra] = React.Children.toArray(children);
 
-  return <div className={styles['Details-pageHeader']}>
+  return <div className={styles.pageHeader}>
     <Flex
-      className={styles['Details-content']}
+      className={styles.content}
     >
       <FlexItem>
-        <div className={styles['Details-title']}>{title}</div>
+        <div className={styles.title}>{title}</div>
       </FlexItem>
-      <FlexItem>
+      <div className={styles.fill}></div>
+      <FlexItem flex={1}>
         {extra}
       </FlexItem>
     </Flex>
