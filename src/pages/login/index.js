@@ -11,6 +11,7 @@ import RFE from './components/RetrieveFromEmail';
 import styles from './index.less';
 import { query, post } from 'zero-element-antd/lib/utils/request';
 import getUserInfo from './utils/getUserInfo';
+import win from 'zero-element/lib/utils/window';
 
 const { Content } = Layout;
 const cType = {
@@ -49,7 +50,11 @@ function LoginForm(props) {
     })
       // .then(getUserInfo)
       .then(_ => {
-        history.push('/');
+        if (win.ZEle.indexPage) {
+          history.push(win.ZEle.indexPage);
+        } else {
+          history.push('/');
+        }
       })
       .finally(_ => {
         setLoading(false);
