@@ -20,9 +20,9 @@ header.ant-layout-header {
   right: 20px;
 }
 
-.ant-form input,
+.ant-form .ant-form-item-control-input-content>input,
 .ant-form .ant-select {
-  width: 240px;
+  max-width: 240px;
 }
 
 .ant-select {
