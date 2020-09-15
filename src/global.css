@@ -20,6 +20,11 @@ header.ant-layout-header {
   right: 20px;
 }
 
+.ant-form input,
+.ant-form .ant-select {
+  width: 240px;
+}
+
 .ant-select {
   min-width: 6em;
 }
