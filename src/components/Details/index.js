@@ -6,7 +6,7 @@ import useDetails from './hooks';
 import { Render } from 'zero-element/lib/config/formItemType';
 import { Render as LayoutRender } from 'zero-element/lib/config/layout';
 
-import styles from './index.less';
+import './index.less';
 import _ from 'lodash';
 
 export default function Details(props) {
@@ -17,11 +17,14 @@ export default function Details(props) {
     fields = [],
     map = {},
     goBack = false,
+    data: proData,
+    loading: proLoading,
   } = props;
 
   const [details, loading] = useDetails(namespace, API);
+  const data = proData || details;
 
-  return <Spin spinning={loading}>
+  return <Spin spinning={proLoading || loading}>
     {goBack && global.goBack ? (
       <>
         <Button onClick={global.goBack}>返回</Button>
@@ -31,20 +34,20 @@ export default function Details(props) {
       {fields.map((option, i) => {
         const { label } = option;
 
-        return <div key={i} span={option.span} className={styles.item}>
+        return <div key={i} span={option.span} className="Details-item">
           {label ? (
-            <div className={styles.labelTitle}>
+            <div className="Details-labelTitle">
               {label} :
             </div>
           ) : null}
-          {renderPlain(details, option, map)}
+          {renderPlain(data, option, map)}
         </div>
       })}
     </LayoutRender>
   </Spin>
 }
 
-function renderPlain(details, option, map) {
+function renderPlain(data, option, map) {
   const { field } = option;
   const options = {};
 
@@ -53,9 +56,9 @@ function renderPlain(details, option, map) {
   }
 
   return <Render n="plain"
-    className={styles.valueContainer}
+    className="Details-valueContainer"
     options={options}
-    value={_.get(details, field)}
+    value={_.get(data, field)}
   />
 }
 

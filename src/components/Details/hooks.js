@@ -19,9 +19,11 @@ export default function useDetails(namespace, API) {
   useWillUnmount(clearData);
 
   function getData() {
-    model.fetchOne({
-      API,
-    })
+    if (API) {
+      model.fetchOne({
+        API,
+      })
+    }
   }
   function clearData() {
     // dispatch({
