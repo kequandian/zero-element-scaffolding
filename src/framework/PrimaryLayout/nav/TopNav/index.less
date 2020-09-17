@@ -27,6 +27,10 @@
     background-color: @ZEle-menu-top-active-bgColor;
   }
 
+  .nav-item.selected .nav-title:hover {
+    background-color: @ZEle-menu-top-bgColor-light;
+  }
+
   .nav-item-container {
     .nav-item {
       height      : 32px;
@@ -41,8 +45,7 @@
     transition : all .3s;
 
     &:hover {
-      background: @ZEle-menu-top-active-bgColor;
-      opacity   : 0.8;
+      background: @ZEle-menu-top-bgColor-light;
     }
 
     .nav-icon {

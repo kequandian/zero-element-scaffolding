@@ -7,7 +7,7 @@ const config = {
   items: [
     {
       layout: 'Content',
-      component: 'BaseForm',
+      component: 'Form',
       config: {
         goBack: false,
         API: {
@@ -32,7 +32,7 @@ const config = {
     },
     {
       layout: 'Content',
-      component: 'BaseForm',
+      component: 'Form',
       config: {
         goBack: false,
         API: {

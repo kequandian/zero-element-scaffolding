@@ -8,7 +8,7 @@ const config = {
   items: [
     {
       layout: 'Empty',
-      component: 'BaseForm',
+      component: 'Form',
       config: {
         goBack: false,
         API: {

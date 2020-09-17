@@ -18,7 +18,6 @@ const cMap = {
 export default function LeftNav({ path, navType, menuData }) {
   const selectedKeys = useSelectedKeys(path);
 
-
   useEffect(_ => {
     if (menuData && menuData.length && navType === 'both' && selectedKeys.length) {
       if (menuData[0].path !== path && path.split('/').length <= 2) {
@@ -30,7 +29,7 @@ export default function LeftNav({ path, navType, menuData }) {
   }, [path])
 
   return <Sider
-    width={menuData ? 200 : 0}
+    width={menuData && menuData.length ? 200 : 0}
     style={{
       background: '#fff',
       overflow: 'hidden auto',
