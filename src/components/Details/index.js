@@ -49,7 +49,7 @@ export default function Details(props) {
 
 function renderPlain(data, option, map) {
   const { field } = option;
-  const options = {};
+  const options = { ...option.options };
 
   if (map[field]) {
     options.map = map[field].map;
@@ -59,6 +59,7 @@ function renderPlain(data, option, map) {
     className="Details-valueContainer"
     options={options}
     value={_.get(data, field)}
+    formdata={data}
   />
 }
 
