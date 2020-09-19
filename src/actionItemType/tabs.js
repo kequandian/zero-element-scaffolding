@@ -21,18 +21,19 @@ function ActionOnTabs(props) {
         queryData[field] = undefined;
       }
       onGetList({
-        queryData: queryData,
+        queryData,
       })
         .then(data => {
-          console.log(data);
+          console.log('get list response', data);
+
         })
     }
   }
 
   return <FlexItem flex={1}>
     <Tabs defaultActiveKey={all ? 'all' : tabs[0] && tabs[0].value} onChange={handleClick}>
-      {all ? <TabPane tab="全部（1234）" key="all" /> : null}
-      {tabs.map(tag => <TabPane key={tag.value} tab={`${tag.label}（123）`} />)}
+      {all ? <TabPane tab="全部" key="all" /> : null}
+      {tabs.map(tag => <TabPane key={tag.value} tab={`${tag.label}`} />)}
     </Tabs>
   </FlexItem>
 }
