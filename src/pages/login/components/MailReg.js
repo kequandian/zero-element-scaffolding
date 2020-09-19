@@ -10,7 +10,7 @@ export default class MailRegForm extends Component {
     const { onReg, loading } = this.props;
 
     return (
-      <Form onSubmit={onReg} className={styles.Form}>
+      <Form onFinish={onReg} className={styles.Form}>
         <Form.Item name="email" rules={[{ required: true, message: '请输入邮箱' }]}>
           <Input
             prefix={<MailOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}

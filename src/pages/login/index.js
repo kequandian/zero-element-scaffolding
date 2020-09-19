@@ -67,9 +67,7 @@ function LoginForm(props) {
       message: null,
     }).then(_ => {
       message.success('注册成功');
-      if (values.email) {
-        this.handleChangeFormType('account');
-      }
+      handleChangeFormType('account');
     })
       .finally(_ => {
         setLoading(false);
