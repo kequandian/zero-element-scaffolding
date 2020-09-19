@@ -20,7 +20,7 @@ export default function MailRegForm(props) {
       <Form.Item name="validateCode" rules={[{ required: true, message: '请输入验证码' }]}>
         <Captcha
           type="phone"
-          receiver={form.getFieldValue('email')}
+          receiver={form.getFieldValue('phone')}
         />
       </Form.Item>
       <Form.Item name="password" rules={[{ required: true, message: '请输入组织Code' }]}>
