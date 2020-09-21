@@ -3,7 +3,7 @@ import { Button } from 'antd';
 import { history, withRouter } from 'umi';
 
 function ActionOnPath(props) {
-  const { title, options, location } = props;
+  const { title, options, className, location } = props;
   const { query = {} } = options;
 
   function handleClick() {
@@ -19,7 +19,7 @@ function ActionOnPath(props) {
   }
 
   return <>
-    <Button onClick={handleClick} type="primary">
+    <Button onClick={handleClick} className={className}>
       {title}
     </Button>
   </>

@@ -35,10 +35,51 @@ a {
   color: @ZEle-primary-color;
 }
 
+.ant-tabs-tab:focus,
+.ant-tabs-tab:active,
 .ant-tabs-tab:hover {
   color: @ZEle-primary-color-light;
 }
 
 .ant-tabs-top>.ant-tabs-nav::before {
   border-bottom: unset;
+}
+
+.ZEle-action-button.primary {
+  color           : @ZEle-action-primary-fontColor;
+  background-color: @ZEle-action-primary;
+  border-color    : @ZEle-action-primary-light;
+
+  &:focus,
+  &:hover {
+    color           : @ZEle-action-primary-light-fontColor;
+    background-color: @ZEle-action-primary-light;
+    border-color    : @ZEle-action-primary-light;
+  }
+}
+
+.ZEle-action-button.secondary {
+  color           : @ZEle-action-secondary-fontColor;
+  background-color: @ZEle-action-secondary;
+  border-color    : @ZEle-action-secondary-light;
+
+  &:focus,
+  &:hover {
+    color           : @ZEle-action-secondary-light-fontColor;
+    background-color: @ZEle-action-secondary-light;
+    border-color    : @ZEle-action-secondary-light;
+  }
+}
+
+.ZEle-action-button.default {
+  color           : @ZEle-action-default-fontColor;
+  background-color: @ZEle-action-default;
+  border-color    : @ZEle-action-default-light;
+
+  &:focus,
+  &:hover {
+    color           : @ZEle-action-default-light-fontColor;
+    background-color: @ZEle-action-default-light;
+    border-color    : @ZEle-action-default-light;
+  }
 }
