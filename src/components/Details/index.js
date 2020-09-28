@@ -15,7 +15,7 @@ export default function Details(props) {
     API,
     col = 2,
     fields = [],
-    map = {},
+    fieldsMap = {},
     goBack = false,
     data: proData,
     loading: proLoading,
@@ -40,7 +40,7 @@ export default function Details(props) {
               {label} :
             </div>
           ) : null}
-          {renderPlain(data, option, map)}
+          {renderPlain(data, option, fieldsMap)}
         </div>
       })}
     </LayoutRender>
@@ -48,16 +48,16 @@ export default function Details(props) {
 }
 
 function renderPlain(data, option, map) {
-  const { field } = option;
-  const options = { ...option.options };
+  const { field, options, ...rest } = option;
+  const optionsObj = { ...options, ...rest };
 
-  if (map[field]) {
-    options.map = map[field].map;
+  if (map && map[field]) {
+    optionsObj.map = map[field].map;
   }
 
   return <Render n="plain"
     className="Details-valueContainer"
-    options={options}
+    options={optionsObj}
     value={_.get(data, field)}
     formdata={data}
   />

@@ -1,5 +1,6 @@
-import React, { useContext, useMemo, useState } from 'react';
+import React, { useContext, useMemo, useState, useEffect } from 'react';
 import { Layout } from 'antd';
+import { useModel } from 'zero-element/lib/Model';
 import Breadcrumb from './Breadcrumb';
 import Login from './Login';
 import './index.less';
@@ -17,6 +18,13 @@ export default function PrimaryLayout({
   const { style } = useContext(GlobalContext);
   const { nav } = style;
   const [switchLeftNav, setSwitchLeftNav] = useState();
+
+  const globalModel = useModel('global');
+  const { permissions } = globalModel;
+
+  useEffect(_ => {
+    globalModel.queryPerm();
+  }, [permissions])
 
   const [
     TopNav, TopNavData,

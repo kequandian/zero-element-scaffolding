@@ -37,8 +37,9 @@ a {
 
 .ant-tabs-tab:focus,
 .ant-tabs-tab:active,
-.ant-tabs-tab:hover {
-  color: @ZEle-primary-color-light;
+.ant-tabs-tab:hover,
+.ant-tabs-tab .ant-tabs-tab-btn:focus {
+  color: @ZEle-primary-color-light !important;
 }
 
 .ant-tabs-top>.ant-tabs-nav::before {
@@ -48,38 +49,38 @@ a {
 .ZEle-action-button.primary {
   color           : @ZEle-action-primary-fontColor;
   background-color: @ZEle-action-primary;
-  border-color    : @ZEle-action-primary-light;
+  border-color    : @ZEle-action-primary-fontColor;
 
   &:focus,
   &:hover {
     color           : @ZEle-action-primary-light-fontColor;
     background-color: @ZEle-action-primary-light;
-    border-color    : @ZEle-action-primary-light;
+    border-color    : @ZEle-action-primary-light-fontColor;
   }
 }
 
 .ZEle-action-button.secondary {
   color           : @ZEle-action-secondary-fontColor;
   background-color: @ZEle-action-secondary;
-  border-color    : @ZEle-action-secondary-light;
+  border-color    : @ZEle-action-secondary-fontColor;
 
   &:focus,
   &:hover {
     color           : @ZEle-action-secondary-light-fontColor;
     background-color: @ZEle-action-secondary-light;
-    border-color    : @ZEle-action-secondary-light;
+    border-color    : @ZEle-action-secondary-light-fontColor;
   }
 }
 
 .ZEle-action-button.default {
   color           : @ZEle-action-default-fontColor;
   background-color: @ZEle-action-default;
-  border-color    : @ZEle-action-default-light;
+  border-color    : @ZEle-action-default-fontColor;
 
   &:focus,
   &:hover {
     color           : @ZEle-action-default-light-fontColor;
     background-color: @ZEle-action-default-light;
-    border-color    : @ZEle-action-default-light;
+    border-color    : @ZEle-action-default-light-fontColor;
   }
 }

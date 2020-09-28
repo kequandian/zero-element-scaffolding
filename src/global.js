@@ -3,6 +3,7 @@ import model from '@/models';
 import zeroAntd from './zero-antd-dep';
 
 import { history } from 'umi';
+import { getModel } from 'zero-element/lib/Model';
 
 import { set as golbalSet } from 'zero-element/lib/config/global';
 import { set as APIConfig } from 'zero-element/lib/config/APIConfig';
@@ -31,6 +32,8 @@ import Content from '@/../zero-antd-dep/layout/Content';
 
 import './rewrite.less';
 
+const globalModel = getModel('global');
+
 APIConfig({
   'DEFAULT_current': 1,
   'DEFAULT_pageSize': 10,
@@ -57,6 +60,9 @@ golbalSet({
   Unauthorized: () => {
     removeToken();
     history.push('/login');
+  },
+  getPerm() {
+    return globalModel.getPerm();
   },
   RequestError: ({ data = {} }) => {
     if (data.errors && data.errors.length) {

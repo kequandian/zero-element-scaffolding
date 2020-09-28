@@ -4,7 +4,7 @@ import { removeToken } from 'zero-element/lib/utils/request/token';
 import { Avatar, Menu, Dropdown } from 'antd';
 import {
   UserOutlined,
-  // AppstoreOutlined,
+  AppstoreOutlined,
   LogoutOutlined
 } from '@ant-design/icons';
 
@@ -12,17 +12,17 @@ function handleLogOut() {
   history.push('/login');
   removeToken();
 }
-// function handleRouteToProfile() {
-//   history.push('/profile/baseInfo');
-// }
+function handleRouteToProfile() {
+  history.push('/profile/baseInfo');
+}
 
 const menu = (
   <Menu>
-    {/* <Menu.Item onClick={handleRouteToProfile}>
+    <Menu.Item onClick={handleRouteToProfile}>
       <AppstoreOutlined />
       <span className="ZEleA-margin-left">个人中心</span>
     </Menu.Item>
-    <Menu.Divider /> */}
+    <Menu.Divider />
     <Menu.Item onClick={handleLogOut}>
       <LogoutOutlined />
       <span className="ZEleA-margin-left">退出账号</span>

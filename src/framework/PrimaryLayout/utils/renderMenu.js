@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'umi';
 import { Avatar } from 'antd';
+import { useModel } from 'zero-element/lib/Model';
 
 /**
  * 渲染导航菜单数据
@@ -20,6 +21,7 @@ export default function renderMenu({
   const stack = [menuData];
   const rst = [];
   const { SubMenu, MenuItem } = component;
+  const globalModel = useModel('global');
 
   while (stack.length) {
     const menu = stack.shift();
@@ -29,6 +31,12 @@ export default function renderMenu({
     };
     if (menu.invisible) {
       continue;
+    }
+    if (menu.permissions) {
+      const perm = globalModel.getPerm();
+      if (!checkPerm(menu.permissions, perm)) {
+        continue;
+      }
     }
 
     if (Array.isArray(menu)) {
@@ -92,4 +100,13 @@ function renderItem(icon, name, collaps) {
     </div>
     <span className="nav-name">{name}</span>
   </div>
+}
+
+function checkPerm(key, perm) {
+  if (typeof key === 'string') {
+    return perm[key];
+  }
+  if (Array.isArray(key)) {
+    return key.some(k => perm[k]);
+  }
 }

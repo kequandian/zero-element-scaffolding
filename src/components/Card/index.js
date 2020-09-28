@@ -1,21 +1,21 @@
 import React from 'react';
 import { Flex } from 'layout-flex';
 
-import styles from './index.less';
+import './index.less';
 
 const { FlexItem } = Flex;
 
 export default function ({ title, children }) {
   const [child, extra] = React.Children.toArray(children);
 
-  return <div className={styles.pageHeader}>
+  return <div className="c-Card">
     <Flex
-      className={styles.content}
+      className="content"
     >
       <FlexItem>
-        <div className={styles.title}>{title}</div>
+        <div className="title">{title}</div>
       </FlexItem>
-      <div className={styles.fill}></div>
+      <div className="fill"></div>
       <FlexItem flex={1}>
         {extra}
       </FlexItem>
