@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { UserOutlined, LockOutlined, KeyOutlined } from '@ant-design/icons';
+import { Flex } from 'layout-flex';
+
+import ReactSimpleVerify from 'react-simple-verify'
+import 'react-simple-verify/dist/react-simple-verify.css'
 
 import styles from '../index.less';
 
+const { FlexItem } = Flex;
+
 export default function AccountForm(props) {
   const { className, onRePW, onSubmit, loading } = props;
+  const verifyRef = useRef();
 
   return <Form className={className} onFinish={onSubmit}>
     <Form.Item name="account" rules={[{ required: true, message: '请输入用户名' }]}>
@@ -21,18 +28,21 @@ export default function AccountForm(props) {
         placeholder="密码"
       />
     </Form.Item>
-    <Form.Item name="remember" valuePropName="checked" initialValue={true}>
-      <Checkbox>自动登录</Checkbox>
-      <Button type="link" className={styles.forgot}
-        onClick={onRePW}
-      >
-        忘记密码
-          </Button>
-      <Button type="primary" htmlType="submit" className={styles.Button}
-        loading={loading}
-      >
-        登陆
-          </Button>
-    </Form.Item>
+    <ReactSimpleVerify ref={verifyRef} width={328} />
+    <Flex>
+      <FlexItem>
+        <Form.Item name="remember" valuePropName="checked" initialValue={true}>
+          <Checkbox>自动登录</Checkbox>
+        </Form.Item>
+      </FlexItem>
+      <FlexItem>
+        <Button type="link" className={styles.forgot}
+          onClick={onRePW}
+        >忘记密码</Button>
+      </FlexItem>
+    </Flex>
+    <Button type="primary" htmlType="submit" className={styles.Button}
+      loading={loading}
+    >登陆</Button>
   </Form>
 }

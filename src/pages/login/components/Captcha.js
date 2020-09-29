@@ -57,10 +57,12 @@ export default class Captcha extends Component {
     }, 1000);
   }
   sendCaptcha = () => {
-    post('/api/pub/validateCodes/send', {
-      type: this.type[this.props.type],
-      receiver: this.props.receiver,
-    })
+    post(`/api/sys/oauth/reset_password/${this.props.receiver}`,
+      // {
+      //   type: this.type[this.props.type],
+      //   receiver: this.props.receiver,
+      // }
+    )
   }
 
 
