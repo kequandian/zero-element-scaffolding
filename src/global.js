@@ -77,11 +77,11 @@ golbalSet({
 
 
 if (process.env.NODE_ENV === 'development') {
-  setEndpoint('http://192.168.0.1:8080');
+  // setEndpoint('http://192.168.0.1:8080');
 
-  saveToken({
-    token: '',
-  });
+  // saveToken({
+  //   token: '',
+  // });
 }
 
 LayoutSet({

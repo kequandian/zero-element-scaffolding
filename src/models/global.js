@@ -3,6 +3,7 @@
 import { createModel } from 'zero-element/lib/Model';
 import { query, post, update, remove } from 'zero-element/lib/utils/request';
 import { formatAPI } from 'zero-element/lib/utils/format';
+import { getToken } from 'zero-element/lib/utils/request/token';
 
 const sleep = ms => new Promise(res => setTimeout(_ => res(), ms));
 
@@ -18,20 +19,24 @@ createModel({
     clearPerm() {
       this.permissions = [];
     },
-    queryPerm: async function demo() {
-      if (!this.permissions || Array.isArray(this.permissions)) {
-        query('/api/adm/users/self/permissions')
-          .then(response => {
-            if (response.status === 200) {
-              const { perms } = response.data.data;
-              this.setPerm(perms);
-            }
-          })
-          .catch(_ => {
-            return sleep(5000).then(_ => {
-              this.clearPerm();
+    queryPerm: async function () {
+      if (getToken()) {
+        if (!this.permissions || Array.isArray(this.permissions)) {
+          query('/api/adm/users/self/permissions')
+            .then(response => {
+              if (response.status === 200) {
+                const { perms } = response.data.data;
+                this.setPerm(perms);
+              }
             })
-          })
+            .catch(_ => {
+              return sleep(5000).then(_ => {
+                this.clearPerm();
+              })
+            })
+        }
+      } else {
+        this.clearPerm();
       }
     },
     getPerm() {

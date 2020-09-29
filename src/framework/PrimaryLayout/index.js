@@ -23,7 +23,9 @@ export default function PrimaryLayout({
   const { permissions } = globalModel;
 
   useEffect(_ => {
-    globalModel.queryPerm();
+    if (location.pathname.indexOf('login') === -1) {
+      globalModel.queryPerm();
+    }
   }, [permissions])
 
   const [
