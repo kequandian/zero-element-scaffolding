@@ -36,7 +36,9 @@ createModel({
             })
         }
       } else {
-        this.clearPerm();
+        sleep(5000).then(_ => {
+          this.clearPerm();
+        })
       }
     },
     getPerm() {

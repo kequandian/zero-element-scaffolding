@@ -22,4 +22,21 @@ module.exports = [
       },
     ],
   },
+  {
+    name: '权限父菜单',
+    path: '/p',
+    permissions: ['myPermA.view', 'myPermB.view'],
+    items: [
+      {
+        path: '/p/a',
+        name: '权限子菜单A',
+        permissions: 'myPermA.view',
+      },
+      {
+        path: '/p/b',
+        name: '权限子菜单B',
+        permissions: 'myPermB.view',
+      },
+    ],
+  },
 ]

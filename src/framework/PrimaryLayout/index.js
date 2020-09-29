@@ -23,10 +23,8 @@ export default function PrimaryLayout({
   const { permissions } = globalModel;
 
   useEffect(_ => {
-    if (location.pathname.indexOf('login') === -1) {
-      globalModel.queryPerm();
-    }
-  }, [permissions])
+    globalModel.queryPerm();
+  }, [permissions]);
 
   const [
     TopNav, TopNavData,

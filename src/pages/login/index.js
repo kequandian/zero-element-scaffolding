@@ -12,6 +12,7 @@ import styles from './index.less';
 import { query, post } from 'zero-element-antd/lib/utils/request';
 import getUserInfo from './utils/getUserInfo';
 import win from 'zero-element/lib/utils/window';
+import { useModel } from 'zero-element/lib/Model';
 
 const { Content } = Layout;
 const cType = {
@@ -25,6 +26,7 @@ const cType = {
 function LoginForm(props) {
   const [formType, setFormType] = useState('account');
   const [loading, setLoading] = useState(false);
+  const model = useModel('global');
 
   useEffect(_ => {
     new JParticles.particle('#loginBG', {
@@ -44,9 +46,10 @@ function LoginForm(props) {
     }).then((data) => {
       saveToken({
         token: data.accessToken,
-        permissions: formatPerms(data.perms),
+        // permissions: formatPerms(data.perms),
         remember: values.remember,
       });
+      model.queryPerm();
     })
       // .then(getUserInfo)
       .then(_ => {
