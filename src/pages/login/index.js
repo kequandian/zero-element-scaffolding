@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { history } from 'umi';
-import { Layout, Button, message } from 'antd';
+import { Layout, Button, message, Modal } from 'antd';
 import { saveToken } from 'zero-element/lib/utils/request/token';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 import JParticles from 'jparticles';
@@ -10,9 +10,9 @@ import RFE from './components/RetrieveFromEmail';
 import RFP from './components/RetrieveFromPhone';
 import styles from './index.less';
 import { query, post } from 'zero-element-antd/lib/utils/request';
-import getUserInfo from './utils/getUserInfo';
 import win from 'zero-element/lib/utils/window';
 import { useModel } from 'zero-element/lib/Model';
+import ZEle from 'zero-element';
 
 const { Content } = Layout;
 const cType = {
@@ -25,6 +25,10 @@ const cType = {
 function LoginForm(props) {
   const [formType, setFormType] = useState('account');
   const [loading, setLoading] = useState(false);
+  // 强制重置密码
+  const [resetPassword, setResetPassword] = useState(false);
+  const formRef = useRef();
+
   const model = useModel('global');
 
   useEffect(_ => {
@@ -43,25 +47,28 @@ function LoginForm(props) {
     post('/api/sys/oauth/login', values, {
       message: null,
     }).then((data) => {
-      // model.setPerm(data.perms);
       saveToken({
         token: data.accessToken,
-        // permissions: formatPerms(data.perms),
         remember: values.remember,
       });
       model.queryPerm();
+      if (data.reset) {
+        handleRouteToHome();
+      } else {
+        setResetPassword(true);
+      }
     })
-      // .then(getUserInfo)
-      .then(_ => {
-        if (win.ZEle.indexPage) {
-          history.push(win.ZEle.indexPage);
-        } else {
-          history.push('/');
-        }
-      })
       .finally(_ => {
         setLoading(false);
       });
+  }
+
+  function handleRouteToHome() {
+    if (win.ZEle.indexPage) {
+      history.push(win.ZEle.indexPage);
+    } else {
+      history.push('/');
+    }
   }
 
   function handleReg(values) {
@@ -94,6 +101,23 @@ function LoginForm(props) {
         if (values.email) {
           this.handleChangeFormType('account');
         }
+      })
+      .finally(_ => {
+        setLoading(false);
+      });
+  }
+
+  function handleCilckResetPW() {
+    formRef.current.submit();
+  }
+  function handleResetPW() {
+    const data = formRef.current.getFieldsValue();
+    setLoading(true);
+    post('/api/sys/oauth/reset_password', data)
+      .then(_ => {
+        message.success('密码已重置');
+        setResetPassword(false);
+        handleRouteToHome();
       })
       .finally(_ => {
         setLoading(false);
@@ -142,6 +166,25 @@ function LoginForm(props) {
         ) : null}
       </div>
     </div>
+    <Modal
+      title="重置密码以继续"
+      visible={resetPassword}
+      closable={false}
+      maskClosable={false}
+      keyboard={false}
+      confirmLoading={loading}
+      footer={<>
+        <Button type="primary" onClick={handleCilckResetPW}>重置密码</Button>
+      </>}
+    >
+      <ZEle
+        namespace="resetPassword"
+        config={resetPasswordConfig}
+        footer={null}
+        formRef={formRef}
+        onSubmit={handleResetPW}
+      />
+    </Modal>
   </>
 }
 
@@ -151,4 +194,34 @@ export default (props) => {
       <LoginForm />
     </Content>
   </Layout>
+}
+
+const resetPasswordConfig = {
+  title: '',
+  items: [
+    {
+      component: 'Form',
+      config: {
+        goBack: false,
+        API: {},
+        fields: [
+          {
+            field: 'newPassword', label: '新密码', type: 'password',
+            rules: ['required'],
+          },
+          {
+            field: 'repeatpPassword', label: '重复新密码', type: 'password',
+            rules: ['required', {
+              type: 'password',
+              field: 'newPassword',
+            }],
+            expect: {
+              field: 'newPassword',
+              value: 'IS_RESOLVE'
+            }
+          },
+        ]
+      }
+    }
+  ]
 }
