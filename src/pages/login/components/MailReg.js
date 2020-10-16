@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
-import { PhoneOutlined, KeyOutlined } from '@ant-design/icons';
+import { PhoneOutlined, LockOutlined } from '@ant-design/icons';
 
 import styles from '../index.less';
 import Captcha from './Captcha';
@@ -30,6 +30,13 @@ export default function MailRegForm(props) {
         <Captcha
           type="phone"
           receiver={phone}
+        />
+      </Form.Item>
+      <Form.Item name="password" rules={[{ required: true, message: '请输入密码' }]}>
+        <Input
+          prefix={<LockOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
+          type="password"
+          placeholder="密码"
         />
       </Form.Item>
       <Form.Item>

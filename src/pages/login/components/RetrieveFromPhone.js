@@ -6,15 +6,15 @@ import Captcha from './Captcha';
 import styles from '../index.less';
 
 export default function RetrieveFromPhone(props) {
-  const { loading, onReFEmial } = props;
+  const { loading, onReFPhone } = props;
   const [phone, setPhone] = useState();
 
-  function handleChange(data) {
-    setPhone(data.phone);
+  function handleChange(data, allData) {
+    setPhone(allData.phone);
   }
 
   return <Form
-    onFinish={onReFEmial}
+    onFinish={onReFPhone}
     className={styles.Form}
     onValuesChange={handleChange}
   >
@@ -24,7 +24,7 @@ export default function RetrieveFromPhone(props) {
         placeholder="手机号码"
       />
     </Form.Item>
-    <Form.Item name="verificationCode" rules={[{ required: true, message: '请输入短信验证码' }]}>
+    <Form.Item name="validateCode" rules={[{ required: true, message: '请输入短信验证码' }]}>
       <Captcha
         type="phone"
         receiver={phone}

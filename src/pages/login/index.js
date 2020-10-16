@@ -48,15 +48,30 @@ function LoginForm(props) {
       message: null,
     }).then((data) => {
       saveToken({
+        userName: data.name,
         token: data.accessToken,
+        avatar: data.avatar,
         remember: values.remember,
+        extra: values.account,
       });
-      model.queryPerm();
-      if (data.reset) {
-        handleRouteToHome();
+      model.queryPerm(true);
+
+      if (data.status === 'PASS') {
+        if (data.reset) {
+          handleRouteToHome();
+        } else {
+          setResetPassword(true);
+        }
+
       } else {
-        setResetPassword(true);
+        if (data.status === 'PENDING_APPROVAL') {
+          history.push('/login/pending');
+        }
+        if (data.status === 'REFUSE') {
+          history.push('/login/refuse');
+        }
       }
+
     })
       .finally(_ => {
         setLoading(false);
@@ -107,13 +122,28 @@ function LoginForm(props) {
       });
   }
 
+  function handleReFPhone(values) {
+    setLoading(true);
+
+    post('/api/sys/oauth/resetPassword', values)
+      .then(() => {
+        message.success('密码重置成功');
+        if (values.phone) {
+          this.handleChangeFormType('account');
+        }
+      })
+      .finally(_ => {
+        setLoading(false);
+      });
+  }
+
   function handleCilckResetPW() {
     formRef.current.submit();
   }
   function handleResetPW() {
     const data = formRef.current.getFieldsValue();
     setLoading(true);
-    post('/api/sys/oauth/reset_password', data)
+    post('/api/sys/oauth/resetPassword', data)
       .then(_ => {
         message.success('密码已重置');
         setResetPassword(false);
@@ -137,7 +167,7 @@ function LoginForm(props) {
     >
     </div>
     <div className={styles.formContainer}>
-      <div className={styles.logo}>星鱼影城智慧云平台</div>
+      <div className={styles.logo}>星+智能营销云平台</div>
 
       <MatchC
         {...props}
@@ -146,6 +176,7 @@ function LoginForm(props) {
         onReg={handleReg}
         onRePW={switchRePasswordForm}
         onReFEmial={handleReFEmail}
+        onReFPhone={handleReFPhone}
         loading={loading}
       />
 

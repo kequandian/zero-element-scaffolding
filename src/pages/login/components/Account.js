@@ -18,7 +18,7 @@ export default function AccountForm(props) {
     <Form.Item name="account" rules={[{ required: true, message: '请输入用户名' }]}>
       <Input
         prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
-        placeholder="用户名/邮箱"
+        placeholder="用户名/手机号"
       />
     </Form.Item>
     <Form.Item name="password" rules={[{ required: true, message: '请输入密码' }]}>
@@ -28,7 +28,7 @@ export default function AccountForm(props) {
         placeholder="密码"
       />
     </Form.Item>
-    <ReactSimpleVerify ref={verifyRef} width={328} />
+    {/* <ReactSimpleVerify ref={verifyRef} width={328} /> */}
     <Flex>
       <FlexItem>
         <Form.Item name="remember" valuePropName="checked" initialValue={true}>

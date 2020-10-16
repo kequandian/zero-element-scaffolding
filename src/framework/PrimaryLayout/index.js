@@ -1,6 +1,7 @@
 import React, { useContext, useMemo, useState, useEffect } from 'react';
 import { Layout } from 'antd';
 import { useModel } from 'zero-element/lib/Model';
+import { useDocumentVisibility } from 'ahooks';
 import Breadcrumb from './Breadcrumb';
 import Login from './Login';
 import './index.less';
@@ -21,19 +22,22 @@ export default function PrimaryLayout({
 
   const globalModel = useModel('global');
   const { permissions } = globalModel;
+  const documentVisibility = useDocumentVisibility();
 
   useEffect(_ => {
-    globalModel.queryPerm();
-  }, [permissions]);
+    if (documentVisibility === 'visible') {
+      globalModel.queryPerm();
+    }
+  }, [permissions, documentVisibility]);
 
   const [
     TopNav, TopNavData,
     LeftNav, LeftNavData
   ] = useMemo(_ => {
     return selectNavStyle(nav, menuData, location.pathname, switchLeftNav);
-  }, [nav, menuData, location.pathname, switchLeftNav]);
+  }, [nav, menuData, location.pathname, switchLeftNav, permissions]);
 
-  // 当导航类型既不是 top 也不是 left 时, 应该在 top 渲染第一级菜单, left 渲染第二级
+  // 当导航类型为 both 时, 应该在 top 渲染第一级菜单, left 渲染第二级
   // 此时, 点击 top 的导航时需要替换 left, 但不应该被路由
   function handleSwitchLeftNav(path) {
     setSwitchLeftNav(path);
@@ -46,8 +50,8 @@ export default function PrimaryLayout({
       <Header className="header topNav">
         <div className="logo">
           <a href="/">
-            Zero Code
-        </a>
+            星+智能营销云平台
+          </a>
         </div>
         <TopNav
           path={location.pathname}
