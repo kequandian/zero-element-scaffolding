@@ -58,9 +58,12 @@ function LoginForm(props) {
       });
       model.queryPerm(true);
 
-      if (data.passwordIsEmpty === true) {
-        setResetPassword(true);
-
+      if (data.status === 'PASS') {
+        if (data.passwordIsEmpty === true) {
+          setResetPassword(true);
+        } else {
+          handleRouteToHome(data);
+        }
       } else {
         if (data.status === 'PENDING_APPROVAL') {
           history.push('/login/pending');
