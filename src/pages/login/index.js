@@ -6,6 +6,7 @@ import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 import JParticles from 'jparticles';
 import AccountForm from './components/Account';
 import MailReg from './components/MailReg';
+import PhoneReg from './components/PhoneReg';
 import RFE from './components/RetrieveFromEmail';
 import RFP from './components/RetrieveFromPhone';
 import styles from './index.less';
@@ -18,6 +19,7 @@ const { Content } = Layout;
 const cType = {
   'account': AccountForm,
   'mailReg': MailReg,
+  'phoneReg': PhoneReg,
   'RFE': RFE,
   'RFP': RFP,
 };
@@ -56,12 +58,8 @@ function LoginForm(props) {
       });
       model.queryPerm(true);
 
-      if (data.status === 'PASS') {
-        if (data.reset) {
-          handleRouteToHome();
-        } else {
-          setResetPassword(true);
-        }
+      if (data.passwordIsEmpty === true) {
+        setResetPassword(true);
 
       } else {
         if (data.status === 'PENDING_APPROVAL') {
@@ -88,7 +86,7 @@ function LoginForm(props) {
 
   function handleReg(values) {
     setLoading(true);
-    post('/api/sys/oauth/advertiser/advertisers', values, {
+    post('/api/sys/oauth/register', values, {
       message: null,
     }).then(_ => {
       message.success('注册成功');
@@ -167,7 +165,7 @@ function LoginForm(props) {
     >
     </div>
     <div className={styles.formContainer}>
-      <div className={styles.logo}>星+智能营销云平台</div>
+      <div className={styles.logo}>登录标题</div>
 
       <MatchC
         {...props}
@@ -190,11 +188,17 @@ function LoginForm(props) {
             onClick={handleChangeFormType.bind(null, 'account')}
           >账号登录</Button>
         ) : null}
-        {formType !== 'mailReg' ? (
+        {formType !== 'phoneReg' ? (
+          <Button type="link" size="small"
+            onClick={handleChangeFormType.bind(null, 'phoneReg')}
+          >手机注册</Button>
+        ) : null}
+        {formType === 'phoneReg' ? (
           <Button type="link" size="small"
             onClick={handleChangeFormType.bind(null, 'mailReg')}
-          >立即注册</Button>
+          >邮箱注册</Button>
         ) : null}
+
       </div>
     </div>
     <Modal
