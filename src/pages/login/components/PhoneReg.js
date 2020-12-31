@@ -10,7 +10,7 @@ export default function MailRegForm(props) {
   const [phone, setPhone] = useState();
 
   function handleChange(data) {
-    setPhone(data.contactPhone);
+    setPhone(data.phone);
   }
 
 
