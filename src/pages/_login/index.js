@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { history, Route } from 'umi';
+import { history } from 'umi';
 import { Layout, Button, message, Modal } from 'antd';
 import { saveToken } from 'zero-element/lib/utils/request/token';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
@@ -7,7 +7,6 @@ import JParticles from 'jparticles';
 import AccountForm from './components/Account';
 import MailReg from './components/MailReg';
 import PhoneReg from './components/PhoneReg';
-import CaptchaLigin from './components/CaptchaLogin';
 import RFE from './components/RetrieveFromEmail';
 import RFP from './components/RetrieveFromPhone';
 import styles from './index.less';
@@ -23,7 +22,6 @@ const cType = {
   'phoneReg': PhoneReg,
   'RFE': RFE,
   'RFP': RFP,
-  'captchaLogin': CaptchaLigin
 };
 
 function LoginForm(props) {
@@ -32,8 +30,6 @@ function LoginForm(props) {
   // 强制重置密码
   const [resetPassword, setResetPassword] = useState(false);
   const formRef = useRef();
-
-  const [ redirectUrl, setRedirectUrl ] = useState('');
 
   const model = useModel('global');
 
@@ -48,7 +44,6 @@ function LoginForm(props) {
     });
   }, []);
 
-  //登录
   function handleSubmit(values) {
     setLoading(true);
     post('/api/sys/oauth/login', values, {
@@ -92,7 +87,6 @@ function LoginForm(props) {
     }
   }
 
-  //注册
   function handleReg(values) {
     setLoading(true);
     post('/api/sys/oauth/register', values, {
@@ -100,9 +94,6 @@ function LoginForm(props) {
     }).then(_ => {
       message.success('注册成功');
       handleChangeFormType('account');
-      if (values.email) {
-        handleSendVerificationEmail(values.email);
-      }
     })
       .finally(_ => {
         setLoading(false);
@@ -113,7 +104,6 @@ function LoginForm(props) {
     setFormType(type);
     // this.props.form.resetFields();
   }
-
   function switchRePasswordForm() {
     handleChangeFormType('RFP')
   }
@@ -151,7 +141,6 @@ function LoginForm(props) {
   function handleCilckResetPW() {
     formRef.current.submit();
   }
-
   function handleResetPW() {
     const data = formRef.current.getFieldsValue();
     setLoading(true);
@@ -160,24 +149,6 @@ function LoginForm(props) {
         message.success('密码已重置');
         setResetPassword(false);
         handleRouteToHome();
-      })
-      .finally(_ => {
-        setLoading(false);
-      });
-  }
-
-  //发送验证邮箱邮件
-  function handleSendVerificationEmail(email) {
-    query(`/api/sys/oauth/sendVerificationEmail?email=${email}`, {}
-    )
-  }
-
-  function handleGithubLogin() {
-    setLoading(true);
-    query('/api/sys/oauth/github/url', {})
-      .then((data) => {
-        console.log('github data = ', data);
-        setRedirectUrl(data)
       })
       .finally(_ => {
         setLoading(false);
@@ -207,7 +178,6 @@ function LoginForm(props) {
         onRePW={switchRePasswordForm}
         onReFEmial={handleReFEmail}
         onReFPhone={handleReFPhone}
-        onCaptchaLogin={handleSubmit}
         loading={loading}
       />
 
@@ -216,17 +186,6 @@ function LoginForm(props) {
 
 
       <div className={styles.regGuided}>
-
-        <Button type="link" size="small"
-          onClick={() => handleGithubLogin()}
-        >github登录</Button>
-        {formType == 'account' ? (
-          <>
-            <Button type="link" size="small"
-              onClick={handleChangeFormType.bind(null, 'githubLogin')}
-            >验证码登录</Button>
-          </>
-        ) : null}
         {formType !== 'account' ? (
           <Button type="link" size="small"
             onClick={handleChangeFormType.bind(null, 'account')}
@@ -264,7 +223,6 @@ function LoginForm(props) {
         onSubmit={handleResetPW}
       />
     </Modal>
-    {redirectUrl?<Route component={() => { window.location.href = `${redirectUrl}`; return null;} }/>:null}
   </>
 }
 

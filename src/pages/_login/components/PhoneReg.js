@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
-import { MailOutlined, LockOutlined } from '@ant-design/icons';
+import { PhoneOutlined, LockOutlined } from '@ant-design/icons';
 
 import styles from '../index.less';
 import Captcha from './Captcha';
 
 export default function MailRegForm(props) {
   const { onReg, loading } = props;
-  const [email, setEmial] = useState();
+  const [phone, setPhone] = useState();
 
   function handleChange(data) {
-    setEmial(data.email);
+    setPhone(data.phone);
   }
 
 
@@ -20,17 +20,16 @@ export default function MailRegForm(props) {
       className={styles.Form}
       onValuesChange={handleChange}
     >
-      <Form.Item name="email" rules={[{ required: true, message: '请输入邮箱' }]}>
+      <Form.Item name="phone" rules={[{ required: true, message: '请输入手机号' }]}>
         <Input
-          prefix={<MailOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
-          placeholder="邮箱"
+          prefix={<PhoneOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
+          placeholder="手机号"
         />
       </Form.Item>
-      <Form.Item name="password" rules={[{ required: true, message: '请输入密码' }]}>
-        <Input
-          prefix={<LockOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
-          type="password"
-          placeholder="密码"
+      <Form.Item name="validateCode" rules={[{ required: false, message: '请输入验证码' }]}>
+        <Captcha
+          type="phone"
+          receiver={phone}
         />
       </Form.Item>
       <Form.Item>

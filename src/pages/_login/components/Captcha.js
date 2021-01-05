@@ -30,17 +30,12 @@ export default class Captcha extends Component {
     }
   }
   getCaptcha = () => {
-    const { type } = this.props;
     this.setState({
       cd: true,
     });
     LS.set('captcha', +new Date() + 60000);
     this.setTimerStart();
-    if(type === 'email'){
-      this.sendVerificationEmail()
-    }else{
-      this.sendCaptcha();
-    }
+    this.sendCaptcha();
   }
   setTimerStart = () => {
     const timer = setInterval(() => {
@@ -70,11 +65,6 @@ export default class Captcha extends Component {
     )
   }
 
-  sendVerificationEmail = () => {
-    query(`/api/sys/oauth/sendVerificationEmail?email=${this.props.receiver}`, {}
-    )
-  }
-  
 
   render() {
     const { receiver, onChange } = this.props;
@@ -89,7 +79,7 @@ export default class Captcha extends Component {
       />
       <Button
         style={{ width: '30%' }}
-        disabled={cd}
+        disabled={!receiver || cd}
         onClick={this.getCaptcha}
       >
         {cd ? count : text}
