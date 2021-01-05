@@ -12,6 +12,8 @@ export default function getUserInfo() {
       saveToken({
         userName: data.name,
         avatar: data.avatar,
+        avatar: data.avatar,
+        extra: data.name,
         remember: true,
       });
     })

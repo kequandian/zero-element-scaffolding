@@ -10,6 +10,7 @@ const { Content } = Layout;
 export default function Oauth(props) {
   const { location } = props;
   const { query } = location;
+  const model = useModel('global');
 
   useWillMount(_ => {
     const { accessToken } = query;
@@ -20,6 +21,7 @@ export default function Oauth(props) {
       });
       getUserInfo()
         .then(_ => {
+          model.queryPerm(true);
           history.push('/');
         })
     } else {
