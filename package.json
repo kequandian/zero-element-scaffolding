@@ -12,10 +12,12 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-simple-verify": "^1.0.8",
-    "zero-element": "^1.0.0"
+    "zero-element": "^1.0.0",
+    "zero-element-antd": "kequandian/zero-element-antd",
+    "@umijs/preset-react": "^1.5.12",
+    "umi": "3.2.17",
   },
   "devDependencies": {
-    "@umijs/preset-react": "^1.5.12",
     "babel-eslint": "^9.0.0",
     "eslint": "^5.4.0",
     "eslint-config-umi": "^1.4.0",
@@ -23,9 +25,7 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.14.3",
-    "react-test-renderer": "^16.9.0",
-    "umi": "3.2.17",
-    "zero-element-antd": "kequandian/zero-element-antd"
+    "react-test-renderer": "^16.9.0"
   },
   "engines": {
     "node": ">=8.0.0"
