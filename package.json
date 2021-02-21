@@ -15,7 +15,7 @@
     "zero-element": "^1.0.0",
     "zero-element-antd": "kequandian/zero-element-antd",
     "@umijs/preset-react": "^1.5.12",
-    "umi": "3.2.17",
+    "umi": "3.2.17"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",
