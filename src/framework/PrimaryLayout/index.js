@@ -50,7 +50,7 @@ export default function PrimaryLayout({
       <Header className="header topNav">
         <div className="logo">
           <a href="/">
-            星+智能营销云平台
+          web应用
           </a>
         </div>
         <TopNav
