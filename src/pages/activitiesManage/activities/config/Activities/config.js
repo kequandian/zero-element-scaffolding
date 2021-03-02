@@ -1,169 +1,100 @@
-const setting = require('./.setting/activities.js');
-
 module.exports = {
   layout: 'Content',
-  title: setting.pageName,
+  title: '用户管理',
   items: [
     {
-      layout: 'Empty',
       component: 'Search',
       config: {
-        share: 'activities',
         fields: [
           {
-            "field": "search",
-            "label": "搜索",
-            "type": "input"
-          },
-          {
-            field: 'time', label: '时间', type: 'range',
-            span: 10,
-            style: {
-              width: 440,
+            field: 'name', label: '表单名称', type: 'input',
+            props: {
+              placeholder: '请输入',
             }
-          },
+          }
         ],
       },
     },
     {
-      layout: 'Empty',
-      component: 'Table',
+      component: 'TreeList',
       config: {
-        share: 'activities',
         API: {
-          listAPI: setting.listAPI,
-          deleteAPI: setting.deleteAPI,
+          listAPI: '/api/crud/eavEntityType/eavEntityTypes/entity?typeId=<id>',
+          deleteAPI: '/api/crud/eavEntityType/eavEntityTypes/entity/(id)'
+        },
+        tree: {
+          API: {
+            initAPI: '/api/crud/eavEntityType/eavEntityTypes/groupType',
+            appendAPI: undefined,
+          }
         },
         actions: [
+          // {
+          //   title: '添加', type: 'modal',
+          //   options: {
+          //     modalTitle: '添加用户',
+          //     modalWidth: 900,
+          //     items: [
+          //       {
+          //         component: 'Form',
+          //         config: {
+          //           layout: 'Grid',
+          //           API: {
+          //             createAPI: '/api/crud/cinema/user'
+          //           },
+          //           fields: formFields,
+          //         }
+          //       }
+          //     ]
+          //   }
+          // }
           {
             "title": "新增",
             "type": "path",
             "options": {
-              "path": "/project/activities-add"
+              "path": "/activitiesManage/activities/activities-add"
             }
-          },
-          {
-            title: '导出 pdf', type: 'export',
-            options: {
-              API: '/api/io/pdf/export/项目出工管理',
-              method: 'get',
-
-            },
           },
         ],
         fields: [
-
-          {
-            "options": {},
-            "field": "projectName",
-            "label": "出工项目",
-            valueType: 'ellipsis',
-            width: 200,
-            fixed: 'left'
-          },
-          {
-            "options": {},
-            "field": "name",
-            "label": "出工名称",
-            valueType: 'ellipsis',
-          },
-          {
-            "options": {},
-            "field": "checkNote",
-            "label": "检测节点",
-          },
-          {
-            "options": {},
-            "field": "venderName",
-            "label": "出工人员"
-          },
-          {
-            "options": {
-              "map": {
-                "1": "等待出工",
-                "2": "出工完成",
-                "3": "作废"
-              },
-              "colorMap": {
-                "1": "#669977",
-                "2": "#1890ff",
-                "3": "#888888"
-              }
-            },
-            "valueType": "tag",
-            "field": "status",
-            "label": "状态"
-          },
-
-          /* {
-             "options": {},
-             "field": "totalSpent",
-             "label": "出工总费用",
-             valueType: 'currency',
-           },*/
-
-          {
-            "field": "createTime",
-            "label": "出工日期"
-          },
-          {
-            "options": {},
-            "field": "note",
-            "label": "备注",
-            valueType: 'ellipsis',
-            width: 200
-          }
+          { field: 'name', label: '表单名称' },
+          { field: 'note', label: '备注' },
         ],
         operation: [
+          // {
+          //   title: '编辑', type: 'modal',
+          //   options: {
+          //     modalTitle: '编辑用户',
+          //     modalWidth: 800,
+
+          //     layout: 'Empty',
+          //     items: [
+          //       {
+          //         layout: 'Empty',
+          //         component: 'Form',
+          //         config: {
+          //           layout: 'Grid',
+          //           API: {
+          //             getAPI: '/api/adm/users/(id)',
+          //             updateAPI: '/api/adm/users/(id)',
+          //           },
+          //           fields: editFormFields,
+          //         }
+          //       }
+          //     ]
+          //   }
+          // },
           {
-            "title": "编辑",
-            "type": "path",
-            "options": {
-              "outside": true,
-              "path": "/project/activities-edit"
+            title: '编辑', type: 'path',
+            options:{
+              outside: true,
+              path: "/activitiesManage/activities/activities-edit"
             }
           },
           {
-            "title": "等待出工",
-            "type": "request",
-            "options": {
-              "outside": false,
-              "API": "/api/crud/project/activities/action/(id)/unstarted",
-              "method": "post"
-            },
-            "expected": {}
-          },
-          {
-            "title": "出工完成",
-            "type": "request",
-            "options": {
-              "outside": false,
-              "API": "/api/crud/project/activities/action/(id)/done",
-              "method": "post"
-            },
-            "expected": {}
-          },
-          {
-            "title": "出工作废",
-            "type": "request",
-            "options": {
-              "outside": false,
-              "API": "/api/crud/project/activities/action/(id)/cancelled",
-              "method": "post"
-            },
-            "expected": {}
-          },
-          {
-            "title": "删除",
-            "type": "delete",
-            "options": {
-              "outside": false,
-              "API": "/api/crud/project/activities/(id)"
-            },
-            "expected": {}
+            title: '删除', type: 'delete'
           }
-        ],
-
+        ]
       },
     },
   ],

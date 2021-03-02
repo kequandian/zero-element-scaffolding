@@ -1,8 +1,8 @@
 module.exports = {
-  "pageName": "项目出工管理",
-  "listAPI": "/api/crud/project/activities",
-  "deleteAPI": "/api/crud/project/activities/(id)",
-  "getAPI": "/api/crud/project/activities/[id]",
-  "createAPI": "/api/crud/project/activities",
-  "updateAPI": "/api/crud/project/activities/[id]"
+  "pageName": "表单列表",
+  "listAPI": "/api/eav/entities",
+  "deleteAPI": "/api/eav/entities/(id)",
+  "getAPI": "/api/eav/entities/[id]",
+  "createAPI": "/api/eav/entities",
+  "updateAPI": "/api/eav/entities/[id]"
 }

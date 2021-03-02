@@ -2,7 +2,7 @@ const API = require('../.setting/activities.js');
 
 module.exports = {
   "layout": "BaseTitle",
-  "title": "出工管理",
+  "title": "详情",
   "items": [
     {
       "layout": "Content",

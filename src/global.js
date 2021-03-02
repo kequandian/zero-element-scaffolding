@@ -32,6 +32,11 @@ import Content from '@/../zero-antd-dep/layout/Content';
 
 import './rewrite.less';
 
+//自定义组件
+import FieldListAdd from '@/pages/activitiesManage/activities/components/FieldListAdd';
+import FieldModalCheckbox from '@/pages/activitiesManage/activities/components/FieldModalCheckbox';
+import AITSet_childrenModalAdd from "@/pages/activitiesManage/activities/components/CModalAdd";
+
 const globalModel = getModel('global');
 
 APIConfig({
@@ -88,13 +93,21 @@ if (process.env.NODE_ENV === 'development') {
 LayoutSet({
   Content,
 });
+
 LASet({
   'onPath': onPath,
+});
+
+//表单组件
+FITSet({
+  'FieldListAdd': FieldListAdd,
+  'FieldModalCheckbox': FieldModalCheckbox
 });
 
 AITSet({
   path,
   tabs,
+  'AITSet_childrenModalAdd': AITSet_childrenModalAdd,
 });
 
 VTSet({

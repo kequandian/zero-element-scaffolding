@@ -1,32 +1,23 @@
 module.exports = [
   {
-    label: '出工人员',
+    label: '新增列',
     field: 'temp',
-    type: 'modal-checkbox',
+    type: 'FieldModalCheckbox',
     span: 24,
     options: {
-      API: '/api/crud/vms/venders',
+      API: '/api/eav/entities/attributes/example',
       pagination: true,
       fields: [
-        { label: '昵称', field: 'name' },
+        { label: '字段标识', field: 'attributeName' },
         {
-          label: '出工人性质', field: 'categoryId',
-          valueType: '',
-          align: 'right',
+          label: '字段名', field: 'fieldName',
         },
         {
-          label: '联系电话', field: 'phone',
-          valueType: '',
-          align: 'right',
-        },
-        {
-          label: '出工费用/天', field: 'charge',
-          valueType: '',
-          align: 'right',
-        },
+          label: '字段类型', field: 'fieldType',
+        }
       ],
       saveData: {
-        venderActivities: 'value', // 数据保存到出工人员列表
+        venderActivities: 'value', // 数据保存到列表
       },
     },
     rules: ['required'],
@@ -36,33 +27,29 @@ module.exports = [
     span: 24,
     options: {
       fields: [
-        { label: '出工人名称', field: 'name' },
-        { label: '出工人性质', field: 'categoryId' },
-        { label: '出工费用/天', field: 'charge' },
+        { label: '字段标识', field: 'attributeName', valueType: 'input-text' },
+        { label: '字段名', field: 'fieldName', valueType: 'input-text' },
+        // {
+        //   label: '字段类型', field: 'fieldType', valueType: 'input-select-fetch',
+        //   options: {
+        //     API: '/api/crud/kehai/workTimeTypeDetails',
+        //     label: 'typeName',
+        //     value: 'typeName',
+        //   },
+        // }
         {
-          label: '出工时长类型', field: 'workTimeType', valueType: 'input-select-fetch',
+          label: '字段类型', field: 'fieldType', valueType: 'input-select',
           options: {
-            API: '/api/crud/kehai/workTimeTypeDetails',
-            label: 'typeName',
-            value: 'typeName',
+            options:
+              [
+                { label: "varchar", value: "varchar" },
+                { label: "int", value: "int" },
+                { label: "float", value: "float" },
+                { label: "data", value: "data" },
+              ]
           },
+          "rules": ["required"]
         },
-        {
-          label: '出工时长', field: 'workTime', valueType: 'input-number', options: {
-            defaultValue: 0,
-          }
-        },
-        {
-          label: '里程（KM）', field: 'kmCount', valueType: 'input-number', options: {
-            defaultValue: 0,
-          }
-        },
-        {
-          label: '其他费用', field: 'othersFree', valueType: 'input-number', options: {
-            defaultValue: 0,
-          }
-        },
-        { label: '备注', field: 'note', valueType: 'input-text' },
       ]
     }
   },

@@ -44,6 +44,10 @@ module.exports = [
     path: '/activitiesManage',
     items: [
       {
+        path: '/activitiesManage/FromCategory',
+        name: '表单分类',
+      },
+      {
         path: '/activitiesManage/activities',
         name: '表单',
       },
