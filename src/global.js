@@ -88,6 +88,8 @@ if (process.env.NODE_ENV === 'development') {
   // saveToken({
   //   token: '',
   // });
+}else {
+  setEndpoint('http://192.168.3.239:8090');
 }
 
 LayoutSet({

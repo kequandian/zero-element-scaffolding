@@ -84,6 +84,16 @@ module.exports = {
             }
           },
           {
+            "label": "备注",
+            "field": "note",
+            "type": "text-area",
+            "props": {
+              "placeholder": "请输入……"
+            },
+            "rules": [],
+            "span": 12
+          },
+          {
             label: '',
             field: 'children',
             type: 'one-mary',
