@@ -29,7 +29,7 @@ module.exports = {
         actions: [],
         fields: [
           { field: 'name', label: '分类名称' },
-          { field: 'option', label: '备注' },
+          { field: 'note', label: '备注' },
         ],
         operation: [
           {

@@ -66,20 +66,6 @@ module.exports = {
                   "field": "note",
                   valueType: 'ellipsis'
                 },
-                {
-                  "options": {
-                    "map": {
-                      "NOT_START": "未出工",
-                    },
-                    "colorMap": {
-                      "NOT_START": "#888",
-                    }
-                  },
-                  "className": "",
-                  "valueType": "tag",
-                  "field": "status",
-                  "label": "状态"
-                },
               ]
             }
           },

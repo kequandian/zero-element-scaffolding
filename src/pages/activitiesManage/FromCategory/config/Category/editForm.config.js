@@ -5,7 +5,7 @@ module.exports = [
     rules: ['required'],
   },
   {
-    field: 'option', label: '备注', type: 'text-area',
+    field: 'note', label: '备注', type: 'text-area',
     span: 16,
     props: {
       autoSize: {
