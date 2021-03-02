@@ -12,7 +12,7 @@ module.exports = {
         share: 'fromCategory',
         fields: [
 
-          { field: 'name', label: '表单名称', type: 'input' ,placeholder: '请输入', }
+          { field: 'name', label: '分类名称', type: 'input' ,placeholder: '请输入', }
         ],
       },
     },
@@ -28,14 +28,14 @@ module.exports = {
         },
         actions: [],
         fields: [
-          { field: 'name', label: '表单名称' },
+          { field: 'name', label: '分类名称' },
           { field: 'option', label: '备注' },
         ],
         operation: [
           {
             title: '编辑', type: 'modal',
             options: {
-              modalTitle: '编辑组织',
+              modalTitle: '编辑',
               modalWidth: 640,
               outside: true,
               layout: 'Empty',
@@ -59,11 +59,11 @@ module.exports = {
             }
           },
           {
-            title: '新增子组织', type: 'modal', options: {
+            title: '新增子分类', type: 'modal', options: {
               "outside": true,
               // field: 'pid',
               // value: 'IS_NOT_NULL',
-              modalTitle: '新增子组织',
+              modalTitle: '新增子分类',
               modalWidth: 640,
               layout: 'Empty',
               items: [

@@ -15,7 +15,7 @@ module.exports = {
         },
         "fields": [
           {
-            "label": "实体名字",
+            "label": "表单标识",
             "field": "entityName",
             "type": "input",
             "props": {
