@@ -101,7 +101,7 @@ module.exports = {
             options: {
               actions: [
                 {
-                  title: '新增列', type: 'AITSet_childrenModalAdd', options: {
+                  title: '新增列', type: 'children-modal-add', options: {
                     modalTitle: '新增列',
                     modalWidth: 1080,
                     childAppendField: 'venderActivities',

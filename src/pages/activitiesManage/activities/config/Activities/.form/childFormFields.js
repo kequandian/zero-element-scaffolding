@@ -2,7 +2,7 @@ module.exports = [
   {
     label: '新增列',
     field: 'temp',
-    type: 'FieldModalCheckbox',
+    type: 'modal-checkbox',
     span: 24,
     options: {
       API: '/api/eav/entities/attributes/example',
@@ -42,10 +42,10 @@ module.exports = [
           options: {
             options:
               [
-                { label: "varchar", value: "varchar" },
-                { label: "int", value: "int" },
-                { label: "float", value: "float" },
-                { label: "data", value: "data" },
+                { label: "字符串", value: "varchar" },
+                { label: "数字", value: "int" },
+                { label: "金钱", value: "float" },
+                { label: "日期", value: "date" },
               ]
           },
           "rules": ["required"]

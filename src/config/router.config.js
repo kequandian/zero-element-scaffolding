@@ -64,6 +64,14 @@ module.exports = [
     //   "OperationLog.view"
     // ],
     "items": [
+      {
+        "name": "流程类别",
+        "path": "/sys/workFlowType",
+      },
+      {
+        "name": "流程列表",
+        "path": "/sys/workFlowList"
+      },
       // {
       //   "name": "组织管理",
       //   "path": "/sys/org",
@@ -84,11 +92,11 @@ module.exports = [
       //   "path": "/sys/setting",
       //   "permissions": "Config.view"
       // },
-      {
-        "name": "操作日志",
-        "path": "/sys/logs",
-        // "permissions": "OperationLog.view"
-      }
+      // {
+      //   "name": "操作日志",
+      //   "path": "/sys/logs",
+      //   "permissions": "OperationLog.view"
+      // }
     ]
   }
 ]
