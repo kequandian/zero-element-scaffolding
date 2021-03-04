@@ -45,7 +45,7 @@
   ],
   "updateFields": [
     {
-      "label": "影片名称",
+      "label": "类别名称",
       "rules": [
         {
           "type": "required"
@@ -55,40 +55,10 @@
         "placeholder": "请输入"
       },
       "type": "input",
-      "field": "filmName"
+      "field": "name"
     },
     {
-      "label": "影片封面",
-      "options": {
-        "type": "text"
-      },
-      "type": "upload-image",
-      "field": "cover"
-    },
-    {
-      "label": "上映日期",
-      "width": 180,
-      "rules": [
-        {
-          "type": "required"
-        }
-      ],
-      "type": "date",
-      "field": "filmStartTime"
-    },
-    {
-      "label": "下映日期",
-      "width": 180,
-      "rules": [
-        {
-          "type": "required"
-        }
-      ],
-      "type": "date",
-      "field": "filmEndTime"
-    },
-    {
-      "label": "地区",
+      "label": "类别编码",
       "rules": [
         {
           "type": "required"
@@ -98,20 +68,12 @@
         "placeholder": "请输入"
       },
       "type": "input",
-      "field": "manufactureAreas"
+      "field": "code"
     },
     {
-      "label": "出品方",
-      "rules": [
-        {
-          "type": "required"
-        }
-      ],
-      "props": {
-        "placeholder": "请输入"
-      },
-      "type": "input",
-      "field": "producer"
+      "label": "",
+      "type": "hidden",
+      "field": "identifier"
     }
   ],
   "map": {},
@@ -125,7 +87,7 @@
       "type": "modal",
       "options": {
         "style": "primary",
-        "modalTitle": "添加类别名称",
+        "modalTitle": "添加类别",
         "modalWidth": 600,
         "items": [
           {
@@ -138,7 +100,7 @@
                 ]
               },
               "API": {
-                "createAPI": "/api/categories"
+                "createAPI": "/api/categories/all/tree?identifier=workflow"
               },
               "fields": [
                 {
@@ -166,6 +128,42 @@
                   },
                   "type": "input",
                   "field": "code"
+                },
+                {
+                  "label": "父类别",
+                  "field": "pid",
+                  "span": 24,
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [
+                    "required"
+                  ],
+                  "options": {
+                    "title": "选择父类别",
+                    "label": "name",
+                    "editLabel": "name",
+                    "value": "id",
+                    "pagination": true,
+                    "API": "/api/categories/all/tree?identifier=workflow",
+                    "fields": [
+                      {
+                        "label": "类别名称",
+                        "field": "name",
+                        "valueType": "ellipsis"
+                      },
+                      {
+                        "label": "备注",
+                        "field": "note",
+                        "valueType": "ellipsis"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "排序号",
+                  "rules": [],
+                  "type": "number",
+                  "field": "sortorder"
                 },
                 {
                   "label": "",
@@ -230,6 +228,42 @@
                   "field": "code"
                 },
                 {
+                  "label": "父类别",
+                  "field": "pid",
+                  "span": 24,
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [
+                    "required"
+                  ],
+                  "options": {
+                    "title": "选择父类别",
+                    "label": "name",
+                    "editLabel": "name",
+                    "value": "id",
+                    "pagination": true,
+                    "API": "/api/categories/all/tree?identifier=workflow",
+                    "fields": [
+                      {
+                        "label": "类别名称",
+                        "field": "name",
+                        "valueType": "ellipsis"
+                      },
+                      {
+                        "label": "备注",
+                        "field": "note",
+                        "valueType": "ellipsis"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "排序号",
+                  "rules": [],
+                  "type": "number",
+                  "field": "sortorder"
+                },
+                {
                   "label": "",
                   "type": "hidden",
                   "field": "identifier",
@@ -251,7 +285,7 @@
         "outside": false
       },
       "expect": {
-        "permission": "filmschedule.delete"
+        "permission": ""
       }
     }
   ],
@@ -272,12 +306,6 @@
   ],
   "tableFields": [
     {
-      "label": "序号",
-      "width": 60,
-      "field": "Number",
-      "valueType": "index"
-    },
-    {
       "label": "类别名称",
       "field": "name"
     },
@@ -287,7 +315,7 @@
     },
     {
       "label": "排序号",
-      "field": "typeId"
+      "field": "sortorder"
     },
     {
       "label": "备注",

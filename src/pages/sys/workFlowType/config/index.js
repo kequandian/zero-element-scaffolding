@@ -15,10 +15,13 @@ module.exports = {
       },
     },
     {
-      component: 'Table',
+      layout: 'Empty',
+      component: 'TreeTable',
       config: {
+        share: 'fromCategory',
         API: {
           listAPI: setting.listAPI,
+          appendAPI: '',
           deleteAPI: setting.deleteAPI,
         },
         actions: setting.tableActions,

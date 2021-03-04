@@ -36,6 +36,8 @@ import './rewrite.less';
 import FieldListAdd from '@/pages/activitiesManage/activities/components/FieldListAdd';
 import FieldModalCheckbox from '@/pages/activitiesManage/activities/components/FieldModalCheckbox';
 import AITSet_childrenModalAdd from "@/pages/activitiesManage/activities/components/CModalAdd";
+import TreeSelectFetch from '@/components/TreeSelectFetch';
+import CustomForm from '@/components/CustomForm';
 
 const globalModel = getModel('global');
 
@@ -96,6 +98,10 @@ LayoutSet({
   Content,
 });
 
+CSet({
+  'custom_form': CustomForm
+});
+
 LASet({
   'onPath': onPath,
 });
@@ -103,7 +109,8 @@ LASet({
 //表单组件
 FITSet({
   'FieldListAdd': FieldListAdd,
-  'FieldModalCheckbox': FieldModalCheckbox
+  'FieldModalCheckbox': FieldModalCheckbox,
+  'tree-select-fetch': TreeSelectFetch,
 });
 
 AITSet({

@@ -1,14 +1,14 @@
 {
   "pageName": {
-    "table": "流程类别列表",
-    "new": "添加流程类别",
-    "edit": "编辑流程类别"
+    "table": "流程列表",
+    "new": "添加流程",
+    "edit": "编辑流程"
   },
-  "listAPI": "/api/categories/all/tree?identifier=workflow",
-  "createAPI": "/api/categories/all/tree?identifier=workflow",
-  "getAPI": "/api/categories/all/tree?identifier=workflow/[id]",
-  "updateAPI": "/api/categories/all/tree?identifier=workflow/[id]",
-  "deleteAPI": "/api/categories/all/tree?identifier=workflow/(id)",
+  "listAPI": "/api/wf/processes",
+  "createAPI": "/api/wf/processes",
+  "getAPI": "/api/wf/processes/[id]",
+  "updateAPI": "/api/wf/processes/[id]",
+  "deleteAPI": "/api/wf/processes/(id)",
   "columns": 1,
   "createFields": [
     {
@@ -45,7 +45,7 @@
   ],
   "updateFields": [
     {
-      "label": "影片名称",
+      "label": "类别名称",
       "rules": [
         {
           "type": "required"
@@ -55,40 +55,10 @@
         "placeholder": "请输入"
       },
       "type": "input",
-      "field": "filmName"
+      "field": "name"
     },
     {
-      "label": "影片封面",
-      "options": {
-        "type": "text"
-      },
-      "type": "upload-image",
-      "field": "cover"
-    },
-    {
-      "label": "上映日期",
-      "width": 180,
-      "rules": [
-        {
-          "type": "required"
-        }
-      ],
-      "type": "date",
-      "field": "filmStartTime"
-    },
-    {
-      "label": "下映日期",
-      "width": 180,
-      "rules": [
-        {
-          "type": "required"
-        }
-      ],
-      "type": "date",
-      "field": "filmEndTime"
-    },
-    {
-      "label": "地区",
+      "label": "类别编码",
       "rules": [
         {
           "type": "required"
@@ -98,20 +68,12 @@
         "placeholder": "请输入"
       },
       "type": "input",
-      "field": "manufactureAreas"
+      "field": "code"
     },
     {
-      "label": "出品方",
-      "rules": [
-        {
-          "type": "required"
-        }
-      ],
-      "props": {
-        "placeholder": "请输入"
-      },
-      "type": "input",
-      "field": "producer"
+      "label": "",
+      "type": "hidden",
+      "field": "identifier"
     }
   ],
   "map": {},
@@ -125,7 +87,7 @@
       "type": "modal",
       "options": {
         "style": "primary",
-        "modalTitle": "添加类别名称",
+        "modalTitle": "添加流程",
         "modalWidth": 600,
         "items": [
           {
@@ -138,11 +100,11 @@
                 ]
               },
               "API": {
-                "createAPI": "/api/categories"
+                "createAPI": "/api/wf/processes"
               },
               "fields": [
                 {
-                  "label": "类别名称",
+                  "label": "流程名称",
                   "rules": [
                     {
                       "type": "required"
@@ -155,17 +117,50 @@
                   "field": "name"
                 },
                 {
-                  "label": "类别编码",
-                  "rules": [
-                    {
-                      "type": "required"
-                    }
-                  ],
-                  "props": {
-                    "placeholder": "请输入"
-                  },
-                  "type": "input",
-                  "field": "code"
+                  "field": "formType", "label": "表单类型", "type": "modal-radio",
+                  "props": {},
+                  "rules": ["required"],
+                  "options": {
+                    "title": "选择表单类型",
+                    "label": "name",
+                    "editLabel": "name",
+                    "value": "id",
+                    "pagination": true,
+                    "API": "/api/crud/eavEntityType/eavEntityTypes/entity",
+                    "fields":[
+                      {
+                        "label": "类型名称",
+                        "field": "name"
+                      },
+                      {
+                        "label": "类型编码",
+                        "field": "code"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "field": "categoryId", "label": "流程类别", "type": "modal-radio",
+                  "props": {},
+                  "rules": ["required"],
+                  "options": {
+                    "title": "选择流程类别",
+                    "label": "name",
+                    "editLabel": "name",
+                    "value": "id",
+                    "pagination": true,
+                    "API": "/api/categories/all/tree?identifier=workflow",
+                    "fields":[
+                      {
+                        "label": "类别名称",
+                        "field": "name"
+                      },
+                      {
+                        "label": "类别编码",
+                        "field": "code"
+                      }
+                    ]
+                  }
                 },
                 {
                   "label": "",
@@ -185,6 +180,32 @@
   ],
   "tableOperation": [
     {
+      "title": "启用",
+      "type": "request",
+      "options": {
+        "method": "post",
+        "outside": true,
+        "API": ""
+      },
+      "expect": {
+        "field": "status",
+        "value": "DISABLED"
+      }
+    },
+    {
+      "title": "禁用",
+      "type": "request",
+      "options": {
+        "method": "post",
+        "outside": true,
+        "API": ""
+      },
+      "expect": {
+        "field": "status",
+        "value": "ENABLED"
+      }
+    },
+    {
       "title": "编辑",
       "type": "modal",
       "options": {
@@ -202,8 +223,8 @@
                 ]
               },
               "API": {
-                "getAPI": "/api/categories/(id)",
-                "updateAPI": "/api/categories/(id)"
+                "getAPI": "/api/wf/processes/(id)",
+                "updateAPI": "/api/wf/processes/(id)"
               },
               "fields": [
                 {
@@ -220,14 +241,50 @@
                   "field": "name"
                 },
                 {
-                  "label": "类别编码",
-                  "rules": [
-                    {
-                      "type": "required"
-                    }
-                  ],
-                  "type": "input",
-                  "field": "code"
+                  "field": "formType", "label": "表单类型", "type": "modal-radio",
+                  "props": {},
+                  "rules": ["required"],
+                  "options": {
+                    "title": "选择表单类型",
+                    "label": "name",
+                    "editLabel": "name",
+                    "value": "id",
+                    "pagination": true,
+                    "API": "/api/crud/eavEntityType/eavEntityTypes/entity",
+                    "fields":[
+                      {
+                        "label": "类型名称",
+                        "field": "name"
+                      },
+                      {
+                        "label": "类型编码",
+                        "field": "code"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "field": "categoryId", "label": "流程类别", "type": "modal-radio",
+                  "props": {},
+                  "rules": ["required"],
+                  "options": {
+                    "title": "选择流程类别",
+                    "label": "name",
+                    "editLabel": "name",
+                    "value": "id",
+                    "pagination": true,
+                    "API": "/api/categories/all/tree?identifier=workflow",
+                    "fields":[
+                      {
+                        "label": "类别名称",
+                        "field": "name"
+                      },
+                      {
+                        "label": "类别编码",
+                        "field": "code"
+                      }
+                    ]
+                  }
                 },
                 {
                   "label": "",
@@ -245,13 +302,20 @@
       }
     },
     {
+      "title": "流程步骤", "type": "path",
+      "options":{
+        "outside": true,
+        "path": "workFlowList/workFlowList-step"
+      }
+    },
+    {
       "title": "删除",
       "type": "delete",
       "options": {
         "outside": false
       },
       "expect": {
-        "permission": "filmschedule.delete"
+        "permission": ""
       }
     }
   ],
@@ -279,11 +343,24 @@
     },
     {
       "label": "流程名称",
+      "width": 200,
       "field": "name"
     },
     {
-      "label": "流程状态",
-      "field": "code"
+      "label": "状态",
+      "width": 180,
+      "field": "status",
+      "valueType": "tag",
+      "options": {
+        "map": {
+          "ENABLED": "启用",
+          "DISABLED": "禁用"
+        },
+        "color": {
+          "ENABLED": "#17d349",
+          "DISABLED": "#bdbdbd"
+        }
+      }
     }
   ]
 }
