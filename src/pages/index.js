@@ -9,7 +9,7 @@ export default function () {
   //   history.push(win.ZEle.indexPage);
   // }
 
-  history.push('/activitiesManage/activities');
+  history.push('/activitiesManage/FromCategory');
   // if (getToken()) {
   //   history.push('/activitiesManage/activities');
   // } else {

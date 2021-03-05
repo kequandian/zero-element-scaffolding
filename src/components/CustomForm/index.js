@@ -41,6 +41,7 @@ export default function CustomtForm(props) {
     goBack: gobackOpt = true,
     footer: footerOpt,
     requestOptions,
+    footerButton = false
   } = config;
   const { layoutType = 'inline' } = layoutConfig; // inline vertical horizontal
   const formProps = useBaseForm({
@@ -101,6 +102,7 @@ export default function CustomtForm(props) {
   function handleGetData() {
     setCanRenderForm(false);
     onGetOne({}).then((response) => {
+      console.log('response = ', response);
       const { code, data } = response || {};
       if (code === 200 && data) {
         let formData = data;
@@ -302,6 +304,6 @@ export default function CustomtForm(props) {
         </Form>
       ) : <Form form={form} />}
     </div>
-    {/* {renderFooter()} */}
+    {footerButton?(renderFooter()): null }
   </Spin>
 }

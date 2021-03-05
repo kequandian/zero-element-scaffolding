@@ -33,6 +33,7 @@ import Content from '@/../zero-antd-dep/layout/Content';
 import './rewrite.less';
 
 //自定义组件
+import Setting from '@/container/Setting';
 import FieldListAdd from '@/pages/activitiesManage/activities/components/FieldListAdd';
 import FieldModalCheckbox from '@/pages/activitiesManage/activities/components/FieldModalCheckbox';
 import AITSet_childrenModalAdd from "@/pages/activitiesManage/activities/components/CModalAdd";
@@ -99,7 +100,8 @@ LayoutSet({
 });
 
 CSet({
-  'custom_form': CustomForm
+  'custom_form': CustomForm,
+  'Setting': Setting,
 });
 
 LASet({

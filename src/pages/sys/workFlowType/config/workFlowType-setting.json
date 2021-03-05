@@ -135,9 +135,7 @@
                   "span": 24,
                   "type": "modal-radio",
                   "props": {},
-                  "rules": [
-                    "required"
-                  ],
+                  "rules": [],
                   "options": {
                     "title": "选择父类别",
                     "label": "name",
@@ -233,9 +231,7 @@
                   "span": 24,
                   "type": "modal-radio",
                   "props": {},
-                  "rules": [
-                    "required"
-                  ],
+                  "rules": [],
                   "options": {
                     "title": "选择父类别",
                     "label": "name",

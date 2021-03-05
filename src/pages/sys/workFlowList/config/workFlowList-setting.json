@@ -180,6 +180,17 @@
   ],
   "tableOperation": [
     {
+      "title": "发起申请",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "workFlowList/workFlowList-apply"
+      },
+      "expect": {
+        "permission": ""
+      }
+    },
+    {
       "title": "启用",
       "type": "request",
       "options": {
@@ -209,7 +220,7 @@
       "title": "编辑",
       "type": "modal",
       "options": {
-        "modalTitle": "编辑类别",
+        "modalTitle": "编辑流程",
         "modalWidth": 600,
         "outside": true,
         "items": [

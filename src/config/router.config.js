@@ -72,31 +72,31 @@ module.exports = [
         "name": "流程列表",
         "path": "/sys/workFlowList"
       },
-      // {
-      //   "name": "组织管理",
-      //   "path": "/sys/org",
-      //   "permissions": "Org.view"
-      // },
-      // {
-      //   "name": "用户管理",
-      //   "path": "/sys/user",
-      //   "permissions": "sysUser.view"
-      // },
-      // {
-      //   "name": "角色管理",
-      //   "path": "/sys/role",
-      //   "permissions": "sysRole.view"
-      // },
-      // {
-      //   "name": "系统配置",
-      //   "path": "/sys/setting",
-      //   "permissions": "Config.view"
-      // },
-      // {
-      //   "name": "操作日志",
-      //   "path": "/sys/logs",
-      //   "permissions": "OperationLog.view"
-      // }
+      {
+        "name": "组织管理",
+        "path": "/sys/org",
+        "permissions": ""
+      },
+      {
+        "name": "用户管理",
+        "path": "/sys/user",
+        "permissions": ""
+      },
+      {
+        "name": "角色管理",
+        "path": "/sys/role",
+        "permissions": ""
+      },
+      {
+        "name": "系统配置",
+        "path": "/sys/setting",
+        "permissions": ""
+      },
+      {
+        "name": "操作日志",
+        "path": "/sys/logs",
+        "permissions": ""
+      }
     ]
   }
 ]
