@@ -10,13 +10,14 @@ module.exports = {
         API: {
           getAPI: setting.getAPI,
           updateAPI: setting.updateAPI,
+          getFieldsAPI: setting.getFieldsAPI,
         },
         layout: 'Grid',
         layoutConfig: {
           value: Array(setting.columns).fill(~~(24 / setting.columns)),
         },
         fields: setting.updateFields || setting.formFields,
-        footerButton:true
+        footerButton:false
       },
     },
   ],

@@ -67,8 +67,9 @@
   ],
   "listAPI": "",
   "createAPI": "",
-  "getAPI": "/api/wf/processes/[id]/steps",
-  "updateAPI": "/api/wf/processes/[id]/steps",
+  "getAPI": "/api/wf/processes/[id]",
+  "getFieldsAPI": "/api/eav/entities/(id)",
+  "updateAPI": "",
   "deleteAPI": "",
   "searchFields": [
     {

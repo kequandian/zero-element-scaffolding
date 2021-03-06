@@ -11,6 +11,10 @@ import useFormHandle from 'zero-element-antd/lib/container/Form/utils/useFormHan
 import extraFieldType from 'zero-element-antd/lib/container/Form/utils/extraFieldType';
 import canPortal from 'zero-element-antd/lib/utils/canPortal';
 import { setPageData, getPageData, clearPageData, getHooks } from 'zero-element/lib/Model';
+
+import promiseAjax from '@/utils/promiseAjax';
+import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
+
 import './index.css';
 
 const defaultLabelCol = {
@@ -99,10 +103,10 @@ export default function CustomtForm(props) {
     }
   });
 
+  //获取api数据
   function handleGetData() {
     setCanRenderForm(false);
     onGetOne({}).then((response) => {
-      console.log('response = ', response);
       const { code, data } = response || {};
       if (code === 200 && data) {
         let formData = data;
@@ -118,7 +122,7 @@ export default function CustomtForm(props) {
         if (Array.isArray(images) || Array.isArray(tags)) {
           const otherField = [];
 
-          if (Array.isArray(images)) {
+          if (Array.isArray(tags)) {
             otherField.push({ lable: '', field: 'tags', type: 'tags' });
           }
           if (Array.isArray(images)) {
@@ -135,12 +139,44 @@ export default function CustomtForm(props) {
         } else {
           forceUpdate();
         }
+
+        //根据表单ID获取 页面渲染json配置信息
+        console.log('getWorkFlowData = ', data);
+        // let activityId = '23232';
+        handleGetActivities(data.formType);
       }
     })
       .finally(_ => {
         setCanRenderForm(true);
       })
   }
+
+  function handleGetActivities(activityId){
+    const getFieldsAPI = API.getFieldsAPI;
+    const formatApi = getFieldsAPI.replace('(id)', activityId);
+
+    const apiUrl = `${getEndpoint()}${formatApi}`
+    const queryData = {
+    }
+
+    promiseAjax(apiUrl, queryData)
+    .then(responseData => {
+      console.log('Fields request rst: ', responseData);
+
+      // if (responseData && responseData.code === 200) {
+      //   _this.setState({
+      //     loading: false,
+      //     resultMessage: responseData.message
+      //   })
+      // }else{
+      //   _this.setState({
+      //     loading: false,
+      //   })
+      // }
+    })
+  }
+
+  //根据返回的 extra 信息处理页面json
   function setExtraFields(items) {
     setFields([
       ...fields,

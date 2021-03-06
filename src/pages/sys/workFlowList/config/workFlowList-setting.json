@@ -126,7 +126,7 @@
                     "editLabel": "name",
                     "value": "id",
                     "pagination": true,
-                    "API": "/api/crud/eavEntityType/eavEntityTypes/entity",
+                    "API": "/api/eav/entities",
                     "fields":[
                       {
                         "label": "类型名称",
@@ -261,7 +261,7 @@
                     "editLabel": "name",
                     "value": "id",
                     "pagination": true,
-                    "API": "/api/crud/eavEntityType/eavEntityTypes/entity",
+                    "API": "/api/eav/entities",
                     "fields":[
                       {
                         "label": "类型名称",
