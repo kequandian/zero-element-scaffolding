@@ -85,9 +85,7 @@ golbalSet({
 
 
 if (process.env.NODE_ENV === 'development') {
-  setEndpoint('http://localhost:8080');
-  // setEndpoint('http://192.168.3.28:8081');
-
+  setEndpoint('http://demo.smallsaas.cn:8080');
   // saveToken({
   //   token: '',
   // });
