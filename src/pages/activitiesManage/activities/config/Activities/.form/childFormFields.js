@@ -42,9 +42,9 @@ module.exports = [
           options: {
             options:
               [
-                { label: "字符串", value: "varchar" },
-                { label: "数字", value: "int" },
-                { label: "金钱", value: "float" },
+                { label: "字符串", value: "input" },
+                { label: "数字", value: "number" },
+                { label: "金钱", value: "range" },
                 { label: "日期", value: "date" },
               ]
           },

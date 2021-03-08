@@ -109,9 +109,24 @@ module.exports = {
                 },
               ],
               fields: [
-                { label: '字段标识', field: 'attributeName' },
-                { label: '字段名', field: 'fieldName' },
-                { label: '字段类型', field: 'fieldType' },
+                { label: '字段标识', field: 'attributeName', valueType: 'input-text' },
+                { label: '字段名', field: 'fieldName', valueType: 'input-text' },
+                {
+                  label: '字段类型', field: 'fieldType', valueType: 'input-select',
+                  options: {
+                    options:
+                      [
+                        { label: "字符串", value: "input" },
+                        { label: "数字", value: "number" },
+                        { label: "金钱", value: "range" },
+                        { label: "日期", value: "date" },
+                      ]
+                  },
+                  "rules": ["required"]
+                },
+                { label: '是否必填*', field: 'required', valueType: 'input-switch' },
+                { label: '提示文字*', field: 'placeholder', valueType: 'input-text' },
+                { label: '默认值*', field: 'defaultValue', valueType: 'input-text' },
               ],
               operation: [
                 {

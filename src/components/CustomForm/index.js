@@ -45,7 +45,7 @@ export default function CustomtForm(props) {
     goBack: gobackOpt = true,
     footer: footerOpt,
     requestOptions,
-    footerButton = false
+    otherProps = {},
   } = config;
   const { layoutType = 'inline' } = layoutConfig; // inline vertical horizontal
   const formProps = useBaseForm({
@@ -60,6 +60,9 @@ export default function CustomtForm(props) {
   const { loading, data, model, handle } = formProps;
   const { onGetData, onFormMap } = getHooks(namespace);
   const pageDataFormData = getPageData(namespace).formData;
+
+  //新增属性
+  const { footerButton = true, submitBtnText = '保存'  } = otherProps;
 
   const initData = useRef({
     ...extraData,
@@ -151,6 +154,7 @@ export default function CustomtForm(props) {
       })
   }
 
+  //获取表单页面配置数据
   function handleGetActivities(activityId){
     const getFieldsAPI = API.getFieldsAPI;
     const formatApi = getFieldsAPI.replace('(id)', activityId);
@@ -160,19 +164,19 @@ export default function CustomtForm(props) {
     }
 
     promiseAjax(apiUrl, queryData)
-    .then(responseData => {
-      console.log('Fields request rst: ', responseData);
-
-      // if (responseData && responseData.code === 200) {
-      //   _this.setState({
-      //     loading: false,
-      //     resultMessage: responseData.message
-      //   })
-      // }else{
-      //   _this.setState({
-      //     loading: false,
-      //   })
-      // }
+    .then(resp => {
+      
+      if (resp && resp.code === 200) {
+        const data = resp.data;
+        if(Array.isArray(data.layoutJson)){
+          setFields([
+            ...data.layoutJson
+          ])
+        }
+        
+      }else{
+        console.log('获取页面配置信息失败')
+      }
     })
   }
 
@@ -307,7 +311,7 @@ export default function CustomtForm(props) {
     const classes = MODAL ? 'ant-modal-footer' : 'ZEle-Form-footer';
     return <div className={classes}>
       <Button onClick={handleReset}>重置</Button>
-      <Button type="primary" htmlType="submit" onClick={onSubmit}>保存</Button>
+      <Button type="primary" htmlType="submit" onClick={onSubmit}>{submitBtnText}</Button>
     </div>
   }
 

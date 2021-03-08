@@ -17,7 +17,9 @@ module.exports = {
           value: Array(setting.columns).fill(~~(24 / setting.columns)),
         },
         fields: setting.updateFields || setting.formFields,
-        footerButton:false
+        otherProps:{
+          submitBtnText: '提交'
+        }
       },
     },
   ],

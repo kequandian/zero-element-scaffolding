@@ -32,13 +32,15 @@ import Content from '@/../zero-antd-dep/layout/Content';
 
 import './rewrite.less';
 
-//自定义组件
+//自定义组件--未使用
 import Setting from '@/container/Setting';
 import FieldListAdd from '@/pages/activitiesManage/activities/components/FieldListAdd';
 import FieldModalCheckbox from '@/pages/activitiesManage/activities/components/FieldModalCheckbox';
 import AITSet_childrenModalAdd from "@/pages/activitiesManage/activities/components/CModalAdd";
 import TreeSelectFetch from '@/components/TreeSelectFetch';
+//自定义组件--已使用
 import CustomForm from '@/components/CustomForm';
+import VTSet_InputSwitch from '@/components/ValueType/InputSwitch';
 
 const globalModel = getModel('global');
 
@@ -85,8 +87,8 @@ golbalSet({
 
 
 if (process.env.NODE_ENV === 'development') {
-  setEndpoint('http://localhost:8000');
-  // setEndpoint('http://192.168.3.28:8081');
+  // setEndpoint('http://localhost:8000');
+  setEndpoint('http://192.168.3.239:8090');
 
   // saveToken({
   //   token: '',
@@ -112,7 +114,7 @@ LASet({
 FITSet({
   'FieldListAdd': FieldListAdd,
   'FieldModalCheckbox': FieldModalCheckbox,
-  'tree-select-fetch': TreeSelectFetch,
+  'tree-select-fetch': TreeSelectFetch
 });
 
 AITSet({
@@ -123,4 +125,5 @@ AITSet({
 
 VTSet({
   'path': vPath,
+  'input-switch' : VTSet_InputSwitch,
 });
