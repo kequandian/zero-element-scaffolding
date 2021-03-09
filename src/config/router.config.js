@@ -49,7 +49,7 @@ module.exports = [
       },
       {
         path: '/activitiesManage/activities',
-        name: '表单',
+        name: '表单管理',
       },
     ],
   },
@@ -69,7 +69,7 @@ module.exports = [
         "path": "/sys/workFlowType",
       },
       {
-        "name": "流程列表",
+        "name": "流程管理",
         "path": "/sys/workFlowList"
       },
       {

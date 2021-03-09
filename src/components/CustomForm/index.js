@@ -61,6 +61,9 @@ export default function CustomtForm(props) {
   const { onGetData, onFormMap } = getHooks(namespace);
   const pageDataFormData = getPageData(namespace).formData;
 
+  //保存当前表单ID
+  const [ custActivityId, setCustActivityId ] = useState('');
+
   //新增属性
   const { footerButton = true, submitBtnText = '保存'  } = otherProps;
 
@@ -144,8 +147,8 @@ export default function CustomtForm(props) {
         }
 
         //根据表单ID获取 页面渲染json配置信息
-        console.log('getWorkFlowData = ', data);
-        // let activityId = '23232';
+        // console.log('getWorkFlowData = ', data);
+        setCustActivityId(data.formType)
         handleGetActivities(data.formType);
       }
     })
@@ -176,6 +179,29 @@ export default function CustomtForm(props) {
         
       }else{
         console.log('获取页面配置信息失败')
+      }
+    })
+  }
+
+  //创建流程
+  function handleCreateApply(subData){
+    const createApplyAPI = API.createApplyAPI;
+    const formatApi = createApplyAPI.replace('(id)', custActivityId);
+
+    const apiUrl = `${getEndpoint()}${formatApi}`
+    const queryData = subData;
+
+    console.log('apiUrl = ', apiUrl)
+    
+    promiseAjax(apiUrl, queryData, {method:'POST'})
+    .then(resp => {
+      if (resp && resp.code === 200) {
+        const data = resp.data;
+        console.log('提交申请成功 response = ', data)
+        //返回上一页
+        window.history.back();
+      }else{
+        console.log('提交申请失败')
       }
     })
   }
@@ -220,6 +246,9 @@ export default function CustomtForm(props) {
       ...values,
     };
 
+    // console.log('submitData = ', submitData)
+    // return;
+
     handleFormatValue(submitData);
 
     // 修改并提交 extra 里面的数据
@@ -251,6 +280,8 @@ export default function CustomtForm(props) {
         fields: submitData,
         options: requestOptions,
       }).then(handleResponse);
+    } else if(API.createApplyAPI) {
+      handleCreateApply(submitData);
     } else {
       onCreateForm({
         fields: submitData,
@@ -258,6 +289,7 @@ export default function CustomtForm(props) {
       }).then(handleResponse);
     }
   }
+
   function handleResponse(data = {}, opt = {}) {
     const { message: msg = '操作成功' } = opt;
     if (data.code === 200) {

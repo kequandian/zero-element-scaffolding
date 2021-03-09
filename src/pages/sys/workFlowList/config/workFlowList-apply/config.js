@@ -9,7 +9,7 @@ module.exports = {
       config: {
         API: {
           getAPI: setting.getAPI,
-          updateAPI: setting.updateAPI,
+          createApplyAPI: setting.createApplyAPI,
           getFieldsAPI: setting.getFieldsAPI,
         },
         layout: 'Grid',

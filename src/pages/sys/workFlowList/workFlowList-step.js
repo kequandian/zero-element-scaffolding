@@ -10,7 +10,7 @@ export default function workFlowListStep() {
     useBreadcrumb([
         { title: '首页', path: '/' },
         { title: '系统管理', path: '/sys' },
-        { title: '流程列表', path: '/workFlowList' },
+        { title: '流程管理', path: '/workFlowList' },
         { title: '流程步骤' },
     ]);
     useWillUnmount(switchEndpoint)

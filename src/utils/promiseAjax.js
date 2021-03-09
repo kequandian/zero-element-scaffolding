@@ -1,18 +1,28 @@
 export default (url, data, options = {}) => {
-    const { method = 'GET', async = true } = options;
+    const { method = 'GET', async = true, token = '' } = options;
   
-    let param;
-    let payload;
+    let param = '';
+    let payload = {};
     if (method === 'GET') {
       param = `?${Object.keys(data).map(key => `${key}=${data[key]}`).join('&')}`;
     } else {
-      payload = data;
+      if (data) {
+          payload = JSON.stringify(data);
+      }
     }
   
     return new Promise((resolve, reject) => {
       let xhr = new XMLHttpRequest();
       xhr.open(method, `${url}${param}`, async);
       xhr.responseType = 'JSON';
+
+      if( method == 'POST'){
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+      }
+      
+      if(token){
+        xhr.setRequestHeader("Authorization", `Bearer ${token}`);
+      }
   
       xhr.onreadystatechange = () => {
   

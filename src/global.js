@@ -88,8 +88,8 @@ golbalSet({
 
 if (process.env.NODE_ENV === 'development') {
   //# $ cat /c/Windows/System32/drivers/etc/hosts
-  //# 192.168.3.239:8090 demo.smallsaas.cn
-  setEndpoint('http://demo.smallsaas.cn:8080');
+  //# 192.168.3.239:8090 demo.smallsaas.cn:8080
+  setEndpoint('http://192.168.3.239:8090');
   // saveToken({
   //   token: '',
   // });
