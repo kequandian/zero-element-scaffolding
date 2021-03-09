@@ -73,6 +73,10 @@ module.exports = [
         "path": "/sys/workFlowList"
       },
       {
+        "name": "申请管理",
+        "path": "/sys/applyManage"
+      },
+      {
         "name": "组织管理",
         "path": "/sys/org",
         "permissions": ""

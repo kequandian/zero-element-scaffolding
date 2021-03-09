@@ -86,7 +86,8 @@ function LoginForm(props) {
 
   function handleRouteToHome() {
     if (win.ZEle.indexPage) {
-      history.push(win.ZEle.indexPage);
+      // history.push(win.ZEle.indexPage);
+      history.push('/');
     } else {
       history.push('/');
     }

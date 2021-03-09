@@ -15,6 +15,9 @@ import { setPageData, getPageData, clearPageData, getHooks } from 'zero-element/
 import promiseAjax from '@/utils/promiseAjax';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 
+import TitledBarLayout from '../TitledBarLayout';
+import ApproveFrom from './ApproveForm';
+
 import './index.css';
 
 const defaultLabelCol = {
@@ -62,10 +65,10 @@ export default function CustomtForm(props) {
   const pageDataFormData = getPageData(namespace).formData;
 
   //保存当前表单ID
-  const [ custActivityId, setCustActivityId ] = useState('');
+  const [custActivityId, setCustActivityId] = useState('');
 
   //新增属性
-  const { footerButton = true, submitBtnText = '保存'  } = otherProps;
+  const { footerButton = true, submitBtnText = '保存' } = otherProps;
 
   const initData = useRef({
     ...extraData,
@@ -158,7 +161,7 @@ export default function CustomtForm(props) {
   }
 
   //获取表单页面配置数据
-  function handleGetActivities(activityId){
+  function handleGetActivities(activityId) {
     const getFieldsAPI = API.getFieldsAPI;
     const formatApi = getFieldsAPI.replace('(id)', activityId);
 
@@ -167,24 +170,24 @@ export default function CustomtForm(props) {
     }
 
     promiseAjax(apiUrl, queryData)
-    .then(resp => {
-      
-      if (resp && resp.code === 200) {
-        const data = resp.data;
-        if(Array.isArray(data.layoutJson)){
-          setFields([
-            ...data.layoutJson
-          ])
+      .then(resp => {
+
+        if (resp && resp.code === 200) {
+          const data = resp.data;
+          if (Array.isArray(data.layoutJson)) {
+            setFields([
+              ...data.layoutJson
+            ])
+          }
+
+        } else {
+          console.log('获取页面配置信息失败')
         }
-        
-      }else{
-        console.log('获取页面配置信息失败')
-      }
-    })
+      })
   }
 
   //创建流程
-  function handleCreateApply(subData){
+  function handleCreateApply(subData) {
     const createApplyAPI = API.createApplyAPI;
     const formatApi = createApplyAPI.replace('(id)', custActivityId);
 
@@ -192,18 +195,18 @@ export default function CustomtForm(props) {
     const queryData = subData;
 
     console.log('apiUrl = ', apiUrl)
-    
-    promiseAjax(apiUrl, queryData, {method:'POST'})
-    .then(resp => {
-      if (resp && resp.code === 200) {
-        const data = resp.data;
-        console.log('提交申请成功 response = ', data)
-        //返回上一页
-        window.history.back();
-      }else{
-        console.log('提交申请失败')
-      }
-    })
+
+    promiseAjax(apiUrl, queryData, { method: 'POST' })
+      .then(resp => {
+        if (resp && resp.code === 200) {
+          const data = resp.data;
+          console.log('提交申请成功 response = ', data)
+          //返回上一页
+          window.history.back();
+        } else {
+          console.log('提交申请失败')
+        }
+      })
   }
 
   //根据返回的 extra 信息处理页面json
@@ -280,7 +283,7 @@ export default function CustomtForm(props) {
         fields: submitData,
         options: requestOptions,
       }).then(handleResponse);
-    } else if(API.createApplyAPI) {
+    } else if (API.createApplyAPI) {
       handleCreateApply(submitData);
     } else {
       onCreateForm({
@@ -331,6 +334,8 @@ export default function CustomtForm(props) {
     form.resetFields();
     forceUpdate();
   }
+
+  //保存按钮点击时间
   function renderFooter() {
     function onSubmit() {
       form.submit();
@@ -346,6 +351,116 @@ export default function CustomtForm(props) {
       <Button type="primary" htmlType="submit" onClick={onSubmit}>{submitBtnText}</Button>
     </div>
   }
+
+  function getCurrentProcessSteps(steps) {
+    return steps ? steps : [];
+  }
+
+  const approveFormProps = {
+    loading,
+    currentItem: currentInstance,
+    intlPrefix: 'workflows.apply.form.',
+    onOk: (data) => { handleForm(data) },
+    okText: formatMessage('workflows.apply.form.approve'),
+    onBack,
+    sections: [{  //required
+      //title: <FormattedMessage id="title.base" />, //对于不需要多个section的情况，同样可以用sections（不过元素只有1个），此时title不需要设置
+      xs: 24, sm: 24, md: 24, //optional(也可以用span) Info组件可以使用，CollapsedInfo组件不需要
+      // span: 8, //optional, //Info组件可以使用，CollapsedInfo组件不需要
+      fields: [
+        {
+          name: 'currentStepId',
+          disabled: approved === false || getCurrentProcessSteps(currentProcess.steps).length === 0,
+          rules: [{ required: true, message: '必须选择转交步骤' }],
+          initValFunc: (currentProcess) => currentProcess.selectedStep ? currentProcess.selectedStep.id : undefined,
+          component: <RadioGroup
+            onChange={(e) => {
+              dispatch({
+                type: 'workflows/selectStep',
+                payload: {
+                  id: e.target.value,
+                }
+              })
+            }}
+          >
+            {((items) => items.map((item, index) =>
+              <RadioButton key={item.id} value={item.id}>{item.name}</RadioButton>)
+            )(getCurrentProcessSteps(currentProcess.steps))
+            }
+          </RadioGroup>
+        },
+        {
+          name: 'handleType',
+          rules: [{ required: true, message: '必须选择意见' }],
+          initValFunc: () => 'approve',
+          component: <RadioGroup onChange={handleTypeChange}>
+            <RadioButton key="approve" value="approve">同意</RadioButton>
+            {/*<RadioButton key="reject" value="reject">不同意</RadioButton>*/}
+            {currentInstance.status !== 'START' ?
+              <RadioButton key="rollback" value="rollback">回退</RadioButton>
+              : null}
+          </RadioGroup>
+        },
+        {
+          name: 'note',
+          rules: [{ required: true, message: '必须填写意见' }],
+          component: <Input.TextArea />
+        },
+        {
+          name: 'uploadFile',
+          component: (
+            <Upload {...props}>
+              <Button>
+                <Icon type="upload" /> 点击上传
+               </Button>
+            </Upload>
+          )
+        }
+
+      ],
+      textFields: [
+        {
+          name: 'user',
+          disabled: approved === false || getCurrentProcessSteps(currentProcess.steps).length === 0,
+          validator: () => {
+            if (!currentInstance.currentUserName || !currentInstance.currentUserId) {
+              message.error('经办人不能为空');
+              return false;
+            }
+            return true;
+          },
+          component: <SelectStaff
+            selectStaffName={currentInstance.currentUserName}
+            onSelect={(staff) => {
+              dispatch({
+                type: 'workflows/updateCurrentInstance',
+                payload: {
+                  currentUserId: staff.userId,
+                  currentUserName: staff.name,
+                }
+              })
+            }}
+          />
+          // component: <SelectUser
+          //               value={currentInstance.currentUserName}
+          //               onSelect={(users) => {
+          //                 const user = users && users.length > 0 && users[0];
+          //                 if (user) {
+          //                   dispatch({
+          //                     type: 'workflows/updateCurrentInstance',
+          //                     payload: {
+          //                       currentUserId: user.id,
+          //                       currentUserName: user.name,
+          //                     }
+          //                   })
+          //                 }
+          //               }}
+          //             />
+        },
+      ]
+    },
+    ]
+  };
 
   return <Spin spinning={propsLoading || loading}>
     {renderGoBack && canPortal(extraEl, <Button onClick={handleGoBack}>返回</Button>)}
@@ -376,6 +491,11 @@ export default function CustomtForm(props) {
         </Form>
       ) : <Form form={form} />}
     </div>
-    {footerButton?(renderFooter()): null }
+
+    <TitledBarLayout title={'审批提交信息'}>
+      <ApproveFrom {...approveFormProps} />
+    </TitledBarLayout>
+
+    {footerButton ? (renderFooter()) : null}
   </Spin>
 }
