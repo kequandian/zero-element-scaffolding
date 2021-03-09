@@ -1,6 +1,6 @@
 module.exports = [
   {
-    field: 'name', label: '表单名称', type: 'input',
+    field: 'name', label: '分类名称', type: 'input',
     span: 24,
     rules: ['required'],
   },

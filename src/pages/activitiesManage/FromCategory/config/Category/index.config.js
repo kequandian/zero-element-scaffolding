@@ -26,7 +26,28 @@ module.exports = {
           appendAPI: '',
           deleteAPI: '/api/crud/eavEntityType/eavEntityTypes/(id)'
         },
-        actions: [],
+        actions: [
+          {
+            title: '添加', type: 'modal',
+            options: {
+              style: "primary",
+              modalTitle: '添加用户',
+              modalWidth: 900,
+              items: [
+                {
+                  component: 'Form',
+                  config: {
+                    layout: 'Grid',
+                    API: {
+                      createAPI: '/api/crud/eavEntityType/eavEntityTypes'
+                    },
+                    fields: formFields,
+                  }
+                }
+              ]
+            }
+          }
+        ],
         fields: [
           { field: 'name', label: '分类名称' },
           { field: 'note', label: '备注' },

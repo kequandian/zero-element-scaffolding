@@ -52,6 +52,7 @@ module.exports = {
             "title": "新增",
             "type": "path",
             "options": {
+              style: "primary",
               "path": "/activitiesManage/activities/activities-add"
             }
           },
