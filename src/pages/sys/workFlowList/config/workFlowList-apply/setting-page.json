@@ -37,7 +37,7 @@
   "createAPI": "",
   "getAPI": "/api/wf/processes/[id]",
   "getFieldsAPI": "/api/eav/entities/(id)",
-  "createApplyAPI": "/api/eav/entities/newValue/(id)",
+  "createApplyAPI": "/api/wf/instances/instanceAndForm/(id)",
   "updateAPI": "",
   "deleteAPI": "",
   "searchFields": [

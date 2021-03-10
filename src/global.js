@@ -39,8 +39,10 @@ import FieldModalCheckbox from '@/pages/activitiesManage/activities/components/F
 import AITSet_childrenModalAdd from "@/pages/activitiesManage/activities/components/CModalAdd";
 import TreeSelectFetch from '@/components/TreeSelectFetch';
 //自定义组件--已使用
-import CustomForm from '@/components/CustomForm';
+import CSet_CustomForm from '@/components/CustomForm';
 import VTSet_InputSwitch from '@/components/ValueType/InputSwitch';
+import FITSet_group_title from '@/components/FormItemType/Group';
+import FITSet_dynamic_radio from '@/components/FormItemType/DynamicRadio';
 
 const globalModel = getModel('global');
 
@@ -89,7 +91,7 @@ golbalSet({
 if (process.env.NODE_ENV === 'development') {
   //# $ cat /c/Windows/System32/drivers/etc/hosts
   //# 192.168.3.239:8090 demo.smallsaas.cn:8080
-  setEndpoint('http://192.168.3.239:8080');
+  setEndpoint('http://192.168.3.239:8090');
   // saveToken({
   //   token: '',
   // });
@@ -102,7 +104,7 @@ LayoutSet({
 });
 
 CSet({
-  'custom_form': CustomForm,
+  'custom_form': CSet_CustomForm,
   'Setting': Setting,
 });
 
@@ -114,7 +116,9 @@ LASet({
 FITSet({
   'FieldListAdd': FieldListAdd,
   'FieldModalCheckbox': FieldModalCheckbox,
-  'tree-select-fetch': TreeSelectFetch
+  'tree-select-fetch': TreeSelectFetch,
+  'group-title' : FITSet_group_title,
+  'dynamic_radio' : FITSet_dynamic_radio,
 });
 
 AITSet({

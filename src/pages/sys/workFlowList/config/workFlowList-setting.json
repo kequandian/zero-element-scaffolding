@@ -117,9 +117,13 @@
                   "field": "name"
                 },
                 {
-                  "field": "formType", "label": "表单类型", "type": "modal-radio",
+                  "field": "formType",
+                  "label": "表单类型",
+                  "type": "modal-radio",
                   "props": {},
-                  "rules": ["required"],
+                  "rules": [
+                    "required"
+                  ],
                   "options": {
                     "title": "选择表单类型",
                     "label": "name",
@@ -127,7 +131,7 @@
                     "value": "id",
                     "pagination": true,
                     "API": "/api/eav/entities",
-                    "fields":[
+                    "fields": [
                       {
                         "label": "类型名称",
                         "field": "name"
@@ -140,9 +144,13 @@
                   }
                 },
                 {
-                  "field": "categoryId", "label": "流程类别", "type": "modal-radio",
+                  "field": "categoryId",
+                  "label": "流程类别",
+                  "type": "modal-radio",
                   "props": {},
-                  "rules": ["required"],
+                  "rules": [
+                    "required"
+                  ],
                   "options": {
                     "title": "选择流程类别",
                     "label": "name",
@@ -150,7 +158,7 @@
                     "value": "id",
                     "pagination": true,
                     "API": "/api/categories/all/tree?identifier=workflow",
-                    "fields":[
+                    "fields": [
                       {
                         "label": "类别名称",
                         "field": "name"
@@ -194,9 +202,9 @@
       "title": "启用",
       "type": "request",
       "options": {
-        "method": "post",
+        "method": "put",
         "outside": true,
-        "API": ""
+        "API": "/api/wf/processes/status/(id)"
       },
       "expect": {
         "field": "status",
@@ -207,9 +215,9 @@
       "title": "禁用",
       "type": "request",
       "options": {
-        "method": "post",
+        "method": "put",
         "outside": true,
-        "API": ""
+        "API": "/api/wf/processes/status/(id)"
       },
       "expect": {
         "field": "status",
@@ -252,9 +260,13 @@
                   "field": "name"
                 },
                 {
-                  "field": "formType", "label": "表单类型", "type": "modal-radio",
+                  "field": "formType",
+                  "label": "表单类型",
+                  "type": "modal-radio",
                   "props": {},
-                  "rules": ["required"],
+                  "rules": [
+                    "required"
+                  ],
                   "options": {
                     "title": "选择表单类型",
                     "label": "name",
@@ -262,7 +274,7 @@
                     "value": "id",
                     "pagination": true,
                     "API": "/api/eav/entities",
-                    "fields":[
+                    "fields": [
                       {
                         "label": "类型名称",
                         "field": "name"
@@ -275,9 +287,13 @@
                   }
                 },
                 {
-                  "field": "categoryId", "label": "流程类别", "type": "modal-radio",
+                  "field": "categoryId",
+                  "label": "流程类别",
+                  "type": "modal-radio",
                   "props": {},
-                  "rules": ["required"],
+                  "rules": [
+                    "required"
+                  ],
                   "options": {
                     "title": "选择流程类别",
                     "label": "name",
@@ -285,7 +301,7 @@
                     "value": "id",
                     "pagination": true,
                     "API": "/api/categories/all/tree?identifier=workflow",
-                    "fields":[
+                    "fields": [
                       {
                         "label": "类别名称",
                         "field": "name"
@@ -313,8 +329,9 @@
       }
     },
     {
-      "title": "流程步骤", "type": "path",
-      "options":{
+      "title": "流程步骤",
+      "type": "path",
+      "options": {
         "outside": true,
         "path": "workFlowList/workFlowList-step"
       }
