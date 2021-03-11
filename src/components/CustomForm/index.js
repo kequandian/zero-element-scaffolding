@@ -15,8 +15,6 @@ import { setPageData, getPageData, clearPageData, getHooks } from 'zero-element/
 import promiseAjax from '@/utils/promiseAjax';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 
-import ApproveFormConfig from './ApproveFormConfig';
-
 import './index.css';
 
 const defaultLabelCol = {
@@ -65,9 +63,10 @@ export default function CustomtForm(props) {
 
   //保存当前表单ID
   const [custActivityId, setCustActivityId] = useState('');
+  const [custWorkFlowId, setCustWorkFlowId] = useState('');
 
   //新增属性
-  const { footerButton = true, submitBtnText = '保存' } = otherProps;
+  const { footerButton = true, submitBtnText = '保存', isApplied = false, applyFormFileds } = otherProps;
 
   const initData = useRef({
     ...extraData,
@@ -151,7 +150,17 @@ export default function CustomtForm(props) {
         //根据表单ID获取 页面渲染json配置信息
         // console.log('getWorkFlowData = ', data);
         setCustActivityId(data.formType)
-        handleGetActivities(data.formType);
+        setCustWorkFlowId(data.id);
+        //是否查看申请详情, 如 false 则获取流程表单数据
+        if(!isApplied){
+          handleGetActivities(data.formType);
+        }else{
+          setFields([
+            { "field": "_group", "type": "group-title", "defaultValue": "申请信息" },
+            ...data.layoutJson,
+            ...applyFormFileds
+          ])
+        }
       }
     })
       .finally(_ => {
@@ -177,7 +186,7 @@ export default function CustomtForm(props) {
             setFields([
               { "field": "_group", "type": "group-title", "defaultValue": "申请信息" },
               ...data.layoutJson,
-              ...ApproveFormConfig.items[0].config.fields
+              ...applyFormFileds
             ])
           }
 
@@ -195,7 +204,6 @@ export default function CustomtForm(props) {
     const apiUrl = `${getEndpoint()}${formatApi}`
     const queryData = subData;
     queryData.processId = initData.current.id;
-    queryData.formId = subData.formType;
 
     // delete queryData.steps;
     // delete queryData.nextSteps;
@@ -210,6 +218,39 @@ export default function CustomtForm(props) {
           window.history.back();
         } else {
           console.log('提交申请失败')
+        }
+      })
+  }
+
+  //提交审批
+  function handleUpdateApplyAPI(subData) {
+    const { approveUrl, rollbackUrl } = API.updateApplyAPI;
+    // const updateApplyAPI = API.updateApplyAPI;
+    const formatApi = '';
+
+    const apiUrl = `${getEndpoint()}${formatApi}`
+    const queryData = subData;
+    queryData.processId = initData.current.id;
+
+    if(subData.passed == 'APPROVE'){
+      formatApi = approveUrl.replace('(id)', custWorkFlowId);
+    }else{
+      formatApi = rollbackUrl.replace('(id)', custWorkFlowId);
+    }
+
+    // delete queryData.steps;
+    // delete queryData.nextSteps;
+    // console.log('queryData = ', queryData);
+
+    promiseAjax(apiUrl, queryData, { method: 'PUT' })
+      .then(resp => {
+        if (resp && resp.code === 200) {
+          const data = resp.data;
+          console.log('提交成功 response = ', data)
+          //返回上一页
+          window.history.back();
+        } else {
+          console.log('提交失败')
         }
       })
   }
@@ -290,6 +331,8 @@ export default function CustomtForm(props) {
       }).then(handleResponse);
     } else if (API.createApplyAPI) {
       handleCreateApply(submitData);
+    } else if(API.updateApplyAPI) {
+      handleUpdateApplyAPI(submitData);
     } else {
       onCreateForm({
         fields: submitData,

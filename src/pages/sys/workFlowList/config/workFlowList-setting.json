@@ -127,7 +127,7 @@
                   "options": {
                     "title": "选择表单类型",
                     "label": "name",
-                    "editLabel": "name",
+                    "editLabel": "formName",
                     "value": "id",
                     "pagination": true,
                     "API": "/api/eav/entities",
@@ -154,7 +154,7 @@
                   "options": {
                     "title": "选择流程类别",
                     "label": "name",
-                    "editLabel": "name",
+                    "editLabel": "categoryName",
                     "value": "id",
                     "pagination": true,
                     "API": "/api/categories/all/tree?identifier=workflow",
@@ -270,7 +270,7 @@
                   "options": {
                     "title": "选择表单类型",
                     "label": "name",
-                    "editLabel": "name",
+                    "editLabel": "formName",
                     "value": "id",
                     "pagination": true,
                     "API": "/api/eav/entities",
@@ -297,7 +297,7 @@
                   "options": {
                     "title": "选择流程类别",
                     "label": "name",
-                    "editLabel": "name",
+                    "editLabel": "categoryName",
                     "value": "id",
                     "pagination": true,
                     "API": "/api/categories/all/tree?identifier=workflow",
@@ -332,7 +332,7 @@
       "title": "流程步骤",
       "type": "path",
       "options": {
-        "outside": true,
+        "outside": false,
         "path": "workFlowList/workFlowList-step"
       }
     },
@@ -373,6 +373,11 @@
       "label": "流程名称",
       "width": 200,
       "field": "name"
+    },
+    {
+      "label": "流程名称",
+      "width": 200,
+      "field": "formName"
     },
     {
       "label": "状态",

@@ -30,13 +30,26 @@ export default function ({ namespace, setting, config }) {
   };
 
   return <Flex align="flex-start">
-    <FlexItem flex={1}>
-      {left.map(opt => renderCard(namespace, opt, otherProps))}
-      <br /><br />
-    </FlexItem>
-    <FlexItem className="Details-other">
+    {left.length > 0 ? (
+      <FlexItem flex={1}>
+        {left.map(opt => renderCard(namespace, opt, otherProps))}
+        <br /><br />
+      </FlexItem>
+    ):<></>}
+    {right.length > 0 ? (
+      <FlexItem className="Details-other">
       {right.map(opt => renderCard(namespace, opt, otherProps))}
     </FlexItem>
+    ):<></> }
+    { Array.isArray(config) && config.length > 0 ? (
+      <FlexItem flex={1}>
+        {config.map(opt => {
+          opt.fields = data.layoutJson;
+          return renderCard(namespace, opt, otherProps)
+        })}
+        <br /><br />
+      </FlexItem>
+    ): <></>}
   </Flex>
 }
 
@@ -56,6 +69,6 @@ function renderCard(namespace, opt, props) {
         {...restOpt}
         namespace={namespace}
       />
-    </Card><br />
+    </Card>
   </Fragment>
 }

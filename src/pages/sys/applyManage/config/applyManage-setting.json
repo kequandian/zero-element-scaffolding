@@ -4,11 +4,12 @@
     "new": "",
     "edit": ""
   },
-  "listAPI": "/api/eav/entities/existFormList",
-  "createAPI": "/api/wf/processes",
-  "getAPI": "/api/wf/processes/[id]",
-  "updateAPI": "/api/wf/processes/[id]",
-  "deleteAPI": "/api/wf/processes/(id)",
+  "listAPI": "/api/wf/instances",
+  "createAPI": "",
+  "getAPI": "/api/wf/instanceAndForm/[id]",
+  "updateAPI": "",
+  "deleteAPI": "",
+  "updateApplyAPI": "/api/wf/instanceAndForm/[id]",
   "columns": 1,
   "createFields": [
     {
@@ -81,248 +82,24 @@
     "table": "Content",
     "form": "TitleContent"
   },
-  "tableActions": [
-    {
-      "title": "添加",
-      "type": "modal",
-      "options": {
-        "style": "primary",
-        "modalTitle": "添加流程",
-        "modalWidth": 600,
-        "items": [
-          {
-            "component": "Form",
-            "config": {
-              "layout": "Grid",
-              "layoutConfig": {
-                "value": [
-                  24
-                ]
-              },
-              "API": {
-                "createAPI": "/api/wf/processes"
-              },
-              "fields": [
-                {
-                  "label": "流程名称",
-                  "rules": [
-                    {
-                      "type": "required"
-                    }
-                  ],
-                  "props": {
-                    "placeholder": "请输入"
-                  },
-                  "type": "input",
-                  "field": "name"
-                },
-                {
-                  "field": "formType", "label": "表单类型", "type": "modal-radio",
-                  "props": {},
-                  "rules": ["required"],
-                  "options": {
-                    "title": "选择表单类型",
-                    "label": "name",
-                    "editLabel": "name",
-                    "value": "id",
-                    "pagination": true,
-                    "API": "/api/eav/entities",
-                    "fields":[
-                      {
-                        "label": "类型名称",
-                        "field": "name"
-                      },
-                      {
-                        "label": "类型编码",
-                        "field": "code"
-                      }
-                    ]
-                  }
-                },
-                {
-                  "field": "categoryId", "label": "流程类别", "type": "modal-radio",
-                  "props": {},
-                  "rules": ["required"],
-                  "options": {
-                    "title": "选择流程类别",
-                    "label": "name",
-                    "editLabel": "name",
-                    "value": "id",
-                    "pagination": true,
-                    "API": "/api/categories/all/tree?identifier=workflow",
-                    "fields":[
-                      {
-                        "label": "类别名称",
-                        "field": "name"
-                      },
-                      {
-                        "label": "类别编码",
-                        "field": "code"
-                      }
-                    ]
-                  }
-                },
-                {
-                  "label": "",
-                  "type": "hidden",
-                  "field": "identifier",
-                  "value": "workflow"
-                }
-              ]
-            }
-          }
-        ]
-      },
-      "expect": {
-        "permission": ""
-      }
-    }
-  ],
+  "tableActions": [ ],
   "tableOperation": [
     {
-      "title": "发起申请",
+      "title": "查看",
       "type": "path",
       "options": {
         "outside": true,
-        "path": "workFlowList/workFlowList-apply"
+        "path": "applyManage/applyManage-edit"
       },
       "expect": {
         "permission": ""
       }
     },
     {
-      "title": "启用",
-      "type": "request",
-      "options": {
-        "method": "post",
-        "outside": true,
-        "API": ""
-      },
-      "expect": {
-        "field": "status",
-        "value": "DISABLED"
-      }
-    },
-    {
-      "title": "禁用",
-      "type": "request",
-      "options": {
-        "method": "post",
-        "outside": true,
-        "API": ""
-      },
-      "expect": {
-        "field": "status",
-        "value": "ENABLED"
-      }
-    },
-    {
-      "title": "编辑",
-      "type": "modal",
-      "options": {
-        "modalTitle": "编辑流程",
-        "modalWidth": 600,
-        "outside": true,
-        "items": [
-          {
-            "component": "Form",
-            "config": {
-              "layout": "Grid",
-              "layoutConfig": {
-                "value": [
-                  24
-                ]
-              },
-              "API": {
-                "getAPI": "/api/wf/processes/(id)",
-                "updateAPI": "/api/wf/processes/(id)"
-              },
-              "fields": [
-                {
-                  "label": "类别名称",
-                  "rules": [
-                    {
-                      "type": "required"
-                    }
-                  ],
-                  "props": {
-                    "placeholder": "请输入"
-                  },
-                  "type": "input",
-                  "field": "name"
-                },
-                {
-                  "field": "formType", "label": "表单类型", "type": "modal-radio",
-                  "props": {},
-                  "rules": ["required"],
-                  "options": {
-                    "title": "选择表单类型",
-                    "label": "name",
-                    "editLabel": "name",
-                    "value": "id",
-                    "pagination": true,
-                    "API": "/api/eav/entities",
-                    "fields":[
-                      {
-                        "label": "类型名称",
-                        "field": "name"
-                      },
-                      {
-                        "label": "类型编码",
-                        "field": "code"
-                      }
-                    ]
-                  }
-                },
-                {
-                  "field": "categoryId", "label": "流程类别", "type": "modal-radio",
-                  "props": {},
-                  "rules": ["required"],
-                  "options": {
-                    "title": "选择流程类别",
-                    "label": "name",
-                    "editLabel": "name",
-                    "value": "id",
-                    "pagination": true,
-                    "API": "/api/categories/all/tree?identifier=workflow",
-                    "fields":[
-                      {
-                        "label": "类别名称",
-                        "field": "name"
-                      },
-                      {
-                        "label": "类别编码",
-                        "field": "code"
-                      }
-                    ]
-                  }
-                },
-                {
-                  "label": "",
-                  "type": "hidden",
-                  "field": "identifier",
-                  "value": "workflow"
-                }
-              ]
-            }
-          }
-        ]
-      },
-      "expect": {
-        "permission": ""
-      }
-    },
-    {
-      "title": "流程步骤", "type": "path",
-      "options":{
-        "outside": true,
-        "path": "workFlowList/workFlowList-step"
-      }
-    },
-    {
-      "title": "删除",
+      "title": "撤销申请",
       "type": "delete",
       "options": {
+        "method": "post",
         "outside": false
       },
       "expect": {
@@ -332,17 +109,21 @@
   ],
   "searchFields": [
     {
-      "label": "类别名称",
-      "field": "search",
+      "label": "流程名称",
+      "field": "name",
       "type": "input",
       "props": {
-        "placeholder": ""
+        "placeholder": "请输入"
       }
     },
     {
-      "label": "类别编码",
-      "field": "filmStartTime",
-      "type": "input"
+      "field": "status", "label": "申请状态", "type": "select",
+      "options": [
+        { "label": "开始", "value": "START" },
+        { "label": "审核中", "value": "VERIFYING" },
+        { "label": "已拒绝", "value": "CLOSE_REJECTED" },
+        { "label": "已关闭", "value": "CLOSE_APPROVED" }
+      ]
     }
   ],
   "tableFields": [
@@ -354,24 +135,69 @@
     },
     {
       "label": "流程名称",
-      "width": 200,
       "field": "name"
     },
     {
+      "label": "申请人",
+      "field": "creator"
+    },
+    {
+      "label": "审批人",
+      "field": "currentUserName"
+    },
+    {
+      "label": "当前步骤",
+      "field": "currentStepName"
+    },
+    {
       "label": "状态",
-      "width": 180,
       "field": "status",
       "valueType": "tag",
       "options": {
         "map": {
-          "ENABLED": "启用",
-          "DISABLED": "禁用"
+          "START": "开始",
+          "VERIFYING": "审核中",
+          "CLOSE_REJECTED": "已拒绝",
+          "CLOSE_APPROVED": "已关闭"
         },
         "color": {
           "ENABLED": "#17d349",
-          "DISABLED": "#bdbdbd"
+          "VERIFYING": "#DDAF5B",
+          "CLOSE_REJECTED": "#bdbdbd",
+          "CLOSE_APPROVED": "#bdbdbd"
         }
       }
     }
-  ]
+  ],
+  "viewConfig": [{
+    "title": "详情",
+    "type": "plain",
+    "fields": [
+      {
+        "label": "微服务名",
+        "field": "service_name",
+        "placeholder": "12345"
+      },
+      {
+        "label": "appid",
+        "field": "项目id"
+      },
+      {
+        "label": "权限",
+        "field": "permission"
+      },
+      {
+        "label": "接口id",
+        "field": "apiid"
+      },
+      {
+        "label": "请求路径",
+        "field": "api_url"
+      },
+      {
+        "label": "请求方式",
+        "field": "api_method"
+      }
+    ]
+  }]
 }

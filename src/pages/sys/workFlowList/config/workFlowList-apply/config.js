@@ -1,22 +1,10 @@
 const setting = require('./setting-page.json');
-const stepTableSetting = require('./workFlowStep-table.json');
+const applyFormFileds = require("./approveFormConfig");
 
 module.exports = {
   layout: setting.layout.form,
   title: setting.pageName.edit,
   items: [
-    // {
-    //   component: 'Table',
-    //   config: {
-    //     API: {
-    //       listAPI: stepTableSetting.listAPI,
-    //       deleteAPI: stepTableSetting.deleteAPI,
-    //     },
-    //     actions: stepTableSetting.tableActions,
-    //     fields: stepTableSetting.tableFields,
-    //     operation: stepTableSetting.tableOperation,
-    //   },
-    // },
     {
       component: 'custom_form',
       config: {
@@ -31,7 +19,8 @@ module.exports = {
         },
         fields: setting.updateFields || setting.formFields,
         otherProps:{
-          submitBtnText: '提交'
+          submitBtnText: '提交',
+          applyFormFileds: applyFormFileds.fields
         }
       },
     },

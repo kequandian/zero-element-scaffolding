@@ -43,6 +43,7 @@ import CSet_CustomForm from '@/components/CustomForm';
 import VTSet_InputSwitch from '@/components/ValueType/InputSwitch';
 import FITSet_group_title from '@/components/FormItemType/Group';
 import FITSet_dynamic_radio from '@/components/FormItemType/DynamicRadio';
+import FITSet_local_radio from '@/components/FormItemType/LocalRadio';
 
 const globalModel = getModel('global');
 
@@ -119,6 +120,7 @@ FITSet({
   'tree-select-fetch': TreeSelectFetch,
   'group-title' : FITSet_group_title,
   'dynamic_radio' : FITSet_dynamic_radio,
+  'local_radio' : FITSet_local_radio,
 });
 
 AITSet({
