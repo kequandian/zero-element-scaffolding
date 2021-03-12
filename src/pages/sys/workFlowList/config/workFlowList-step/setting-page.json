@@ -258,7 +258,7 @@
       "options": {
         "outside": true,
         "tips": "确定要删除吗?",
-        "API": "/api/crud/advertiser/advertisers/(id)",
+        "API": "/api/wf/processes/steps/(id)",
         "method": "delete"
       }
     }
