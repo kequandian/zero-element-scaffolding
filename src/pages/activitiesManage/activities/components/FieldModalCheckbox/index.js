@@ -17,7 +17,7 @@ export default function ModalCheckbox(props) {
   const { formData } = getPageData(namespace);
 
   const {
-    title = '选择数据',
+    title = '添加',
     modalWidth,
     label = 'name', editLabel = label,
     field = name,
@@ -41,25 +41,68 @@ export default function ModalCheckbox(props) {
       _toValue: value.map(item => item[optValue]),
     };
   }
+
   function switchVisible() {
-    setVisible(!visible);
+    // setVisible(!visible);
+    handleSave()
   }
+
+
+
   function handleSave() {
+
+    const item = {"entityId":null,"attributeName":null,"fieldName":null,"fieldType":null,"required":null,"placeholder":null,"defaultValue":null};
+
+    const sdCurrent = selectedData.current
+    if(sdCurrent.value && Array.isArray(sdCurrent.value)){
+      sdCurrent.value.push(item)
+    }else{
+      sdCurrent.value = [item];
+    }
+
+    sdCurrent.value.map((item, index) => {
+      item.id = index;
+      item._index = `_${index}`
+      return item;
+    })
+
+    selectedData.current = sdCurrent
+
+    // console.log('selectedData = ', selectedData)
+    // console.log('saveData = ', saveData)
+    
+    // console.log('selectedData.current = ', JSON.stringify(selectedData.current))
+
     onChange(selectedData.current);
-    setVisible(false);
+    // setVisible(false);
 
     if (saveData) {
       Object.keys(saveData).forEach(key => {
+        // console.log('key = ', key)
+        // console.log('selectedData.current[saveData[key]] = ', JSON.stringify(selectedData.current[saveData[key]]))
         onSaveOtherValue(key, selectedData.current[saveData[key]]);
       });
     }
+
+
+    // onChange(selectedData.current);
+    // setVisible(false);
+
+    // if (saveData) {
+    //   Object.keys(saveData).forEach(key => {
+    //     console.log('key = ', key)
+    //     console.log('selectedData.current[saveData[key]] = ', JSON.stringify(selectedData.current[saveData[key]]))
+    //     onSaveOtherValue(key, selectedData.current[saveData[key]]);
+    //   });
+    // }
   }
 
   return <>
     <Button
       onClick={switchVisible}
     >
-      {echoName(value, formData, { field, label, editLabel }) || title}
+      {/* {echoName(value, formData, { field, label, editLabel }) || title} */}
+      {title}
     </Button>
     <Modal
       destroyOnClose
@@ -80,7 +123,7 @@ export default function ModalCheckbox(props) {
         API={API}
         fields={fields}
         pagination={pagination}
-        requireValid={requireValid}
+        requireValid={false}
       />
     </Modal>
   </>

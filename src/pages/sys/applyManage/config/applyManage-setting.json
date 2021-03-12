@@ -9,7 +9,10 @@
   "getAPI": "/api/wf/instanceAndForm/[id]",
   "updateAPI": "",
   "deleteAPI": "",
-  "updateApplyAPI": "/api/wf/instanceAndForm/[id]",
+  "updateApplyAPI": {
+    "approveUrl": "/api/wf/instances/(id)/approve", 
+    "rollbackUrl": "/api/wf/instances/(id)/rollback"
+  },
   "columns": 1,
   "createFields": [
     {
@@ -122,7 +125,7 @@
         { "label": "开始", "value": "START" },
         { "label": "审核中", "value": "VERIFYING" },
         { "label": "已拒绝", "value": "CLOSE_REJECTED" },
-        { "label": "已关闭", "value": "CLOSE_APPROVED" }
+        { "label": "已结束", "value": "CLOSE_APPROVED" }
       ]
     }
   ],
@@ -158,7 +161,7 @@
           "START": "开始",
           "VERIFYING": "审核中",
           "CLOSE_REJECTED": "已拒绝",
-          "CLOSE_APPROVED": "已关闭"
+          "CLOSE_APPROVED": "已结束"
         },
         "color": {
           "ENABLED": "#17d349",

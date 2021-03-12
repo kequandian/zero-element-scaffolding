@@ -16,7 +16,7 @@ export default (url, data, options = {}) => {
       xhr.open(method, `${url}${param}`, async);
       xhr.responseType = 'JSON';
 
-      if( method == 'POST'){
+      if( method == 'POST' || method == 'PUT'){
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
       }
       

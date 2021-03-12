@@ -8,6 +8,7 @@ export default function TableCheckbox({
   formData,
   ...rest // API fields pagination requireValid
 }) {
+
   return <TableSelect
     namespace={namespace}
     value={getSelectedKeys(value, formData, {

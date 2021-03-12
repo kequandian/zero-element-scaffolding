@@ -147,11 +147,13 @@ export default function CustomtForm(props) {
           forceUpdate();
         }
 
-        //根据表单ID获取 页面渲染json配置信息
-        // console.log('getWorkFlowData = ', data);
+        //保存表单ID
         setCustActivityId(data.formType)
+        //保存流程ID
         setCustWorkFlowId(data.id);
-        //是否查看申请详情, 如 false 则获取流程表单数据
+
+        //根据表单ID获取 页面渲染json配置信息
+        //isApplied 是否查看申请详情, 如 false 则获取流程表单数据
         if(!isApplied){
           handleGetActivities(data.formType);
         }else{
@@ -225,10 +227,7 @@ export default function CustomtForm(props) {
   //提交审批
   function handleUpdateApplyAPI(subData) {
     const { approveUrl, rollbackUrl } = API.updateApplyAPI;
-    // const updateApplyAPI = API.updateApplyAPI;
-    const formatApi = '';
-
-    const apiUrl = `${getEndpoint()}${formatApi}`
+    let formatApi = '';
     const queryData = subData;
     queryData.processId = initData.current.id;
 
@@ -237,10 +236,8 @@ export default function CustomtForm(props) {
     }else{
       formatApi = rollbackUrl.replace('(id)', custWorkFlowId);
     }
-
-    // delete queryData.steps;
-    // delete queryData.nextSteps;
-    // console.log('queryData = ', queryData);
+    
+    const apiUrl = `${getEndpoint()}${formatApi}`;
 
     promiseAjax(apiUrl, queryData, { method: 'PUT' })
       .then(resp => {

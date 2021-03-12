@@ -20,7 +20,7 @@ module.exports = {
       config: {
         API: {
           listAPI: '/api/crud/eavEntityType/eavEntityTypes/entity?typeId=<id>',
-          deleteAPI: '/api/crud/eavEntityType/eavEntityTypes/entity/(id)'
+          deleteAPI: '/api/eav/entities/(id)'
         },
         tree: {
           API: {

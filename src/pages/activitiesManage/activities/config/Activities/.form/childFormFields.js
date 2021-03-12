@@ -2,7 +2,7 @@ module.exports = [
   {
     label: '新增列',
     field: 'temp',
-    type: 'modal-checkbox',
+    type: 'FieldModalCheckbox',
     span: 24,
     options: {
       API: '/api/eav/entities/attributes/example',

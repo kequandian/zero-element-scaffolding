@@ -350,7 +350,7 @@
   "searchFields": [
     {
       "label": "类别名称",
-      "field": "search",
+      "field": "name",
       "type": "input",
       "props": {
         "placeholder": ""
@@ -358,7 +358,7 @@
     },
     {
       "label": "类别编码",
-      "field": "filmStartTime",
+      "field": "code",
       "type": "input"
     }
   ],
@@ -375,7 +375,7 @@
       "field": "name"
     },
     {
-      "label": "流程名称",
+      "label": "表单名称",
       "width": 200,
       "field": "formName"
     },
