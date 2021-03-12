@@ -45,7 +45,9 @@
                 {
                   "label": "步骤名称",
                   "rules": [
-                    { "type": "required" }
+                    {
+                      "type": "required"
+                    }
                   ],
                   "props": {
                     "placeholder": "请输入"
@@ -57,13 +59,24 @@
                   "label": "步骤类型",
                   "field": "type",
                   "rules": [
-                    { "type": "required" }
+                    {
+                      "type": "required"
+                    }
                   ],
                   "type": "select",
                   "options": [
-                    { "label": "开始", "value": "START" },
-                    { "label": "中间", "value": "MIDDLE" },
-                    { "label": "结束", "value": "END" }
+                    {
+                      "label": "开始",
+                      "value": "START"
+                    },
+                    {
+                      "label": "中间",
+                      "value": "MIDDLE"
+                    },
+                    {
+                      "label": "结束",
+                      "value": "END"
+                    }
                   ]
                 },
                 {
@@ -71,8 +84,7 @@
                   "field": "nextStepString",
                   "type": "modal-checkbox",
                   "props": {},
-                  "rules": [
-                  ],
+                  "rules": [],
                   "options": {
                     "title": "选择步骤",
                     "label": "name",
@@ -89,10 +101,21 @@
                         "field": "name"
                       },
                       {
-                        "className": "",
+                        "field": "type",
+                        "label": "步骤类型",
                         "valueType": "tag",
-                        "field": "phone",
-                        "label": "电话"
+                        "options": {
+                          "map": {
+                            "START": "开始",
+                            "MIDDLE": "中间",
+                            "END": "结束"
+                          },
+                          "color": {
+                            "START": "#17d349",
+                            "MIDDLE": "#DDAF5B",
+                            "END": "#D80000"
+                          }
+                        }
                       }
                     ]
                   }
@@ -139,7 +162,9 @@
                 {
                   "label": "步骤名称",
                   "rules": [
-                    { "type": "required" }
+                    {
+                      "type": "required"
+                    }
                   ],
                   "props": {
                     "placeholder": "请输入"
@@ -151,13 +176,24 @@
                   "label": "步骤类型",
                   "field": "type",
                   "rules": [
-                    { "type": "required" }
+                    {
+                      "type": "required"
+                    }
                   ],
                   "type": "select",
                   "options": [
-                    { "label": "开始", "value": "START" },
-                    { "label": "中间", "value": "MIDDLE" },
-                    { "label": "结束", "value": "END" }
+                    {
+                      "label": "开始",
+                      "value": "START"
+                    },
+                    {
+                      "label": "中间",
+                      "value": "MIDDLE"
+                    },
+                    {
+                      "label": "结束",
+                      "value": "END"
+                    }
                   ]
                 },
                 {
@@ -165,8 +201,7 @@
                   "field": "nextStepString",
                   "type": "modal-checkbox",
                   "props": {},
-                  "rules": [
-                  ],
+                  "rules": [],
                   "options": {
                     "title": "选择步骤",
                     "label": "name",
@@ -183,10 +218,21 @@
                         "field": "name"
                       },
                       {
-                        "className": "",
+                        "field": "type",
+                        "label": "步骤类型",
                         "valueType": "tag",
-                        "field": "phone",
-                        "label": "电话"
+                        "options": {
+                          "map": {
+                            "START": "开始",
+                            "MIDDLE": "中间",
+                            "END": "结束"
+                          },
+                          "color": {
+                            "START": "#17d349",
+                            "MIDDLE": "#DDAF5B",
+                            "END": "#D80000"
+                          }
+                        }
                       }
                     ]
                   }

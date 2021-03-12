@@ -1,4 +1,4 @@
-import React, { useRef, useMemo, useState } from 'react';
+import React, { useRef, useMemo, useState, useEffect } from 'react';
 import { Form } from 'antd';
 import { formatAPI } from 'zero-element/lib/utils/format';
 import useBaseForm from 'zero-element/lib/helper/form/useBaseForm';
@@ -63,10 +63,13 @@ export default function CustomtForm(props) {
 
   //保存当前表单ID
   const [custActivityId, setCustActivityId] = useState('');
+  //保存当前流程ID
   const [custWorkFlowId, setCustWorkFlowId] = useState('');
+  //申请状态
+  const [applyStatus, setApplyStatus] = useState('START');
 
   //新增属性
-  const { footerButton = true, submitBtnText = '保存', isApplied = false, applyFormFileds } = otherProps;
+  const { footerButton = true, submitBtnText = '保存', isApplied = false, applyFormFileds, applyHistoryFileds } = otherProps;
 
   const initData = useRef({
     ...extraData,
@@ -151,17 +154,33 @@ export default function CustomtForm(props) {
         setCustActivityId(data.formType)
         //保存流程ID
         setCustWorkFlowId(data.id);
+        //保存申请单状态
+        setApplyStatus(data.status);
 
         //根据表单ID获取 页面渲染json配置信息
         //isApplied 是否查看申请详情, 如 false 则获取流程表单数据
         if(!isApplied){
           handleGetActivities(data.formType);
         }else{
-          setFields([
-            { "field": "_group", "type": "group-title", "defaultValue": "申请信息" },
-            ...data.layoutJson,
-            ...applyFormFileds
-          ])
+          
+          handleGetApplyHistory(data.id); 
+          if(data.status == 'CLOSE_REJECTED' || data.status == 'CLOSE_APPROVED'){
+            setFields([
+              { "field": "_group", "type": "group-title", "defaultValue": "申请信息" },
+              ...data.layoutJson,
+              { "field": "_group", "type": "group-title", "defaultValue": "审批历史" },
+              applyHistoryFileds,
+            ])
+          }else{
+            setFields([
+              { "field": "_group", "type": "group-title", "defaultValue": "申请信息" },
+              ...data.layoutJson,
+              { "field": "_group", "type": "group-title", "defaultValue": "审批历史" },
+              applyHistoryFileds,
+              ...applyFormFileds
+            ])
+          }
+          
         }
       }
     })
@@ -198,6 +217,28 @@ export default function CustomtForm(props) {
       })
   }
 
+  //获取审核历史数据
+  function handleGetApplyHistory(id){
+    const getApplyHistoryAPI = API.getApplyHistoryAPI;
+    const apiUrl = `${getEndpoint()}${getApplyHistoryAPI}`
+    const queryData = {
+      instanceId: id
+    }
+
+    promiseAjax(apiUrl, queryData)
+      .then(resp => {
+
+        if (resp && resp.code === 200) {
+          const data = resp.data;
+          // setApplyHistory(data)
+          initData.current.history = data;
+          form.setFieldsValue({ ...initData.current });
+        } else {
+          console.log('获取审核历史信息失败')
+        }
+      })
+  }
+
   //创建流程
   function handleCreateApply(subData) {
     const createApplyAPI = API.createApplyAPI;
@@ -226,15 +267,17 @@ export default function CustomtForm(props) {
 
   //提交审批
   function handleUpdateApplyAPI(subData) {
-    const { approveUrl, rollbackUrl } = API.updateApplyAPI;
+    const { approveUrl, rollbackUrl, rejectUrl } = API.updateApplyAPI;
     let formatApi = '';
     const queryData = subData;
     queryData.processId = initData.current.id;
 
     if(subData.passed == 'APPROVE'){
       formatApi = approveUrl.replace('(id)', custWorkFlowId);
-    }else{
+    } else if (subData.passed == 'ROLLBACK'){
       formatApi = rollbackUrl.replace('(id)', custWorkFlowId);
+    } else {
+      formatApi = rejectUrl.replace('(id)', custWorkFlowId);
     }
     
     const apiUrl = `${getEndpoint()}${formatApi}`;
@@ -427,6 +470,6 @@ export default function CustomtForm(props) {
       ) : <Form form={form} />}
     </div>
 
-    {footerButton ? (renderFooter()) : null}
+    {footerButton && applyStatus!='CLOSE_REJECTED' && applyStatus!= 'CLOSE_APPROVED' ? (renderFooter()) : null}
   </Spin>
 }

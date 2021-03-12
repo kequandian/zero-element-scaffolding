@@ -2,7 +2,7 @@
 module.exports = {
     
     fields: [
-        { field: '_group', type: 'group-title', defaultValue: '申请审批信息' },
+        { field: '_group', type: 'group-title', defaultValue: '审批信息' },
         {
             field: 'currentUserId', label: '经办人', type: 'modal-radio',
             props: {},

@@ -1,5 +1,6 @@
 const setting = require('./applyManage-setting.json');
 const applyFormFileds = require("./approveFormConfig");
+const applyHistoryFileds = require("./approveHistory");
 
 module.exports = {
   layout: setting.layout.form,
@@ -25,6 +26,7 @@ module.exports = {
         API: {
           getAPI: setting.getAPI,
           updateApplyAPI: setting.updateApplyAPI,
+          getApplyHistoryAPI: setting.getApplyHistoryAPI
         },
         layout: 'Grid',
         layoutConfig: {
@@ -34,7 +36,8 @@ module.exports = {
         otherProps:{
           submitBtnText: '提交',
           isApplied: true,
-          applyFormFileds: applyFormFileds.fields
+          applyFormFileds: applyFormFileds.fields,
+          applyHistoryFileds : applyHistoryFileds
         }
       },
     },

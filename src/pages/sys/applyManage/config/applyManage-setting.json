@@ -8,11 +8,13 @@
   "createAPI": "",
   "getAPI": "/api/wf/instanceAndForm/[id]",
   "updateAPI": "",
-  "deleteAPI": "",
+  "deleteAPI": "/api/wf/instances/(id)",
   "updateApplyAPI": {
     "approveUrl": "/api/wf/instances/(id)/approve", 
-    "rollbackUrl": "/api/wf/instances/(id)/rollback"
+    "rollbackUrl": "/api/wf/instances/(id)/rollback",
+    "rejectUrl": "/api/wf/instances/(id)/reject"
   },
+  "getApplyHistoryAPI": "/api/wf/histories",
   "columns": 1,
   "createFields": [
     {
@@ -88,6 +90,19 @@
   "tableActions": [ ],
   "tableOperation": [
     {
+      "title": "审核",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "applyManage/applyManage-edit"
+      },
+      "expect": {
+        "permission": "",
+        "field": "status",
+        "value": "/(START|VERIFYING)/"
+      }
+    },
+    {
       "title": "查看",
       "type": "path",
       "options": {
@@ -95,7 +110,9 @@
         "path": "applyManage/applyManage-edit"
       },
       "expect": {
-        "permission": ""
+        "permission": "",
+        "field": "status",
+        "value": "/(CLOSE_REJECTED|CLOSE_APPROVED)/"
       }
     },
     {
@@ -105,8 +122,11 @@
         "method": "post",
         "outside": false
       },
+      
       "expect": {
-        "permission": ""
+        "permission": "",
+        "field": "status",
+        "value": "/(START|VERIFYING)/"
       }
     }
   ],
@@ -130,12 +150,6 @@
     }
   ],
   "tableFields": [
-    {
-      "label": "序号",
-      "width": 60,
-      "field": "Number",
-      "valueType": "index"
-    },
     {
       "label": "流程名称",
       "field": "name"
@@ -170,6 +184,10 @@
           "CLOSE_APPROVED": "#bdbdbd"
         }
       }
+    },
+    {
+      "label": "申请时间",
+      "field": "createTime"
     }
   ],
   "viewConfig": [{

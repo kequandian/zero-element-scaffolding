@@ -118,14 +118,14 @@
                 },
                 {
                   "field": "formType",
-                  "label": "表单类型",
+                  "label": "表单",
                   "type": "modal-radio",
                   "props": {},
                   "rules": [
                     "required"
                   ],
                   "options": {
-                    "title": "选择表单类型",
+                    "title": "选择表单",
                     "label": "name",
                     "editLabel": "formName",
                     "value": "id",
@@ -133,12 +133,12 @@
                     "API": "/api/eav/entities",
                     "fields": [
                       {
-                        "label": "类型名称",
+                        "label": "表单名称",
                         "field": "name"
                       },
                       {
-                        "label": "类型编码",
-                        "field": "code"
+                        "label": "备注",
+                        "field": "note"
                       }
                     ]
                   }
@@ -195,7 +195,9 @@
         "path": "workFlowList/workFlowList-apply"
       },
       "expect": {
-        "permission": ""
+        "permission": "",
+        "field": "status",
+        "value": "ENABLED"
       }
     },
     {
@@ -261,14 +263,14 @@
                 },
                 {
                   "field": "formType",
-                  "label": "表单类型",
+                  "label": "表单",
                   "type": "modal-radio",
                   "props": {},
                   "rules": [
                     "required"
                   ],
                   "options": {
-                    "title": "选择表单类型",
+                    "title": "选择表单",
                     "label": "name",
                     "editLabel": "formName",
                     "value": "id",
@@ -276,12 +278,12 @@
                     "API": "/api/eav/entities",
                     "fields": [
                       {
-                        "label": "类型名称",
+                        "label": "表单名称",
                         "field": "name"
                       },
                       {
-                        "label": "类型编码",
-                        "field": "code"
+                        "label": "备注",
+                        "field": "note"
                       }
                     ]
                   }
@@ -349,33 +351,22 @@
   ],
   "searchFields": [
     {
-      "label": "类别名称",
+      "label": "流程名称",
       "field": "name",
       "type": "input",
       "props": {
         "placeholder": ""
       }
-    },
-    {
-      "label": "类别编码",
-      "field": "code",
-      "type": "input"
     }
   ],
   "tableFields": [
-    {
-      "label": "序号",
-      "width": 60,
-      "field": "Number",
-      "valueType": "index"
-    },
     {
       "label": "流程名称",
       "width": 200,
       "field": "name"
     },
     {
-      "label": "表单名称",
+      "label": "使用表单",
       "width": 200,
       "field": "formName"
     },

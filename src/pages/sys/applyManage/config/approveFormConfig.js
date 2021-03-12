@@ -2,7 +2,7 @@
 module.exports = {
 
     fields: [
-        { field: '_group', type: 'group-title', defaultValue: '申请审批信息' },
+        { field: '_group', type: 'group-title', defaultValue: '审批信息' },
         {
             field: 'currentUserId', label: '经办人', type: 'modal-radio',
             props: {},
@@ -35,7 +35,6 @@ module.exports = {
             options: [
             ],
             rules: ['required'],
-
             expect: {
                 field: 'passed',
                 value: 'APPROVE',
@@ -46,6 +45,7 @@ module.exports = {
             options: [
                 { label: '同意', value: 'APPROVE' },
                 { label: '回退', value: 'ROLLBACK' },
+                { label: '拒绝', value: 'REJECT' },
             ],
             rules: ['required']
         },
@@ -66,6 +66,10 @@ module.exports = {
             options: {
                 title: '点击上传',
                 API: ''
+            },
+            expect: {
+                field: 'passed',
+                value: 'APPROVE',
             }
         }
     ]
