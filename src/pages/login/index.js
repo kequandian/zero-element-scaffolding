@@ -54,6 +54,7 @@ function LoginForm(props) {
     post('/api/sys/oauth/login', values, {
       message: null,
     }).then((data) => {
+      console.log('data = ', data)
       saveToken({
         userName: data.name,
         token: data.accessToken,
@@ -63,20 +64,22 @@ function LoginForm(props) {
       });
       model.queryPerm(true);
 
-      if (data.status === 'PASS') {
-        if (data.passwordIsEmpty === true) {
-          setResetPassword(true);
-        } else {
-          handleRouteToHome(data);
-        }
-      } else {
-        if (data.status === 'PENDING_APPROVAL') {
-          history.push('/login/pending');
-        }
-        if (data.status === 'REFUSE') {
-          history.push('/login/refuse');
-        }
-      }
+      // if (data.status === 'PASS') {
+      //   if (data.passwordIsEmpty === true) {
+      //     setResetPassword(true);
+      //   } else {
+      //     handleRouteToHome(data);
+      //   }
+      // } else {
+      //   if (data.status === 'PENDING_APPROVAL') {
+      //     history.push('/login/pending');
+      //   }
+      //   if (data.status === 'REFUSE') {
+      //     history.push('/login/refuse');
+      //   }
+      // }
+      
+      handleRouteToHome(data);
 
     })
       .finally(_ => {
@@ -86,8 +89,7 @@ function LoginForm(props) {
 
   function handleRouteToHome() {
     if (win.ZEle.indexPage) {
-      // history.push(win.ZEle.indexPage);
-      history.push('/');
+      history.push(win.ZEle.indexPage);
     } else {
       history.push('/');
     }

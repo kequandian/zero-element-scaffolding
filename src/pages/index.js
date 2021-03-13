@@ -9,12 +9,12 @@ export default function () {
   //   history.push(win.ZEle.indexPage);
   // }
 
-  history.push('/activitiesManage/FromCategory');
-  // if (getToken()) {
-  //   history.push('/activitiesManage/activities');
-  // } else {
-  //   history.push('/login');
-  // }
+  // history.push('/activitiesManage/FromCategory');
+  if (getToken()) {
+    history.push('/activitiesManage/FromCategory');
+  } else {
+    history.push('/login');
+  }
 
   return (
     <div>
