@@ -1,5 +1,8 @@
+
+import { getToken } from 'zero-element/lib/utils/request/token';
+
 export default (url, data, options = {}) => {
-    const { method = 'GET', async = true, token = '' } = options;
+    const { method = 'GET', async = true, token = getToken() } = options;
   
     let param = '';
     let payload = {};

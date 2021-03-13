@@ -43,7 +43,7 @@ module.exports = {
                   config: {
                     layout: 'Grid',
                     API: {
-                      createAPI: '/api/crud/cinema/user'
+                      createAPI: '/api/adm/users'
                     },
                     fields: formFields,
                   }

@@ -1,4 +1,7 @@
 module.exports = [
+  {
+    field: 'account', label: '登录账号', type: 'input',rules: ['required']
+  },
  {
     "label": "选择组织",
     "field": "orgId",

@@ -26,8 +26,7 @@ export default function PrimaryLayout({
 
   useEffect(_ => {
     if (documentVisibility === 'visible') {
-      //需要权限时，去掉下面代码注释
-      //globalModel.queryPerm();
+      globalModel.queryPerm();
     }
   }, [permissions, documentVisibility]);
 

@@ -44,6 +44,7 @@ import VTSet_InputSwitch from '@/components/ValueType/InputSwitch';
 import FITSet_group_title from '@/components/FormItemType/Group';
 import FITSet_dynamic_radio from '@/components/FormItemType/DynamicRadio';
 import FITSet_local_radio from '@/components/FormItemType/LocalRadio';
+import FITSet_Perm from '@/formItemType/Perm';
 
 const globalModel = getModel('global');
 
@@ -115,6 +116,7 @@ LASet({
 
 //表单组件
 FITSet({
+  'perm': FITSet_Perm,
   'FieldListAdd': FieldListAdd,
   'FieldModalCheckbox': FieldModalCheckbox,
   'tree-select-fetch': TreeSelectFetch,
