@@ -4,8 +4,11 @@ import GlobalContext from '@/framework/GlobalContext';
 import window from 'zero-element/lib/utils/window';
 import { BackTop } from 'antd';
 
-import menuData from '@/config/router.config';
+import router from '@/config/router.config';
 import profileMenuData from '@/config/profile.config';
+import { getModel } from 'zero-element/lib/Model';
+
+const menuData = [...router];
 
 function reducer(state, { type, payload }) {
   const method = {
@@ -32,6 +35,10 @@ function reducer(state, { type, payload }) {
 function BasicLayout(props) {
   const { location } = props;
   const { pathname } = location;
+
+  const menuConfigModel = getModel('menuConfig');
+  // console.log('menuTree = ', menuConfigModel.getMenuTree());
+  // router.push(...menuConfigModel.getMenuTree());
 
   const [state, dispatch] = useReducer(reducer, {
     breadcrumb: [],

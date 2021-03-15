@@ -85,6 +85,6 @@ module.exports = [
     span: 24
   },
   {
-    field: 'account', label: '', type: 'hidden', value: ' ',
+    field: 'account', label: '', type: 'hidden', value: '',
   },
 ]

@@ -1,9 +1,17 @@
 import React, { useMemo } from 'react';
 import { Breadcrumb } from 'antd';
 import { Link } from 'umi';
-import router from '@/config/router.config';
+import menuData from '@/config/router.config';
+import { getModel } from 'zero-element/lib/Model';
+
+const router = [...menuData];
 
 export default ({ path, breadcrumb }) => {
+
+  const menuConfigModel = getModel('menuConfig');
+  // console.log('menuTree = ', menuConfigModel.getMenuTree());
+  // router.push(...menuConfigModel.getMenuTree());
+
   const pathAry = useMemo(() => {
     const arr = path.split("\/");
     const rst = [];
