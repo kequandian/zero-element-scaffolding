@@ -34,9 +34,9 @@ import './rewrite.less';
 
 //自定义组件--未使用
 import Setting from '@/container/Setting';
-import FieldListAdd from '@/pages/activitiesManage/activities/components/FieldListAdd';
-import FieldModalCheckbox from '@/pages/activitiesManage/activities/components/FieldModalCheckbox';
-import AITSet_childrenModalAdd from "@/pages/activitiesManage/activities/components/CModalAdd";
+import FieldListAdd from '@/pages/workFlowManage/activities/components/FieldListAdd';
+import FieldModalCheckbox from '@/pages/workFlowManage/activities/components/FieldModalCheckbox';
+import AITSet_childrenModalAdd from "@/pages/workFlowManage/activities/components/CModalAdd";
 import TreeSelectFetch from '@/components/TreeSelectFetch';
 //自定义组件--已使用
 import CSet_CustomForm from '@/components/CustomForm';

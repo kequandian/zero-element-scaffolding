@@ -50,31 +50,21 @@ module.exports = [
       {
         path: '/userAudit/myApply',
         name: '我的申请',
-      },
-      {
-        path: '/userAudit/toDoList',
-        name: '待办事项',
-      },
-    ],
-  },
-  {
-    name: '表单管理',
-    path: '/activitiesManage',
-    items: [
-      {
-        path: '/activitiesManage/FromCategory',
-        name: '表单分类',
-      },
-      {
-        path: '/activitiesManage/activities',
-        name: '表单管理',
-      },
+      }
     ],
   },
   {
     name: '流程管理',
     path: '/workFlowManage',
     items: [
+      {
+        path: '/workFlowManage/fromCategory',
+        name: '表单分类',
+      },
+      {
+        path: '/workFlowManage/activities',
+        name: '表单管理',
+      },
       {
         path: '/workFlowManage/workFlowType',
         name: '流程类别',

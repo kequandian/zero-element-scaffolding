@@ -4,8 +4,6 @@ import ZEle from 'zero-element';
 import config from './config/toDoList-edit';
 
 import useBreadcrumb from '@/framework/useBreadcrumb';
-import { useWillUnmount } from 'zero-element/lib/utils/hooks/lifeCycle';
-import switchEndpoint from '@/components/switchEndpoint';
 
 export default function WorkFlowListApply() {
 
@@ -15,7 +13,6 @@ export default function WorkFlowListApply() {
         { title: '我的申请', path: '/toDoList' },
         { title: '查看详情' },
     ]);
-    useWillUnmount(switchEndpoint)
 
     return <PageHeader
         title="查看详情"
