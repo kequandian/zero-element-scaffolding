@@ -9,9 +9,8 @@ export default function () {
   //   history.push(win.ZEle.indexPage);
   // }
 
-  // history.push('/activitiesManage/FromCategory');
   if (getToken()) {
-    history.push('/activitiesManage/FromCategory');
+    history.push('/userAudit/applyManage');
   } else {
     history.push('/login');
   }

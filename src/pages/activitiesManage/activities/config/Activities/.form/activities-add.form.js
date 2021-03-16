@@ -112,13 +112,13 @@ module.exports = {
                 { label: '字段标识', field: 'attributeName', valueType: 'input-text' },
                 { label: '字段名', field: 'fieldName', valueType: 'input-text' },
                 {
-                  label: '字段类型', field: 'fieldType', valueType: 'input-select',
+                  label: '组件类型', field: 'componentType', valueType: 'input-select',
                   options: {
                     options:
                       [
-                        { label: "字符串", value: "input" },
-                        { label: "数字", value: "number" },
-                        { label: "金钱", value: "range" },
+                        { label: "输入框", value: "input" },
+                        { label: "数字输入框", value: "number" },
+                        { label: "输入框(含金钱符号)", value: "range" },
                         { label: "日期", value: "date" },
                       ]
                   },

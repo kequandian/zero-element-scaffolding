@@ -40,6 +40,20 @@ module.exports = [
   //   ],
   // },
   {
+    name: '审核',
+    path: '/userAudit',
+    items: [
+      {
+        path: '/userAudit/applyManage',
+        name: '发起申请',
+      },
+      {
+        path: '/userAudit/myApply',
+        name: '我的申请',
+      },
+    ],
+  },
+  {
     name: '表单管理',
     path: '/activitiesManage',
     items: [
@@ -54,6 +68,24 @@ module.exports = [
     ],
   },
   {
+    name: '流程管理',
+    path: '/workFlowManage',
+    items: [
+      {
+        path: '/workFlowManage/workFlowType',
+        name: '流程类别',
+      },
+      {
+        path: '/workFlowManage/workFlowList',
+        name: '流程管理',
+      },
+      {
+        path: '/workFlowManage/auditManage',
+        name: '审核管理',
+      }
+    ],
+  },
+  {
     "name": "系统管理",
     "path": "/sys",
     // "permissions": [
@@ -64,18 +96,6 @@ module.exports = [
     //   "OperationLog.view"
     // ],
     "items": [
-      {
-        "name": "流程类别",
-        "path": "/sys/workFlowType",
-      },
-      {
-        "name": "流程管理",
-        "path": "/sys/workFlowList"
-      },
-      {
-        "name": "申请管理",
-        "path": "/sys/applyManage"
-      },
       {
         "name": "组织管理",
         "path": "/sys/org",

@@ -1,4 +1,4 @@
-const setting = require('./applyManage-setting.json');
+const setting = require('./auditManage-setting.json');
 const applyFormFileds = require("./approveFormConfig");
 const applyHistoryFileds = require("./approveHistory");
 

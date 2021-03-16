@@ -1,10 +1,10 @@
 {
   "pageName": {
-    "table": "申请管理",
+    "table": "审核管理",
     "new": "",
     "edit": ""
   },
-  "listAPI": "/api/wf/instances",
+  "listAPI": "/api/wf/instances?type=CREATOR",
   "createAPI": "",
   "getAPI": "/api/wf/instanceAndForm/[id]",
   "updateAPI": "",
@@ -90,29 +90,14 @@
   "tableActions": [ ],
   "tableOperation": [
     {
-      "title": "审核",
-      "type": "path",
-      "options": {
-        "outside": true,
-        "path": "applyManage/applyManage-edit"
-      },
-      "expect": {
-        "permission": "",
-        "field": "status",
-        "value": "/(START|VERIFYING)/"
-      }
-    },
-    {
       "title": "查看",
       "type": "path",
       "options": {
         "outside": true,
-        "path": "applyManage/applyManage-edit"
+        "path": "myApply/myApply-edit"
       },
       "expect": {
-        "permission": "",
-        "field": "status",
-        "value": "/(CLOSE_REJECTED|CLOSE_APPROVED)/"
+        "permission": ""
       }
     },
     {
@@ -120,7 +105,7 @@
       "type": "delete",
       "options": {
         "method": "post",
-        "outside": false
+        "outside": true
       },
       
       "expect": {

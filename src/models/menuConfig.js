@@ -15,6 +15,7 @@ createModel({
   effects: {
     setMenuTree(tree) {
       // this.menuTree = formatPerms(tree);
+      this.menuTree = tree;
     },
     clearMenuTree() {
       this.menuTree = [];
@@ -22,7 +23,7 @@ createModel({
     queryPerm: async function () {
       if (getToken()) {
         if (!this.menuTree || Array.isArray(this.menuTree)) {
-          query('/api/adm/users/self/permissions')
+          query('/api/crud/menu/custom/test')
             .then(response => {
               console.log('response = ', response)
               if (response.status === 200) {

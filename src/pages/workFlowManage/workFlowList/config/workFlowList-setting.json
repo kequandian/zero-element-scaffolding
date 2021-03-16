@@ -188,19 +188,6 @@
   ],
   "tableOperation": [
     {
-      "title": "发起申请",
-      "type": "path",
-      "options": {
-        "outside": true,
-        "path": "workFlowList/workFlowList-apply"
-      },
-      "expect": {
-        "permission": "",
-        "field": "status",
-        "value": "ENABLED"
-      }
-    },
-    {
       "title": "启用",
       "type": "request",
       "options": {
