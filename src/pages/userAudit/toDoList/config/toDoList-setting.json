@@ -1,10 +1,10 @@
 {
   "pageName": {
-    "table": "我的申请",
+    "table": "待办事项",
     "new": "",
     "edit": ""
   },
-  "listAPI": "/api/wf/instances?type=CREATOR",
+  "listAPI": "/api/wf/instances?type=CURRENT",
   "createAPI": "",
   "getAPI": "/api/wf/instanceAndForm/[id]",
   "updateAPI": "",
@@ -90,6 +90,19 @@
   "tableActions": [ ],
   "tableOperation": [
     {
+      "title": "审核",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "toDoList/toDoList-edit"
+      },
+      "expect": {
+        "permission": "",
+        "field": "status",
+        "value": "/(START|VERIFYING)/"
+      }
+    },
+    {
       "title": "查看",
       "type": "path",
       "options": {
@@ -147,10 +160,6 @@
     {
       "label": "审批人",
       "field": "currentUserName"
-    },
-    {
-      "label": "当前步骤",
-      "field": "currentStepName"
     },
     {
       "label": "状态",

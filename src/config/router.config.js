@@ -40,7 +40,7 @@ module.exports = [
   //   ],
   // },
   {
-    name: '审核',
+    name: '审批',
     path: '/userAudit',
     items: [
       {
@@ -50,6 +50,10 @@ module.exports = [
       {
         path: '/userAudit/myApply',
         name: '我的申请',
+      },
+      {
+        path: '/userAudit/toDoList',
+        name: '待办事项',
       },
     ],
   },

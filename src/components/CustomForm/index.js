@@ -69,13 +69,17 @@ export default function CustomtForm(props) {
   const [applyStatus, setApplyStatus] = useState('START');
 
   //新增属性
-  const { footerButton = true, submitBtnText = '保存', isApplied = false, applyFormFileds, applyHistoryFileds } = otherProps;
+  const { footerButton = true, submitBtnText = '保存', isApplied = false, 
+    applyFormFileds, applyHistoryFileds, pageType = '' } = otherProps;
 
   const initData = useRef({
     ...extraData,
     ...pageDataFormData,
     ...data,
   });
+
+  //审核信息JSON配置
+  let applyFormFiledsConf = applyFormFileds;
 
   const {
     onFormatValue,
@@ -102,6 +106,10 @@ export default function CustomtForm(props) {
     }
     if (typeof formRef === 'object') {
       formRef.current = form;
+    }
+    //显示隐藏UI
+    if(pageType == 'CREATOR'){
+      applyFormFiledsConf = [];
     }
   });
 
@@ -177,7 +185,7 @@ export default function CustomtForm(props) {
               ...data.layoutJson,
               { "field": "_group", "type": "group-title", "defaultValue": "审批历史" },
               applyHistoryFileds,
-              ...applyFormFileds
+              ...applyFormFiledsConf
             ])
           }
           
@@ -207,7 +215,7 @@ export default function CustomtForm(props) {
             setFields([
               { "field": "_group", "type": "group-title", "defaultValue": "申请信息" },
               ...data.layoutJson,
-              ...applyFormFileds
+              ...applyFormFiledsConf
             ])
           }
 

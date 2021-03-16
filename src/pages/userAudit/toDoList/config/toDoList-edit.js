@@ -1,4 +1,4 @@
-const setting = require('./myApply-setting.json');
+const setting = require('./toDoList-setting.json');
 const applyFormFileds = require("./approveFormConfig");
 const applyHistoryFileds = require("./approveHistory");
 
@@ -34,11 +34,10 @@ module.exports = {
         },
         fields: setting.updateFields || setting.formFields,
         otherProps:{
+          submitBtnText: '提交',
           isApplied: true,
           applyFormFileds: applyFormFileds.fields,
           applyHistoryFileds : applyHistoryFileds,
-          pageType: 'CREATOR',
-          footerButton: false
         }
       },
     },
