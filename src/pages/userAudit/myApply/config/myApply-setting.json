@@ -118,7 +118,7 @@
   ],
   "searchFields": [
     {
-      "label": "流程名称",
+      "label": "申请",
       "field": "name",
       "type": "input",
       "props": {
@@ -137,7 +137,7 @@
   ],
   "tableFields": [
     {
-      "label": "流程名称",
+      "label": "申请",
       "field": "name"
     },
     {
@@ -149,7 +149,7 @@
       "field": "currentUserName"
     },
     {
-      "label": "当前步骤",
+      "label": "进度内容",
       "field": "currentStepName"
     },
     {

@@ -100,7 +100,7 @@
                 ]
               },
               "API": {
-                "createAPI": "/api/categories/all/tree?identifier=workflow"
+                "createAPI": "/api/categories"
               },
               "fields": [
                 {
