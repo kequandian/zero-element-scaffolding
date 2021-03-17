@@ -75,13 +75,13 @@ function BasicLayout(props) {
   }
 
   //更新菜单信息
-  if(menuFirstRequest == 1 && menuFirstPush == 0){
-    if(Array.isArray(menuTree)){
-      console.log('menuTree = ', menuTree)
-      menuData.push(...menuTree);
-      setMenuFirstPush(1)
-    }
-  }
+  // if(menuFirstRequest == 1 && menuFirstPush == 0 && menuData.length < 0){
+  //   if(Array.isArray(menuTree)){
+  //     console.log('menuTree = ', menuTree)
+  //     menuData.push(...menuTree);
+  //     setMenuFirstPush(1)
+  //   }
+  // }
 
   return (
     <GlobalContext.Provider value={state}>

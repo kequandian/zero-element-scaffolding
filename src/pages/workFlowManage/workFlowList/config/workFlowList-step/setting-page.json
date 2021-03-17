@@ -121,6 +121,35 @@
                   }
                 },
                 {
+                  "field": "currentUserId",
+                  "label": "经办人",
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [],
+                  "options": {
+                    "title": "选择经办人",
+                    "label": "name",
+                    "editLabel": "currentUserName",
+                    "value": "id",
+                    "pagination": true,
+                    "API": "/api/adm/users",
+                    "fields": [
+                      {
+                        "label": "经办人名字",
+                        "field": "name"
+                      },
+                      {
+                        "label": "联系电话",
+                        "field": "phone"
+                      }
+                    ]
+                  },
+                  "expect": {
+                    "field": "type",
+                    "value": "/(MIDDLE|END)/"
+                  }
+                },
+                {
                   "label": "",
                   "type": "hidden",
                   "field": "identifier",
@@ -132,7 +161,6 @@
         ]
       },
       "expect": {
-        "permission": ""
       }
     }
   ],
@@ -200,8 +228,6 @@
                   "label": "下一步骤",
                   "field": "nextStepString",
                   "type": "modal-checkbox",
-                  "props": {},
-                  "rules": [],
                   "options": {
                     "title": "选择步骤",
                     "label": "name",
@@ -235,6 +261,39 @@
                         }
                       }
                     ]
+                  },
+                  "expect": {
+                    "field": "type",
+                    "value": "/(MIDDLE|START)/"
+                  }
+                },
+                {
+                  "field": "currentUserId",
+                  "label": "经办人",
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [],
+                  "options": {
+                    "title": "选择经办人",
+                    "label": "name",
+                    "editLabel": "currentUserName",
+                    "value": "id",
+                    "pagination": true,
+                    "API": "/api/adm/users",
+                    "fields": [
+                      {
+                        "label": "经办人名字",
+                        "field": "name"
+                      },
+                      {
+                        "label": "联系电话",
+                        "field": "phone"
+                      }
+                    ]
+                  },
+                  "expect": {
+                    "field": "type",
+                    "value": "/(MIDDLE|START)/"
                   }
                 },
                 {
