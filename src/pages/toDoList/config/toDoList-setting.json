@@ -107,7 +107,7 @@
       "type": "path",
       "options": {
         "outside": true,
-        "path": "myApply/myApply-edit"
+        "path": "toDoList/toDoList-edit"
       },
       "expect": {
         "permission": ""

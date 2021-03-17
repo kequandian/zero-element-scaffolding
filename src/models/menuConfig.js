@@ -5,31 +5,41 @@ import { query, post, update, remove } from 'zero-element/lib/utils/request';
 import { formatAPI } from 'zero-element/lib/utils/format';
 import { getToken } from 'zero-element/lib/utils/request/token';
 
+import promiseAjax from '@/utils/promiseAjax';
+
 const sleep = ms => new Promise(res => setTimeout(_ => res(), ms));
 
 createModel({
   namespace: 'menuConfig',
   state: {
     menuTree: null,
+    firstRequestCount: 0
   },
   effects: {
     setMenuTree(tree) {
-      // this.menuTree = formatPerms(tree);
-      this.menuTree = tree;
+      this.menuTree = arrayFlat(tree);
+    },
+    setFirstRequestCount(value){
+      this.firstRequestCount = value;
+    },
+    getFirstRequestCount(){
+      return this.firstRequestCount;
     },
     clearMenuTree() {
-      this.menuTree = [];
+      this.menuTree = null;
     },
     queryPerm: async function () {
       if (getToken()) {
+        if(this.getFirstRequestCount() >= 1){
+          return;
+        }
         if (!this.menuTree || Array.isArray(this.menuTree)) {
-          query('/api/crud/menu/custom/test')
+          query('/api/crud/menu/custom/json')
             .then(response => {
-              console.log('response = ', response)
               if (response.status === 200) {
-                console.log('response = ', response)
-                // const { perms } = response.data.data;
-                // this.setMenuTree(perms);
+                const { data } = response.data;
+                this.setFirstRequestCount(this.getFirstRequestCount()+1);
+                this.setMenuTree(data);
               }
             })
             .catch(_ => {
@@ -45,7 +55,7 @@ createModel({
       }
     },
     getMenuTree() {
-      if (!this.menuTree || Array.isArray(this.menuTree)) {
+      if (!this.menuTree || !Array.isArray(this.menuTree)) {
         return {};
       }
       return this.menuTree;
@@ -53,20 +63,6 @@ createModel({
   },
   useDefault: false,
 });
-
-function formatPerms(perms) {
-  const permsObj = {};
-
-  if (!Array.isArray(perms)) {
-    console.warn('非预期的权限数据格式: ', perms);
-  } else {
-    const permsFlat = arrayFlat(perms);
-    permsFlat.forEach(perm => {
-      permsObj[perm.identifier] = true;
-    });
-  }
-  return permsObj;
-}
 
 function arrayFlat(arr) {
   const stack = [...arr];

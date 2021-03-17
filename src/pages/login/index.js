@@ -54,7 +54,6 @@ function LoginForm(props) {
     post('/api/sys/oauth/login', values, {
       message: null,
     }).then((data) => {
-      console.log('data = ', data)
       saveToken({
         userName: data.name,
         token: data.accessToken,

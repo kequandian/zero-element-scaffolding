@@ -447,7 +447,7 @@ export default function CustomtForm(props) {
       <Button type="primary" htmlType="submit" onClick={onSubmit}>{submitBtnText}</Button>
     </div>
   }
-
+  
   return <Spin spinning={propsLoading || loading}>
     {renderGoBack && canPortal(extraEl, <Button onClick={handleGoBack}>返回</Button>)}
     <div className={fields.length ? 'ant-modal-body' : undefined}>

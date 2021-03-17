@@ -53,7 +53,7 @@ module.exports = {
             "type": "path",
             "options": {
               style: "primary",
-              "path": "/activitiesManage/activities/activities-add"
+              "path": "/workFlowManage/activities/activities-add"
             }
           },
         ],
@@ -89,7 +89,7 @@ module.exports = {
             title: '编辑', type: 'path',
             options:{
               outside: true,
-              path: "/activitiesManage/activities/activities-edit"
+              path: "/workFlowManage/activities/activities-edit"
             }
           },
           {

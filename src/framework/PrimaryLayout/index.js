@@ -24,12 +24,30 @@ export default function PrimaryLayout({
   const { permissions } = globalModel;
   const documentVisibility = useDocumentVisibility();
 
+  const menuConfigModel = useModel('menuConfig');
+  // const { menuTree } = menuConfigModel;
+
+  
+  // const [firstLoadMenu, setFirstLoadMemu] = useState(0);
+
   useEffect(_ => {
     if (documentVisibility === 'visible') {
       globalModel.queryPerm();
+      menuConfigModel.queryPerm();
     }
   }, [permissions, documentVisibility]);
 
+  // if(Array.isArray(menuTree) && firstLoadMenu == 0){
+  //   menuData.push(...menuTree);
+    
+  // console.log('nav = ', nav);
+  // console.log('menuData = ', JSON.stringify(menuData));
+  // console.log('location.pathname = ', location.pathname);
+  // console.log('switchLeftNav = ', switchLeftNav);
+  // console.log('permissions = ', permissions);
+  //   setFirstLoadMemu(1)
+  // }
+  
   const [
     TopNav, TopNavData,
     LeftNav, LeftNavData

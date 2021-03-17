@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState, useEffect } from 'react';
 import PrimaryLayout from '@/framework/PrimaryLayout';
 import GlobalContext from '@/framework/GlobalContext';
 import window from 'zero-element/lib/utils/window';
@@ -6,9 +6,10 @@ import { BackTop } from 'antd';
 
 import router from '@/config/router.config';
 import profileMenuData from '@/config/profile.config';
-import { getModel } from 'zero-element/lib/Model';
+import { useDocumentVisibility } from 'ahooks';
+import { useModel, getModel } from 'zero-element/lib/Model';
 
-const menuData = [...router];
+let menuData = [...router];
 
 function reducer(state, { type, payload }) {
   const method = {
@@ -36,9 +37,18 @@ function BasicLayout(props) {
   const { location } = props;
   const { pathname } = location;
 
-  const menuConfigModel = getModel('menuConfig');
-  // console.log('menuTree = ', menuConfigModel.getMenuTree());
-  // router.push(...menuConfigModel.getMenuTree());
+  const documentVisibility = useDocumentVisibility();
+  const menuConfigModel = useModel('menuConfig');
+  const { menuTree, firstRequestCount } = menuConfigModel;
+  const [ menuFirstRequest, setMenuFirstRequest ] = useState(0);
+  const [ menuFirstPush, setMenuFirstPush ] = useState(0);
+
+  useEffect(_ => {
+    if (documentVisibility === 'visible') {
+      menuConfigModel.queryPerm();
+      setMenuFirstRequest(1);
+    }
+  }, [menuTree, documentVisibility]);
 
   const [state, dispatch] = useReducer(reducer, {
     breadcrumb: [],
@@ -64,6 +74,15 @@ function BasicLayout(props) {
     });
   }
 
+  //更新菜单信息
+  if(menuFirstRequest == 1 && menuFirstPush == 0){
+    if(Array.isArray(menuTree)){
+      console.log('menuTree = ', menuTree)
+      menuData.push(...menuTree);
+      setMenuFirstPush(1)
+    }
+  }
+
   return (
     <GlobalContext.Provider value={state}>
       <BackTop
@@ -84,8 +103,8 @@ function switchMenuData(pathname) {
   if (reg.test(pathname)) {
     return profileMenuData;
   }
-
   return menuData;
+
 }
 
 export default BasicLayout;
