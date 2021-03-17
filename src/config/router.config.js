@@ -66,6 +66,10 @@ module.exports = [
         name: '表单管理',
       },
       {
+        path: '/workFlowManage/activitiesFR',
+        name: '表单管理FR',
+      },
+      {
         path: '/workFlowManage/workFlowType',
         name: '流程类别',
       },
