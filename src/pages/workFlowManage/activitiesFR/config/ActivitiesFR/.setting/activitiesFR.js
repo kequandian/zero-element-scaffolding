@@ -4,5 +4,5 @@ module.exports = {
   "deleteAPI": "/api/eav/entities/(id)",
   "getAPI": "/api/eav/entities/[id]",
   "createAPI": "/api/eav/entities",
-  "updateAPI": "/api/eav/entities/[id]"
+  "updateAPI": "/api/eav/entities/(id)"
 }

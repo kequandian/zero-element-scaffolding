@@ -1,4 +1,4 @@
-import React, { useRef, useMemo, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { Form } from 'antd';
 import { history } from 'umi';
 import { formatAPI } from 'zero-element/lib/utils/format';
@@ -12,9 +12,6 @@ import useFormHandle from 'zero-element-antd/lib/container/Form/utils/useFormHan
 import extraFieldType from 'zero-element-antd/lib/container/Form/utils/extraFieldType';
 import canPortal from 'zero-element-antd/lib/utils/canPortal';
 import { setPageData, getPageData, clearPageData, getHooks } from 'zero-element/lib/Model';
-
-import promiseAjax from '@/utils/promiseAjax';
-import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 
 import './index.css';
 
@@ -66,21 +63,16 @@ export default function CustomtForm(props) {
   const [custActivityId, setCustActivityId] = useState('');
   //保存当前流程ID
   const [custWorkFlowId, setCustWorkFlowId] = useState('');
-  //申请状态
-  const [applyStatus, setApplyStatus] = useState('START');
 
   //新增属性
   const { footerButton = true, submitBtnText = '保存', isApplied = false, 
-    applyFormFileds, applyHistoryFileds, pageType = '' } = otherProps;
+    applyFormFileds, pageType = '', nextBtn, nextPageUrl } = otherProps;
 
   const initData = useRef({
     ...extraData,
     ...pageDataFormData,
     ...data,
   });
-
-  //审核信息JSON配置
-  let applyFormFiledsConf = applyFormFileds;
 
   const {
     onFormatValue,
@@ -94,6 +86,7 @@ export default function CustomtForm(props) {
     forceInitForm,
     onGetOne: handleGetData,
   });
+  
   const extraFields = useRef([]);
   const [fields, setFields] = useState(fieldsCfg);
   const { onGetOne, onCreateForm, onUpdateForm, onClearForm } = handle;
@@ -108,14 +101,13 @@ export default function CustomtForm(props) {
     if (typeof formRef === 'object') {
       formRef.current = form;
     }
-    //显示隐藏UI
-    if(pageType == 'CREATOR'){
-      applyFormFiledsConf = [];
-    }
   });
 
   useWillUnmount(_ => {
     // if (!keepData) {
+    if(nextBtn){
+      return;
+    }
     if (!keepData || MODAL) {
       onClearForm();
       clearPageData(namespace, 'formData');
@@ -163,144 +155,15 @@ export default function CustomtForm(props) {
         setCustActivityId(data.formType);
         //保存流程ID
         setCustWorkFlowId(data.id);
-        //保存申请单状态
-        setApplyStatus(data.status);
 
-        //根据表单ID获取 页面渲染json配置信息
-        //isApplied 是否查看申请详情, 如 false 则获取流程表单数据
-        if(!isApplied){
-          handleGetActivities(data.formType);
-        }else{
-          
-          handleGetApplyHistory(data.id); 
-          if(data.status == 'CLOSE_REJECTED' || data.status == 'CLOSE_APPROVED'){
-            setFields([
-              { "field": "_group", "type": "group-title", "defaultValue": "申请信息" },
-              ...data.layoutJson,
-              { "field": "_group", "type": "group-title", "defaultValue": "审批历史" },
-              applyHistoryFileds,
-            ])
-          }else{
-            setFields([
-              { "field": "_group", "type": "group-title", "defaultValue": "申请信息" },
-              ...data.layoutJson,
-              { "field": "_group", "type": "group-title", "defaultValue": "审批历史" },
-              applyHistoryFileds,
-              ...applyFormFiledsConf
-            ])
-          }
-          
-        }
+        setFields([
+          ...fields,
+        ]);
+       
       }
     })
       .finally(_ => {
         setCanRenderForm(true);
-      })
-  }
-
-  //获取表单页面配置数据
-  function handleGetActivities(activityId) {
-    const getFieldsAPI = API.getFieldsAPI;
-    const formatApi = getFieldsAPI.replace('(id)', activityId);
-
-    const apiUrl = `${getEndpoint()}${formatApi}`
-    const queryData = {
-    }
-
-    promiseAjax(apiUrl, queryData)
-      .then(resp => {
-
-        if (resp && resp.code === 200) {
-          const data = resp.data;
-          if (Array.isArray(data.layoutJson)) {
-            setFields([
-              { "field": "_group", "type": "group-title", "defaultValue": "申请信息" },
-              ...data.layoutJson,
-              ...applyFormFiledsConf
-            ])
-          }
-
-        } else {
-          console.log('获取页面配置信息失败')
-        }
-      })
-  }
-
-  //获取审核历史数据
-  function handleGetApplyHistory(id){
-    const getApplyHistoryAPI = API.getApplyHistoryAPI;
-    const apiUrl = `${getEndpoint()}${getApplyHistoryAPI}`
-    const queryData = {
-      instanceId: id
-    }
-
-    promiseAjax(apiUrl, queryData)
-      .then(resp => {
-
-        if (resp && resp.code === 200) {
-          const data = resp.data;
-          // setApplyHistory(data)
-          initData.current.history = data;
-          form.setFieldsValue({ ...initData.current });
-        } else {
-          console.log('获取审核历史信息失败')
-        }
-      })
-  }
-
-  //创建流程
-  function handleCreateApply(subData) {
-    const createApplyAPI = API.createApplyAPI;
-    const formatApi = createApplyAPI.replace('(id)', custActivityId);
-
-    const apiUrl = `${getEndpoint()}${formatApi}`
-    const queryData = subData;
-    queryData.processId = initData.current.id;
-
-    // delete queryData.steps;
-    // delete queryData.nextSteps;
-    // console.log('queryData = ', queryData);
-
-    promiseAjax(apiUrl, queryData, { method: 'POST' })
-      .then(resp => {
-        if (resp && resp.code === 200) {
-          const data = resp.data;
-          console.log('提交申请成功 response = ', data)
-          //返回上一页
-          window.history.back();
-        } else {
-          console.log('提交申请失败')
-        }
-      })
-  }
-
-  //提交审批
-  function handleUpdateApplyAPI(subData) {
-    const { approveUrl, rollbackUrl, rejectUrl } = API.updateApplyAPI;
-    let formatApi = '';
-    const queryData = subData;
-    queryData.processId = initData.current.id;
-
-    if(subData.passed == 'APPROVE'){
-      formatApi = approveUrl.replace('(id)', custWorkFlowId);
-    } else if (subData.passed == 'ROLLBACK'){
-      formatApi = rollbackUrl.replace('(id)', custWorkFlowId);
-    } else {
-      formatApi = rejectUrl.replace('(id)', custWorkFlowId);
-    }
-    
-    const apiUrl = `${getEndpoint()}${formatApi}`;
-
-    promiseAjax(apiUrl, queryData, { method: 'PUT' })
-      .then(resp => {
-        if (resp && resp.code === 200) {
-          const data = resp.data;
-          console.log('提交成功 response = ', data)
-          //返回上一页
-          window.history.back();
-        } else {
-          console.log('提交失败')
-        }
       })
   }
 
@@ -373,21 +236,8 @@ export default function CustomtForm(props) {
       submitData = onFormMap(submitData, pageDataFormData);
     }
 
-    if (API.updateAPI) {
-      onUpdateForm({
-        fields: submitData,
-        options: requestOptions,
-      }).then(handleResponse);
-    } else if (API.createApplyAPI) {
-      handleCreateApply(submitData);
-    } else if(API.updateApplyAPI) {
-      handleUpdateApplyAPI(submitData);
-    } else {
-      onCreateForm({
-        fields: submitData,
-        options: requestOptions,
-      }).then(handleResponse);
-    }
+    //下一页
+    onNext(submitData);
   }
 
   function handleResponse(data = {}, opt = {}) {
@@ -432,6 +282,17 @@ export default function CustomtForm(props) {
     forceUpdate();
   }
 
+  function onNext(submitData){
+    submitData.API = API;
+    submitData.custActivityId = custActivityId;
+    setPageData(namespace, 'formData', submitData);
+    if(nextPageUrl){
+      history.push(`${nextPageUrl}?ns=${namespace}`);
+    }else{
+      console.warn(`未定义 ${nextBtn} 按钮跳转的路由路径`);
+    }
+  }
+
   //保存按钮点击事件
   function renderFooter() {
     function onSubmit() {
@@ -445,7 +306,7 @@ export default function CustomtForm(props) {
     const classes = MODAL ? 'ant-modal-footer' : 'ZEle-Form-footer';
     return <div className={classes}>
       <Button onClick={handleReset}>重置</Button>
-      <Button type="primary" htmlType="submit" onClick={onSubmit}>{submitBtnText}</Button>
+      <Button type="primary" htmlType="submit" onClick={onSubmit}>{nextBtn}</Button>
     </div>
   }
   
@@ -479,6 +340,6 @@ export default function CustomtForm(props) {
       ) : <Form form={form} />}
     </div>
 
-    {footerButton && applyStatus!='CLOSE_REJECTED' && applyStatus!= 'CLOSE_APPROVED' ? (renderFooter()) : null}
+    {footerButton ? (renderFooter()) : null}
   </Spin>
 }

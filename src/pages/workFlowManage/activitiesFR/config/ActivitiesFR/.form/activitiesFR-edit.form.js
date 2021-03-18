@@ -1,5 +1,4 @@
 const API = require('../.setting/activitiesFR.js');
-const childFormFields = require('./childFormFields');
 
 module.exports = {
   "layout": "BaseTitle",
@@ -7,7 +6,7 @@ module.exports = {
   "items": [
     {
       "layout": "Content",
-      "component": "Form",
+      "component": "custom_form_fr",
       "config": {
         "layout": "Grid",
         "layoutConfig": {
@@ -92,70 +91,15 @@ module.exports = {
             "rules": [],
             "span": 12
           },
-          
-          {
-            label: '',
-            field: 'children',
-            type: 'one-mary',
-            span: 24,
-            options: {
-              actions: [
-                {
-                  title: '新增列', type: 'children-modal-add', options: {
-                    modalTitle: '新增列',
-                    modalWidth: 1080,
-                    childAppendField: 'venderActivities',
-                    items: [
-                      {
-                        layout: 'Empty',
-                        component: 'ChildrenForm',
-                        config: {
-                          layout: 'Grid',
-                          layoutConfig: {
-                            value: [12, 12],
-                          },
-                          API: {},
-                          fields: childFormFields,
-                        },
-                      }
-                    ],
-                  }
-                },
-              ],
-              fields: [
-                { label: '字段标识', field: 'attributeName', valueType: 'input-text' },
-                { label: '字段名', field: 'fieldName', valueType: 'input-text' },
-                {
-                  label: '组件类型', field: 'componentType', valueType: 'input-select',
-                  options: {
-                    options:
-                      [
-                        { label: "输入框", value: "input" },
-                        { label: "数字输入框", value: "number" },
-                        { label: "输入框(含金钱符号)", value: "range" },
-                        { label: "日期", value: "date" },
-                      ]
-                  },
-                  "rules": ["required"]
-                },
-                { label: '是否必填*', field: 'required', valueType: 'input-switch' },
-                { label: '提示文字*', field: 'placeholder', valueType: 'input-text' },
-                { label: '默认值*', field: 'defaultValue', valueType: 'input-text' },
-              ],
-              operation: [
-                {
-                  title: '移除', type: 'removeChild',
-                  options: {
-                    outside: true,
-                  }
-                },
-              ],
-            }
-          }
+
         ],
         "API": {
-          "getAPI": API.getAPI,
-          "updateAPI": API.updateAPI
+          getAPI: API.getAPI,
+          updateAPI: API.updateAPI
+        },
+        otherProps:{
+          nextBtn: '下一步',
+          nextPageUrl: '/workFlowManage/activitiesFR/activitiesFR-schema'
         }
       }
     },

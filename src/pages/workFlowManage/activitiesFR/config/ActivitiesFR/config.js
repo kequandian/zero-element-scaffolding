@@ -1,6 +1,6 @@
 module.exports = {
   layout: 'Content',
-  title: '表单管理',
+  title: '表单管理FR',
   items: [
     {
       component: 'Search',

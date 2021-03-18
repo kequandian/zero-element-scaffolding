@@ -8,14 +8,16 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
+    "@umijs/preset-react": "^1.5.12",
+    "form-render": "^0.9.12",
+    "fr-generator": "^1.0.1",
     "jparticles": "^2.0.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-simple-verify": "^1.0.8",
+    "umi": "3.2.17",
     "zero-element": "^1.0.0",
-    "zero-element-antd": "kequandian/zero-element-antd",
-    "@umijs/preset-react": "^1.5.12",
-    "umi": "3.2.17"
+    "zero-element-antd": "kequandian/zero-element-antd"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",

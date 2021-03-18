@@ -40,6 +40,7 @@ import AITSet_childrenModalAdd from "@/pages/workFlowManage/activities/component
 import TreeSelectFetch from '@/components/TreeSelectFetch';
 //自定义组件--已使用
 import CSet_CustomForm from '@/components/CustomForm';
+import CSet_CustomFormFR from '@/components/CustomFormFR';
 import VTSet_InputSwitch from '@/components/ValueType/InputSwitch';
 import FITSet_group_title from '@/components/FormItemType/Group';
 import FITSet_dynamic_radio from '@/components/FormItemType/DynamicRadio';
@@ -109,6 +110,7 @@ LayoutSet({
 CSet({
   'custom_form': CSet_CustomForm,
   'Setting': Setting,
+  'custom_form_fr': CSet_CustomFormFR
 });
 
 LASet({
