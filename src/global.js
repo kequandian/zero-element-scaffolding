@@ -44,6 +44,7 @@ import VTSet_InputSwitch from '@/components/ValueType/InputSwitch';
 import FITSet_group_title from '@/components/FormItemType/Group';
 import FITSet_dynamic_radio from '@/components/FormItemType/DynamicRadio';
 import FITSet_local_radio from '@/components/FormItemType/LocalRadio';
+import FITSet_modal_radio from '@/components/FormItemType/ModalRadio';
 import FITSet_Perm from '@/formItemType/Perm';
 
 const globalModel = getModel('global');
@@ -123,6 +124,7 @@ FITSet({
   'group-title' : FITSet_group_title,
   'dynamic_radio' : FITSet_dynamic_radio,
   'local_radio' : FITSet_local_radio,
+  'local_modal_radio': FITSet_modal_radio
 });
 
 AITSet({

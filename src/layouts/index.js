@@ -39,7 +39,7 @@ function BasicLayout(props) {
 
   const documentVisibility = useDocumentVisibility();
   const menuConfigModel = useModel('menuConfig');
-  const { menuTree, firstRequestCount } = menuConfigModel;
+  const { menuTree } = menuConfigModel;
   const [ menuFirstRequest, setMenuFirstRequest ] = useState(0);
   const [ menuFirstPush, setMenuFirstPush ] = useState(0);
 
@@ -74,10 +74,10 @@ function BasicLayout(props) {
     });
   }
 
+  // console.log('menuTree = ', menuTree)
   //更新菜单信息
-  // if(menuFirstRequest == 1 && menuFirstPush == 0 && menuData.length < 0){
+  // if(menuFirstRequest == 1 && menuFirstPush == 0 && menuData.length > 0){
   //   if(Array.isArray(menuTree)){
-  //     console.log('menuTree = ', menuTree)
   //     menuData.push(...menuTree);
   //     setMenuFirstPush(1)
   //   }

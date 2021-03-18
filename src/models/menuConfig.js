@@ -2,10 +2,7 @@
 
 import { createModel } from 'zero-element/lib/Model';
 import { query, post, update, remove } from 'zero-element/lib/utils/request';
-import { formatAPI } from 'zero-element/lib/utils/format';
 import { getToken } from 'zero-element/lib/utils/request/token';
-
-import promiseAjax from '@/utils/promiseAjax';
 
 const sleep = ms => new Promise(res => setTimeout(_ => res(), ms));
 
