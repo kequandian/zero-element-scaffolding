@@ -2,25 +2,27 @@ import React, { useState, useEffect } from 'react';
 import Generator from 'fr-generator';
 import copyTOClipboard from 'copy-text-to-clipboard';
 
+import { defaultSettings, defaultCommonSettings, defaultGlobalSettings } from './settings';
+
 import { setPageData, getPageData, clearPageData, getHooks } from 'zero-element/lib/Model';
 
 import promiseAjax from '@/utils/promiseAjax';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 
-const defaultValue = {
-  schema: {
-    type: 'object',
-    properties: {
-      inputName: {
-        title: '简单输入框',
-        type: 'string',
-      },
-    },
-  },
-  displayType: 'row',
-  showDescIcon: true,
-  labelWidth: 120,
-};
+// const defaultValue = {
+//   schema: {
+//     type: 'object',
+//     properties: {
+//       inputName: {
+//         title: '简单输入框',
+//         type: 'string',
+//       },
+//     },
+//   },
+//   displayType: 'row',
+//   showDescIcon: true,
+//   labelWidth: 120,
+// };
 const templates = [
   {
     text: '模板1',
@@ -53,11 +55,9 @@ const templates = [
 
 const Demo = (props) => {
 
-  const { namespace, subData } = props;
+  const { subData } = props;
 
   const { API, custActivityId } = subData;
-
-  const { createAPI, getAPI, updateAPI } = API;
 
   const [submitData, setSubmitData] = useState('');
 
@@ -101,7 +101,7 @@ const Demo = (props) => {
   }
 
   const customBtns = [
-    true, true, true, false,
+    false, true, false, true,
     {
       text: '保存',
       saveClick: (schema) => {
@@ -122,12 +122,12 @@ const Demo = (props) => {
     return json;
   }
 
-
   return (
     <div style={{ height: '100vh' }}>
       <Generator
-        defaultValue={defaultValue}
-        templates={templates}
+        settings={defaultSettings}
+        commonSettings={defaultCommonSettings}
+        globalSettings={defaultGlobalSettings}
         extraButtons={customBtns} />
     </div>
   );

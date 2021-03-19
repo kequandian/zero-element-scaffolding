@@ -35,3 +35,7 @@ npm run build
 npm install webpack -g
 npm install webpack-cli -g
 ```
+
+
+## schema 自定义组件参考地址
+https://form-render.github.io/schema-generator/demo
