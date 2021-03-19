@@ -341,6 +341,19 @@ export const defaultCommonSettings = {
   
   export const advancedElements = [
     {
+      text: '日历',
+      name: 'calendar',
+      schema: {
+        title: '',
+        type: 'string',
+        'ui:widget': 'CalendarCom',
+      },
+      widget: 'CalendarCom',
+      // setting: {
+      //   api: { title: 'api', type: 'string' },
+      // },
+    },
+    {
       text: '日期范围',
       name: 'dateRange',
       widget: 'dateRange',
@@ -497,10 +510,10 @@ export const defaultCommonSettings = {
       show: true,
       useCommon: true, // TODO: 是否将common
     },
-    // {
-    //   title: '高级组件',
-    //   widgets: advancedElements,
-    // },
+    {
+      title: '高级组件',
+      widgets: advancedElements,
+    },
     // {
     //   title: '布局组件',
     //   widgets: layouts,

@@ -22,12 +22,13 @@ export default (props) => {
     <div
       style={{
         width: 4,
-        height: 20,
+        height: 15,
         backgroundColor: '#2a5e90',
         marginRight: 6,
+        borderRadius: 1
       }}
     ></div>
-    <div>
+    <div style={{fontWeight:'bold'}}>
       {value || defaultValue}
     </div>
   </div>;

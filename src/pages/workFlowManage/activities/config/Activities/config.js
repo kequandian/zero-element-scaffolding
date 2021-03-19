@@ -56,6 +56,13 @@ module.exports = {
               "path": "/workFlowManage/activities/activities-add"
             }
           },
+          {
+            "title": "打印",
+            "type": "path",
+            "options": {
+              "path": ""
+            }
+          }
         ],
         fields: [
           { field: 'name', label: '表单名称' },

@@ -9,6 +9,8 @@ import { setPageData, getPageData, clearPageData, getHooks } from 'zero-element/
 import promiseAjax from '@/utils/promiseAjax';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 
+import { widgets as customWidgets } from './components';
+
 // const defaultValue = {
 //   schema: {
 //     type: 'object',
@@ -125,6 +127,7 @@ const Demo = (props) => {
   return (
     <div style={{ height: '100vh' }}>
       <Generator
+        widgets={customWidgets}
         settings={defaultSettings}
         commonSettings={defaultCommonSettings}
         globalSettings={defaultGlobalSettings}

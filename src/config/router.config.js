@@ -95,6 +95,10 @@ module.exports = [
     ],
     "items": [
       {
+        name: '菜单管理',
+        path: '/sys/menuManage',
+      },
+      {
         "name": "组织管理",
         "path": "/sys/org",
         "permissions": ""
