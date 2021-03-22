@@ -2,20 +2,11 @@ import React, { useMemo, useState } from 'react';
 import { Breadcrumb } from 'antd';
 import { Link } from 'umi';
 import menuData from '@/config/router.config';
-import { getModel } from 'zero-element/lib/Model';
+import { LS } from 'zero-element/lib/utils/storage';
 
 const router = [...menuData];
 
 export default ({ path, breadcrumb }) => {
-
-  const menuConfigModel = getModel('menuConfig');
-  const { menuTree } = menuConfigModel;
-  const [firstLoadMenu, setFirstLoadMemu] = useState(0);
-
-  if(Array.isArray(menuTree) && firstLoadMenu == 0){
-    router.push(...menuTree);
-    setFirstLoadMemu(1)
-  }
 
   const pathAry = useMemo(() => {
     const arr = path.split("\/");
