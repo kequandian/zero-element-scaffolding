@@ -108,9 +108,7 @@
                   "span": 24,
                   "type": "modal-radio",
                   "props": {},
-                  "rules": [{
-                    "type": "required"
-                  }],
+                  "rules": [],
                   "options": {
                     "title": "选择权限",
                     "label": "name",
@@ -159,7 +157,7 @@
                   "label": "排序号",
                   "rules": [],
                   "type": "number",
-                  "field": "sortorder"
+                  "field": "orderNum"
                 }
               ]
             }
@@ -261,9 +259,7 @@
                   "span": 24,
                   "type": "modal-radio",
                   "props": {},
-                  "rules": [{
-                    "type": "required"
-                  }],
+                  "rules": [],
                   "options": {
                     "title": "选择权限",
                     "label": "name",
@@ -312,7 +308,7 @@
                   "label": "排序号",
                   "rules": [],
                   "type": "number",
-                  "field": "sortorder"
+                  "field": "orderNum"
                 }
               ]
             }

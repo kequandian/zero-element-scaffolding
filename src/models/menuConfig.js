@@ -3,6 +3,7 @@
 import { createModel } from 'zero-element/lib/Model';
 import { query, post, update, remove } from 'zero-element/lib/utils/request';
 import { getToken } from 'zero-element/lib/utils/request/token';
+import { LS } from 'zero-element/lib/utils/storage';
 
 const sleep = ms => new Promise(res => setTimeout(_ => res(), ms));
 
@@ -35,6 +36,7 @@ createModel({
             .then(response => {
               if (response.status === 200) {
                 const { data } = response.data;
+                LS.set('menuList', data);
                 this.setFirstRequestCount(this.getFirstRequestCount()+1);
                 this.setMenuTree(data);
               }

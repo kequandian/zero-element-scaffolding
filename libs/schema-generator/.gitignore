@@ -9,12 +9,18 @@
 
 # production
 /dist
-/zero-antd-dep
-/libs/schema-generator/node_modules
+/docs-dist
 
 # misc
 .DS_Store
+.idea
 
 # umi
 .umi
 .umi-production
+.umi-test
+.env.local
+
+
+# others
+TODO.md

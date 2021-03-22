@@ -9,8 +9,11 @@ import {
   LogoutOutlined
 } from '@ant-design/icons';
 
+import { LS } from 'zero-element/lib/utils/storage';
+
 function handleLogOut() {
   history.push('/login');
+  LS.del('menuList');
   removeToken();
 }
 function handleRouteToProfile() {

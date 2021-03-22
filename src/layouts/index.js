@@ -8,6 +8,7 @@ import router from '@/config/router.config';
 import profileMenuData from '@/config/profile.config';
 import { useDocumentVisibility } from 'ahooks';
 import { useModel, getModel } from 'zero-element/lib/Model';
+import { LS } from 'zero-element/lib/utils/storage';
 
 let menuData = [...router];
 
@@ -39,7 +40,6 @@ function BasicLayout(props) {
 
   const documentVisibility = useDocumentVisibility();
   const menuConfigModel = useModel('menuConfig');
-  const { menuTree } = menuConfigModel;
   const [ menuFirstRequest, setMenuFirstRequest ] = useState(0);
   const [ menuFirstPush, setMenuFirstPush ] = useState(0);
 
@@ -76,12 +76,13 @@ function BasicLayout(props) {
 
   // console.log('menuTree = ', menuTree)
   //更新菜单信息
-  // if(menuFirstRequest == 1 && menuFirstPush == 0 && menuData.length > 0){
-  //   if(Array.isArray(menuTree)){
-  //     menuData.push(...menuTree);
-  //     setMenuFirstPush(1)
-  //   }
-  // }
+  const menuTree = LS.get('menuList');
+  if(menuFirstRequest == 1 && menuFirstPush == 0 && menuTree.length > 0){
+    if(Array.isArray(menuTree)){
+      menuData = menuTree;
+      setMenuFirstPush(1)
+    }
+  }
 
   return (
     <GlobalContext.Provider value={state}>
@@ -91,7 +92,7 @@ function BasicLayout(props) {
       <PrimaryLayout
         {...props}
         breadcrumb={state.breadcrumb}
-        menuData={switchMenuData(pathname)}
+        menuData={switchMenuData(pathname, menuData)}
       >
       </PrimaryLayout>
     </GlobalContext.Provider>
@@ -99,7 +100,7 @@ function BasicLayout(props) {
 }
 
 const reg = /^\/profile\//;
-function switchMenuData(pathname) {
+function switchMenuData(pathname, menuData) {
   if (reg.test(pathname)) {
     return profileMenuData;
   }
