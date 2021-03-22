@@ -33,12 +33,12 @@ export default (props) => {
         <div style={{ textAlign: 'center', cursor: 'default', color: '#666' }}>{getUserName()}</div>
       </Menu.Item> */}
       <Menu.Item onClick={handleRouteToProfile}>
-        <AppstoreOutlined />
+        <AppstoreOutlined style={{paddingLeft:10}} />
         <span className="ZEleA-margin-left">个人中心</span>
       </Menu.Item>
       <Menu.Divider />
       <Menu.Item onClick={handleLogOut}>
-        <LogoutOutlined />
+        <LogoutOutlined style={{paddingLeft:10}}/>
         <span className="ZEleA-margin-left">退出账号</span>
       </Menu.Item>
     </Menu>
@@ -59,16 +59,17 @@ export default (props) => {
         placement="bottomLeft"
         overlay={messageMenu}
       >
-        <BellOutlined />
+        <BellOutlined style={{fontSize:25,paddingRight:20}}/>
       </Dropdown>
       <Dropdown 
       overlay={menu} 
       placement="bottomRight"
       trigger={['click']}>
         <div>
-          <span>{getUserName()}</span>
-          <span>{getExtra()}</span>
-          <Avatar src={getAvatar()} icon={<UserOutlined />} size={40} />
+          <span style={{fontSize:22}}>|</span>
+          <span style={{paddingRight:15,paddingLeft:15,fontSize:17}}>{getUserName()}</span>
+          <span style={{fontSize:0}}>{getExtra()}</span>
+          <Avatar src={getAvatar()} icon={<UserOutlined style={{fontSize:24}}/>} size={36} />
         </div>
       </Dropdown>
     </div>

@@ -5,6 +5,7 @@ import { useDocumentVisibility } from 'ahooks';
 import Breadcrumb from './Breadcrumb';
 import Login from './Login';
 import './index.less';
+const appLogo = require( '../../../public/applogo.jpg');
 
 import GlobalContext from '@/framework/GlobalContext';
 
@@ -52,8 +53,10 @@ export default function PrimaryLayout({
     {aloneView ? null : (
       <Header className="header topNav">
         <div className="logo">
+          
+          <img src={appLogo}></img>
           <a href="/">
-          web应用
+          标准应用管理后台
           </a>
         </div>
         <TopNav
