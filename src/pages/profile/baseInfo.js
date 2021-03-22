@@ -12,8 +12,8 @@ const config = {
       config: {
         goBack: false,
         API: {
-          getAPI: '/api/u/crud/accounts/userInfo',
-          updateAPI: '/api/u/crud/accounts/edit',
+          getAPI: '/api/adm/users/userInfo',
+          updateAPI: '/api/adm/users/self',
         },
         layout: 'Grid',
         layoutConfig: {
@@ -23,22 +23,25 @@ const config = {
           {
             field: 'avatar', label: '头像', type: 'upload-image',
             options: {
-              API: '/api/u/uploadfile',
+              // API: '/api/fs/uploadfile',
+              type: 'text',
               max: 1,
             },
             span: 24,
           },
           { field: 'account', label: '账号', type: 'plain' },
-          { field: 'email', label: '邮箱', type: 'plain' },
           { field: 'name', label: '昵称', type: 'input' },
           {
             field: 'sex', label: '性别', type: 'radio',
             options: [
               { label: '男', value: 0 },
               { label: '女', value: 1 },
-            ]
+            ],
+            span: 24  
           },
           { field: 'birthday', label: '生日', type: 'date' },
+          
+          { field: 'email', label: '邮箱', type: 'input', span: 24 },
         ]
       }
     }

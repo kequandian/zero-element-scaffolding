@@ -9,7 +9,6 @@ import switchEndpoint from '@/components/switchEndpoint';
 export default function workFlowListStep() {
     useBreadcrumb([
         { title: '首页', path: '/' },
-        { title: '系统管理', path: '/sys' },
         { title: '流程管理', path: '/workFlowList' },
         { title: '流程步骤' },
     ]);

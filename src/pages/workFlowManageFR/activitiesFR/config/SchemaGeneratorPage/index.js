@@ -94,7 +94,7 @@ const Demo = (props) => {
   }
 
   function onSubimit(schema) {
-    submitData.frJson = strToJson(schema);
+    submitData.tableJson = strToJson(schema);
     if (API.createAPI) {
       createFR(submitData);
     } else if (API.updateAPI) {

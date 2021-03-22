@@ -84,6 +84,32 @@ module.exports = [
     ],
   },
   {
+    name: '流程管理FR',
+    path: '/workFlowManageFR',
+    items: [
+      {
+        path: '/workFlowManageFR/fromCategoryFR',
+        name: '表单分类FR',
+      },
+      {
+        path: '/workFlowManageFR/activitiesFR',
+        name: '表单管理FR',
+      },
+      {
+        path: '/workFlowManageFR/workFlowTypeFR',
+        name: '流程类别FR',
+      },
+      {
+        path: '/workFlowManageFR/workFlowListFR',
+        name: '流程管理FR',
+      },
+      {
+        path: '/workFlowManageFR/auditManageFR',
+        name: '审核管理FR',
+      }
+    ],
+  },
+  {
     name: '系统管理',
     path: '/sys',
     // permissions: [

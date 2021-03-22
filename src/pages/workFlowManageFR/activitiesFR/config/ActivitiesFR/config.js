@@ -53,7 +53,7 @@ module.exports = {
             "type": "path",
             "options": {
               style: "primary",
-              "path": "/workFlowManage/activitiesFR/activitiesFR-add"
+              "path": "/workFlowManageFR/activitiesFR/activitiesFR-add"
             }
           },
         ],
@@ -89,7 +89,7 @@ module.exports = {
             title: '编辑', type: 'path',
             options:{
               outside: true,
-              path: "/workFlowManage/activitiesFR/activitiesFR-edit"
+              path: "/workFlowManageFR/activitiesFR/activitiesFR-edit"
             }
           },
           {

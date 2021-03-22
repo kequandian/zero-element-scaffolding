@@ -1,7 +1,7 @@
-import React from 'react';
 import { PageHeader } from 'antd';
+import React from 'react';
 import ZEle from 'zero-element';
-import config from './config/workFlowList-apply/config';
+import config from './config/auditManageFR-edit';
 
 import useBreadcrumb from '@/framework/useBreadcrumb';
 import { useWillUnmount } from 'zero-element/lib/utils/hooks/lifeCycle';
@@ -11,16 +11,17 @@ export default function WorkFlowListApply() {
 
     useBreadcrumb([
         { title: '首页', path: '/' },
-        { title: '流程管理', path: '/workFlowList' },
-        { title: '发起申请' },
+        { title: '流程管理FR', path: '/workFlowManageFR' },
+        { title: '审核管理FR', path: '/auditManageFR' },
+        { title: '查看详情' },
     ]);
     useWillUnmount(switchEndpoint)
 
     return <PageHeader
-        title="发起申请"
+        title="查看详情"
         ghost={false}
         onBack={() => window.history.back()}
     >
-        <ZEle namespace="workFlowList_apply" config={config} />
+        <ZEle namespace="auditManageFR_edit" config={config} />
     </PageHeader>
 };

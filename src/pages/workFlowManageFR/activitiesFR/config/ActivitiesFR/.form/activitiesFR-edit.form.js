@@ -99,7 +99,7 @@ module.exports = {
         },
         otherProps:{
           nextBtn: '下一步',
-          nextPageUrl: '/workFlowManage/activitiesFR/activitiesFR-schema'
+          nextPageUrl: '/workFlowManageFR/activitiesFR/activitiesFR-schema'
         }
       }
     },
