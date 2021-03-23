@@ -128,17 +128,18 @@ export default function CustomtForm(props) {
 
   //处理经办人是否必填
   function handleApplyFormFormat(){
-    const currentUser = initData.current.nextSteps[0];
-    if(currentUser.currentUserName){
-      applyFormFiledsConf.map((item, index) => {
-        if(item.field == 'currentUserId'){
-          if(currentUser.currentUserName){
-            item.rules = [];
-            return item;
-          }
+    const currentUserName = (initData.current.nextSteps[0] && initData.current.nextSteps[0].currentUserName) || initData.current.currentUserName;
+    applyFormFiledsConf.map((item, index) => {
+      if(item.field == 'currentUserId'){
+        if(currentUserName){
+          item.rules = [];
+          return item;
+        }else{
+          item.rules = ["required"];
+          return item;
         }
-      })
-    }
+      }
+    })
   }
 
   //获取api数据

@@ -303,41 +303,43 @@ export const defaultCommonSettings = {
     //     },
     //   },
     // },
-    // {
-    //   text: '点击多选',
-    //   name: 'checkboxes',
-    //   widget: 'checkboxes',
-    //   schema: {
-    //     title: '多选',
-    //     description: '点击多选',
-    //     type: 'array',
-    //     items: {
-    //       type: 'string',
-    //     },
-    //     enum: ['A', 'B', 'C', 'D'],
-    //     enumNames: ['杭州', '武汉', '湖州', '贵阳'],
-    //   },
-    //   setting: {
-    //     enum: {
-    //       title: '选项字段',
-    //       type: 'array',
-    //       enum: [],
-    //       'ui:widget': 'select',
-    //       'ui:options': {
-    //         mode: 'tags',
-    //       },
-    //     },
-    //     enumNames: {
-    //       title: '选项名称',
-    //       type: 'array',
-    //       enum: [],
-    //       'ui:widget': 'select',
-    //       'ui:options': {
-    //         mode: 'tags',
-    //       },
-    //     },
-    //   },
-    // },
+    {
+      text: '点击多选',
+      name: 'checkboxes',
+      widget: 'checkboxes',
+      schema: {
+        title: '多选',
+        description: '点击多选',
+        type: 'array',
+        items: {
+          type: 'string',
+        },
+        enum: ['A', 'B', 'C', 'D'],
+        // enumNames: ['杭州', '武汉', '湖州', '贵阳'],
+        componentType: 'checkbox'
+        
+      },
+      setting: {
+        enum: {
+          title: '选项字段',
+          type: 'array',
+          enum: [],
+          'ui:widget': 'select',
+          'ui:options': {
+            mode: 'tags',
+          },
+        },
+        // enumNames: {
+        //   title: '选项名称',
+        //   type: 'array',
+        //   enum: [],
+        //   'ui:widget': 'select',
+        //   'ui:options': {
+        //     mode: 'tags',
+        //   },
+        // },
+      },
+    },
   ];
   
   export const advancedElements = [

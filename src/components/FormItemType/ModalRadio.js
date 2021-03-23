@@ -94,7 +94,7 @@ export default function ModalRadio(props) {
         })
     }
   }
-  console.log('requireValid= ', requireValid)
+  // console.log('requireValid= ', requireValid)
   // console.log('formData= ', formData)
   // console.log('label= ', label)
   // console.log('editLabel= ', editLabel)
@@ -167,12 +167,16 @@ function echoName(value, formdata, {
   }
   if (formdata) {
     if (typeof formdata === 'object') {
-      const nextSteps = formdata.nextSteps;
-      if(Array.isArray(nextSteps) && nextSteps.length > 0){
-        const nextStepsItem = nextSteps[0];
-        return _.get(nextStepsItem, editLabel);
+      const valueData = _.get(formdata, editLabel);
+      if(valueData){
+        return valueData || value;
+      }else{
+        const nextSteps = formdata.nextSteps;
+        if(Array.isArray(nextSteps) && nextSteps.length > 0){
+          const nextStepsItem = nextSteps[0];
+          return _.get(nextStepsItem, editLabel) || value;
+        }
       }
-      return _.get(formdata, editLabel) || value;
     }
   }
   return value;
