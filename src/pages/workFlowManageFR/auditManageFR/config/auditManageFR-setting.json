@@ -6,7 +6,7 @@
   },
   "listAPI": "/api/wf/instances/skipFilter",
   "createAPI": "",
-  "getAPI": "/api/wf/instanceAndForm/[id]",
+  "getAPI": "/api/wf/instanceAndForm/byTableJSON/[id]",
   "updateAPI": "",
   "deleteAPI": "/api/wf/instances/(id)",
   "updateApplyAPI": {
@@ -94,7 +94,7 @@
       "type": "path",
       "options": {
         "outside": true,
-        "path": "auditManage/auditManage-edit"
+        "path": "auditManageFR/auditManageFR-edit"
       },
       "expect": {
         "permission": "",
@@ -107,7 +107,7 @@
       "type": "path",
       "options": {
         "outside": true,
-        "path": "auditManage/auditManage-edit"
+        "path": "auditManageFR/auditManageFR-edit"
       },
       "expect": {
         "permission": "",

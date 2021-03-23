@@ -510,10 +510,10 @@ export const defaultCommonSettings = {
       show: true,
       useCommon: true, // TODO: 是否将common
     },
-    {
-      title: '高级组件',
-      widgets: advancedElements,
-    },
+    // {
+    //   title: '高级组件',
+    //   widgets: advancedElements,
+    // },
     // {
     //   title: '布局组件',
     //   widgets: layouts,

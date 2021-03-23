@@ -322,7 +322,7 @@
       "type": "path",
       "options": {
         "outside": false,
-        "path": "workFlowList/workFlowList-step"
+        "path": "workFlowListFR/workFlowListFR-step"
       }
     },
     {

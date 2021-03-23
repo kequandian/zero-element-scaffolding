@@ -4,7 +4,7 @@ module.exports = {
     fields: [
         { field: '_group', type: 'group-title', defaultValue: '审批信息' },
         {
-            field: 'currentUserId', label: '经办人', type: 'modal-radio',
+            field: 'currentUserId', label: '经办人', type: 'local_modal_radio',
             props: {},
             rules: ['required'],
             options: {

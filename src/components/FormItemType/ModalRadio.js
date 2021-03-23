@@ -94,7 +94,10 @@ export default function ModalRadio(props) {
         })
     }
   }
-
+  console.log('value= ', value)
+  console.log('formData= ', formData)
+  console.log('label= ', label)
+  console.log('editLabel= ', editLabel)
   return <>
     <Button
       onClick={onOpen}

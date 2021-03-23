@@ -62,7 +62,7 @@ export default function CustomtForm(props) {
   //保存当前表单ID
   const [custActivityId, setCustActivityId] = useState('');
   //保存当前流程ID
-  const [custWorkFlowId, setCustWorkFlowId] = useState('');
+  // const [custWorkFlowId, setCustWorkFlowId] = useState('');
 
   //新增属性
   const { footerButton = true, submitBtnText = '保存', isApplied = false, 
@@ -152,9 +152,7 @@ export default function CustomtForm(props) {
         }
 
         //保存表单ID
-        setCustActivityId(data.formType);
-        //保存流程ID
-        setCustWorkFlowId(data.id);
+        setCustActivityId(data.id);
 
         setFields([
           ...fields,

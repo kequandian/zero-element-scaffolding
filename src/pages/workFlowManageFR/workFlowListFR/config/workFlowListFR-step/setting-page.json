@@ -293,7 +293,7 @@
                   },
                   "expect": {
                     "field": "type",
-                    "value": "/(MIDDLE|START)/"
+                    "value": "/(MIDDLE|END)/"
                   }
                 },
                 {

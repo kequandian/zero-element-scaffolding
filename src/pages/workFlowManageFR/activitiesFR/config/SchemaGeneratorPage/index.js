@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { history } from 'umi';
 import Generator from 'fr-generator';
 import copyTOClipboard from 'copy-text-to-clipboard';
 
@@ -75,8 +76,8 @@ const Demo = (props) => {
   }
 
   function updateFR(submitData) {
-    const createAPI = API.createAPI;
-    const formatApi = createAPI.replace('(id)', custActivityId);
+    const updateAPI = API.updateAPI;
+    const formatApi = updateAPI.replace('(id)', custActivityId);
     const apiUrl = `${getEndpoint()}${formatApi}`
     const queryData = submitData;
     handleRequest(apiUrl, queryData, {method:'PUT'})
@@ -87,14 +88,15 @@ const Demo = (props) => {
       .then(resp => {
         if (resp && resp.code === 200) {
           console.log("保存成功")
+          history.push('/workFlowManageFR/activitiesFR');
         } else {
-          console.log('保存失败')
+          console.warn('保存失败 = ', resp.message);
         }
       })
   }
 
   function onSubimit(schema) {
-    submitData.tableJson = strToJson(schema);
+    submitData.tableJson = schema;
     if (API.createAPI) {
       createFR(submitData);
     } else if (API.updateAPI) {
@@ -119,6 +121,7 @@ const Demo = (props) => {
     },
   ]
 
+  //字符串 转 json
   function strToJson(str) {
     var json = eval('(' + str + ')');
     return json;
@@ -127,6 +130,7 @@ const Demo = (props) => {
   return (
     <div style={{ height: '100vh' }}>
       <Generator
+        defaultValue={submitData.tableJson? (strToJson(submitData.tableJson)) : null}
         widgets={customWidgets}
         settings={defaultSettings}
         commonSettings={defaultCommonSettings}
