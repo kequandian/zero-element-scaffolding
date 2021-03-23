@@ -50,7 +50,7 @@ module.exports = {
             rules: ['required']
         },
         {
-            label: '办理意见', field: 'node', type: 'text-area',
+            label: '备注', field: 'node', type: 'text-area',
             span: 12,
             props: {
                 autoSize: {

@@ -17,6 +17,7 @@ import promiseAjax from '@/utils/promiseAjax';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 
 import './index.css';
+import useSelectedKeys from '@/framework/PrimaryLayout/utils/useSelectedKeys';
 
 const defaultLabelCol = {
   xs: { span: 8, },
@@ -81,6 +82,9 @@ export default function CustomtForm(props) {
 
   //审核信息JSON配置
   let applyFormFiledsConf = applyFormFileds;
+  if(applyFormFiledsConf && Array.isArray(initData.current.nextSteps)){
+    handleApplyFormFormat();
+  }
 
   const {
     onFormatValue,
@@ -121,6 +125,21 @@ export default function CustomtForm(props) {
       clearPageData(namespace, 'formData');
     }
   });
+
+  //处理经办人是否必填
+  function handleApplyFormFormat(){
+    const currentUser = initData.current.nextSteps[0];
+    if(currentUser.currentUserName){
+      applyFormFiledsConf.map((item, index) => {
+        if(item.field == 'currentUserId'){
+          if(currentUser.currentUserName){
+            item.rules = [];
+            return item;
+          }
+        }
+      })
+    }
+  }
 
   //获取api数据
   function handleGetData() {

@@ -6,7 +6,7 @@ module.exports = {
         {
             field: 'currentUserId', label: '经办人', type: 'local_modal_radio',
             props: {},
-            rules: ['required'],
+            rules: ["required"],
             options: {
                 title: '选择经办人',
                 label: 'name',

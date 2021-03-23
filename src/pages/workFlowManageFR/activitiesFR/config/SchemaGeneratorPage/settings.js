@@ -210,8 +210,41 @@ export const defaultCommonSettings = {
         title: '单选',
         type: 'string',
         enum: ['a', 'b', 'c'],
-        enumNames: ['早', '中', '晚'],
+        // enumNames: ['早', '中', '晚'],
         componentType: 'select'
+      },
+      setting: {
+        enum: {
+          title: '选项名称',
+          type: 'array',
+          enum: [],
+          'ui:widget': 'select',
+          'ui:options': {
+            mode: 'tags',
+          },
+        },
+        // enumNames: {
+        //   title: '选项名称',
+        //   type: 'array',
+        //   enum: [],
+        //   'ui:widget': 'select',
+        //   'ui:options': {
+        //     mode: 'tags',
+        //   },
+        // },
+      },
+    },
+    {
+      text: '点击单选',
+      name: 'radio',
+      widget: 'radio',
+      schema: {
+        title: '单选',
+        type: 'string',
+        enum: ['a', 'b', 'c'],
+        // enumNames: ['早', '中', '晚'],
+        'ui:widget': 'radio',
+        componentType: 'radio'
       },
       setting: {
         enum: {
@@ -223,49 +256,17 @@ export const defaultCommonSettings = {
             mode: 'tags',
           },
         },
-        enumNames: {
-          title: '选项名称',
-          type: 'array',
-          enum: [],
-          'ui:widget': 'select',
-          'ui:options': {
-            mode: 'tags',
-          },
-        },
+        // enumNames: {
+        //   title: '选项名称',
+        //   type: 'array',
+        //   enum: [],
+        //   'ui:widget': 'select',
+        //   'ui:options': {
+        //     mode: 'tags',
+        //   },
+        // },
       },
     },
-    // {
-    //   text: '点击单选',
-    //   name: 'radio',
-    //   widget: 'radio',
-    //   schema: {
-    //     title: '单选',
-    //     type: 'string',
-    //     enum: ['a', 'b', 'c'],
-    //     enumNames: ['早', '中', '晚'],
-    //     'ui:widget': 'radio',
-    //   },
-    //   setting: {
-    //     enum: {
-    //       title: '选项字段',
-    //       type: 'array',
-    //       enum: [],
-    //       'ui:widget': 'select',
-    //       'ui:options': {
-    //         mode: 'tags',
-    //       },
-    //     },
-    //     enumNames: {
-    //       title: '选项名称',
-    //       type: 'array',
-    //       enum: [],
-    //       'ui:widget': 'select',
-    //       'ui:options': {
-    //         mode: 'tags',
-    //       },
-    //     },
-    //   },
-    // },
     // {
     //   text: '下拉多选',
     //   name: 'multiSelect',

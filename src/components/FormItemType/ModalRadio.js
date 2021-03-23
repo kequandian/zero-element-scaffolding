@@ -94,10 +94,11 @@ export default function ModalRadio(props) {
         })
     }
   }
-  console.log('value= ', value)
-  console.log('formData= ', formData)
-  console.log('label= ', label)
-  console.log('editLabel= ', editLabel)
+  console.log('requireValid= ', requireValid)
+  // console.log('formData= ', formData)
+  // console.log('label= ', label)
+  // console.log('editLabel= ', editLabel)
+  // console.log('echoName(value, formData, { label, editLabel })= ', echoName(value, formData, { label, editLabel }))
   return <>
     <Button
       onClick={onOpen}
@@ -166,6 +167,11 @@ function echoName(value, formdata, {
   }
   if (formdata) {
     if (typeof formdata === 'object') {
+      const nextSteps = formdata.nextSteps;
+      if(Array.isArray(nextSteps) && nextSteps.length > 0){
+        const nextStepsItem = nextSteps[0];
+        return _.get(nextStepsItem, editLabel);
+      }
       return _.get(formdata, editLabel) || value;
     }
   }

@@ -47,6 +47,7 @@ import FITSet_dynamic_radio from '@/components/FormItemType/DynamicRadio';
 import FITSet_local_radio from '@/components/FormItemType/LocalRadio';
 import FITSet_modal_radio from '@/components/FormItemType/ModalRadio';
 import FITSet_Perm from '@/formItemType/Perm';
+import Dictionary from '@/container/Dictionary';
 
 const globalModel = getModel('global');
 
@@ -110,7 +111,8 @@ LayoutSet({
 CSet({
   'custom_form': CSet_CustomForm,
   'Setting': Setting,
-  'custom_form_fr': CSet_CustomFormFR
+  'custom_form_fr': CSet_CustomFormFR,
+  'Dictionary': Dictionary,
 });
 
 LASet({
