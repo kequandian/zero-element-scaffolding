@@ -1,12 +1,14 @@
 import React, { useMemo, useState } from 'react';
 import { Breadcrumb } from 'antd';
 import { Link } from 'umi';
-import menuData from '@/config/router.config';
+// import menuData from '@/config/router.config';
 import { LS } from 'zero-element/lib/utils/storage';
 
-const router = [...menuData];
+let router = [];
 
 export default ({ path, breadcrumb }) => {
+
+  const [ menuFirstPush, setMenuFirstPush ] = useState(0);
 
   const pathAry = useMemo(() => {
     const arr = path.split("\/");
@@ -40,6 +42,14 @@ export default ({ path, breadcrumb }) => {
         </Breadcrumb.Item>;
       })}
     </Breadcrumb>
+  }
+
+  const menuTree = LS.get('menuList');
+  if(menuFirstPush == 0 && menuTree.length > 0){
+    if(Array.isArray(menuTree)){
+      router = menuTree;
+      setMenuFirstPush(1)
+    }
   }
 
   return <Breadcrumb className="ZEleA-Breadcrumb-margin">

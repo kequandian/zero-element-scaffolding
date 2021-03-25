@@ -54,36 +54,6 @@ module.exports = [
     ],
   },
   {
-    name: '流程管理',
-    path: '/workFlowManage',
-    items: [
-      {
-        path: '/workFlowManage/fromCategory',
-        name: '表单分类',
-      },
-      {
-        path: '/workFlowManage/activities',
-        name: '表单管理',
-      },
-      {
-        path: '/workFlowManage/activitiesFR',
-        name: '表单管理FR',
-      },
-      {
-        path: '/workFlowManage/workFlowType',
-        name: '流程类别',
-      },
-      {
-        path: '/workFlowManage/workFlowList',
-        name: '流程管理',
-      },
-      {
-        path: '/workFlowManage/auditManage',
-        name: '审核管理',
-      }
-    ],
-  },
-  {
     name: '流程管理FR',
     path: '/workFlowManageFR',
     items: [
@@ -150,5 +120,23 @@ module.exports = [
         permissions: ''
       }
     ]
-  }
+  },
+  // {
+  //   name: '业务中台',
+  //   path: '/businessCenter',
+  // },
+  // {
+  //   name: '自定义表单',
+  //   path: '/formCustom',
+  //   items:[
+  //     {
+  //       name: '自定义字段',
+  //       path: '/formCustom/fieldCustom',
+  //     },
+  //     {
+  //       name: '自定义表单',
+  //       path: '/formCustom/activitiesCustom',
+  //     }
+  //   ]
+  // }
 ]
