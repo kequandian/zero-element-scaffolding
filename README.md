@@ -6,23 +6,20 @@ npm version 6
 
 ## 安装
 
-``` 
-npm install
+> 设置淘宝镜像
+```shell
+$ npm config set registry https://registry.npm.taobao.org
+$ npm i
 ```
 
-
-
 ## 以开发环境运行
-
 ```
 npm start
 // 默认运行在本地的 8000 端口
 ```
 
 
-
 ## 以生产环境运行
-
 ```
 npm run build
 // 然后把生成的 dist/ 拷贝到 web server 下
@@ -35,7 +32,6 @@ npm run build
 npm install webpack -g
 npm install webpack-cli -g
 ```
-
 
 ## schema 自定义组件参考地址
 https://form-render.github.io/schema-generator/demo
