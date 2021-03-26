@@ -1,14 +1,14 @@
 {
   "pageName": {
-    "table": "字段管理",
-    "new": "添加字段",
-    "edit": "编辑字段"
+    "table": "自定义字段",
+    "new": "",
+    "edit": ""
   },
-  "listAPI": "/api/wf/processes",
-  "createAPI": "/api/wf/processes",
-  "getAPI": "/api/wf/processes/[id]",
-  "updateAPI": "/api/wf/processes/[id]",
-  "deleteAPI": "/api/wf/processes/(id)",
+  "listAPI": "/api/eav/entities?entityType=EXPAND_FORM",
+  "createAPI": "",
+  "getAPI": "/api/eav/entities/[id]",
+  "updateAPI": "/api/[id]",
+  "deleteAPI": "/api/eav/entities/(id)",
   "columns": 1,
   "createFields": [
     {
@@ -74,11 +74,11 @@
                 ]
               },
               "API": {
-                "createAPI": "/api/wf/processes"
+                "createAPI": "/api/eav/entities?entityType=EXPAND_FORM"
               },
               "fields": [
                 {
-                  "label": "字段名称",
+                  "label": "名字",
                   "rules": [
                     {
                       "type": "required"
@@ -91,64 +91,45 @@
                   "field": "name"
                 },
                 {
-                  "field": "formType",
-                  "label": "表单",
-                  "type": "modal-radio",
-                  "props": {},
+                  "label": "标识",
                   "rules": [
-                    "required"
+                    {
+                      "type": "required"
+                    }
                   ],
-                  "options": {
-                    "title": "选择表单",
-                    "label": "name",
-                    "editLabel": "formName",
-                    "value": "id",
-                    "pagination": true,
-                    "API": "/api/eav/entities",
-                    "fields": [
-                      {
-                        "label": "表单名称",
-                        "field": "name"
-                      },
-                      {
-                        "label": "备注",
-                        "field": "note"
-                      }
-                    ]
-                  }
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "entityName"
                 },
                 {
-                  "field": "categoryId",
-                  "label": "流程类别",
-                  "type": "modal-radio",
-                  "props": {},
+                  "label": "表名",
                   "rules": [
-                    "required"
+                    {
+                      "type": "required"
+                    }
                   ],
-                  "options": {
-                    "title": "选择流程类别",
-                    "label": "name",
-                    "editLabel": "categoryName",
-                    "value": "id",
-                    "pagination": true,
-                    "API": "/api/categories/all/tree?identifier=workflow",
-                    "fields": [
-                      {
-                        "label": "类别名称",
-                        "field": "name"
-                      },
-                      {
-                        "label": "类别编码",
-                        "field": "code"
-                      }
-                    ]
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "tableName"
+                },
+                {
+                  "label": "备注",
+                  "field": "note",
+                  "span": 18,
+                  "type": "text-area",
+                  "props": {
+                    "placeholder": "请输入……"
                   }
                 },
                 {
                   "label": "",
                   "type": "hidden",
-                  "field": "identifier",
-                  "value": "workflow"
+                  "field": "entityType",
+                  "value": "EXPAND_FORM"
                 }
               ]
             }
@@ -161,32 +142,6 @@
     }
   ],
   "tableOperation": [
-    {
-      "title": "启用",
-      "type": "request",
-      "options": {
-        "method": "put",
-        "outside": true,
-        "API": "/api/wf/processes/status/(id)"
-      },
-      "expect": {
-        "field": "status",
-        "value": "DISABLED"
-      }
-    },
-    {
-      "title": "禁用",
-      "type": "request",
-      "options": {
-        "method": "put",
-        "outside": true,
-        "API": "/api/wf/processes/status/(id)"
-      },
-      "expect": {
-        "field": "status",
-        "value": "ENABLED"
-      }
-    },
     {
       "title": "编辑",
       "type": "modal",
@@ -205,12 +160,12 @@
                 ]
               },
               "API": {
-                "getAPI": "/api/wf/processes/(id)",
-                "updateAPI": "/api/wf/processes/(id)"
+                "getAPI": "/api/eav/entities/(id)?entityType=EXPAND_FORM",
+                "updateAPI": "/api/eav/entities/(id)?entityType=EXPAND_FORM"
               },
               "fields": [
                 {
-                  "label": "类别名称",
+                  "label": "名字",
                   "rules": [
                     {
                       "type": "required"
@@ -223,64 +178,45 @@
                   "field": "name"
                 },
                 {
-                  "field": "formType",
-                  "label": "表单",
-                  "type": "modal-radio",
-                  "props": {},
+                  "label": "标识",
                   "rules": [
-                    "required"
+                    {
+                      "type": "required"
+                    }
                   ],
-                  "options": {
-                    "title": "选择表单",
-                    "label": "name",
-                    "editLabel": "formName",
-                    "value": "id",
-                    "pagination": true,
-                    "API": "/api/eav/entities",
-                    "fields": [
-                      {
-                        "label": "表单名称",
-                        "field": "name"
-                      },
-                      {
-                        "label": "备注",
-                        "field": "note"
-                      }
-                    ]
-                  }
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "entityName"
                 },
                 {
-                  "field": "categoryId",
-                  "label": "流程类别",
-                  "type": "modal-radio",
-                  "props": {},
+                  "label": "表名",
                   "rules": [
-                    "required"
+                    {
+                      "type": "required"
+                    }
                   ],
-                  "options": {
-                    "title": "选择流程类别",
-                    "label": "name",
-                    "editLabel": "categoryName",
-                    "value": "id",
-                    "pagination": true,
-                    "API": "/api/categories/all/tree?identifier=workflow",
-                    "fields": [
-                      {
-                        "label": "类别名称",
-                        "field": "name"
-                      },
-                      {
-                        "label": "类别编码",
-                        "field": "code"
-                      }
-                    ]
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "tableName"
+                },
+                {
+                  "label": "备注",
+                  "field": "note",
+                  "span": 18,
+                  "type": "text-area",
+                  "props": {
+                    "placeholder": "请输入……"
                   }
                 },
                 {
                   "label": "",
                   "type": "hidden",
-                  "field": "identifier",
-                  "value": "workflow"
+                  "field": "entityType",
+                  "value": "EXPAND_FORM"
                 }
               ]
             }
@@ -292,11 +228,11 @@
       }
     },
     {
-      "title": "流程步骤",
+      "title": "编辑字段",
       "type": "path",
       "options": {
-        "outside": false,
-        "path": "fieldCustom/fieldCustom-step"
+        "outside": true,
+        "path": "fieldCustom/fieldCustom-editField"
       }
     },
     {
@@ -312,7 +248,7 @@
   ],
   "searchFields": [
     {
-      "label": "字段名称",
+      "label": "名字",
       "field": "name",
       "type": "input",
       "props": {
@@ -322,25 +258,44 @@
   ],
   "tableFields": [
     {
-      "label": "字段名称",
-      "width": 200,
+      "label": "名字",
       "field": "name"
     },
     {
-      "label": "状态",
-      "width": 180,
-      "field": "status",
-      "valueType": "tag",
-      "options": {
-        "map": {
-          "ENABLED": "启用",
-          "DISABLED": "禁用"
+      "label": "标识",
+      "field": "entityName"
+    },
+    {
+      "label": "表名",
+      "field": "tableName"
+    },
+    {
+      "label": "备注",
+      "field": "note"
+    }
+  ],
+  "viewConfig": [
+    {
+      "title": "详情",
+      "type": "plain",
+      "fields": [
+        {
+          "label": "名字",
+          "field": "name"
         },
-        "color": {
-          "ENABLED": "#17d349",
-          "DISABLED": "#bdbdbd"
+        {
+          "label": "标识",
+          "field": "entityName"
+        },
+        {
+          "label": "表名",
+          "field": "tableName"
+        },
+        {
+          "label": "备注",
+          "field": "note"
         }
-      }
+      ]
     }
   ]
 }
