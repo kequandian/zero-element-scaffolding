@@ -10,8 +10,8 @@ export default function SchemaGenerator (props) {
 
     useBreadcrumb([
         { title: '首页', path: '/' },
-        { title: '流程管理FR', path: '/workFlowManageFR' },
-        { title: '表单管理FR', path: '/activitiesFR' },
+        { title: '流程管理', path: '/workFlowManageFR' },
+        { title: '表单管理', path: '/activitiesFR' },
         { title: 'Schema Generator' },
     ]);
 
