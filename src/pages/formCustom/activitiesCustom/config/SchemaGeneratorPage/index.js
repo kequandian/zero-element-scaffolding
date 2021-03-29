@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { message } from 'antd';
 import { history } from 'umi';
 import Generator from 'fr-generator';
 import copyTOClipboard from 'copy-text-to-clipboard';
@@ -73,7 +72,7 @@ const Demo = (props) => {
   function createFR(submitData) {
     const apiUrl = `${getEndpoint()}${API.createAPI}`
     const queryData = submitData;
-    handleRequest(apiUrl, queryData, { method: 'POST' })
+    handleRequest(apiUrl, queryData, {method:'POST'})
   }
 
   function updateFR(submitData) {
@@ -81,7 +80,7 @@ const Demo = (props) => {
     const formatApi = updateAPI.replace('(id)', custActivityId);
     const apiUrl = `${getEndpoint()}${formatApi}`
     const queryData = submitData;
-    handleRequest(apiUrl, queryData, { method: 'PUT' })
+    handleRequest(apiUrl, queryData, {method:'PUT'})
   }
 
   function handleRequest(apiUrl, queryData, other) {
@@ -98,35 +97,15 @@ const Demo = (props) => {
 
   function onSubimit(schema) {
     submitData.tableJson = schema;
-    if (validateSchema(schema)) {
-      if (API.createAPI) {
-        createFR(submitData);
-      } else if (API.updateAPI) {
-        updateFR(submitData);
-      }
+    if (API.createAPI) {
+      createFR(submitData);
+    } else if (API.updateAPI) {
+      updateFR(submitData);
     }
-  }
-
-  //properties
-  function validateSchema(schema) {
-    const schemaJson = strToJson(schema);
-    if (schemaJson && JSON.stringify(schemaJson) != '{}') {
-      const propertiesJSon = schemaJson.schema.properties;
-      if (JSON.stringify(propertiesJSon) != '{}') {
-        for (var index in propertiesJSon) {
-          // console.log(index ,":", propertiesJSon[index]);
-          if (index == '') {
-            message.error(`标题为 ${propertiesJSon[index].title} 的组件配置, ID 不能为空`);
-            return false;
-          }
-        }
-      }
-    }
-    return true;
   }
 
   const customBtns = [
-    true, true, false, true,
+    false, true, false, true,
     {
       text: '保存',
       saveClick: (schema) => {
@@ -151,7 +130,7 @@ const Demo = (props) => {
   return (
     <div style={{ height: '100vh' }}>
       <Generator
-        defaultValue={submitData.tableJson ? (strToJson(submitData.tableJson)) : null}
+        defaultValue={submitData.tableJson? (strToJson(submitData.tableJson)) : null}
         widgets={customWidgets}
         settings={defaultSettings}
         commonSettings={defaultCommonSettings}

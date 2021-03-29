@@ -12,8 +12,7 @@ export default function SchemaGenerator (props) {
         { title: '首页', path: '/' },
         { title: '流程管理', path: '/workFlowManageFR' },
         { title: '表单管理', path: '/activitiesFR' },
-        { title: '表单管理编辑', path: '/activitiesFR-edit' },
-        { title: '设计表单' },
+        { title: 'Schema Generator' },
     ]);
 
 
@@ -34,7 +33,7 @@ export default function SchemaGenerator (props) {
 
     return (
         <PageHeader
-        title="设计表单"
+        title="Schema Generator"
         ghost={false}
         onBack={() => window.history.back()}
     >

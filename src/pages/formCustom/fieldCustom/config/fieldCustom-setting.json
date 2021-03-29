@@ -56,177 +56,8 @@
     "form": "TitleContent"
   },
   "tableActions": [
-    {
-      "title": "添加",
-      "type": "modal",
-      "options": {
-        "style": "primary",
-        "modalTitle": "添加字段",
-        "modalWidth": 600,
-        "items": [
-          {
-            "component": "Form",
-            "config": {
-              "layout": "Grid",
-              "layoutConfig": {
-                "value": [
-                  24
-                ]
-              },
-              "API": {
-                "createAPI": "/api/eav/entities?entityType=EXPAND_FORM"
-              },
-              "fields": [
-                {
-                  "label": "名字",
-                  "rules": [
-                    {
-                      "type": "required"
-                    }
-                  ],
-                  "props": {
-                    "placeholder": "请输入"
-                  },
-                  "type": "input",
-                  "field": "name"
-                },
-                {
-                  "label": "标识",
-                  "rules": [
-                    {
-                      "type": "required"
-                    }
-                  ],
-                  "props": {
-                    "placeholder": "请输入"
-                  },
-                  "type": "input",
-                  "field": "entityName"
-                },
-                {
-                  "label": "表名",
-                  "rules": [
-                    {
-                      "type": "required"
-                    }
-                  ],
-                  "props": {
-                    "placeholder": "请输入"
-                  },
-                  "type": "input",
-                  "field": "tableName"
-                },
-                {
-                  "label": "备注",
-                  "field": "note",
-                  "span": 18,
-                  "type": "text-area",
-                  "props": {
-                    "placeholder": "请输入……"
-                  }
-                },
-                {
-                  "label": "",
-                  "type": "hidden",
-                  "field": "entityType",
-                  "value": "EXPAND_FORM"
-                }
-              ]
-            }
-          }
-        ]
-      },
-      "expect": {
-        "permission": ""
-      }
-    }
   ],
   "tableOperation": [
-    {
-      "title": "编辑",
-      "type": "modal",
-      "options": {
-        "modalTitle": "编辑流程",
-        "modalWidth": 600,
-        "outside": true,
-        "items": [
-          {
-            "component": "Form",
-            "config": {
-              "layout": "Grid",
-              "layoutConfig": {
-                "value": [
-                  24
-                ]
-              },
-              "API": {
-                "getAPI": "/api/eav/entities/(id)?entityType=EXPAND_FORM",
-                "updateAPI": "/api/eav/entities/(id)?entityType=EXPAND_FORM"
-              },
-              "fields": [
-                {
-                  "label": "名字",
-                  "rules": [
-                    {
-                      "type": "required"
-                    }
-                  ],
-                  "props": {
-                    "placeholder": "请输入"
-                  },
-                  "type": "input",
-                  "field": "name"
-                },
-                {
-                  "label": "标识",
-                  "rules": [
-                    {
-                      "type": "required"
-                    }
-                  ],
-                  "props": {
-                    "placeholder": "请输入"
-                  },
-                  "type": "input",
-                  "field": "entityName"
-                },
-                {
-                  "label": "表名",
-                  "rules": [
-                    {
-                      "type": "required"
-                    }
-                  ],
-                  "props": {
-                    "placeholder": "请输入"
-                  },
-                  "type": "input",
-                  "field": "tableName"
-                },
-                {
-                  "label": "备注",
-                  "field": "note",
-                  "span": 18,
-                  "type": "text-area",
-                  "props": {
-                    "placeholder": "请输入……"
-                  }
-                },
-                {
-                  "label": "",
-                  "type": "hidden",
-                  "field": "entityType",
-                  "value": "EXPAND_FORM"
-                }
-              ]
-            }
-          }
-        ]
-      },
-      "expect": {
-        "permission": ""
-      }
-    },
     {
       "title": "编辑字段",
       "type": "path",
@@ -248,7 +79,7 @@
   ],
   "searchFields": [
     {
-      "label": "名字",
+      "label": "表单名字",
       "field": "name",
       "type": "input",
       "props": {
@@ -258,16 +89,8 @@
   ],
   "tableFields": [
     {
-      "label": "名字",
+      "label": "表单名字",
       "field": "name"
-    },
-    {
-      "label": "标识",
-      "field": "entityName"
-    },
-    {
-      "label": "表名",
-      "field": "tableName"
     },
     {
       "label": "备注",
@@ -280,7 +103,7 @@
       "type": "plain",
       "fields": [
         {
-          "label": "名字",
+          "label": "表单名字",
           "field": "name"
         },
         {
