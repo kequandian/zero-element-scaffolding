@@ -86,10 +86,17 @@ module.exports = {
           //   }
           // },
           {
+            title: '数据管理', type: 'path',
+            options:{
+              outside: true,
+              path: "/formCustom/activitiesCustom/activitiesCustom-dataManage"
+            }
+          },
+          {
             title: '编辑', type: 'path',
             options:{
               outside: true,
-              path: "/workFlowManageFR/activitiesFR/activitiesFR-edit"
+              path: "/formCustom/activitiesCustom/activitiesCustom-edit"
             }
           },
           {
