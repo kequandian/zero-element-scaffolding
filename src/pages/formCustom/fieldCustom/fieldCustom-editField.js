@@ -10,7 +10,7 @@ export default function workFlowListStep() {
     useBreadcrumb([
         { title: '首页', path: '/' },
         { title: '自定义表单', path: '/formCustom' },
-        { title: '自定义字段', path: '/fieldCustom' },
+        { title: '自定义字段', path: '/formCustom/fieldCustom' },
         { title: '编辑字段' },
     ]);
     useWillUnmount(switchEndpoint)

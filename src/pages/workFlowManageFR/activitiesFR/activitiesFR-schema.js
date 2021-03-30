@@ -11,8 +11,8 @@ export default function SchemaGenerator (props) {
     useBreadcrumb([
         { title: '首页', path: '/' },
         { title: '流程管理', path: '/workFlowManageFR' },
-        { title: '表单管理', path: '/activitiesFR' },
-        { title: '表单管理编辑', path: '/activitiesFR-edit' },
+        { title: '表单管理', path: '/workFlowManageFR/activitiesFR' },
+        { title: '表单管理编辑', path: '/workFlowManageFR/activitiesFR/activitiesFR-edit' },
         { title: '设计表单' },
     ]);
 

@@ -11,8 +11,8 @@ export default function WorkFlowListApply() {
 
     useBreadcrumb([
         { title: '首页', path: '/' },
-        { title: '流程管理FR', path: '/workFlowManageFR' },
-        { title: '审核管理FR', path: '/auditManageFR' },
+        { title: '流程管理', path: '/workFlowManageFR' },
+        { title: '审核管理', path: '/workFlowManageFR/auditManageFR' },
         { title: '查看详情' },
     ]);
     useWillUnmount(switchEndpoint)

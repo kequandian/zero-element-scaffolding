@@ -63,11 +63,11 @@ const Demo = (props) => {
 
   const { API, custActivityId } = subData;
 
-  const [submitData, setSubmitData] = useState('');
+  // const [submitData, setSubmitData] = useState('');
 
-  useEffect(_ => {
-    setSubmitData(subData);
-  }, [submitData])
+  // useEffect(_ => {
+  //   setSubmitData(subData);
+  // }, [submitData])
 
   function createFR(submitData) {
     const apiUrl = `${getEndpoint()}${API.createAPI}`
@@ -99,8 +99,8 @@ const Demo = (props) => {
   function onSubimit(schema) {
     if (validateSchema(schema)) {
       if (API.createAPI) {
-        submitData.tableJson = schema;
-        createFR(submitData);
+        subData.tableJson = schema;
+        createFR(subData);
       } else if (API.updateAPI) {
         subData.tableJson = schema;
         updateFR(subData);

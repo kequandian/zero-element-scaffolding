@@ -41,6 +41,7 @@ import TreeSelectFetch from '@/components/TreeSelectFetch';
 //自定义组件--已使用
 import CSet_CustomForm from '@/components/CustomForm';
 import CSet_CustomFormFR from '@/components/CustomFormFR';
+import CSet_DataManageFormAdd from '@/pages/formCustom/activitiesCustom/config/dataManage/components/Form';
 import VTSet_InputSwitch from '@/components/ValueType/InputSwitch';
 import FITSet_group_title from '@/components/FormItemType/Group';
 import FITSet_dynamic_radio from '@/components/FormItemType/DynamicRadio';
@@ -114,6 +115,7 @@ CSet({
   'Setting': Setting,
   'custom_form_fr': CSet_CustomFormFR,
   'Dictionary': Dictionary,
+  'data_manage_form_add' : CSet_DataManageFormAdd
 });
 
 LASet({

@@ -10,9 +10,9 @@ export default function SchemaGenerator (props) {
 
     useBreadcrumb([
         { title: '首页', path: '/' },
-        { title: '流程管理', path: '/workFlowManageFR' },
-        { title: '表单管理', path: '/activitiesFR' },
-        { title: 'Schema Generator' },
+        { title: '流程管理', path: '/formCustom' },
+        { title: '表单管理', path: '/formCustom/activitiesCustom' },
+        { title: '设计表单' },
     ]);
 
 
@@ -33,7 +33,7 @@ export default function SchemaGenerator (props) {
 
     return (
         <PageHeader
-        title="Schema Generator"
+        title="设计表单"
         ghost={false}
         onBack={() => window.history.back()}
     >

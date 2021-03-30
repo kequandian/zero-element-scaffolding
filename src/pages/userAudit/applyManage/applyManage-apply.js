@@ -12,7 +12,7 @@ export default function WorkFlowListApply() {
     useBreadcrumb([
         { title: '首页', path: '/' },
         { title: '流程管理', path: '/workFlowManage' },
-        { title: '审核管理', path: '/applyManage' },
+        { title: '审核管理', path: '/workFlowManage/applyManage' },
         { title: '发起申请' },
     ]);
     useWillUnmount(switchEndpoint)
