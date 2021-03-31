@@ -93,6 +93,13 @@ module.exports = {
             }
           },
           {
+            title: '设计', type: 'path',
+            options:{
+              outside: true,
+              path: "/formCustom/activitiesCustom/activitiesCustom-design"
+            }
+          },
+          {
             title: '编辑', type: 'path',
             options:{
               outside: true,

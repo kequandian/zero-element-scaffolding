@@ -2,7 +2,7 @@ import React from 'react';
 import { PageHeader } from 'antd';
 
 import useBreadcrumb from '@/framework/useBreadcrumb';
-import SchemaGeneratorPage from './config/SchemaGeneratorPage';
+import SchemaGeneratorPage from '@/components/SchemaGeneratorPage';
 
 import { getPageData } from 'zero-element/lib/Model';
     
@@ -10,8 +10,8 @@ export default function SchemaGenerator (props) {
 
     useBreadcrumb([
         { title: '首页', path: '/' },
-        { title: '流程管理', path: '/formCustom' },
-        { title: '表单管理', path: '/formCustom/activitiesCustom' },
+        { title: '自定义表单', path: '/formCustom' },
+        { title: '自定义表单', path: '/formCustom/activitiesCustom' },
         { title: '设计表单' },
     ]);
 

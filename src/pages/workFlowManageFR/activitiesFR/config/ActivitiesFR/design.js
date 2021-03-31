@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { PageHeader } from 'antd';
-import SchemaGeneratorPage from '../SchemaGeneratorPage';
+import SchemaGeneratorPage from '@/components/SchemaGeneratorPage';
 
 import promiseAjax from '@/utils/promiseAjax';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 
 export default (props) => {
 
-    let apiUrl = '/api/ali/byTableJSON';
+    const { api = '/api/ali/byTableJSON' } = props;
+
+    let apiUrl = api;
     const [activityId, setActivityId] = useState('');
     const [data, setData ] = useState('');
 

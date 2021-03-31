@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { message } from 'antd';
 import { history } from 'umi';
 import Generator from 'fr-generator';
 import copyTOClipboard from 'copy-text-to-clipboard';
@@ -62,17 +63,16 @@ const Demo = (props) => {
 
   const { API, custActivityId } = subData;
 
-  const [submitData, setSubmitData] = useState('');
+  // const [submitData, setSubmitData] = useState('');
 
-  useEffect(_ => {
-    setSubmitData(subData);
-  }, [submitData])
-
+  // useEffect(_ => {
+  //   setSubmitData(subData);
+  // }, [submitData])
 
   function createFR(submitData) {
     const apiUrl = `${getEndpoint()}${API.createAPI}`
     const queryData = submitData;
-    handleRequest(apiUrl, queryData, {method:'POST'})
+    handleRequest(apiUrl, queryData, { method: 'POST' })
   }
 
   function updateFR(submitData) {
@@ -80,7 +80,8 @@ const Demo = (props) => {
     const formatApi = updateAPI.replace('(id)', custActivityId);
     const apiUrl = `${getEndpoint()}${formatApi}`
     const queryData = submitData;
-    handleRequest(apiUrl, queryData, {method:'PUT'})
+    console.log('queryData = ', queryData)
+    handleRequest(apiUrl, queryData, { method: 'PUT' })
   }
 
   function handleRequest(apiUrl, queryData, other) {
@@ -88,7 +89,7 @@ const Demo = (props) => {
       .then(resp => {
         if (resp && resp.code === 200) {
           console.log("保存成功")
-          history.push('/workFlowManageFR/activitiesFR');
+          history.push(goBack());
         } else {
           console.warn('保存失败 = ', resp.message);
         }
@@ -96,16 +97,37 @@ const Demo = (props) => {
   }
 
   function onSubimit(schema) {
-    submitData.tableJson = schema;
-    if (API.createAPI) {
-      createFR(submitData);
-    } else if (API.updateAPI) {
-      updateFR(submitData);
+    if (validateSchema(schema)) {
+      if (API.createAPI) {
+        subData.tableJson = schema;
+        createFR(subData);
+      } else if (API.updateAPI) {
+        subData.tableJson = schema;
+        updateFR(subData);
+      }
     }
   }
 
+  //properties
+  function validateSchema(schema) {
+    const schemaJson = strToJson(schema);
+    if (schemaJson && JSON.stringify(schemaJson) != '{}') {
+      const propertiesJSon = schemaJson.schema.properties;
+      if (JSON.stringify(propertiesJSon) != '{}') {
+        for (var index in propertiesJSon) {
+          // console.log(index ,":", propertiesJSon[index]);
+          if (index == '') {
+            message.error(`标题为 ${propertiesJSon[index].title} 的组件配置, ID 不能为空`);
+            return false;
+          }
+        }
+      }
+    }
+    return true;
+  }
+
   const customBtns = [
-    false, true, false, true,
+    true, true, false, true,
     {
       text: '保存',
       saveClick: (schema) => {
@@ -127,10 +149,24 @@ const Demo = (props) => {
     return json;
   }
 
+  function goBack(){
+    const pathname = location.pathname;
+    const pathList = pathname.split('/');
+    let goBackUrl = '';
+    if(pathList){
+      if(pathList.length == 3){
+        goBackUrl = `/${pathList[1]}`
+      }else if(pathList.length > 3){
+        goBackUrl = `/${pathList[1]}/${pathList[2]}`;
+      }
+    }
+    return goBackUrl;
+  }
+
   return (
     <div style={{ height: '100vh' }}>
       <Generator
-        defaultValue={submitData.tableJson? (strToJson(submitData.tableJson)) : null}
+        defaultValue={subData.tableJson ? (strToJson(subData.tableJson)) : null}
         widgets={customWidgets}
         settings={defaultSettings}
         commonSettings={defaultCommonSettings}

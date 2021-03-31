@@ -2,7 +2,7 @@ import React from 'react';
 import { PageHeader } from 'antd';
 
 import useBreadcrumb from '@/framework/useBreadcrumb';
-import SchemaGeneratorPage from './config/SchemaGeneratorPage';
+import SchemaGeneratorPage from '@/components/SchemaGeneratorPage';
 
 import { getPageData } from 'zero-element/lib/Model';
     
