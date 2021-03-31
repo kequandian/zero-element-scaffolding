@@ -9,7 +9,7 @@ export default (props) => {
         { title: '首页', path: '/' },
         { title: '自定义表单', path: '/formCustom' },
         { title: '自定义表单', path: '/formCustom/activitiesCustom' },
-        { title: '设计表单' },
+        { title: '可视化设计' },
     ]);
 
     return (

@@ -44,7 +44,7 @@ export default (props) => {
     }
 
     return <PageHeader
-        title="设计表单"
+        title="可视化设计"
         ghost={false}
         onBack={() => window.history.back()}
     >

@@ -9,7 +9,7 @@ export default (props) => {
         { title: '首页', path: '/' },
         { title: '流程管理', path: '/workFlowManageFR' },
         { title: '表单管理', path: '/workFlowManageFR/activitiesFR' },
-        { title: '设计表单' },
+        { title: '可视化设计' },
     ]);
 
     return (
