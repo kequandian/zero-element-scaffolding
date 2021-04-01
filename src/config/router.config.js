@@ -139,4 +139,22 @@ module.exports = [
   //     }
   //   ]
   // }
+    {
+    "name": "运维管理",
+    "path": "/devops",
+    "items": [
+      {
+        "name": "数据现场管理",
+        "path": "/devops/backup"
+      },
+      {
+        "name": "问题跟踪",
+        "path": "/devops/issueTask"
+      },
+      {
+        "name": "微服务权限配置",
+        "path": "/devops/appPermission"
+      },
+    ]
+  },
 ]
