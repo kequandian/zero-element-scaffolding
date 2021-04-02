@@ -49,6 +49,7 @@ import FITSet_local_radio from '@/components/FormItemType/LocalRadio';
 import FITSet_modal_radio from '@/components/FormItemType/ModalRadio';
 import FITSet_Perm from '@/formItemType/Perm';
 import Dictionary from '@/container/Dictionary';
+import FITSet_upload_file_single from '@/components/FormItemType/UploadFileSingle';
 
 const globalModel = getModel('global');
 
@@ -131,7 +132,8 @@ FITSet({
   'group-title' : FITSet_group_title,
   'dynamic_radio' : FITSet_dynamic_radio,
   'local_radio' : FITSet_local_radio,
-  'local_modal_radio': FITSet_modal_radio
+  'local_modal_radio': FITSet_modal_radio,
+  'upload_file_single': FITSet_upload_file_single
 });
 
 AITSet({
