@@ -62,11 +62,12 @@
           "type": "required"
         }
       ],
-      "field": "urlList",
+      "field": "url",
       "span": 8,
       "type": "upload_file_single",
       "options": {
         "title": "点击上传",
+        "type": "string",
         "API": "/api/fs/uploadfile"
       },
       "expect": {}
@@ -124,11 +125,12 @@
           "type": "required"
         }
       ],
-      "field": "urlList",
+      "field": "url",
       "span": 8,
       "type": "upload_file_single",
       "options": {
         "title": "点击上传",
+        "type": "string",
         "API": "/api/fs/uploadfile"
       },
       "expect": {}

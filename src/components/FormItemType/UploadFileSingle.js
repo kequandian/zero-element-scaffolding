@@ -10,6 +10,7 @@ const { Dragger } = Upload;
 const initFileList = [];
 export default function UploadFile(props) {
   const { value, options, namespace, handle, props: restProps } = props;
+
   const {
     title = '点击上传',
     API = '/api/fs/uploadfile',
@@ -24,10 +25,10 @@ export default function UploadFile(props) {
   const fAPI = formatAPI(API, {
     namespace,
   });
-
+  
   useEffect(_ => {
     if (fileList === initFileList) {
-      setFileList(format(value));
+      setFileList(format(value, props.formdata));
     }
   }, [fileList, value]);
 
@@ -114,26 +115,31 @@ export default function UploadFile(props) {
       )}
   </div>
 }
-
-function format(value) {
+function format(value, formatData) {
   let rst = [];
   try {
+
     if (typeof (value) === 'string') {
-      rst = JSON.parse(value);
-    } else if (Array.isArray(value)) {
-      rst = value;
-    } else {
-      const reqData = props.formdata;
       const showData = [
         {
-          "name": reqData.fileName,
-          "url": reqData.url,
-          "fileName": reqData.fileName,
-          "fileUrl":reqData.url
+          "name": formatData.fileName,
+          "url": value,
+        }
+      ]
+      rst = showData;
+    } else if (Array.isArray(value)) {
+      rst = value;
+    } else if(JSON.stringify(formatData) != '{}'){
+        
+      const showData = [
+        {
+          "name": formatData.fileName,
+          "url": formatData.url,
         }
       ]
       rst = showData;
     }
+      
   } catch (e) {
     rst.push({
       name: '文件',
