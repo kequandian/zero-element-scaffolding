@@ -5,6 +5,7 @@ import useDetails from '@/components/Details/hooks';
 
 import ImageCardList from '@/components/Details/components/ImageCardList';
 import Statuslog from '@/components/Details/components/Statuslog';
+import PreviewFile from '@/components/Details/components/previewFile';
 
 import { Flex } from 'layout-flex';
 
@@ -16,6 +17,7 @@ const componentMap = {
   plain: Details,
   cardList: ImageCardList,
   statusLog: Statuslog,
+  previewFile: PreviewFile
 };
 
 export default function ({ namespace, setting, config }) {
@@ -28,7 +30,7 @@ export default function ({ namespace, setting, config }) {
     col: setting.columns,
     data,
   };
-
+  
   return <Flex align="flex-start">
     {left.length > 0 ? (
       <FlexItem flex={1}>
@@ -44,7 +46,7 @@ export default function ({ namespace, setting, config }) {
     { Array.isArray(config) && config.length > 0 ? (
       <FlexItem flex={1}>
         {config.map(opt => {
-          opt.fields = data.layoutJson;
+          opt.fields = data.layoutJson ? data.layoutJson : opt.fields;
           return renderCard(namespace, opt, otherProps)
         })}
         <br /><br />

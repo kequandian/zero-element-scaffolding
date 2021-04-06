@@ -157,6 +157,14 @@
   ],
   "tableOperation": [
     {
+      "title": "详情",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "fileManage/fileManage-view"
+      }
+    },
+    {
       "title": "编辑",
       "type": "path",
       "options": {
@@ -241,14 +249,20 @@
           "field": "updateTime"
         },
         {
-          "label": "文件路径",
-          "field": "url"
-        },
-        {
           "label": "备注",
           "field": "note"
+        },
+        {
+          "label": "文件路径",
+          "field": "url"
         }
       ]
+    },
+    {
+      "label": "文件预览",
+      "span": 10,
+      "type": "previewFile",
+      "field": "url"
     }
   ]
 }

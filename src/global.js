@@ -133,7 +133,7 @@ FITSet({
   'dynamic_radio' : FITSet_dynamic_radio,
   'local_radio' : FITSet_local_radio,
   'local_modal_radio': FITSet_modal_radio,
-  'upload_file_single': FITSet_upload_file_single
+  'upload_file_single': FITSet_upload_file_single,
 });
 
 AITSet({
@@ -142,6 +142,7 @@ AITSet({
   'AITSet_childrenModalAdd': AITSet_childrenModalAdd,
 });
 
+//列表 & 详情
 VTSet({
   'path': vPath,
   'input-switch' : VTSet_InputSwitch,
