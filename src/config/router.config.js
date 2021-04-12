@@ -156,5 +156,14 @@ module.exports = [
       //   "path": "/devops/appPermission"
       // },
     ]
-  },
+  },{
+    name: '分类',
+    path: '/type',
+    items: [
+	  {
+        path: '/type/testField',
+        name: '分类管理',
+      }
+    ],
+  }
 ]
