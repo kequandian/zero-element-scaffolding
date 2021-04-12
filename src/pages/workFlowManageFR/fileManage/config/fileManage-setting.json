@@ -207,20 +207,20 @@
       "field": "desc"
     },
     {
-      "label": "创建时间",
-      "field": "createTime"
-    },
-    {
-      "label": "更新时间",
-      "field": "updateTime"
-    },
-    {
       "label": "文件路径",
       "field": "url"
     },
     {
       "label": "备注",
       "field": "note"
+    },
+    {
+      "label": "创建时间",
+      "field": "createTime"
+    },
+    {
+      "label": "更新时间",
+      "field": "updateTime"
     }
   ],
   "viewConfig": [
@@ -241,20 +241,20 @@
           "field": "desc"
         },
         {
-          "label": "创建时间",
-          "field": "createTime"
-        },
-        {
-          "label": "更新时间",
-          "field": "updateTime"
-        },
-        {
           "label": "备注",
           "field": "note"
         },
         {
           "label": "文件路径",
           "field": "url"
+        },
+        {
+          "label": "创建时间",
+          "field": "createTime"
+        },
+        {
+          "label": "更新时间",
+          "field": "updateTime"
         }
       ]
     },
