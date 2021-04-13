@@ -86,6 +86,13 @@ module.exports = {
           //   }
           // },
           {
+            title: '打印配置', type: 'path',
+            options:{
+              outside: true,
+              path: ""
+            }
+          },
+          {
             title: '设计', type: 'path',
             options:{
               outside: true,

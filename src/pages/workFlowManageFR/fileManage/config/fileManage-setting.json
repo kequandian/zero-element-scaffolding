@@ -12,31 +12,6 @@
   "columns": 1,
   "createFields": [
     {
-      "field": "entityId",
-      "label": "表单",
-      "type": "modal-radio",
-      "props": {},
-      "rules": [],
-      "options": {
-        "title": "选择表单",
-        "label": "name",
-        "editLabel": "entityName",
-        "value": "id",
-        "pagination": true,
-        "API": "/api/eav/entities",
-        "fields": [
-          {
-            "label": "表单名称",
-            "field": "name"
-          },
-          {
-            "label": "备注",
-            "field": "note"
-          }
-        ]
-      }
-    },
-    {
       "label": "上传文件",
       "span": 16,
       "rules": [
@@ -146,61 +121,11 @@
   ],
   "tableOperation": [
     {
-      "title": "绑定字段",
-      "type": "path",
-      "options": {
-        "outside": true,
-        "path": "fileManage/fileManage-activityFields"
-      },
-      "expect": {
-        "field": "entityIdIsNull",
-        "value": false
-      }
-    },
-    {
       "title": "详情",
       "type": "path",
       "options": {
         "outside": true,
         "path": "fileManage/fileManage-view"
-      }
-    },
-    {
-      "title": "编辑",
-      "type": "path",
-      "options": {
-        "outside": true,
-        "path": "fileManage/fileManage-edit"
-      }
-    },
-    {
-      "title": "下载",
-      "type": "modal",
-      "options": {
-        "style": "primary",
-        "modalTitle": "下载文件",
-        "modalWidth": 600,
-        "items": [
-          {
-            "component": "data_manage_form_add",
-            "config": {
-              "layout": "Grid",
-              "layoutConfig": {
-                "value": [
-                  24
-                ]
-              },
-              "API": {
-                "getAPI": "/api/ali/byTableJSON/(id)",
-                "createAPI": "/api/eav/entities/newValue/(id)"
-              },
-              "fields": [
-              ]
-            }
-          }
-        ]
-      },
-      "expect": {
       }
     },
     {
