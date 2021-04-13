@@ -99,7 +99,7 @@ module.exports = {
         },
         otherProps:{
           nextBtn: '下一步',
-          nextPageUrl: '/formCustom/activitiesCustom/activitiesCustom-schema'
+          nextPageUrl: 'activitiesCustom-schema'
         }
       }
     },

@@ -8,14 +8,12 @@ export default ({ props, onChange, ...rest }) => {
 
   const { steps, nextSteps } = rest.formdata;
 
-  const { options: optionSteps } = rest;
-
   function handleChange(e) {
     onChange(e.target.value);
   }
 
-  function getCurrentProcessSteps(steps, optionSteps) {
-    return steps ? steps : optionSteps ? optionSteps : [];
+  function getCurrentProcessSteps(steps) {
+    return steps ? steps : [];
   }
 
   return <RadioGroup
@@ -23,7 +21,7 @@ export default ({ props, onChange, ...rest }) => {
   >
     {((steps) => steps.map((item, index) =>
       <RadioButton key={item.id} value={item.id}>{item.name}</RadioButton>)
-    )(getCurrentProcessSteps(nextSteps, optionSteps))
+    )(getCurrentProcessSteps(nextSteps))
     }
   </RadioGroup>
 }

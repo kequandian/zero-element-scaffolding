@@ -31,15 +31,15 @@
                 {
                   "label": "绑定方案",
                   "field": "bindingMethod",
-                  "type": "dynamic_radio",
+                  "type": "local_radio",
                   "options": [
                     {
-                      "name": "方案一",
-                      "id": "1"
+                      "label": "方案一",
+                      "value": "1"
                     },
                     {
-                      "name": "方案二",
-                      "id": "2"
+                      "label": "方案二",
+                      "value": "2"
                     }
                   ],
                   "rules": [
@@ -197,15 +197,15 @@
                 {
                   "label": "绑定方案",
                   "field": "bindingMethod",
-                  "type": "dynamic_radio",
+                  "type": "local_radio",
                   "options": [
                     {
-                      "name": "方案一",
-                      "id": "1"
+                      "label": "方案一",
+                      "value": "1"
                     },
                     {
-                      "name": "方案二",
-                      "id": "2"
+                      "label": "方案二",
+                      "value": "2"
                     }
                   ],
                   "rules": [
@@ -381,6 +381,27 @@
     {
       "field": "attributeName",
       "label": "字段名"
+    },
+    {
+      "field": "line",
+      "label": "行"
+    },
+    {
+      "field": "column",
+      "label": "列"
+    },
+    {
+      "field": "location",
+      "label": "修改方位",
+      "valueType": "tag",
+      "options": {
+        "map": {
+          "top": "上",
+          "bottom": "下",
+          "left": "左",
+          "right": "右"
+        }
+      }
     }
   ]
 }

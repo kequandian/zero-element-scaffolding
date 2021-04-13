@@ -10,7 +10,7 @@ export default function WorkFlowListFRStep() {
     useBreadcrumb([
         { title: '首页', path: '/' },
         { title: '流程管理', path: '/workFlowManageFR' },
-        { title: '文件管理', path: '/workFlowManageFR/fileManage' },
+        { title: '表单模板管理', path: '/workFlowManageFR/fileManage' },
         { title: '绑定字段'},
     ]);
     useWillUnmount(switchEndpoint)

@@ -53,7 +53,7 @@ module.exports = {
             "type": "path",
             "options": {
               style: "primary",
-              "path": "/formCustom/activitiesCustom/activitiesCustom-add"
+              "path": "activitiesCustom/activitiesCustom-add"
             }
           },
         ],
@@ -89,21 +89,21 @@ module.exports = {
             title: '数据管理', type: 'path',
             options:{
               outside: true,
-              path: "/formCustom/activitiesCustom/activitiesCustom-dataManage"
+              path: "activitiesCustom/activitiesCustom-dataManage"
             }
           },
           {
             title: '设计', type: 'path',
             options:{
               outside: true,
-              path: "/formCustom/activitiesCustom/activitiesCustom-design"
+              path: "activitiesCustom/activitiesCustom-design"
             }
           },
           {
             title: '编辑', type: 'path',
             options:{
               outside: true,
-              path: "/formCustom/activitiesCustom/activitiesCustom-edit"
+              path: "activitiesCustom/activitiesCustom-edit"
             }
           },
           {
