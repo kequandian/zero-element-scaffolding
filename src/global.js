@@ -50,6 +50,8 @@ import FITSet_modal_radio from '@/components/FormItemType/ModalRadio';
 import FITSet_Perm from '@/formItemType/Perm';
 import Dictionary from '@/container/Dictionary';
 import FITSet_upload_file_single from '@/components/FormItemType/UploadFileSingle';
+import AITSet_download_file from '@/actionItemType/DownloadFile';
+import AITSet_activity_fields_form from '@/pages/workFlowManageFR/fileManage/components/ActivityFieldsForm';
 
 const globalModel = getModel('global');
 
@@ -99,12 +101,12 @@ if (process.env.NODE_ENV === 'development') {
   //# $ cat /c/Windows/System32/drivers/etc/hosts
   //# 192.168.3.239:8090 demo.smallsaas.cn:8080
   // setEndpoint('http://cn1.utools.club:33416');
-  setEndpoint('http://localhost:8081');
+  setEndpoint('http://192.168.3.239:8090');
   // saveToken({
   //   token: '',
   // });
 }else {
-  setEndpoint('http://localhost:8081');
+  setEndpoint('http://localhost:80');
 }
 
 LayoutSet({
@@ -116,11 +118,12 @@ CSet({
   'Setting': Setting,
   'custom_form_fr': CSet_CustomFormFR,
   'Dictionary': Dictionary,
-  'data_manage_form_add' : CSet_DataManageFormAdd
+  'data_manage_form_add' : CSet_DataManageFormAdd,
+  'activity_fields_form' : AITSet_activity_fields_form,
 });
 
 LASet({
-  'onPath': onPath,
+  'onPath': onPath
 });
 
 //表单组件
@@ -133,17 +136,18 @@ FITSet({
   'dynamic_radio' : FITSet_dynamic_radio,
   'local_radio' : FITSet_local_radio,
   'local_modal_radio': FITSet_modal_radio,
-  'upload_file_single': FITSet_upload_file_single,
+  'upload_file_single': FITSet_upload_file_single
 });
 
 AITSet({
   path,
   tabs,
   'AITSet_childrenModalAdd': AITSet_childrenModalAdd,
+  'download_file_pdf': AITSet_download_file
 });
 
 //列表 & 详情
 VTSet({
   'path': vPath,
-  'input-switch' : VTSet_InputSwitch,
+  'input-switch' : VTSet_InputSwitch
 });
