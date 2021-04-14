@@ -51,7 +51,9 @@ import FITSet_Perm from '@/formItemType/Perm';
 import Dictionary from '@/container/Dictionary';
 import FITSet_upload_file_single from '@/components/FormItemType/UploadFileSingle';
 import AITSet_download_file from '@/actionItemType/DownloadFile';
-import AITSet_activity_fields_form from '@/pages/workFlowManageFR/fileManage/components/ActivityFieldsForm';
+import CSet_activity_fields_form from '@/pages/workFlowManageFR/fileManage/components/ActivityFieldsForm';
+import CSet_print_config_form from '@/pages/workFlowManageFR/activitiesFR/components/PrintConfigForm';
+import FITSet_field_table from '@/pages/workFlowManageFR/activitiesFR/components/FieldTable';
 
 const globalModel = getModel('global');
 
@@ -119,7 +121,8 @@ CSet({
   'custom_form_fr': CSet_CustomFormFR,
   'Dictionary': Dictionary,
   'data_manage_form_add' : CSet_DataManageFormAdd,
-  'activity_fields_form' : AITSet_activity_fields_form,
+  'activity_fields_form' : CSet_activity_fields_form,
+  'print_config_form': CSet_print_config_form
 });
 
 LASet({
@@ -136,7 +139,8 @@ FITSet({
   'dynamic_radio' : FITSet_dynamic_radio,
   'local_radio' : FITSet_local_radio,
   'local_modal_radio': FITSet_modal_radio,
-  'upload_file_single': FITSet_upload_file_single
+  'upload_file_single': FITSet_upload_file_single,
+  'field_table': FITSet_field_table
 });
 
 AITSet({

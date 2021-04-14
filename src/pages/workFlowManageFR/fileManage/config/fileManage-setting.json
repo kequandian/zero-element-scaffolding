@@ -24,7 +24,8 @@
       "options": {
         "title": "点击上传",
         "type": "string",
-        "API": "/api/fs/uploadfile"
+        "API": "/api/fs/uploadfile",
+        "acceptType": ".doc .docx"
       },
       "expect": {}
     },
@@ -82,7 +83,8 @@
       "options": {
         "title": "点击上传",
         "type": "string",
-        "API": "/api/fs/uploadfile"
+        "API": "/api/fs/uploadfile",
+        "acceptType": ".doc .docx"
       },
       "expect": {}
     },

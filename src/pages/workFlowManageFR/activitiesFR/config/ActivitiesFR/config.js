@@ -1,3 +1,5 @@
+const printConfigFields = require("./.form/printConfigFields.config");
+
 module.exports = {
   layout: 'Content',
   title: '表单管理',
@@ -86,10 +88,26 @@ module.exports = {
           //   }
           // },
           {
-            title: '打印配置', type: 'path',
+            title: '打印配置', type: 'modal',
             options:{
               outside: true,
-              path: ""
+              modalTitle: '打印配置',
+              modalWidth: 800,
+              layout: 'Empty',
+              items: [
+                {
+                  layout: 'Empty',
+                  component: 'print_config_form',
+                  config: {
+                    layout: 'Grid',
+                    API: {
+                      getAPI: '/api/ali/byTableJSON/(id)',
+                      updateAPI: '/api/adm/users/(id)',
+                    },
+                    fields: printConfigFields,
+                  }
+                }
+              ]
             }
           },
           {
