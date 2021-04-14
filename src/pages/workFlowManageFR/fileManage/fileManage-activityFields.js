@@ -1,22 +1,22 @@
 import React from 'react';
 import { PageHeader } from 'antd';
-import BodyPage from './config/fileManage-editField';
+import BodyPage from './config/fileManage-activityFields';
 
 import useBreadcrumb from '@/framework/useBreadcrumb';
 import { useWillUnmount } from 'zero-element/lib/utils/hooks/lifeCycle';
 import switchEndpoint from '@/components/switchEndpoint';
 
-export default function workFlowListStep() {
+export default function WorkFlowListFRStep() {
     useBreadcrumb([
         { title: '首页', path: '/' },
-        { title: '系统管理', path: '/sys' },
-        { title: '自定义字段', path: '/sys/fieldCustom' },
-        { title: '编辑字段' },
+        { title: '流程管理', path: '/workFlowManageFR' },
+        { title: '表单模板管理', path: '/workFlowManageFR/fileManage' },
+        { title: '绑定字段'},
     ]);
     useWillUnmount(switchEndpoint)
 
     return <PageHeader
-        title="编辑字段"
+        title="绑定字段"
         ghost={false}
         onBack={() => window.history.back()}
     >

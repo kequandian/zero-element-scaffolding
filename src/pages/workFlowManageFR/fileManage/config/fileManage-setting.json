@@ -1,6 +1,6 @@
 {
   "pageName": {
-    "table": "文件管理",
+    "table": "表单模板管理",
     "new": "",
     "edit": ""
   },
@@ -12,111 +12,63 @@
   "columns": 1,
   "createFields": [
     {
-      "label": "文档名",
-      "rules": [
-        {
-          "type": "required"
-        }
-      ],
-      "props": {
-        "placeholder": "请输入"
-      },
-      "type": "input",
-      "field": "name"
-    },
-    {
-      "label": "文档编号",
-      "rules": [
-        {
-          "type": "required"
-        }
-      ],
-      "props": {
-        "placeholder": "请输入"
-      },
-      "type": "input",
-      "field": "code"
-    },
-    {
-      "label": "描述",
-      "rules": [],
-      "props": {
-        "placeholder": "请输入"
-      },
-      "type": "input",
-      "field": "desc"
-    },
-    {
-      "label": "备注",
-      "rules": [],
-      "props": {
-        "placeholder": "请输入"
-      },
-      "type": "input",
-      "field": "note"
-    },
-    {
       "label": "上传文件",
+      "span": 16,
       "rules": [
         {
           "type": "required"
         }
       ],
       "field": "url",
-      "span": 8,
       "type": "upload_file_single",
       "options": {
         "title": "点击上传",
         "type": "string",
-        "API": "/api/fs/uploadfile"
+        "API": "/api/fs/uploadfile",
+        "acceptType": ".doc .docx"
+      },
+      "expect": {}
+    },
+    {
+      "label": "上传pdf",
+      "span": 16,
+      "rules": [],
+      "field": "pdfUrl",
+      "type": "upload_file_single",
+      "options": {
+        "title": "点击上传",
+        "type": "string",
+        "API": "/api/fs/uploadfile",
+        "acceptType": ".pdf"
       },
       "expect": {}
     }
   ],
   "updateFields": [
     {
-      "label": "文档名",
-      "rules": [
-        {
-          "type": "required"
-        }
-      ],
-      "props": {
-        "placeholder": "请输入"
-      },
-      "type": "input",
-      "field": "name"
-    },
-    {
-      "label": "文档编号",
-      "rules": [
-        {
-          "type": "required"
-        }
-      ],
-      "props": {
-        "placeholder": "请输入"
-      },
-      "type": "input",
-      "field": "code"
-    },
-    {
-      "label": "描述",
+      "field": "entityId",
+      "label": "表单",
+      "type": "modal-radio",
+      "props": {},
       "rules": [],
-      "props": {
-        "placeholder": "请输入"
-      },
-      "type": "input",
-      "field": "desc"
-    },
-    {
-      "label": "备注",
-      "rules": [],
-      "props": {
-        "placeholder": "请输入"
-      },
-      "type": "input",
-      "field": "note"
+      "options": {
+        "title": "选择表单",
+        "label": "name",
+        "editLabel": "entityName",
+        "value": "id",
+        "pagination": true,
+        "API": "/api/eav/entities",
+        "fields": [
+          {
+            "label": "表单名称",
+            "field": "name"
+          },
+          {
+            "label": "备注",
+            "field": "note"
+          }
+        ]
+      }
     },
     {
       "label": "上传文件",
@@ -126,12 +78,27 @@
         }
       ],
       "field": "url",
-      "span": 8,
+      "span": 16,
       "type": "upload_file_single",
       "options": {
         "title": "点击上传",
         "type": "string",
-        "API": "/api/fs/uploadfile"
+        "API": "/api/fs/uploadfile",
+        "acceptType": ".doc .docx"
+      },
+      "expect": {}
+    },
+    {
+      "label": "上传pdf",
+      "rules": [],
+      "field": "pdfUrl",
+      "span": 16,
+      "type": "upload_file_single",
+      "options": {
+        "title": "点击上传",
+        "type": "string",
+        "API": "/api/fs/uploadfile",
+        "acceptType": ".pdf"
       },
       "expect": {}
     }
@@ -143,10 +110,9 @@
   },
   "tableActions": [
     {
-      "title": "添加",
+      "title": "上传文档",
       "type": "path",
       "options": {
-        "outside": true,
         "style": "primary",
         "path": "fileManage/fileManage-add"
       },
@@ -162,14 +128,6 @@
       "options": {
         "outside": true,
         "path": "fileManage/fileManage-view"
-      }
-    },
-    {
-      "title": "编辑",
-      "type": "path",
-      "options": {
-        "outside": true,
-        "path": "fileManage/fileManage-edit"
       }
     },
     {
@@ -195,32 +153,12 @@
   ],
   "tableFields": [
     {
-      "label": "文档编号",
-      "field": "code"
-    },
-    {
       "label": "文档名",
       "field": "name"
     },
     {
-      "label": "描述",
-      "field": "desc"
-    },
-    {
-      "label": "创建时间",
-      "field": "createTime"
-    },
-    {
-      "label": "更新时间",
-      "field": "updateTime"
-    },
-    {
-      "label": "文件路径",
-      "field": "url"
-    },
-    {
-      "label": "备注",
-      "field": "note"
+      "label": "表单",
+      "field": "entityName"
     }
   ],
   "viewConfig": [
@@ -241,20 +179,24 @@
           "field": "desc"
         },
         {
-          "label": "创建时间",
-          "field": "createTime"
-        },
-        {
-          "label": "更新时间",
-          "field": "updateTime"
-        },
-        {
           "label": "备注",
           "field": "note"
         },
         {
           "label": "文件路径",
           "field": "url"
+        },
+        {
+          "label": "pdf路径",
+          "field": "pdfUrl"
+        },
+        {
+          "label": "创建时间",
+          "field": "createTime"
+        },
+        {
+          "label": "更新时间",
+          "field": "updateTime"
         }
       ]
     },

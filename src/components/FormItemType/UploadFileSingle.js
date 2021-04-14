@@ -18,6 +18,7 @@ export default function UploadFile(props) {
     fileNameField = 'fileName',
     type = 'json',
     dragger = false,
+    acceptType=''
   } = options;
   const { onSaveOtherValue } = handle;
   const [fileList, setFileList] = useState(initFileList);
@@ -78,8 +79,9 @@ export default function UploadFile(props) {
       }
     }
   }
-
+  
   const uploadProps = {
+    accept: acceptType,
     name: 'file',
     action: /^http(s)*:\/\//.test(API) ? fAPI : `${get()}${fAPI}`,
     fileList: fileList,
@@ -122,8 +124,8 @@ function format(value, formatData) {
     if (typeof (value) === 'string') {
       const showData = [
         {
-          "name": formatData.fileName,
-          "url": value,
+          "name": `${get()}${value}`,
+          "url": `${get()}${value}`,
         }
       ]
       rst = showData;
@@ -134,7 +136,7 @@ function format(value, formatData) {
       const showData = [
         {
           "name": formatData.fileName,
-          "url": formatData.url,
+          "url": `${get()}${formatData.url}`,
         }
       ]
       rst = showData;
