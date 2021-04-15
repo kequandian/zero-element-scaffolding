@@ -51,7 +51,7 @@ import FITSet_Perm from '@/formItemType/Perm';
 import Dictionary from '@/container/Dictionary';
 import FITSet_upload_file_single from '@/components/FormItemType/UploadFileSingle';
 import AITSet_download_file from '@/actionItemType/DownloadFile';
-import CSet_activity_fields_form from '@/pages/workFlowManageFR/fileManage/components/ActivityFieldsForm';
+import CSet_activity_fields_form from '@/components/ActivityFieldsForm';
 import CSet_print_config_form from '@/pages/workFlowManageFR/activitiesFR/components/PrintConfigForm';
 import FITSet_field_table from '@/pages/workFlowManageFR/activitiesFR/components/FieldTable';
 
@@ -140,14 +140,14 @@ FITSet({
   'local_radio' : FITSet_local_radio,
   'local_modal_radio': FITSet_modal_radio,
   'upload_file_single': FITSet_upload_file_single,
-  'field_table': FITSet_field_table
+  'field_table': FITSet_field_table,
+  'download_file_btn': AITSet_download_file
 });
 
 AITSet({
   path,
   tabs,
-  'AITSet_childrenModalAdd': AITSet_childrenModalAdd,
-  'download_file_pdf': AITSet_download_file
+  'AITSet_childrenModalAdd': AITSet_childrenModalAdd
 });
 
 //列表 & 详情

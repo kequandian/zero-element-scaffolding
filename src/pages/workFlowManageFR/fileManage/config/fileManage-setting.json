@@ -25,7 +25,7 @@
         "title": "点击上传",
         "type": "string",
         "API": "/api/fs/uploadfile",
-        "acceptType": ".doc .docx"
+        "acceptType": ".docx"
       },
       "expect": {}
     },
@@ -84,7 +84,7 @@
         "title": "点击上传",
         "type": "string",
         "API": "/api/fs/uploadfile",
-        "acceptType": ".doc .docx"
+        "acceptType": ".docx"
       },
       "expect": {}
     },
@@ -123,11 +123,37 @@
   ],
   "tableOperation": [
     {
-      "title": "详情",
-      "type": "path",
-      "options": {
+      "title": "下载", 
+      "type": "modal",
+      "options":{
         "outside": true,
-        "path": "fileManage/fileManage-view"
+        "modalTitle": "下载文件",
+        "modalWidth": 400,
+        "layout": "Empty",
+        "items": [
+          {
+            "component": "custom_form_fr",
+            "props": {
+              "footer": null
+            },
+            "config": {
+              "API": {
+                "getAPI": "/api/doc/(id)"
+              },
+              "fields": [
+                {
+                  "field": "downloadFile",
+                  "label": "下载",
+                  "type": "download_file_btn",
+                  "options": {
+                    "title": "点击下载",
+                    "url": ""
+                  }
+                }
+              ]
+            }
+          }
+        ]
       }
     },
     {

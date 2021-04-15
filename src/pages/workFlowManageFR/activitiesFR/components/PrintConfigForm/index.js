@@ -82,7 +82,7 @@ export default function PrintConfigForm(props) {
     const [subData, setSubData] = useState({});
 
     //保存当前表单ID
-    const [activityId, setActivityId] = useState('');
+    const [entityId, setEntityId] = useState('');
 
     // useMemo(recordDefaultValue, [fields]);
     useDidMount(_ => {
@@ -142,7 +142,7 @@ export default function PrintConfigForm(props) {
 
                 console.log('get data = ', data)
                 //保存表单ID
-                setActivityId(data.id);
+                setEntityId(data.id);
             }
         })
             .finally(_ => {
@@ -176,21 +176,19 @@ export default function PrintConfigForm(props) {
     }
 
     function handleSubmitForm(values) {
-        console.log('activityId = ', activityId)
-        subData.activityId = activityId;
-        console.log('submitData = ', JSON.stringify(subData))
-
-        // if (API.updateAPI) {
-        //     onUpdateForm({
-        //         fields: submitData,
-        //         options: requestOptions,
-        //     }).then(handleResponse);
-        // } else {
-        //     onCreateForm({
-        //         fields: submitData,
-        //         options: requestOptions,
-        //     }).then(handleResponse);
-        // }
+        subData.entityId = entityId;
+        // console.log('submitData = ', JSON.stringify(subData))
+        if (API.updateAPI) {
+            onUpdateForm({
+                fields: subData,
+                options: requestOptions,
+            }).then(handleResponse);
+        } else {
+            onCreateForm({
+                fields: subData,
+                options: requestOptions,
+            }).then(handleResponse);
+        }
 
     }
     function handleResponse(data = {}, opt = {}) {

@@ -79,7 +79,7 @@ export default function BaseForm(props) {
     const { onGetOne, onCreateForm, onUpdateForm, onClearForm } = handle;
     const [canRenderForm, setCanRenderForm] = useState(API.getAPI ? false : true);
 
-    const [docId, setDocId] = useState('');
+    const [entityId, setEntityId] = useState('');
 
     // useMemo(recordDefaultValue, [fields]);
     useDidMount(_ => {
@@ -87,7 +87,7 @@ export default function BaseForm(props) {
 
         const searchList = location.search.split('=');
         const id = searchList[1];
-        setDocId(id)
+        setEntityId(id)
         if (API.getAPI) {
             handleGetData();
         }
@@ -210,7 +210,7 @@ export default function BaseForm(props) {
             submitData = onFormMap(submitData, pageDataFormData);
         }
 
-        submitData.docId = docId;
+        submitData.entityId = entityId;
         if (API.updateAPI) {
             onUpdateForm({
                 fields: submitData,
