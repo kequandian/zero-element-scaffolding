@@ -12,7 +12,7 @@
       "type": "modal",
       "options": {
         "style": "primary",
-        "modalTitle": "添加字段",
+        "modalTitle": "打印配置",
         "modalWidth": 600,
         "items": [
           {
@@ -116,7 +116,7 @@
                   }
                 },
                 {
-                  "label": "名称",
+                  "label": "搜索字段",
                   "rules": [
                     {
                       "type": "required"
@@ -133,7 +133,7 @@
                   }
                 },
                 {
-                  "label": "方位",
+                  "label": "相对位置",
                   "field": "location",
                   "rules": [
                     {
@@ -283,7 +283,7 @@
                   }
                 },
                 {
-                  "label": "名称",
+                  "label": "搜索字段",
                   "rules": [
                     {
                       "type": "required"
@@ -300,7 +300,7 @@
                   }
                 },
                 {
-                  "label": "方位",
+                  "label": "相对位置",
                   "field": "location",
                   "rules": [
                     {

@@ -88,7 +88,14 @@ module.exports = {
           //   }
           // },
           {
-            title: '绑定模板', type: 'modal',
+            title: '设计', type: 'path',
+            options:{
+              outside: true,
+              path: "/workFlowManageFR/activitiesFR/activitiesFR-design"
+            }
+          },
+          {
+            title: '打印模板', type: 'modal',
             options:{
               outside: true,
               modalTitle: '绑定模板',
@@ -111,7 +118,7 @@ module.exports = {
             }
           },
           {
-            title: '绑定字段', 
+            title: '打印配置', 
             type: 'path',
             options:{
               outside: true,
@@ -120,13 +127,6 @@ module.exports = {
             expect: {
               field: "hasDocument",
               value: true
-            }
-          },
-          {
-            title: '设计', type: 'path',
-            options:{
-              outside: true,
-              path: "/workFlowManageFR/activitiesFR/activitiesFR-design"
             }
           },
           {
