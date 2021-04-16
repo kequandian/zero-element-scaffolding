@@ -88,11 +88,11 @@ module.exports = {
           //   }
           // },
           {
-            title: '打印配置', type: 'modal',
+            title: '绑定模板', type: 'modal',
             options:{
               outside: true,
-              modalTitle: '打印配置',
-              modalWidth: 800,
+              modalTitle: '绑定模板',
+              modalWidth: 400,
               layout: 'Empty',
               items: [
                 {
@@ -101,13 +101,25 @@ module.exports = {
                   config: {
                     layout: 'Grid',
                     API: {
-                      getAPI: '/api/ali/byTableJSON/(id)',
-                      updateAPI: '/api/adm/users/(id)',
+                      getAPI: '/api/doc/entity/(id)',
+                      updateAPI: '/api/doc/editEntity',
                     },
                     fields: printConfigFields,
                   }
                 }
               ]
+            }
+          },
+          {
+            title: '绑定字段', 
+            type: 'path',
+            options:{
+              outside: true,
+              path:"activitiesFR/activitiesFR-activityFields"
+            },
+            expect: {
+              field: "hasDocument",
+              value: true
             }
           },
           {

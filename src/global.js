@@ -41,7 +41,7 @@ import TreeSelectFetch from '@/components/TreeSelectFetch';
 //自定义组件--已使用
 import CSet_CustomForm from '@/components/CustomForm';
 import CSet_CustomFormFR from '@/components/CustomFormFR';
-import CSet_DataManageFormAdd from '@/pages/formCustom/activitiesCustom/config/dataManage/components/Form';
+import CSet_DataManageFormAdd from '@/pages/sys/activitiesCustom/config/dataManage/components/Form';
 import VTSet_InputSwitch from '@/components/ValueType/InputSwitch';
 import FITSet_group_title from '@/components/FormItemType/Group';
 import FITSet_dynamic_radio from '@/components/FormItemType/DynamicRadio';
@@ -50,6 +50,10 @@ import FITSet_modal_radio from '@/components/FormItemType/ModalRadio';
 import FITSet_Perm from '@/formItemType/Perm';
 import Dictionary from '@/container/Dictionary';
 import FITSet_upload_file_single from '@/components/FormItemType/UploadFileSingle';
+import AITSet_download_file from '@/actionItemType/DownloadFile';
+import CSet_activity_fields_form from '@/components/ActivityFieldsForm';
+import CSet_print_config_form from '@/pages/workFlowManageFR/activitiesFR/components/PrintConfigForm';
+import FITSet_field_table from '@/pages/workFlowManageFR/activitiesFR/components/FieldTable';
 
 const globalModel = getModel('global');
 
@@ -134,12 +138,14 @@ FITSet({
   'local_radio' : FITSet_local_radio,
   'local_modal_radio': FITSet_modal_radio,
   'upload_file_single': FITSet_upload_file_single,
+  'field_table': FITSet_field_table,
+  'download_file_btn': AITSet_download_file
 });
 
 AITSet({
   path,
   tabs,
-  'AITSet_childrenModalAdd': AITSet_childrenModalAdd,
+  'AITSet_childrenModalAdd': AITSet_childrenModalAdd
 });
 
 //列表 & 详情
