@@ -307,13 +307,17 @@
           "field": "name"
         },
         {
+          "label": "下载地址",
+          "field": "url"
+        },
+        {
           "label": "当前版本号",
           "field": "version"
         }
       ]
     },
     {
-      "title": "版本列表",
+      "title": "历史版本",
       "type": "cardList",
       "api": "/api/doc/versionList/[id]",
       "map": {
@@ -325,7 +329,7 @@
       "format": [
         "文档名: <title>",
         "下载地址: <url>",
-        "更新时间: <updateTime>",
+        "更新时间: <uploadTime>",
         "文件版本: <versionCode>"
       ]
     }

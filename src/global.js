@@ -109,7 +109,7 @@ if (process.env.NODE_ENV === 'development') {
   //   token: '',
   // });
 }else {
-  setEndpoint('http://localhost:80');
+  setEndpoint('http://192.168.3.239:8090');
 }
 
 LayoutSet({
@@ -128,7 +128,7 @@ CSet({
 });
 
 LASet({
-  'onPath': onPath
+  'onPath': onPath,
 });
 
 //表单组件
@@ -155,5 +155,5 @@ AITSet({
 //列表 & 详情
 VTSet({
   'path': vPath,
-  'input-switch' : VTSet_InputSwitch
+  'input-switch' : VTSet_InputSwitch,
 });

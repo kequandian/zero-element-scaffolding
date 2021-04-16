@@ -139,7 +139,7 @@ module.exports = [
   //     }
   //   ]
   // }
-    {
+  {
     "name": "运维管理",
     "path": "/devops",
     "items": [
@@ -147,6 +147,10 @@ module.exports = [
         "name": "数据现场管理",
         "path": "/devops/backup"
       },
+      {
+        path: '/devops/tables',
+        name: '报表管理',
+      }
       // {
       //   "name": "问题跟踪",
       //   "path": "/devops/issueTask"
@@ -156,14 +160,23 @@ module.exports = [
       //   "path": "/devops/appPermission"
       // },
     ]
-  },{
+  }, {
     name: '分类',
     path: '/type',
     items: [
-	  {
+      {
         path: '/type/testField',
         name: '分类管理',
       }
     ],
+  }, {
+    name: '报表',
+    path: '/dateTables',
+    items: [
+      {
+        path: '/dateTables/agentReport',
+        name: '报表统计',
+      }
+    ]
   }
 ]

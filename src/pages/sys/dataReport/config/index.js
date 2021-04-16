@@ -24,7 +24,7 @@ module.exports = {
         },
         tree: {
           API: {
-            initAPI: '/api/adm/stat/meta',
+            initAPI: '/api/adm/stat/meta/list',
             appendAPI: undefined,
           }
         },

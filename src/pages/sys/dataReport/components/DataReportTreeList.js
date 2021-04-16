@@ -46,11 +46,11 @@ export default function DataReportTreeList(props) {
   const { onGetList, onClearList } = handle;
 
   useDidMount(_ => {
-    if (API.listAPI) {
-      if (API.listAPI.indexOf('<') === -1) {
-        onGetList({});
-      }
-    }
+    // if (API.listAPI) {
+    //   if (API.listAPI.indexOf('<') === -1) {
+    //     onGetList({});
+    //   }
+    // }
   });
   useEffect(_ => {
     if (extraData.id) {
