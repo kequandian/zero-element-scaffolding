@@ -42,6 +42,7 @@ import TreeSelectFetch from '@/components/TreeSelectFetch';
 import CSet_CustomForm from '@/components/CustomForm';
 import CSet_CustomFormFR from '@/components/CustomFormFR';
 import CSet_DataManageFormAdd from '@/pages/sys/activitiesCustom/config/dataManage/components/Form';
+import CSet_DataReportTreeList from '@/pages/sys/dataReport/components/DataReportTreeList';
 import VTSet_InputSwitch from '@/components/ValueType/InputSwitch';
 import FITSet_group_title from '@/components/FormItemType/Group';
 import FITSet_dynamic_radio from '@/components/FormItemType/DynamicRadio';
@@ -122,7 +123,8 @@ CSet({
   'Dictionary': Dictionary,
   'data_manage_form_add' : CSet_DataManageFormAdd,
   'activity_fields_form' : CSet_activity_fields_form,
-  'print_config_form': CSet_print_config_form
+  'print_config_form': CSet_print_config_form,
+  'data_report_tree_list': CSet_DataReportTreeList,
 });
 
 LASet({
