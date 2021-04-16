@@ -140,9 +140,11 @@ export default function PrintConfigForm(props) {
                     forceUpdate();
                 }
 
-                console.log('get data = ', data)
+                // console.log('get data = ', data)
                 //保存表单ID
-                setEntityId(data.id);
+                if(data && data.entityId){
+                    setEntityId(data.entityId);
+                }
             }
         })
             .finally(_ => {

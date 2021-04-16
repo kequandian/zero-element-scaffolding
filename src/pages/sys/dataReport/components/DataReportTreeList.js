@@ -46,11 +46,11 @@ export default function DataReportTreeList(props) {
   const { onGetList, onClearList } = handle;
 
   useDidMount(_ => {
-    // if (API.listAPI) {
-    //   if (API.listAPI.indexOf('<') === -1) {
-    //     onGetList({});
-    //   }
-    // }
+    if (API.listAPI) {
+      if (API.listAPI.indexOf('<') === -1) {
+        onGetList({});
+      }
+    }
   });
   useEffect(_ => {
     if (extraData.id) {
@@ -64,6 +64,7 @@ export default function DataReportTreeList(props) {
     setExtraData(data);
   }
 
+  console.log('props.data = ', props)
   console.log('tableData = ', tableData)
 
   return <Render n={layout} {...layoutConfig}>
@@ -88,7 +89,9 @@ export default function DataReportTreeList(props) {
           {...tableProps}
           {...propsCfg}
         /> */}
-        <ZEle namespace="datareport" config={props.data || tableData} />
+        {props.data || tableData ? (
+          <ZEle namespace={`datareport_`} config={props.data || tableData} />
+        ):<></>}
       </FlexItem>
     </Flex>
   </Render>
