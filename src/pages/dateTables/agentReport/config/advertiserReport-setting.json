@@ -1,31 +1,27 @@
+
 {
-  "pageName": {
-    "table": "报表"
-  },
-  "listAPI": "/api/adm/stat/meta/userTable",
-  "createAPI": "/api/adm/stat/meta/advertiserReport",
-  "getAPI": "/api/adm/stat/meta/advertiserReport/[id]",
-  "updateAPI": "/api/adm/stat/meta/advertiserReport/[id]",
-  "deleteAPI": "/api/adm/stat/meta/advertiserReport/(id)",
-  "columns": 2,
-  "createFields": [],
-  "updateFields": [],
-  "map": {},
-  "layout": {
-    "table": "Content",
-    "form": "TitleContent"
-  },
-  "tableActions": [
+  "layout": "Content",
+  "title": "报表管理",
+  "items": [
     {
-      "title": "导出",
-      "type": "export",
-      "options": {
-        "API": "/api/io/excel/export/advertiserReport"
+      "component": "data_report_tree_list",
+      "config": {
+        "API": {
+          "listAPI": "/api/adm/stat/meta/jsonsetting/<id>",
+          "deleteAPI": "/api/adm/stat/meta/jsonsetting/(id)"
+        },
+        "tree": {
+          "API": {
+            "initAPI": "/api/adm/stat/meta/list"
+
+          }
+        },
+        "actions": [],
+        "fields": [],
+        "searchFields": [],
+        "operation": []
       }
     }
-  ],
-  "tableOperation": [],
-  "searchFields": [],
-  "tableFields": [],
-  "formFields": []
+  ]
 }
+

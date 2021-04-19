@@ -47,8 +47,13 @@
     },
     {
       "label": "字段类型",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
       "props": {
-        "placeholder": "请输入类型"
+        "placeholder": "请输入字段类型"
       },
       "type": "input",
       "field": "type"
@@ -119,9 +124,14 @@
       "type": "plain"
     },
     {
-      "label": "自段类型",
+      "label": "字段类型",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
       "props": {
-        "placeholder": "请输入自段类型"
+        "placeholder": "请输入字段类型"
       },
       "type": "input",
       "field": "type"
