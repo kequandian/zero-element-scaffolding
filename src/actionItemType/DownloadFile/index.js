@@ -10,6 +10,8 @@ export default function (props) {
   const { title, API, fileName, downloadMethod = 'get', message,  } = options;
   const [loading, setLoading] = useState(false);
 
+  const [fName, setFileName] = useState('');
+
   function handleClick() {
 
     if (API) {
@@ -18,6 +20,7 @@ export default function (props) {
       const list = [];
       Object.keys(formdata).forEach(key => {
         if(formdata[key]){
+          setFileName(formdata[key].fileName);
           list.push(formdata[key]);
         }
       });
@@ -25,6 +28,7 @@ export default function (props) {
       // const apiUrl = `${getEndpoint()}${API}`;
 
       const queryData = {
+        fileName: fName,
         ctdListString: JSON.stringify(list)
       }
 

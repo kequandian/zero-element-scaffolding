@@ -176,7 +176,7 @@
       "options": {
         "method": "put",
         "outside": true,
-        "API": ""
+        "API": "/api/crud/menu/custom/status/(id)"
       },
       "expect": {
         "field": "status",
@@ -189,7 +189,7 @@
       "options": {
         "method": "put",
         "outside": true,
-        "API": ""
+        "API": "/api/crud/menu/custom/status/(id)"
       },
       "expect": {
         "field": "status",

@@ -5,14 +5,6 @@ module.exports = {
   title: setting.pageName.table,
   items: [
     {
-      component: 'load_html_page',
-      config: {
-        API: {
-          listAPI: setting.listAPI,
-        },
-      },
-    },
-    {
       component: 'Table',
       config: {
         API: {
@@ -22,6 +14,14 @@ module.exports = {
         actions: setting.tableActions,
         fields: setting.tableFields,
         operation: setting.tableOperation,
+      },
+    },
+    {
+      component: 'LoadHtmlPage',
+      config: {
+        API: {
+          listAPI: setting.listAPI,
+        },
       },
     },
   ],

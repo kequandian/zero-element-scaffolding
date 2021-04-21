@@ -3,7 +3,7 @@ import { Table } from 'antd';
 import { Render } from 'zero-element/lib/config/layout';
 import useListHandle from 'zero-element-antd/lib/container/List/utils/useListHandle';
 
-export default function BaseTable(props) {
+export default function LoadHtmlPage(props) {
   const { namespace, config, extraData, extraEl } = props;
   const {
     layout = 'Empty', layoutConfig = {},
@@ -32,6 +32,11 @@ export default function BaseTable(props) {
     handle={handle}
     namespace={namespace}
   >
-    <div>123456</div>
+    <iframe
+        src="file:///D:/workspace2015/docxFile/copy/对经营高危险性体育项目的行政许可.pdf"
+        style={{ width: '100%', border: '0px', height: '1100px' }}
+        sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+        scrolling="auto"
+      />
   </Render>
 }
