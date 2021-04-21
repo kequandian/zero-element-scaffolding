@@ -226,37 +226,6 @@
       }
     },
     {
-      "title": "下载", 
-      "type": "modal",
-      "options":{
-        "outside": true,
-        "modalTitle": "下载文件",
-        "modalWidth": 400,
-        "layout": "Empty",
-        "items": [
-          {
-            "component": "custom_form_fr",
-            "config": {
-              "API": {
-                "getAPI": "/api/doc/(id)"
-              },
-              "fields": [
-                {
-                  "field": "downloadFile",
-                  "label": "下载",
-                  "type": "download_file_btn",
-                  "options": {
-                    "title": "点击下载",
-                    "url": ""
-                  }
-                }
-              ]
-            }
-          }
-        ]
-      }
-    },
-    {
       "title": "详情",
       "type": "path",
       "options":{

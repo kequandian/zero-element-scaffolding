@@ -32,7 +32,6 @@ export default function (props) {
 
       download(API, queryData, {method:'POST'})
       .then(resp => {
-        console.log('resp = ', resp)
         if (resp && resp.code === 200) {
         }
       })

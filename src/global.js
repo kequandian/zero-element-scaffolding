@@ -55,6 +55,7 @@ import AITSet_download_file from '@/actionItemType/DownloadFile';
 import CSet_activity_fields_form from '@/components/ActivityFieldsForm';
 import CSet_print_config_form from '@/pages/workFlowManageFR/activitiesFR/components/PrintConfigForm';
 import FITSet_field_table from '@/pages/workFlowManageFR/activitiesFR/components/FieldTable';
+import CSet_load_html_page from '@/components/LoadHtmlPage';
 
 const globalModel = getModel('global');
 
@@ -127,6 +128,7 @@ CSet({
   'activity_fields_form' : CSet_activity_fields_form,
   'print_config_form': CSet_print_config_form,
   'data_report_tree_list': CSet_DataReportTreeList,
+  'load_html_page': CSet_load_html_page
 });
 
 LASet({

@@ -85,8 +85,6 @@ export default (api, data, options = {}) => {
     function getFileName(disposition, defaultName = '') {
 
         const matchRst = disposition.match(/filename=["]{0,1}([\w.@%-]+)["]{0,1}/i);
-        console.log('disposition = ', disposition)
-        console.log('defaultName = ', defaultName)
         let fileName = '';
         if(matchRst){
             fileName = matchRst && decodeURI(matchRst[1]) || defaultName;
