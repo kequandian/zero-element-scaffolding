@@ -5,9 +5,9 @@ module.exports = [
     "type": "modal-radio",
     "props": {},
     "rules": [
-      {
-        "type": "required"
-      }
+      // {
+      //   "type": "required"
+      // }
     ],
     "options": {
       "title": "选择模板",

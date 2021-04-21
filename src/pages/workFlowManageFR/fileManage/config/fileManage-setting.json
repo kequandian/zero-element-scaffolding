@@ -236,9 +236,6 @@
         "items": [
           {
             "component": "custom_form_fr",
-            "props": {
-              "footer": null
-            },
             "config": {
               "API": {
                 "getAPI": "/api/doc/(id)"

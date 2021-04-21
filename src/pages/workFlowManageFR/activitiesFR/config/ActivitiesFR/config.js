@@ -99,7 +99,7 @@ module.exports = {
             options:{
               outside: true,
               modalTitle: '绑定模板',
-              modalWidth: 400,
+              modalWidth: 600,
               layout: 'Empty',
               items: [
                 {

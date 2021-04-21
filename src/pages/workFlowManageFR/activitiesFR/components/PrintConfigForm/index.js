@@ -41,6 +41,7 @@ export default function PrintConfigForm(props) {
         goBack: gobackOpt = true,
         footer: footerOpt,
         requestOptions,
+        otherProps = {},
     } = config;
     const { layoutType = 'inline' } = layoutConfig; // inline vertical horizontal
     const formProps = useBaseForm({
@@ -55,6 +56,9 @@ export default function PrintConfigForm(props) {
     const { loading, data, model, handle } = formProps;
     const { onGetData, onFormMap } = getHooks(namespace);
     const pageDataFormData = getPageData(namespace).formData;
+
+    //新增属性
+    const { footerButton = true,  } = otherProps;
 
     const initData = useRef({
         ...extraData,
@@ -296,6 +300,6 @@ export default function PrintConfigForm(props) {
                 </Form>
             ) : <Form form={form} />}
         </div>
-        {renderFooter()}
+        {footerButton ? renderFooter() : <></>}
     </Spin>
 }

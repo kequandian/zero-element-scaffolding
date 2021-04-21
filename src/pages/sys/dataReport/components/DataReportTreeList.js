@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ZEle from 'zero-element';
-import { useDidMount, useWillUnmount } from 'zero-element/lib/utils/hooks/lifeCycle';
+import { useDidMount, useWillUnmount, useForceUpdate } from 'zero-element/lib/utils/hooks/lifeCycle';
 import { formatTableFields } from 'zero-element-antd/lib/container/List/utils/format';
 import { getActionItem } from 'zero-element-antd/lib/utils/readConfig';
 import { Table } from 'antd';
@@ -55,6 +55,7 @@ export default function DataReportTreeList(props) {
   useEffect(_ => {
     if (extraData.id) {
       onGetList({});
+      onClearList(); //刷新组件
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [extraData]);
@@ -63,9 +64,6 @@ export default function DataReportTreeList(props) {
   function handleSelect(data) {
     setExtraData(data);
   }
-
-  console.log('props.data = ', props)
-  console.log('tableData = ', tableData)
 
   return <Render n={layout} {...layoutConfig}>
     <Render n={actionLayout} {...actionLayoutConfig}>
@@ -90,7 +88,7 @@ export default function DataReportTreeList(props) {
           {...propsCfg}
         /> */}
         {props.data || tableData ? (
-          <ZEle namespace={`datareport_`} config={props.data || tableData} />
+          <ZEle namespace={`datareport_${tableData.title}`} config={props.data || tableData} />
         ):<></>}
       </FlexItem>
     </Flex>
