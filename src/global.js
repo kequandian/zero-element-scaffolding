@@ -51,7 +51,8 @@ import FITSet_modal_radio from '@/components/FormItemType/ModalRadio';
 import FITSet_Perm from '@/formItemType/Perm';
 import Dictionary from '@/container/Dictionary';
 import FITSet_upload_file_single from '@/components/FormItemType/UploadFileSingle';
-import AITSet_download_file from '@/actionItemType/DownloadFile';
+import FITSet_download_file from '@/components/FormItemType/DownloadFile';
+import FITSet_normal_download_file from '@/components/FormItemType/NormalDownloadFile';
 import CSet_activity_fields_form from '@/components/ActivityFieldsForm';
 import CSet_print_config_form from '@/pages/workFlowManageFR/activitiesFR/components/PrintConfigForm';
 import FITSet_field_table from '@/pages/workFlowManageFR/activitiesFR/components/FieldTable';
@@ -147,7 +148,8 @@ FITSet({
   'local_modal_radio': FITSet_modal_radio,
   'upload_file_single': FITSet_upload_file_single,
   'field_table': FITSet_field_table,
-  'download_file_btn': AITSet_download_file
+  'download_file_btn': FITSet_download_file,
+  'normal_download_file': FITSet_normal_download_file
 });
 
 AITSet({

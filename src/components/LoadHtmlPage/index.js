@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import { Table } from 'antd';
 import { Render } from 'zero-element/lib/config/layout';
 import useListHandle from 'zero-element-antd/lib/container/List/utils/useListHandle';
@@ -28,15 +28,21 @@ export default function LoadHtmlPage(props) {
   console.log('tableData = ', tableData)
   console.log('actionsItems = ', actionsItems)
 
+  const onError = (e) => {
+      console.log("e = ", e)
+  }
+
   return <Render n={layout} {...layoutConfig}
     handle={handle}
     namespace={namespace}
   >
-    <iframe
-        src="file:///D:/workspace2015/docxFile/copy/对经营高危险性体育项目的行政许可.pdf"
-        style={{ width: '100%', border: '0px', height: '1100px' }}
-        sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-        scrolling="auto"
-      />
+
+        {/* <iframe
+          title="resg"
+          src={"file:///D:/workspace2015/docxFile/copy/对经营高危险性体育项目的行政许可.html"}
+          style={{ width: '100%', border: '0px', height: '1100px' }}
+          sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+          scrolling="auto"
+        /> */}
   </Render>
 }

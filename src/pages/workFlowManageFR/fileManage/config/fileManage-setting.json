@@ -224,6 +224,38 @@
           }
         ]
       }
+    },    {
+      "title": "下载", 
+      "type": "modal",
+      "options":{
+        "outside": true,
+        "modalTitle": "下载文件",
+        "modalWidth": 400,
+        "layout": "Empty",
+        "items": [
+          {
+            "component": "print_config_form",
+            "config": {
+              "API": {
+                "getAPI": "/api/doc/(id)"
+              },
+              "fields": [
+                {
+                  "field": "downloadFile",
+                  "label": "下载",
+                  "type": "normal_download_file",
+                  "options": {
+                    "title": "点击下载"
+                  }
+                }
+              ],
+              "otherProps":{
+                "footerButton": false
+              }
+            }
+          }
+        ]
+      }
     },
     {
       "title": "详情",

@@ -5,6 +5,10 @@ import requestApi from '@/utils/promiseAjax';
 import download from '@/utils/downloadFile';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 
+/**
+ * 对接 C# api 适用
+ */
+
 export default function (props) {
   const { options = {}, formdata } = props;
   const { title, API, fileName, downloadMethod = 'get', message,  } = options;
