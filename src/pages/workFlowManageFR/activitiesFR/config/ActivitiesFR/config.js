@@ -137,6 +137,13 @@ module.exports = {
             }
           },
           {
+            title: "",
+            type: 'sort',
+            options:{
+              entity: "EavEntity"
+            }
+          },
+          {
             title: '删除', type: 'delete'
           }
         ]

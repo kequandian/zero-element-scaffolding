@@ -37,12 +37,12 @@ export default function LoadHtmlPage(props) {
     namespace={namespace}
   >
 
-        {/* <iframe
+        <iframe
           title="resg"
-          src={"file:///D:/workspace2015/docxFile/copy/对经营高危险性体育项目的行政许可.html"}
+          src={"http://192.168.3.121:1231/对经营高危险性体育项目的行政许可.html"}
           style={{ width: '100%', border: '0px', height: '1100px' }}
           sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
           scrolling="auto"
-        /> */}
+        />
   </Render>
 }
