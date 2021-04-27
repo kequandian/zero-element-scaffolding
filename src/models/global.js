@@ -11,6 +11,7 @@ createModel({
   namespace: 'global',
   state: {
     permissions: null,
+    requestCount: 0
   },
   effects: {
     setPerm(perm) {
@@ -19,13 +20,24 @@ createModel({
     clearPerm() {
       this.permissions = [];
     },
+    setRequestCount(value){
+      this.requestCount = value;
+    },
+    getRequestCount(){
+      return this.requestCount;
+    },
     queryPerm: async function () {
       if (getToken()) {
+        //限制只访问三次
+        if(this.getRequestCount() >= 3){
+          return;
+        }
         if (!this.permissions || Array.isArray(this.permissions)) {
           query('/api/adm/users/self/permissions')
             .then(response => {
               if (response.status === 200) {
                 const { perms } = response.data.data;
+                this.setRequestCount(this.getRequestCount()+1);
                 this.setPerm(perms);
               }
             })

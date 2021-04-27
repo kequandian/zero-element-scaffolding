@@ -46,7 +46,7 @@ function BasicLayout(props) {
 
   useEffect(_ => {
     if (documentVisibility === 'visible') {
-      menuConfigModel.queryPerm();
+      menuConfigModel.queryMenu();
       setMenuFirstRequest(1);
     }
   }, [menuTree, documentVisibility]);

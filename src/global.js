@@ -59,6 +59,7 @@ import FITSet_field_table from '@/pages/workFlowManageFR/activitiesFR/components
 import CSet_load_html_page from '@/components/LoadHtmlPage';
 
 const globalModel = getModel('global');
+const menuConfigModel = getModel('menuConfig');
 
 APIConfig({
   'DEFAULT_current': 1,
