@@ -80,7 +80,7 @@ const Demo = (props) => {
     const formatApi = updateAPI.replace('(id)', custActivityId);
     const apiUrl = `${getEndpoint()}${formatApi}`
     const queryData = submitData;
-    console.log('queryData = ', queryData)
+    // console.log('queryData = ', queryData)
     handleRequest(apiUrl, queryData, { method: 'PUT' })
   }
 
@@ -98,11 +98,14 @@ const Demo = (props) => {
 
   function onSubimit(schema) {
     if (validateSchema(schema)) {
-      if (API.createAPI) {
+      if(subData.tableJson){
         subData.tableJson = schema;
+      }else if(subData.designData){
+        subData.designData = schema;
+      }
+      if (API.createAPI) {
         createFR(subData);
       } else if (API.updateAPI) {
-        subData.tableJson = schema;
         updateFR(subData);
       }
     }
@@ -166,7 +169,7 @@ const Demo = (props) => {
   return (
     <div style={{ height: '100vh' }}>
       <Generator
-        defaultValue={subData.tableJson ? (strToJson(subData.tableJson)) : null}
+        defaultValue={subData.tableJson || subData.designData ? (strToJson(subData.tableJson || subData.designData)) : null}
         widgets={customWidgets}
         settings={defaultSettings}
         commonSettings={defaultCommonSettings}
