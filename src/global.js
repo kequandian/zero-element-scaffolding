@@ -112,8 +112,8 @@ if (process.env.NODE_ENV === 'development') {
   //   token: '',
   // });
 }else {
-  setEndpoint('http://localhost:8080');
-  //setEndpoint('http://192.168.3.239:8090');
+  // setEndpoint('http://localhost:8080');
+  setEndpoint('http://192.168.3.239:8090');
 }
 
 LayoutSet({
