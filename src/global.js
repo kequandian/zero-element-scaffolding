@@ -130,7 +130,7 @@ CSet({
   'activity_fields_form' : CSet_activity_fields_form,
   'print_config_form': CSet_print_config_form,
   'data_report_tree_list': CSet_DataReportTreeList,
-  'LoadHtmlPage': CSet_load_html_page
+  'LoadHtmlPage': CSet_load_html_page 
 });
 
 LASet({
