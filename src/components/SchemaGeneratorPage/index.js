@@ -98,12 +98,13 @@ const Demo = (props) => {
 
   function onSubimit(schema) {
     if (validateSchema(schema)) {
-      if(subData.tableJson){
-        subData.tableJson = schema;
-      }else if(subData.designData){
+      if(subData.frJsonType == "designData"){
         subData.designData = schema;
+      }else{
+        subData.tableJson = schema;
       }
       if (API.createAPI) {
+        delete subData.frJsonType;
         createFR(subData);
       } else if (API.updateAPI) {
         updateFR(subData);

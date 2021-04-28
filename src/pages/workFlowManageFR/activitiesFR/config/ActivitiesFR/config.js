@@ -21,7 +21,7 @@ module.exports = {
       component: 'TreeList',
       config: {
         API: {
-          listAPI: '/api/crud/eavEntityType/eavEntityTypes/entity?typeId=<id>',
+          listAPI: '/api/crud/virtualForm/virtualForms?typeId=<id>',
           deleteAPI: '/api/eav/entities/(id)'
         },
         tree: {
@@ -60,7 +60,7 @@ module.exports = {
           },
         ],
         fields: [
-          { field: 'name', label: '表单名称' },
+          { field: 'formName', label: '表单名称' },
           { field: 'note', label: '备注' },
         ],
         operation: [
