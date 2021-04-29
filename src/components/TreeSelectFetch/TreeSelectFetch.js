@@ -139,6 +139,7 @@ export default function TreeSelectFetch(props) {
     <TreeSelect
         style={{ width: '100%' }}
         value={valueData}
+        switcherIcon={Icon}
         dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
         treeData={optionList ? optionList : []}
         placeholder="Please select"

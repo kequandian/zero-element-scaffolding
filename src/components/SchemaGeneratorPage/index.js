@@ -11,7 +11,7 @@ import { setPageData, getPageData, clearPageData, getHooks } from 'zero-element/
 import promiseAjax from '@/utils/promiseAjax';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 
-import { widgets as customWidgets } from './components';
+import { widgets as customWidgets} from './components';
 
 // const defaultValue = {
 //   schema: {
@@ -169,7 +169,6 @@ const Demo = (props) => {
     return goBackUrl;
   }
 
-
   
   return (
     <div style={{ height: '100vh' }}>
@@ -177,6 +176,7 @@ const Demo = (props) => {
         defaultValue={subData.tableJson ? (strToJson(subData.tableJson)) : null}
         // ref={ref}
         widgets={customWidgets}
+        formData={"测试"}
         settings={defaultSettings}
         commonSettings={defaultCommonSettings}
         globalSettings={defaultGlobalSettings}

@@ -41,21 +41,8 @@ export const defaultCommonSettings = {
   
   // widget 用于schema中每个元素对应的右侧配置知道用哪个setting
   
-  // 系统用户设置
-  export const UserConfig = [
-    {
-      text: '用户信息',
-      name: 'UserCard',
-      widget: 'UserCard',
-      schema: {
-        type: 'string',
-        componentType: 'input',
-        "ui:widget":"UserCard",
-        placeholder:"请键入用户信息",
-      },
-      setting:{
-      }
-    },
+  // 宏组件设置
+  export const HongConfig = [
     {
       text:'获取现在时间',
       name:"GetTime",
@@ -73,18 +60,6 @@ export const defaultCommonSettings = {
       schema:{
         type:"string",
         "ui:widget":"GetUserName",
-      }
-    },
-    {
-      text:'电子签章',
-      name:"EleSign",
-      widget:"Elesign",
-      schema:{
-        type:'string',
-        'ui:widget':'Elesign',
-        "ui:width":"220px"
-      },
-      setting:{
       }
     },
   ]
@@ -159,20 +134,6 @@ export const defaultCommonSettings = {
 
       },
       widget:"Url",
-      setting:{
-        properties: {
-          addonBefore: {
-            title: '前tab',
-            type: 'string',
-            default:'http://'
-          },
-          addonAfter: {
-            title: '后tab',
-            type: 'string',
-            default:'.com'
-          },
-        }
-      }
     },
     {
       text: '大输入框',
@@ -417,27 +378,48 @@ export const defaultCommonSettings = {
         // },  
       },
     },
-    {
-      text:"描述/文字提示",
-      title:"描述/文字提示",
-      widget:"PlaceHolder",
-      schema:{
-        type:"string",
-        "ui:widget":"PlaceHolder",
-      },
-    }
-  
   ];
   
   export const advancedElements = [
     {
-      text:"获取页面表单",
+      text:'电子签章',
+      name:"EleSign",
+      widget:"Elesign",
+      schema:{
+        type:'string',
+        'ui:widget':'Elesign',
+        "ui:width":"220px"
+      },
+      setting:{
+        "src":{
+          title:'签章图片地址',
+          type:'string',
+        }
+      }
+    },
+    {
+      text:"子表单",
       name:"getlist",
       schema:{
         type:"string",
         "ui:widget":"GetList",
       },
-      widget:"GetList"
+      widget:"GetList",
+      setting:{
+            "title":{
+              title:"表单名称",
+              type:'string',
+            },
+            "componentType":{
+              title:'组件类型',
+              type:'string',
+              value:'childrenFrom',
+            },
+            code:{
+              title:'code字段',
+              type:"string",
+        }
+      }
     },
     {
       text: '日历',
@@ -517,46 +499,6 @@ export const defaultCommonSettings = {
       setting: {},
     },
   ];
-  export const FormView = [
-    {
-      text: '表单信息',
-      name:"USERCARD",
-      type: 'object',
-      schema:{
-        title: '用户信息',
-        type: 'object',
-        properties:{
-          UserName:{
-            title:'姓名',
-            type:"string",
-          },
-          Age:{
-            title:"年龄",
-            type:"integer",
-            default:"18"
-          },
-          Email:{
-            title:'邮箱',
-            type:'string',
-          },
-          Date:{
-            title:'日期',
-            type:'string',
-            format:'date',
-          },
-          Phone:{
-            title:"电话",
-            type:"string",
-          },
-          Marked:{
-            title:"备注",
-            type:"string",
-            format:"textarea"
-          },
-        }
-      }
-    }
-  ]
   export const layouts = [
     {
       text: '对象',
@@ -577,6 +519,12 @@ export const defaultCommonSettings = {
         title:"树状目录",
         type:'string',
         'ui:widget':'TreeDir'
+      },
+      setting:{
+        "TreeTitle":{
+          title:"标题",
+          type:"string"
+        }
       }
     },
     {
@@ -587,6 +535,12 @@ export const defaultCommonSettings = {
         title:"树状目录选择",
         type:'string',
         'ui:widget':'TreeSelect'
+      },
+      setting:{
+        "TreeTitle":{
+          title:"标题",
+          type:"string"
+        }
       }
     },
     {
@@ -673,12 +627,8 @@ export const defaultCommonSettings = {
   
   export const defaultSettings = [
     {
-      title:'表单组件',
-      widgets: FormView,
-    },
-    {
-      title:'用户信息组件',
-      widgets: UserConfig,
+      title:'宏定义组件',
+      widgets: HongConfig,
     },
     {
       title: '基础组件',
