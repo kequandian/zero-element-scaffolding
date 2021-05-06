@@ -13,4 +13,10 @@ module.exports = [
       }
     }
   },
+  {
+    field: 'sortNum',
+    label: '排序号',
+    type: 'number',
+    span: 24
+  }
 ]

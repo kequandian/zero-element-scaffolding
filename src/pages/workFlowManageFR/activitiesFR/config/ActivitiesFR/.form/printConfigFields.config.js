@@ -1,18 +1,18 @@
 module.exports = [
   {
     "field": "docId",
-    "label": "模板",
+    "label": "打印表单模板",
     "type": "modal-radio",
     "props": {},
     "rules": [
-      {
-        "type": "required"
-      }
+      // {
+      //   "type": "required"
+      // }
     ],
     "options": {
       "title": "选择模板",
       "label": "name",
-      "editLabel": "entityName",
+      "editLabel": "name",
       "value": "id",
       "pagination": true,
       "API": "/api/doc",
@@ -28,11 +28,11 @@ module.exports = [
       ]
     }
   },
-  {
-    "field": "fieldList",
-    "label": "",
-    "type": "field_table",
-    "props": {},
-    "rules": []
-  }
+  // {
+  //   "field": "fieldList",
+  //   "label": "",
+  //   "type": "field_table",
+  //   "props": {},
+  //   "rules": []
+  // }
 ]

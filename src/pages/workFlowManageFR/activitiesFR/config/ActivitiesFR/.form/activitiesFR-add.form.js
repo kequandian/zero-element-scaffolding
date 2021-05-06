@@ -27,7 +27,7 @@ module.exports = {
           },
           {
             "label": "表单名称",
-            "field": "name",
+            "field": "formName",
             "type": "input",
             "props": {
               "placeholder": "请输入……"
@@ -85,6 +85,7 @@ module.exports = {
         otherProps:{
           nextBtn: '下一步',
           nextPageUrl: '/workFlowManageFR/activitiesFR/activitiesFR-schema',
+          frJsonType: 'designData'
         }
       }
     },

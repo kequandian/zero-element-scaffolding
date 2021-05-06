@@ -40,16 +40,17 @@ function BasicLayout(props) {
   const { pathname } = location;
 
   const documentVisibility = useDocumentVisibility();
-  const menuConfigModel = useModel('menuConfig');
-  const [ menuFirstRequest, setMenuFirstRequest ] = useState(0);
-  const [ menuFirstPush, setMenuFirstPush ] = useState(0);
-
-  useEffect(_ => {
-    if (documentVisibility === 'visible') {
-      menuConfigModel.queryPerm();
-      setMenuFirstRequest(1);
-    }
-  }, [menuTree, documentVisibility]);
+  // const menuConfigModel = useModel('menuConfig');
+  // const [ menuFirstRequest, setMenuFirstRequest ] = useState(0);
+  // const [ menuFirstPush, setMenuFirstPush ] = useState(0);
+  
+  // useEffect(_ => {
+    
+  //   if (documentVisibility === 'visible') {
+  //     menuConfigModel.queryMenu();
+  //     setMenuFirstRequest(1);
+  //   }
+  // }, [menuTree, documentVisibility]);
 
   const [state, dispatch] = useReducer(reducer, {
     breadcrumb: [],
@@ -77,13 +78,13 @@ function BasicLayout(props) {
 
   // console.log('menuTree = ', menuTree)
   //更新菜单信息
-  const menuTree = LS.get('menuList');
-  if(menuFirstRequest == 1 && menuFirstPush == 0 && menuTree.length > 0){
-    if(Array.isArray(menuTree)){
-      menuData = menuTree;
-      setMenuFirstPush(1)
-    }
-  }
+  // const menuTree = LS.get('menuList');
+  // if(menuFirstRequest == 1 && menuFirstPush == 0 && menuTree.length > 0){
+  //   if(Array.isArray(menuTree)){
+  //     menuData = menuTree;
+  //     setMenuFirstPush(1)
+  //   }
+  // }
 
   return (
     <GlobalContext.Provider value={state}>

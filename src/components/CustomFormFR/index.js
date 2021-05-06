@@ -66,7 +66,7 @@ export default function CustomtForm(props) {
 
   //新增属性
   const { footerButton = true, submitBtnText = '保存', isApplied = false, 
-    applyFormFileds, pageType = '', nextBtn, nextPageUrl } = otherProps;
+    applyFormFileds, pageType = '', nextBtn, nextPageUrl, frJsonType = 'tableJson' } = otherProps;
 
   const initData = useRef({
     ...extraData,
@@ -283,6 +283,7 @@ export default function CustomtForm(props) {
   function onNext(submitData){
     submitData.API = API;
     submitData.custActivityId = custActivityId;
+    submitData.frJsonType = frJsonType;
     setPageData(namespace, 'formData', submitData);
     if(nextPageUrl){
       history.push(`${nextPageUrl}?ns=${namespace}`);

@@ -21,7 +21,7 @@ module.exports = {
       component: 'TreeList',
       config: {
         API: {
-          listAPI: '/api/crud/eavEntityType/eavEntityTypes/entity?typeId=<id>',
+          listAPI: '/api/crud/virtualForm/virtualForms?typeId=<id>',
           deleteAPI: '/api/eav/entities/(id)'
         },
         tree: {
@@ -60,7 +60,7 @@ module.exports = {
           },
         ],
         fields: [
-          { field: 'name', label: '表单名称' },
+          { field: 'formName', label: '表单名称' },
           { field: 'note', label: '备注' },
         ],
         operation: [
@@ -88,11 +88,18 @@ module.exports = {
           //   }
           // },
           {
-            title: '打印配置', type: 'modal',
+            title: '设计', type: 'path',
             options:{
               outside: true,
-              modalTitle: '打印配置',
-              modalWidth: 800,
+              path: "/workFlowManageFR/activitiesFR/activitiesFR-design"
+            }
+          },
+          {
+            title: '打印模板', type: 'modal',
+            options:{
+              outside: true,
+              modalTitle: '绑定模板',
+              modalWidth: 600,
               layout: 'Empty',
               items: [
                 {
@@ -101,8 +108,8 @@ module.exports = {
                   config: {
                     layout: 'Grid',
                     API: {
-                      getAPI: '/api/ali/byTableJSON/(id)',
-                      updateAPI: '/api/adm/users/(id)',
+                      getAPI: '/api/doc/entity/(id)',
+                      updateAPI: '/api/doc/editEntity',
                     },
                     fields: printConfigFields,
                   }
@@ -111,10 +118,15 @@ module.exports = {
             }
           },
           {
-            title: '设计', type: 'path',
+            title: '打印配置', 
+            type: 'path',
             options:{
               outside: true,
-              path: "/workFlowManageFR/activitiesFR/activitiesFR-design"
+              path:"activitiesFR/activitiesFR-activityFields"
+            },
+            expect: {
+              field: "hasDocument",
+              value: true
             }
           },
           {
@@ -122,6 +134,13 @@ module.exports = {
             options:{
               outside: true,
               path: "/workFlowManageFR/activitiesFR/activitiesFR-edit"
+            }
+          },
+          {
+            title: "",
+            type: 'sort',
+            options:{
+              entity: "EavEntity"
             }
           },
           {
