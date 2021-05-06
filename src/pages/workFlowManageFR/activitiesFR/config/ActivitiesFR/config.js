@@ -22,7 +22,7 @@ module.exports = {
       config: {
         API: {
           listAPI: '/api/crud/virtualForm/virtualForms?typeId=<id>',
-          deleteAPI: '/api/eav/entities/(id)'
+          deleteAPI: '/api/crud/virtualForm/virtualForms/(id)'
         },
         tree: {
           API: {
@@ -108,8 +108,8 @@ module.exports = {
                   config: {
                     layout: 'Grid',
                     API: {
-                      getAPI: '/api/doc/entity/(id)',
-                      updateAPI: '/api/doc/editEntity',
+                      getAPI: '/api/doc/form/(id)',
+                      updateAPI: '/api/doc/editFormDoc',
                     },
                     fields: printConfigFields,
                   }
@@ -140,7 +140,7 @@ module.exports = {
             title: "",
             type: 'sort',
             options:{
-              entity: "EavEntity"
+              entity: "virtualForm"
             }
           },
           {

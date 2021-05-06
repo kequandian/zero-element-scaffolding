@@ -45,7 +45,7 @@
                     "editLabel": "attributeName",
                     "value": "id",
                     "pagination": true,
-                    "API": "/api/eav/entities/[id]/attributes/rmOrg",
+                    "API": "/api/doc/attributes/[id]",
                     "saveData": {
                       "masterRelations": "value"
                     },
@@ -360,7 +360,7 @@
   "viewFields": [
     {}
   ],
-  "listAPI": "/api/crud/pdfAttribute/pdfAttributes/doc?entityId=[id]",
+  "listAPI": "/api/crud/pdfAttribute/pdfAttributes/doc?formId=[id]",
   "createAPI": "/api/[id]",
   "getAPI": "/api/(id)",
   "updateAPI": "/api/(id)",

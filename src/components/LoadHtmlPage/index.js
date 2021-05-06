@@ -23,10 +23,10 @@ export default function LoadHtmlPage(props) {
     props,
   });
 
-  console.log('props = ', props)
-  console.log('tableProps = ', tableProps)
-  console.log('tableData = ', tableData)
-  console.log('actionsItems = ', actionsItems)
+  // console.log('props = ', props)
+  // console.log('tableProps = ', tableProps)
+  // console.log('tableData = ', tableData)
+  // console.log('actionsItems = ', actionsItems)
 
   const onError = (e) => {
       console.log("e = ", e)
