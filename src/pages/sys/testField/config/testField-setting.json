@@ -57,6 +57,16 @@
       "expect": {
         "permission": ""
       }
+    },
+    {
+      "title": "导入",
+      "type": "import-modal",
+      "options": {
+        "modalTitle": "导入",
+        "modalWidth": 600,
+        "templateUrl": "/attachments/测试模板.xlsx",
+        "name": "tests"
+      }
     }
   ],
   "tableOperation": [

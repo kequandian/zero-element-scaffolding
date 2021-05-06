@@ -26,7 +26,7 @@ createModel({
     clearMenuTree() {
       this.menuTree = null;
     },
-    queryPerm: async function () {
+    queryMenu: async function () {
       if (getToken()) {
         if(this.getFirstRequestCount() >= 1){
           return;

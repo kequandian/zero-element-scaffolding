@@ -90,6 +90,41 @@
   "tableActions": [ ],
   "tableOperation": [
     {
+      "title": "打印", "type": "modal",
+      "options":{
+        "outside": true,
+        "modalTitle": "打印",
+        "modalWidth": 600,
+        "layout": "Empty",
+        "items": [
+          {
+            "layout": "Empty",
+            "component": "print_config_form",
+            "config": {
+              "layout": "Grid",
+              "API": {
+                "getAPI": "/api/wf/instanceAndForm/doc/(id)"
+              },
+              "fields": [
+                {
+                  "field": "downloadFile",
+                  "label": "打印文档",
+                  "type": "download_file_btn",
+                  "options": {
+                    "title": "点击打印",
+                    "API": "/api/DownloadFile/Download"
+                  }
+                }
+              ],
+              "otherProps":{
+                "footerButton": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
       "title": "查看",
       "type": "path",
       "options": {

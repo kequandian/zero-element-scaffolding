@@ -12,7 +12,9 @@ export default (props) => {
         { title: '可视化设计' },
     ]);
 
+    const apiUrl = '/api/crud/virtualForm/virtualForms';
+
     return (
-        <ProjectActivities />
+        <ProjectActivities api={apiUrl}/>
     )
 }

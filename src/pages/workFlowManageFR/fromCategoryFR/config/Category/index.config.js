@@ -51,8 +51,16 @@ module.exports = {
         fields: [
           { field: 'name', label: '分类名称' },
           { field: 'note', label: '备注' },
+          { field: 'sortNum', label: '排序号' },
         ],
         operation: [
+          // {
+          //   title: "",
+          //   type: 'sort',
+          //   options:{
+          //     entity: "EavEntityType"
+          //   }
+          // },
           {
             title: '编辑', type: 'modal',
             options: {

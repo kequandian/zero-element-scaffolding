@@ -25,14 +25,19 @@ export default function PrimaryLayout({
   const { permissions } = globalModel;
   const documentVisibility = useDocumentVisibility();
 
-  // const menuConfigModel = useModel('menuConfig');
+  const menuConfigModel = useModel('menuConfig');
+  const { menuTree } = menuConfigModel;
 
   useEffect(_ => {
     if (documentVisibility === 'visible') {
       globalModel.queryPerm();
-      // menuConfigModel.queryPerm();
+      menuConfigModel.queryMenu();
     }
-  }, [permissions, documentVisibility]);
+  }, [permissions, menuTree, documentVisibility]);
+
+  if(menuTree && menuTree.length > 0){
+    menuData = menuTree;
+  }
 
   const [
     TopNav, TopNavData,

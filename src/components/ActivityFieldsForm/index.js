@@ -19,7 +19,7 @@ const defaultLabelCol = {
 const defaultWrapperCol = {
     // xs: { span: 16, },
 };
-export default function PrintConfigForm(props) {
+export default function BaseForm(props) {
     const [form] = Form.useForm();
 
     const forceUpdate = useForceUpdate();
@@ -41,7 +41,6 @@ export default function PrintConfigForm(props) {
         goBack: gobackOpt = true,
         footer: footerOpt,
         requestOptions,
-        otherProps = {},
     } = config;
     const { layoutType = 'inline' } = layoutConfig; // inline vertical horizontal
     const formProps = useBaseForm({
@@ -56,9 +55,6 @@ export default function PrintConfigForm(props) {
     const { loading, data, model, handle } = formProps;
     const { onGetData, onFormMap } = getHooks(namespace);
     const pageDataFormData = getPageData(namespace).formData;
-
-    //新增属性
-    const { footerButton = true,  } = otherProps;
 
     const initData = useRef({
         ...extraData,
@@ -83,15 +79,15 @@ export default function PrintConfigForm(props) {
     const { onGetOne, onCreateForm, onUpdateForm, onClearForm } = handle;
     const [canRenderForm, setCanRenderForm] = useState(API.getAPI ? false : true);
 
-    const [subData, setSubData] = useState({});
-
-    //保存当前表单ID
     const [entityId, setEntityId] = useState('');
 
     // useMemo(recordDefaultValue, [fields]);
     useDidMount(_ => {
         recordDefaultValue();
 
+        const searchList = location.search.split('=');
+        const id = searchList[1];
+        setEntityId(id)
         if (API.getAPI) {
             handleGetData();
         }
@@ -143,12 +139,6 @@ export default function PrintConfigForm(props) {
                 } else {
                     forceUpdate();
                 }
-
-                // console.log('get data = ', data)
-                //保存表单ID
-                if(data && data.entityId){
-                    setEntityId(data.entityId);
-                }
             }
         })
             .finally(_ => {
@@ -182,20 +172,56 @@ export default function PrintConfigForm(props) {
     }
 
     function handleSubmitForm(values) {
-        subData.entityId = entityId;
-        // console.log('submitData = ', JSON.stringify(subData))
+        const extraSubmit = {};
+        fields.forEach(field => {
+            if (field.type === 'hidden') {
+                extraSubmit[field.field] = extraData[field.field] || field.value;
+            }
+        })
+        let submitData = {
+            ...extraSubmit,
+            ...pageDataFormData,
+            ...values,
+        };
+
+        handleFormatValue(submitData);
+
+        // 修改并提交 extra 里面的数据
+        if (extraFields.current.length) {
+            const extraData = submitData.extra.items;
+            submitData.extra.items = pageDataFormData.extra.items;
+
+            extraFields.current.forEach(field => {
+                const index = submitData.extra.items.findIndex(item => item.attr === field);
+                const find = submitData.extra.items[index];
+
+                if (find) {
+                    find.value = extraData[index].value;
+                }
+            });
+        }
+
+        if (typeof onSubmit === 'function') {
+            onSubmit(submitData, handleResponse);
+            return false;
+        }
+
+        if (typeof onFormMap === 'function') {
+            submitData = onFormMap(submitData, pageDataFormData);
+        }
+
+        submitData.entityId = entityId;
         if (API.updateAPI) {
             onUpdateForm({
-                fields: subData,
+                fields: submitData,
                 options: requestOptions,
             }).then(handleResponse);
         } else {
             onCreateForm({
-                fields: subData,
+                fields: submitData,
                 options: requestOptions,
             }).then(handleResponse);
         }
-
     }
     function handleResponse(data = {}, opt = {}) {
         const { message: msg = '操作成功' } = opt;
@@ -255,22 +281,6 @@ export default function PrintConfigForm(props) {
         </div>
     }
 
-    //onValuesChange
-    function catchChangeValues(data) {
-        let newSubData = { ...subData };
-        Object.keys(data).forEach(key => {
-
-            if(Array.isArray(data[key])){
-                newSubData[key] = data[key];
-            }else{
-                newSubData[key] = data[key].id;
-            }
-        });
-
-        setSubData(newSubData);
-        // onValuesChange(data)
-    }
-
     return <Spin spinning={propsLoading || loading}>
         {renderGoBack && canPortal(extraEl, <Button onClick={handleGoBack}>返回</Button>)}
         <div className={fields.length ? 'ant-modal-body' : undefined}>
@@ -281,7 +291,7 @@ export default function PrintConfigForm(props) {
                     labelCol={defaultLabelCol}
                     wrapperCol={defaultWrapperCol}
                     initialValues={initData.current}
-                    onValuesChange={catchChangeValues}
+                    onValuesChange={onValuesChange}
                     onFinish={handleSubmitForm}
                 >
                     <Render n={layout} {...layoutConfig}>
@@ -300,6 +310,6 @@ export default function PrintConfigForm(props) {
                 </Form>
             ) : <Form form={form} />}
         </div>
-        {footerButton ? renderFooter() : <></>}
+        {renderFooter()}
     </Spin>
 }

@@ -8,7 +8,6 @@
   "listAPI": "/api/crud/appPermission/appPermissions",
   "createAPI": "/api/crud/appPermission/appPermissions",
   "getAPI": "/api/crud/appPermission/appPermissions/[id]",
-  
   "updateAPI": "/api/crud/appPermission/appPermissions/[id]",
   "deleteAPI": "/api/crud/appPermission/appPermissions/(id)",
   "columns": 2,

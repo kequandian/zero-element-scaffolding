@@ -2,4 +2,4 @@ import React from 'react';
 import ZEle from 'zero-element';
 import config from './config';
 
-export default () => <ZEle namespace="activitiesFR-activityFields" config={config} />;
+export default () => <ZEle namespace="fileManage-activityFields" config={config} />;
