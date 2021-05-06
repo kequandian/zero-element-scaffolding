@@ -44,16 +44,6 @@ export const defaultCommonSettings = {
   // 宏组件设置
   export const HongConfig = [
     {
-      text:'获取现在时间',
-      name:"GetTime",
-      widget:'NowTime',
-      schema:{
-        type:'string',
-        'ui:widget':"NowTime",
-      },
-      setting:{},
-    },
-    {
       text:"获取用户名",
       name:"GetUserName",
       widget:"GetUserName",
@@ -61,6 +51,16 @@ export const defaultCommonSettings = {
         type:"string",
         "ui:widget":"GetUserName",
       }
+    },
+    {
+      text:'获取实时',
+      name:"GetTime",
+      widget:'Now',
+      schema:{
+        type:'string',
+        'ui:widget':"Now",
+      },
+      setting:{},
     },
   ]
 
