@@ -1,8 +1,9 @@
 .left-item {
   width: 7.2rem;
-  height: 2.2rem;
+  min-height: 2.2rem;
   display: flex;
   margin: 4px;
+  padding:5px;
   cursor: pointer;
   display: flex;
   justify-content: center;
