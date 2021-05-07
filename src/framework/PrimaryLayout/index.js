@@ -3,6 +3,7 @@ import { Layout } from 'antd';
 import { useModel } from 'zero-element/lib/Model';
 import { useDocumentVisibility } from 'ahooks';
 import Breadcrumb from './Breadcrumb';
+import { LS } from 'zero-element/lib/utils/storage';
 import Login from './Login';
 import './index.less';
 const appLogo = require( '../../../public/applogo.jpg');
@@ -35,9 +36,7 @@ export default function PrimaryLayout({
     }
   }, [permissions, menuTree, documentVisibility]);
 
-  if(menuTree && menuTree.length > 0){
-    menuData = menuTree;
-  }
+  menuData = LS.get('menuList');
 
   const [
     TopNav, TopNavData,
