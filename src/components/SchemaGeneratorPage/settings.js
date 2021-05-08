@@ -55,12 +55,107 @@ export const defaultCommonSettings = {
     {
       text:'获取实时',
       name:"GetTime",
-      widget:'Now',
+      widget:'NowAll',
       schema:{
         type:'string',
-        'ui:widget':"Now",
+        'ui:widget':"NowAll",
       },
-      setting:{},
+      setting:{
+        'ui:widget':{
+          type:'string',
+          title:'时间格式（选择不可逆！请最后配置）',
+          enum:[
+          'NowAll',
+          'NowDays',
+          'NowTimes'],
+          enumNames:[
+            'yyyy-mm-dd 00:00:00',
+            'yyyy-mm-dd',
+            '00:00:00',
+          ]
+        }
+      },
+    },
+    {
+      text:"部门名称",
+      name:"getDepName",
+      widget:"GetDepName",
+      schema:{
+        type:"string",
+        'ui:widget':'GetDepName'
+      }
+    },
+    {
+      text:"用户角色",
+      name:"getrole",
+      widget:"Getrole",
+      schema:{
+        type:"string",
+        'ui:widget':'Getrole'
+      }
+    },
+    {
+      text:"用户职位",
+      name:"getposition",
+      widget:"Getposition",
+      schema:{
+        type:"string",
+        'ui:widget':'Getposition'
+      }
+    },
+    {
+      text:"表单名称编号",
+      name:"formnan",
+      widget:"FormNaN",
+      schema:{
+        type:"string",
+        'ui:widget':'FormNaN'
+      }
+    },
+    {
+      text:"用户部门主管",
+      name:"getheadofdep",
+      widget:"GetHeadOfDep",
+      schema:{
+        type:"string",
+        'ui:widget':'GetHeadOfDep'
+      }
+    },
+    {
+      text:"分公司名称",
+      name:"getbraoffice",
+      widget:"GetBraOffice",
+      schema:{
+        type:"string",
+        'ui:widget':'GetBraOffice'
+      }
+    },
+    {
+      text:"流程开始时间",
+      name:"process",
+      widget:"ProcessStart",
+      schema:{
+        type:"string",
+        'ui:widget':"ProcessStart"
+      }
+    },
+    {
+      text:"流水号",
+      name:"serialnumber",
+      widget:"SerialNumber",
+      schema:{
+        type:"string",
+        'ui:widget':"SerialNumber"
+      }
+    },
+    {
+      text:"步骤经办人",
+      name:"stepHandler",
+      widget:"StepHandler",
+      schema:{
+        type:"string",
+        "ui:widget":"StepHandler"
+      }
     },
   ]
 
