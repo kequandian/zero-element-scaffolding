@@ -39,7 +39,8 @@ export default (props) => {
         subData: {
             ...data,
             API: { updateAPI: `${apiUrl}/(id)` },
-            custActivityId: activityId
+            custActivityId: activityId,
+            frJsonType: 'designData'
         }
     }
 

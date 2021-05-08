@@ -12,7 +12,7 @@ module.exports = [
     "options": {
       "title": "选择模板",
       "label": "name",
-      "editLabel": "name",
+      "editLabel": "docName",
       "value": "id",
       "pagination": true,
       "API": "/api/doc",
@@ -21,10 +21,10 @@ module.exports = [
           "label": "文档名",
           "field": "name"
         },
-        {
-          "label": "表单",
-          "field": "entityName"
-        }
+        // {
+        //   "label": "表单",
+        //   "field": "entityName"
+        // }
       ]
     }
   },

@@ -6,7 +6,7 @@ let endpoint = getEndpoint();
 export default (api, data, options = {}) => {
 
     //测试IP
-    endpoint = 'http://192.168.3.121:1232';
+    //endpoint = 'http://192.168.3.121:1232';
 
     const { method = 'get', fileName } = options;
 

@@ -41,6 +41,7 @@ export default function BaseForm(props) {
         goBack: gobackOpt = true,
         footer: footerOpt,
         requestOptions,
+        otherProps = {},
     } = config;
     const { layoutType = 'inline' } = layoutConfig; // inline vertical horizontal
     const formProps = useBaseForm({
@@ -79,7 +80,13 @@ export default function BaseForm(props) {
     const { onGetOne, onCreateForm, onUpdateForm, onClearForm } = handle;
     const [canRenderForm, setCanRenderForm] = useState(API.getAPI ? false : true);
 
-    const [entityId, setEntityId] = useState('');
+    
+    //新增属性
+     const { fieldForIdKey="entityId" } = otherProps;
+
+     console.log('fieldForIdKey = ', fieldForIdKey)
+
+    const [urlId, setUrlId] = useState('');
 
     // useMemo(recordDefaultValue, [fields]);
     useDidMount(_ => {
@@ -87,7 +94,7 @@ export default function BaseForm(props) {
 
         const searchList = location.search.split('=');
         const id = searchList[1];
-        setEntityId(id)
+        setUrlId(id)
         if (API.getAPI) {
             handleGetData();
         }
@@ -210,7 +217,8 @@ export default function BaseForm(props) {
             submitData = onFormMap(submitData, pageDataFormData);
         }
 
-        submitData.entityId = entityId;
+        submitData[fieldForIdKey] = urlId;
+
         if (API.updateAPI) {
             onUpdateForm({
                 fields: submitData,

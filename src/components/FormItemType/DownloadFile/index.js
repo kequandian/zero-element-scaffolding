@@ -38,7 +38,7 @@ export default function (props) {
 
       // console.log('queryData = ', queryData.ctdListString)
 
-      download(API, queryData, {method:'POST'})
+      download(API, queryData, {method:'post'})
       .then(resp => {
         if (resp && resp.code === 200) {
         }

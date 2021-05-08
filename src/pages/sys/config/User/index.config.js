@@ -27,7 +27,7 @@ module.exports = {
         },
         tree: {
           API: {
-            initAPI: '/api/sys/org',
+            initAPI: '/api/sys/org/tree',
             appendAPI: undefined,
           }
         },

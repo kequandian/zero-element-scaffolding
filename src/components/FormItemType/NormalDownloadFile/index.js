@@ -41,7 +41,10 @@ export default function (props) {
       if (message) {
         msg.success(message);
       }
-    });
+    })
+    .finally(_ => {
+      setLoading(false);
+    })
 
   }
 

@@ -56,6 +56,7 @@ import CSet_activity_fields_form from '@/components/ActivityFieldsForm';
 import CSet_print_config_form from '@/pages/workFlowManageFR/activitiesFR/components/PrintConfigForm';
 import FITSet_field_table from '@/pages/workFlowManageFR/activitiesFR/components/FieldTable';
 import CSet_load_html_page from '@/components/LoadHtmlPage';
+import AITSet_export_file from '@/actionItemType/ExportFile';
 
 const globalModel = getModel('global');
 
@@ -153,7 +154,8 @@ FITSet({
 
 AITSet({
   path,
-  tabs
+  tabs,
+  'exportFile': AITSet_export_file,
 });
 
 //列表 & 详情
