@@ -130,11 +130,11 @@
                     "editLabel": "formName",
                     "value": "id",
                     "pagination": true,
-                    "API": "/api/eav/entities",
+                    "API": "/api/crud/virtualForm/virtualForms",
                     "fields": [
                       {
                         "label": "表单名称",
-                        "field": "name"
+                        "field": "formName"
                       },
                       {
                         "label": "备注",
@@ -262,11 +262,11 @@
                     "editLabel": "formName",
                     "value": "id",
                     "pagination": true,
-                    "API": "/api/eav/entities",
+                    "API": "/api/crud/virtualForm/virtualForms",
                     "fields": [
                       {
                         "label": "表单名称",
-                        "field": "name"
+                        "field": "formName"
                       },
                       {
                         "label": "备注",

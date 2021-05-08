@@ -164,7 +164,10 @@
                     "value": "2"
                   }
                 }
-              ]
+              ],
+              "otherProps":{
+                "fieldForIdKey": "formId"
+              }
             }
           }
         ]
@@ -212,7 +215,7 @@
                     "editLabel": "attributeName",
                     "value": "id",
                     "pagination": true,
-                    "API": "/api/eav/entities/[id]/attributes/rmOrg",
+                    "API": "/api/doc/attributes/[id]",
                     "saveData": {
                       "masterRelations": "value"
                     },
@@ -331,7 +334,10 @@
                     "value": "2"
                   }
                 }
-              ]
+              ],
+              "otherProps":{
+                "fieldForIdKey": "formId"
+              }
             }
           }
         ]
