@@ -42,6 +42,14 @@ module.exports = {
                 4: '部门',
                 5: '工作组',
               },
+              Class:{
+                0:'_tag_color_priority_p1',
+                1:'_tag_color_priority_p2',
+                2:'_tag_color_priority_p3',
+                3:'_tag_color_priority_p4',
+                4:'_tag_color_priority_p5',
+                5:'_tag_color_status_close'
+              },
               colorMap: {
                 0:'#3399CC',
                 1: '#08979c',
@@ -66,7 +74,14 @@ module.exports = {
             field: 'status', label: '状态',
             valueType: 'tag',
             options: {
-              map: {}
+              map: {
+                NORMAL:"正常",
+                FORBIDDEN:"禁用"
+              },
+              Class:{
+                NORMAL: '_tag_color_security_safe',
+                FORBIDDEN: '_tag_color_security_danger'
+              }
             }
           },
           // { field: 'fullName', label: '完整名称' },

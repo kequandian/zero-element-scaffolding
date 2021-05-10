@@ -367,9 +367,9 @@
           "ENABLED": "启用",
           "DISABLED": "禁用"
         },
-        "color": {
-          "ENABLED": "#17d349",
-          "DISABLED": "#bdbdbd"
+        "Class":{
+          "ENABLED":"_tag_color_status_open",
+          "DISABLED":"_tag_color_status_close"
         }
       }
     }
