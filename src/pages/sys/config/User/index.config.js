@@ -19,7 +19,7 @@ module.exports = {
       },
     },
     {
-      component: 'TreeList',
+      component: 'NewTreeList',
       config: {
         API: {
           listAPI: '/api/adm/users?orgId=<id>',

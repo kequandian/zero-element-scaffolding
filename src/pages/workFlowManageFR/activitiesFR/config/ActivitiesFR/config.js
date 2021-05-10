@@ -18,7 +18,7 @@ module.exports = {
       },
     },
     {
-      component: 'TreeList',
+      component: 'NewTreeList',
       config: {
         API: {
           listAPI: '/api/crud/virtualForm/virtualForms?typeId=<id>',
