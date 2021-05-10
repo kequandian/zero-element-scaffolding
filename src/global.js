@@ -58,6 +58,9 @@ import FITSet_field_table from '@/pages/workFlowManageFR/activitiesFR/components
 import CSet_load_html_page from '@/components/LoadHtmlPage';
 import AITSet_export_file from '@/actionItemType/ExportFile';
 
+//Test
+import CSet_new_tree_list from '@/components/TList';
+
 const globalModel = getModel('global');
 
 APIConfig({
@@ -129,7 +132,8 @@ CSet({
   'activity_fields_form' : CSet_activity_fields_form,
   'print_config_form': CSet_print_config_form,
   'data_report_tree_list': CSet_DataReportTreeList,
-  'LoadHtmlPage': CSet_load_html_page 
+  'LoadHtmlPage': CSet_load_html_page,
+  'NewTreeList': CSet_new_tree_list,
 });
 
 LASet({
