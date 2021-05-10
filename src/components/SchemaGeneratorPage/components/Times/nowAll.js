@@ -1,3 +1,12 @@
 export default function(){
-    return <h1>{new Date().getFullYear()+"年"+new Date().getMonth()+"月"+new Date().getDate()+"日"+new Date().toLocaleTimeString()}</h1>
+    const date = new Date();
+    const Y = date.getFullYear(); 
+    const M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1);
+    const D = (date.getDate() < 10 ? '0'+(date.getDate()) : date.getDate()); 
+    const h = date.getHours(); 
+    const m = date.getMinutes(); 
+    const s = date.getSeconds();
+    return <h1>{Y+"-"+M+"-"+D+" "+h+":"+m+":"+s}</h1>
 }
+
+ 
