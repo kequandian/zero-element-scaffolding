@@ -71,7 +71,7 @@ export default function CustomtForm(props) {
   const [applyStatus, setApplyStatus] = useState('START');
 
   //新增属性
-  const { footerButton = true, submitBtnText = '保存', isApplied = false, 
+  const { footerButton = true, submitBtnText = '保存', isApplied = false,
     applyFormFileds, applyHistoryFileds, pageType = '' } = otherProps;
 
   const initData = useRef({
@@ -82,7 +82,7 @@ export default function CustomtForm(props) {
 
   //审核信息JSON配置
   let applyFormFiledsConf = applyFormFileds;
-  if(applyFormFiledsConf && Array.isArray(initData.current.nextSteps)){
+  if (applyFormFiledsConf && Array.isArray(initData.current.nextSteps)) {
     handleApplyFormFormat();
   }
 
@@ -113,7 +113,7 @@ export default function CustomtForm(props) {
       formRef.current = form;
     }
     //显示隐藏UI
-    if(pageType == 'CREATOR'){
+    if (pageType == 'CREATOR') {
       applyFormFiledsConf = [];
     }
   });
@@ -127,14 +127,14 @@ export default function CustomtForm(props) {
   });
 
   //处理经办人是否必填
-  function handleApplyFormFormat(){
+  function handleApplyFormFormat() {
     const currentUserName = (initData.current.nextSteps[0] && initData.current.nextSteps[0].currentUserName) || initData.current.currentUserName;
     applyFormFiledsConf.map((item, index) => {
-      if(item.field == 'currentUserId'){
-        if(currentUserName){
+      if (item.field == 'currentUserId') {
+        if (currentUserName) {
           item.rules = [];
           return item;
-        }else{
+        } else {
           item.rules = ["required"];
           return item;
         }
@@ -188,19 +188,19 @@ export default function CustomtForm(props) {
 
         //根据表单ID获取 页面渲染json配置信息
         //isApplied 是否查看申请详情, 如 false 则获取流程表单数据
-        if(!isApplied){
-          handleGetActivities(data.formType);
-        }else{
-          
-          handleGetApplyHistory(data.id); 
-          if(data.status == 'CLOSE_REJECTED' || data.status == 'CLOSE_APPROVED'){
+        if (!isApplied) {
+          handleGetActivitiesLayout(data.formInfo);
+        } else {
+
+          handleGetApplyHistory(data.id);
+          if (data.status == 'CLOSE_REJECTED' || data.status == 'CLOSE_APPROVED') {
             setFields([
               { "field": "_group", "type": "group-title", "defaultValue": "申请信息" },
               ...data.layoutJson,
               { "field": "_group", "type": "group-title", "defaultValue": "审批历史" },
               applyHistoryFileds,
             ])
-          }else{
+          } else {
             setFields([
               { "field": "_group", "type": "group-title", "defaultValue": "申请信息" },
               ...data.layoutJson,
@@ -209,7 +209,7 @@ export default function CustomtForm(props) {
               ...applyFormFiledsConf
             ])
           }
-          
+
         }
       }
     })
@@ -218,36 +218,47 @@ export default function CustomtForm(props) {
       })
   }
 
-  //获取表单页面配置数据
+  //获取表单页面配置数据 -- 旧代码
   function handleGetActivities(activityId) {
-    const getFieldsAPI = API.getFieldsAPI;
-    const formatApi = getFieldsAPI.replace('(id)', activityId);
+    // const getFieldsAPI = API.getFieldsAPI;
+    // const formatApi = getFieldsAPI.replace('(id)', activityId);
 
-    const apiUrl = `${getEndpoint()}${formatApi}`
-    const queryData = {
+    // const apiUrl = `${getEndpoint()}${formatApi}`
+    // const queryData = {
+    // }
+
+    // promiseAjax(apiUrl, queryData)
+    //   .then(resp => {
+
+    //     if (resp && resp.code === 200) {
+    //       const data = resp.data;
+    //       if (Array.isArray(data.layoutJson)) {
+    //         setFields([
+    //           { "field": "_group", "type": "group-title", "defaultValue": "申请信息" },
+    //           ...data.layoutJson,
+    //           ...applyFormFiledsConf
+    //         ])
+    //       }
+
+    //     } else {
+    //       console.log('获取页面配置信息失败')
+    //     }
+    //   })
+  }
+
+
+  function handleGetActivitiesLayout(data) {
+    if (Array.isArray(data.layoutJson)) {
+      setFields([
+        { "field": "_group", "type": "group-title", "defaultValue": "申请信息" },
+        ...data.layoutJson,
+        ...applyFormFiledsConf
+      ])
     }
-
-    promiseAjax(apiUrl, queryData)
-      .then(resp => {
-
-        if (resp && resp.code === 200) {
-          const data = resp.data;
-          if (Array.isArray(data.layoutJson)) {
-            setFields([
-              { "field": "_group", "type": "group-title", "defaultValue": "申请信息" },
-              ...data.layoutJson,
-              ...applyFormFiledsConf
-            ])
-          }
-
-        } else {
-          console.log('获取页面配置信息失败')
-        }
-      })
   }
 
   //获取审核历史数据
-  function handleGetApplyHistory(id){
+  function handleGetApplyHistory(id) {
     const getApplyHistoryAPI = API.getApplyHistoryAPI;
     const apiUrl = `${getEndpoint()}${getApplyHistoryAPI}`
     const queryData = {
@@ -285,7 +296,7 @@ export default function CustomtForm(props) {
       .then(resp => {
         if (resp && resp.code === 200) {
           const data = resp.data;
-          console.log('提交申请成功 response = ', data)
+          // console.log('提交申请成功 response = ', data)
           //返回上一页
           window.history.back();
         } else {
@@ -301,14 +312,14 @@ export default function CustomtForm(props) {
     const queryData = subData;
     queryData.processId = initData.current.id;
 
-    if(subData.passed == 'APPROVE'){
+    if (subData.passed == 'APPROVE') {
       formatApi = approveUrl.replace('(id)', custWorkFlowId);
-    } else if (subData.passed == 'ROLLBACK'){
+    } else if (subData.passed == 'ROLLBACK') {
       formatApi = rollbackUrl.replace('(id)', custWorkFlowId);
     } else {
       formatApi = rejectUrl.replace('(id)', custWorkFlowId);
     }
-    
+
     const apiUrl = `${getEndpoint()}${formatApi}`;
 
     promiseAjax(apiUrl, queryData, { method: 'PUT' })
@@ -400,7 +411,7 @@ export default function CustomtForm(props) {
       }).then(handleResponse);
     } else if (API.createApplyAPI) {
       handleCreateApply(submitData);
-    } else if(API.updateApplyAPI) {
+    } else if (API.updateApplyAPI) {
       handleUpdateApplyAPI(submitData);
     } else {
       onCreateForm({
@@ -468,7 +479,7 @@ export default function CustomtForm(props) {
       <Button type="primary" htmlType="submit" onClick={onSubmit}>{submitBtnText}</Button>
     </div>
   }
-  
+
   return <Spin spinning={propsLoading || loading}>
     {renderGoBack && canPortal(extraEl, <Button onClick={handleGoBack}>返回</Button>)}
     <div className={fields.length ? 'ant-modal-body' : undefined}>
@@ -499,6 +510,6 @@ export default function CustomtForm(props) {
       ) : <Form form={form} />}
     </div>
 
-    {footerButton && applyStatus!='CLOSE_REJECTED' && applyStatus!= 'CLOSE_APPROVED' ? (renderFooter()) : null}
+    {footerButton && applyStatus != 'CLOSE_REJECTED' && applyStatus != 'CLOSE_APPROVED' ? (renderFooter()) : null}
   </Spin>
 }

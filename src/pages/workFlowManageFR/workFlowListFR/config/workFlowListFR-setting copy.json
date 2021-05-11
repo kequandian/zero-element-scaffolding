@@ -117,6 +117,33 @@
                   "field": "name"
                 },
                 {
+                  "field": "formType",
+                  "label": "表单",
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [
+                    "required"
+                  ],
+                  "options": {
+                    "title": "选择表单",
+                    "label": "name",
+                    "editLabel": "formName",
+                    "value": "id",
+                    "pagination": true,
+                    "API": "/api/crud/virtualForm/virtualForms",
+                    "fields": [
+                      {
+                        "label": "表单名称",
+                        "field": "formName"
+                      },
+                      {
+                        "label": "备注",
+                        "field": "note"
+                      }
+                    ]
+                  }
+                },
+                {
                   "field": "categoryId",
                   "label": "流程类别",
                   "type": "modal-radio",
@@ -142,14 +169,6 @@
                       }
                     ]
                   }
-                },
-                {
-                  "label": "流程编号规则",
-                  "field": "codeRule",
-                  "props": {
-                    "placeholder": "请输入"
-                  },
-                  "type": "inputBox"
                 },
                 {
                   "label": "",
@@ -230,6 +249,33 @@
                   "field": "name"
                 },
                 {
+                  "field": "formType",
+                  "label": "表单",
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [
+                    "required"
+                  ],
+                  "options": {
+                    "title": "选择表单",
+                    "label": "name",
+                    "editLabel": "formName",
+                    "value": "id",
+                    "pagination": true,
+                    "API": "/api/crud/virtualForm/virtualForms",
+                    "fields": [
+                      {
+                        "label": "表单名称",
+                        "field": "formName"
+                      },
+                      {
+                        "label": "备注",
+                        "field": "note"
+                      }
+                    ]
+                  }
+                },
+                {
                   "field": "categoryId",
                   "label": "流程类别",
                   "type": "modal-radio",
@@ -255,14 +301,6 @@
                       }
                     ]
                   }
-                },
-                {
-                  "label": "流程编号规则",
-                  "field": "codeRule",
-                  "props": {
-                    "placeholder": "请输入"
-                  },
-                  "type": "inputBox"
                 },
                 {
                   "label": "",

@@ -150,6 +150,31 @@
                   }
                 },
                 {
+                  "field": "virtualFormCode",
+                  "label": "表单",
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [],
+                  "options": {
+                    "title": "选择表单",
+                    "label": "name",
+                    "editLabel": "formName",
+                    "value": "id",
+                    "pagination": true,
+                    "API": "/api/crud/virtualForm/virtualForms",
+                    "fields": [
+                      {
+                        "label": "表单名称",
+                        "field": "formName"
+                      },
+                      {
+                        "label": "备注",
+                        "field": "note"
+                      }
+                    ]
+                  }
+                },
+                {
                   "label": "",
                   "type": "hidden",
                   "field": "identifier",
@@ -294,6 +319,31 @@
                   "expect": {
                     "field": "type",
                     "value": "/(MIDDLE|END)/"
+                  }
+                },
+                {
+                  "field": "virtualFormCode",
+                  "label": "表单",
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [],
+                  "options": {
+                    "title": "选择表单",
+                    "label": "name",
+                    "editLabel": "formName",
+                    "value": "id",
+                    "pagination": true,
+                    "API": "/api/crud/virtualForm/virtualForms",
+                    "fields": [
+                      {
+                        "label": "表单名称",
+                        "field": "formName"
+                      },
+                      {
+                        "label": "备注",
+                        "field": "note"
+                      }
+                    ]
                   }
                 },
                 {
