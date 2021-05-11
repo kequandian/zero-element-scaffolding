@@ -79,6 +79,10 @@ module.exports = {
                 '0': '停用',
                 '1': '正常',
               },
+              Class:{
+                '0':'_tag_color_security_danger',
+                '1':'_tag_color_security_safe'
+              },
               colorMap: {
                 '0': '#ff2233',
                 // '1': '',
