@@ -102,7 +102,7 @@ export default function ModalRadio(props) {
   return <>
     <Button
       onClick={onOpen}
-      disabled={!echoName(value, formData, { label, editLabel })?false:true}
+      disabled={formData.hasCurrentUser}
     >
       {echoName(value, formData, { label, editLabel }) || title}
     </Button>

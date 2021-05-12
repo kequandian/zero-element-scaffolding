@@ -159,7 +159,7 @@
                     "title": "选择表单",
                     "label": "name",
                     "editLabel": "formName",
-                    "value": "id",
+                    "value": "code",
                     "pagination": true,
                     "API": "/api/crud/virtualForm/virtualForms",
                     "fields": [
@@ -331,7 +331,7 @@
                     "title": "选择表单",
                     "label": "name",
                     "editLabel": "formName",
-                    "value": "id",
+                    "value": "code",
                     "pagination": true,
                     "API": "/api/crud/virtualForm/virtualForms",
                     "fields": [
