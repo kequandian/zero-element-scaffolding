@@ -9,10 +9,11 @@ module.exports = {
       layout: 'Empty',
       component: 'Search',
       config: {
+        type:"default",
         share: 'org',
         fields: [
 
-          { field: 'search', label: '搜索', type: 'input' ,placeholder: '部门名 编号', }
+          { field: 'search',  type: 'input' ,placeholder: '部门名 编号', }
         ],
       },
     },
@@ -42,23 +43,17 @@ module.exports = {
                 4: '部门',
                 5: '工作组',
               },
-              Class:{
-                0:'_tag_color_priority_p1',
-                1:'_tag_color_priority_p2',
-                2:'_tag_color_priority_p3',
-                3:'_tag_color_priority_p4',
-                4:'_tag_color_priority_p5',
-                5:'_tag_color_status_close'
-              },
-              colorMap: {
-                0:'#3399CC',
-                1: '#08979c',
-                2: '#874d00',
-                3: '#10239e',
-                4: '#391085',
-                5: '#092b00',
-              },
+              chy:{
+                0:"blue",
+                1:"cyan",
+                2:"purple",
+                3:"purple_dark",
+                4:"orange",
+                5:"gray"
+              }
             },
+            theme:"option",
+            type:"Dot"
           },
 /*          { field: 'userName', label: '负责人' },
           { field: 'phone', label: '电话' },*/
@@ -78,11 +73,13 @@ module.exports = {
                 NORMAL:"正常",
                 FORBIDDEN:"禁用"
               },
-              Class:{
-                NORMAL: '_tag_color_security_safe',
-                FORBIDDEN: '_tag_color_security_danger'
+              chy:{
+                NORMAL:"safe",
+                FORBIDDEN:"danger"
               }
-            }
+            },
+            theme:"security",
+            type:"default"
           },
           // { field: 'fullName', label: '完整名称' },
           { field: 'note', label: '备注' },

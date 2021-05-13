@@ -358,15 +358,13 @@
           "0": "启用",
           "1": "禁用"
         },
-        "Class":{
-          "0":"_tag_color_status_open",
-          "1":"_tag_color_status_close"
-        },
-        "color": {
-          "0": "#17d349",
-          "1": "#bdbdbd"
+        "chy":{
+          "0":"open",
+          "1":"close"
         }
-      }
+      },
+      "theme":"status",
+      "type":"default"
     }
   ]
 }
