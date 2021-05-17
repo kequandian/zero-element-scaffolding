@@ -19,7 +19,7 @@
         }
       ],
       "props": {
-        "placeholder": "请输入手机号"
+        "placeholder": "请输入手机号" 
       },
       "type": "input",
       "field": "contactPhone"
