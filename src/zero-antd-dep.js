@@ -33,7 +33,6 @@ import CSet_Form from '@/../zero-antd-dep/container/Form/Form';
 import CSet_ChildrenForm from '@/../zero-antd-dep/container/Form/ChildrenForm';
 import LASet_onRequest from '@/../zero-antd-dep/listAction/onRequest';
 import LASet_onTips from '@/../zero-antd-dep/listAction/onTips';
-import FITSet_Space from '@/../zero-antd-dep/formitemType/Space';
 import FITSet_plain from '@/../zero-antd-dep/formItemType/Plain';
 import FITSet_image from '@/../zero-antd-dep/formItemType/Image';
 import FITSet_empty from '@/../zero-antd-dep/formItemType/Empty';
@@ -137,7 +136,6 @@ LASet({
 });
 
 FITSet({
-'Space': FITSet_Space,
 'plain': FITSet_plain,
 'image': FITSet_image,
 'empty': FITSet_empty,

@@ -85,7 +85,7 @@
       "type": "modal",
       "options": {
         "style": "primary",
-        "modalTitle": "添加类别",
+        "modalTitle": "新增",
         "modalWidth": 600,
         "items": [
           {
@@ -104,11 +104,7 @@
                 {
                   "label": "上传文件",
                   "span": 16,
-                  "rules": [
-                    {
-                      "type": "required"
-                    }
-                  ],
+                  "rules": [],
                   "field": "urlList",
                   "type": "upload_file_single",
                   "options": {
