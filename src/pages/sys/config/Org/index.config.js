@@ -23,7 +23,7 @@ module.exports = {
         share: 'org',
         API: {
           listAPI: '/api/sys/org',
-          appendAPI: '/api/sys/org/<id>/kid',
+          appendAPI: '/api/sys/org/<id>',
           deleteAPI: '/api/sys/org/(id)'
         },
         actions: [],

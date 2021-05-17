@@ -41,7 +41,7 @@ export default function (props) {
         }
       } namespace="security_baseInfo" config={UploadConfig}/> */}
     </div>
-    <ZEle className="User_Body_Card" namespace='security_baseInfo' config={config} />
+    <ZEle namespace='security_baseInfo' config={config} />
   </div>
   </>
 }
