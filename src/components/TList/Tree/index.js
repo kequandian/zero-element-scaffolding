@@ -29,10 +29,12 @@ export default forwardRef(function TreeWrapped(props, ref) {
   const [autoExpandParent, setAutoExpandParent] = useState(true);
   const [treeLoading, setTreeLoading] = useState(false);
 
+
   useImperativeHandle(ref, () => ({
     onReInit: handleLoadInitData,
   }));
 
+  
   useDidMount(_ => {
     if (API) {
       handleLoadInitData();
@@ -56,8 +58,9 @@ export default forwardRef(function TreeWrapped(props, ref) {
         const rst = formatInit(
           JSON.parse(JSON.stringify(data)),
           childrenColumnName,
-          id
+          id,
         );
+        console.log(rst);
         setTreeData(rst);
         if (defaultAelectedKeys) {
           handleSelect(defaultAelectedKeys);
@@ -113,6 +116,8 @@ export default forwardRef(function TreeWrapped(props, ref) {
         selectedKeys[0]
       ]);
     }
+
+    console.log(childrenColumnName)
   }
   function handleSelectChange() {
     const id = selectedKeys[0];
@@ -189,7 +194,6 @@ export default forwardRef(function TreeWrapped(props, ref) {
         autoExpandParent={autoExpandParent}
         {...treeProps}
         treeData={treeData}
-
         style={{minWidth:'150px', paddingRight:'10px'}}
       />
     ) : <Empty />}

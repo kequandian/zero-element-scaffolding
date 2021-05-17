@@ -9,7 +9,10 @@ import {
   LogoutOutlined
 } from '@ant-design/icons';
 
+
 import { LS } from 'zero-element/lib/utils/storage';
+
+import './index.less'
 
 function handleLogOut() {
   LS.del('menuList');
@@ -52,8 +55,10 @@ export default (props) => {
     </Menu>
   )
 
+
   return (
     <div style={{'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center'}}>
+      <a href="http://docs.smallsaas.cn" className="RightNav">前往文档</a>
       <Dropdown
         trigger={['click']}
         placement="bottomLeft"
