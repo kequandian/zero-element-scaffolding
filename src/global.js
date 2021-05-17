@@ -58,6 +58,7 @@ import FITSet_field_table from '@/pages/workFlowManageFR/activitiesFR/components
 import CSet_load_html_page from '@/components/LoadHtmlPage';
 import AITSet_export_file from '@/actionItemType/ExportFile';
 import FITSet_input_box from '@/components/FormItemType/InputBox';
+import FITSet_link_button from '@/components/FormItemType/LinkButton';
 
 //Test
 import CSet_new_tree_list from '@/components/TList';
@@ -155,7 +156,8 @@ FITSet({
   'field_table': FITSet_field_table,
   'download_file_btn': FITSet_download_file,
   'normal_download_file': FITSet_normal_download_file,
-  'inputBox': FITSet_input_box
+  'inputBox': FITSet_input_box,
+  'LinkButton': FITSet_link_button
 });
 
 AITSet({

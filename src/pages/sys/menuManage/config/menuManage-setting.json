@@ -79,7 +79,7 @@
                     "placeholder": "请输入"
                   },
                   "type": "input",
-                  "field": "search"
+                  "field": "menuName"
                 },
                 {
                   "label": "路径",
@@ -135,15 +135,15 @@
                   "rules": [],
                   "options": {
                     "title": "选择父类别",
-                    "label": "search",
-                    "editLabel": "pName",
+                    "label": "menuName",
+                    "editLabel": "menuName",
                     "value": "id",
                     "pagination": true,
                     "API": "/api/crud/menu/custom/group",
                     "fields": [
                       {
                         "label": "菜单名称",
-                        "field": "search",
+                        "field": "menuName",
                         "valueType": "ellipsis"
                       },
                       {
@@ -230,7 +230,7 @@
                     "placeholder": "请输入"
                   },
                   "type": "input",
-                  "field": "search"
+                  "field": "menuName"
                 },
                 {
                   "label": "路径",
@@ -286,15 +286,15 @@
                   "rules": [],
                   "options": {
                     "title": "选择父类别",
-                    "label": "search",
-                    "editLabel": "pName",
+                    "label": "menuName",
+                    "editLabel": "menuName",
                     "value": "id",
                     "pagination": true,
                     "API": "/api/crud/menu/custom/group",
                     "fields": [
                       {
                         "label": "菜单名称",
-                        "field": "search",
+                        "field": "menuName",
                         "valueType": "ellipsis"
                       },
                       {
