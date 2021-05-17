@@ -1,52 +1,11 @@
 import React from 'react';
 import useBreadcrumb from '@/framework/useBreadcrumb';
 import ZEle from 'zero-element';
-
-const config = {
-  layout: 'Content',
-  title: '个人信息',
-  items: [
-    {
-      layout: 'Empty',
-      component: 'Form',
-      config: {
-        goBack: false,
-        API: {
-          getAPI: '/api/adm/users/userInfo',
-          updateAPI: '/api/adm/users/self',
-        },
-        layout: 'Grid',
-        layoutConfig: {
-          value: [12, 12],
-        },
-        fields: [
-          {
-            field: 'avatar', label: '头像', type: 'upload-image',
-            options: {
-              // API: '/api/fs/uploadfile',
-              type: 'text',
-              max: 1,
-            },
-            span: 24,
-          },
-          { field: 'account', label: '账号', type: 'plain' },
-          { field: 'name', label: '昵称', type: 'input' },
-          {
-            field: 'sex', label: '性别', type: 'radio',
-            options: [
-              { label: '男', value: 0 },
-              { label: '女', value: 1 },
-            ],
-            span: 24  
-          },
-          { field: 'birthday', label: '生日', type: 'date' },
-          
-          { field: 'email', label: '邮箱', type: 'input', span: 24 },
-        ]
-      }
-    }
-  ]
-};
+import { Avatar } from 'antd'
+import { removeToken, getUserName, getExtra, getAvatar } from 'zero-element/lib/utils/request/token';
+import { UserOutlined } from '@ant-design/icons';
+import {config} from './config/baseinfo_config'
+import {UploadConfig} from './config/baseinfo_Uploadconfig'
 
 export default function (props) {
   useBreadcrumb(props, [
@@ -54,7 +13,35 @@ export default function (props) {
     { title: '个人中心' },
     { title: '修改个人信息' },
   ]);
+  console.log(getAvatar())
 
-  return <ZEle namespace='security_baseInfo' config={config} />
-
+  
+  return <>
+  <div className="User_Card">
+    <div className="User_Header_Card">
+      <Avatar
+      style={{
+        position:'absolute',
+        left:'50%',
+        transform: 'translateX(-50%)',
+        top:'50px',
+        marginBottom:'50px',
+        fontSize:'4vh',
+        // backgroundColor:'#1890FF'
+      }}
+      icon={(getAvatar()===' ')?getAvatar():<UserOutlined style={{fontSize:"12vh" ,lineHeight:"150px"}}/>}
+      size={{
+        xxl: 150,
+      }}
+      ></Avatar>
+      {/* <ZEle style={
+        {
+          position:'absolute',
+          bottom:'0px!important'
+        }
+      } namespace="security_baseInfo" config={UploadConfig}/> */}
+    </div>
+    <ZEle className="User_Body_Card" namespace='security_baseInfo' config={config} />
+  </div>
+  </>
 }

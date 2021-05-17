@@ -159,6 +159,7 @@
       "props": {
         "placeholder": "请输入"
       }
+      
     },
     {
       "field": "status", "label": "申请状态", "type": "select",
@@ -198,13 +199,15 @@
           "CLOSE_REJECTED": "已拒绝",
           "CLOSE_APPROVED": "已结束"
         },
-        "color": {
-          "ENABLED": "#17d349",
-          "VERIFYING": "#DDAF5B",
-          "CLOSE_REJECTED": "#bdbdbd",
-          "CLOSE_APPROVED": "#bdbdbd"
+        "chy":{
+          "START":"open",
+          "VERIFYING":"processing",
+          "CLOSE_REJECTED":"close",
+          "CLOSE_APPROVED":"close"
         }
-      }
+      },
+      "theme":"status",
+      "type":"default"
     },
     {
       "label": "申请时间",

@@ -329,11 +329,13 @@
           "ENABLED": "启用",
           "DISABLED": "禁用"
         },
-        "Class":{
-          "ENABLED":"_tag_color_status_open",
-          "DISABLED":"_tag_color_status_close"
+        "chy":{
+          "ENABLED":"open",
+          "DISABLED":"close"
         }
-      }
+      },
+      "theme":"status",
+      "type":"default"
     }
   ]
 }

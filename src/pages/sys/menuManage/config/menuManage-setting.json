@@ -10,6 +10,7 @@
   "updateAPI": "/api/crud/menu/custom/group/[id]",
   "deleteAPI": "api/crud/menu/menus/(id)",
   "columns": 1,
+  "type":"default",
   "createFields": [
     {
       "label": "菜单名称",
@@ -37,7 +38,7 @@
         "placeholder": "请输入"
       },
       "type": "input",
-      "field": "menuName"
+      "field": "search"
     }
   ],
   "map": {},
@@ -78,7 +79,7 @@
                     "placeholder": "请输入"
                   },
                   "type": "input",
-                  "field": "menuName"
+                  "field": "search"
                 },
                 {
                   "label": "路径",
@@ -134,7 +135,7 @@
                   "rules": [],
                   "options": {
                     "title": "选择父类别",
-                    "label": "menuName",
+                    "label": "search",
                     "editLabel": "pName",
                     "value": "id",
                     "pagination": true,
@@ -142,7 +143,7 @@
                     "fields": [
                       {
                         "label": "菜单名称",
-                        "field": "menuName",
+                        "field": "search",
                         "valueType": "ellipsis"
                       },
                       {
@@ -229,7 +230,7 @@
                     "placeholder": "请输入"
                   },
                   "type": "input",
-                  "field": "menuName"
+                  "field": "search"
                 },
                 {
                   "label": "路径",
@@ -285,7 +286,7 @@
                   "rules": [],
                   "options": {
                     "title": "选择父类别",
-                    "label": "menuName",
+                    "label": "search",
                     "editLabel": "pName",
                     "value": "id",
                     "pagination": true,
@@ -293,7 +294,7 @@
                     "fields": [
                       {
                         "label": "菜单名称",
-                        "field": "menuName",
+                        "field": "search",
                         "valueType": "ellipsis"
                       },
                       {
@@ -333,7 +334,7 @@
   "searchFields": [
     {
       "label": "菜单名称",
-      "field": "menuName",
+      "field": "search",
       "type": "input",
       "props": {
         "placeholder": ""
@@ -358,15 +359,13 @@
           "0": "启用",
           "1": "禁用"
         },
-        "Class":{
-          "0":"_tag_color_status_open",
-          "1":"_tag_color_status_close"
-        },
-        "color": {
-          "0": "#17d349",
-          "1": "#bdbdbd"
+        "chy":{
+          "0":"open",
+          "1":"close"
         }
-      }
+      },
+      "theme":"status",
+      "type":"default"
     }
   ]
 }
