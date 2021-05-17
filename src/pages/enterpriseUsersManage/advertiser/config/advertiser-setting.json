@@ -241,17 +241,9 @@
     },
     {
       "title": "导出",
-      "type": "exportFile",
+      "type": "export",
       "options": {
-        "API":"/api/io/excel/export/<后台未提供exportName>",
-        "query":{
-          "exportParam":{
-            "api": "http://localhost:8081/api/crud/advertiser/advertisers",
-            "dict": {},
-            "search": {},
-            "type": "API"
-          }
-        }
+        "API":"/api/io/excel/export/<后台未提供exportName>"
       }
     },
     {
