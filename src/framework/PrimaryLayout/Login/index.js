@@ -35,14 +35,23 @@ export default (props) => {
       {/* <Menu.Item disabled>
         <div style={{ textAlign: 'center', cursor: 'default', color: '#666' }}>{getUserName()}</div>
       </Menu.Item> */}
-      <Menu.Item onClick={handleRouteToProfile}>
-        <AppstoreOutlined style={{paddingLeft:10}} />
+      <Menu.Item style={{width:200,height:180,position:"relative",cursor:'default'}}>
+        <Avatar src={getAvatar()} style={{position:'absolute',left:'50%',top:35,transform:' translate(-50%)'}} icon={<UserOutlined style={{fontSize:60,paddingTop:8,paddingLeft:5}}/>} size={90} />
+
+        <span style={{fontSize:17,textAlign:'center',fontWeight:'bolder',position:'absolute',bottom:20,left:'50%',transform:' translate(-50%)'}}>{getUserName()}</span>
+      </Menu.Item>
+      <Menu.Item onClick={handleRouteToProfile} style={{position:'relative'}}>
+        <div className="UserList_Center">
+        <AppstoreOutlined/>
         <span className="ZEleA-margin-left">个人中心</span>
+        </div>
       </Menu.Item>
       <Menu.Divider />
-      <Menu.Item onClick={handleLogOut}>
-        <LogoutOutlined style={{paddingLeft:10}}/>
+      <Menu.Item onClick={handleLogOut} style={{position:'relative'}}>
+        <div className="UserList_Center">
+        <LogoutOutlined/>
         <span className="ZEleA-margin-left">退出账号</span>
+        </div>
       </Menu.Item>
     </Menu>
   );
@@ -54,11 +63,25 @@ export default (props) => {
       </Menu.Item>
     </Menu>
   )
-
+  
+  const MoreMenu = (
+    <Menu>
+      <Menu.Item key="More1">
+        <a href="/designpage/design">设计</a>
+      </Menu.Item>
+    </Menu>
+  )
 
   return (
     <div style={{'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center'}}>
-      <a href="http://docs.smallsaas.cn" className="RightNav">前往文档</a>
+      <Dropdown
+        trigger={['click']}
+        placement="bottomLeft"
+        overlay={MoreMenu}
+      >
+        <a href="Tag/TagView" className="RightNav more"></a>
+      </Dropdown>
+      <a href="http://docs.smallsaas.cn" className="RightNav docs"></a>
       <Dropdown
         trigger={['click']}
         placement="bottomLeft"
@@ -68,6 +91,7 @@ export default (props) => {
       </Dropdown>
       <Dropdown 
       overlay={menu} 
+      arrow
       placement="bottomRight"
       trigger={['click']}>
         <div>
