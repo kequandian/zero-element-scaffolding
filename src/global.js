@@ -62,6 +62,7 @@ import FITSet_field_table from '@/pages/workFlowManageFR/activitiesFR/components
 import CSet_load_html_page from '@/components/LoadHtmlPage';
 import AITSet_export_file from '@/actionItemType/ExportFile';
 import FITSet_input_box from '@/components/FormItemType/InputBox';
+import FITSet_link_button from '@/components/FormItemType/LinkButton';
 
 //Test
 import CSet_new_tree_list from '@/components/TList';
@@ -113,7 +114,7 @@ golbalSet({
 if (process.env.NODE_ENV === 'development') {
   //# $ cat /c/Windows/System32/drivers/etc/hosts
   //# 192.168.3.239:8090 demo.smallsaas.cn:8080
-  // setEndpoint('http://cn1.utools.club:34877');
+  // setEndpoint('http://cn1.utools.club:58116');
   setEndpoint('http://192.168.3.239:8090');
   // setEndpoint('http://localhost:8080');
   // saveToken({
@@ -161,7 +162,8 @@ FITSet({
   'field_table': FITSet_field_table,
   'download_file_btn': FITSet_download_file,
   'normal_download_file': FITSet_normal_download_file,
-  'inputBox': FITSet_input_box
+  'inputBox': FITSet_input_box,
+  'LinkButton': FITSet_link_button
 });
 
 AITSet({
