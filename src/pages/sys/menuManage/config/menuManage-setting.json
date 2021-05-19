@@ -136,7 +136,7 @@
                   "options": {
                     "title": "选择父类别",
                     "label": "menuName",
-                    "editLabel": "menuName",
+                    "editLabel": "pName",
                     "value": "id",
                     "pagination": true,
                     "API": "/api/crud/menu/custom/group",
@@ -287,7 +287,7 @@
                   "options": {
                     "title": "选择父类别",
                     "label": "menuName",
-                    "editLabel": "menuName",
+                    "editLabel": "pName",
                     "value": "id",
                     "pagination": true,
                     "API": "/api/crud/menu/custom/group",

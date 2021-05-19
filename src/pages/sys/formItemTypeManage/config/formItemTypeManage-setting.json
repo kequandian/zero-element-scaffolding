@@ -56,7 +56,10 @@
         {
             "label": "input",
             "type": "input",
-            "field": "type_6"
+            "field": "type_6",
+            "options":{
+                "width": "200"
+            }
         },
         {
             "label": "password",
@@ -74,16 +77,16 @@
             "field": "type_9",
             "options": [
                 {
-                    "label": "a",
-                    "value": "a"
+                    "label": "选项一",
+                    "value": "选项一"
                 },
                 {
-                    "label": "b",
-                    "value": "b"
+                    "label": "选项二",
+                    "value": "选项二"
                 },
                 {
-                    "label": "c",
-                    "value": "c"
+                    "label": "选项三",
+                    "value": "选项三"
                 }
             ]
         },
@@ -93,16 +96,16 @@
             "type": "select",
             "options": [
                 {
-                    "label": "a",
-                    "value": "a"
+                    "label": "选项一",
+                    "value": "选项一"
                 },
                 {
-                    "label": "b",
-                    "value": "b"
+                    "label": "选项二",
+                    "value": "选项二"
                 },
                 {
-                    "label": "c",
-                    "value": "c"
+                    "label": "选项三",
+                    "value": "选项三"
                 }
             ]
         },
@@ -112,16 +115,16 @@
             "field": "type_11",
             "options": [
                 {
-                    "label": "A",
-                    "value": "A"
+                    "label": "选项一",
+                    "value": "选项一"
                 },
                 {
-                    "label": "B",
-                    "value": "B"
+                    "label": "选项二",
+                    "value": "选项二"
                 },
                 {
-                    "label": "C",
-                    "value": "C"
+                    "label": "选项三",
+                    "value": "选项三"
                 }
             ]
         },
@@ -206,12 +209,12 @@
                 "API": "/api",
                 "fields": [
                     {
-                        "label": "a",
-                        "field": "a"
+                        "label": "选项一",
+                        "field": "选项一"
                     },
                     {
-                        "label": "a",
-                        "field": "a"
+                        "label": "选项一",
+                        "field": "选项一"
                     }
                 ]
             }
@@ -232,12 +235,12 @@
                 },
                 "fields": [
                     {
-                        "label": "a",
-                        "field": "a"
+                        "label": "选项一",
+                        "field": "选项一"
                     },
                     {
-                        "label": "b",
-                        "field": "b"
+                        "label": "选项二",
+                        "field": "选项二"
                     }
                 ]
             }
@@ -301,12 +304,12 @@
             "options": {
                 "fields": [
                     {
-                        "label": "a",
-                        "field": "a"
+                        "label": "选项一",
+                        "field": "选项一"
                     },
                     {
-                        "label": "b",
-                        "field": "b"
+                        "label": "选项二",
+                        "field": "选项二"
                     }
                 ]
             }
