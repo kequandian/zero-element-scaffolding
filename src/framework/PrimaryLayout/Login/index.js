@@ -126,7 +126,6 @@ export default (props) => {
         <BellOutlined style={{ fontSize: 25, paddingRight: 20 }} />
       </Dropdown>
       <Dropdown
-        overlay={menu}
         placement="bottomRight"
         trigger={['click']}
         visible={visible}
