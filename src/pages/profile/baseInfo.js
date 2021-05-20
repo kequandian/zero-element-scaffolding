@@ -7,11 +7,10 @@ import { UserOutlined } from '@ant-design/icons';
 import {config} from './config/baseinfo_config'
 import {UploadConfig} from './config/baseinfo_Uploadconfig'
 
-export default function (props) {
-  useBreadcrumb(props, [
+export default function () {
+  useBreadcrumb([
     { title: '首页', path: '/' },
     { title: '个人中心' },
-    { title: '修改个人信息' },
   ]);
   console.log(getAvatar())
 
@@ -26,20 +25,11 @@ export default function (props) {
         transform: 'translateX(-50%)',
         top:'50px',
         marginBottom:'50px',
-        fontSize:'4vh',
         // backgroundColor:'#1890FF'
       }}
-      icon={(getAvatar()===' ')?getAvatar():<UserOutlined style={{fontSize:"12vh" ,lineHeight:"150px"}}/>}
-      size={{
-        xxl: 150,
-      }}
+      icon={(getAvatar()===' ')?getAvatar():<UserOutlined size={200}/>}
+      size={150}
       ></Avatar>
-      {/* <ZEle style={
-        {
-          position:'absolute',
-          bottom:'0px!important'
-        }
-      } namespace="security_baseInfo" config={UploadConfig}/> */}
     </div>
     <ZEle namespace='security_baseInfo' config={config} />
   </div>

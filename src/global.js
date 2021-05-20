@@ -48,6 +48,10 @@ import FITSet_dynamic_radio from '@/components/FormItemType/DynamicRadio';
 import FITSet_local_radio from '@/components/FormItemType/LocalRadio';
 import FITSet_modal_radio from '@/components/FormItemType/ModalRadio';
 import FITSet_Perm from '@/formItemType/Perm';
+
+import FITSet_UploadImageCard from '@/formItemType/UploadImageCard';
+import FITSet_Agree_Agreement from '@/formItemType/AgreeAgreement'
+
 import Dictionary from '@/container/Dictionary';
 import FITSet_upload_file_single from '@/components/FormItemType/UploadFileSingle';
 import FITSet_download_file from '@/components/FormItemType/DownloadFile';
@@ -144,6 +148,8 @@ LASet({
 
 //表单组件
 FITSet({
+  'upload-image-card':FITSet_UploadImageCard,
+  'agree-agreement':FITSet_Agree_Agreement,
   'perm': FITSet_Perm,
   'FieldListAdd': FieldListAdd,
   'FieldModalCheckbox': FieldModalCheckbox,

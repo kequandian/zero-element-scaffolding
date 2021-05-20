@@ -1,4 +1,3 @@
-import { fontsize } from '@/formItemType/UploadImageCard/fallback'
 import { Timeline } from 'antd'
 export default function(){
     return <Timeline>
