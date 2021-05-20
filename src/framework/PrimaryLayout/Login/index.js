@@ -57,7 +57,6 @@ export default (props) => {
       {/* <Menu.Item disabled>
         <div style={{ textAlign: 'center', cursor: 'default', color: '#666' }}>{getUserName()}</div>
       </Menu.Item> */}
-<<<<<<< HEAD
       <Menu.Item style={{width:200,height:180,position:"relative",cursor:'default'}}>
         <Avatar src={getAvatar()} style={{position:'absolute',left:'50%',top:35,transform:' translate(-50%)'}} icon={<UserOutlined style={{fontSize:60,paddingTop:8,paddingLeft:5}}/>} size={90} />
 
@@ -66,31 +65,13 @@ export default (props) => {
       <Menu.Item onClick={handleRouteToProfile} style={{position:'relative'}}>
         <div className="UserList_Center">
         <AppstoreOutlined/>
-=======
-      <Menu.Item onClick={handleRouteToProfile}>
-        <AppstoreOutlined />
->>>>>>> a34fcbb3e4fa7c196ac83c3cbba5f5e45346c0c9
         <span className="ZEleA-margin-left">个人中心</span>
         </div>
       </Menu.Item>
       <Menu.Divider />
-<<<<<<< HEAD
       <Menu.Item onClick={handleLogOut} style={{position:'relative'}}>
         <div className="UserList_Center">
         <LogoutOutlined/>
-=======
-      {process.env.NODE_ENV === 'development' ? (
-        <>
-          <Menu.Item onClick={_ => useUVisible(true)}>
-            <SwapOutlined />
-            <span className="ZEleA-margin-left">切换账号</span>
-          </Menu.Item>
-          <Menu.Divider />
-        </>
-      ) : null}
-      <Menu.Item onClick={handleLogOut}>
-        <LogoutOutlined />
->>>>>>> a34fcbb3e4fa7c196ac83c3cbba5f5e45346c0c9
         <span className="ZEleA-margin-left">退出账号</span>
         </div>
       </Menu.Item>
@@ -122,7 +103,6 @@ export default (props) => {
   )
 
   return (
-<<<<<<< HEAD
     <div style={{'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center'}}>
       <Dropdown
         trigger={['click']}
@@ -132,10 +112,6 @@ export default (props) => {
         <a href="Tag/TagView" className="RightNav more"></a>
       </Dropdown>
       <a href="http://docs.smallsaas.cn" className="RightNav docs"></a>
-=======
-    <div style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center' }}>
-      <a href="http://docs.smallsaas.cn" className="RightNav">前往文档</a>
->>>>>>> a34fcbb3e4fa7c196ac83c3cbba5f5e45346c0c9
       <Dropdown
         trigger={['click']}
         placement="bottomLeft"
@@ -143,28 +119,11 @@ export default (props) => {
       >
         <BellOutlined style={{ fontSize: 25, paddingRight: 20 }} />
       </Dropdown>
-<<<<<<< HEAD
       <Dropdown 
       overlay={menu} 
       arrow
       placement="bottomRight"
       trigger={['click']}>
-=======
-
-      <Dropdown
-        trigger={['click']}
-        overlay={messageMenu}
-      >
-        <BellOutlined />
-      </Dropdown>
-      <Dropdown
-        placement="bottomRight"
-        trigger={['click']}
-        visible={visible}
-        onVisibleChange={handleVisibleChange}
-        overlay={uVisible ? userMenu : visible ? menu : <></>}
-      >
->>>>>>> a34fcbb3e4fa7c196ac83c3cbba5f5e45346c0c9
         <div>
           <span>{getUserName()}</span>
           <span>{getExtra()}</span>
