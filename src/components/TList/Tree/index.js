@@ -60,7 +60,6 @@ export default forwardRef(function TreeWrapped(props, ref) {
           childrenColumnName,
           id,
         );
-        console.log(rst);
         setTreeData(rst);
         if (defaultAelectedKeys) {
           handleSelect(defaultAelectedKeys);
