@@ -37,7 +37,7 @@
   "createAPI": "",
   "getAPI": "/api/wf/processes/[id]",
   "getFieldsAPI": "/api/ali/byTableJSON/(id)",
-  "createApplyAPI": "/api/wf/instances/instanceAndForm/(id)",
+  "createApplyAPI": "/api/wf/instances/instanceAndForm",
   "updateAPI": "",
   "deleteAPI": "",
   "searchFields": [
