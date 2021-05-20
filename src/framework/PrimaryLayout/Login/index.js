@@ -71,10 +71,24 @@ export default (props) => {
     </Menu>
   )
 
+  const MoreMenu = (
+    <Menu>
+      <Menu.Item key="More1">
+        <a href="/designpage/design">设计</a>
+      </Menu.Item>
+    </Menu>
+  )
 
   return (
     <div style={{'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center'}}>
-      <a href="http://docs.smallsaas.cn" className="RightNav">前往文档</a>
+      <Dropdown
+        trigger={['click']}
+        placement="bottomLeft"
+        overlay={MoreMenu}
+      >
+        <a href="Tag/TagView" className="RightNav more"></a>
+      </Dropdown>
+      <a href="http://docs.smallsaas.cn" className="RightNav docs"></a>
       <Dropdown
         trigger={['click']}
         placement="bottomLeft"
