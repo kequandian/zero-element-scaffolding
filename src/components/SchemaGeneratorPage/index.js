@@ -69,6 +69,8 @@ const Demo = (props) => {
   //   setSubmitData(subData);
   // }, [submitData])
 
+  
+
   function createFR(submitData) {
     const apiUrl = `${getEndpoint()}${API.createAPI}`
     const queryData = submitData;

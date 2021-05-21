@@ -498,6 +498,7 @@ export const defaultCommonSettings = {
       schema:{
         type:"string",
         "ui:widget":"GetList",
+        componentType:"childForm"
       },
       widget:"GetList",
       setting:{
@@ -508,12 +509,12 @@ export const defaultCommonSettings = {
             "componentType":{
               title:'组件类型',
               type:'string',
-              value:'childrenFrom',
+              'ui:readonly':true
             },
             code:{
               title:'code字段',
               type:"string",
-        }
+          }
       }
     },
     {
