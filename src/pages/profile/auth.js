@@ -97,7 +97,6 @@ const config = {
 export default function () {
   useBreadcrumb([
     { title: '首页', path: '/' },
-    { title: '个人中心' },
     { title: '实名认证' },
   ]);
 

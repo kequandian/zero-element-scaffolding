@@ -10,7 +10,7 @@ import {UploadConfig} from './config/baseinfo_Uploadconfig'
 export default function () {
   useBreadcrumb([
     { title: '首页', path: '/' },
-    { title: '个人中心' },
+    { title: '用户管理'},
   ]);
   console.log(getAvatar())
 
