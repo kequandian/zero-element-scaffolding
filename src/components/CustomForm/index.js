@@ -188,22 +188,24 @@ export default function CustomtForm(props) {
 
         //根据表单ID获取 页面渲染json配置信息
         //isApplied 是否查看申请详情, 如 false 则获取流程表单数据
+
+        const applyFormInfo = handleApplyFormInfo(data.formInfo);
+
         if (!isApplied) {
-          handleGetActivitiesLayout(data.formInfo);
+          handleGetActivitiesLayout(applyFormInfo);
         } else {
 
           handleGetApplyHistory(data.id);
+
           if (data.status == 'CLOSE_REJECTED' || data.status == 'CLOSE_APPROVED') {
             setFields([
-              { "field": "_group", "type": "group-title", "defaultValue": "申请信息" },
-              ...data.layoutJson,
+              ...applyFormInfo,
               { "field": "_group", "type": "group-title", "defaultValue": "审批历史" },
               applyHistoryFileds,
             ])
           } else {
             setFields([
-              { "field": "_group", "type": "group-title", "defaultValue": "申请信息" },
-              ...data.layoutJson,
+              ...applyFormInfo,
               { "field": "_group", "type": "group-title", "defaultValue": "审批历史" },
               applyHistoryFileds,
               ...applyFormFiledsConf
@@ -216,6 +218,34 @@ export default function CustomtForm(props) {
       .finally(_ => {
         setCanRenderForm(true);
       })
+  }
+
+  function handleApplyFormInfo(formInfo) {
+    if (formInfo && JSON.stringify(formInfo) != '{}') {
+
+      const layoutJson = formInfo.layoutJson;
+
+      const fieldList = [];
+
+      layoutJson.map(item => {
+
+        if (typeof item.title == 'string') {
+          const titleGroud = { "field": "_group", "type": "group-title", "defaultValue": `${item.title}` }
+          fieldList.push(titleGroud);
+        }
+
+        if (Array.isArray(item.items) && item.items.length > 0) {
+          item.items.map(item => {
+            fieldList.push(item);
+          })
+        }
+      })
+
+      return fieldList;
+
+    } else {
+      return [];
+    }
   }
 
   //获取表单页面配置数据 -- 旧代码
@@ -245,13 +275,11 @@ export default function CustomtForm(props) {
     //     }
     //   })
   }
-
-
+  
   function handleGetActivitiesLayout(data) {
-    if (Array.isArray(data.layoutJson)) {
+    if (Array.isArray(data)) {
       setFields([
-        { "field": "_group", "type": "group-title", "defaultValue": "申请信息" },
-        ...data.layoutJson,
+        ...data,
         ...applyFormFiledsConf
       ])
     }

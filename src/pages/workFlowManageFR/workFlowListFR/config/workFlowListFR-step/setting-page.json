@@ -56,7 +56,7 @@
                   "field": "name"
                 },
                 {
-                  "label": "步骤类型",
+                  "label": "步骤阶段",
                   "field": "type",
                   "rules": [
                     {
@@ -175,6 +175,15 @@
                   }
                 },
                 {
+                  "field": "stepType", "label": "步骤类型", "type": "select",
+                  "defaultValue": "content",
+                  "rules": ["required"],
+                  "options": [
+                    { "label": "审核步骤", "value": "approval" },
+                    { "label": "表单录入", "value": "content" }
+                  ]
+                },
+                {
                   "label": "",
                   "type": "hidden",
                   "field": "identifier",
@@ -226,7 +235,7 @@
                   "field": "name"
                 },
                 {
-                  "label": "步骤类型",
+                  "label": "步骤阶段",
                   "field": "type",
                   "rules": [
                     {
@@ -345,6 +354,14 @@
                       }
                     ]
                   }
+                },
+                {
+                  "field": "stepType", "label": "步骤类型", "type": "select",
+                  "rules": ["required"],
+                  "options": [
+                    { "label": "审核步骤", "value": "approval" },
+                    { "label": "表单录入", "value": "content" }
+                  ]
                 },
                 {
                   "label": "",

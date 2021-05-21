@@ -103,17 +103,6 @@
       }
     },
     {
-      "title": "查看",
-      "type": "path",
-      "options": {
-        "outside": true,
-        "path": "toDoList/toDoList-edit"
-      },
-      "expect": {
-        "permission": ""
-      }
-    },
-    {
       "title": "撤销申请",
       "type": "request",
       "options": {
