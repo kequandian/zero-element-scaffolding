@@ -39,20 +39,20 @@ module.exports = [
   //     },
   //   ],
   // },
-  {
-    name: '审批',
-    path: '/userAudit',
-    items: [
-      {
-        path: '/userAudit/applyManage',
-        name: '发起申请',
-      },
-      {
-        path: '/userAudit/myApply',
-        name: '我的申请',
-      }
-    ],
-  },
+  // {
+  //   name: '审批',
+  //   path: '/userAudit',
+  //   items: [
+  //     {
+  //       path: '/userAudit/applyManage',
+  //       name: '发起申请',
+  //     },
+  //     {
+  //       path: '/userAudit/myApply',
+  //       name: '我的申请',
+  //     }
+  //   ],
+  // },
   // {
   //   name: '流程管理FR',
   //   path: '/workFlowManageFR',
@@ -162,24 +162,24 @@ module.exports = [
   //   ]
   // }, 
   
-  {
-    name: '分类',
-    path: '/type',
-    items: [
-      {
-        path: '/type/testField',
-        name: '分类管理',
-      }
-    ],
-  }, 
-  {
-    name: '报表',
-    path: '/dateTables',
-    items: [
-      {
-        path: '/dateTables/agentReport',
-        name: '报表统计',
-      }
-    ]
-  }
+  // {
+  //   name: '分类',
+  //   path: '/type',
+  //   items: [
+  //     {
+  //       path: '/type/testField',
+  //       name: '分类管理',
+  //     }
+  //   ],
+  // }, 
+  // {
+  //   name: '报表',
+  //   path: '/dateTables',
+  //   items: [
+  //     {
+  //       path: '/dateTables/agentReport',
+  //       name: '报表统计',
+  //     }
+  //   ]
+  // }
 ]
