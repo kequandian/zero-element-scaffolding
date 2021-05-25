@@ -96,7 +96,7 @@ golbalSet({
   },
   Unauthorized: () => {
     removeToken();
-    history.push('/login');
+    history.push('/');
   },
   getPerm() {
     return globalModel.getPerm();
