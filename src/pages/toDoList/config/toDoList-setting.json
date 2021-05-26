@@ -6,7 +6,7 @@
   },
   "listAPI": "/api/wf/instances?type=CURRENT",
   "createAPI": "",
-  "getAPI": "/api/wf/instanceAndForm/byTableJSON/[id]",
+  "getAPI": "/api/wf/instanceAndForm/byTableJSON/[id]?currentFlag=true",
   "updateAPI": "",
   "deleteAPI": "/api/wf/instances/(id)",
   "updateApplyAPI": {
