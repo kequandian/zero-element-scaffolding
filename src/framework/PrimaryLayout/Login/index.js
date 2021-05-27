@@ -14,6 +14,8 @@ import { TestUserSelection } from 'zero-element-plugins';
 
 import { LS } from 'zero-element/lib/utils/storage';
 
+import { ConfigSvg } from './svg/Svg'
+
 import './index.less'
 
 
@@ -52,6 +54,12 @@ export default (props) => {
     useVisible(false);
   }
 
+
+  function ConfigClick(){
+    history.push('/designpage/config');
+    useVisible(false);
+  }
+
   const menu = (
     <Menu>
       {/* <Menu.Item disabled>
@@ -59,7 +67,6 @@ export default (props) => {
       </Menu.Item> */}
       <Menu.Item style={{ width: 200, height: 180, position: "relative", cursor: 'default' }}>
         <Avatar src={getAvatar()} style={{ position: 'absolute', left: '50%', top: 35, transform: ' translate(-50%)' }} icon={<UserOutlined style={{ fontSize: 60, paddingTop: 8, paddingLeft: 5 }} />} size={90} />
-
         <span style={{ fontSize: 17, textAlign: 'center', fontWeight: 'bolder', position: 'absolute', bottom: 20, left: '50%', transform: ' translate(-50%)' }}>{getUserName()}</span>
       </Menu.Item>
       <Menu.Item onClick={handleRouteToProfile}>
@@ -108,8 +115,11 @@ export default (props) => {
     </Menu>
   )
 
+
+  
   return (
     <div style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center' }}>
+      <a className="Svg" onClick={ConfigClick} style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"0px"}}><ConfigSvg width="30" height="30"/></a>
       <Dropdown
         trigger={['click']}
         placement="bottomLeft"
