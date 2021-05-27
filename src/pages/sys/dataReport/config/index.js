@@ -34,7 +34,7 @@ module.exports = {
             "type": "path",
             "options": {
               style: "primary",
-              "path": "/workFlowManageFR/activitiesFR/activitiesFR-add"
+              "path": "/sys/dataReport/dataReport-add"
             }
           },
         ],

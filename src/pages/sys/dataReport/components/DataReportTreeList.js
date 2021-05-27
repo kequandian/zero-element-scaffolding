@@ -9,7 +9,8 @@ import { Render } from 'zero-element/lib/config/layout';
 import useListHandle from 'zero-element-antd/lib/container/List/utils/useListHandle';
 import { Flex } from 'layout-flex';
 
-import Tree from 'zero-element-antd/lib/components/Tree';
+// import Tree from 'zero-element-antd/lib/components/Tree';
+import Tree from '@/components/TList/Tree';
 
 const { FlexItem } = Flex;
 
