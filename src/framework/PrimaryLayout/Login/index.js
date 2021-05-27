@@ -152,7 +152,7 @@ export default (props) => {
   const userMenu = (
     <Menu>
       <Menu.Item style={{ padding: 0 }} key="userMenu">
-        <TestUserSelection onItemClickHandle={handleOnItemClickHandle} />
+        <TestUserSelection onItemClickHandle={() => handleOnItemClickHandle()} />
       </Menu.Item>
     </Menu>
   )

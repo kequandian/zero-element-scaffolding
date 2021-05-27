@@ -26,7 +26,7 @@ module.exports = {
                 ]
             },
             expect: {
-                field: 'passed',
+                field: 'auditInfo',
                 value: 'APPROVE',
             }
         },
@@ -36,12 +36,12 @@ module.exports = {
             ],
             rules: ['required'],
             expect: {
-                field: 'passed',
+                field: 'auditInfo',
                 value: 'APPROVE',
             }
         },
         {
-            label: '办理意见', field: 'passed', type: 'local_radio', 
+            label: '办理意见', field: 'auditInfo', type: 'local_radio', 
             options: [
                 { label: '同意', value: 'APPROVE' },
                 { label: '回退', value: 'ROLLBACK' },
@@ -68,7 +68,7 @@ module.exports = {
                 API: ''
             },
             expect: {
-                field: 'passed',
+                field: 'auditInfo',
                 value: 'APPROVE',
             }
         }

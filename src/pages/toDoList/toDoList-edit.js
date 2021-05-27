@@ -10,11 +10,11 @@ export default function WorkFlowListApply() {
     useBreadcrumb([
         { title: '首页', path: '/' },
         { title: '待办事项', path: '/toDoList' },
-        { title: '查看详情' },
+        { title: '审核' },
     ]);
 
     return <PageHeader
-        title="查看详情"
+        title="审核"
         ghost={false}
         onBack={() => window.history.back()}
     >

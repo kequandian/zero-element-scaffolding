@@ -12,7 +12,8 @@
   "updateApplyAPI": {
     "approveUrl": "/api/wf/instances/(id)/approve", 
     "rollbackUrl": "/api/wf/instances/(id)/rollback",
-    "rejectUrl": "/api/wf/instances/(id)/reject"
+    "rejectUrl": "/api/wf/instances/(id)/reject",
+    "publicApplyUrl": "/api/wf/instances/instanceAndForm/push"
   },
   "getApplyHistoryAPI": "/api/wf/histories",
   "columns": 1,

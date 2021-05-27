@@ -335,22 +335,24 @@ export default function CustomtForm(props) {
 
   //提交审批
   function handleUpdateApplyAPI(subData) {
-    const { approveUrl, rollbackUrl, rejectUrl } = API.updateApplyAPI;
-    let formatApi = '';
+
+    const { approveUrl, rollbackUrl, rejectUrl, publicApplyUrl } = API.updateApplyAPI;
+
+    let formatApi = publicApplyUrl;
     const queryData = subData;
     queryData.processId = initData.current.id;
 
-    if (subData.passed == 'APPROVE') {
-      formatApi = approveUrl.replace('(id)', custWorkFlowId);
-    } else if (subData.passed == 'ROLLBACK') {
-      formatApi = rollbackUrl.replace('(id)', custWorkFlowId);
-    } else {
-      formatApi = rejectUrl.replace('(id)', custWorkFlowId);
-    }
+    // if (subData.auditInfo == 'APPROVE') {
+    //   formatApi = approveUrl.replace('(id)', custWorkFlowId);
+    // } else if (subData.auditInfo == 'ROLLBACK') {
+    //   formatApi = rollbackUrl.replace('(id)', custWorkFlowId);
+    // } else {
+    //   formatApi = rejectUrl.replace('(id)', custWorkFlowId);
+    // }
 
     const apiUrl = `${getEndpoint()}${formatApi}`;
 
-    promiseAjax(apiUrl, queryData, { method: 'PUT' })
+    promiseAjax(apiUrl, queryData, { method: 'POST' })
       .then(resp => {
         if (resp && resp.code === 200) {
           const data = resp.data;

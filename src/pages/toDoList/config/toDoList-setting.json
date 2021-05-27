@@ -6,13 +6,14 @@
   },
   "listAPI": "/api/wf/instances?type=CURRENT",
   "createAPI": "",
-  "getAPI": "/api/wf/instanceAndForm/byTableJSON/[id]",
+  "getAPI": "/api/wf/instanceAndForm/byTableJSON/[id]?currentFlag=true",
   "updateAPI": "",
   "deleteAPI": "/api/wf/instances/(id)",
   "updateApplyAPI": {
     "approveUrl": "/api/wf/instances/(id)/approve", 
     "rollbackUrl": "/api/wf/instances/(id)/rollback",
-    "rejectUrl": "/api/wf/instances/(id)/reject"
+    "rejectUrl": "/api/wf/instances/(id)/reject",
+    "publicApplyUrl": "/api/wf/instances/instanceAndForm/push"
   },
   "getApplyHistoryAPI": "/api/wf/histories",
   "columns": 1,
