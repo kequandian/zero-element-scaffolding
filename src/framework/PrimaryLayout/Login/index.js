@@ -85,7 +85,7 @@ export default (props) => {
         let json=res.json();
         console.log(json);
         Promise.resolve(json).then((val)=>{
-            console.log(val.data.avatar)
+            // console.log(val.data.avatar)
             if(val.code===200){
               setAvatar(endpoint+val.data.avatar)
               // setAvatar(endpoint+val.data)
