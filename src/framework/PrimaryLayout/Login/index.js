@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { history } from 'umi';
-import { removeToken, getUserName, getExtra, getAvatar } from 'zero-element/lib/utils/request/token';
+import { removeToken, getUserName, getExtra, getAvatar,setAvatar, getToken } from 'zero-element/lib/utils/request/token';
 import { Avatar, Menu, Dropdown } from 'antd';
+import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 import {
   BellOutlined,
   UserOutlined,
@@ -59,6 +60,47 @@ export default (props) => {
     history.push('/designpage/config');
     useVisible(false);
   }
+
+  let Random = Math.ceil(Math.random()*10000);
+  if(Random<=100000){
+    Random=Math.ceil(Math.random()*100000000)
+    // console.log("重置随机数");
+  }
+
+  // console.log(Random);
+  let endpoint= getEndpoint()
+  
+  // const API = `${endpoint}/api/crud/avatar/${Random}`
+  const API = `${endpoint}/api/adm/users/userInfo`
+  let token = getToken()
+  useEffect(() => {
+        
+    fetch(API,{
+        headers:{
+            "Content-Type":"application/json;charset=UTF-8",
+            "Authorization":`Bearer ${token}`
+        }
+    })
+    .then(res=>{
+        let json=res.json();
+        console.log(json);
+        Promise.resolve(json).then((val)=>{
+            console.log(val.data.avatar)
+            if(val.code===200){
+              setAvatar(endpoint+val.data.avatar)
+              // setAvatar(endpoint+val.data)
+              console.log(Avatar);
+            }else{
+              console.error("错误")
+            }
+        })
+
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+},[])
+  
 
   const menu = (
     <Menu>

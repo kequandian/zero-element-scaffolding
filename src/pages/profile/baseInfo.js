@@ -6,7 +6,6 @@ import { removeToken, getUserName, getExtra, getAvatar } from 'zero-element/lib/
 import { UserOutlined } from '@ant-design/icons';
 import {config} from './config/baseinfo_config'
 import {UploadConfig} from './config/baseinfo_Uploadconfig'
-
 export default function () {
   useBreadcrumb([
     { title: '首页', path: '/' },
@@ -27,9 +26,12 @@ export default function () {
         marginBottom:'50px',
         // backgroundColor:'#1890FF'
       }}
-      icon={(getAvatar()===' ')?getAvatar():<UserOutlined size={200}/>}
+      src={(getAvatar()!==' ')?getAvatar():""}
+
+      icon={(getAvatar()===' ')?<UserOutlined size={200}/>:""}
       size={150}
       ></Avatar>
+
     </div>
     <ZEle namespace='security_baseInfo' config={config} />
   </div>

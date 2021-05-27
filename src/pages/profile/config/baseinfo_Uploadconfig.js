@@ -4,7 +4,7 @@ export const UploadConfig = {
     items: [
       {
         layout: 'Empty',
-        component: 'ChildrenForm',
+        component: 'Panel',
         config: {
           goBack: false,
           API: {
