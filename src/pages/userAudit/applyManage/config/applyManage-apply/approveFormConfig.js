@@ -36,7 +36,7 @@ module.exports = {
             rules: ['required']
         },
         {
-            label: '办理意见', field: 'currentStepName', type: 'text-area',
+            label: '备注', field: 'currentStepName', type: 'text-area',
             span: 12,
             props: {
                 autoSize: {

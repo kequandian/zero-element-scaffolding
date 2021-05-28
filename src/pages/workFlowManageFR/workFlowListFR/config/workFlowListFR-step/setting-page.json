@@ -157,7 +157,7 @@
                   "rules": [],
                   "options": {
                     "title": "选择表单",
-                    "label": "name",
+                    "label": "formName",
                     "editLabel": "formName",
                     "value": "code",
                     "pagination": true,
@@ -176,7 +176,6 @@
                 },
                 {
                   "field": "stepType", "label": "步骤类型", "type": "select",
-                  "defaultValue": "content",
                   "rules": ["required"],
                   "options": [
                     { "label": "审核步骤", "value": "approval" },
@@ -338,7 +337,7 @@
                   "rules": [],
                   "options": {
                     "title": "选择表单",
-                    "label": "name",
+                    "label": "formName",
                     "editLabel": "formName",
                     "value": "code",
                     "pagination": true,
