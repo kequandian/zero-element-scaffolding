@@ -47,7 +47,11 @@ module.exports = {
                 { label: '回退', value: 'ROLLBACK' },
                 { label: '拒绝', value: 'REJECT' },
             ],
-            rules: ['required']
+            rules: ['required'],
+            expect: {
+                field: 'stepType',
+                value: '/(approval)/',
+            }
         },
         {
             label: '备注', field: 'node', type: 'text-area',

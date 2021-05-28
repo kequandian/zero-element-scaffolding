@@ -71,7 +71,6 @@ import FITSet_oneMary from '@/../zero-antd-dep/formItemType/OneMary';
 import FITSet_numberRange from '@/../zero-antd-dep/formItemType/NumberRange';
 import FITSet_pcdm from '@/../zero-antd-dep/formItemType/PCDM';
 import FITSet_pcdForSearch from '@/../zero-antd-dep/formItemType/PCDForSearch';
-import FITSet_toptips from '@/../zero-antd-dep/formItemType/Toptips';
 import AITSet_modal from '@/../zero-antd-dep/actionItemType/Modal';
 import AITSet_request from '@/../zero-antd-dep/actionItemType/Request';
 import AITSet_childrenModalAdd from '@/../zero-antd-dep/actionItemType/ChildrenModalAdd';
@@ -176,7 +175,6 @@ FITSet({
 'number-range': FITSet_numberRange,
 'pcdm': FITSet_pcdm,
 'pcdForSearch': FITSet_pcdForSearch,
-'toptips': FITSet_toptips,
 
 });
 
