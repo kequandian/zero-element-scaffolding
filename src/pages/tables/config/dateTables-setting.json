@@ -12,13 +12,19 @@
   "columns": 1,
   "createFields": [
     {
-      "field":"",
+      "field":"menuid",
       "label":"菜单选择",
-      "type":"select-field",
-      "option":{
-        "API":"/api"
+      "type":"select-fetch",
+      "props":{
+        "style":{
+          "width":"240px"
+        }
       },
-      "width":"240px"
+      "options":{
+        "API":"/api/crud/menu/custom/group?_t=1622176307848",
+        "label":"menuName",
+        "value":"id"
+      }
     },
     {
       "label": "报表名称",
@@ -102,13 +108,19 @@
   ],
   "updateFields": [
     {
-      "field":"",
+      "field":"menuid",
       "label":"菜单选择",
-      "type":"select-field",
-      "option":{
-        "API":"/api"
+      "type":"select-fetch",
+      "props":{
+        "style":{
+          "width":"240px"
+        }
       },
-      "width":"240px"
+      "options":{
+        "API":"/api/crud/menu/custom/group?_t=1622176307848",
+        "label":"menuName",
+        "value":"id"
+      }
     },
     {
       "label": "报表名称",
@@ -179,13 +191,13 @@
     {
       "label": "字段备注",
       "props": {
-        "placeholder": "请输入备注",
+        "placeholder": "请输入备注,例子: 1. 内容",
         "autoSize": {
           "minRows": 10
-        }
+        },
+        "showCount":"true",
+        "maxLength":"200"
       },
-      "toptips":"备注输入格式",
-      "content":"例子:( 1.内容 )",
       "type": "text-area",
       "field": "tips"
     }

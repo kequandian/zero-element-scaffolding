@@ -19,7 +19,7 @@ import { set as AITSet } from 'zero-element/lib/config/actionItemType';
 import { set as VTSet } from 'zero-element/lib/config/valueType';
 
 
-import onPath from '@/listAction/onPath';
+// import onPath from '@/../zero-antd-dep/listAction/onPath';
 
 import path from '@/actionItemType/path';
 import tabs from '@/actionItemType/tabs';
@@ -28,7 +28,7 @@ import vPath from '@/valueType/path';
 
 import { message } from 'antd';
 
-import Content from '@/../zero-antd-dep/layout/Content';
+// import Content from '@/../zero-antd-dep/layout/Content';
 
 import './rewrite.less';
 
@@ -128,7 +128,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 LayoutSet({
-  Content,
+  // Content,
 });
 
 CSet({
@@ -145,7 +145,7 @@ CSet({
 });
 
 LASet({
-  'onPath': onPath,
+  // 'onPath': onPath,
 });
 
 //表单组件
