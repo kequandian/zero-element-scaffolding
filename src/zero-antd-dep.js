@@ -33,6 +33,7 @@ import CSet_Form from '@/../zero-antd-dep/container/Form/Form';
 import CSet_ChildrenForm from '@/../zero-antd-dep/container/Form/ChildrenForm';
 import LASet_onRequest from '@/../zero-antd-dep/listAction/onRequest';
 import LASet_onTips from '@/../zero-antd-dep/listAction/onTips';
+import LASet_onPath from '@/../zero-antd-dep/listAction/onPath';
 import FITSet_Space from '@/../zero-antd-dep/formItemType/Space';
 import FITSet_plain from '@/../zero-antd-dep/formItemType/Plain';
 import FITSet_image from '@/../zero-antd-dep/formItemType/Image';
@@ -64,6 +65,7 @@ import FITSet_uploadImage from '@/../zero-antd-dep/formItemType/UploadImage';
 import FITSet_uploadFile from '@/../zero-antd-dep/formItemType/UploadFile';
 import FITSet_checkboxFetch from '@/../zero-antd-dep/formItemType/CheckboxFetch';
 import FITSet_selectFetch from '@/../zero-antd-dep/formItemType/SelectFetch';
+import FITSet_selectFetchVal from '@/../zero-antd-dep/formItemType/SelectFetchVal';
 import FITSet_selectField from '@/../zero-antd-dep/formItemType/SelectField';
 import FITSet_textArea from '@/../zero-antd-dep/formItemType/TextArea';
 import FITSet_richText from '@/../zero-antd-dep/formItemType/RichText';
@@ -133,6 +135,7 @@ CSet({
 LASet({
 'onRequest': LASet_onRequest,
 'onTips': LASet_onTips,
+'onPath': LASet_onPath,
 
 });
 
@@ -168,6 +171,7 @@ FITSet({
 'upload-file': FITSet_uploadFile,
 'checkbox-fetch': FITSet_checkboxFetch,
 'select-fetch': FITSet_selectFetch,
+'select-fetch-val': FITSet_selectFetchVal,
 'select-field': FITSet_selectField,
 'text-area': FITSet_textArea,
 'rich-text': FITSet_richText,

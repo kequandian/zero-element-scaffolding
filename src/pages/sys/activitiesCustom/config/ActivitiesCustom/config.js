@@ -16,7 +16,7 @@ module.exports = {
       },
     },
     {
-      component: 'TreeList',
+      component: 'NewTreeList',
       config: {
         API: {
           listAPI: '/api/crud/eavEntityType/eavEntityTypes/entity?entityType=CRUD_FORM&typeId=<id>',

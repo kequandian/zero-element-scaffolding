@@ -53,4 +53,26 @@ if (process.env.NODE_ENV === 'development') {
 ```
 
 
+> listAction保留仅为测试用,测试成功之后迁移至[zero-element-antd](https://github.com/kequandian/zero-element-antd)
 
+>.keep可提交空文件夹，勿删
+
+迁移至antd方法，迁移到antd下src的对应文件夹，然后添加index.js及map.json路径
+index.js增加方法
+```javascript
+// 在头部调用
+import youListAction from './listAction/youListAction'
+// 找到 LASet
+LASet({
+  'youListAction':youListAction
+})
+```
+以上仅调用ListAction方法来说明，其余方法同理，可参考[index.js](https://github.com/kequandian/zero-element-antd/blob/master/src/index.js)来定义
+
+然后，更改map.json
+```javascript
+// 找到 LASet，添加
+LASet({
+  "youlistAction":"listAction/youlistAction"
+})
+```
