@@ -22,12 +22,12 @@ module.exports = {
           listAPI: '/api/crud/eavEntityType/eavEntityTypes/entity?entityType=CRUD_FORM&typeId=<id>',
           deleteAPI: '/api/eav/entities/(id)'
         },
-        tree: {
-          API: {
-            initAPI: '/api/crud/eavEntityType/eavEntityTypes/groupType',
-            appendAPI: undefined,
-          }
-        },
+        // tree: {
+        //   API: {
+        //     initAPI: '/api/crud/eavEntityType/eavEntityTypes/groupType',
+        //     appendAPI: undefined,
+        //   }
+        // },
         actions: [
           // {
           //   title: '添加', type: 'modal',

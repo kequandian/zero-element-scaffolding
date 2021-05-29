@@ -83,7 +83,7 @@ module.exports = {
             "field": "name",
             "type": "input",
             "props": {
-              "placeholder": "请输入……"
+              "placeholder": "请输入活动的名称"
             },
             "rules": [
               "required"
@@ -135,7 +135,7 @@ module.exports = {
             "field": "note",
             "type": "text-area",
             "props": {
-              "placeholder": "请输入……"
+              "placeholder": "请输入表单的更多信息"
             },
             "rules": []
           }
