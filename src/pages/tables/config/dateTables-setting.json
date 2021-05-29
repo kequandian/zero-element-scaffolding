@@ -27,14 +27,14 @@
       }
     },
     {
-      "label": "报表名称",
+      "label": "菜单名称",
       "rules": [
         {
           "type": "required"
         }
       ],
       "props": {
-        "placeholder": "请输入文件名称"
+        "placeholder": "请输入要添加的左侧栏名称"
       },
       "type": "input",
       "field": "field"
@@ -42,7 +42,7 @@
     {
       "label": "报表标题",
       "props": {
-        "placeholder": "请输入报表标题"
+        "placeholder": "请输入在系统设置展示的报表标题"
       },
       "type": "input",
       "field": "title"
@@ -50,7 +50,7 @@
     {
       "label": "搜索字段",
       "props": {
-        "placeholder": "请输入搜索字段"
+        "placeholder": "可通过搜索字段查询报表信息"
       },
       "type": "input",
       "field": "search",
@@ -67,24 +67,16 @@
       "toptips":"类型输入格式",
       "content":"格式：S,D,等等，格式用逗号隔开，可选值：金钱D,百分比P,时间T,数量C,字符串S",
       "props": {
-        "placeholder": "请输入字段类型"
+        "placeholder": "通过此项来定义数据库字段"
       },
       
       "type": "input",
       "field": "type"
     },
     {
-      "label": "权限",
-      "props": {
-        "placeholder": "请输入权限"
-      },
-      "type": "input",
-      "field": "permission"
-    },
-    {
       "label": "查询语句",
       "props": {
-        "placeholder": "请输入查询语句",
+        "placeholder": "请输入查询语句，如 select 'a' as 'a','b' as 'b' ",
         "autoSize": {
           "minRows": 10
         }
@@ -95,7 +87,7 @@
     {
       "label": "字段备注",
       "props": {
-        "placeholder": "请输入备注,例子: 1. 内容",
+        "placeholder": "请输入备注,如: 1:内容,2:内容,字段备注定义内容",
         "autoSize": {
           "minRows": 10
         },
@@ -123,14 +115,14 @@
       }
     },
     {
-      "label": "报表名称",
+      "label": "菜单名称",
       "rules": [
         {
           "type": "required"
         }
       ],
       "props": {
-        "placeholder": "请输入文件名称"
+        "placeholder": "决定了左侧菜单子项的名称"
       },
       "type": "input",
       "field": "field"
@@ -138,7 +130,7 @@
     {
       "label": "报表标题",
       "props": {
-        "placeholder": "请输入报表标题"
+        "placeholder": "展示报表的标题"
       },
       "type": "input",
       "field": "title"
@@ -170,17 +162,9 @@
       "field": "type"
     },
     {
-      "label": "权限",
-      "props": {
-        "placeholder": "请输入权限"
-      },
-      "type": "input",
-      "field": "permission"
-    },
-    {
       "label": "查询语句",
       "props": {
-        "placeholder": "请输入查询语句",
+        "placeholder": "请输入查询语句，如 select 'a' as 'a','b' as 'b' ",
         "autoSize": {
           "minRows": 10
         }
@@ -191,7 +175,7 @@
     {
       "label": "字段备注",
       "props": {
-        "placeholder": "请输入备注,例子: 1. 内容",
+        "placeholder": "请输入备注,如: 1:内容,2:内容,字段备注定义内容",
         "autoSize": {
           "minRows": 10
         },
@@ -251,11 +235,11 @@
   ],
   "searchFields": [
     {
-      "label": "报表名称",
+      "label": "菜单名称",
       "field": "field",
       "type": "input",
       "props": {
-        "placeholder": "请输入文件名"
+        "placeholder": "请输入菜单名称"
       }
     }
   ],
@@ -263,6 +247,23 @@
     {
       "label": "报表名称",
       "field": "field"
+      
+    },
+    {
+      "label": "所属菜单",
+      "field": "menuid"
+    },
+    {
+      "label": "报表标题",
+      "field": "title"
+    },
+    {
+      "label": "字段类型",
+      "field": "type"
+    },
+    {
+      "label": "搜索字段",
+      "field": "search"
     }
   ],
   "viewConfig": [
@@ -270,30 +271,6 @@
       "title": "详情",
       "type": "plain",
       "fields": [
-        {
-          "label": "所属菜单",
-          "field": "f"
-        },
-        {
-          "label": "报表名称",
-          "field": "field"
-        },
-        {
-          "label": "报表标题",
-          "field": "title"
-        },
-        {
-          "label": "报表权限",
-          "field": "permission"
-        },
-        {
-          "label": "字段类型",
-          "field": "type"
-        },
-        {
-          "label": "搜索字段",
-          "field": "search"
-        },
         {
           "label": "字段备注",
           "field": "tips"
