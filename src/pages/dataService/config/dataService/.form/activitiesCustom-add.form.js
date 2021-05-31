@@ -15,6 +15,21 @@ module.exports = {
         },
         "fields": [
           {
+            "field":"menuid",
+            "label":"菜单选择",
+            "type":"select-fetch",
+            "props":{
+              "style":{
+                "width":"240px"
+              }
+            },
+            "options":{
+              "API":"/api/crud/menu/custom/group?_t=1622176307848",
+              "label":"menuName",
+              "value":"id"
+            }
+          },
+          {
             "label": "表单标识",
             "field": "entityName",
             "type": "input",
@@ -23,7 +38,8 @@ module.exports = {
             },
             "rules": [
               "required"
-            ]
+            ],
+            span:24
           },
           {
             "label": "表单名称",
@@ -63,7 +79,7 @@ module.exports = {
                 {
                   "label": "备注",
                   "field": "note",
-                  valueType: 'ellipsis'
+                  valueType: 'ellipsis',
                 },
               ]
             }
@@ -75,6 +91,11 @@ module.exports = {
             "props": {
               "placeholder": "请输入表单的更多信息"
             },
+            "autoSize": {
+              "minRows": 10
+            },
+            "showCount":"true",
+            "maxLength":"200",
             "rules": [],
             "span": 12
           },

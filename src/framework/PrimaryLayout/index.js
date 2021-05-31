@@ -6,7 +6,7 @@ import Breadcrumb from './Breadcrumb';
 import { LS } from 'zero-element/lib/utils/storage';
 import Login from './Login';
 import './index.less';
-const appLogo = require( '../../../public/applogo.jpg');
+const appLogo = require( '../../../public/cloud.png');
 
 import GlobalContext from '@/framework/GlobalContext';
 
@@ -60,7 +60,7 @@ export default function PrimaryLayout({
           
           <img src={appLogo}></img>
           <a href="/">
-          标准应用管理后台
+          SmallSaaS低代码开发平台
           </a>
         </div>
         <TopNav

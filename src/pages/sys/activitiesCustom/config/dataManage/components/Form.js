@@ -36,6 +36,7 @@ export default function BaseForm(props) {
     formRef,
     keepData = false, // 卸载 BaseForm 时不销毁 model.formData
   } = props;
+  
   const {
     API = {},
     layout = 'Empty', layoutConfig = {},

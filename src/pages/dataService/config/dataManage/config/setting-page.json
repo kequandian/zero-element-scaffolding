@@ -31,6 +31,7 @@
                 "createAPI": "/api/eav/entities/newValue/(id)"
               },
               "fields": [
+                
               ]
             }
           }
@@ -63,6 +64,7 @@
                 "updateAPI": "/api/eav/entities/editValue/(id)"
               },
               "fields": [
+
               ]
             }
           }
