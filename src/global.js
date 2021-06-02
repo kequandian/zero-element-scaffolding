@@ -63,6 +63,7 @@ import CSet_load_html_page from '@/components/LoadHtmlPage';
 import AITSet_export_file from '@/actionItemType/ExportFile';
 import FITSet_input_box from '@/components/FormItemType/InputBox';
 import FITSet_link_button from '@/components/FormItemType/LinkButton';
+import VTSet_TimeConvert from '@/components/ValueType/TimeConvert';
 
 //Test
 import CSet_new_tree_list from '@/components/TList';
@@ -178,4 +179,5 @@ AITSet({
 VTSet({
   'path': vPath,
   'input-switch' : VTSet_InputSwitch,
+  'time-convert': VTSet_TimeConvert
 });
