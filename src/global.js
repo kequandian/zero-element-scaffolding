@@ -68,7 +68,7 @@ import FITSet_link_button from '@/components/FormItemType/LinkButton';
 import CSet_new_tree_list from '@/components/TList';
 
 //配置 
-import { Config } from './config'
+import { Config } from './devConfig'
 const globalModel = getModel('global');
 
 APIConfig({
@@ -112,6 +112,12 @@ golbalSet({
   }
 });
 
+/** 
+ * @开发环境配置
+ * @关于Config配置 配置来源 src/devConfig.js > endpoint 项
+ * @优先级 src/devConfig.js 中 endpoint 高于 public/config.js 中 window.ZEle.endpoint
+ * @说明 此地方不设置生产环境endpoint设置 默认为public/config.js 中的 window.ZEle.endpoint 值
+*/
 
 if (process.env.NODE_ENV === 'development') {
   //# $ cat /c/Windows/System32/drivers/etc/hosts
@@ -124,7 +130,7 @@ if (process.env.NODE_ENV === 'development') {
   // });
 }else {
   // setEndpoint('http://localhost:8080');
-  setEndpoint(Config.endpoint);
+  // setEndpoint(Config.endpoint);  //取消注释后为devConfig.js中值
 }
 
 LayoutSet({
