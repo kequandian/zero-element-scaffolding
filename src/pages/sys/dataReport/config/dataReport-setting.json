@@ -12,6 +12,21 @@
   "columns": 1,
   "createFields": [
     {
+      "field":"menuid",
+      "label":"菜单选择",
+      "type":"select-fetch",
+      "props":{
+        "style":{
+          "width":"240px"
+        }
+      },
+      "options":{
+        "API":"/api/crud/menu/custom/group",
+        "label":"menuName",
+        "value":"id"
+      }
+    },
+    {
       "label": "报表名称",
       "rules": [
         {
@@ -35,15 +50,12 @@
     {
       "label": "搜索字段",
       "props": {
-        "placeholder": "请输入搜索字段，一般是通过报表名称来搜索，填写相同即可"
+        "placeholder": "请输入搜索字段"
       },
       "type": "input",
-      "field": "search"
-    },
-    {
-      "label": "类型说明",
-      "defaultValue": "类型输入格式：S,D,...。请在（金钱D,百分比P,时间T,数量C,字符串S）里选择值或对应的字母填写",
-      "type": "plain"
+      "field": "search",
+      "toptips":"搜索字段的填写规范",
+      "content":"填写数据库表的子类，如名称，年龄，性别等，可通过这些字段查询数据库中对应的类"
     },
     {
       "label": "字段类型",
@@ -52,6 +64,8 @@
           "type": "required"
         }
       ],
+      "toptips":"类型输入格式",
+      "content":"格式：S,D,等等，格式用逗号隔开，可选值：金钱D,百分比P,时间T,数量C,字符串S",
       "props": {
         "placeholder": "请输入字段类型"
       },
@@ -78,17 +92,14 @@
       "field": "querySql"
     },
     {
-      "label": "备注说明",
-      "defaultValue": "类型输入格式： {第几个字段} : {描述内容}",
-      "type": "plain"
-    },
-    {
       "label": "字段备注",
       "props": {
-        "placeholder": "请输入备注",
+        "placeholder": "请输入备注,例子: 1. 内容",
         "autoSize": {
           "minRows": 10
-        }
+        },
+        "showCount":"true",
+        "maxLength":"200"
       },
       "type": "text-area",
       "field": "tips"
