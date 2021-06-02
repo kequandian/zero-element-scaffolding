@@ -120,7 +120,6 @@ export default function BaseForm(props) {
     promiseAjax(apiUrl, queryData).then((response) => {
       const { code, data } = response || {};
       const applyFormInfo = handleApplyFormInfo(data.formInfo);
-      console.log(applyFormInfo);
       if (code === 200 && data) {
         let formData = data;
         if (typeof onGetData === 'function') {
@@ -157,7 +156,6 @@ export default function BaseForm(props) {
           setFields([
             ...applyFormInfo
           ])
-          console.log(applyFormInfo);
         }
       }
     })
@@ -171,6 +169,7 @@ export default function BaseForm(props) {
       setCanRenderForm(false);
       onGetOne({}).then((response) => {
         const { code, data } = response || {};
+        const applyFormInfo = handleApplyFormInfo(data.formInfo);
         if (code === 200 && data) {
           let formData = data;
           if (typeof onGetData === 'function') {
