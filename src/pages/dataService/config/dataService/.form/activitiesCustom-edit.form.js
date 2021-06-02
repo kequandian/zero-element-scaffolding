@@ -52,51 +52,6 @@ module.exports = {
             ],
             "span": 24,
           },
-          
-          {
-            "label": "类别",
-            "field": "typeId",
-            "span": 24,
-            "type": "modal-radio",
-            "props": {},
-            "rules": [
-              "required"
-            ],
-            "options": {
-              "title": "选择类别",
-              "label": "typeName",
-              "editLabel": "typeName",
-              "value": "id",
-              "pagination": true,
-              "API": "/api/crud/eavEntityType/eavEntityTypes",
-              "fields": [
-                {
-                  "label": "名称",
-                  "field": "name",
-                  "valueType": 'ellipsis'
-                },
-                {
-                  "label": "备注",
-                  "field": "note",
-                  "valueType": 'ellipsis'
-                },
-                // {
-                //   "options": {
-                //     "map": {
-                //       "NOT_START": "未出工",
-                //     },
-                //     "colorMap": {
-                //       "NOT_START": "#1890ff",
-                //     }
-                //   },
-                //   "className": "",
-                //   "valueType": "tag",
-                //   "field": "status",
-                //   "label": "状态"
-                // },
-              ]
-            }
-          },
           {
             "label": "备注",
             "field": "note",

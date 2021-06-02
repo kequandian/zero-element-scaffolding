@@ -54,37 +54,6 @@ module.exports = {
             span: 24,
           },
           {
-            "label": "类别",
-            span: 24,
-            "field": "typeId",
-            "type": "modal-radio",
-            "props": {},
-            "rules": [
-              "required"
-            ],
-
-            "options": {
-              "title": "选择类别",
-              "label": "name",
-              "editLabel": "typeName",
-              "value": "id",
-              pagination: true,
-              "API": "/api/crud/eavEntityType/eavEntityTypes",
-              "fields": [
-                {
-                  "label": "名称",
-                  "field": "name",
-                  valueType: 'ellipsis'
-                },
-                {
-                  "label": "备注",
-                  "field": "note",
-                  valueType: 'ellipsis',
-                },
-              ]
-            }
-          },
-          {
             "label": "备注",
             "field": "note",
             "type": "text-area",
