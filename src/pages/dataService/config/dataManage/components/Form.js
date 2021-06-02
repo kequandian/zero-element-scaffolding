@@ -83,6 +83,8 @@ export default function BaseForm(props) {
   const [canRenderForm, setCanRenderForm] = useState(API.getAPI ? false : true);
   const [currId, setCurrId ] = useState('');
   // useMemo(recordDefaultValue, [fields]);
+
+
   useDidMount(_ => {
     recordDefaultValue();
     if (API.getAPI && API.createAPI) {
@@ -107,7 +109,6 @@ export default function BaseForm(props) {
   //获取添加页面配置数据
   function handleGetAddData() {
     setCanRenderForm(false);
-
     const searchList = location.search.split('=');
     const id = searchList[1];
     setCurrId(id);
@@ -118,6 +119,8 @@ export default function BaseForm(props) {
     }
     promiseAjax(apiUrl, queryData).then((response) => {
       const { code, data } = response || {};
+      const applyFormInfo = handleApplyFormInfo(data.formInfo);
+      console.log(applyFormInfo);
       if (code === 200 && data) {
         let formData = data;
         if (typeof onGetData === 'function') {
@@ -150,10 +153,11 @@ export default function BaseForm(props) {
           forceUpdate();
         }
 
-        if(data.layoutJson && data.layoutJson.length > 0){
+        if(applyFormInfo && applyFormInfo.length > 0){
           setFields([
-            ...data.layoutJson
+            ...applyFormInfo
           ])
+          console.log(applyFormInfo);
         }
       }
     })
@@ -185,7 +189,7 @@ export default function BaseForm(props) {
           }
 
           setFields([
-            ...data.layoutJson,
+            ...applyFormInfo,
           ])
             
         }
@@ -193,6 +197,33 @@ export default function BaseForm(props) {
         .finally(_ => {
           setCanRenderForm(true);
         })
+    }
+
+    function handleApplyFormInfo(formInfo) {
+      if (formInfo && JSON.stringify(formInfo) != '{}') {
+  
+        const layoutJson = formInfo.layoutJson;
+  
+        const fieldList = [];
+  
+        layoutJson.map(item => {
+  
+          if (typeof item.title == 'string') {
+            const titleGroud = { "field": "_group", "type": "group-title", "defaultValue": `${item.title}` }
+            fieldList.push(titleGroud);
+          }
+  
+          if (Array.isArray(item.items) && item.items.length > 0) {
+            item.items.map(item => {
+              fieldList.push(item);
+            })
+          }
+        })
+        return fieldList;
+  
+      } else {
+        return [];
+      }
     }
 
   function setExtraFields(items) {
