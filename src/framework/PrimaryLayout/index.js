@@ -3,7 +3,6 @@ import { Layout } from 'antd';
 import { useModel } from 'zero-element/lib/Model';
 import { useDocumentVisibility } from 'ahooks';
 import Breadcrumb from './Breadcrumb';
-import { LS } from 'zero-element/lib/utils/storage';
 import Login from './Login';
 import './index.less';
 const appLogo = require( '../../../public/applogo.jpg');
@@ -26,17 +25,14 @@ export default function PrimaryLayout({
   const { permissions } = globalModel;
   const documentVisibility = useDocumentVisibility();
 
-  const menuConfigModel = useModel('menuConfig');
-  const { menuTree } = menuConfigModel;
+  // const menuConfigModel = useModel('menuConfig');
 
   useEffect(_ => {
     if (documentVisibility === 'visible') {
       globalModel.queryPerm();
-      menuConfigModel.queryMenu();
+      // menuConfigModel.queryPerm();
     }
-  }, [permissions, menuTree, documentVisibility]);
-
-  menuData = LS.get('menuList');
+  }, [permissions, documentVisibility]);
 
   const [
     TopNav, TopNavData,

@@ -53,6 +53,28 @@ module.exports = [
   //     }
   //   ],
   // },
+  {
+    name: 'AI健身',
+    path: '/aiFitness',
+    items: [
+      {
+        path: '/aiFitness/vido',
+        name: '标准视频管理',
+      },
+      {
+        path: '/aiFitness/keyPose',
+        name: '标准动作入库',
+      },
+      {
+        path: '/aiFitness/colloquialism',
+        name: '纠正话术配置',
+      },
+      {
+        path: '/aiFitness/userVido',
+        name: '用户视频管理',
+      }
+    ]
+  },
   // {
   //   name: '流程管理FR',
   //   path: '/workFlowManageFR',
@@ -139,47 +161,44 @@ module.exports = [
   //     }
   //   ]
   // }
-  // {
-  //   "name": "运维管理",
-  //   "path": "/devops",
-  //   "items": [
-  //     {
-  //       "name": "数据现场管理",
-  //       "path": "/devops/backup"
-  //     },
-  //     {
-  //       path: '/devops/tables',
-  //       name: '报表管理',
-  //     }
-  //     // {
-  //     //   "name": "问题跟踪",
-  //     //   "path": "/devops/issueTask"
-  //     // },
-  //     // {
-  //     //   "name": "微服务权限配置",
-  //     //   "path": "/devops/appPermission"
-  //     // },
-  //   ]
-  // }, 
-  
-  // {
-  //   name: '分类',
-  //   path: '/type',
-  //   items: [
-  //     {
-  //       path: '/type/testField',
-  //       name: '分类管理',
-  //     }
-  //   ],
-  // }, 
-  // {
-  //   name: '报表',
-  //   path: '/dateTables',
-  //   items: [
-  //     {
-  //       path: '/dateTables/agentReport',
-  //       name: '报表统计',
-  //     }
-  //   ]
-  // }
+//   {
+//     "name": "运维管理",
+//     "path": "/devops",
+//     "items": [
+//       {
+//         "name": "数据现场管理",
+//         "path": "/devops/backup"
+//       },
+//       {
+//         path: '/devops/tables',
+//         name: '报表管理',
+//       }
+//       // {
+//       //   "name": "问题跟踪",
+//       //   "path": "/devops/issueTask"
+//       // },
+//       // {
+//       //   "name": "微服务权限配置",
+//       //   "path": "/devops/appPermission"
+//       // },
+//     ]
+//   }, {
+//     name: '分类',
+//     path: '/type',
+//     items: [
+//       {
+//         path: '/type/testField',
+//         name: '分类管理',
+//       }
+//     ],
+//   }, {
+//     name: '报表',
+//     path: '/dateTables',
+//     items: [
+//       {
+//         path: '/dateTables/agentReport',
+//         name: '报表统计',
+//       }
+//     ]
+//   }
 ]

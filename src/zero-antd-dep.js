@@ -33,6 +33,8 @@ import CSet_Form from '@/../zero-antd-dep/container/Form/Form';
 import CSet_ChildrenForm from '@/../zero-antd-dep/container/Form/ChildrenForm';
 import LASet_onRequest from '@/../zero-antd-dep/listAction/onRequest';
 import LASet_onTips from '@/../zero-antd-dep/listAction/onTips';
+import LASet_onPath from '@/../zero-antd-dep/listAction/onPath';
+import FITSet_videoview from '@/../zero-antd-dep/formItemType/VideoView/VideoView';
 import FITSet_Space from '@/../zero-antd-dep/formItemType/Space';
 import FITSet_plain from '@/../zero-antd-dep/formItemType/Plain';
 import FITSet_image from '@/../zero-antd-dep/formItemType/Image';
@@ -40,6 +42,7 @@ import FITSet_empty from '@/../zero-antd-dep/formItemType/Empty';
 import FITSet_hidden from '@/../zero-antd-dep/formItemType/Hidden';
 import FITSet_group from '@/../zero-antd-dep/formItemType/Group';
 import FITSet_input from '@/../zero-antd-dep/formItemType/Input';
+import FITSet_inputType from '@/../zero-antd-dep/formItemType/InputType';
 import FITSet_password from '@/../zero-antd-dep/formItemType/Password';
 import FITSet_number from '@/../zero-antd-dep/formItemType/Number';
 import FITSet_radio from '@/../zero-antd-dep/formItemType/Radio';
@@ -64,6 +67,7 @@ import FITSet_uploadImage from '@/../zero-antd-dep/formItemType/UploadImage';
 import FITSet_uploadFile from '@/../zero-antd-dep/formItemType/UploadFile';
 import FITSet_checkboxFetch from '@/../zero-antd-dep/formItemType/CheckboxFetch';
 import FITSet_selectFetch from '@/../zero-antd-dep/formItemType/SelectFetch';
+import FITSet_selectFetchVal from '@/../zero-antd-dep/formItemType/SelectFetchVal';
 import FITSet_selectField from '@/../zero-antd-dep/formItemType/SelectField';
 import FITSet_textArea from '@/../zero-antd-dep/formItemType/TextArea';
 import FITSet_richText from '@/../zero-antd-dep/formItemType/RichText';
@@ -71,6 +75,7 @@ import FITSet_oneMary from '@/../zero-antd-dep/formItemType/OneMary';
 import FITSet_numberRange from '@/../zero-antd-dep/formItemType/NumberRange';
 import FITSet_pcdm from '@/../zero-antd-dep/formItemType/PCDM';
 import FITSet_pcdForSearch from '@/../zero-antd-dep/formItemType/PCDForSearch';
+import FITSet_toptips from '@/../zero-antd-dep/formItemType/Toptips';
 import AITSet_modal from '@/../zero-antd-dep/actionItemType/Modal';
 import AITSet_request from '@/../zero-antd-dep/actionItemType/Request';
 import AITSet_childrenModalAdd from '@/../zero-antd-dep/actionItemType/ChildrenModalAdd';
@@ -83,6 +88,7 @@ import VTSet_plain from '@/../zero-antd-dep/valueType/plain';
 import VTSet_join from '@/../zero-antd-dep/valueType/join';
 import VTSet_map from '@/../zero-antd-dep/valueType/map';
 import VTSet_image from '@/../zero-antd-dep/valueType/image';
+import VTSet_thumb from '@/../zero-antd-dep/valueType/thumb';
 import VTSet_tag from '@/../zero-antd-dep/valueType/tag';
 import VTSet_dot from '@/../zero-antd-dep/valueType/dot';
 import VTSet_currency from '@/../zero-antd-dep/valueType/currency';
@@ -133,10 +139,12 @@ CSet({
 LASet({
 'onRequest': LASet_onRequest,
 'onTips': LASet_onTips,
+'onPath': LASet_onPath,
 
 });
 
 FITSet({
+'videoview': FITSet_videoview,
 'Space': FITSet_Space,
 'plain': FITSet_plain,
 'image': FITSet_image,
@@ -144,6 +152,7 @@ FITSet({
 'hidden': FITSet_hidden,
 'group': FITSet_group,
 'input': FITSet_input,
+'inputType': FITSet_inputType,
 'password': FITSet_password,
 'number': FITSet_number,
 'radio': FITSet_radio,
@@ -168,6 +177,7 @@ FITSet({
 'upload-file': FITSet_uploadFile,
 'checkbox-fetch': FITSet_checkboxFetch,
 'select-fetch': FITSet_selectFetch,
+'select-fetch-val': FITSet_selectFetchVal,
 'select-field': FITSet_selectField,
 'text-area': FITSet_textArea,
 'rich-text': FITSet_richText,
@@ -175,6 +185,7 @@ FITSet({
 'number-range': FITSet_numberRange,
 'pcdm': FITSet_pcdm,
 'pcdForSearch': FITSet_pcdForSearch,
+'toptips': FITSet_toptips,
 
 });
 
@@ -195,6 +206,7 @@ VTSet({
 'join': VTSet_join,
 'map': VTSet_map,
 'image': VTSet_image,
+'thumb': VTSet_thumb,
 'tag': VTSet_tag,
 'dot': VTSet_dot,
 'currency': VTSet_currency,

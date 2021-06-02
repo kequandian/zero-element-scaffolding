@@ -44,11 +44,11 @@ export default (props) => {
     LS.del('menuList');
     useVisible(false);
     removeToken();
-    history.push('/login');
+    // history.push('/admin');
   }
 
   function handleRouteToProfile() {
-    history.push('/profile/userpage');
+    history.push('/admin');
     useVisible(false);
   }
 
@@ -110,14 +110,14 @@ export default (props) => {
 
   return (
     <div style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center' }}>
-      <Dropdown
+      {/* <Dropdown
         trigger={['click']}
         placement="bottomLeft"
         overlay={MoreMenu}
       >
         <a href="Tag/TagView" className="RightNav more"></a>
       </Dropdown>
-      <a href="http://docs.smallsaas.cn" className="RightNav docs"></a>
+      <a href="http://docs.smallsaas.cn" className="RightNav docs"></a> */}
       <Dropdown
         trigger={['click']}
         placement="bottomLeft"
