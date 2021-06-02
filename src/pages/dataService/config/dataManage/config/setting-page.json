@@ -18,7 +18,7 @@
         "modalWidth": 600,
         "items": [
           {
-            "component": "data_manage_form_add",
+            "component": "data_service_add",
             "config": {
               "layout": "Grid",
               "layoutConfig": {
@@ -51,7 +51,7 @@
         "outside": true,
         "items": [
           {
-            "component": "data_manage_form_add",
+            "component": "data_service_add",
             "config": {
               "layout": "Grid",
               "layoutConfig": {

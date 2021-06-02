@@ -41,6 +41,8 @@ import TreeSelectFetch from '@/components/TreeSelectFetch';
 import CSet_CustomForm from '@/components/CustomForm';
 import CSet_CustomFormFR from '@/components/CustomFormFR';
 import CSet_DataManageFormAdd from '@/pages/sys/activitiesCustom/config/dataManage/components/Form';
+import CSet_DataServiceFormAdd from '@/pages/dataService/config/dataManage/components/Form';
+
 import CSet_DataReportTreeList from '@/pages/sys/dataReport/components/DataReportTreeList';
 import VTSet_InputSwitch from '@/components/ValueType/InputSwitch';
 import FITSet_group_title from '@/components/FormItemType/Group';
@@ -69,7 +71,7 @@ import VTSet_TimeConvert from '@/components/ValueType/TimeConvert';
 import CSet_new_tree_list from '@/components/TList';
 
 //配置 
-import { Config } from './config'
+import { Config } from './devConfig'
 const globalModel = getModel('global');
 
 APIConfig({
@@ -113,6 +115,12 @@ golbalSet({
   }
 });
 
+/** 
+ * @开发环境配置
+ * @关于Config配置 配置来源 src/devConfig.js > endpoint 项
+ * @优先级 src/devConfig.js 中 endpoint 高于 public/config.js 中 window.ZEle.endpoint
+ * @说明 此地方不设置生产环境endpoint设置 默认为public/config.js 中的 window.ZEle.endpoint 值
+*/
 
 if (process.env.NODE_ENV === 'development') {
   //# $ cat /c/Windows/System32/drivers/etc/hosts
@@ -125,7 +133,7 @@ if (process.env.NODE_ENV === 'development') {
   // });
 }else {
   // setEndpoint('http://localhost:8080');
-  setEndpoint('http://192.168.3.239:8090');
+  // setEndpoint('http://192.168.3.239:8090');
 }
 
 LayoutSet({
@@ -138,6 +146,7 @@ CSet({
   'custom_form_fr': CSet_CustomFormFR,
   'Dictionary': Dictionary,
   'data_manage_form_add' : CSet_DataManageFormAdd,
+  "data_service_add":CSet_DataServiceFormAdd,
   'activity_fields_form' : CSet_activity_fields_form,
   'print_config_form': CSet_print_config_form,
   'data_report_tree_list': CSet_DataReportTreeList,
