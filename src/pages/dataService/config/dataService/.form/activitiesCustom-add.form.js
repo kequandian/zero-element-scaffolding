@@ -15,7 +15,7 @@ module.exports = {
         },
         "fields": [
           {
-            "field":"menuid",
+            "field":"menuId",
             "label":"菜单选择",
             "type":"select-fetch",
             "props":{

@@ -12,7 +12,7 @@
   "columns": 1,
   "createFields": [
     {
-      "field":"menuid",
+      "field":"menuId",
       "label":"菜单选择",
       "type":"select-fetch",
       "props":{
@@ -27,20 +27,20 @@
       }
     },
     {
-      "label": "菜单名称",
+      "label": "报表标识",
       "rules": [
         {
           "type": "required"
         }
       ],
       "props": {
-        "placeholder": "请输入要添加的左侧栏名称"
+        "placeholder": "唯一标识,不可重复，同时定义权限"
       },
       "type": "input",
       "field": "field"
     },
     {
-      "label": "报表标题",
+      "label": "菜单名",
       "props": {
         "placeholder": "请输入在系统设置展示的报表标题"
       },
@@ -70,7 +70,7 @@
         "placeholder": "通过此项来定义数据库字段"
       },
       
-      "type": "inputType",
+      "type": "input",
       "field": "type"
     },
     {
@@ -100,7 +100,7 @@
   ],
   "updateFields": [
     {
-      "field":"menuid",
+      "field":"menuId",
       "label":"菜单选择",
       "type":"select-fetch",
       "props":{
@@ -115,14 +115,14 @@
       }
     },
     {
-      "label": "菜单名称",
+      "label": "报表标识",
       "rules": [
         {
           "type": "required"
         }
       ],
       "props": {
-        "placeholder": "决定了左侧菜单子项的名称"
+        "placeholder": "唯一标识,不可重复，同时定义权限"
       },
       "type": "input",
       "field": "field"
@@ -235,11 +235,11 @@
   ],
   "searchFields": [
     {
-      "label": "菜单名称",
+      "label": "报表标识",
       "field": "field",
       "type": "input",
       "props": {
-        "placeholder": "请输入菜单名称"
+        "placeholder": "唯一标识,不可重复，同时定义权限"
       }
     }
   ],
@@ -251,7 +251,7 @@
     },
     {
       "label": "所属菜单",
-      "field": "menuid"
+      "field": "menuId"
     },
     {
       "label": "报表标题",
