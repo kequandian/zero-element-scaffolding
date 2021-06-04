@@ -124,8 +124,8 @@ function format(value, formatData) {
     if (typeof (value) === 'string') {
       const showData = [
         {
-          "name": `${get()}${value}`,
-          "url": `${get()}${value}`,
+          "name": `${JSON.parse(value)[0].fileName}`,
+          "url": `${get()}${JSON.parse(value)[0].url}`,
         }
       ]
       rst = showData;
@@ -145,7 +145,7 @@ function format(value, formatData) {
   } catch (e) {
     rst.push({
       name: '文件',
-      url: value,
+      url: `value`,
     });
   }
   rst.length > 0 && rst.map((item, index) => {

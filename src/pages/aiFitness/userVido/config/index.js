@@ -1,7 +1,3 @@
-const {
-  statusMap, colorMap, statusOpts,
-} = require('./setting');
-
 module.exports = {
   layout: 'Content',
   title: '用户视频管理',
@@ -59,7 +55,7 @@ module.exports = {
           {
             title: '编辑', type: 'path',
             options: {
-              outside: true,
+              outside: false,
               path: '/aiFitness/userVido/userVido-edit',
             },
           },

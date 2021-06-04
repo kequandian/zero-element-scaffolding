@@ -1,28 +1,44 @@
 module.exports = [
   {
-    label: '纠正模型中文名称',
+    label: '用户',
     props: {
-      placeholder: '纠正模型中文名称'
+      placeholder: '请输入用户'
     },
-    type: 'text-area',
-    //type: 'input',
-    field: 'correctionModel'
+    type: 'input',
+    field: 'userName',
+    width: '350px'
   },
   {
-    label: '纠正模型英文名称',
+    label: '视频', field: '', type: 'input', width: '350px',
     props: {
-      placeholder: '请输入纠正模型英文名称'
+      placeholder: '选择视频'
     },
-    type: 'text-area',
-    field: 'modelEnglishName'
   },
   {
-    label: '话术描述',
+    label: '视频名称', field: '', type: 'input', width: '350px',
     props: {
-      placeholder: '请输入话话术描述'
+      placeholder: '请输入视频名称'
     },
-    type: 'text-area',
-    field: 'collectionTerm'
+  },
+  { label: '时长', field: '', type: 'plain' },
+  { label: '评分', field: '', type: 'input', width: '350px', },
+  {
+    label: '指导老师', field: '', type: 'input', width: '350px',
+    props: {
+      placeholder: '请输入动作指导老师'
+    }
+  },
+  {
+    label: '运动处方', field: '', type: 'input', width: '350px',
+    props: {
+      placeholder: '请输入运动处方'
+    }
+  },
+  {
+    label: '训练时间', field: 'trainingTime', type: 'date', width: '350px',
+    props: {
+      placeholder: '请选择训练时间'
+    }
   },
 
 ];

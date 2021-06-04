@@ -12,7 +12,7 @@ export default function salesChancEdit({ location }) {
 ]);
   return <div>
     <ZEle
-      namespace="keyPose-edit"
+      namespace="vido-keyPose-edit"
       config={config}
       extraData={{
         id,

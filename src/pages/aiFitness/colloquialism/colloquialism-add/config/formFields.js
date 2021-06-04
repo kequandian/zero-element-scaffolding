@@ -88,8 +88,10 @@ module.exports = [
       style:{
         width: '350px'
       },
+      maxLength:"200",
+      showCount:true,
       autoSize: {
-          minRows: 3,
+          minRows: 7,
       }
     }
   }

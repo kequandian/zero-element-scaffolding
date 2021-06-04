@@ -19,12 +19,12 @@ module.exports = [
         type: "required"
       }
     ],
-    field: "vidoSrc",
+    field: "videoSrc",
     type: "upload_file_single",
     options: {
       title: "点击上传",
       API: "/api/fs/uploadfile",
-      acceptType: ".mp4, .avi, .rmvb"
+      acceptType: ".mp4"
     }
   },
   // {

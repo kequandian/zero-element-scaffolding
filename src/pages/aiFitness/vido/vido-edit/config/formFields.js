@@ -35,23 +35,11 @@ module.exports = [
       }
     ],
     props: {
-      placeholder: '请输入视频名称'
+      placeholder: '请输入视频名称',
     },
+    width: '350px',
     type: 'input',
     field: 'actionName'
-  },
-  {
-    label: '动作说明',
-    rules: [
-      {
-        type: 'required'
-      }
-    ],
-    props: {
-      placeholder: '请输入动作说明'
-    },
-    type: 'text-area',
-    field: 'trainingType'
   },
   {
     label: '适用症状',
@@ -61,22 +49,30 @@ module.exports = [
       }
     ],
     props: {
-      placeholder: '请输入适用症状'
+      placeholder: '请输入适用症状',
     },
+    width: '350px',
     type: 'input',
     field: 'prescriptionSymptoms'
   },
-
   {
-    label: '更新时间',
-    width: 180,
+    label: '动作说明',
     rules: [
       {
         type: 'required'
       }
     ],
-    type: 'date',
-    field: 'updateDate'
-  },
+    props: {
+      placeholder: '请输入动作说明',
+      style:{
+        width: '350px',
+      },
+      autoSize: {
+        minRows: 5,
+      }
+    },
+    type: 'text-area',
+    field: 'trainingType'
+  }
 
 ];

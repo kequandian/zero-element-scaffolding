@@ -86,7 +86,7 @@ export default function PrintConfigForm(props) {
     const [subData, setSubData] = useState({});
 
     //保存当前表单ID
-    const [entityId, setEntityId] = useState('');
+    const [formId, setFormId] = useState('');
 
     // useMemo(recordDefaultValue, [fields]);
     useDidMount(_ => {
@@ -146,8 +146,8 @@ export default function PrintConfigForm(props) {
 
                 // console.log('get data = ', data)
                 //保存表单ID
-                if(data && data.entityId){
-                    setEntityId(data.entityId);
+                if(data && data.formId){
+                    setFormId(data.formId);
                 }
             }
         })
@@ -182,7 +182,7 @@ export default function PrintConfigForm(props) {
     }
 
     function handleSubmitForm(values) {
-        subData.entityId = entityId;
+        subData.formId = formId;
         // console.log('submitData = ', JSON.stringify(subData))
         if (API.updateAPI) {
             onUpdateForm({

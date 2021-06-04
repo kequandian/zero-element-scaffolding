@@ -1,7 +1,3 @@
-const {
-  statusMap, colorMap, statusOpts,
-} = require('./setting');
-
 module.exports = {
   layout: 'Content',
   title: '纠正话术管理',

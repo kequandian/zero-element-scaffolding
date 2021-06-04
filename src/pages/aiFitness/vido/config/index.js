@@ -1,8 +1,5 @@
-const {
-  statusMap, colorMap, statusOpts,
-} = require('./setting');
-
 const addKeyPoseField = require('../vido-add/config/formFields');
+const editKeyPoseField = require('../vido-edit/config/formFields');
 
 module.exports = {
   layout: 'Content',
@@ -106,7 +103,7 @@ module.exports = {
                       getAPI: '/api/crud/coachingAction/coachingActions/(id)',
                       updateAPI: '/api/crud/coachingAction/coachingActions/(id)',
                     },
-                    fields: addKeyPoseField,
+                    fields: editKeyPoseField,
                   }
                 }
               ]

@@ -1,19 +1,19 @@
 module.exports = [
-  {field: 'group_5', type: 'group', value: '视频基本信息', span: 24,},
+  { field: 'group_5', type: 'group', value: '视频基本信息', span: 24, },
   // { label: '视频', field: 'vidoSrc', type: 'plain' },
   {
-    field: 'vidoSrc', label: '视频', width: 300, 
+    field: 'vidoSrc', label: '视频', width: 200,
     type: 'videoview',
     // options: {
     //   path: '/aiFitness/vido/vido-view'
     // },
   },
-  {label: '视频名称', field: 'actionName', type: 'plain'},
-  {label: '动作说明', field: 'trainingType', type: 'plain'},
-  {label: '视频时长', field: 'vidoDuration', type: 'plain'},
-  {label: '适用症状', field: 'prescriptionSymptoms', type: 'plain'},
-  {field: 'items', type: 'Space', hight: 100},
-  {field: 'group_6', type: 'group', value: '关键动作', span: 24,},
+  { label: '视频名称', field: 'actionName', type: 'plain' },
+  { label: '动作说明', field: 'trainingType', type: 'plain' },
+  { label: '视频时长', field: 'vidoDuration', type: 'plain' },
+  { label: '适用症状', field: 'prescriptionSymptoms', type: 'plain' },
+  { field: 'items', type: 'Space', hight: 100 },
+  { field: 'group_6', type: 'group', value: '关键动作', span: 24, },
   {
     label: '',
     field: 'items',
@@ -36,12 +36,26 @@ module.exports = [
                     value: [24],
                   },
                   API: {
-                    createAPI: '/api/crud/keyPoseModel/keyPoseModels'
+                    // getAPI: '/api/crud/keyPoseModel/keyPoseModels/(id)'
                   },
                   fields: [
                     {
-                      label: '动作帧', field: 'rawFrameImage', type: 'input',
+                      label: '时间位置', field: 'duration', type: 'input',
                       rules: ['required'],
+                      props: {
+                        placeholder: "请输入时间位置"
+                      }
+                    },
+                    {
+                      label: '动作帧', field: 'rawFrameImage', type: 'inputFetch',
+                      rules: ['required'],
+                      props: {
+                        placeholder: "请输入动作帧"
+                      },
+                      config:{
+                        API:'',
+                        bindField:'poseModelImage'
+                      }
                     },
                     // {
                     //   label: '动作帧',
@@ -57,23 +71,27 @@ module.exports = [
                     // },
                     {
                       label: '动作特征',
-                      options: {
-                        type: 'text'
-                      },
-                      type: 'upload-image',
+                      type: 'image',
                       field: 'poseModelImage'
                     },
+                    
                     {
                       label: '动作名称', field: 'actionName', type: 'input',
                       rules: ['required'],
+                      props: {
+                        placeholder: "请输入动作名称"
+                      }
                     },
                     {
-                      label: '时间位置', field: 'duration', type: 'input',
+                      label: '持续时长', field: 'reading', type: 'number',
                       rules: ['required'],
-                    },
-                    {
-                      label: '持续时长', field: 'reading', type: 'input',
-                      rules: ['required'],
+                      min:1,
+                      props: {
+                        placeholder: "请输入持续时长",
+                        style: {
+                          width: '240px',
+                        }
+                      }
                     },
                   ],
                 },
@@ -84,24 +102,24 @@ module.exports = [
       ],
       fields: [
         {
-          field: 'rawFrameImage', label: '动作帧', width: 150, sorter: false,
+          field: 'rawFrameImage', label: '动作帧', width: 150,
           valueType: 'image',
           // options: {
           //   path: '/aiFitness/vido/keyPose-view'
           // },
         },
         {
-          field: 'poseModelImage', label: '动作特征', width: 150, sorter: false,
+          field: 'poseModelImage', label: '动作特征', width: 150,
           valueType: 'image',
           // options: {
           //   path: '/aiFitness/vido/keyPose-view'
           // },
         },
         // { label: '动作特征', field: 'poseModelImage' },
-        {label: '动作名称', field: 'actionName'},
-        {label: '时间位置', field: 'frameTimePosition'},
-        {label: '持续时长', field: 'duration'},
-        {label: '重复次数', field: 'repeatTimes'},
+        { label: '动作名称', field: 'actionName' },
+        { label: '时间位置', field: 'frameTimePosition' },
+        { label: '持续时长', field: 'duration' },
+        { label: '重复次数', field: 'repeatTimes' },
       ],
       operation: [
         {

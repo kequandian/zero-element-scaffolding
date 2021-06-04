@@ -1,7 +1,3 @@
-
-const {
-  statusMap, colorMap,
-} = require('./setting');
 const formFields = require('./formFields');
 
 module.exports = {

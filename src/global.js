@@ -64,6 +64,7 @@ import AITSet_export_file from '@/actionItemType/ExportFile';
 import FITSet_input_box from '@/components/FormItemType/InputBox';
 import FITSet_link_button from '@/components/FormItemType/LinkButton';
 import VTSet_TimeConvert from '@/components/ValueType/TimeConvert';
+import FITSet_InputFetch from '@/components/FormItemType/InputFetch';
 
 //AI 健身项目组件
 
@@ -175,7 +176,8 @@ FITSet({
   'download_file_btn': FITSet_download_file,
   'normal_download_file': FITSet_normal_download_file,
   'inputBox': FITSet_input_box,
-  'LinkButton': FITSet_link_button
+  'LinkButton': FITSet_link_button,
+  'inputFetch': FITSet_InputFetch
 });
 
 AITSet({

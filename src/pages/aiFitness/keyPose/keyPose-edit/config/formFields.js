@@ -50,14 +50,17 @@ module.exports = [
     field: 'frameTimePosition'
   },
   {
-    label: '持续时间', field: 'duration', type: 'number', props: {
+    label: '持续时间', field: 'duration', type: 'number', 
+    min:1,
+    props: {
       style: {
         width: '100px',
       }
     }
   },
   {
-    label: '重复次数', field: 'repeatTimes', type: 'number', props: {
+    label: '重复次数', field: 'repeatTimes', type: 'number',
+    props: {
       style: {
         width: '100px',
       }
