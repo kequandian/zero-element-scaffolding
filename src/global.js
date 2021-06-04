@@ -19,8 +19,6 @@ import { set as AITSet } from 'zero-element/lib/config/actionItemType';
 import { set as VTSet } from 'zero-element/lib/config/valueType';
 
 
-import onPath from '@/listAction/onPath';
-
 import path from '@/actionItemType/path';
 import tabs from '@/actionItemType/tabs';
 
@@ -63,9 +61,6 @@ import CSet_load_html_page from '@/components/LoadHtmlPage';
 import AITSet_export_file from '@/actionItemType/ExportFile';
 import FITSet_input_box from '@/components/FormItemType/InputBox';
 import FITSet_link_button from '@/components/FormItemType/LinkButton';
-import VTSet_TimeConvert from '@/components/ValueType/TimeConvert';
-
-//AI 健身项目组件
 
 
 //Test
@@ -155,7 +150,7 @@ CSet({
 });
 
 LASet({
-  'onPath': onPath,
+
 });
 
 //表单组件
@@ -188,5 +183,4 @@ AITSet({
 VTSet({
   'path': vPath,
   'input-switch' : VTSet_InputSwitch,
-  'time-convert': VTSet_TimeConvert
 });
