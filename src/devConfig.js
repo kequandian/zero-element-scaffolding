@@ -5,5 +5,6 @@
  * @说明 此地方不设置生产环境endpoint设置 默认为public/config.js 中的 window.ZEle.endpoint 值
 */
 export const Config ={
-    endpoint:'http://192.168.3.239:8090'
+    // endpoint:'http://192.168.3.239:8090'
+    endpoint:"http://sandbox.f.gateway.host.smallsaas.cn:81/"
 }
