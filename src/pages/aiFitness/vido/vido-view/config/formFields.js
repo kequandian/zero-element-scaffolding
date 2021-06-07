@@ -10,7 +10,7 @@ module.exports = [
   },
   { label: '视频名称', field: 'actionName', type: 'plain' },
   { label: '动作说明', field: 'trainingType', type: 'plain' },
-  { label: '视频时长', field: 'vidoDuration', type: 'plain' },
+  { label: '视频时长', field: 'vidoDuration', type: 'secound_to_hms' },
   { label: '适用症状', field: 'prescriptionSymptoms', type: 'plain' },
   { field: 'items', type: 'Space', hight: 100 },
   { field: 'group_6', type: 'group', value: '关键动作', span: 24, },
@@ -20,7 +20,7 @@ module.exports = [
     type: 'one-mary',
     span: 24,
     options: {
-      JSONString: true,
+      JSONString: false,
       actions: [
         {
           title: '添加', type: 'children-modal-add', options: {
@@ -40,41 +40,26 @@ module.exports = [
                   },
                   fields: [
                     {
-                      label: '时间位置', field: 'duration', type: 'input',
+                      label: '时间位置', field: 'frameTimePosition', type: 'time_selection',
                       rules: ['required'],
-                      props: {
-                        placeholder: "请输入时间位置"
-                      }
                     },
-                    {
-                      label: '动作帧', field: 'rawFrameImage', type: 'inputFetch',
-                      rules: ['required'],
-                      props: {
-                        placeholder: "请输入动作帧"
-                      },
-                      config:{
-                        API:'',
-                        bindField:'poseModelImage'
-                      }
-                    },
-                    // {
-                    //   label: '动作帧',
-                    //   options: {
-                    //     type: 'text'
-                    //   },
-                    //   type: 'upload-image',
-                    //   field: 'rawFrameImage'
-                    // },
-                    // {
-                    //   label: '动作特征', field: 'poseModelImage', type: 'input',
+                    // {`
+                    //   label: '动作帧', field: 'rawFrameImage', type: 'inputFetch',
                     //   rules: ['required'],
+                    //   props: {
+                    //     placeholder: "请输入动作帧"
+                    //   },
+                    //   config:{
+                    //     API:'',
+                    //     bindField:'poseModelImage'
+                    //   }
                     // },
-                    {
-                      label: '动作特征',
-                      type: 'image',
-                      field: 'poseModelImage'
-                    },
-                    
+                    // {
+                    //   label: '动作特征',
+                    //   type: 'image',
+                    //   field: 'poseModelImage'
+                    // },
+
                     {
                       label: '动作名称', field: 'actionName', type: 'input',
                       rules: ['required'],
@@ -83,11 +68,22 @@ module.exports = [
                       }
                     },
                     {
-                      label: '持续时长', field: 'reading', type: 'number',
+                      label: '持续时长', field: 'duration', type: 'number',
                       rules: ['required'],
-                      min:1,
+                      min: 1,
                       props: {
                         placeholder: "请输入持续时长",
+                        style: {
+                          width: '240px',
+                        }
+                      }
+                    },
+                    {
+                      label: '重复次数', field: 'repeatTimes', type: 'number',
+                      rules: ['required'],
+                      min: 1,
+                      props: {
+                        placeholder: "请输入重复次数",
                         style: {
                           width: '240px',
                         }
@@ -101,34 +97,36 @@ module.exports = [
         },
       ],
       fields: [
-        {
-          field: 'rawFrameImage', label: '动作帧', width: 150,
-          valueType: 'image',
-          // options: {
-          //   path: '/aiFitness/vido/keyPose-view'
-          // },
-        },
-        {
-          field: 'poseModelImage', label: '动作特征', width: 150,
-          valueType: 'image',
-          // options: {
-          //   path: '/aiFitness/vido/keyPose-view'
-          // },
-        },
+        // {
+        //   field: 'rawFrameImage', label: '动作帧', width: 150,
+        //   valueType: 'image',
+        //   // options: {
+        //   //   path: '/aiFitness/vido/keyPose-view'
+        //   // },
+        // },
+        // {
+        //   field: 'poseModelImage', label: '动作特征', width: 150,
+        //   valueType: 'image',
+        //   // options: {
+        //   //   path: '/aiFitness/vido/keyPose-view'
+        //   // },
+        // },
         // { label: '动作特征', field: 'poseModelImage' },
-        { label: '动作名称', field: 'actionName' },
-        { label: '时间位置', field: 'frameTimePosition' },
-        { label: '持续时长', field: 'duration' },
-        { label: '重复次数', field: 'repeatTimes' },
+        {
+          label: '时间位置', field: 'frameTimePosition', valueType: 'time_selection'
+        },
+        { label: '动作名称', field: 'actionName', valueType: 'input-text' },
+        { label: '持续时长', field: 'duration', valueType: 'input-number', min: 1 },
+        { label: '重复次数', field: 'repeatTimes', valueType: 'input-number', min: 1 },
       ],
       operation: [
-        {
-          title: '编辑', type: 'path',
-          options: {
-            outside: true,
-            path: '/aiFitness/vido/keyPose-edit',
-          },
-        },
+        // {
+        //   title: '编辑', type: 'path',
+        //   options: {
+        //     outside: true,
+        //     path: '/aiFitness/vido/keyPose-edit',
+        //   },
+        // },
         // {
         //   title: '删除',
         //   type: 'request',

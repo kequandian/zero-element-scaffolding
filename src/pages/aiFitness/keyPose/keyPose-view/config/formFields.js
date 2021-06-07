@@ -13,9 +13,9 @@ module.exports = [
 
   },
   { label: '动作名称', field: 'actionName', type: 'plain' },
-  { label: '时间位置', field: 'frameTimePosition', type: 'plain' },
+  { label: '时间位置', field: 'frameTimePosition', type: 'secound_to_hms' },
   {
-    label: '持续时间', field: 'duration', type: 'plain'
+    label: '持续时间', field: 'duration', type: 'secound_to_hms'
   },
   {
     label: '重复次数', field: 'repeatTimes', type: 'plain'
@@ -51,22 +51,39 @@ module.exports = [
                     {
                       label: '姿势单元1', field: 'poseFirst', type: 'input',
                       rules: ['required'],
+                      props: {
+                        placeholder: "请输入姿势单元1",
+                      }
                     },
                     {
                       label: '姿势单元2', field: 'poseSecond', type: 'input',
                       rules: ['required'],
+                      props: {
+                        placeholder: "请输入姿势单元2",
+                      }
                     },
                     {
                       label: '连接', field: 'poseType', type: 'input',
                       rules: ['required'],
+                      props: {
+                        placeholder: "请输入连接",
+                      }
                     },
                     {
-                      label: '阈值', field: 'threshold', type: 'input',
+                      label: '阈值', field: 'threshold', type: 'number',
                       rules: ['required'],
+                      min:1,
+                      props: {
+                        placeholder: "请输入阈值",
+                      }
                     },
                     {
-                      label: '角度值', field: 'angle', type: 'input',
+                      label: '角度值', field: 'angle', type: 'number',
                       rules: ['required'],
+                      min:1,
+                      props: {
+                        placeholder: "请输入角度值",
+                      }
                     },
                   ],
                 },

@@ -20,8 +20,12 @@ module.exports = [
       placeholder: '请输入视频名称'
     },
   },
-  { label: '时长', field: '', type: 'plain' },
-  { label: '评分', field: '', type: 'input', width: '350px', },
+  {
+    label: '评分', field: '', type: 'input', width: '350px',
+    props: {
+      placeholder: '请输入评分'
+    }
+  },
   {
     label: '指导老师', field: '', type: 'input', width: '350px',
     props: {
@@ -35,10 +39,11 @@ module.exports = [
     }
   },
   {
-    label: '训练时间', field: 'trainingTime', type: 'date', width: '350px',
+    label: '训练时间', field: 'trainingTime', type: 'time_selection', width: '350px',
     props: {
       placeholder: '请选择训练时间'
     }
   },
+  { label: '时长', field: 'score', type: 'time_selection' },
 
 ];

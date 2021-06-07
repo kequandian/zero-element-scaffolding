@@ -12,9 +12,9 @@ module.exports = {
         goBack: true,
         API: {
           getAPI: '/api/crud/coachingAction/coachingActions/<id>',
-          updateAPI: '/api/crud/keyPoseModel/keyPoseModels/over/<id>',
+          updateAPI: '/api/crud/coachingAction/coachingActions/<id>',
           // deleteAPI: '/api/crud/keyPoseModel/keyPoseModels/over/<id>',
-          createAPI: '/api/crud/keyPoseModel/keyPoseModels/over',
+          // createAPI: '/api/crud/keyPoseModel/keyPoseModels/over',
         },
         layout: 'Grid',
         layoutConfig: {

@@ -64,6 +64,8 @@ module.exports = [
     ],
     props: {
       placeholder: '请输入动作说明',
+      maxLength:"200",
+      showCount:true,
       style:{
         width: '350px',
       },

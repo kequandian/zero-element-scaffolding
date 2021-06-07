@@ -36,11 +36,11 @@ module.exports = {
           {label: '用户', field: 'userName', width: 150, sorter: false},
           {label: '视频', field: '', sorter: false},
           {label: '视频名称', field: '', sorter: false},
-          {label: '时长', field: '', sorter: false},
           {label: '评分', field: '', sorter: false},
           {label: '动作指导老师', field: '', sorter: false},
           {label: '运动处方', field: '',sorter: false},
-          {label: '训练时间', field: 'trainingTime', sorter: false},
+          {label: '训练时间', field: 'trainingTime', valueType: 'secound_to_hms'},
+          {label: '时长', field: 'score', valueType: 'secound_to_hms'},
 
         ],
         operation: [

@@ -2,7 +2,7 @@ const formFields = require('./formFields');
 
 module.exports = {
   layout: 'BaseTitle',
-  title: '编辑话术模型',
+  title: '编辑',
   items: [
     {
       layout: 'Content',
@@ -10,8 +10,8 @@ module.exports = {
       config: {
         goBack: true,
         API: {
-          getAPI: '/api/crud/correctTerms/correctTermses/<id>',
-          updateAPI: '/api/crud/correctTerms/correctTermses/<id>',
+          getAPI: '/api/crud/userTraningRecord/userTraningRecords/<id>',
+          updateAPI: '/api/crud/userTraningRecord/userTraningRecords/<id>',
         },
         layout: 'Grid',
         layoutConfig: {

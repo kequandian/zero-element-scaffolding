@@ -60,11 +60,11 @@ module.exports = {
             //   path: '/aiFitness/vido/vido-view'
             // },
           },
-          {field: 'actionName', label: '视频名称', width: 200, sorter: false},
-          {field: 'vidoDuration', label: '视频长度', width: 120, sorter: false},
-          {field: 'trainingType', label: '动作说明', width: 230, sorter: false},
-          {field: 'prescriptionSymptoms', label: '适用症状', sorter: false},
-          {field: 'Star', label: '社群', width: 120, valueType: 'ellipsis', sorter: false},
+          {field: 'actionName', label: '视频名称', width: 200},
+          {field: 'vidoDuration', label: '视频长度', width: 120, valueType: 'secound_to_hms'},
+          {field: 'trainingType', label: '动作说明', width: 230},
+          {field: 'prescriptionSymptoms', label: '适用症状'},
+          {field: 'Star', label: '社群', width: 120, valueType: 'ellipsis'},
           {
             label: '更新时间',
             valueType: 'time-convert',
