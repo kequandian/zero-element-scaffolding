@@ -7,7 +7,7 @@ module.exports = {
   items: [
     {
       layout: 'Content',
-      component: 'Form',
+      component: 'print_config_form',
       config: {
         goBack: true,
         API: {
@@ -21,6 +21,9 @@ module.exports = {
           value: [24],
         },
         fields: formFields,
+        otherProps:{
+          renderResetBtn: false
+        }
       },
     },
   ],

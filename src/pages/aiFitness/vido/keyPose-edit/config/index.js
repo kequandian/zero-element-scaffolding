@@ -3,11 +3,11 @@ const formFields = require('./formFields');
 
 module.exports = {
   layout: 'BaseTitle',
-  title: '编辑关键动作',
+  title: '关键动作',
   items: [
     {
       layout: 'Content',
-      component: 'Form',
+      component: 'print_config_form',
       config: {
         goBack: true,
         API: {
@@ -16,9 +16,12 @@ module.exports = {
         },
         layout: 'Grid',
         layoutConfig: {
-          value: [8, 8, 8],
+          value: [24],
         },
         fields: formFields,
+        otherProps:{
+          renderResetBtn: false
+        }
       },
     },
   ],

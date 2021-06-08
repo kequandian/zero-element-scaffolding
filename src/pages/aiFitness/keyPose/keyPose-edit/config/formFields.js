@@ -10,8 +10,8 @@ module.exports = [
       placeholder: '请输入动作名称'
     },
     type: 'input',
-    field: 'repeatTimes',
-    width: '350px'
+    field: 'action',
+    width: '240px'
   },
   {
     label: '处方症状',
@@ -25,7 +25,7 @@ module.exports = [
     },
     type: 'input',
     field: 'repeatTimes',
-    width: '350px'
+    width: '240px'
   },
   {
     label: '动作帧',
@@ -45,47 +45,38 @@ module.exports = [
   },
   {
     label: '时间位置',
-    width: '350px',
-    type: 'plain',
+    rules: [
+      {
+        type: 'required'
+      }
+    ],
+    type: 'time_selection',
     field: 'frameTimePosition'
   },
   {
-    label: '持续时间', field: 'duration', type: 'number', 
-    min:1,
-    props: {
-      style: {
-        width: '100px',
+    label: '持续时间', field: 'duration', type: 'time_selection', 
+    rules: [
+      {
+        type: 'required'
       }
-    }
+    ],
   },
   {
-    label: '重复次数', field: 'repeatTimes', type: 'number',
+    label: '重复次数', field: 'repeatTimes', type: 'input',
+    rules: ['required'],
     props: {
-      style: {
-        width: '100px',
-      }
+      placeholder: "请输入",
+
     }
   },
-  // {
-  //   label: '归属父类', field: 'coachingActionId', type: 'modal-radio', options: {
-  //     title: '父级',
-  //     value: 'id',
-  //     API: '/api/crud/coachingAction/coachingActions',
-  //     fields: [
-  //       {
-  //         label: '选择父级',
-  //         field: 'actionName'
-  //       }
-  //     ]
-  //   }
-  // },
-
   {
     label: '动作说明',
     rules: [],
     props: {
       placeholder: '请输入动作说明',
-      style: {
+      maxLength:"200",
+      showCount:true,
+      style:{
         width: '350px',
       },
       autoSize: {

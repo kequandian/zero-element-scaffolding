@@ -52,7 +52,7 @@ module.exports = [
     },
     type: 'input',
     field: 'repeatTimes',
-    width: '350px'
+    width: '240px'
   },
   {
     label: '处方症状',
@@ -66,22 +66,24 @@ module.exports = [
     },
     type: 'input',
     field: 'repeatTimes',
-    width: '350px'
+    width: '240px'
   },
   {
     label: '动作说明',
     rules: [],
     props: {
       placeholder: '请输入动作说明',
+      maxLength:"200",
+      showCount:true,
       style:{
-        width: '350px',
+        width: '240px',
       },
       autoSize: {
         minRows: 5,
       }
     },
     type: 'text-area',
-    field: 'repeatTimes'
+    field: 'trainingType'
   },
   // {
   //   label: '更新时间',

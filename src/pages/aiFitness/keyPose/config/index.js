@@ -8,7 +8,7 @@ module.exports = {
       config: {
         share: 'keyPose',
         fields: [
-          { field: 'actionName', label: '动作名称', type: 'input' }
+          { field: 'action', label: '动作名称', type: 'input' }
         ],
       },
     },
@@ -23,12 +23,12 @@ module.exports = {
           deleteAPI: '/api/crud/keyPoseModel/keyPoseModels/over/(id)',
         },
         actions: [
-          {
-            title: '添加动作', type: 'path',
-            options: {
-              path: '/aiFitness/keyPose/keyPose-add'
-            },
-          },
+          // {
+          //   title: '添加动作', type: 'path',
+          //   options: {
+          //     path: '/aiFitness/keyPose/keyPose-add'
+          //   },
+          // },
         ],
 
         fields: [
@@ -40,7 +40,7 @@ module.exports = {
             field: 'poseModelImage', label: '动作特征', width: 150, sorter: false,
             valueType: 'image',
           },
-          { label: '动作名称', field: 'actionName', width: 150, sorter: false },
+          { label: '动作名称', field: 'action', width: 150, sorter: false },
           {
             label: '时间位置', field: 'frameTimePosition', width: 150, valueType: 'secound_to_hms',
             align: 'right'

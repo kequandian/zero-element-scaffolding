@@ -57,7 +57,7 @@ import FITSet_upload_file_single from '@/components/FormItemType/UploadFileSingl
 import FITSet_download_file from '@/components/FormItemType/DownloadFile';
 import FITSet_normal_download_file from '@/components/FormItemType/NormalDownloadFile';
 import CSet_activity_fields_form from '@/components/ActivityFieldsForm';
-import CSet_print_config_form from '@/pages/workFlowManageFR/activitiesFR/components/PrintConfigForm';
+import CSet_print_config_form from '@/components/PrintConfigForm';
 import FITSet_field_table from '@/pages/workFlowManageFR/activitiesFR/components/FieldTable';
 import CSet_load_html_page from '@/components/LoadHtmlPage';
 import AITSet_export_file from '@/actionItemType/ExportFile';
@@ -67,6 +67,8 @@ import VTSet_TimeConvert from '@/components/ValueType/TimeConvert';
 import VTSet_SecoundToHms from '@/components/ValueType/SecoundToHms';
 import FITSet_InputFetch from '@/components/FormItemType/InputFetch';
 import FITSet_TimeSelection from '@/components/FormItemType/TimeSelection';
+import FITSet_InputNumAndUnit from '@/components/FormItemType/InputNumAndUnit';
+import FITSet_PlainNumAndUnit from '@/components/FormItemType/PlainNumAndUnit';
 
 //AI 健身项目组件
 
@@ -181,7 +183,9 @@ FITSet({
   'LinkButton': FITSet_link_button,
   'inputFetch': FITSet_InputFetch,
   'secound_to_hms': VTSet_SecoundToHms,
-  'time_selection': FITSet_TimeSelection
+  'time_selection': FITSet_TimeSelection,
+  'input_num_and_unit': FITSet_InputNumAndUnit,
+  'plain_num_and_unit': FITSet_PlainNumAndUnit
 });
 
 AITSet({
@@ -196,5 +200,7 @@ VTSet({
   'input-switch' : VTSet_InputSwitch,
   'time-convert': VTSet_TimeConvert,
   'secound_to_hms': VTSet_SecoundToHms,
-  'time_selection': FITSet_TimeSelection
+  'time_selection': FITSet_TimeSelection,
+  'input_num_and_unit': FITSet_InputNumAndUnit,
+  'plain_num_and_unit': FITSet_PlainNumAndUnit
 });

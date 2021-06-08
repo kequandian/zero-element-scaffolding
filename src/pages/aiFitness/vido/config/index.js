@@ -11,7 +11,7 @@ module.exports = {
       config: {
         share: 'vido',
         fields: [
-          {field: 'actionName', label: '视频名称', type: 'input'}
+          { field: 'actionName', label: '视频名称', type: 'input' }
         ],
       },
     },
@@ -60,11 +60,21 @@ module.exports = {
             //   path: '/aiFitness/vido/vido-view'
             // },
           },
-          {field: 'actionName', label: '视频名称', width: 200},
-          {field: 'vidoDuration', label: '视频长度', width: 120, valueType: 'secound_to_hms'},
-          {field: 'trainingType', label: '动作说明', width: 230},
-          {field: 'prescriptionSymptoms', label: '适用症状'},
-          {field: 'Star', label: '社群', width: 120, valueType: 'ellipsis'},
+          { field: 'actionName', label: '视频名称', width: 200 },
+          { field: 'vidoDuration', label: '视频长度', width: 120, valueType: 'secound_to_hms' },
+          { field: 'trainingType', label: '动作说明', width: 230 },
+          { field: 'prescriptionSymptoms', label: '适用症状' },
+          {
+            field: "communityInfo",
+            label: "社群",
+            valueType: "plain",
+            options: {
+              format: [
+                "<star> 点赞",
+                "<personTimes> 人参与",
+              ]
+            }
+          },
           {
             label: '更新时间',
             valueType: 'time-convert',

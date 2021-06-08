@@ -58,7 +58,7 @@ export default function PrintConfigForm(props) {
     const pageDataFormData = getPageData(namespace).formData;
 
     //新增属性
-    const { footerButton = true,  } = otherProps;
+    const { footerButton = true, renderResetBtn = true  } = otherProps;
 
     const initData = useRef({
         ...extraData,
@@ -249,8 +249,8 @@ export default function PrintConfigForm(props) {
         }
 
         const classes = MODAL ? 'ant-modal-footer' : 'ZEle-Form-footer';
-        return <div className={classes}>
-            <Button onClick={handleReset}>重置</Button>
+        return <div className={classes} style={!renderResetBtn ? {marginLeft: '35px'} : {}}>
+            {renderResetBtn ? <Button onClick={handleReset}>重置</Button> : null }
             <Button type="primary" htmlType="submit" onClick={onSubmit}>保存</Button>
         </div>
     }

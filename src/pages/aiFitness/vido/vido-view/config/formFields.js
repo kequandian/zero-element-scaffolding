@@ -61,31 +61,24 @@ module.exports = [
                     // },
 
                     {
-                      label: '动作名称', field: 'actionName', type: 'input',
+                      label: '动作名称', field: 'action', type: 'input',
                       rules: ['required'],
                       props: {
                         placeholder: "请输入动作名称"
                       }
                     },
                     {
-                      label: '持续时长', field: 'duration', type: 'number',
+                      label: '持续时长', field: 'duration', type: 'time_selection',
                       rules: ['required'],
-                      min: 1,
-                      props: {
-                        placeholder: "请输入持续时长",
-                        style: {
-                          width: '240px',
-                        }
-                      }
                     },
                     {
                       label: '重复次数', field: 'repeatTimes', type: 'number',
                       rules: ['required'],
                       min: 1,
                       props: {
-                        placeholder: "请输入重复次数",
+                        placeholder: "请输入",
                         style: {
-                          width: '240px',
+                          width: '123px',
                         }
                       }
                     },
@@ -113,20 +106,26 @@ module.exports = [
         // },
         // { label: '动作特征', field: 'poseModelImage' },
         {
-          label: '时间位置', field: 'frameTimePosition', valueType: 'time_selection'
+          label: '时间位置', field: 'frameTimePosition', valueType: 'time_selection', width: '150px'
         },
-        { label: '动作名称', field: 'actionName', valueType: 'input-text' },
-        { label: '持续时长', field: 'duration', valueType: 'input-number', min: 1 },
-        { label: '重复次数', field: 'repeatTimes', valueType: 'input-number', min: 1 },
+        { label: '动作名称', field: 'action', valueType: 'input-text', width: '300px' },
+        { label: '持续时长', field: 'duration', valueType: 'time_selection', width: '150px' },
+        {
+          label: '重复次数', field: 'repeatTimes', valueType: 'input-number', width: '150px'
+        },
       ],
       operation: [
-        // {
-        //   title: '编辑', type: 'path',
-        //   options: {
-        //     outside: true,
-        //     path: '/aiFitness/vido/keyPose-edit',
-        //   },
-        // },
+        {
+          title: '详情', type: 'path',
+          options: {
+            outside: true,
+            path: '/aiFitness/vido/keyPose-edit',
+          },
+          expect: {
+            field: "hasData",
+            value: "/(true)/"
+          }
+        },
         // {
         //   title: '删除',
         //   type: 'request',

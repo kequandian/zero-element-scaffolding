@@ -30,7 +30,7 @@ module.exports = [
         "type": "required"
       }
     ],
-    width: '350px'
+    width: '240px'
   },
   {
     label: '纠正说明', field: 'modelEnglishName', type: 'input', rules: [
@@ -38,7 +38,7 @@ module.exports = [
         "type": "required"
       }
     ],
-    width: '350px'
+    width: '240px'
   },
   {
     label: '话术描述', field: 'collectionTerm', type: 'text-area', rules: [
@@ -48,7 +48,7 @@ module.exports = [
     ],
     props:{
       style:{
-        width: '350px'
+        width: '240px'
       },
       autoSize: {
           minRows: 3,
