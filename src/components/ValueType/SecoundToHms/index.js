@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.less'
 
 export default function SecoundToHms(props) {
 
@@ -6,11 +7,11 @@ export default function SecoundToHms(props) {
     const { data = {}, options = {}, value = '' } = props;
     const { path, query = { id: 'id' }, blank = false } = options;
 
-    const { text = '', record } = data;
+    const { text = '00:00:00', record } = data;
 
     const v = text || value;
     if (typeof v === 'string') {
-        return v;
+        return <div className="Second_To_Hms">{v}</div>;
     }
 
     var theTime = text || value ? parseInt(text || value) : 0;// 秒
@@ -50,7 +51,7 @@ export default function SecoundToHms(props) {
         hour = '00'
     }
 
-    return `${hour}:${middle}:${theTime}`
+    return <div className="Second_To_Hms">{`${hour}:${middle}:${theTime}`}</div>
 }
 
 function hmsToSecound(e) {
