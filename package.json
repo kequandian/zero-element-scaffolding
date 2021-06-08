@@ -24,7 +24,7 @@
     "webpack-dev-server": "^2.9.1",
     "zero-element": "^1.0.0",
     "zero-element-antd": "github:kequandian/zero-element-antd",
-    "zero-element-plugins": "git://github.com/kequandian/zero-element-plugins.git#master"
+    "zero-element-plugins": "github:kequandian/zero-element-plugins"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",
