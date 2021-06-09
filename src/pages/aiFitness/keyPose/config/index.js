@@ -43,11 +43,9 @@ module.exports = {
           { label: '动作名称', field: 'action', width: 150, sorter: false },
           {
             label: '时间位置', field: 'frameTimePosition', width: 150, valueType: 'secound_to_hms',
-            align: 'right'
           },
           {
             label: '持续时长', field: 'duration', width: 150, valueType: 'secound_to_hms',
-            align: 'right'
           },
           { label: '重复次数', field: 'repeatTimes', width: 150, sorter: false,
           align: 'center' },

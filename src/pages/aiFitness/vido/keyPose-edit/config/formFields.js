@@ -45,11 +45,11 @@ module.exports = [
     type: 'one-mary',
     span: 24,
     options: {
-      JSONString: true,
+      JSONString: false,
       actions: [
         {
           title: '添加', type: 'children-modal-add', options: {
-            modalTitle: '添加关键动作',
+            modalTitle: '添加动作模型',
             modalWidth: 680,
             items: [
               {
@@ -220,11 +220,13 @@ module.exports = [
         //   },
         // },
         {
-          title: '删除', type: 'delete',
+          title: '删除', type: 'removeChild',
+          options: {
+            outside: true,
+          }
         },
       ],
     },
-    rules: ['required'],
   }
 
 ];

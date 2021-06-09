@@ -13,20 +13,20 @@ module.exports = [
     field: 'action',
     width: '240px'
   },
-  {
-    label: '处方症状',
-    rules: [
-      {
-        type: 'required'
-      }
-    ],
-    props: {
-      placeholder: '请输入处方症状'
-    },
-    type: 'input',
-    field: 'repeatTimes',
-    width: '240px'
-  },
+  // {
+  //   label: '处方症状',
+  //   rules: [
+  //     {
+  //       type: 'required'
+  //     }
+  //   ],
+  //   props: {
+  //     placeholder: '请输入处方症状'
+  //   },
+  //   type: 'input',
+  //   field: 'repeatTimes',
+  //   width: '240px'
+  // },
   {
     label: '动作帧',
     options: {
@@ -62,28 +62,28 @@ module.exports = [
     ],
   },
   {
-    label: '重复次数', field: 'repeatTimes', type: 'input',
+    label: '重复次数', field: 'repeatTimes', type: 'number',
     rules: ['required'],
     props: {
       placeholder: "请输入",
 
     }
   },
-  {
-    label: '动作说明',
-    rules: [],
-    props: {
-      placeholder: '请输入动作说明',
-      maxLength:"200",
-      showCount:true,
-      style:{
-        width: '350px',
-      },
-      autoSize: {
-        minRows: 5,
-      }
-    },
-    type: 'text-area',
-    field: 'repeatTimes'
-  },
+  // {
+  //   label: '动作说明',
+  //   rules: [],
+  //   props: {
+  //     placeholder: '请输入动作说明',
+  //     maxLength:"200",
+  //     showCount:true,
+  //     style:{
+  //       width: '240px',
+  //     },
+  //     autoSize: {
+  //       minRows: 5,
+  //     }
+  //   },
+  //   type: 'text-area',
+  //   field: 'trainingType'
+  // },
 ];

@@ -211,15 +211,18 @@ module.exports = [
         },
       ],
       operation: [
+        // {
+        //   title: '编辑', type: 'path',
+        //   options: {
+        //     outside: true,
+        //     path: '/vido/contract-edit',
+        //   },
+        // },
         {
-          title: '编辑', type: 'path',
+          title: '移除', type: 'removeChild',
           options: {
             outside: true,
-            path: '/vido/contract-edit',
-          },
-        },
-        {
-          title: '删除', type: 'delete',
+          }
         },
       ],
     },

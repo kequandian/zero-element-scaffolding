@@ -13,7 +13,7 @@ module.exports = {
         API: {
           //getAPI: '/api/crud/keyPoseModel/keyPoseModels/over/<id>',
           // updateAPI: '/api/crud/keyPoseModel/keyPoseModels/over/<id>',
-          createAPI:''
+          createAPI:'/api/crud/correctTerms/correctTermses'
         },
         layout: 'Grid',
         layoutConfig: {

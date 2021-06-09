@@ -32,15 +32,15 @@ module.exports = {
         // ],
 
         fields: [
-
-          {label: '用户', field: 'userName', width: 150, sorter: false},
-          {label: '视频', field: '', sorter: false},
-          {label: '视频名称', field: '', sorter: false},
-          {label: '动作指导老师', field: '', sorter: false},
-          {label: '运动处方', field: '',sorter: false},
+          {label: '头像', field: 'avatar', width: 200},
+          {label: '用户', field: 'userName', width: 150},
+          {label: '视频名称', field: 'videoName'},
+          {label: '视频', field: 'videoSrc'},
+          {label: '运动处方', field: ''},
+          {label: '评分', field: 'score'},
+          {label: '动作指导师', field: 'coacherName'},
           {label: '时长', field: 'score', valueType: 'secound_to_hms'},
-          {label: '训练时间', field: 'trainingTime', valueType: 'secound_to_hms'},
-          {label: '评分', field: 'score', sorter: false},
+          {label: '训练时间', field: 'trainingDate'},
 
         ],
         operation: [

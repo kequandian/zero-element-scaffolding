@@ -1,57 +1,41 @@
 module.exports = [
-  // {
-  //   label: '纠正模型中文名称',
-  //   props: {
-  //     placeholder: '纠正模型中文名称'
-  //   },
-  //   type: 'text-area',
-  //   //type: 'input',
-  //   field: 'correctionModel'
-  // },
-  // {
-  //   label: '纠正模型英文名称',
-  //   props: {
-  //     placeholder: '请输入纠正模型英文名称'
-  //   },
-  //   type: 'text-area',
-  //   field: 'modelEnglishName'
-  // },
-  // {
-  //   label: '纠正模型话术描述',
-  //   props: {
-  //     placeholder: '请输入纠正模型话术描述'
-  //   },
-  //   type: 'text-area',
-  //   field: 'collectionTerm'
-  // },
   {
-    label: '纠正ID', field: 'correctionModel', type: 'input', rules: [
+    label: '模型', field: 'modelEnglishName', type: 'input', rules: [
       {
         "type": "required"
       }
     ],
-    width: '240px'
+    width: '240px',
+    props: {
+      placeholder: '请输入模型'
+    }
   },
   {
-    label: '纠正说明', field: 'modelEnglishName', type: 'input', rules: [
+    label: '模型说明', field: 'correctionModel', type: 'input', rules: [
       {
         "type": "required"
       }
     ],
-    width: '240px'
+    width: '240px',
+    props: {
+      placeholder: '请输入模型说明'
+    }
   },
   {
-    label: '话术描述', field: 'collectionTerm', type: 'text-area', rules: [
+    label: '话术', field: 'collectionTerm', type: 'text-area', rules: [
       {
         "type": "required"
       }
     ],
-    props:{
-      style:{
+    props: {
+      placeholder: '请输入话术',
+      style: {
         width: '240px'
       },
+      maxLength: "200",
+      showCount: true,
       autoSize: {
-          minRows: 3,
+        minRows: 7,
       }
     }
   }

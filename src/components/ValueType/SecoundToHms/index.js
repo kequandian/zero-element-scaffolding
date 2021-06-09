@@ -7,11 +7,11 @@ export default function SecoundToHms(props) {
     const { data = {}, options = {}, value = '' } = props;
     const { path, query = { id: 'id' }, blank = false } = options;
 
-    const { text = '00:00:00', record } = data;
+    const { text = '', record } = data;
 
     const v = text || value;
     if (typeof v === 'string') {
-        return <div className="Second_To_Hms">{v}</div>;
+        return v;
     }
 
     var theTime = text || value ? parseInt(text || value) : 0;// 秒
@@ -51,7 +51,7 @@ export default function SecoundToHms(props) {
         hour = '00'
     }
 
-    return <div className="Second_To_Hms">{`${hour}:${middle}:${theTime}`}</div>
+    return `${hour}:${middle}:${theTime}`
 }
 
 function hmsToSecound(e) {

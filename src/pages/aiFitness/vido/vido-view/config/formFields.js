@@ -1,6 +1,15 @@
 module.exports = [
+  { field: 'group_1', type: 'group', value: '参与信息', span: 24, },
+  {
+    label: '', field: 'attendInfo', type: 'plain_tag',
+    options: {
+      format: [
+        {field: '<personTimes>', text: '人参与', color: '#2A82E4'},
+        {field: '<star>', text: '点赞', color: '#00BAAD'},
+      ]
+    }
+  },
   { field: 'group_5', type: 'group', value: '视频基本信息', span: 24, },
-  // { label: '视频', field: 'vidoSrc', type: 'plain' },
   {
     field: 'vidoSrc', label: '视频', width: 200,
     type: 'videoview',
@@ -144,6 +153,5 @@ module.exports = [
         },
       ],
     },
-    rules: ['required'],
   }
 ];

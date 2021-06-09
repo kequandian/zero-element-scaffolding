@@ -19,7 +19,7 @@ import { set as AITSet } from 'zero-element/lib/config/actionItemType';
 import { set as VTSet } from 'zero-element/lib/config/valueType';
 
 
-import onPath from '@/listAction/onPath';
+// import onPath from '@/listAction/onPath';
 
 import path from '@/actionItemType/path';
 import tabs from '@/actionItemType/tabs';
@@ -68,7 +68,9 @@ import VTSet_SecoundToHms from '@/components/ValueType/SecoundToHms';
 import FITSet_InputFetch from '@/components/FormItemType/InputFetch';
 import FITSet_TimeSelection from '@/components/FormItemType/TimeSelection';
 import FITSet_InputNumAndUnit from '@/components/FormItemType/InputNumAndUnit';
-import FITSet_PlainNumAndUnit from '@/components/FormItemType/PlainNumAndUnit';
+import FITSet_PlainNumAndUnit from '@/components/FormItemType/PlainNumAndUnit';FITSet_timep
+import FITSet_PlainTag from '@/components/FormItemType/PlainTag';
+import FITSet_timep from '@/components/FormItemType/TimesP';
 
 //AI 健身项目组件
 
@@ -160,7 +162,7 @@ CSet({
 });
 
 LASet({
-  'onPath': onPath,
+  // 'onPath': onPath,
 });
 
 //表单组件
@@ -185,7 +187,9 @@ FITSet({
   'secound_to_hms': VTSet_SecoundToHms,
   'time_selection': FITSet_TimeSelection,
   'input_num_and_unit': FITSet_InputNumAndUnit,
-  'plain_num_and_unit': FITSet_PlainNumAndUnit
+  'plain_num_and_unit': FITSet_PlainNumAndUnit,
+  'plain_tag': FITSet_PlainTag,
+  'timep': FITSet_timep,
 });
 
 AITSet({
