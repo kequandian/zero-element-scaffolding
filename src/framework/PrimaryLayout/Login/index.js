@@ -61,12 +61,6 @@ export default (props) => {
     useVisible(false);
   }
 
-  let Random = Math.ceil(Math.random()*10000);
-  if(Random<=100000){
-    Random=Math.ceil(Math.random()*100000000)
-    // console.log("重置随机数");
-  }
-
   // console.log(Random);
   let endpoint= getEndpoint()
   
@@ -108,7 +102,7 @@ export default (props) => {
         <div style={{ textAlign: 'center', cursor: 'default', color: '#666' }}>{getUserName()}</div>
       </Menu.Item> */}
       <Menu.Item style={{ width: 200, height: 180, position: "relative", cursor: 'default' }}>
-        <Avatar src={getAvatar()} style={{ position: 'absolute', left: '50%', top: 35, transform: ' translate(-50%)' }} icon={<UserOutlined style={{ fontSize: 60, paddingTop: 8, paddingLeft: 5 }} />} size={90} />
+        <Avatar src={getAvatar()} style={{ position: 'absolute', left: '50%', top: 35, transform: ' translate(-50%)' ,background:"white"}} icon={<UserOutlined style={{ fontSize: 60, paddingTop: 8, paddingLeft: 5 }} />} size={90} />
         <span style={{ fontSize: 17, textAlign: 'center', fontWeight: 'bolder', position: 'absolute', bottom: 20, left: '50%', transform: ' translate(-50%)' }}>{getUserName()}</span>
       </Menu.Item>
       <Menu.Item onClick={handleRouteToProfile}>
@@ -188,7 +182,7 @@ export default (props) => {
           <span style={{ fontSize: 22 }}>|</span>
           <span style={{ paddingRight: 15, paddingLeft: 15, fontSize: 17 }}>{getUserName()}</span>
           <span style={{ fontSize: 0 }}>{getExtra()}</span>
-          <Avatar src={getAvatar()} icon={<UserOutlined style={{ fontSize: 24 }} />} size={36} />
+          <Avatar src={getAvatar()} style={{background:"white"}} icon={<UserOutlined style={{ fontSize: 24 }} />} size={36} />
         </div>
       </Dropdown>
     </div>

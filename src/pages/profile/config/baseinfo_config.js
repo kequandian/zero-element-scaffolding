@@ -13,11 +13,11 @@ export const config = {
           },
           layout: 'Grid',
           layoutConfig: {
-            value: [12, 12],
+            value: [24, 12],
           },
           fields: [
             {
-              field: 'avatar', label: '头像', type: 'upload-file',
+              field: 'avatar', type: 'avatars',
               options: {
                 API: '/api/fs/uploadfile',
                 type: 'text',
@@ -25,8 +25,8 @@ export const config = {
               },
               span: 24,
             },
-            { field: 'account', label: '账号', type: 'plain' },
-            
+            { field: 'account', label: '账号', type: 'plain'},
+
             { field: 'name', label: '昵称', type: 'input',span:24 },
             {
               field: 'sex', label: '性别', type: 'radio',
@@ -41,6 +41,6 @@ export const config = {
             { field: 'email', label: '邮箱', type: 'input', span: 24 },
           ]
         }
-      }
+      },
     ]
   };

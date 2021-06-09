@@ -56,12 +56,11 @@ module.exports = [
     
   },
   {
-    field: 'avatar', label: '头像', type: 'upload-image',
+    field: 'avatar', label: '头像', type: 'avatars',
     options: {
       API: '/api/fs/uploadfile',
       max: 1
     },
-    
   },
 
 /*  {
