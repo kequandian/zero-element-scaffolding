@@ -15,7 +15,8 @@ function InputNumAndUnit(props) {
     // ...restProps
     defaultValue,
     data = {},
-    field
+    field,
+    bindfield,
   } = props;
 
 
@@ -23,35 +24,42 @@ function InputNumAndUnit(props) {
 
   const { onExpect, onSaveOtherValue, onEdit } = handle;
 
+  const { max = '', placeholder = '', style= '' } = propsOpt;
+
   let val = value || defaultValue || text ? value || defaultValue || text : '';
 
-  // console.log('props = ', props)
+  // console.log('val = ', val)
 
   function handleChange(value) {
-
     if (onSaveOtherValue) {
-      onSaveOtherValue(name, value)
+      onSaveOtherValue(name, value);
+      if (bindfield) {
+        onSaveOtherValue(bindfield, value);
+      }
     }
     if (onChange) {
       onChange(value);
     }
     if (onEdit) {
       _.set(record, field, value);
+      _.set(record, bindfield, value);
       onEdit(index, record)
     }
   }
 
-const dateProps = {
-  value: val,
-  max: 360,
-  onChange: handleChange
-};
+  const dateProps = {
+    placeholder: placeholder,
+    style: style,
+    value: val,
+    max: max,
+    onChange: handleChange
+  };
 
 
-return <InputNumber {...dateProps}
-  formatter={value => `${value}${propsOpt.unit}`}
-  parser={value => value.replace(`${propsOpt.unit}`, '')}
-/>;
+  return <InputNumber {...dateProps}
+    formatter={value => value > 0 && propsOpt.unit ? `${value}${propsOpt.unit}` : value}
+    parser={value => propsOpt.unit ? value.replace(`${propsOpt.unit}`, '') : value}
+  />;
 
 }
 

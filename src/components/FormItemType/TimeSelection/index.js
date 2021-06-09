@@ -19,7 +19,8 @@ function TimeSelection(props) {
     // ...restProps
     defaultValue,
     data = {},
-    field
+    field,
+    width= '350px'
   } = props;
 
 
@@ -28,20 +29,20 @@ function TimeSelection(props) {
   const { onExpect, onSaveOtherValue, onEdit } = handle;
 
   let val = value || defaultValue || text ? value || defaultValue || text : '';
-  
+
   // console.log('props = ', props)
 
   function handleChange(moments, dateString) {
 
     const secound = hmsToSecound(dateString);
 
-    if(onSaveOtherValue){
+    if (onSaveOtherValue) {
       onSaveOtherValue(name, secound)
     }
-    if(onChange){
+    if (onChange) {
       onChange(secound);
     }
-    if(onEdit){
+    if (onEdit) {
       _.set(record, field, secound);
       onEdit(index, record)
     }
@@ -53,7 +54,8 @@ function TimeSelection(props) {
     // ...propsOpt,
     // ...restProps,
     // format,
-    value: val ? moment(secoundToHms({value:val}), 'HH:mm:ss') : '',
+    style: { width },
+    value: val ? moment(secoundToHms({ value: val }), 'HH:mm:ss') : '',
     onChange: handleChange
   };
 

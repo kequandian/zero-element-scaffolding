@@ -29,18 +29,16 @@ module.exports = [
   // },
   {
     label: '动作帧',
-    options: {
-      type: 'text'
-    },
     type: 'upload-image',
-    field: 'rawFrameImage'
+    field: 'rawFrameImage',
+    options: {
+      type: 'text',
+      max: 1,
+    },
   },
   {
     label: '动作特征',
-    options: {
-      type: 'text'
-    },
-    type: 'upload-image',
+    type: 'image',
     field: 'poseModelImage'
   },
   {

@@ -5,7 +5,7 @@ module.exports = [
         "type": "required"
       }
     ],
-    width: '240px',
+    width: '350px',
     props: {
       placeholder: '请输入模型'
     }
@@ -16,7 +16,7 @@ module.exports = [
         "type": "required"
       }
     ],
-    width: '240px',
+    width: '350px',
     props: {
       placeholder: '请输入模型说明'
     }
@@ -30,7 +30,7 @@ module.exports = [
     props: {
       placeholder: '请输入话术',
       style: {
-        width: '240px'
+        width: '450px'
       },
       maxLength: "200",
       showCount: true,

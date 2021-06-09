@@ -67,7 +67,7 @@ module.exports = [
       maxLength:"200",
       showCount:true,
       style:{
-        width: '350px',
+        width: '450px',
       },
       autoSize: {
         minRows: 5,

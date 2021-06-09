@@ -1,5 +1,5 @@
 module.exports = [
-  { label: '头像', field: 'avatar', type:'image'},
+  { label: '头像', field: 'avator', type:'image'},
   { label: '用户', field: 'userName', type:'plain'},
   { label: '视频名称', field: 'videoName', type:'plain' },
   { label: '视频', field: 'videoSrc', type:'plain' },

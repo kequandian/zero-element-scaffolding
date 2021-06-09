@@ -32,7 +32,7 @@ module.exports = {
         // ],
 
         fields: [
-          {label: '头像', field: 'avatar', width: 200},
+          {label: '头像', field: 'avator', width: 200, valueType: 'image'},
           {label: '用户', field: 'userName', width: 150},
           {label: '视频名称', field: 'videoName'},
           {label: '视频', field: 'videoSrc'},

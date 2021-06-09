@@ -2,7 +2,12 @@ module.exports = [
   {
     label: '头像',
     type: 'upload-image',
-    field: 'avatar'
+    field: 'avator',
+    options: {
+      // API: '/api/fs/uploadfile',
+      type: 'text',
+      max: 1,
+    },
   },
   {
     label: '用户',
@@ -54,11 +59,16 @@ module.exports = [
       placeholder: '请输入动作指导老师'
     }
   },
-  { label: '时长', field: 'score', type: 'time_selection' },
   {
-    label: '训练时间', field: 'trainingDate', type: 'date', width: '350px',
+    label: '时长', field: 'score', type: 'time_selection',
+  },
+  {
+    label: '训练时间', field: 'trainingDate', type: 'date',
     props: {
-      placeholder: '请选择训练时间'
+      placeholder: '请选择训练时间',
+      style: {
+        width: '350px'
+      }
     }
   },
 

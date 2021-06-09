@@ -6,7 +6,7 @@ module.exports = [
     field: 'rawFrameImage'
   },
   {
-    label: '动作预览',
+    label: '动作模型预览',
     type: 'image',
     field: 'poseModelImage'
   },
@@ -19,13 +19,6 @@ module.exports = [
     label: '体姿基准',
     type: 'plain',
     field: 'gesture',
-    span: 6
-  },
-  {
-    label: '其他选项',
-    type: 'plain',
-    defaultValue: '左侧面立正 右侧面立正 左侧躺卧 右侧躺卧 仰卧 俯卧',
-    span: 18
   },
   { label: '时间位置', field: 'frameTimePosition', type: 'secound_to_hms' },
   {
@@ -125,10 +118,10 @@ module.exports = [
                       ]
                     },
                     {
-                      label: '阈值', field: 'threshold', type: 'number',
+                      label: '阈值', field: 'threshold', type: 'input_num_and_unit',
                       rules: ['required'],
+                      bindfield: 'angle',
                       props: {
-                        min: 1,
                         placeholder: "请输入阈值",
                         style: {
                           width: 170
@@ -138,12 +131,13 @@ module.exports = [
                     {
                       label: '角度值', field: 'angle', type: 'input_num_and_unit',
                       rules: ['required'],
+                      bindfield: 'threshold',
                       props: {
-                        placeholder: "请输入",
+                        placeholder: "请输入角度值",
                         style: {
                           width: 170
                         },
-                        unit: '°'
+                        unit: '°',
                       }
                     },
                   ],
@@ -201,12 +195,25 @@ module.exports = [
             ]
           }
         },
-        { label: '阈值', field: 'threshold', valueType: 'input-number' },
+        {
+          label: '阈值', field: 'threshold', valueType: 'input_num_and_unit',
+          bindfield: 'angle',
+          props: {
+            placeholder: "请输入阈值",
+            style: {
+              width: 120
+            }
+          }
+        },
         {
           label: '角度值', field: 'angle', valueType: 'input_num_and_unit',
+          bindfield: 'threshold',
           props: {
-            placeholder: "请输入",
-            unit: '°'
+            placeholder: "请输入角度值",
+            unit: '°',
+            style: {
+              width: 120
+            },
           }
         },
       ],
