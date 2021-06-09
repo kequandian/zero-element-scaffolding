@@ -4,42 +4,37 @@
     "new": "新建报表",
     "edit": "报表编辑"
   },
-  "listAPI": "/api/adm/stat/meta/[id]",
-  "createAPI": "/api/adm/stat/meta/[id]",
+  "listAPI": "/api/adm/stat/meta",
+  "createAPI": "/api/adm/stat/meta",
   "getAPI": "/api/adm/stat/meta/getOne/[id]",
   "updateAPI": "/api/adm/stat/meta/[id]",
   "deleteAPI": "/api/adm/stat/meta/(id)",
   "columns": 1,
   "createFields": [
     {
-      "field":"menuId",
-      "label":"所属菜单组",
+      "field":"menuid",
+      "label":"菜单选择",
       "type":"select-fetch",
       "props":{
         "style":{
           "width":"240px"
         }
       },
-      "rules": [
-        {
-          "type": "required"       
-        }
-      ],
       "options":{
-        "API":"/api/crud/menu/custom/group?_t=1622176307848",
+        "API":"/api/crud/menu/custom/group",
         "label":"menuName",
         "value":"id"
       }
     },
     {
-      "label": "报表标识",
+      "label": "报表名称",
       "rules": [
         {
           "type": "required"
         }
       ],
       "props": {
-        "placeholder": "唯一标识,不可重复"
+        "placeholder": "请输入文件名称"
       },
       "type": "input",
       "field": "field"
@@ -47,20 +42,15 @@
     {
       "label": "报表标题",
       "props": {
-        "placeholder": "请输入当前报表的报表标题"
+        "placeholder": "请输入报表标题"
       },
-      "rules": [
-        {
-          "type": "required"
-        }
-      ],
       "type": "input",
       "field": "title"
     },
     {
       "label": "搜索字段",
       "props": {
-        "placeholder": "可通过搜索字段查询报表信息"
+        "placeholder": "请输入搜索字段"
       },
       "type": "input",
       "field": "search",
@@ -77,32 +67,34 @@
       "toptips":"类型输入格式",
       "content":"格式：S,D,等等，格式用逗号隔开，可选值：金钱D,百分比P,时间T,数量C,字符串S",
       "props": {
-        "placeholder": "通过此项来定义数据库字段"
+        "placeholder": "请输入字段类型"
       },
-      
       "type": "input",
       "field": "type"
     },
     {
+      "label": "权限",
+      "props": {
+        "placeholder": "请输入权限"
+      },
+      "type": "input",
+      "field": "permission"
+    },
+    {
       "label": "查询语句",
       "props": {
-        "placeholder": "请输入查询语句，如 select t_ user.name as '名称’ ",
+        "placeholder": "请输入查询语句",
         "autoSize": {
           "minRows": 10
         }
-      }, 
-      "rules": [
-        {
-          "type": "required"
-        }
-      ],
+      },
       "type": "text-area",
       "field": "querySql"
     },
     {
       "label": "字段备注",
       "props": {
-        "placeholder": "请输入额外的备注，如计算公式等，格式遵循 1:内容,2:内容 ...等等 ",
+        "placeholder": "请输入备注,例子: 1. 内容",
         "autoSize": {
           "minRows": 10
         },
@@ -115,34 +107,14 @@
   ],
   "updateFields": [
     {
-      "field":"menuId",
-      "label":"所属菜单组",
-      "type":"select-fetch",
-      "props":{
-        "style":{
-          "width":"240px"
-        }
-      },
-      "rules": [
-        {
-          "type": "required"       
-        }
-      ],
-      "options":{
-        "API":"/api/crud/menu/custom/group?_t=1622176307848",
-        "label":"menuName",
-        "value":"id"
-      }
-    },
-    {
-      "label": "报表标识",
+      "label": "报表名称",
       "rules": [
         {
           "type": "required"
         }
       ],
       "props": {
-        "placeholder": "唯一标识,不可重复"
+        "placeholder": "请输入文件名称"
       },
       "type": "input",
       "field": "field"
@@ -150,25 +122,23 @@
     {
       "label": "报表标题",
       "props": {
-        "placeholder": "请输入当前报表的报表标题"
+        "placeholder": "请输入报表标题"
       },
-      "rules": [
-        {
-          "type": "required"
-        }
-      ],
       "type": "input",
       "field": "title"
     },
     {
       "label": "搜索字段",
       "props": {
-        "placeholder": "可通过搜索字段查询报表信息"
+        "placeholder": "请输入搜索字段"
       },
       "type": "input",
-      "field": "search",
-      "toptips":"搜索字段的填写规范",
-      "content":"填写数据库表的子类，如名称，年龄，性别等，可通过这些字段查询数据库中对应的类"
+      "field": "search"
+    },
+    {
+      "label": "类型说明",
+      "defaultValue": "类型输入格式：S,D,...。请在（金钱D,百分比P,时间T,数量C,字符串S）里选择值或对应的字母填写",
+      "type": "plain"
     },
     {
       "label": "字段类型",
@@ -177,40 +147,43 @@
           "type": "required"
         }
       ],
-      "toptips":"类型输入格式",
-      "content":"格式：S,D,等等，格式用逗号隔开，可选值：金钱D,百分比P,时间T,数量C,字符串S",
       "props": {
-        "placeholder": "通过此项来定义数据库字段"
+        "placeholder": "请输入字段类型"
       },
-      
       "type": "input",
       "field": "type"
     },
     {
+      "label": "权限",
+      "props": {
+        "placeholder": "请输入权限"
+      },
+      "type": "input",
+      "field": "permission"
+    },
+    {
       "label": "查询语句",
       "props": {
-        "placeholder": "请输入查询语句，如 select t_ user.name as '名称’ ",
+        "placeholder": "请输入查询语句",
         "autoSize": {
           "minRows": 10
         }
-      }, 
-      "rules": [
-        {
-          "type": "required"
-        }
-      ],
+      },
       "type": "text-area",
       "field": "querySql"
     },
     {
+      "label": "备注说明",
+      "defaultValue": "类型输入格式： {第几个字段} : {描述内容}",
+      "type": "plain"
+    },
+    {
       "label": "字段备注",
       "props": {
-        "placeholder": "请输入额外的备注，如计算公式等，格式遵循 1:内容,2:内容 ...等等 ",
+        "placeholder": "请输入备注",
         "autoSize": {
           "minRows": 10
-        },
-        "showCount":"true",
-        "maxLength":"200"
+        }
       },
       "type": "text-area",
       "field": "tips"
@@ -221,7 +194,20 @@
     "table": "Content",
     "form": "TitleContent"
   },
-  
+  "tableActions": [
+    {
+      "title": "添加",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "style": "primary",
+        "path": "tables/tableField-add"
+      },
+      "expect": {
+        "permission": ""
+      }
+    }
+  ],
   "tableOperation": [
     {
       "title": "详情",
@@ -252,36 +238,18 @@
   ],
   "searchFields": [
     {
-      "label": "报表标识",
+      "label": "报表名称",
       "field": "field",
       "type": "input",
       "props": {
-        "placeholder": "唯一标识,不可重复"
+        "placeholder": "请输入文件名"
       }
     }
   ],
   "tableFields": [
     {
-      "label": "报表标识",
+      "label": "报表名称",
       "field": "field"
-      
-    },
-    {
-      "label": "报表标题",
-      "field": "title"
-    },
-    {
-      "label": "菜单组标题",
-      "field": "groupMenuName"
-    },
-
-    {
-      "label": "字段类型",
-      "field": "type"
-    },
-    {
-      "label": "搜索字段",
-      "field": "search"
     }
   ],
   "viewConfig": [
@@ -289,6 +257,26 @@
       "title": "详情",
       "type": "plain",
       "fields": [
+        {
+          "label": "报表名称",
+          "field": "field"
+        },
+        {
+          "label": "报表标题",
+          "field": "title"
+        },
+        {
+          "label": "报表权限",
+          "field": "permission"
+        },
+        {
+          "label": "字段类型",
+          "field": "type"
+        },
+        {
+          "label": "搜索字段",
+          "field": "search"
+        },
         {
           "label": "字段备注",
           "field": "tips"

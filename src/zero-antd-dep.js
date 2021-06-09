@@ -34,6 +34,8 @@ import CSet_ChildrenForm from '@/../zero-antd-dep/container/Form/ChildrenForm';
 import LASet_onRequest from '@/../zero-antd-dep/listAction/onRequest';
 import LASet_onTips from '@/../zero-antd-dep/listAction/onTips';
 import LASet_onPath from '@/../zero-antd-dep/listAction/onPath';
+import FITSet_avatars from '@/../zero-antd-dep/formItemType/Avatars/Avatars';
+import FITSet_videoview from '@/../zero-antd-dep/formItemType/VideoView/VideoView';
 import FITSet_Space from '@/../zero-antd-dep/formItemType/Space';
 import FITSet_plain from '@/../zero-antd-dep/formItemType/Plain';
 import FITSet_image from '@/../zero-antd-dep/formItemType/Image';
@@ -41,6 +43,7 @@ import FITSet_empty from '@/../zero-antd-dep/formItemType/Empty';
 import FITSet_hidden from '@/../zero-antd-dep/formItemType/Hidden';
 import FITSet_group from '@/../zero-antd-dep/formItemType/Group';
 import FITSet_input from '@/../zero-antd-dep/formItemType/Input';
+import FITSet_inputType from '@/../zero-antd-dep/formItemType/InputType';
 import FITSet_password from '@/../zero-antd-dep/formItemType/Password';
 import FITSet_number from '@/../zero-antd-dep/formItemType/Number';
 import FITSet_radio from '@/../zero-antd-dep/formItemType/Radio';
@@ -86,6 +89,7 @@ import VTSet_plain from '@/../zero-antd-dep/valueType/plain';
 import VTSet_join from '@/../zero-antd-dep/valueType/join';
 import VTSet_map from '@/../zero-antd-dep/valueType/map';
 import VTSet_image from '@/../zero-antd-dep/valueType/image';
+import VTSet_thumb from '@/../zero-antd-dep/valueType/thumb';
 import VTSet_tag from '@/../zero-antd-dep/valueType/tag';
 import VTSet_dot from '@/../zero-antd-dep/valueType/dot';
 import VTSet_currency from '@/../zero-antd-dep/valueType/currency';
@@ -141,6 +145,8 @@ LASet({
 });
 
 FITSet({
+'avatars': FITSet_avatars,
+'videoview': FITSet_videoview,
 'Space': FITSet_Space,
 'plain': FITSet_plain,
 'image': FITSet_image,
@@ -148,6 +154,7 @@ FITSet({
 'hidden': FITSet_hidden,
 'group': FITSet_group,
 'input': FITSet_input,
+'inputType': FITSet_inputType,
 'password': FITSet_password,
 'number': FITSet_number,
 'radio': FITSet_radio,
@@ -201,6 +208,7 @@ VTSet({
 'join': VTSet_join,
 'map': VTSet_map,
 'image': VTSet_image,
+'thumb': VTSet_thumb,
 'tag': VTSet_tag,
 'dot': VTSet_dot,
 'currency': VTSet_currency,
