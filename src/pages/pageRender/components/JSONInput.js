@@ -1,5 +1,9 @@
 import React,{forwardRef,useRef,useState} from 'react'
 import InputTag from './InputTag'
+
+let InputValue;
+let ValueDefault;
+
 export const JSONInput=forwardRef((props,cref)=>{
     const {
         width="100%",
@@ -19,10 +23,16 @@ export const JSONInput=forwardRef((props,cref)=>{
             
     //     }
     // }
-
+    ValueDefault=defaultValue;
     const handleChange=()=>{
-        console.log(cref.current.value.length);
+        // console.log(cref.current.value.length);
+        // 定义文字长度
         setLength(cref.current.value.length)
+        if(defaultValue===undefined){
+            
+        }else{
+            InputValue=cref.current.value
+        }
     }
     return <div className="JSONInput" style={{width:width,height:height,position:"relative"}}>
         {maxlength?<><InputTag number={length} maxlength={maxlength}></InputTag>
@@ -34,3 +44,11 @@ export const JSONInput=forwardRef((props,cref)=>{
         </>}
     </div>
 })
+
+export const getValue = ()=>{
+    if(InputValue===undefined){
+        return ValueDefault
+    }else{
+        return InputValue
+    }
+}

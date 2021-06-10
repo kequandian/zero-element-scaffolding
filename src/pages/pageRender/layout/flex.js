@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import '../public/index.less'
 let AllFlex;
 export const Flex=(props)=>{
     const {
@@ -15,7 +16,7 @@ export const FlexChild=(props)=>{
         children
     }=props
     const width = 100
-    console.log(width/AllFlex);
+    // console.log(width/AllFlex);
     return <div className="PageRender_FlexChild" style={{width:`${width/AllFlex}%`}}>
         {children}
     </div>
