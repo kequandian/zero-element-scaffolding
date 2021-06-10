@@ -40,7 +40,7 @@ module.exports = [
       actions: [
         {
           title: '添加', type: 'children-modal-add', options: {
-            modalTitle: '添加关键动作',
+            modalTitle: '添加动作模型',
             modalWidth: 680,
             items: [
               {
@@ -61,7 +61,7 @@ module.exports = [
                       props: {
                         placeholder: "请选择姿势单元1",
                         style: {
-                          width: 170
+                          width: 300
                         }
                       },
                       options: [
@@ -83,7 +83,7 @@ module.exports = [
                       props: {
                         placeholder: "请选择姿势单元2",
                         style: {
-                          width: 170
+                          width: 300
                         }
                       },
                       options: [
@@ -105,7 +105,7 @@ module.exports = [
                       props: {
                         placeholder: "请选择连接方式",
                         style: {
-                          width: 170
+                          width: 300
                         }
                       },
                       options: [
@@ -124,7 +124,7 @@ module.exports = [
                       props: {
                         placeholder: "请输入阈值",
                         style: {
-                          width: 170
+                          width: 300
                         }
                       }
                     },
@@ -135,7 +135,7 @@ module.exports = [
                       props: {
                         placeholder: "请输入角度值",
                         style: {
-                          width: 170
+                          width: 300
                         },
                         unit: '°',
                       }

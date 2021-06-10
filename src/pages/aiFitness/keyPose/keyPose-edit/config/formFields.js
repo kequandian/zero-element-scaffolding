@@ -48,7 +48,7 @@ module.exports = [
         type: 'required'
       }
     ],
-    type: 'time_selection',
+    type: 'time_selection_and_disaible',
     field: 'frameTimePosition'
   },
   {

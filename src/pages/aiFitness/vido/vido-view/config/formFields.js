@@ -70,7 +70,7 @@ module.exports = [
                     // },
 
                     {
-                      label: '动作名称', field: 'action', type: 'input',
+                      label: '动作名称', field: 'action', type: 'input', width: '350px',
                       rules: ['required'],
                       props: {
                         placeholder: "请输入动作名称"
@@ -87,7 +87,7 @@ module.exports = [
                       props: {
                         placeholder: "请输入",
                         style: {
-                          width: '123px',
+                          width: '350px',
                         }
                       }
                     },
@@ -115,7 +115,7 @@ module.exports = [
         // },
         // { label: '动作特征', field: 'poseModelImage' },
         {
-          label: '时间位置', field: 'frameTimePosition', valueType: 'time_selection', width: '150px'
+          label: '时间位置', field: 'frameTimePosition', valueType: 'time_selection_and_disaible', width: '150px'
         },
         { label: '动作名称', field: 'action', valueType: 'input-text', width: '300px' },
         { label: '持续时长', field: 'duration', valueType: 'time_selection', width: '150px' },

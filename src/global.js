@@ -68,9 +68,9 @@ import VTSet_SecoundToHms from '@/components/ValueType/SecoundToHms';
 import FITSet_InputFetch from '@/components/FormItemType/InputFetch';
 import FITSet_TimeSelection from '@/components/FormItemType/TimeSelection';
 import FITSet_InputNumAndUnit from '@/components/FormItemType/InputNumAndUnit';
-import FITSet_PlainNumAndUnit from '@/components/FormItemType/PlainNumAndUnit';FITSet_timep
+import FITSet_PlainNumAndUnit from '@/components/FormItemType/PlainNumAndUnit';
 import FITSet_PlainTag from '@/components/FormItemType/PlainTag';
-import FITSet_timep from '@/components/FormItemType/TimesP';
+import FITSet_TimeSelectionAndDisaible from '@/components/FormItemType/TimeSelectionAndDisaible';
 
 //AI 健身项目组件
 
@@ -189,7 +189,7 @@ FITSet({
   'input_num_and_unit': FITSet_InputNumAndUnit,
   'plain_num_and_unit': FITSet_PlainNumAndUnit,
   'plain_tag': FITSet_PlainTag,
-  'timep': FITSet_timep,
+  'time_selection_and_disaible': FITSet_TimeSelectionAndDisaible,
 });
 
 AITSet({
@@ -206,5 +206,6 @@ VTSet({
   'secound_to_hms': VTSet_SecoundToHms,
   'time_selection': FITSet_TimeSelection,
   'input_num_and_unit': FITSet_InputNumAndUnit,
-  'plain_num_and_unit': FITSet_PlainNumAndUnit
+  'plain_num_and_unit': FITSet_PlainNumAndUnit,
+  'time_selection_and_disaible': FITSet_TimeSelectionAndDisaible,
 });
