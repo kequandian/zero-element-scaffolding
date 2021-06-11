@@ -10,9 +10,11 @@ import {ViewConfig} from './config/view-config'
 
 function PageRender_View(){
     const [flex,setFlex]=useState();
+    // 回退自动刷新
     window.onpopstate=function(){
         window.location.href=""
     }
+    // 页面自动布局代码
     window.onload = function(){
         if(document.body.clientWidth>=3460){
             setFlex("10")
@@ -36,6 +38,7 @@ function PageRender_View(){
             setFlex("1")
         }
     }
+    // 页面自动布局代码
     window.onresize = function(){
         if(document.body.clientWidth>=3460){
             setFlex("10")

@@ -11,6 +11,7 @@ module.exports = {
     {
       component: 'Search',
       config: {
+        type:"default",
         fields: setting.searchFields,
       },
     },

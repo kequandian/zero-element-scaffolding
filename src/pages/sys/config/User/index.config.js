@@ -8,9 +8,10 @@ module.exports = {
     {
       component: 'Search',
       config: {
+        type:"default",
         fields: [
           {
-            field: 'search', label: '搜索', type: 'input',
+            field: 'search', label: '搜索', type: 'search',
             props: {
               placeholder: '姓名 电话 email 账号',
             }

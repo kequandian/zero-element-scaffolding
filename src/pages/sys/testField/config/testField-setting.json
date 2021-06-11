@@ -101,7 +101,7 @@
     {
       "label": "名字",
       "field": "name",
-      "type": "input",
+      "type": "search",
       "props": {
         "placeholder": ""
       }

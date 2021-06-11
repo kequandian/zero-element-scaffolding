@@ -14,7 +14,7 @@ export default function Page(props){
     console.log(json);
 
     const handleClick = () =>{
-        history.push("/pageRender/pageRender-add?id="+id)
+        history.push("/pageRender/pageRender-edit?id="+id)
         window.location.href=""
     }
     return <div className="PageRender_PagesContent" onClick={handleClick}>

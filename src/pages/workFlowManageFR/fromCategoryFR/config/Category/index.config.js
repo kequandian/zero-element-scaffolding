@@ -9,10 +9,11 @@ module.exports = {
       layout: 'Empty',
       component: 'Search',
       config: {
+        type:"default",
         share: 'fromCategory',
         fields: [
 
-          { field: 'name', label: '分类名称', type: 'input' ,placeholder: '请输入', }
+          { field: 'name', label: '分类名称', type: 'search' ,placeholder: '请输入', }
         ],
       },
     },

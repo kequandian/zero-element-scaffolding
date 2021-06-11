@@ -7,9 +7,10 @@ module.exports = {
     {
       component: 'Search',
       config: {
+        type:"default",
         fields: [
           {
-            field: 'name', label: '表单名称', type: 'input',
+            field: 'name', label: '表单名称', type: 'search',
             props: {
               placeholder: '请输入',
             }

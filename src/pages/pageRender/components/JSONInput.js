@@ -15,7 +15,14 @@ export const JSONInput=forwardRef((props,cref)=>{
         defaultValue,
         onChange
     }=props
-    // console.log(screen.height);
+    let windowHeight = height
+    window.onresize=function (){
+        if(height){
+            windowHeight=height
+        }else{
+            windowHeight=document.body.clientHeight
+        }
+    }
     const [length,setLength] = useState()
     // 定义按键发生事件
     // function isKey(e){
@@ -34,7 +41,7 @@ export const JSONInput=forwardRef((props,cref)=>{
             InputValue=cref.current.value
         }
     }
-    return <div className="JSONInput" style={{width:width,height:height,position:"relative"}}>
+    return <div className="JSONInput" style={{width:width,height:windowHeight,position:"relative"}}>
         {maxlength?<><InputTag number={length} maxlength={maxlength}></InputTag>
         <textarea ref={cref} defaultValue={defaultValue} placeholder={placeholder} onChange={onChange,handleChange} type="input" className="JSONInput" maxLength={maxlength} style={{width:"100%",height:"100%",color:textColor,background,resize: "none"}} /* onKeyDown={(e)=>{isKey(e)}} */></textarea>
         </>

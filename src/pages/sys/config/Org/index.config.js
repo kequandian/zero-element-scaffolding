@@ -12,7 +12,7 @@ module.exports = {
         type:"default",
         share: 'org',
         fields: [
-          { field: 'search',  type: 'input' ,placeholder: '部门名 编号', }
+          { field: 'search',label:"部门名", type: 'search',placeholder: '部门名 编号', }
         ],
       },
     },

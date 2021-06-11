@@ -9,6 +9,7 @@ import Button from './components/Button'
 import {message} from 'antd'
 import { getToken } from 'zero-element/lib/utils/request/token';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
+import { DeleteSvg } from './public/svg'
 
 
 function PageRenderAdd(){
@@ -45,6 +46,20 @@ function PageRenderAdd(){
         // console.log(getData(Versionconfig))
         message.success("保存成功，表单名称为"+getInputValue())
         message.success("保存成功，json数据为"+getJsonValue());
+    }
+
+    let url = window.location.href
+
+    const getId = () =>{
+        let idString = url.split("?")
+        // console.log(idString[1]);
+        let id = idString[1].replace(/id=/,"")
+        // console.log(id);
+        return id
+    }
+    getId()
+    const handleDelete = () =>{
+        message.warn("删除成功,删除的表单id为"+getId()+",名称为"+getInputValue())
     }
 
     const getData = (initConfig) =>{
@@ -109,7 +124,8 @@ function PageRenderAdd(){
         <FlexChild>
             <Sumbit Version={version} value={value} onChange={(e)=>handleInputChange(e)}></Sumbit>
             <div className="ButtonBox">
-            <Button text="保存" onClick={handleClick} background="#1B7FBC"></Button>
+                <Button text="保存" background="#1B7FBC" flex="1" height="100px" onClick={handleClick}></Button>
+                <Button text={<DeleteSvg/>} background="#C10037" width="100px" height="100px" onClick={handleDelete}></Button>
             </div>
         </FlexChild>
     </Flex>

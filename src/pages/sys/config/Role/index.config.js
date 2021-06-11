@@ -7,9 +7,10 @@ module.exports = {
       layout: 'Empty',
       component: 'Search',
       config: {
+        type:"default",
         share: 'role',
         fields: [
-          { field: 'name', label: '角色名', type: 'input' },
+          { field: 'name', label: '角色名', type: 'search' },
         ],
       },
     },

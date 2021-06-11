@@ -276,7 +276,7 @@
     {
       "label": "文档名",
       "field": "name",
-      "type": "input",
+      "type": "search",
       "props": {
         "placeholder": ""
       }

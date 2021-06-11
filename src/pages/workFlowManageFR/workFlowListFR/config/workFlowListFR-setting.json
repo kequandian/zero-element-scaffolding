@@ -302,7 +302,7 @@
     {
       "label": "流程名称",
       "field": "name",
-      "type": "input",
+      "type": "search",
       "props": {
         "placeholder": ""
       }

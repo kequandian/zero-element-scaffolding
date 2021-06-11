@@ -254,7 +254,7 @@
     {
       "label": "报表标识",
       "field": "field",
-      "type": "input",
+      "type": "search",
       "props": {
         "placeholder": "唯一标识,不可重复"
       }
