@@ -77,8 +77,16 @@ module.exports = [
                       }
                     },
                     {
-                      label: '持续时长', field: 'duration', type: 'time_selection',
+                      label: '持续时长', field: 'duration', type: 'input_num_and_unit',
                       rules: ['required'],
+                      props: {
+                        min: 1,
+                        placeholder: "请输入持续时长",
+                        style: {
+                          width: '350px'
+                        },
+                        unit: '秒',
+                      }
                     },
                     {
                       label: '重复次数', field: 'repeatTimes', type: 'number',
@@ -118,7 +126,9 @@ module.exports = [
           label: '时间位置', field: 'frameTimePosition', valueType: 'time_selection_and_disaible', width: '150px'
         },
         { label: '动作名称', field: 'action', valueType: 'input-text', width: '300px' },
-        { label: '持续时长', field: 'duration', valueType: 'time_selection', width: '150px' },
+        {
+          label: '持续时长', width: '150px', format: "<duration>秒"
+        },
         {
           label: '重复次数', field: 'repeatTimes', valueType: 'input-number', width: '150px'
         },

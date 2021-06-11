@@ -9,7 +9,6 @@ module.exports = {
       layout: 'Empty',
       component: 'Search',
       config: {
-        share: 'vido',
         fields: [
           { field: 'actionName', label: '视频名称', type: 'input' }
         ],
@@ -20,7 +19,6 @@ module.exports = {
       layout: 'Empty',
       component: 'Table',
       config: {
-        share: 'vido',
         API: {
           listAPI: '/api/crud/coachingAction/coachingActions',
           deleteAPI: '/api/crud/coachingAction/coachingActions/(id)',
@@ -60,6 +58,9 @@ module.exports = {
             //   path: '/aiFitness/vido/vido-view'
             // },
           },
+          // {
+          //   field: 'vidoSrc', label: '视频', width: 150, valueType: 'video_preview',
+          // },
           { field: 'actionName', label: '视频名称', width: 200 },
           { field: 'vidoDuration', label: '视频长度', width: 120, valueType: 'secound_to_hms' },
           { field: 'trainingType', label: '动作说明', width: 230 },

@@ -24,7 +24,7 @@ function InputNumAndUnit(props) {
 
   const { onExpect, onSaveOtherValue, onEdit } = handle;
 
-  const { max = '', placeholder = '', style= '' } = propsOpt;
+  const { min = '', max = '', placeholder = '', style= '' } = propsOpt;
 
   let val = value || defaultValue || text ? value || defaultValue || text : '';
 
@@ -51,6 +51,7 @@ function InputNumAndUnit(props) {
     placeholder: placeholder,
     style: style,
     value: val,
+    min: min,
     max: max,
     onChange: handleChange
   };

@@ -3,12 +3,20 @@ module.exports = [
   {
     label: '关键动作帧',
     type: 'image',
-    field: 'rawFrameImage'
+    field: 'rawFrameImage',
+    options: {
+      width: 240,
+      height: ''
+    }
   },
   {
-    label: '动作模型预览',
+    label: '模型预览',
     type: 'image',
-    field: 'poseModelImage'
+    field: 'poseModelImage',
+    options: {
+      width: 240,
+      height: ''
+    }
   },
   {
     label: '动作名称',
@@ -20,14 +28,15 @@ module.exports = [
     type: 'plain',
     field: 'gesture',
   },
+  { label: '时间位置', field: 'frameTimePosition', type: 'secound_to_hms' },
   {
-    label: '时间位置', field: 'frameTimePosition', type: 'secound_to_hms',
+    label: '持续时长', field: '_duration', type: 'plain', 
+    options: {
+      format: '<duration> 秒',
+    }
   },
   {
-    label: '持续时间', field: 'duration', type: 'secound_to_hms',
-  },
-  {
-    label: '重复次数', field: 'repeatTimes', type: 'plain',
+    label: '重复次数', field: 'repeatTimes', type: 'plain'
   },
 
   { field: 'group_6', type: 'group', value: '动作模型', span: 24, },
@@ -63,7 +72,7 @@ module.exports = [
                       props: {
                         placeholder: "请选择姿势单元1",
                         style: {
-                          width: 170
+                          width: 280
                         }
                       },
                       options: [
@@ -85,7 +94,7 @@ module.exports = [
                       props: {
                         placeholder: "请选择姿势单元2",
                         style: {
-                          width: 170
+                          width: 280
                         }
                       },
                       options: [
@@ -107,7 +116,7 @@ module.exports = [
                       props: {
                         placeholder: "请选择连接方式",
                         style: {
-                          width: 170
+                          width: 280
                         }
                       },
                       options: [
@@ -126,7 +135,7 @@ module.exports = [
                       props: {
                         placeholder: "请输入阈值",
                         style: {
-                          width: 170
+                          width: 280
                         }
                       }
                     },
@@ -137,7 +146,7 @@ module.exports = [
                       props: {
                         placeholder: "请输入角度值",
                         style: {
-                          width: 170
+                          width: 280
                         },
                         unit: '°',
                       }
@@ -152,6 +161,7 @@ module.exports = [
       fields: [
         {
           label: '姿势单元1', field: 'poseFirst', valueType: 'input-select',
+          width: '200px',
           options: {
             options: [
               { label: '右手腕', value: 'Right wrist' },
@@ -169,6 +179,7 @@ module.exports = [
         },
         {
           label: '姿势单元2', field: 'poseSecond', valueType: 'input-select',
+          width: '200px',
           options: {
             options: [
               { label: '左手腕', value: 'Left wrist' },
@@ -186,6 +197,7 @@ module.exports = [
         },
         {
           label: '连接方式', field: 'poseType', valueType: 'input-select',
+          width: '200px',
           options: {
             options: [
               { label: '水平伸展', value: 'horizontal extension' },
@@ -200,6 +212,7 @@ module.exports = [
         {
           label: '阈值', field: 'threshold', valueType: 'input_num_and_unit',
           bindfield: 'angle',
+          width: '120px',
           props: {
             placeholder: "请输入阈值",
             style: {
@@ -210,6 +223,7 @@ module.exports = [
         {
           label: '角度值', field: 'angle', valueType: 'input_num_and_unit',
           bindfield: 'threshold',
+          width: '120px',
           props: {
             placeholder: "请输入角度值",
             unit: '°',

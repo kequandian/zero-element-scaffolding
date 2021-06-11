@@ -11,18 +11,8 @@ module.exports = [
   },
   {
     label: '用户',
-    props: {
-      placeholder: '请输入用户'
-    },
-    type: 'input',
+    type: 'plain',
     field: 'userName',
-    width: '350px'
-  },
-  {
-    label: '视频名称', field: 'videoName', type: 'input', width: '350px',
-    props: {
-      placeholder: '选择视频名称'
-    },
   },
   {
     label: "视频",
@@ -36,20 +26,20 @@ module.exports = [
     }
   },
   {
-    label: '视频名称', field: '', type: 'input', width: '350px',
-    props: {
-      placeholder: '请输入视频名称'
-    },
+    label: '视频名称', field: 'videoName', type: 'plain'
   },
+  // {
+  //   label: '运动处方', field: '', type: 'input', width: '350px',
+  //   props: {
+  //     placeholder: '请输入运动处方'
+  //   }
+  // },
   {
-    label: '运动处方', field: '', type: 'input', width: '350px',
+    label: '评分', field: 'score', type: 'number',
     props: {
-      placeholder: '请输入运动处方'
-    }
-  },
-  {
-    label: '评分', field: 'score', type: 'input', width: '350px',
-    props: {
+      style:{
+        width: '350px'
+      },
       placeholder: '请输入评分'
     }
   },
@@ -60,7 +50,16 @@ module.exports = [
     }
   },
   {
-    label: '时长', field: 'score', type: 'time_selection',
+    label: '时长', field: 'trainingTime', type: 'input_num_and_unit',
+    // rules: ['required'],
+    props: {
+      min: 1,
+      placeholder: "请输入时长",
+      style: {
+        width: 350
+      },
+      unit: '秒',
+    }
   },
   {
     label: '训练时间', field: 'trainingDate', type: 'date',
@@ -69,6 +68,9 @@ module.exports = [
       style: {
         width: '350px'
       }
+    },
+    options:{
+      format: 'YYYY-MM-DD HH:mm:ss'
     }
   },
 

@@ -33,22 +33,43 @@ module.exports = {
 
         fields: [
           {
-            field: 'rawFrameImage', label: '动作帧', width: 150, sorter: false,
+            field: 'rawFrameImage', label: '动作帧',
+            width: '180px',
             valueType: 'image',
+            options: {
+              width: 120,
+              height: ''
+            }
           },
           {
-            field: 'poseModelImage', label: '动作特征', width: 150, sorter: false,
+            field: 'poseModelImage', label: '动作特征',
+            width: '180px',
             valueType: 'image',
+            options: {
+              width: 120,
+              height: ''
+            }
           },
-          { label: '动作名称', field: 'action', width: 150, sorter: false },
           {
-            label: '时间位置', field: 'frameTimePosition', width: 150, valueType: 'secound_to_hms',
+            label: '动作名称', field: 'action',
+            width: '200px',
           },
           {
-            label: '持续时长', field: 'duration', width: 150, valueType: 'secound_to_hms',
+            label: '时间位置', field: 'frameTimePosition', valueType: 'secound_to_hms',
+            width: '180px',
           },
-          { label: '重复次数', field: 'repeatTimes', width: 150, sorter: false,
-          align: 'center' },
+          {
+            label: '持续时长', field: '_duration',
+            width: '180px',
+            options: {
+              format: '<duration> 秒',
+            }
+          },
+          {
+            label: '重复次数', field: 'repeatTimes', sorter: false,
+            align: 'center',
+            width: '180px',
+          },
 
         ],
         operation: [

@@ -11,7 +11,7 @@ module.exports = {
       config: {
         share: 'colloquialism',
         fields: [
-          {field: 'modelEnglishName', label: '模型', type: 'input'}
+          { field: 'modelEnglishName', label: '模型', type: 'input' }
         ],
       },
     },
@@ -54,9 +54,16 @@ module.exports = {
         ],
 
         fields: [
-          {label: '模型', field: 'modelEnglishName', width: 180, },
-          {label: '模型说明', field: 'correctionModel', width: 250,},
-          {label: '话术', field: 'collectionTerm'},
+          {
+            label: '模型', field: 'modelEnglishName', width: 180,
+            options: {
+              style: {
+                fontWeight: 900
+              }
+            }
+          },
+          { label: '模型说明', field: 'correctionModel', width: 250, },
+          { label: '话术', field: 'collectionTerm' },
 
         ],
         operation: [

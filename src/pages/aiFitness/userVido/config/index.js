@@ -32,14 +32,46 @@ module.exports = {
         // ],
 
         fields: [
-          {label: '头像', field: 'avator', width: 200, valueType: 'image'},
-          {label: '用户', field: 'userName', width: 150},
+          {label: '视频', field: 'videoSrc', valueType: 'video_preview'},
+          {
+            label: '用户',
+            options: {
+              fields: [
+                {
+                  field: 'avator',
+                  type: 'image',
+                  options: {
+                    width: 100,
+                    height: ''
+                  }
+                },
+                {
+                  field: 'userName',
+                  type: 'plain',
+                  options: {
+                    style: {
+                      fontWeight: 900
+                    }
+                  }
+                }
+              ]
+            },
+            field: 'names',
+            align: 'center',
+            valueType: 'complex'
+          },
           {label: '视频名称', field: 'videoName'},
-          {label: '视频', field: 'videoSrc'},
           {label: '运动处方', field: ''},
           {label: '评分', field: 'score'},
           {label: '动作指导师', field: 'coacherName'},
-          {label: '时长', field: 'score', valueType: 'secound_to_hms'},
+          {
+            label: '时长', field: '_trainingTime',
+            width: '180px',
+            align: 'center',
+            options: {
+              format: '<trainingTime> 秒',
+            }
+          },
           {label: '训练时间', field: 'trainingDate'},
 
         ],

@@ -1,11 +1,7 @@
 module.exports = [
   {
     label: '动作名称',
-    rules: [
-      {
-        type: 'required'
-      }
-    ],
+    rules: [ 'required'],
     props: {
       placeholder: '请输入动作名称'
     },
@@ -43,28 +39,32 @@ module.exports = [
   },
   {
     label: '时间位置',
-    rules: [
-      {
-        type: 'required'
-      }
-    ],
+    rules: [ 'required'],
     type: 'time_selection_and_disaible',
-    field: 'frameTimePosition'
+    field: 'frameTimePosition',
+    width: '240px'
   },
   {
-    label: '持续时间', field: 'duration', type: 'time_selection', 
-    rules: [
-      {
-        type: 'required'
-      }
-    ],
+    label: '持续时长', field: 'duration', type: 'input_num_and_unit',
+    rules: ['required'],
+    props: {
+      min: 1,
+      placeholder: "请输入持续时长",
+      style: {
+        width: 240
+      },
+      unit: '秒',
+    }
   },
   {
     label: '重复次数', field: 'repeatTimes', type: 'number',
     rules: ['required'],
     props: {
-      placeholder: "请输入",
-
+      min: 1,
+      placeholder: "请输入重复次数",
+      style:{
+        width: '240px'
+      }
     }
   },
   // {

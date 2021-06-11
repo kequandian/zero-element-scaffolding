@@ -1,7 +1,7 @@
 module.exports = [
   {field: 'group_5', type: 'group', value: '关键动作', span: 24,},
   {label: '关键动作帧', field: 'rawFrameImage', type: 'plain'},
-  {label: '动作模型预览', field: 'poseModelImage', type: 'plain'},
+  {label: '模型预览', field: 'poseModelImage', type: 'plain'},
   {label: '动作名称', field: 'action', type: 'plain'},
   {label: '时间位置', field: 'duration', type: 'plain'},
   {field: 'items', type: 'Space', hight: 100},
@@ -17,7 +17,7 @@ module.exports = [
       actions: [
         {
           title: '添加', type: 'children-modal-add', options: {
-            modalTitle: '添加关键动作',
+            modalTitle: '添加动作模型',
             modalWidth: 680,
             items: [
               {
