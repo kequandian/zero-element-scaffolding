@@ -88,21 +88,25 @@ export default function VideoPreview(props) {
         SetOpacity("1");
     }
 
-    return <>{text ? <div className="Video_Container">
-        <div id={`Video_Mock_${index}`} className="Video_Mock_css" onClick={hideClick}></div>
-        {
-            fileType === "mp4" ? (
-                <div id={`Video_Play_${index}`} className="Video_Play_css" style={{ width: width }} onClick={() => handleClick(videoUrl)} onMouseLeave={HoverSvg} onMouseEnter={LeaveSvg}>
+    return <>
+        {text ? <div className="Video_Container">
+            <div id={`Video_Mock_${index}`} className="Video_Mock_css" onClick={hideClick}></div>
+            {
+                fileType === "mp4" ? (
+                    <div id={`Video_Play_${index}`} className="Video_Play_css" style={{ width: width }}
+                        onClick={() => handleClick(videoUrl)}
+                        onMouseLeave={HoverSvg}
+                        onMouseEnter={LeaveSvg}>
 
-                    <video id={`Video_View_${index}`} className="Video_View_css" autoPlay={false} width={width}
-                        src={videoUrl} />
+                        <video id={`Video_View_${index}`} className="Video_View_css" autoPlay={false} width={width}
+                            src={videoUrl} />
 
-                    {playing ? <PlaySvg width={SvgSize} height={SvgSize} opacity={opacity} /> : <StopSvg width={SvgSize} height={SvgSize} opacity={opacity} />}
-                </div>
-            ) : (
-                    <div style={{ color: "red" }}>不支持的视频格式,仅支持mp4!</div>
-                )
-        }
-    </div> : <h1 style={{ color: "red" }}>无视频，请检查</h1>}
+                        {playing ? <PlaySvg width={SvgSize} height={SvgSize} opacity={opacity} /> : <StopSvg width={SvgSize} height={SvgSize} opacity={opacity} />}
+                    </div>
+                ) : (
+                        <div style={{ color: "red" }}>仅支持mp4视频格式</div>
+                    )
+            }
+        </div> : <h1 style={{ color: "red" }}>无视频，请检查</h1>}
     </>
 }

@@ -2,8 +2,10 @@ import React from 'react';
 
 export default function TimeConver(props) {
 
-    const { data: { text = '', record }, options = {} } = props;
+    const { data = {}, options = {}, value = '' } = props;
     const { path, query = { id: 'id' }, blank = false } = options;
+
+    const { text = '', record } = data;
 
     function setTime(time) {
         var currentTime = Date.parse(new Date());
@@ -35,7 +37,7 @@ export default function TimeConver(props) {
     }
     
     return (
-        <div>{setTime(text)}</div>
+        <div>{setTime(text || value)}</div>
     )
 
 }

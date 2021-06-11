@@ -5,7 +5,7 @@ export default function SecoundToHms(props) {
 
     // console.log('props = ', props)
     const { data = {}, options = {}, value = '' } = props;
-    const { path, query = { id: 'id' }, blank = false } = options;
+    const { path, query = { id: 'id' }, blank = false, format = 'HH:mm:ss' } = options;
 
     const { text = '', record } = data;
 
@@ -27,6 +27,19 @@ export default function SecoundToHms(props) {
         }
     }
 
+    if(format === 'HH:mm:ss'){
+        return formatHms(hour, middle, theTime);
+    } else if(format === '时分秒'){
+        return formatHmsUnit(hour, middle, theTime);
+    } else {
+        return '-';
+    }
+
+}
+
+
+// 00:00:00
+function formatHms(hour, middle, theTime){
     if (theTime) {
         if (theTime > 0 && theTime < 10) {
             theTime = `0${theTime}`;
@@ -50,8 +63,31 @@ export default function SecoundToHms(props) {
     } else {
         hour = '00'
     }
+    return `${hour}:${middle}:${theTime}`;
+}
 
-    return `${hour}:${middle}:${theTime}`
+//00时00分00秒
+function formatHmsUnit(hour, middle, theTime){
+
+    let v = '';
+
+    if (hour > 0 ) {
+        v = `${hour}时`
+    } 
+
+    if (middle > 0) {
+        v = `${v}${middle}分`
+    } 
+    
+    if (theTime) {
+        v = `${v}${theTime}秒`
+    } 
+
+    if(!hour && !middle && !theTime){
+        v = '-'
+    }
+    
+    return v;
 }
 
 function hmsToSecound(e) {

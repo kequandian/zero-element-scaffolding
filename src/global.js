@@ -186,6 +186,7 @@ FITSet({
   'LinkButton': FITSet_link_button,
   'inputFetch': FITSet_InputFetch,
   'secound_to_hms': VTSet_SecoundToHms,
+  'time-convert': VTSet_TimeConvert,
   'time_selection': FITSet_TimeSelection,
   'input_num_and_unit': FITSet_InputNumAndUnit,
   'plain_num_and_unit': FITSet_PlainNumAndUnit,

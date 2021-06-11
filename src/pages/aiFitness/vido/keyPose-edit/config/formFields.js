@@ -30,9 +30,9 @@ module.exports = [
   },
   { label: '时间位置', field: 'frameTimePosition', type: 'secound_to_hms' },
   {
-    label: '持续时长', field: '_duration', type: 'plain', 
+    label: '持续时长', field: 'duration', valueType: 'secound_to_hms',
     options: {
-      format: '<duration> 秒',
+      format: '时分秒'
     }
   },
   {

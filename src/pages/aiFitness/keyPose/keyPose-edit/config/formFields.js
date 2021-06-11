@@ -28,6 +28,8 @@ module.exports = [
     type: 'upload-image',
     field: 'rawFrameImage',
     options: {
+      width: 240,
+      height: '',
       type: 'text',
       max: 1,
     },
@@ -35,7 +37,12 @@ module.exports = [
   {
     label: '动作特征',
     type: 'image',
-    field: 'poseModelImage'
+    field: 'poseModelImage',
+    options: {
+      width: 240,
+      height: '',
+    },
+    
   },
   {
     label: '时间位置',
@@ -45,16 +52,9 @@ module.exports = [
     width: '240px'
   },
   {
-    label: '持续时长', field: 'duration', type: 'input_num_and_unit',
+    label: '持续时长', field: 'duration', type: 'time_selection_and_disaible',
     rules: ['required'],
-    props: {
-      min: 1,
-      placeholder: "请输入持续时长",
-      style: {
-        width: 240
-      },
-      unit: '秒',
-    }
+    width: '240px'
   },
   {
     label: '重复次数', field: 'repeatTimes', type: 'number',

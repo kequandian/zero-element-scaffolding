@@ -1,5 +1,5 @@
 module.exports = [
-  { label: '视频', field: 'videoSrc', type: 'plain' },
+  { label: '视频', field: 'videoSrc', type: 'videoview' },
   { label: '视频名称', field: 'videoName', type: 'plain' },
   {
     label: '头像', field: 'avator', type: 'image',
@@ -13,11 +13,11 @@ module.exports = [
   { label: '评分', field: 'score', type: 'plain' },
   { label: '动作指导师', field: 'coacherName', type: 'plain' },
   {
-    label: '时长', field: '_trainingTime', type: 'plain', 
+    label: '时长', field: 'trainingTime', type: 'secound_to_hms',
     options: {
-      format: '<trainingTime> 秒',
+      format: '时分秒'
     }
   },
-  { label: '训练时间', field: 'trainingDate', type: 'plain' },
+  { label: '训练时间', field: 'trainingDate', type: 'time-convert' },
 
 ];

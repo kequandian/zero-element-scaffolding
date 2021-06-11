@@ -59,10 +59,9 @@ module.exports = {
             width: '180px',
           },
           {
-            label: '持续时长', field: '_duration',
-            width: '180px',
+            label: '持续时长', field: 'duration', valueType: 'secound_to_hms',
             options: {
-              format: '<duration> 秒',
+              format: '时分秒'
             }
           },
           {

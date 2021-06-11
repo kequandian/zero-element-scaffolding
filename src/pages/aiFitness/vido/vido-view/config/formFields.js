@@ -4,8 +4,8 @@ module.exports = [
     label: '', field: 'attendInfo', type: 'plain_tag',
     options: {
       format: [
-        {field: '<personTimes>', text: '人参与', color: '#2A82E4'},
-        {field: '<star>', text: '点赞', color: '#00BAAD'},
+        { field: '<personTimes>', text: '人参与', color: '#2A82E4' },
+        { field: '<star>', text: '点赞', color: '#00BAAD' },
       ]
     }
   },
@@ -19,7 +19,9 @@ module.exports = [
   },
   { label: '视频名称', field: 'actionName', type: 'plain' },
   { label: '动作说明', field: 'trainingType', type: 'plain' },
-  { label: '视频时长', field: 'vidoDuration', type: 'secound_to_hms' },
+  {
+    label: '视频时长', field: 'vidoDuration', type: 'secound_to_hms',
+  },
   { label: '适用症状', field: 'prescriptionSymptoms', type: 'plain' },
   { field: 'items', type: 'Space', hight: 100 },
   { field: 'group_6', type: 'group', value: '关键动作', span: 24, },
@@ -127,7 +129,10 @@ module.exports = [
         },
         { label: '动作名称', field: 'action', valueType: 'input-text', width: '300px' },
         {
-          label: '持续时长', width: '150px', format: "<duration>秒"
+          label: '持续时长', width: '150px', valueType: 'secound_to_hms',
+          options: {
+            format: '时分秒'
+          }
         },
         {
           label: '重复次数', field: 'repeatTimes', valueType: 'input-number', width: '150px'

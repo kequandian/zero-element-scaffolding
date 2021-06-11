@@ -51,16 +51,16 @@ module.exports = {
           }
         ],
         fields: [
-          {
-            field: 'vido_thumb', label: '视频', width: 150, sorter: false,
-            valueType: 'thumb',
-            // options: {
-            //   path: '/aiFitness/vido/vido-view'
-            // },
-          },
           // {
-          //   field: 'vidoSrc', label: '视频', width: 150, valueType: 'video_preview',
+          //   field: 'vido_thumb', label: '视频', width: 150, sorter: false,
+          //   valueType: 'thumb',
+          //   // options: {
+          //   //   path: '/aiFitness/vido/vido-view'
+          //   // },
           // },
+          {
+            field: 'vidoSrc', label: '视频', width: 150, valueType: 'video_preview',
+          },
           { field: 'actionName', label: '视频名称', width: 200 },
           { field: 'vidoDuration', label: '视频长度', width: 120, valueType: 'secound_to_hms' },
           { field: 'trainingType', label: '动作说明', width: 230 },
