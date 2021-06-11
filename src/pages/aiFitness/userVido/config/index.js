@@ -32,7 +32,7 @@ module.exports = {
         // ],
 
         fields: [
-          {label: '视频', field: 'videoSrc', valueType: 'video_preview',width: '150px'},
+          {label: '视频', field: 'videoSrc', valueType: 'video',width: '150px'},
           {
             label: '用户',
             options: {

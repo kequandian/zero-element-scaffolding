@@ -25,13 +25,11 @@ module.exports = [
   // },
   {
     label: '动作帧',
-    type: 'upload-image',
+    type: 'image',
     field: 'rawFrameImage',
     options: {
       width: 240,
       height: '',
-      type: 'text',
-      max: 1,
     },
   },
   {
@@ -52,7 +50,7 @@ module.exports = [
     width: '240px'
   },
   {
-    label: '持续时长', field: 'duration', type: 'time_selection_and_disaible',
+    label: '持续时长', field: 'duration', type: 'time_selection',
     rules: ['required'],
     width: '240px'
   },

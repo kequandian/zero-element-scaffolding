@@ -43,6 +43,7 @@ import FITSet_empty from '@/../zero-antd-dep/formItemType/Empty';
 import FITSet_hidden from '@/../zero-antd-dep/formItemType/Hidden';
 import FITSet_group from '@/../zero-antd-dep/formItemType/Group';
 import FITSet_input from '@/../zero-antd-dep/formItemType/Input';
+import FITSet_search from '@/../zero-antd-dep/formItemType/Search';
 import FITSet_inputType from '@/../zero-antd-dep/formItemType/InputType';
 import FITSet_password from '@/../zero-antd-dep/formItemType/Password';
 import FITSet_number from '@/../zero-antd-dep/formItemType/Number';
@@ -85,6 +86,7 @@ import AITSet_importModal from '@/../zero-antd-dep/actionItemType/ImportModal';
 import AITSet_export from '@/../zero-antd-dep/actionItemType/Export';
 import AITSet_tableCheckbox from '@/../zero-antd-dep/actionItemType/TableCheckbox';
 import VTSet_index from '@/../zero-antd-dep/valueType/index';
+import VTSet_video from '@/../zero-antd-dep/valueType/Video';
 import VTSet_plain from '@/../zero-antd-dep/valueType/plain';
 import VTSet_join from '@/../zero-antd-dep/valueType/join';
 import VTSet_map from '@/../zero-antd-dep/valueType/map';
@@ -154,6 +156,7 @@ FITSet({
 'hidden': FITSet_hidden,
 'group': FITSet_group,
 'input': FITSet_input,
+'search': FITSet_search,
 'inputType': FITSet_inputType,
 'password': FITSet_password,
 'number': FITSet_number,
@@ -204,6 +207,7 @@ AITSet({
 
 VTSet({
 'index': VTSet_index,
+'video': VTSet_video,
 'plain': VTSet_plain,
 'join': VTSet_join,
 'map': VTSet_map,

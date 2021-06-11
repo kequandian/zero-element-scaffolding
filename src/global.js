@@ -71,7 +71,6 @@ import FITSet_InputNumAndUnit from '@/components/FormItemType/InputNumAndUnit';
 import FITSet_PlainNumAndUnit from '@/components/FormItemType/PlainNumAndUnit';
 import FITSet_PlainTag from '@/components/FormItemType/PlainTag';
 import FITSet_TimeSelectionAndDisaible from '@/components/FormItemType/TimeSelectionAndDisaible';
-import VTSet_VideoPreview from '@/components/ValueType/VideoPreview';
 
 //AI 健身项目组件
 
@@ -210,5 +209,4 @@ VTSet({
   'input_num_and_unit': FITSet_InputNumAndUnit,
   'plain_num_and_unit': FITSet_PlainNumAndUnit,
   'time_selection_and_disaible': FITSet_TimeSelectionAndDisaible,
-  'video_preview': VTSet_VideoPreview
 });

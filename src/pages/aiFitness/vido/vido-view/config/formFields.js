@@ -70,7 +70,6 @@ module.exports = [
                     //   type: 'image',
                     //   field: 'poseModelImage'
                     // },
-
                     {
                       label: '动作名称', field: 'action', type: 'input', width: '350px',
                       rules: ['required'],
@@ -129,13 +128,27 @@ module.exports = [
         },
         { label: '动作名称', field: 'action', valueType: 'input-text', width: '300px' },
         {
-          label: '持续时长', width: '150px', valueType: 'secound_to_hms',
-          options: {
-            format: '时分秒'
+          label: '持续时长', field: 'duration', width: '150px', valueType: 'input_num_and_unit',
+          rules: ['required'],
+          props: {
+            min: 1,
+            placeholder: "请输入持续时长",
+            style: {
+              width: '150px'
+            },
+            unit: '秒',
           }
         },
         {
-          label: '重复次数', field: 'repeatTimes', valueType: 'input-number', width: '150px'
+          label: '重复次数', field: 'repeatTimes', width: '150px', valueType: 'input_num_and_unit',
+          rules: ['required'],
+          props: {
+            min: 1,
+            placeholder: "请输入重复次数",
+            style: {
+              width: '150px'
+            },
+          }
         },
       ],
       operation: [

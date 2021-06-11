@@ -59,7 +59,7 @@ module.exports = {
           //   // },
           // },
           {
-            field: 'vidoSrc', label: '视频', width: 150, valueType: 'video_preview',
+            field: 'vidoSrc', label: '视频', width: 150, valueType: 'video',
           },
           { field: 'actionName', label: '视频名称', width: 200 },
           { field: 'vidoDuration', label: '视频长度', width: 120, valueType: 'secound_to_hms' },
