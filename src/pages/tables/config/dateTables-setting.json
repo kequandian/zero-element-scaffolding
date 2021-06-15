@@ -80,7 +80,7 @@
         "placeholder": "通过此项来定义数据库字段"
       },
       
-      "type": "inputType",
+      "type": "input",
       "field": "type"
     },
     {

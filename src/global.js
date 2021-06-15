@@ -44,7 +44,7 @@ import CSet_DataManageFormAdd from '@/pages/sys/activitiesCustom/config/dataMana
 import CSet_DataServiceFormAdd from '@/pages/dataService/config/dataManage/components/Form';
 
 import CSet_DataReportTreeList from '@/pages/sys/dataReport/components/DataReportTreeList';
-import CSet_DataTable from '@/pages/userAudit/table/components/DataReportTreeList';
+// import CSet_DataTable from '@/pages/userAudit/table/components/DataReportTreeList';
 import VTSet_InputSwitch from '@/components/ValueType/InputSwitch';
 import FITSet_group_title from '@/components/FormItemType/Group';
 import FITSet_dynamic_radio from '@/components/FormItemType/DynamicRadio';
@@ -151,7 +151,7 @@ CSet({
   'activity_fields_form' : CSet_activity_fields_form,
   'print_config_form': CSet_print_config_form,
   'data_report_tree_list': CSet_DataReportTreeList,
-  'data_table':CSet_DataTable,
+  // 'data_table':CSet_DataTable,
   'LoadHtmlPage': CSet_load_html_page,
   'NewTreeList': CSet_new_tree_list,
 });
