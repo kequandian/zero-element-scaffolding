@@ -15,7 +15,7 @@ module.exports = {
         },
         "fields": [
           {
-            "field":"menuId",
+            "field":"groupMenuId",
             "label":"菜单选择",
             "type":"select-fetch",
             "props":{

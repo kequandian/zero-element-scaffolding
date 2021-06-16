@@ -12,7 +12,7 @@
   "columns": 1,
   "createFields": [
     {
-      "field":"menuId",
+      "field":"groupMenuId",
       "label":"所属菜单组",
       "type":"select-fetch",
       "props":{
@@ -115,7 +115,7 @@
   ],
   "updateFields": [
     {
-      "field":"menuId",
+      "field":"groupMenuId",
       "label":"所属菜单组",
       "type":"select-fetch",
       "props":{
