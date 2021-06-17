@@ -58,7 +58,7 @@ export default function PrintConfigForm(props) {
     const pageDataFormData = getPageData(namespace).formData;
 
     //新增属性
-    const { footerButton = true,  } = otherProps;
+    const { footerButton = true, renderResetBtn = true  } = otherProps;
 
     const initData = useRef({
         ...extraData,
