@@ -1,4 +1,5 @@
 const printConfigFields = require("./.form/printConfigFields.config");
+const jsonConfigFields =require("./.form/jsonConfigFields.config");
 
 module.exports = {
   layout: 'Content',
@@ -7,9 +8,10 @@ module.exports = {
     {
       component: 'Search',
       config: {
+        type:"default",
         fields: [
           {
-            field: 'name', label: '表单名称', type: 'input',
+            field: 'name', label: '表单名称', type: 'search',
             props: {
               placeholder: '请输入',
             }
@@ -87,6 +89,29 @@ module.exports = {
           //     ]
           //   }
           // },
+          {
+            title:"小程序设计",type:"modal",
+            options:{
+              outside: true,
+              modalTitle: '绑定模板',
+              modalWidth: 600,
+              layout: 'Empty',
+              items: [
+                {
+                  layout: 'Empty',
+                  component: 'activity_fields_form',
+                  config: {
+                    layout: 'Grid',
+                    API: {
+                      getAPI: '/api/crud/virtualForm/virtualForms/(id)',
+                      updateAPI: '/api/crud/virtualForm/virtualForms/(id)',
+                    },
+                    fields: jsonConfigFields,
+                  }
+                }
+              ]
+            }
+          },
           {
             title: '设计', type: 'path',
             options:{

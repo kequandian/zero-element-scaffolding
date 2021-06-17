@@ -16,10 +16,12 @@ export default function ImageButton(props) {
 
     const handClick = () =>{
       history.push(url)
+      window.location.href=""
     }
 
     const OptionClick = () =>{
       history.push(OptionUrl)
+      window.location.href=""
     }
 
     return <>

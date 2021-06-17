@@ -1,0 +1,15 @@
+export const ViewConfig = [
+    {id:"id1",name:"主标题1",json:"{json内容1}",version:1},
+    {id:"id2",name:"主标题2",json:"{json内容2}",version:2},
+    {id:"id3",name:"主标题3",json:"{json内容3}",version:3},
+    {id:"id4",name:"主标题4",json:"{json内容4}",version:4},
+    {id:"id4",name:"主标题4",json:"{json内容4}",version:4},    {id:"id1",name:"主标题1",json:"{json内容1}",version:1},
+    {id:"id2",name:"主标题2",json:"{json内容2}",version:2},
+    {id:"id3",name:"主标题3",json:"{json内容3}",version:3},
+    {id:"id4",name:"主标题4",json:"{json内容4}",version:4},
+    {id:"id4",name:"主标题4",json:"{json内容4}",version:4},    {id:"id1",name:"主标题1",json:"{json内容1}",version:1},
+    {id:"id2",name:"主标题2",json:"{json内容2}",version:2},
+    {id:"id3",name:"主标题3",json:"{json内容3}",version:3},
+    {id:"id4",name:"主标题4",json:"{json内容4}",version:4},
+    {id:"id4",name:"主标题4",json:"{json内容4}",version:4},
+]

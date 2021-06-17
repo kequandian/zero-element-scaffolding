@@ -289,7 +289,7 @@
     {
       "label": "类别名称",
       "field": "name",
-      "type": "input",
+      "type": "search",
       "props": {
         "placeholder": ""
       }
@@ -297,7 +297,7 @@
     {
       "label": "类别编码",
       "field": "code",
-      "type": "input"
+      "type": "search"
     }
   ],
   "tableFields": [

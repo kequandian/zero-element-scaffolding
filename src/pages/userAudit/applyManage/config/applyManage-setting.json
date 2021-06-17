@@ -101,7 +101,7 @@
     {
       "label": "类型",
       "field": "name",
-      "type": "input",
+      "type": "search",
       "props": {
         "placeholder": ""
       }

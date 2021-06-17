@@ -458,7 +458,7 @@
       "props": {
         "placeholder": "广告主/联系人/电话"
       },
-      "type": "input"
+      "type": "search"
     }
   ],
   "tableFields": [
