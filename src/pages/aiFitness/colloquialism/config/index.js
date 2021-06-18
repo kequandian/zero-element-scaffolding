@@ -9,9 +9,10 @@ module.exports = {
       layout: 'Empty',
       component: 'Search',
       config: {
+        type:"default",
         share: 'colloquialism',
         fields: [
-          { field: 'modelEnglishName', label: '模型', type: 'input' }
+          { field: 'modelEnglishName', placeholder: '模型', type: 'search' }
         ],
       },
     },

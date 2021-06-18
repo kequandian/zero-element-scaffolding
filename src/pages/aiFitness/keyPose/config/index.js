@@ -6,9 +6,10 @@ module.exports = {
       layout: 'Empty',
       component: 'Search',
       config: {
+        type:"default",
         share: 'keyPose',
         fields: [
-          { field: 'action', label: '动作名称', type: 'input' }
+          { field: 'search', placeholder: '动作名称', type: 'search' }
         ],
       },
     },

@@ -6,9 +6,10 @@ module.exports = {
       layout: 'Empty',
       component: 'Search',
       config: {
+        type:"default", //更换按钮样式
         share: 'userVido',
         fields: [
-          {field: 'userName', label: '用户', type: 'input'}
+          {field: 'userName', placeholder: '用户', type: 'search'}//search 完善样式
         ],
       },
     },

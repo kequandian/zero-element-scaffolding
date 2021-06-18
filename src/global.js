@@ -208,5 +208,5 @@ VTSet({
   'time_selection': FITSet_TimeSelection,
   'input_num_and_unit': FITSet_InputNumAndUnit,
   'plain_num_and_unit': FITSet_PlainNumAndUnit,
-  'time_selection_and_disaible': FITSet_TimeSelectionAndDisaible,
+  'time_selection_and_disaible': FITSet_TimeSelectionAndDisaible
 });
