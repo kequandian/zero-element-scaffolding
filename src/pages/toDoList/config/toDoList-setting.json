@@ -109,8 +109,8 @@
       "options": {
         "outside": true,
         "tips": "确定要撤销申请吗?",
-        "API": "/api/wf/instances/(id)",
-        "method": "delete"
+        "API": "/api/wf/instances/(id)/reject",
+        "method": "put"
       },
       "expect": {
         "permission": "",

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { message } from 'antd';
 import { history } from 'umi';
 import Generator from 'fr-generator';
-import copyTOClipboard from 'copy-text-to-clipboard';
+// import copyTOClipboard from 'copy-text-to-clipboard';
 
 import { defaultSettings, defaultCommonSettings, defaultGlobalSettings } from './settings';
 
