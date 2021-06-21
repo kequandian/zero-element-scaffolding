@@ -55,10 +55,10 @@ module.exports = {
             label: '动作名称', field: 'action',
             width: '200px',
           },
-          {
-            label: '时间位置', field: 'frameTimePosition', valueType: 'secound_to_hms',
-            width: '180px',
-          },
+          // {
+          //   label: '时间位置', field: 'frameTimePosition', valueType: 'secound_to_hms',
+          //   width: '180px',
+          // },
           {
             label: '持续时长', field: 'duration', valueType: 'secound_to_hms',
             options: {

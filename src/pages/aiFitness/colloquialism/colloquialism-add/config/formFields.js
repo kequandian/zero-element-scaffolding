@@ -1,6 +1,6 @@
 module.exports = [
   {
-    label: '模型', field: 'modelEnglishName', type: 'select', rules: [
+    label: '模型', field: 'modelName', type: 'select', rules: [
       {
         "type": "required"
       }

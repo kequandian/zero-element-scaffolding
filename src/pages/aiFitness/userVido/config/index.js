@@ -35,6 +35,12 @@ module.exports = {
         fields: [
           {label: '视频', field: 'videoSrc', valueType: 'video',width: '150px'},
           {
+            label: '时长', field: 'trainingTime', valueType: 'secound_to_hms',
+            options: {
+              format: '时分秒'
+            }
+          },
+          {
             label: '用户',
             options: {
               fields: [
@@ -65,12 +71,6 @@ module.exports = {
           {label: '运动处方', field: ''},
           {label: '评分', field: 'score'},
           {label: '动作指导师', field: 'coacherName'},
-          {
-            label: '时长', field: 'trainingTime', valueType: 'secound_to_hms',
-            options: {
-              format: '时分秒'
-            }
-          },
           {label: '训练时间', field: 'trainingDate', valueType: 'time-convert'},
 
         ],

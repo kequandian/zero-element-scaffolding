@@ -1,6 +1,6 @@
 module.exports = [
   {
-    label: '模型', field: 'modelEnglishName', type: 'input', rules: [
+    label: '模型', field: 'modelName', type: 'input', rules: [
       {
         "type": "required"
       }

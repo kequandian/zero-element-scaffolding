@@ -75,6 +75,16 @@ module.exports = [
     },
     type: 'text-area',
     field: 'trainingType'
+  },
+  {
+    label: '序号', field: 'sortNum', type: 'number',
+    min: 0,
+    props: {
+      placeholder: "请输入序号",
+      style: {
+        width: '350px',
+      }
+    }
   }
 
 ];

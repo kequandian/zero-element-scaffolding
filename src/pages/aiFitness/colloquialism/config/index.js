@@ -12,7 +12,7 @@ module.exports = {
         type:"default",
         share: 'colloquialism',
         fields: [
-          { field: 'modelEnglishName', placeholder: '模型', type: 'search' }
+          { field: 'modelName', placeholder: '模型', type: 'search' }
         ],
       },
     },
@@ -56,7 +56,7 @@ module.exports = {
 
         fields: [
           {
-            label: '模型', field: 'modelEnglishName', width: 180,
+            label: '模型', field: 'modelName', width: 240,
             options: {
               style: {
                 fontWeight: 900

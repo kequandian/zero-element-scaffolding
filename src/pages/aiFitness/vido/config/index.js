@@ -53,6 +53,14 @@ module.exports = {
         ],
         fields: [
           {
+            field: 'sortNum', label: '序号', width: 120, align: 'center',
+            options: {
+              style: {
+                fontWeight: 900
+              }
+            }
+          },
+          {
             field: 'vidoSrc', label: '视频', width: 150, sorter: false,
             valueType: 'video',
             // options: {

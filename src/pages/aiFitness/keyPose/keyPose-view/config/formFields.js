@@ -1,3 +1,5 @@
+const { rightPoseConfig, leftPoseConfig } = require('./selectPoseConfig');
+
 module.exports = [
   { field: 'group_5', type: 'group', value: '关键动作', span: 24, },
   {
@@ -28,7 +30,7 @@ module.exports = [
     type: 'plain',
     field: 'gesture',
   },
-  { label: '时间位置', field: 'frameTimePosition', type: 'secound_to_hms' },
+  // { label: '时间位置', field: 'frameTimePosition', type: 'secound_to_hms' },
   {
     label: '持续时长', field: 'duration', type: 'secound_to_hms',
     options: {
@@ -75,18 +77,7 @@ module.exports = [
                           width: 300
                         }
                       },
-                      options: [
-                        { label: '右手腕', value: 'Right wrist' },
-                        { label: '右眼', value: 'Right eyes' },
-                        { label: '右肘', value: 'Right elbow' },
-                        { label: '右耳', value: 'Right ear' },
-                        { label: '右肩', value: 'Right shoulder' },
-                        { label: '右臂', value: 'Right hip' },
-                        { label: '右膝', value: 'Right knee' },
-                        { label: '右脚踝', value: 'Right ankie' },
-                        { label: '脖子', value: 'Neck' },
-                        { label: '鼻子', value: 'Nose' },
-                      ]
+                      options: rightPoseConfig
                     },
                     {
                       label: '姿势单元2', field: 'poseSecond', type: 'select',
@@ -97,18 +88,7 @@ module.exports = [
                           width: 300
                         }
                       },
-                      options: [
-                        { label: '左手腕', value: 'Left wrist' },
-                        { label: '左眼', value: 'Left eyes' },
-                        { label: '左肘', value: 'Left elbow' },
-                        { label: '左耳', value: 'Left ear' },
-                        { label: '左肩', value: 'Left shoulder' },
-                        { label: '左臂', value: 'Left hip' },
-                        { label: '左膝', value: 'Left knee' },
-                        { label: '左脚踝', value: 'Left ankie' },
-                        { label: '脖子', value: 'Neck' },
-                        { label: '鼻子', value: 'Nose' },
-                      ]
+                      options: leftPoseConfig
                     },
                     {
                       label: '连接方式', field: 'poseType', type: 'select',
@@ -163,36 +143,14 @@ module.exports = [
           label: '姿势单元1', field: 'poseFirst', valueType: 'input-select',
           width: '200px',
           options: {
-            options: [
-              { label: '右手腕', value: 'Right wrist' },
-              { label: '右眼', value: 'Right eyes' },
-              { label: '右肘', value: 'Right elbow' },
-              { label: '右耳', value: 'Right ear' },
-              { label: '右肩', value: 'Right shoulder' },
-              { label: '右臂', value: 'Right hip' },
-              { label: '右膝', value: 'Right knee' },
-              { label: '右脚踝', value: 'Right ankie' },
-              { label: '脖子', value: 'Neck' },
-              { label: '鼻子', value: 'Nose' },
-            ]
+            options: rightPoseConfig
           },
         },
         {
           label: '姿势单元2', field: 'poseSecond', valueType: 'input-select',
           width: '200px',
           options: {
-            options: [
-              { label: '左手腕', value: 'Left wrist' },
-              { label: '左眼', value: 'Left eyes' },
-              { label: '左肘', value: 'Left elbow' },
-              { label: '左耳', value: 'Left ear' },
-              { label: '左肩', value: 'Left shoulder' },
-              { label: '左臂', value: 'Left hip' },
-              { label: '左膝', value: 'Left knee' },
-              { label: '左脚踝', value: 'Left ankie' },
-              { label: '脖子', value: 'Neck' },
-              { label: '鼻子', value: 'Nose' },
-            ]
+            options: leftPoseConfig
           }
         },
         {
