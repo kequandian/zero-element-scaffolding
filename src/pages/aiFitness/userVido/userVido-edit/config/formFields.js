@@ -15,7 +15,7 @@ module.exports = [
     field: 'userName',
   },
   {
-    label: "视频",
+    label: "用户训练视频",
     rules: [],
     field: "videoSrc",
     type: "upload_file_single",
@@ -26,7 +26,7 @@ module.exports = [
     }
   },
   {
-    label: '视频名称', field: 'videoName', type: 'plain'
+    label: '标准动作名称', field: 'videoName', type: 'plain'
   },
   // {
   //   label: '运动处方', field: '', type: 'input', width: '350px',

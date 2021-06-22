@@ -11,6 +11,15 @@ module.exports = [
   },
   { field: 'group_5', type: 'group', value: '视频基本信息', span: 24, },
   {
+    label: '视频编号', field: 'sortNum', type: 'plain',
+    props: {
+      style: {
+        fontSize: '28px',
+        fontWeight: 900
+      }
+    }
+  },
+  {
     field: 'vidoSrc', label: '视频', width: 200,
     type: 'videoview',
     // options: {

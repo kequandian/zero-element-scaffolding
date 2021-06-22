@@ -34,7 +34,7 @@ export default function UploadFile(props) {
   }, [fileList, value]);
 
   const uploadButton = (
-    <Button>
+    <Button {...restProps}>
       {loading ? <LoadingOutlined /> : <PlusOutlined />}
       {title}
     </Button>

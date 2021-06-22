@@ -9,7 +9,7 @@ export default function salesChancEdit({ location }) {
   useBreadcrumb([
       { title: '首页', path: '/admin' },
       { title: '视频管理',path:'/aiFitness/vido'},
-      { title: '视频详细'}
+      { title: '视频详情'}
   ]);
   return <div>
     <ZEle

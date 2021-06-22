@@ -33,7 +33,7 @@ module.exports = {
         // ],
 
         fields: [
-          {label: '视频', field: 'videoSrc', valueType: 'video',width: '150px'},
+          {label: '用户训练视频', field: 'videoSrc', valueType: 'video',width: '150px'},
           {
             label: '时长', field: 'trainingTime', valueType: 'secound_to_hms',
             options: {
@@ -67,7 +67,7 @@ module.exports = {
             align: 'center',
             valueType: 'complex'
           },
-          {label: '视频名称', field: 'videoName'},
+          {label: '标准动作名称', field: 'videoName'},
           {label: '运动处方', field: ''},
           {label: '评分', field: 'score'},
           {label: '动作指导师', field: 'coacherName'},

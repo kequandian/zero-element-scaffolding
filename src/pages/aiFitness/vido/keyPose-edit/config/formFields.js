@@ -131,18 +131,17 @@ module.exports = [
                     {
                       label: '阈值', field: 'threshold', type: 'input_num_and_unit',
                       rules: ['required'],
-                      bindfield: 'angle',
                       props: {
                         placeholder: "请输入阈值",
                         style: {
                           width: 280
-                        }
+                        },
+                        unit: '°',
                       }
                     },
                     {
                       label: '角度值', field: 'angle', type: 'input_num_and_unit',
                       rules: ['required'],
-                      bindfield: 'threshold',
                       props: {
                         placeholder: "请输入角度值",
                         style: {
@@ -211,25 +210,24 @@ module.exports = [
         },
         {
           label: '阈值', field: 'threshold', valueType: 'input_num_and_unit',
-          bindfield: 'angle',
           width: '120px',
           props: {
             placeholder: "请输入阈值",
             style: {
               width: 120
-            }
+            },
+            unit: '°',
           }
         },
         {
           label: '角度值', field: 'angle', valueType: 'input_num_and_unit',
-          bindfield: 'threshold',
           width: '120px',
           props: {
             placeholder: "请输入角度值",
-            unit: '°',
             style: {
               width: 120
             },
+            unit: '°',
           }
         },
       ],

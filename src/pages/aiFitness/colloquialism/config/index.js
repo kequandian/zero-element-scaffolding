@@ -86,7 +86,7 @@ module.exports = {
           {
             title: '编辑', type: 'modal',
             options: {
-              outside: false,
+              outside: true,
               modalTitle: '编辑话术',
               modalWidth: 600,
               items: [

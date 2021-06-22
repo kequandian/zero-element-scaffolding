@@ -1,6 +1,6 @@
 module.exports = [
-  { label: '视频', field: 'videoSrc', type: 'videoview' },
-  { label: '视频名称', field: 'videoName', type: 'plain' },
+  { label: '用户训练视频', field: 'videoSrc', type: 'videoview' },
+  { label: '标准动作名称', field: 'videoName', type: 'plain' },
   {
     label: '头像', field: 'avator', type: 'image',
     options: {

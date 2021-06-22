@@ -12,6 +12,17 @@ module.exports = [
   //   type: 'upload-file',
   //   field: 'vidoSrc'
   // },
+  
+  {
+    label: '序号', field: 'sortNum', type: 'number',
+    min: 0,
+    props: {
+      placeholder: "请输入序号",
+      style: {
+        width: '350px',
+      }
+    }
+  },
   {
     label: "上传视频",
     rules: [
@@ -25,6 +36,11 @@ module.exports = [
       title: "点击上传",
       API: "/api/fs/uploadfile",
       acceptType: ".mp4, .avi, .rmvb"
+    },
+    props:{
+      style:{
+        width: "200px"
+      }
     }
   },
   {
@@ -76,15 +92,5 @@ module.exports = [
     type: 'text-area',
     field: 'trainingType'
   },
-  {
-    label: '序号', field: 'sortNum', type: 'number',
-    min: 0,
-    props: {
-      placeholder: "请输入序号",
-      style: {
-        width: '350px',
-      }
-    }
-  }
 
 ];

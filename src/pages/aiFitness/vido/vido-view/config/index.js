@@ -3,7 +3,7 @@ const formFields = require('./formFields');
 
 module.exports = {
   layout: 'BaseTitle',
-  title: '视频详细',
+  title: '视频详情',
   items: [
     {
       layout: 'Content',

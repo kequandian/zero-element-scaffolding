@@ -43,7 +43,7 @@ module.exports = {
             }
           },
           {
-            field: 'poseModelImage', label: '动作特征',
+            field: 'poseModelImage', label: '动作模型',
             width: '180px',
             valueType: 'image',
             options: {

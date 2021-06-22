@@ -32,16 +32,16 @@ module.exports = [
       height: '',
     },
   },
-  {
-    label: '动作特征',
-    type: 'image',
-    field: 'poseModelImage',
-    options: {
-      width: 240,
-      height: '',
-    },
+  // {
+  //   label: '动作特征',
+  //   type: 'image',
+  //   field: 'poseModelImage',
+  //   options: {
+  //     width: 240,
+  //     height: '',
+  //   },
     
-  },
+  // },
   {
     label: '时间位置',
     rules: [ 'required'],
