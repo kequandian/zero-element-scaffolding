@@ -26,7 +26,8 @@ module.exports = {
         API: {
           getAPI: setting.getAPI,
           updateApplyAPI: setting.updateApplyAPI,
-          getApplyHistoryAPI: setting.getApplyHistoryAPI
+          getApplyHistoryAPI: setting.getApplyHistoryAPI,
+          getApplyInfoAPI: setting.getApplyInfoAPI
         },
         layout: 'Grid',
         layoutConfig: {

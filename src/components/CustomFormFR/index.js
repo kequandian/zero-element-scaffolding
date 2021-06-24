@@ -13,6 +13,8 @@ import extraFieldType from 'zero-element-antd/lib/container/Form/utils/extraFiel
 import canPortal from 'zero-element-antd/lib/utils/canPortal';
 import { setPageData, getPageData, clearPageData, getHooks } from 'zero-element/lib/Model';
 
+import promiseAjax from '@/utils/promiseAjax';
+
 import './index.css';
 
 const defaultLabelCol = {
@@ -65,7 +67,7 @@ export default function CustomtForm(props) {
   // const [custWorkFlowId, setCustWorkFlowId] = useState('');
 
   //新增属性
-  const { footerButton = true, submitBtnText = '保存', isApplied = false, 
+  const { footerButton = true, submitBtnText = '', isApplied = false, 
     applyFormFileds, pageType = '', nextBtn, nextPageUrl, frJsonType = 'tableJson' } = otherProps;
 
   const initData = useRef({
@@ -91,6 +93,8 @@ export default function CustomtForm(props) {
   const [fields, setFields] = useState(fieldsCfg);
   const { onGetOne, onCreateForm, onUpdateForm, onClearForm } = handle;
   const [canRenderForm, setCanRenderForm] = useState(API.getAPI ? false : true);
+  const [isNext, setIsNext] = useState(true);
+
 
   // useMemo(recordDefaultValue, [fields]);
   useDidMount(_ => {
@@ -234,8 +238,18 @@ export default function CustomtForm(props) {
       submitData = onFormMap(submitData, pageDataFormData);
     }
 
-    //下一页
-    onNext(submitData);
+    console.log("isNext = ", isNext)
+    if(isNext){
+      //下一页
+      onNext(submitData);
+    }else{
+      onCreateForm({
+        fields: submitData,
+        options: requestOptions
+      }).then(handleResponse);
+    }
+
+
   }
 
   function handleResponse(data = {}, opt = {}) {
@@ -280,6 +294,7 @@ export default function CustomtForm(props) {
     forceUpdate();
   }
 
+  //下一步数据处理 与 跳转页面
   function onNext(submitData){
     submitData.API = API;
     submitData.custActivityId = custActivityId;
@@ -294,7 +309,8 @@ export default function CustomtForm(props) {
 
   //保存按钮点击事件
   function renderFooter() {
-    function onSubmit() {
+    function onSubmit(status) {
+      setIsNext(status)
       form.submit();
     }
 
@@ -305,7 +321,9 @@ export default function CustomtForm(props) {
     const classes = MODAL ? 'ant-modal-footer' : 'ZEle-Form-footer';
     return <div className={classes}>
       <Button onClick={handleReset}>重置</Button>
-      <Button type="primary" htmlType="submit" onClick={onSubmit}>{nextBtn}</Button>
+      <Button type="primary" htmlType="submit" onClick={() => onSubmit(true)}>{nextBtn}</Button>
+      { submitBtnText ?  <Button type="primary" htmlType="submit" onClick={() => onSubmit(false)}>{submitBtnText}</Button> : null}
+      
     </div>
   }
   

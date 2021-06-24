@@ -16,6 +16,7 @@
     "publicApplyUrl": "/api/wf/instances/instanceAndForm/push"
   },
   "getApplyHistoryAPI": "/api/wf/histories",
+  "getApplyInfoAPI": "/api/wf/instanceAndForm/value/(id)",
   "columns": 1,
   "createFields": [
     {

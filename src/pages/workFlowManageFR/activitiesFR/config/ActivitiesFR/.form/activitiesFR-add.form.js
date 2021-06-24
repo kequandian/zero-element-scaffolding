@@ -85,7 +85,8 @@ module.exports = {
         otherProps:{
           nextBtn: '下一步',
           nextPageUrl: '/workFlowManageFR/activitiesFR/activitiesFR-schema',
-          frJsonType: 'designData'
+          frJsonType: 'designData',
+          submitBtnText: '完成'
         }
       }
     },

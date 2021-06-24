@@ -294,7 +294,8 @@
         "outside": false
       },
       "expect": {
-        "permission": ""
+        "field": "allowDelete",
+        "value": true
       }
     }
   ],

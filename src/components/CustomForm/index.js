@@ -195,6 +195,11 @@ export default function CustomtForm(props) {
           handleGetActivitiesLayout(applyFormInfo);
         } else {
 
+          //我的申请，待办事项详情 获取申请信息
+          if(API.getApplyInfoAPI){
+            handleGetFormInfo(data.id);
+          }
+
           handleGetApplyHistory(data.id);
 
           if (data.status == 'CLOSE_REJECTED' || data.status == 'CLOSE_APPROVED') {
@@ -286,6 +291,27 @@ export default function CustomtForm(props) {
   }
 
   //获取审核历史数据
+  function handleGetFormInfo(id) {
+    let path = API.getApplyInfoAPI;
+    if(path && path.indexOf('(id)' != -1)){
+      path = path.replace('(id)', id);
+    }
+    const apiUrl = `${getEndpoint()}${path}`
+    const queryData = {
+    }
+    promiseAjax(apiUrl, queryData)
+      .then(resp => {
+
+        if (resp && resp.code === 200) {
+          const data = resp.data;
+          form.setFieldsValue({ ...data });
+        } else {
+          console.log('获取申请信息失败')
+        }
+      })
+  }
+
+  //获取审核历史数据
   function handleGetApplyHistory(id) {
     const getApplyHistoryAPI = API.getApplyHistoryAPI;
     const apiUrl = `${getEndpoint()}${getApplyHistoryAPI}`
@@ -339,6 +365,9 @@ export default function CustomtForm(props) {
     const { approveUrl, rollbackUrl, rejectUrl, publicApplyUrl } = API.updateApplyAPI;
 
     let formatApi = publicApplyUrl;
+    if(publicApplyUrl.indexOf('(id)') != -1){
+      formatApi = formatApi.replace('(id)', custWorkFlowId);
+    }
     const queryData = subData;
     queryData.processId = initData.current.id;
 

@@ -1,4 +1,4 @@
-const setting = require('./myApply-setting.json');
+const setting = require('./flowApplyManageAuth-setting.json');
 const applyFormFileds = require("./approveFormConfig");
 const applyHistoryFileds = require("./approveHistory");
 

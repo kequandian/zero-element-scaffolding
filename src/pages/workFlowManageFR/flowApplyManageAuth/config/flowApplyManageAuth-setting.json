@@ -1,10 +1,10 @@
 {
   "pageName": {
-    "table": "我的申请",
+    "table": "流程申请管理",
     "new": "",
     "edit": ""
   },
-  "listAPI": "/api/wf/instances?type=CREATOR",
+  "listAPI": "/api/wf/instances/skipFilter",
   "createAPI": "",
   "getAPI": "/api/wf/instanceAndForm/byTableJSON/[id]",
   "updateAPI": "",
