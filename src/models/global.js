@@ -35,6 +35,7 @@ createModel({
         
         //register 限制访问 permissions
         const stopPerm = window.localStorage.getItem('stopPerm');
+        console.log('stopPerm = ', stopPerm);
         if(stopPerm){
           return
         }
