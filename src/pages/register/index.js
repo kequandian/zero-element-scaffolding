@@ -1,5 +1,6 @@
 import React from 'react';
 import { history } from 'umi';
+import { message } from 'antd';
 import qs from 'qs';
 import { getToken, saveToken } from 'zero-element/lib/utils/request/token';
 import { useModel } from 'zero-element/lib/Model';
@@ -14,7 +15,10 @@ export default function (props) {
         saveToken({
             token,
         })
-        model.queryPerm(true);
+        model.queryPerm(false);
+        history.push('/admin');
+    }else{
+        message.error('token不能为空')
     }
 
   return <div></div>
