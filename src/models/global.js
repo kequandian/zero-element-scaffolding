@@ -30,9 +30,7 @@ createModel({
       if (getToken()) {
 
         if(status){
-          this.setRequestCount(0);
-        }else{
-          return;
+          this.setRequestCount(1);
         }
 
         if(process.env.NODE_ENV === 'development' && this.getRequestCount() >= 3){ //开发模式 并 限制只访问三次
