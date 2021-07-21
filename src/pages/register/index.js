@@ -15,7 +15,8 @@ export default function (props) {
         saveToken({
             token,
         })
-        model.queryPerm(false);
+        model.setRequestCount(3);
+        model.queryPerm(true);
         history.push('/admin');
     }else{
         message.error('token不能为空')
