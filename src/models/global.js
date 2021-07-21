@@ -33,13 +33,6 @@ createModel({
           this.setRequestCount(1);
         }
         
-        //register 限制访问 permissions
-        const stopPerm = window.localStorage.getItem('stopPerm');
-        console.log('stopPerm = ', stopPerm);
-        if(stopPerm){
-          return
-        }
-
         if(process.env.NODE_ENV === 'development' && this.getRequestCount() >= 3){ //开发模式 并 限制只访问三次
           return;
         }else if(process.env.NODE_ENV === 'production' && this.getRequestCount() >= 3){ //生成模式 并 限制只访问三次
