@@ -35,7 +35,7 @@ createModel({
         
         //register 限制访问 permissions
         const permStatus = window.localStorage.getItem('permStatus');
-        if(permStatus){
+        if(!permStatus){
           return
         }
 
