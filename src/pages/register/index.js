@@ -16,7 +16,7 @@ export default function (props) {
             token,
         })
         // model.queryPerm(false);
-        window.localStorage.setItem('permStatus', false)
+        window.localStorage.setItem('stopPerm', true)
         history.push({
             pathname: '/admin',
             search:{
