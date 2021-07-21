@@ -29,7 +29,7 @@ export default function PrimaryLayout({
 
   useEffect(_ => {
     if (documentVisibility === 'visible') {
-      globalModel.queryPerm(true);
+      globalModel.queryPerm();
       // menuConfigModel.queryPerm();
     }
   }, [permissions, documentVisibility]);
