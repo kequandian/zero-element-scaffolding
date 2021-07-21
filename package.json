@@ -13,7 +13,7 @@
     "@umijs/preset-react": "^1.5.12",
     "braft-editor": "^2.3.9",
     "form-render": "^0.9.12",
-    "fr-generator": "^1.0.1",
+    "fr-generator": "https://gitee.com/smallsaas/zero-element-generator.git",
     "jparticles": "^2.0.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -22,7 +22,7 @@
     "webpack-dev-server": "^2.9.1",
     "zero-element": "^1.1.10",
     "zero-element-antd": "github:kequandian/zero-element-antd",
-    "zero-element-plugins": "git://github.com/kequandian/zero-element-plugins.git#master"
+    "zero-element-plugins": "github:kequandian/zero-element-plugins"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",

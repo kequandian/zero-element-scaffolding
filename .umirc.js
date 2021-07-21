@@ -1,7 +1,7 @@
 
 // ref: https://umijs.org/config/
 export default {
-  title: 'zero-code',
+  title: 'Zero_V1.1',
   hash: true,
   // history: {
   //   type: 'hash',
