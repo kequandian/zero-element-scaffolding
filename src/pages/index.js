@@ -8,15 +8,6 @@ export default function (props) {
   // if (win.ZEle.indexPage) {
   //   history.push(win.ZEle.indexPage);
   // }
-  
-  const { location } = props;
-  
-  const { permStatus } = qs.parse(location.search.replace('?', ''));
-
-  if(permStatus){
-    window.localStorage.setItem('permStatus', false)
-  }
-  console.log('home props = ', permStatus)
 
   if (getToken()) {
     history.push('/admin');
