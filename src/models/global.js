@@ -38,26 +38,26 @@ createModel({
         }else if(process.env.NODE_ENV === 'production' && this.getRequestCount() >= 3){ //生成模式 并 限制只访问三次
           return;
         }
-        if (!this.permissions || Array.isArray(this.permissions)) {
-          query('/api/adm/users/self/permissions')
-            .then(response => {
-              if (response.status === 200) {
-                const { perms } = response.data.data;
-                this.setRequestCount(this.getRequestCount()+1);
-                this.setPerm(perms);
-              }
-            })
-            .catch(_ => {
-              this.setRequestCount(this.getRequestCount()+1);
-              return sleep(5000).then(_ => {
-                this.clearPerm();
-              })
-            })
-        }
-      } else {
-        sleep(5000).then(_ => {
-          this.clearPerm();
-        })
+      //   if (!this.permissions || Array.isArray(this.permissions)) {
+      //     query('/api/adm/users/self/permissions')
+      //       .then(response => {
+      //         if (response.status === 200) {
+      //           const { perms } = response.data.data;
+      //           this.setRequestCount(this.getRequestCount()+1);
+      //           this.setPerm(perms);
+      //         }
+      //       })
+      //       .catch(_ => {
+      //         this.setRequestCount(this.getRequestCount()+1);
+      //         return sleep(5000).then(_ => {
+      //           this.clearPerm();
+      //         })
+      //       })
+      //   }
+      // } else {
+      //   sleep(5000).then(_ => {
+      //     this.clearPerm();
+      //   })
       }
     },
     getPerm() {
