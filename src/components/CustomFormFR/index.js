@@ -13,8 +13,6 @@ import extraFieldType from 'zero-element-antd/lib/container/Form/utils/extraFiel
 import canPortal from 'zero-element-antd/lib/utils/canPortal';
 import { setPageData, getPageData, clearPageData, getHooks } from 'zero-element/lib/Model';
 
-import promiseAjax from '@/utils/promiseAjax';
-
 import './index.css';
 
 const defaultLabelCol = {
