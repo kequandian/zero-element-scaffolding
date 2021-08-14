@@ -15,7 +15,8 @@ export default function () {
     const [pageConfig, setPageConfig] = useState('')
 
     useDidMount(_ => {
-      const apiUrl = `/api/config`;
+      // const apiUrl = `/api/config`;
+      const apiUrl = `https://api.mock.smallsaas.cn/data?id=1`;
       const queryData = {
       };
       promiseAjax(apiUrl, queryData)
