@@ -2,7 +2,8 @@ if (window.ZEle === undefined) {
   window.ZEle = {};
 }
 // window.ZEle.endpoint = "http://192.168.3.239:8090";
-window.ZEle.endpoint = "http://sandbox.f.gateway.host.smallsaas.cn:81/";
+// window.ZEle.endpoint = "http://demo.smallsaas.cn";
+window.ZEle.endpoint = "";
 window.ZEle.nav = "both"; // LeftNavCollaps left top both
 window.ZEle.indexPage = "";
 window.ZEle.breadcrumb = true;
