@@ -79,6 +79,7 @@ import FITSet_pcdm from '@/../zero-antd-dep/formItemType/PCDM';
 import FITSet_pcdForSearch from '@/../zero-antd-dep/formItemType/PCDForSearch';
 import FITSet_toptips from '@/../zero-antd-dep/formItemType/Toptips';
 import FITSet_imageBox from '@/../zero-antd-dep/formItemType/ImageBox';
+import FITSet_path from '@/../zero-antd-dep/formItemType/path';
 import AITSet_modal from '@/../zero-antd-dep/actionItemType/Modal';
 import AITSet_request from '@/../zero-antd-dep/actionItemType/Request';
 import AITSet_childrenModalAdd from '@/../zero-antd-dep/actionItemType/ChildrenModalAdd';
@@ -193,6 +194,7 @@ FITSet({
 'pcdForSearch': FITSet_pcdForSearch,
 'toptips': FITSet_toptips,
 'imageBox': FITSet_imageBox,
+'path': FITSet_path,
 
 });
 

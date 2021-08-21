@@ -11,6 +11,7 @@
 /dist
 /zero-antd-dep
 /libs/schema-generator/node_modules
+dist.rar
 
 # misc
 .DS_Store

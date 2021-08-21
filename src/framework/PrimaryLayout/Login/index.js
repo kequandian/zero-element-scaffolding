@@ -15,7 +15,7 @@ import { TestUserSelection } from 'zero-element-plugins';
 
 import { LS } from 'zero-element/lib/utils/storage';
 
-import { ConfigSvg, DocSvg, MoreSvg, TableSvg } from './svg/Svg'
+import { ConfigSvg, DocSvg, MoreSvg, TableSvg,WorkflowSvg } from './svg/Svg'
 
 import './index.less'
 
@@ -163,6 +163,7 @@ const formMenu = (
   
   return (
     <div style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center' }}>
+      <a className="Svg" href="https://r.zbsoft.top/sport" style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}><WorkflowSvg width="30" height="30"/></a>
       <Dropdown
         trigger={['click']}
         placement="bottomLeft"
