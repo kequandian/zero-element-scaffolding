@@ -18,7 +18,6 @@ import { set as FITSet } from 'zero-element/lib/config/formItemType';
 import { set as AITSet } from 'zero-element/lib/config/actionItemType';
 import { set as VTSet } from 'zero-element/lib/config/valueType';
 
-
 // import onPath from '@/../zero-antd-dep/listAction/onPath';
 
 import path from '@/actionItemType/path';
@@ -51,6 +50,7 @@ import FITSet_dynamic_radio from '@/components/FormItemType/DynamicRadio';
 import FITSet_local_radio from '@/components/FormItemType/LocalRadio';
 import FITSet_modal_radio from '@/components/FormItemType/ModalRadio';
 import FITSet_Perm from '@/formItemType/Perm';
+
 
 import FITSet_UploadImageCard from '@/formItemType/UploadImageCard';
 import FITSet_Agree_Agreement from '@/formItemType/AgreeAgreement'

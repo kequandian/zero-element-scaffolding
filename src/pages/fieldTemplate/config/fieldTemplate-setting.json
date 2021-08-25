@@ -1,0 +1,335 @@
+{
+    "pageName": {
+      "table": "字段模板",
+      "new": "新增字段模板",
+      "edit": "更改字段模板"
+    },
+    "listAPI": "/api/crud/fieldModel/fieldModels",
+    "createAPI": "/api/crud/fieldModel/fieldModels",
+    "getAPI": "/api/crud/fieldModel/fieldModels/[id]",
+    "updateAPI": "/api/crud/fieldModel/fieldModels/[id]",
+    "deleteAPI": "/api/crud/fieldModel/fieldModels/(id)",
+    "columns": 1,
+    "createFields": [
+        {
+            "label":"模板名称",
+            "rules":[
+                {
+                    "type":"required"
+                }
+            ],
+            "props":{
+                "placeholder":"请输入模板名称"
+            },
+            "type":"input",
+            "field":"templateName"
+        },
+        {
+            "label":"默认值",
+            "props":{
+                "placeholder":"请输入默认值"
+            },
+            "type":"input",
+            "field":"defaultValue"
+        },
+        {
+            "label":"是否非空",
+            "rules":[
+                {
+                    "type":"required"
+                }
+            ],
+            "type":"switch",
+            "field":"isNotNull"
+        },
+        {
+            "label":"是否唯一",
+            "rules":[
+                {
+                    "type":"required"
+                }
+            ],
+            "type":"switch",
+            "field":"isUnique"
+        },
+        {
+            "label":"字段类型",
+            "rules":[
+                {
+                    "type":"required"
+                }
+            ],
+            "props":{
+                "placeholder":"请输入字段类型"
+            },
+            "options":[
+                {"label":"long","value":"long"},
+                {"label":"smallint","value":"smallint"},
+                {"label":"int","value":"int"},
+                {"label":"decimal","value":"decimal"},
+                {"label":"varchar","value":"varchar"}
+            ],
+            "span":"24",
+            
+            "type":"select",
+            "field":"fieldType"
+        },
+        {
+            "label":"字段大小",
+            "props":{
+                "placeholder":"请输入字段大小"
+            },
+            "type":"input",
+            "field":"fieldLength"
+        },
+        {
+            "label":"小数大小",
+            "props":{
+                "placeholder":"请输入字段小数大小"
+            },
+            "type":"input",
+            "field":"fieldFloatLength"
+        },
+        {
+            "label":"注释",
+            "props":{
+                "placeholder":"请输入注释"
+            },
+            "autoSize":{
+                "minRows":4
+            },
+            "type":"text-area",
+            "field":"comments"
+        }
+    ],
+    "updateFields": [
+        {
+            "label":"模板名称",
+            "rules":[
+                {
+                    "type":"required"
+                }
+            ],
+            "props":{
+                "placeholder":"请输入模板名称"
+            },
+            "type":"input",
+            "field":"templateName"
+        },
+        {
+            "label":"默认值",
+            "props":{
+                "placeholder":"请输入默认值"
+            },
+            "type":"input",
+            "field":"defaultValue"
+        },
+        {
+            "label":"是否非空",
+            "rules":[
+                {
+                    "type":"required"
+                }
+            ],
+            "type":"switch",
+            "field":"isNotNull"
+        },
+        {
+            "label":"是否唯一",
+            "rules":[
+                {
+                    "type":"required"
+                }
+            ],
+            "type":"switch",
+            "field":"isUnique"
+        },
+        {
+            "label":"字段类型",
+            "rules":[
+                {
+                    "type":"required"
+                }
+            ],
+            "props":{
+                "placeholder":"请输入字段类型"
+            },
+            "options":[
+                {"label":"long","value":"long"},
+                {"label":"smallint","value":"smallint"},
+                {"label":"int","value":"int"},
+                {"label":"decimal","value":"decimal"},
+                {"label":"varchar","value":"varchar"}
+            ],
+            "span":"24",
+            
+            "type":"select",
+            "field":"fieldType"
+        },
+        {
+            "label":"字段大小",
+            "props":{
+                "placeholder":"请输入字段大小"
+            },
+            "type":"input",
+            "field":"fieldLength"
+        },
+        {
+            "label":"小数大小",
+            "props":{
+                "placeholder":"请输入字段小数大小"
+            },
+            "type":"input",
+            "field":"fieldFloatLength"
+        },
+        {
+            "label":"注释",
+            "props":{
+                "placeholder":"请输入注释"
+            },
+            "autoSize":{
+                "minRows":4
+            },
+            "type":"text-area",
+            "field":"comments"
+        }
+    ],
+    "map": {},
+    "layout": {
+      "table": "Content",
+      "form": "TitleContent"
+    },
+    "tableActions": [
+        {
+            "title":"添加","type":"path",
+            "options":{
+                "style":"primary",
+                "path":"/fieldTemplate/fieldTemplate-add"
+            }
+        }
+    ],
+    "tableOperation": [
+        {
+            "title":"详情","type":"path",
+            "options":{
+                "outside":true,
+                "path":"/fieldTemplate/fieldTemplate-view"
+            }
+        },
+        {
+            "title":"编辑","type":"path",
+            "options":{
+                "outside":true,
+                "path":"/fieldTemplate/fieldTemplate-edit"
+            }
+        },
+        {
+            "title":"删除","type":"delete"
+        }
+    ],
+    "tableFields":[
+        {"field":"templateName","label":"模板名称"},
+        {"field":"templateId","label":"模板ID"},
+        {"field":"masterId","label":"一对多关联表字段ID"},
+        {"field":"defaultValue","label":"默认值"},
+        {"field":"isNotNull","label":"是否非空","valueType":"tag","options":{
+            "map":{
+                "0":"否",
+                "1":"是" 
+            },
+            "chy":{
+                "0":"close",
+                "1":"open"
+              }
+        },"theme":"status","type":"default"},
+        {"field":"isUnique","label":"是否唯一","valueType":"tag","options":{
+            "map":{
+                "0":"否",
+                "1":"是" 
+            },
+            "chy":{
+                "0":"close",
+                "1":"open"
+              }
+        },"theme":"status","type":"default"},
+        {"field":"fieldType","label":"字段类型","valueType":"tag","options":{
+            "map":{
+                "long":"长字符串",
+                "smallint":"小整数",
+                "int":"整数",
+                "decimal":"精准数据类型",
+                "varchar":"字符"
+            }
+            ,"chy":{
+                "long":"blue",
+                "smallint":"cyan",
+                "int":"purple",
+                "decimal":"orange",
+                "varchar":"gray"
+              }
+        },"theme":"option","type":"Online"},
+        {"field":"fieldLength","label":"字段大小"},
+        {"field":"fieldFloatLength","label":"小数大小"}
+    ],
+    "searchFields": [
+        {
+            "label": "模板名称",
+            "field": "templateName",
+            "type": "search",
+            "props": {
+              "placeholder": "模板名称搜索"
+            }
+        },
+        {
+            "label": "模板id",
+            "field": "templateId",
+            "type": "search",
+            "props": {
+              "placeholder": "唯一标识,不可重复"
+            }
+        }
+    ],
+    "viewConfig": [{
+      "title": "详情",
+      "type": "plain",
+      "fields": [
+        {"field":"templateName","label":"模板名称"},
+        {"field":"templateId","label":"模板ID"},
+        {"field":"masterId","label":"一对多关联表字段ID"},
+        {"field":"defaultValue","label":"默认值"},
+        {"field":"isNotNull","label":"是否非空","options":{
+            "map":{
+                "0":"否",
+                "1":"是" 
+            },
+            "chy":{
+                "0":"close",
+                "1":"open"
+              }
+        }},
+        {"field":"isUnique","label":"是否唯一","options":{
+            "map":{
+                "0":"否",
+                "1":"是" 
+            },
+            "chy":{
+                "0":"close",
+                "1":"open"
+              }
+        }},
+        {"field":"fieldType","label":"字段类型","options":{
+            "map":{
+                "long":"长字符串",
+                "smallint":"小整数",
+                "int":"整数",
+                "decimal":"精准数据类型",
+                "varchar":"字符"
+            }
+        }},
+        {"field":"fieldLength","label":"字段大小"},
+        {"field":"fieldFloatLength","label":"小数大小"},
+        {"field":"comments","label":"注释"}
+      ]
+    }]
+  }
+  

@@ -28,7 +28,7 @@ export default function ImageButton(props) {
       <div className="ImageBox" >
         <div className="ImageButton" style={{background:image?`url(${image}) 100% 100%`:color}}>
           <div onClick={handClick}>
-            <p className="ImageButton Title">{svg}<span>{Title}</span></p>
+            <p className="ImageButton Title">{svg}<span style={{position: "relative",top: "-7px"}}>{Title}</span></p>
             <p className="ImageButton SubTitle">{SubTitle}</p>
           </div>
           <div className="Option" onClick={OptionClick}>{OptionSvg}</div>
