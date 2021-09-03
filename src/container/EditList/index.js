@@ -5,7 +5,7 @@ import { Drawer,Button,message,Empty,Spin } from 'antd';
 import { useDidMount } from 'zero-element/lib/utils/hooks/lifeCycle'
 import './public/index.less'
 import promiseAjax from '@/utils/promiseAjax';
-import {DeleteSvg, Edit} from './svg'
+import {AddSvg, DeleteSvg, Edit} from './svg'
 import ShowModal from './components/showModal';
 import OneMany from './components/oneMany';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
@@ -25,6 +25,7 @@ export default withRouter(function EditList(props) {
     PageId="",
     projectId="",
     name="",
+    NoModal=false,
     showAdd=true,
     showDelete=true,
     svg=<Edit/>
@@ -183,7 +184,7 @@ export default withRouter(function EditList(props) {
     }else{
       PutData=data
     }
-
+    console.log(data,"DATA")
     promiseAjax(apiUrl,PutData,options)
     .then(resp => {
       if (resp && resp.code === 200) {
@@ -206,7 +207,7 @@ export default withRouter(function EditList(props) {
     closable = {false}
     onClose = {onClose}
     visible = {visible}
-    width="500"
+    width="300"
   >
         {data?Array.isArray(data)?data.map((item,i)=><>
           <ShowModal title={_.get(item,title)||"组件无名称"}
@@ -222,8 +223,12 @@ export default withRouter(function EditList(props) {
               ></FormTools>
             </ShowModal>
             {showDelete?<div style={{cursor:"pointer",fontWeight:"bolder",position:"relative",height:"50px",lineHeight:"50px",float:"right",top:"-50px",right:"20px"}} onClick={()=>handleDelete(item.id)}><DeleteSvg/>删除</div>:null}
-        </>):<div>
-      <>
+        </>):NoModal?<>
+              <FormTools
+                formData={data}
+                config={ModelConfig}
+              ></FormTools>
+      </>:<div><>
           <ShowModal title={_.get(data,title)||"组件无名称"}
               titleLabel={title}
               field={_.get(data,field)||"空"}
@@ -245,6 +250,7 @@ export default withRouter(function EditList(props) {
           </Spin>
           }
           {showAdd?<ShowModal title={"添加"+name}
+          icon={<AddSvg/>}
               onSuccess={addMessage}
             >
               <FormTools

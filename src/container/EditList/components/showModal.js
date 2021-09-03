@@ -1,4 +1,4 @@
-import { Button,Modal,Card } from "antd";
+import { Button,Modal,Collapse  } from "antd";
 import React,{useState} from 'react'
 import { ComponentSvg } from "../svg";
 export default function ShowModal(props){
@@ -7,6 +7,7 @@ export default function ShowModal(props){
         titleLabel,
         field,
         fieldLabel,
+        icon,
         type="button",
         background="#1B7FBC",
         onSuccess=hide,
@@ -28,12 +29,12 @@ export default function ShowModal(props){
         onError()
     }
     return <>
-    {type==="button"?<Button onClick={changeVisabled} style={{background:background,boxShadow:"0px 0px 5px #aaa",color:"white",fontWeight:"bolder",fontSize:"14px",width:"100%",height:"4em",marginRight:"20px"}}> 
-        {title}
-    </Button>:<Card onClick={changeVisabled} style={{background:"white",boxShadow:"0px 0px 5px #666"}}>
-            <p><span style={{fontWeight:"bolder",marginRight:"10px"}}>{titleLabel}:</span>{title}</p>
-            <p><span style={{fontWeight:"bolder",marginRight:"10px"}}>{fieldLabel}:</span>{field}</p>
-        </Card>}
+    {type==="button"?<div className="Dynamic_button" onClick={changeVisabled} style={{background:background,boxShadow:"0px 0px 5px #aaa",color:"white",fontWeight:"bolder",fontSize:"14px",marginRight:"20px"}}> 
+    <span style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",marginTop:"3px"}}>{icon}</span>
+    </div>:<div className="Modal_list" onClick={changeVisabled}>
+            <p><span style={{fontWeight:"bolder",marginRight:"10px",marginLeft:"10px"}}>{titleLabel}:</span>{title}</p>
+            {/* <p><span style={{fontWeight:"bolder",marginRight:"10px"}}>{fieldLabel}:</span>{field}</p> */}
+        </div>}
     <Modal title={title} visible={visabled} onOk={handleSuccess} onCancel={handleError}>
         {props.children}
     </Modal>

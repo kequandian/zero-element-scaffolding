@@ -78,7 +78,7 @@ export default function () {
           message.error('获取页面配置信息失败')
         }
       }).catch(err=>{
-          message.error('获取页面配置信息失败')
+          // message.error('获取页面配置信息失败')
       })
     });
 
@@ -93,11 +93,12 @@ export default function () {
               api:`${pageEndpoint}`,//lc_main_pages
               ModelConfig:MainPageConfig,
               title:"pageTitle",
-              field:"listOperationFields",
+              field:"apiEndpoint",
               name:"页面配置",
               projectId:id,
               showAdd:false,
               showDelete:false,
+              NoModal:true,
               svg:<PageSvg/>
             }
           },
