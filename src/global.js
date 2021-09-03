@@ -33,6 +33,7 @@ import './rewrite.less';
 
 //自定义组件--未使用
 import Setting from '@/container/Setting';
+import EditList from '@/container/EditList/index';
 import FieldListAdd from '@/pages/workFlowManageFR/activitiesFR/components/FieldListAdd';
 import FieldModalCheckbox from '@/pages/workFlowManageFR/activitiesFR/components/FieldModalCheckbox';
 import TreeSelectFetch from '@/components/TreeSelectFetch';
@@ -68,8 +69,11 @@ import FITSet_input_box from '@/components/FormItemType/InputBox';
 import FITSet_link_button from '@/components/FormItemType/LinkButton';
 import VTSet_TimeConvert from '@/components/ValueType/TimeConvert';
 
+
 //Test
 import CSet_new_tree_list from '@/components/TList';
+
+
 
 //配置 
 import { Config } from './devConfig'
@@ -144,6 +148,7 @@ LayoutSet({
 CSet({
   'custom_form': CSet_CustomForm,
   'Setting': Setting,
+  'EditList':EditList,
   'custom_form_fr': CSet_CustomFormFR,
   'Dictionary': Dictionary,
   'data_manage_form_add' : CSet_DataManageFormAdd,

@@ -17,6 +17,7 @@
     "fr-generator": "https://gitee.com/smallsaas/zero-element-generator.git",
     "framer-motion": "^4.1.17",
     "jparticles": "^2.0.1",
+    "lodash": "^4.17.21",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-simple-verify": "^1.0.8",
