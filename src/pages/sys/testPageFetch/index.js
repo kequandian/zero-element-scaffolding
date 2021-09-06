@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ZEle from 'zero-element';
 import useBreadcrumb from '@/framework/useBreadcrumb';
 import { 
-  fieldModelConfig,
+  fieldsConfig,
   MainPageConfig,
   ComponentTypeConfig,
   FiltersConfig,
@@ -156,7 +156,7 @@ export default function () {
             component:"EditList",
             config:{
               api:"/api/crud/lowFields/lowFieldses",//lc_fields
-              ModelConfig:fieldModelConfig,
+              ModelConfig:fieldsConfig,
               title:"fieldLabel",
               field:"fieldBinding",
               name:"字段",

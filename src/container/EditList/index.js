@@ -228,6 +228,8 @@ export default withRouter(function EditList(props) {
                 formData={data}
                 config={ModelConfig}
               ></FormTools>
+              <Button type="primary" style={{"float":"right"}} onClick={()=>handleSuccess(projectId)}>提交</Button>
+              <Button style={{"float":"right",marginRight:"5px"}} onClick={()=>onClose()}>取消</Button>
       </>:<div><>
           <ShowModal title={_.get(data,title)||"组件无名称"}
               titleLabel={title}

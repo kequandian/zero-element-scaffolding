@@ -8,12 +8,15 @@ export default function ShowModal(props){
         field,
         fieldLabel,
         icon,
+        width,
+        height,
         type="button",
         background="#1B7FBC",
+        initShow,
         onSuccess=hide,
         onError=hide
     }=props
-    const [ visabled,setVisabled ] =useState()
+    const [ visabled,setVisabled ] =useState(initShow)
     const changeVisabled = () =>{
         setVisabled(!visabled)
     }
@@ -29,13 +32,13 @@ export default function ShowModal(props){
         onError()
     }
     return <>
-    {type==="button"?<div className="Dynamic_button" onClick={changeVisabled} style={{background:background,boxShadow:"0px 0px 5px #aaa",color:"white",fontWeight:"bolder",fontSize:"14px",marginRight:"20px"}}> 
+    {type==="button"&&icon?<div className="Dynamic_button" onClick={changeVisabled} style={{background:background,boxShadow:"0px 0px 5px #aaa",color:"white",fontWeight:"bolder",fontSize:"14px",marginRight:"20px"}}> 
     <span style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",marginTop:"3px"}}>{icon}</span>
-    </div>:<div className="Modal_list" onClick={changeVisabled}>
-            <p><span style={{fontWeight:"bolder",marginRight:"10px",marginLeft:"10px"}}>{titleLabel}:</span>{title}</p>
+    </div>:type==="card"?<div className="Modal_list" onClick={changeVisabled}>
+            <p><span style={{fontWeight:"bolder",marginRight:"10px",marginLeft:"10px"}}>{title}</span></p>
             {/* <p><span style={{fontWeight:"bolder",marginRight:"10px"}}>{fieldLabel}:</span>{field}</p> */}
-        </div>}
-    <Modal title={title} visible={visabled} onOk={handleSuccess} onCancel={handleError}>
+        </div>:null}
+    <Modal width={width} height={height} title={title} visible={visabled} onOk={handleSuccess} onCancel={handleError}>
         {props.children}
     </Modal>
     </>
