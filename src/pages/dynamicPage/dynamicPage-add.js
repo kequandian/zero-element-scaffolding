@@ -1,5 +1,5 @@
 import React,{useRef,useState} from 'react';
-import { MainPageConfig } from './config/dynamicPage-add';
+import { MainPageConfig } from '../sys/testPageFetch/pageConfig';
 import useBreadcrumb from '@/framework/useBreadcrumb';
 import FormTools from '@/container/EditList/components/Form';
 import ShowModal from '@/container/EditList/components/showModal';
@@ -10,6 +10,10 @@ import setting from './config/dynamicPage-setting.json'
 import {history} from 'umi'
 import { AddSvg } from '@/container/EditList/svg';
 
+/**
+ * 直接更改 /pages/sys/testPageFetch目录下的pageConfig即可，新增与编辑互通
+ */
+
 export default function DynamicPageAdd(props){
 const {
 }=props
@@ -19,6 +23,24 @@ useBreadcrumb([
   ]);
   const addRef = useRef()
   const api = setting.createAPI
+  function IsType(item){
+    let data;
+    if(item.defaultValue){
+      data = item.defaultValue
+    }else{
+      if(item.type){
+        if(item.type==="number"||item.type==="switch"){
+          data = 0
+        }else{
+          data = ""
+        }
+      }else{
+        data = ""
+      }
+    }
+    return data
+  }
+  // 增加数据
   function addMessage(){
     let theData;
     let endpoint = getEndpoint()
@@ -26,7 +48,19 @@ useBreadcrumb([
     let options = {
       method:"POST"
     }
+    let initData={};
+    MainPageConfig.map((item,i)=>{
+      if(item.children){
+        item.children.map((cItem,ci)=>{
+          initData[cItem.field] = IsType(cItem)
+        })
+      }else{
+        // 判断值的提交
+        initData[item.field] = IsType(item)
+      }
+    })
     theData = {
+      ...initData,
       ...addRef.current.data
     }
     // console.log(theData,"提交后的DATA")

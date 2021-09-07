@@ -1,7 +1,7 @@
 import React,{useState,useEffect,useRef} from 'react';
 import { withRouter, history } from 'umi';
 // import { Space, Button } from 'antd';
-import { Drawer,Button,message,Empty,Spin } from 'antd';
+import { Drawer,Button,message,Empty,Spin,Popover } from 'antd';
 import { useDidMount } from 'zero-element/lib/utils/hooks/lifeCycle'
 import './public/index.less'
 import promiseAjax from '@/utils/promiseAjax';
@@ -103,6 +103,23 @@ export default withRouter(function EditList(props) {
           message.error('获取页面配置信息失败')
       })
   });
+  function IsType(item){
+    let data;
+    if(item.defaultValue){
+      data = item.defaultValue
+    }else{
+      if(item.type){
+        if(item.type==="number"||item.type==="switch"){
+          data = 0
+        }else{
+          data = ""
+        }
+      }else{
+        data = ""
+      }
+    }
+    return data
+  }
   // 增加数据
   function addMessage(){
     let theData;
@@ -111,7 +128,19 @@ export default withRouter(function EditList(props) {
     let options = {
       method:"POST"
     }
+    let initData={};
+    ModelConfig.map((item,i)=>{
+      if(item.children){
+        item.children.map((cItem,ci)=>{
+          initData[cItem.field] = IsType(cItem)
+        })
+      }else{
+        // 判断值的提交
+        initData[item.field] = IsType(item)
+      }
+    })
     theData = {
+      ...initData,
       ...addRef.current.data,
       "pageId":PageId
     }
@@ -175,7 +204,7 @@ export default withRouter(function EditList(props) {
     if(PageId){
       for(var i in data){
         console.log(_.get(data[i],"pageId"),PageId,"ID")
-        if(_.get(data[i],"pageId")==PageId){
+        if(_.get(data[i],"id")==id){
           PutData = data[i]
           apiUrl = `${endpoint}${api}/${id}`;
           console.log(PutData)
@@ -199,10 +228,12 @@ export default withRouter(function EditList(props) {
     })
   }
   return <div className="Drawer-edit-box">
-  <Button onClick={showDrawer} className="edit-box" icon={svg}>
-  </Button>
+    <Popover content={name}>
+      <Button onClick={showDrawer} className="edit-box" icon={svg}>
+      </Button>
+    </Popover>
   <Drawer
-    title = {"编辑"+name}
+    title = {name}
     placement = "right"
     closable = {false}
     onClose = {onClose}
@@ -228,8 +259,11 @@ export default withRouter(function EditList(props) {
                 formData={data}
                 config={ModelConfig}
               ></FormTools>
+              <div className="EditList_ButtonGroup">
               <Button type="primary" style={{"float":"right"}} onClick={()=>handleSuccess(projectId)}>提交</Button>
               <Button style={{"float":"right",marginRight:"5px"}} onClick={()=>onClose()}>取消</Button>
+              </div>
+              
       </>:<div><>
           <ShowModal title={_.get(data,title)||"组件无名称"}
               titleLabel={title}
@@ -251,7 +285,7 @@ export default withRouter(function EditList(props) {
           <Empty image={Empty.PRESENTED_IMAGE_SIMPLE}/>
           </Spin>
           }
-          {showAdd?<ShowModal title={"添加"+name}
+          {showAdd&&data?<ShowModal title={"添加"+name}
           icon={<AddSvg/>}
               onSuccess={addMessage}
             >

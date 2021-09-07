@@ -26,10 +26,10 @@ export default function () {
       { title: '首页', path: '/' },
       { title: '测试动态页面加载' },
     ]);
-
+    
     const [pageConfig, setPageConfig] = useState('')
     const [pageId,setPageId] = useState(0)
-    let pageEndpoint = "/api/crud/lowMainPageTest/lowMainPageTests"
+    let pageEndpoint = "/api/crud/lowMainPage/lowMainPages"
     let id;
     const getParams = () =>{
       var array = window.location.href.split("?");   
@@ -87,21 +87,7 @@ export default function () {
         layout: pageConfig.layout.table,
         title: pageConfig.pageName.table,
         items: [
-          {
-            component:"EditList",
-            config:{
-              api:`${pageEndpoint}`,//lc_main_pages
-              ModelConfig:MainPageConfig,
-              title:"pageTitle",
-              field:"apiEndpoint",
-              name:"页面配置",
-              projectId:id,
-              showAdd:false,
-              showDelete:false,
-              NoModal:true,
-              svg:<PageSvg/>
-            }
-          },
+
           // {
           //   component:"EditList",
           //   config:{
@@ -116,27 +102,13 @@ export default function () {
           {
             component:"EditList",
             config:{
-              api:"/api/crud/lowFilters/lowFilterses",//lc_filters
-              ModelConfig:FiltersConfig,
-              title:"contentLayout",
-              field:"defaultSearchHint",
-              name:"过滤",
+              api:"/api/crud/lowFields/lowFieldses",//lc_fields
+              ModelConfig:fieldsConfig,
+              title:"fieldLabel",
+              name:"字段",
               PageId:id,
               showAdd:true,
-              svg:<FIlterSvg/>
-            }
-          },
-          {
-            component:"EditList",
-            config:{
-              api:"/api/crud/lowActions/lowActionses",//lc_actions
-              ModelConfig:ActionsConfig,
-              title:"title",
-              field:"path",
-              name:"按钮",
-              PageId:id,
-              showAdd:true,
-              svg:<ActionSvg/>
+              svg:<FieldSvg/>
             }
           },
           {
@@ -145,7 +117,6 @@ export default function () {
               api:"/api/crud/lowOperations/lowOperationses",//lc_operations
               ModelConfig:OperationsConfig,
               title:"title",
-              field:"path",
               name:"操作",
               PageId:id,
               showAdd:true,
@@ -155,14 +126,39 @@ export default function () {
           {
             component:"EditList",
             config:{
-              api:"/api/crud/lowFields/lowFieldses",//lc_fields
-              ModelConfig:fieldsConfig,
-              title:"fieldLabel",
-              field:"fieldBinding",
-              name:"字段",
+              api:"/api/crud/lowActions/lowActionses",//lc_actions
+              ModelConfig:ActionsConfig,
+              title:"title",
+              name:"按钮",
               PageId:id,
               showAdd:true,
-              svg:<FieldSvg/>
+              svg:<ActionSvg/>
+            }
+          },
+          {
+            component:"EditList",
+            config:{
+              api:"/api/crud/lowFilters/lowFilterses",//lc_filters
+              ModelConfig:FiltersConfig,
+              title:"fieldTitle",
+              name:"过滤",
+              PageId:id,
+              showAdd:true,
+              svg:<FIlterSvg/>
+            }
+          },
+          {
+            component:"EditList",
+            config:{
+              api:`${pageEndpoint}`,//lc_main_pages
+              ModelConfig:MainPageConfig,
+              title:"pageTitle",
+              name:"页面配置",
+              projectId:id,
+              showAdd:false,
+              showDelete:false,
+              NoModal:true,
+              svg:<PageSvg/>
             }
           },
           {
