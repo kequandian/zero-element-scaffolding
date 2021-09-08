@@ -1,21 +1,12 @@
 // 组件配置
 export const fieldsConfig = [
     {
-        "label":"字段组件唯一名称",
-        "field":"fieldItemName"
+        "label":"字段名称", //首选使用 含括表单标签和列表标签
+        "field":"fieldLabel"
     },
     {
         "label":"绑定字段名称",
         "field":"fieldBinding"
-    },
-    {
-        "label":"字段标签",
-        "field":"fieldLabel"
-    },
-    { "label":"表单字段标题", "field":"formFieldTitle" },
-    {
-        "label":"列表项名称",
-        "field":"listColumnName"
     },
     { "label":"字段范围", "field":"fieldScopes","type":"select","mode":"multiple","options":[
         {"label":"page","value":"page"},
@@ -137,6 +128,15 @@ export const fieldsConfig = [
     {
         "header":"高级设置",
         "children":[
+            { "label":"表单标签", "field":"formFieldTitle" },//新增、编辑、查看标签
+            {
+                "label":"列表标签",
+                "field":"listColumnName"
+            },
+            {
+                "label":"字段组件唯一名称", //未使用
+                "field":"fieldItemName"
+            },
             { "label":"字段表单提示", "field":"formFieldHint" },
             { "label":"字段表单输入错误提示", "field":"formFieldTips" },
             { "label":"表单项是否必填", "field":"formInputRequired","type":"switch" },

@@ -229,8 +229,6 @@
     ],
     "tableFields":[
         {"field":"templateName","label":"模板名称"},
-        {"field":"templateId","label":"模板ID"},
-        {"field":"masterId","label":"一对多关联表字段ID"},
         {"field":"defaultValue","label":"默认值"},
         {"field":"isNotNull","label":"是否非空","valueType":"tag","options":{
             "map":{
@@ -294,8 +292,6 @@
       "type": "plain",
       "fields": [
         {"field":"templateName","label":"模板名称"},
-        {"field":"templateId","label":"模板ID"},
-        {"field":"masterId","label":"一对多关联表字段ID"},
         {"field":"defaultValue","label":"默认值"},
         {"field":"isNotNull","label":"是否非空","options":{
             "map":{
