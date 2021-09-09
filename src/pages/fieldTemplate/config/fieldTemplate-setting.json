@@ -415,7 +415,7 @@
                 "mediumblob":"purple_dark" ,
                 "longblob":"purple_dark"
               }
-        },"theme":"option","type":"Online"},
+        },"theme":"option","type":"Dot"},
         {"field":"fieldLength","label":"字段大小"},
         {"field":"fieldFloatLength","label":"小数大小"}
     ],

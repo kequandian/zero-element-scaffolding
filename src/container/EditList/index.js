@@ -1,7 +1,7 @@
 import React,{useState,useEffect,useRef} from 'react';
 import { withRouter, history } from 'umi';
 // import { Space, Button } from 'antd';
-import { Drawer,Button,message,Empty,Spin,Popover } from 'antd';
+import { Drawer,Button,message,Empty,Spin,Tooltip } from 'antd';
 import { useDidMount } from 'zero-element/lib/utils/hooks/lifeCycle'
 import './public/index.less'
 import promiseAjax from '@/utils/promiseAjax';
@@ -228,10 +228,10 @@ export default withRouter(function EditList(props) {
     })
   }
   return <div className="Drawer-edit-box">
-    <Popover content={name}>
+    <Tooltip title={name} placement="bottom">
       <Button onClick={showDrawer} className="edit-box" icon={svg}>
       </Button>
-    </Popover>
+    </Tooltip>
   <Drawer
     title = {name}
     placement = "right"
