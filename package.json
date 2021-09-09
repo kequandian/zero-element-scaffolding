@@ -4,6 +4,8 @@
     "start": "node init.js && umi dev",
     "build": "node init.js && umi build",
     "buildA": "set ANALYZE=1 && umi build",
+    "installApi":"cd ./koa/koa_setting && npm i",
+    "api":"cd ./koa/koa_setting && npm start",
     "test": "umi test"
   },
   "dependencies": {

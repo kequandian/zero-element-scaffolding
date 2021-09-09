@@ -57,7 +57,7 @@ export default function () {
       };
       promiseAjax(apiUrl, queryData)
         .then(resp => {
-          if (resp && resp.code === 200) {
+          if (resp.status===1) {
             const data = resp.data;
             setPageConfig(data)
           } else {

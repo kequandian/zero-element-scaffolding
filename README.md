@@ -23,6 +23,20 @@ npm start
 # 默认运行在本地的 8000 端口
 ```
 
+### 动态页面测试api使用方法(Koa)
+### 说明
+本api仅适用纯渲染，无动态操作
+#### 安装api环境
+```
+npm run installApi
+```
+#### 运行api
+```
+npm run api
+```
+#### api地址
+主目录下的 koa/api测试文件/index.http有详细说明
+
 ## 以生产环境运行
 ```shell
 npm run build

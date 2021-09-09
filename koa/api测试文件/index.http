@@ -1,0 +1,8 @@
+### 注意：如果api再其他机器使用，请打开cmd，输入ipconfig查询对应的外网地址，将localhost更变为外网地址
+### 更变端口方法：进入模块，找到模块下的index.js，更改port参数即可
+@endpoint = http://localhost:3000
+### 获取动态页面
+### 模块功能：返回j动态页面JSON并渲染出来
+### api地址：/api/config
+### 方法：GET
+GET {{endpoint}}/api/config HTTP/1.1

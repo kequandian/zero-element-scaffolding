@@ -1,6 +1,6 @@
 export default {
   'GET /api/config': {
-    "code": 200,
+    "status": 1,
     "data": {
       "pageName": {
         "table": "表单模板管理",
