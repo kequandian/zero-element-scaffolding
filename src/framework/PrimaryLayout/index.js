@@ -52,7 +52,6 @@ export default function PrimaryLayout({
   }
 
   const aloneView = location.pathname === '/login';
-
   return <Layout>
     {aloneView ? null : (
       <Header className="header topNav">
