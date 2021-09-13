@@ -1,81 +1,296 @@
 export default {
   'GET /api/config': {
-    "code": 200,
+    "status": 1,
     "data": {
       "pageName": {
-        "table": "表单模板管理",
-        "new": "",
-        "edit": ""
+        "table": "字段模板",
+        "new": "新增字段模板",
+        "edit": "更改字段模板"
       },
-      "listAPI": "/api/doc",
-      "createAPI": "/api/doc",
-      "getAPI": "/api/doc/[id]",
-      "updateAPI": "/api/doc/[id]",
-      "deleteAPI": "/api/doc/(id)",
-      "getApplyHistoryAPI": "/api/wf/histories",
+      "listAPI": "/api/crud/fieldModel/fieldModels",
+      "createAPI": "/api/crud/fieldModel/fieldModels",
+      "getAPI": "/api/crud/fieldModel/fieldModels/[id]",
+      "updateAPI": "/api/crud/fieldModel/fieldModels/[id]",
+      "deleteAPI": "/api/crud/fieldModel/fieldModels/(id)",
       "columns": 1,
       "createFields": [
-        {
-          "label": "上传文件",
-          "span": 16,
-          "rules": [
-            {
-              "type": "required"
-            }
-          ],
-          "field": "urlList",
-          "type": "upload_file_single",
-          "options": {
-            "title": "点击上传",
-            "API": "/api/fs/uploadfile",
-            "acceptType": ".docx"
+          {
+              "label":"模板名称",
+              "rules":[
+                  {
+                      "type":"required"
+                  }
+              ],
+              "props":{
+                  "placeholder":"请输入模板名称"
+              },
+              "type":"input",
+              "field":"templateName"
           },
-          "expect": {}
-        }
+          {
+              "label":"模板标签",
+              "props":{
+                  "placeholder":"请输入模板标签"
+              },
+              "type":"input",
+              "field":"templateLabel"
+          },
+          {
+              "label":"默认值",
+              "props":{
+                  "placeholder":"请输入默认值"
+              },
+              "type":"input",
+              "field":"defaultValue"
+          },
+          {
+              "label":"是否非空",
+              "rules":[
+                  {
+                      "type":"required"
+                  }
+              ],
+              "type":"switch",
+              "field":"isNotNull"
+          },
+          {
+              "label":"是否唯一",
+              "rules":[
+                  {
+                      "type":"required"
+                  }
+              ],
+              "type":"switch",
+              "field":"isUnique"
+          },
+          {
+              "label":"推荐字段",
+              "props":{
+                  "placeholder":"请输入推荐字段"
+              },
+              "type":"input",
+              "field":"defaultFieldName"
+          },
+          {
+              "label":"可选字段",
+              "props":{
+                  "placeholder":"请输入可选字段"
+              },
+              "type":"input",
+              "field":"optionalFieldName"
+          },
+          {
+              "label":"字段类型",
+              "rules":[
+                  {
+                      "type":"required"
+                  }
+              ],
+              "props":{
+                  "placeholder":"请输入字段类型"
+              },
+              "options":[
+                  { "label":"tinyint", "value":"tinyint" },
+                  {"label":"smallint","value":"smallint"},
+                  { "label":"mediumint", "value":"mediumint" },
+                  {"label":"int","value":"int"},
+                  { "label":"long", "value":"long" },
+                  { "label":"bigint", "value":"bigint" },
+                  { "label":"float", "value":"float" },
+                  { "label":"double", "value":"double" },
+                  {"label":"decimal","value":"decimal"},
+                  { "label":"year", "value":"year" },
+                  { "label":"time", "value":"time" },
+                  { "label":"date", "value":"date" },
+                  { "label":"datetime", "value":"datetime" },
+                  { "label":"timestamp", "value":"timestamp" },
+                  { "label":"char", "value":"char" },
+                  {"label":"varchar","value":"varchar"},
+                  { "label":"tinytext", "value":"tinytext" },
+                  { "label":"text", "value":"text" },
+                  { "label":"mediumtext", "value":"mediumtext" },
+                  { "label":"longtext", "value":"longtext" },
+                  { "label":"enum", "value":"enum" },
+                  { "label":"set", "value":"set" },
+                  { "label":"bit", "value":"bit" },
+                  { "label":"binary", "value":"binary" },
+                  { "label":"varbinary", "value":"varbinary" },
+                  { "label":"tinyblob", "value":"tinyblob" },
+                  { "label":"blob", "value":"blob" },
+                  { "label":"mediumblob", "value":"mediumblob" },
+                  { "label":"longblob", "value":"longblob" }
+              ],
+              "span":"24",
+              
+              "type":"select",
+              "field":"fieldType"
+          },
+          {
+              "label":"字段大小",
+              "props":{
+                  "placeholder":"请输入字段大小"
+              },
+              "type":"input",
+              "field":"fieldLength"
+          },
+          {
+              "label":"小数大小",
+              "props":{
+                  "placeholder":"请输入字段小数大小"
+              },
+              "type":"input",
+              "field":"fieldFloatLength"
+          },
+          {
+              "label":"注释",
+              "props":{
+                  "placeholder":"请输入注释"
+              },
+              "autoSize":{
+                  "minRows":4
+              },
+              "type":"text-area",
+              "field":"comments"
+          }
       ],
       "updateFields": [
-        {
-          "field": "entityId",
-          "label": "表单",
-          "type": "modal-radio",
-          "props": {},
-          "rules": [],
-          "options": {
-            "title": "选择表单",
-            "label": "name",
-            "editLabel": "entityName",
-            "value": "id",
-            "pagination": true,
-            "API": "/api/eav/entities",
-            "fields": [
-              {
-                "label": "表单名称",
-                "field": "name"
+          {
+              "label":"模板名称",
+              "rules":[
+                  {
+                      "type":"required"
+                  }
+              ],
+              "props":{
+                  "placeholder":"请输入模板名称"
               },
-              {
-                "label": "备注",
-                "field": "note"
-              }
-            ]
-          }
-        },
-        {
-          "label": "上传文件",
-          "rules": [
-            {
-              "type": "required"
-            }
-          ],
-          "field": "urlList",
-          "span": 16,
-          "type": "upload_file_single",
-          "options": {
-            "title": "点击上传",
-            "API": "/api/fs/uploadfile",
-            "acceptType": ".docx"
+              "type":"input",
+              "field":"templateName"
           },
-          "expect": {}
-        }
+          {
+              "label":"模板标签",
+              "props":{
+                  "placeholder":"请输入模板标签"
+              },
+              "type":"input",
+              "field":"templateLabel"
+          },
+          {
+              "label":"默认值",
+              "props":{
+                  "placeholder":"请输入默认值"
+              },
+              "type":"input",
+              "field":"defaultValue"
+          },
+          {
+              "label":"是否非空",
+              "rules":[
+                  {
+                      "type":"required"
+                  }
+              ],
+              "type":"switch",
+              "field":"isNotNull"
+          },
+          {
+              "label":"是否唯一",
+              "rules":[
+                  {
+                      "type":"required"
+                  }
+              ],
+              "type":"switch",
+              "field":"isUnique"
+          },
+          {
+              "label":"推荐字段",
+              "props":{
+                  "placeholder":"请输入推荐字段"
+              },
+              "type":"input",
+              "field":"defaultFieldName"
+          },
+          {
+              "label":"可选字段",
+              "props":{
+                  "placeholder":"请输入可选字段"
+              },
+              "type":"input",
+              "field":"optionalFieldName"
+          },
+          {
+              "label":"字段类型",
+              "rules":[
+                  {
+                      "type":"required"
+                  }
+              ],
+              "props":{
+                  "placeholder":"请输入字段类型"
+              },
+              "options":[
+                  { "label":"tinyint", "value":"tinyint" },
+                  {"label":"smallint","value":"smallint"},
+                  { "label":"mediumint", "value":"mediumint" },
+                  {"label":"int","value":"int"},
+                  { "label":"bigint", "value":"bigint" },
+                  { "label":"float", "value":"float" },
+                  { "label":"double", "value":"double" },
+                  {"label":"decimal","value":"decimal"},
+                  { "label":"year", "value":"year" },
+                  { "label":"time", "value":"time" },
+                  { "label":"date", "value":"date" },
+                  { "label":"datetime", "value":"datetime" },
+                  { "label":"timestamp", "value":"timestamp" },
+                  { "label":"char", "value":"char" },
+                  {"label":"varchar","value":"varchar"},
+                  { "label":"tinytext", "value":"tinytext" },
+                  { "label":"text", "value":"text" },
+                  { "label":"mediumtext", "value":"mediumtext" },
+                  { "label":"longtext", "value":"longtext" },
+                  { "label":"enum", "value":"enum" },
+                  { "label":"set", "value":"set" },
+                  { "label":"bit", "value":"bit" },
+                  { "label":"binary", "value":"binary" },
+                  { "label":"varbinary", "value":"varbinary" },
+                  { "label":"tinyblob", "value":"tinyblob" },
+                  { "label":"blob", "value":"blob" },
+                  { "label":"mediumblob", "value":"mediumblob" },
+                  { "label":"longblob", "value":"longblob" }
+              ],
+              "span":"24",
+              
+              "type":"select",
+              "field":"fieldType"
+          },
+          {
+              "label":"字段大小",
+              "props":{
+                  "placeholder":"请输入字段大小"
+              },
+              "type":"input",
+              "field":"fieldLength"
+          },
+          {
+              "label":"小数大小",
+              "props":{
+                  "placeholder":"请输入字段小数大小"
+              },
+              "type":"input",
+              "field":"fieldFloatLength"
+          },
+          {
+              "label":"注释",
+              "props":{
+                  "placeholder":"请输入注释"
+              },
+              "autoSize":{
+                  "minRows":4
+              },
+              "type":"text-area",
+              "field":"comments"
+          }
       ],
       "map": {},
       "layout": {
@@ -83,255 +298,213 @@ export default {
         "form": "TitleContent"
       },
       "tableActions": [
-        {
-          "title": "新增打印模板",
-          "type": "modal",
-          "options": {
-            "style": "primary",
-            "modalTitle": "新增",
-            "modalWidth": 600,
-            "items": [
-              {
-                "component": "Form",
-                "config": {
-                  "layout": "Grid",
-                  "layoutConfig": {
-                    "value": [
-                      24
-                    ]
-                  },
-                  "API": {
-                    "createAPI": "/api/doc"
-                  },
-                  "fields": [
-                    {
-                      "label": "上传文件",
-                      "span": 16,
-                      "rules": [],
-                      "field": "urlList",
-                      "type": "upload_file_single",
-                      "options": {
-                        "title": "点击上传",
-                        "API": "/api/fs/uploadfile",
-                        "acceptType": ".docx, .doc"
-                      },
-                      "expect": {}
-                    }
-                  ]
-                }
+          {
+              "title":"添加","type":"path",
+              "options":{
+                  "style":"primary",
+                  "path":"/fieldTemplate/fieldTemplate-add"
               }
-            ]
           }
-        }
       ],
       "tableOperation": [
-        {
-          "title": "上传pdf",
-          "type": "modal",
-          "options": {
-            "outside": true,
-            "style": "primary",
-            "modalTitle": "上传pdf",
-            "modalWidth": 600,
-            "items": [
-              {
-                "component": "Form",
-                "config": {
-                  "layout": "Grid",
-                  "layoutConfig": {
-                    "value": [
-                      24
-                    ]
-                  },
-                  "API": {
-                    "getAPI": "/api/doc/(id)",
-                    "updateAPI": "/api/doc/(id)"
-                  },
-                  "fields": [
-                    {
-                      "label": "上传文件",
-                      "span": 16,
-                      "rules": [
-                        {
-                          "type": "required"
-                        }
-                      ],
-                      "field": "pdfUrl",
-                      "type": "upload_file_single",
-                      "options": {
-                        "title": "点击上传",
-                        "type": "string",
-                        "API": "/api/fs/uploadfile",
-                        "acceptType": ".pdf"
-                      },
-                      "expect": {}
-                    }
-                  ]
-                }
+          {
+              "title":"详情","type":"path",
+              "options":{
+                  "outside":true,
+                  "path":"/fieldTemplate/fieldTemplate-view"
               }
-            ]
-          }
-        },
-        {
-          "title": "更新文档",
-          "type": "modal",
-          "options": {
-            "outside": true,
-            "style": "primary",
-            "modalTitle": "更新文档",
-            "modalWidth": 600,
-            "items": [
-              {
-                "component": "Form",
-                "config": {
-                  "layout": "Grid",
-                  "layoutConfig": {
-                    "value": [
-                      24
-                    ]
-                  },
-                  "API": {
-                    "getAPI": "/api/doc/(id)",
-                    "updateAPI": "/api/doc/(id)"
-                  },
-                  "fields": [
-                    {
-                      "label": "文档名",
-                      "field": "name",
-                      "rules": [
-                        {
-                          "type": "required"
-                        }
-                      ],
-                      "type": "input"
-                    },
-                    {
-                      "label": "上传文件",
-                      "span": 16,
-                      "rules": [],
-                      "field": "urlList",
-                      "type": "upload_file_single",
-                      "options": {
-                        "title": "点击上传",
-                        "API": "/api/fs/uploadfile",
-                        "acceptType": ".docx, .doc"
-                      },
-                      "expect": {}
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        },    {
-          "title": "下载", 
-          "type": "modal",
-          "options":{
-            "outside": true,
-            "modalTitle": "下载文件",
-            "modalWidth": 400,
-            "layout": "Empty",
-            "items": [
-              {
-                "component": "print_config_form",
-                "config": {
-                  "API": {
-                    "getAPI": "/api/doc/(id)"
-                  },
-                  "fields": [
-                    {
-                      "field": "downloadFile",
-                      "label": "下载",
-                      "type": "normal_download_file",
-                      "options": {
-                        "title": "点击下载"
-                      }
-                    }
-                  ],
-                  "otherProps":{
-                    "footerButton": false
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "title": "详情",
-          "type": "path",
-          "options":{
-            "outside": true,
-            "path": "fileManage/fileManage-view"
-          }
-        },
-        {
-          "title": "删除",
-          "type": "delete",
-          "options": {
-            "outside": false
           },
-          "expect": {
-            "permission": ""
+          {
+              "title":"编辑","type":"path",
+              "options":{
+                  "outside":true,
+                  "path":"/fieldTemplate/fieldTemplate-edit"
+              }
+          },
+          {
+              "title":"删除","type":"delete"
           }
-        }
+      ],
+      "tableFields":[
+          {"field":"templateName","label":"模板名称"},
+          {"field":"templateLabel","label":"模板标签"},
+          {"field":"defaultValue","label":"默认值"},
+          {"field":"isNotNull","label":"是否非空","valueType":"tag","options":{
+              "map":{
+                  "0":"否",
+                  "1":"是" 
+              },
+              "chy":{
+                  "0":"close",
+                  "1":"open"
+                }
+          },"theme":"status","type":"default"},
+          {"field":"isUnique","label":"是否唯一","valueType":"tag","options":{
+              "map":{
+                  "0":"否",
+                  "1":"是" 
+              },
+              "chy":{
+                  "0":"close",
+                  "1":"open"
+                }
+          },"theme":"status","type":"default"},
+          {
+              "label":"推荐字段",
+              "field":"defaultFieldName"
+          },
+          {
+              "label":"可选字段",
+              "field":"optionalFieldName"
+          },
+          {"field":"fieldType","label":"字段类型","valueType":"tag","options":{
+              "map":{
+                  "tinyint":"小整数值(1字节)",
+                  "smallint":"小整数值(2字节) ",
+                  "mediumint":"中等整数值",
+                  "int":"正常整数值",
+                  "bigint":"大整数值" ,
+                  "float":"单精度浮点型" ,
+                  "double":"双精度浮点型" ,
+                  "decimal":"定点数",
+                  "year":"年" ,
+                  "time":"时间" ,
+                  "date":"日期" ,
+                  "datetime":"日期时间" ,
+                  "timestamp":"自动存储记录修改时间" ,
+                  "char":"字符串" ,
+                  "varchar":"长字符串",
+                  "tinytext":"小文本" ,
+                  "text":"文本" ,
+                  "mediumtext":"中等文本" ,
+                  "longtext":"长文本" ,
+                  "enum":"枚举" ,
+                  "set":"设置" ,
+                  "bit":"字节" ,
+                  "binary":"二进制存储" ,
+                  "varbinary":"长二进制存储" ,
+                  "tinyblob":"小blob" ,
+                  "blob":"正常blob" ,
+                  "mediumblob":"中blob" ,
+                  "longblob":"长blob"
+              }
+              ,"chy":{
+                  "tinyint":"blue",
+                  "smallint":"blue ",
+                  "mediumint":"blue",
+                  "int":"blue",
+                  "bigint":"blue" ,
+                  "float":"cyan" ,
+                  "double":"cyan" ,
+                  "decimal":"cyan",
+                  "year":"purple" ,
+                  "time":"purple" ,
+                  "date":"purple" ,
+                  "datetime":"purple" ,
+                  "timestamp":"purple" ,
+                  "char":"orange" ,
+                  "varchar":"orange",
+                  "tinytext":"orange" ,
+                  "text":"orange" ,
+                  "mediumtext":"orange" ,
+                  "longtext":"orange" ,
+                  "enum":"gray" ,
+                  "set":"gray" ,
+                  "bit":"gray" ,
+                  "binary":"gray" ,
+                  "varbinary":"gray" ,
+                  "tinyblob":"purple_dark" ,
+                  "blob":"purple_dark" ,
+                  "mediumblob":"purple_dark" ,
+                  "longblob":"purple_dark"
+                }
+          },"theme":"option","type":"Dot"},
+          {"field":"fieldLength","label":"字段大小"},
+          {"field":"fieldFloatLength","label":"小数大小"}
       ],
       "searchFields": [
-        {
-          "label": "文档名",
-          "field": "name",
-          "type": "search",
-          "props": {
-            "placeholder": ""
-          }
-        }
-      ],
-      "tableFields": [
-        {
-          "label": "文档名",
-          "field": "name"
-        },{
-          "label": "文件版本",
-          "field": "version"
-        }
-      ],
-      "viewConfig": [
-        {
-          "title": "详情",
-          "type": "plain",
-          "fields": [
-            {
-              "label": "文档名",
-              "field": "name"
-            },
-            {
-              "label": "下载地址",
-              "field": "url"
-            },
-            {
-              "label": "当前版本号",
-              "field": "version"
-            }
-          ]
-        },
-        {
-          "title": "历史版本",
-          "type": "cardList",
-          "api": "/api/doc/versionList/[id]",
-          "map": {
-            "title": "",
-            "subTitle": false,
-            "image": false,
-            "imageTitle": false
+          {
+              "label": "模板名称",
+              "field": "templateName",
+              "type": "search",
+              "props": {
+                "placeholder": "模板名称搜索"
+              }
           },
-          "format": [
-            "文档名: <title>",
-            "下载地址: <url>",
-            "更新时间: <uploadTime>",
-            "文件版本: <versionCode>"
-          ]
-        }
-      ]
-    },
+          {
+              "label": "模板id",
+              "field": "templateId",
+              "type": "search",
+              "props": {
+                "placeholder": "唯一标识,不可重复"
+              }
+          }
+      ],
+      "viewConfig": [{
+        "title": "详情",
+        "type": "plain",
+        "fields": [
+          {"field":"templateName","label":"模板名称"},
+          {"field":"templateLabel","label":"模板标签"},
+          {"field":"defaultValue","label":"默认值"},
+          {"field":"isNotNull","label":"是否非空","options":{
+              "map":{
+                  "0":"否",
+                  "1":"是" 
+              },
+              "chy":{
+                  "0":"close",
+                  "1":"open"
+                }
+          }},
+          {"field":"isUnique","label":"是否唯一","options":{
+              "map":{
+                  "0":"否",
+                  "1":"是" 
+              },
+              "chy":{
+                  "0":"close",
+                  "1":"open"
+                }
+          }},
+          {"field":"fieldType","label":"字段类型","options":{
+              "map":{
+                  "tinyint":"小整数值(1字节)",
+                  "smallint":"小整数值(2字节) ",
+                  "mediumint":"中等整数值",
+                  "int":"正常整数值",
+                  "bigint":"大整数值" ,
+                  "float":"单精度浮点型" ,
+                  "double":"双精度浮点型" ,
+                  "decimal":"定点数",
+                  "year":"年" ,
+                  "time":"时间" ,
+                  "date":"日期" ,
+                  "datetime":"日期时间" ,
+                  "timestamp":"自动存储记录修改时间" ,
+                  "char":"字符串" ,
+                  "varchar":"长字符串",
+                  "tinytext":"小文本" ,
+                  "text":"文本" ,
+                  "mediumtext":"中等文本" ,
+                  "longtext":"长文本" ,
+                  "enum":"枚举" ,
+                  "set":"设置" ,
+                  "bit":"字节" ,
+                  "binary":"二进制存储" ,
+                  "varbinary":"长二进制存储" ,
+                  "tinyblob":"小blob" ,
+                  "blob":"正常blob" ,
+                  "mediumblob":"中blob" ,
+                  "longblob":"长blob"
+              }
+          }},
+          {"field":"fieldLength","label":"字段大小"},
+          {"field":"fieldFloatLength","label":"小数大小"},
+          {"field":"comments","label":"注释"}
+        ]
+      }]
+    },  
     "message": "Success"
   }
 }

@@ -34,6 +34,7 @@ import CSet_ChildrenForm from '@/../zero-antd-dep/container/Form/ChildrenForm';
 import LASet_onRequest from '@/../zero-antd-dep/listAction/onRequest';
 import LASet_onTips from '@/../zero-antd-dep/listAction/onTips';
 import LASet_onPath from '@/../zero-antd-dep/listAction/onPath';
+import FITSet_switch from '@/../zero-antd-dep/formItemType/switch';
 import FITSet_avatars from '@/../zero-antd-dep/formItemType/Avatars/Avatars';
 import FITSet_videoview from '@/../zero-antd-dep/formItemType/VideoView/VideoView';
 import FITSet_Space from '@/../zero-antd-dep/formItemType/Space';
@@ -79,6 +80,7 @@ import FITSet_pcdm from '@/../zero-antd-dep/formItemType/PCDM';
 import FITSet_pcdForSearch from '@/../zero-antd-dep/formItemType/PCDForSearch';
 import FITSet_toptips from '@/../zero-antd-dep/formItemType/Toptips';
 import FITSet_imageBox from '@/../zero-antd-dep/formItemType/ImageBox';
+import FITSet_path from '@/../zero-antd-dep/formItemType/path';
 import AITSet_modal from '@/../zero-antd-dep/actionItemType/Modal';
 import AITSet_request from '@/../zero-antd-dep/actionItemType/Request';
 import AITSet_childrenModalAdd from '@/../zero-antd-dep/actionItemType/ChildrenModalAdd';
@@ -148,6 +150,7 @@ LASet({
 });
 
 FITSet({
+'switch': FITSet_switch,
 'avatars': FITSet_avatars,
 'videoview': FITSet_videoview,
 'Space': FITSet_Space,
@@ -193,6 +196,7 @@ FITSet({
 'pcdForSearch': FITSet_pcdForSearch,
 'toptips': FITSet_toptips,
 'imageBox': FITSet_imageBox,
+'path': FITSet_path,
 
 });
 

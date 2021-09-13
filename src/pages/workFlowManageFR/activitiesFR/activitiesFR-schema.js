@@ -23,9 +23,9 @@ export default function SchemaGenerator (props) {
     let formData = '';
     if(getPageData(ns)){
         formData = getPageData(ns).formData;
-    }else{
+    }/* else{
         window.history.back();
-    }
+    } */
 
     const ps = {
         namespace: ns,

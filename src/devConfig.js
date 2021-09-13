@@ -6,7 +6,7 @@
 */
 export const Config ={
     // endpoint:'http://192.168.3.239:8090'
-    endpoint:'http://192.168.3.239:8000'
-    // endpoint:"http://sandbox.f.gateway.host.smallsaas.cn:81"
-    // endpoint:"http://demo.smallsaas.cn"
+    // endpoint:"http://sandbox.f.gateway.host.smallsaas.cn:81/"
+    // endpoint:"http://demo.f.smallsaas.cn:81"
+    endpoint:"http://192.168.3.239:8080"
 }

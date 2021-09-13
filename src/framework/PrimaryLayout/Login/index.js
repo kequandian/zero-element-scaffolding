@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import { history } from 'umi';
 import { removeToken, getUserName, getExtra, getAvatar,setAvatar, getToken } from 'zero-element/lib/utils/request/token';
-import { Avatar, Menu, Dropdown } from 'antd';
+import { Avatar, Menu, Dropdown,Tooltip } from 'antd';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 import {
   BellOutlined,
@@ -15,7 +15,7 @@ import { TestUserSelection } from 'zero-element-plugins';
 
 import { LS } from 'zero-element/lib/utils/storage';
 
-import { ConfigSvg, DocSvg, MoreSvg, TableSvg } from './svg/Svg'
+import { ConfigSvg, DocSvg, MoreSvg, TableSvg,WorkflowSvg } from './svg/Svg'
 
 import './index.less'
 
@@ -50,7 +50,7 @@ export default (props) => {
     history.push('/login');
   }
 
-  function handleRouteToProfile() {
+  function handleRouterightrofile() {
     history.push('/profile/userpage');
     useVisible(false);
   }
@@ -102,10 +102,10 @@ export default (props) => {
         <div style={{ textAlign: 'center', cursor: 'default', color: '#666' }}>{getUserName()}</div>
       </Menu.Item> */}
       <Menu.Item style={{ width: 200, height: 180, position: "relative", cursor: 'default' }}>
-        <Avatar src={getAvatar()} style={{ position: 'absolute', left: '50%', top: 35, transform: ' translate(-50%)' ,background:"white"}} icon={<UserOutlined style={{ fontSize: 60, paddingTop: 8, paddingLeft: 5 }} />} size={90} />
+        <Avatar src={getAvatar()} style={{ position: 'absolute', left: '50%', right: 35, transform: ' translate(-50%)' ,background:"white"}} icon={<UserOutlined style={{ fontSize: 60, paddingright: 8, paddingLeft: 5 }} />} size={90} />
         <span style={{ fontSize: 17, textAlign: 'center', fontWeight: 'bolder', position: 'absolute', bottom: 20, left: '50%', transform: ' translate(-50%)' }}>{getUserName()}</span>
       </Menu.Item>
-      <Menu.Item onClick={handleRouteToProfile}>
+      <Menu.Item onClick={handleRouterightrofile}>
         <AppstoreOutlined style={{ paddingLeft: 10 }} />
         <span className="ZEleA-margin-left">个人中心</span>
       </Menu.Item>
@@ -158,20 +158,25 @@ const formMenu = (
       </Menu.Item>
     </Menu>
   )
-
-
-  
-  return (
-    <div style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center' }}>
-      <Dropdown
-        trigger={['click']}
-        placement="bottomLeft"
-        overlay={formMenu}
-      >
-        <a className="Svg" style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}><TableSvg width="30" height="30"/></a>
-      </Dropdown>
-      <a className="Svg" onClick={ConfigClick} style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}><ConfigSvg width="30" height="30"/></a>
-
+  // 右上角按钮
+  const RightButton = (
+    <>
+        <Tooltip title="前往流程设计" placement="right">
+          <a a className="Svg" href="https://r.zbsoft.right/sport" style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}><WorkflowSvg width="30" height="30"/></a>
+        </Tooltip>
+        <Tooltip title="表单组件展示" placement="right">
+          <Dropdown
+          trigger={['click']}
+          placement="bottomLeft"
+          overlay={formMenu}
+        >
+          <a className="Svg" style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}><TableSvg width="30" height="30"/></a>
+        </Dropdown>
+        </Tooltip>
+      <Tooltip title="系统设置" placement="right">
+        <a className="Svg" onClick={ConfigClick} style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}><ConfigSvg width="30" height="30"/></a>
+      </Tooltip>
+      <Tooltip title="设计" placement="right">
       <Dropdown
         trigger={['click']}
         placement="bottomLeft"
@@ -180,15 +185,28 @@ const formMenu = (
       <a className="Svg" href="/Tag/TagView" style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}><MoreSvg width="30" height="30"/></a>
         {/* <a href="Tag/TagView" className="RightNav more"></a> */}
       </Dropdown>
+      </Tooltip>
+
       {/* <a href="http://docs.smallsaas.cn" className="RightNav docs"></a> */}
-      <a className="Svg" href="http://docs.smallsaas.cn" style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}><DocSvg width="30" height="30"/></a>
-      <Dropdown
-        trigger={['click']}
-        placement="bottomLeft"
-        overlay={messageMenu}
-      >
-        <BellOutlined style={{ fontSize: 25, paddingRight: 20 }} />
-      </Dropdown>
+      <Tooltip title="文档" placement="right">
+        <a className="Svg" href="http://docs.smallsaas.cn" style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}><DocSvg width="30" height="30"/></a>
+      </Tooltip>
+      <Tooltip title="待办" placement="right">
+        <Dropdown
+          trigger={['click']}
+          placement="bottomLeft"
+          overlay={messageMenu}
+        >
+          <BellOutlined style={{ fontSize: 25, paddingRight: 20 }} />
+        </Dropdown>
+      </Tooltip>
+    </>
+  )
+
+  
+  return (
+    <div style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center' }}>
+      {RightButton}
       <Dropdown
         placement="bottomRight"
         trigger={['click']}
