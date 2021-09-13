@@ -6,11 +6,12 @@ import Breadcrumb from './Breadcrumb';
 import { LS } from 'zero-element/lib/utils/storage';
 import Login from './Login';
 import './index.less';
+import GlobalContext from '@/framework/GlobalContext';
+import selectNavStyle from './utils/selectNavStyle';
+
 const appLogo = require( '../../../public/cloud.png');
 
-import GlobalContext from '@/framework/GlobalContext';
 
-import selectNavStyle from './utils/selectNavStyle';
 
 const { Header, Content } = Layout;
 

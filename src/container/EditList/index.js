@@ -251,6 +251,7 @@ export default withRouter(function EditList(props) {
               <FormTools
                 formData={item}
                 config={ModelConfig}
+                unUseDefaultValue={true}
               ></FormTools>
             </ShowModal>
             {showDelete?<div style={{cursor:"pointer",fontWeight:"bolder",position:"relative",height:"50px",lineHeight:"50px",float:"right",top:"-50px",right:"20px"}} onClick={()=>handleDelete(item.id)}><DeleteSvg/>删除</div>:null}
@@ -258,6 +259,7 @@ export default withRouter(function EditList(props) {
               <FormTools
                 formData={data}
                 config={ModelConfig}
+                unUseDefaultValue={true}
               ></FormTools>
               <div className="EditList_ButtonGroup">
               <Button type="primary" style={{"float":"right"}} onClick={()=>handleSuccess(projectId)}>提交</Button>
@@ -275,6 +277,7 @@ export default withRouter(function EditList(props) {
               <FormTools
                 formData={data}
                 config={ModelConfig}
+                unUseDefaultValue={true}
               ></FormTools>
             </ShowModal>
             {showDelete?<div style={{cursor:"pointer",fontWeight:"bolder",position:"relative",height:"50px",lineHeight:"50px",float:"right",top:"-50px",right:"20px"}} onClick={()=>handleDelete(PageId)}><DeleteSvg/>删除</div>:null}
@@ -292,6 +295,7 @@ export default withRouter(function EditList(props) {
               <FormTools
                 config={ModelConfig}
                 ref={addRef}
+                // unUseDefaultValue={true}//新增时候需要使用默认值
               ></FormTools>
             </ShowModal>:null }
   </Drawer>

@@ -6,7 +6,7 @@ export default forwardRef((props,ref)=>{
     const {
         formData,
         config,
-        unUseDefaultValue = false
+        unUseDefaultValue = false //是否使用默认值
     }=props
     const CheckboxGroup = Checkbox.Group
     const { Panel } = Collapse;
@@ -14,11 +14,23 @@ export default forwardRef((props,ref)=>{
     function getFormData(field){
         return _.get(formData,field,"")
     }
-    function getSwitchData(field){
+    function getDefaultData(field,defaultValue){
+        let defaultData;
+        let formData = getFormData(field)
+        if(formData){
+            defaultData = formData
+        }else if(!unUseDefaultValue){
+            defaultData = defaultValue
+        }
+        return defaultData
+    }
+    function getSwitchData(field,defaultValue){
         let data = getFormData(field)
         let value;
         if(data === "1"||data === 1||data === true){
             value = true
+        }else if(!unUseDefaultValue){
+            value = defaultValue
         }else{
             value = false
         }
@@ -63,7 +75,7 @@ export default forwardRef((props,ref)=>{
     
         setData(newData)
     }
-    function getSelectData(field){
+    function getSelectData(field,defaultValue){
         let SelectData
         let theForm = getFormData(field)
         if(theForm){
@@ -75,6 +87,8 @@ export default forwardRef((props,ref)=>{
             let json = allValue.split(',')
             SelectData=json
             console.log(SelectData)
+        }else if(!unUseDefaultValue){
+            SelectData = defaultValue
         }
         return SelectData
     }
@@ -87,13 +101,13 @@ export default forwardRef((props,ref)=>{
         // 选择项
         const selectEndpoint = (item,i) => {
             return <>{item.mode==="multiple"?<CheckboxGroup
-            defaultValue={getSelectData(item.field)||item.defaultValue} 
+            defaultValue={getSelectData(item.field,item.defaultValue)} 
             style={{ width: "100%" }} 
             options={item.options} 
             onChange={(e)=>handleSelect(item.field,e)}
             >
             </CheckboxGroup>:<Select 
-            defaultValue={getSelectData(item.field)||item.defaultValue} 
+            defaultValue={getSelectData(item.field,item.defaultValue)} 
             mode={item.mode} style={{ width: "100%" }} 
             options={item.options} 
             onChange={(e)=>handleSelect(item.field,e)}
@@ -110,14 +124,14 @@ export default forwardRef((props,ref)=>{
         }
         // switch项
         const switchEndpoint = (item,i) => {
-            return <Switch defaultChecked={getSwitchData(item.field)||item.defaultValue}
+            return <Switch defaultChecked={getSwitchData(item.field,item.defaultValue)}
                         onChange={(e)=>switchChange(item.field,e)}
             />
         }
         // 默认input
         const inputEndpoint = (item,i) => {
             return <Input
-            defaultValue={getFormData(item.field)||item.defaultValue}
+            defaultValue={getDefaultData(item.field,item.defaultValue)}
             addonAfter={item.addonAfter}
             onChange={(e)=>ChangeValue(item.field,e)}
             key={i}
@@ -128,7 +142,7 @@ export default forwardRef((props,ref)=>{
         const numberEndpoint = (item,i) => {
             return <InputNumber
             addonAfter={item.addonAfter}
-            defaultValue={getFormData(item.field)||item.defaultValue}
+            defaultValue={getDefaultData(item.field,item.defaultValue)}
             onChange={(e)=>defaultChange(item.field,e)}
             key={i}
             size="middle"

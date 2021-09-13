@@ -48,32 +48,31 @@ export default function () {
        } 
     }
     getParams()
-
     useDidMount(_ => {
-      const apiUrl = `/api/config`;
       // const apiUrl = `https://api.mock.smallsaas.cn/data`;
-      const queryData = {
-        id:1
-      };
-      promiseAjax(apiUrl, queryData)
-        .then(resp => {
-          if (resp.status===1) {
-            const data = resp.data;
-            setPageConfig(data)
-          } else {
-            console.error('获取页面配置信息失败')
-          }
-        })
       let endpoint = getEndpoint()
+      const apiUrl = `${endpoint}/api/PageConfig/ToConfig`; //转换地址
       const pageUrl = `${endpoint}${pageEndpoint}/${id}`;
         // const apiUrl = `/api/test`;
-
       promiseAjax(pageUrl,{})
       .then(resp => {
         if (resp && resp.code === 200) {
           const Listdata = resp.data;
           // message.success("加载成功")
           setPageId(Listdata.id)
+          let options = {
+            method:"post"
+          }
+          promiseAjax(apiUrl, Listdata,options)
+            .then(value => {
+              if (value.code===200) {
+                const data = value.data;
+                setPageConfig(data)
+                console.log(data,"data")
+              } else {
+                console.error('获取页面配置信息失败')
+              }
+            })
         } else {
           message.error('获取页面配置信息失败')
         }

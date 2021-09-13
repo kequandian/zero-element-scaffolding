@@ -50,7 +50,7 @@ export default (props) => {
     history.push('/login');
   }
 
-  function handleRouterightrofile() {
+  function handleRouteTorofile() {
     history.push('/profile/userpage');
     useVisible(false);
   }
@@ -105,7 +105,7 @@ export default (props) => {
         <Avatar src={getAvatar()} style={{ position: 'absolute', left: '50%', right: 35, transform: ' translate(-50%)' ,background:"white"}} icon={<UserOutlined style={{ fontSize: 60, paddingright: 8, paddingLeft: 5 }} />} size={90} />
         <span style={{ fontSize: 17, textAlign: 'center', fontWeight: 'bolder', position: 'absolute', bottom: 20, left: '50%', transform: ' translate(-50%)' }}>{getUserName()}</span>
       </Menu.Item>
-      <Menu.Item onClick={handleRouterightrofile}>
+      <Menu.Item onClick={handleRouteTorofile}>
         <AppstoreOutlined style={{ paddingLeft: 10 }} />
         <span className="ZEleA-margin-left">个人中心</span>
       </Menu.Item>
@@ -162,7 +162,7 @@ const formMenu = (
   const RightButton = (
     <>
         <Tooltip title="前往流程设计" placement="right">
-          <a a className="Svg" href="https://r.zbsoft.right/sport" style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}><WorkflowSvg width="30" height="30"/></a>
+          <a a className="Svg" href="https://r.zbsoft.top/sport" style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}><WorkflowSvg width="30" height="30"/></a>
         </Tooltip>
         <Tooltip title="表单组件展示" placement="right">
           <Dropdown
