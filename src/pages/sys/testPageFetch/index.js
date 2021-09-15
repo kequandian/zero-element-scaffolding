@@ -20,7 +20,7 @@ import {
   FieldSvg,
   FieldProperitieSvg
 } from './svg/index'
-import {message} from 'antd'
+import {message,Spin} from 'antd'
 export default function () {
     useBreadcrumb([
       { title: '首页', path: '/' },
@@ -28,7 +28,9 @@ export default function () {
     ]);
     
     const [pageConfig, setPageConfig] = useState('')
+    const [spining,setSpining] = useState(true)
     const [pageId,setPageId] = useState(0)
+    const [tips,setTips] = useState("获取数据中")
     let pageEndpoint = "/api/crud/lowMainPage/lowMainPages"
     let id;
     const getParams = () =>{
@@ -53,11 +55,12 @@ export default function () {
       let endpoint = getEndpoint()
       const apiUrl = `${endpoint}/api/PageConfig/ToConfig`; //转换地址
       const pageUrl = `${endpoint}${pageEndpoint}/${id}`;
-        // const apiUrl = `/api/test`;
+      const defaultUrl = `/api/config`;
       promiseAjax(pageUrl,{})
       .then(resp => {
         if (resp && resp.code === 200) {
           const Listdata = resp.data;
+          setTips("加载完成，开始编译")
           // message.success("加载成功")
           setPageId(Listdata.id)
           let options = {
@@ -68,16 +71,61 @@ export default function () {
               if (value.code===200) {
                 const data = value.data;
                 setPageConfig(data)
-                console.log(data,"data")
+                // console.log(data,"data")
+                setSpining(false)
               } else {
-                console.error('获取页面配置信息失败')
+                message.error('获取页面配置信息失败')
+                setSpining(false)
+                promiseAjax(defaultUrl,{})
+                .then(resp=>{
+                  if(resp&&resp.status===1){
+                    const Listdata = resp.data;
+                    setTips("加载完成，开始编译")
+                    setPageId(Listdata.id)
+                    setPageConfig(resp.data)
+                  } else {
+                    message.error('获取页面配置信息失败')
+                    setSpining(false)
+                  }
+                }).catch(err=>{
+                    // message.error('获取页面配置信息失败')
+                })
               }
             })
         } else {
           message.error('获取页面配置信息失败')
+          setSpining(false)
+          promiseAjax(defaultUrl,{})
+          .then(resp=>{
+            if(resp&&resp.status===1){
+              const Listdata = resp.data;
+              setTips("加载完成，开始编译")
+              setPageId(Listdata.id)
+              setPageConfig(resp.data)
+            } else {
+              message.error('获取页面配置信息失败')
+              setSpining(false)
+            }
+          }).catch(err=>{
+              // message.error('获取页面配置信息失败')
+          })
         }
       }).catch(err=>{
           // message.error('获取页面配置信息失败')
+          promiseAjax(defaultUrl,{})
+          .then(resp=>{
+            if(resp&&resp.status===1){
+              const Listdata = resp.data;
+              setTips("加载完成，开始编译")
+              setPageId(Listdata.id)
+              setPageConfig(resp.data)
+            } else {
+              message.error('获取页面配置信息失败')
+              setSpining(false)
+            }
+          }).catch(err=>{
+              // message.error('获取页面配置信息失败')
+          })
       })
     });
 
@@ -183,6 +231,6 @@ export default function () {
       }
       return <ZEle namespace="test_page" config={config} />;
     }else{
-      return null
+      return <Spin spinning={spining} tip={tips}></Spin>
     }
  } 
