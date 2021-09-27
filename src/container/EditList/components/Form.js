@@ -16,18 +16,18 @@ export default forwardRef((props,ref)=>{
     }
     function getDefaultData(field,defaultValue){
         let defaultData;
-        let formData = getFormData(field)
-        if(formData){
-            defaultData = formData
+        let dData = getFormData(field)
+        if(dData){
+            defaultData = dData
         }else if(!unUseDefaultValue){
             defaultData = defaultValue
         }
         return defaultData
     }
     function getSwitchData(field,defaultValue){
-        let data = getFormData(field)
+        let sData = getFormData(field)
         let value;
-        if(data === "1"||data === 1||data === true){
+        if(sData === "1"||sData === 1||sData === true){
             value = true
         }else if(!unUseDefaultValue){
             value = defaultValue
@@ -37,43 +37,46 @@ export default forwardRef((props,ref)=>{
         return value
     }
     function ChangeValue(field,e){
-        let newData = data||{}
-        newData[field]= e.target.value
-        setData(newData)
+        let newVData = data||{}
+        newVData[field]= e.target.value
+        setData(newVData)
     }
     function defaultChange(field,e){
-        let newData = data||{}
-        newData[field]= e
+        let newCData = data||{}
+        newCData[field]= e
         console.log(e)
-        setData(newData)
+        setData(newCData)
     }
     function switchChange(field,e){
-        let newData = data||{}
-        newData[field]= e?1:0
+        let newSData = data||{}
+        newSData[field]= e?1:0
         console.log(e)
-        setData(newData)
+        setData(newSData)
     }
     function JsonChange(field,e){
-        let newData = data||{}
+        let newJData = data||{}
         console.log(e)
-        newData[field]= JSON.stringify(e)
-        setData(newData)
+        newJData[field]= JSON.stringify(e)
+        setData(newJData)
     }
     function GetJsonValue(field){
-        let formdata = getFormData(field)
+        let jData = getFormData(field)
         let json
-        if(formdata){
-             json = JSON.parse(formdata)
+        if(jData&&jData.indexOf("{")!==-1){
+            
+             json = JSON.parse(jData)
+        }else{
+            json = {}
         }
         return json
     }
     function handleSelect(field,e){
-        let newData = data||{}
+        let newSeData = data||{}
         console.log(e.toString())
-        newData[field]=e.toString()
-        console.log(newData)
+        newSeData[field]=e.toString()
+        console.log(newSeData)
     
-        setData(newData)
+        setData(newSeData)
     }
     function getSelectData(field,defaultValue){
         let SelectData
@@ -132,9 +135,10 @@ export default forwardRef((props,ref)=>{
         const inputEndpoint = (item,i) => {
             return <Input
             defaultValue={getDefaultData(item.field,item.defaultValue)}
+            placeholder={item.placeholder||"请输入"+item.label}
             addonAfter={item.addonAfter}
             onChange={(e)=>ChangeValue(item.field,e)}
-            key={i}
+            key={getDefaultData(item.field,item.defaultValue)}
             size="middle"
              />
         }
@@ -143,6 +147,7 @@ export default forwardRef((props,ref)=>{
             return <InputNumber
             addonAfter={item.addonAfter}
             defaultValue={getDefaultData(item.field,item.defaultValue)}
+            placeholder={item.placeholder||"请输入"+item.label}
             onChange={(e)=>defaultChange(item.field,e)}
             key={i}
             size="middle"

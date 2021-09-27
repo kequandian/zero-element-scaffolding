@@ -295,6 +295,7 @@ export const fieldsConfig = [
 ]
 // 页面配置
 export const MainPageConfig = [
+    { "label":"页面名称","field":"pageName","defaultValue":"","placeholder":"请输入页面名称,必须为英文" },
     { "label":"页面标题", "field":"pageTitle","defaultValue":"标题" },
     { "label":"新建页面标题", "field":"formAddTitle","defaultValue":"新增" },
     { "label":"页面视图标题", "field":"formViewTitle","defaultValue":"查看" },
@@ -302,7 +303,7 @@ export const MainPageConfig = [
     { "label":"数据接口", "field":"apiEndpoint","defaultValue":"" },
     {"header":"高级设置","children":[
         { "label":"页面内容布局", "field":"contentLayout","type":"select",
-        "defaultValue":"Grid",
+        "defaultValue":"Content",
         "options":[
             { "label":"Empty", "value":"Empty" },
             { "label":"Title", "value":"Title" },
@@ -446,7 +447,7 @@ export const ActionsConfig = [
             {"label":"delete","value":"delete"},
             {"label":"modal.add","value":"modal.add"},
             {"label":"modal.update","value":"modal.update"}
-        ] },
+        ],"defaultValue":"path" },
         { "label":"请求API", "field":"requestApi","type":"select","options":[
             {"label":"getApi","value":"getApi"},
             {"label":"updateApi","value":"updateApi"},
@@ -474,9 +475,11 @@ export const OperationsConfig = [
             {"label":"delete","value":"delete"},
             {"label":"modal.add","value":"modal.add"},
             {"label":"modal.update","value":"modal.update"}
-        ],"defaultValue":"modal.update" },
+        ],"defaultValue":"path" },
         { "label":"操作路由路径", "field":"path" },
         { "label":"是否显示在列表中", "field":"outside","type":"switch" },
+        { "label":"过滤字段", "field":"expectField" },
+        { "label":"过滤值", "field":"expectValue" },
         { "label":"请求API", "field":"requestApi","type":"select","options":[
             {"label":"getApi","value":"getApi"},
             {"label":"updateApi","value":"updateApi"},
@@ -484,10 +487,11 @@ export const OperationsConfig = [
         ]  },
         { "label":"请求结果API", "field":"requestRefreshApi" },
         { "label":"请求方法", "field":"requestMethod","type":"select","options":[
-            {"label":"GET","value":"GET"},
-            {"label":"POST","value":"POST"},
-            {"label":"UPDATE","value":"UPDATE"},
-            {"label":"DELETE","value":"DELETE"}
+            {"label":"GET","value":"get"},
+            {"label":"POST","value":"post"},
+            {"label":"UPDATE","value":"update"},
+            {"label":"DELETE","value":"delete"},
+            {"label":"DOWNLOAD","value":"download"}
         ] },
         { "label":"请求数据", "field":"requestBody","type":"JSON" },
         { "label":"请求参数", "field":"requestOptions","type":"JSON" },

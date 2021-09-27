@@ -21,7 +21,11 @@ import {
   FieldProperitieSvg
 } from './svg/index'
 import {message,Spin} from 'antd'
-export default function () {
+
+export let TheConfig = {
+
+}
+export default function Default() {
     useBreadcrumb([
       { title: '首页', path: '/' },
       { title: '测试动态页面加载' },
@@ -53,7 +57,7 @@ export default function () {
     useDidMount(_ => {
       // const apiUrl = `https://api.mock.smallsaas.cn/data`;
       let endpoint = getEndpoint()
-      const apiUrl = `${endpoint}/api/PageConfig/ToConfig`; //转换地址
+      const apiUrl = `${endpoint}/toconfig`; //转换地址
       const pageUrl = `${endpoint}${pageEndpoint}/${id}`;
       const defaultUrl = `/api/config`;
       promiseAjax(pageUrl,{})
@@ -130,6 +134,7 @@ export default function () {
     });
 
     if(pageConfig){
+      TheConfig = pageConfig
       const config = {
         layout: pageConfig.layout.table,
         title: pageConfig.pageName.table,
@@ -229,8 +234,9 @@ export default function () {
           },
         ],
       }
-      return <ZEle namespace="test_page" config={config} />;
+      return <ZEle namespace={`${pageConfig.pageName.name||"default"}_page`} config={config} />;
     }else{
       return <Spin spinning={spining} tip={tips}></Spin>
     }
  } 
+
