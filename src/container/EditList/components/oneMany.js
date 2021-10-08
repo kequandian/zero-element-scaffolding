@@ -7,7 +7,8 @@ const { TabPane } = Tabs;
 export default forwardRef((props,ref)=>{
     const {
         formData,
-        config
+        config,
+        unUseDefaultValue
     }=props
     const InputRef = useRef()
     function getFormData(field){
@@ -23,14 +24,15 @@ export default forwardRef((props,ref)=>{
             }
         })
     return <>
-        <Tabs defaultActiveKey="1" onChange={callback}>
+        <Tabs defaultActiveKey="1" onChange={callback} type="editable-card">
         {typeof formData==="object"?formData.map((item,i)=><>
-            <TabPane tab={"组件"+(i+1)} key={i}>
+            <TabPane tab={"布局"+(i+1)} key={i}>
                 <FormTool
                     formData={item}
                     key={i}
                     ref={InputRef}
                     config={config}
+                    unUseDefaultValue={unUseDefaultValue}
                 ></FormTool>
             </TabPane>
         </>

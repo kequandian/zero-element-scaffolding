@@ -64,6 +64,7 @@ export default function Default() {
       .then(resp => {
         if (resp && resp.code === 200) {
           const Listdata = resp.data;
+          
           setTips("加载完成，开始编译")
           // message.success("加载成功")
           setPageId(Listdata.id)
@@ -72,6 +73,7 @@ export default function Default() {
           }
           promiseAjax(apiUrl, Listdata,options)
             .then(value => {
+              console.log(value,"VALUE")
               if (value.code===200) {
                 const data = value.data;
                 setPageConfig(data)
@@ -81,12 +83,12 @@ export default function Default() {
                 message.error('获取页面配置信息失败')
                 setSpining(false)
                 promiseAjax(defaultUrl,{})
-                .then(resp=>{
-                  if(resp&&resp.status===1){
-                    const Listdata = resp.data;
+                .then(rp=>{
+                  if(rp&&rp.status===1){
+                    const ldata = rp.data;
                     setTips("加载完成，开始编译")
-                    setPageId(Listdata.id)
-                    setPageConfig(resp.data)
+                    setPageId(ldata.id)
+                    setPageConfig(rp.data)
                   } else {
                     message.error('获取页面配置信息失败')
                     setSpining(false)
@@ -96,16 +98,19 @@ export default function Default() {
                 })
               }
             })
+            .catch(value=>{
+              
+            })
         } else {
           message.error('获取页面配置信息失败')
           setSpining(false)
           promiseAjax(defaultUrl,{})
-          .then(resp=>{
-            if(resp&&resp.status===1){
-              const Listdata = resp.data;
+          .then(rp=>{
+            if(rp&&rp.status===1){
+              const ldata = rp.data;
               setTips("加载完成，开始编译")
-              setPageId(Listdata.id)
-              setPageConfig(resp.data)
+              setPageId(ldata.id)
+              setPageConfig(rp.data)
             } else {
               message.error('获取页面配置信息失败')
               setSpining(false)

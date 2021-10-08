@@ -25,7 +25,12 @@ module.exports = {
         actions: setting.tableActions,
         fields: setting.tableFields,
         operation: setting.tableOperation,
-      },
+        props:{
+          style:{
+            "text-align":"center"
+          }
+        }
+      }
     },
   ],
 };

@@ -1,7 +1,11 @@
 import React,{useState,useRef,useImperativeHandle, forwardRef} from "react"
-import { Input,Select,Switch,InputNumber,Checkbox,Collapse } from 'antd'
-import _ from 'lodash'
+import { Input,Select,Switch,InputNumber,Checkbox,Collapse, Button, Tabs, message, Modal } from 'antd'
+import { useDidMount } from 'zero-element/lib/utils/hooks/lifeCycle'
+import promiseAjax from '@/utils/promiseAjax';
+import _, { method } from 'lodash'
+import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 import TheJson from '@/../zero-antd-dep/formItemType/JSON'
+import {history} from 'umi'
 export default forwardRef((props,ref)=>{
     const {
         formData,
@@ -11,6 +15,9 @@ export default forwardRef((props,ref)=>{
     const CheckboxGroup = Checkbox.Group
     const { Panel } = Collapse;
     const [data,setData] = useState(formData)
+    const [ modalVisable,setModalVisable ] = useState(false)
+    const [actionModalData,setActionModalData] = useState()
+    const [theModalData,setTheModalData] = useState()
     function getFormData(field){
         return _.get(formData,field,"")
     }
@@ -41,6 +48,25 @@ export default forwardRef((props,ref)=>{
         newVData[field]= e.target.value
         setData(newVData)
     }
+
+    function childChangeValue(field,e,defaultValue){
+        if(defaultValue){
+            setTheModalData(defaultValue)
+        }
+        let childData=theModalData||{};
+        childData[field] = e.target.value
+        setTheModalData(childData)
+    }
+
+    function ActionChangeValue(field,e,defaultValue){
+        if(defaultValue){
+            setActionModalData(defaultValue)
+        }
+        let childData=actionModalData||{};
+        childData[field] = e.target.value
+        setActionModalData(childData)
+    }
+
     function defaultChange(field,e){
         let newCData = data||{}
         newCData[field]= e
@@ -153,13 +179,170 @@ export default forwardRef((props,ref)=>{
             size="middle"
              />
         }
+        let endpoint = getEndpoint()
+        let actionModalUrl="/api/crud/modalItemBasicA/modalItemBasicAs"
+        let ModalUrl = "/api/crud/modalItemBasic/modalItemBasics"
+        const [ modalData,setModalData ] = useState()
+        useDidMount(_=>{
+            console.log(config,"FORMDATA")
+            let modalId = getDefaultData("id")
+            let queryData = {
+                modalId:modalId
+            }
+            let options =  {
+                method:"GET"
+            }
+            promiseAjax(endpoint+actionModalUrl,queryData,options)
+            .then(resp=>{
+                setActionModalData(resp.data.records)
+            })
+            promiseAjax(endpoint+ModalUrl,queryData,options)
+            .then(resp=>{
+                setModalData(resp.data.records)
+            })
+        })
+        function getData(value,field){
+            return _.get(value,field,"")
+        }
+        function getItemDefault(item,field,defaultValue){
+            let defaultData;
+            let dData = getData(item,field)
+            // console.log(item,"ITEM")
+            if(dData){
+                defaultData = dData
+            }else if(!unUseDefaultValue){
+                defaultData = defaultValue
+            }
+            return defaultData
+        }
+        function putModalData(url,modalId,defaultData,submitData){
+            let newdata = {
+                ...defaultData,
+                ...submitData,
+                modalId:modalId
+            }
+            let options = {
+                method:"PUT"
+            }
+            promiseAjax(`${url}/${defaultData.id}`,newdata,options)
+            .then(resp=>{
+                if(resp.code === 200){
+                    message.success("更改成功")
+                }else{
+                    message.success("更改失败")
+                }
+                history.go(0)
+            })
+        }
+        function addModalData(url,modalId,submitData){
+            setModalVisable(false)
+            let newdata = {
+                ...submitData,            
+                modalId:modalId
+            }
+            let options = {
+                method:"POST"
+            }
+            promiseAjax(url,newdata,options)
+            .then(resp=>{
+                if(resp.code === 200){
+                    message.success("增加成功")
+                }else{
+                    message.success("增加失败")
+                }
+                history.go(0)
+            })
+        }
+        function cancel(){
+            setModalVisable(false)
+        }
+        function deleteModal(url,id){
+            let newurl = url+"/"+id
+            let options = {
+                method:"delete"
+            }
+            promiseAjax(newurl,{},options)
+            .then(resp=>{
+                if(resp.code===200){
+                    message.success("删除成功")
+                }else{
+                    message.error("删除失败")
+                }
+                history.go(0)
+            })
+        }
+        function showModal(e,url){
+            if(typeof e === "string"){
+                if(e.indexOf("layout")!==-1){
+                    let id = e.replace(/layout/,"")
+                    console.log(id)
+                    deleteModal(url,id)
+                }
+            }else{
+                setModalVisable(true)
+            }
+        }
+        const {TabPane } = Tabs
+        const ModalEndpoint = (item,i)=>{
+            return <><Tabs style={{"padding":"10px"}} type="editable-card" onEdit={(e)=>showModal(e,endpoint+ModalUrl)}>{modalData?modalData.map((mdata,m)=><TabPane  tab={`布局${m+1}`} key={`layout${mdata.id}`}>{item.items.map((newItem,It)=><>{newItem.label?<div>{newItem.label}：</div>:null}<Input
+                defaultValue={getItemDefault(mdata,newItem.field,newItem.defaultValue)}
+                placeholder={newItem.placeholder||"请输入"+(newItem.label||"...")}
+                addonAfter={newItem.addonAfter}
+                onChange={(e)=>childChangeValue(newItem.field,e,mdata)}
+                key={getItemDefault(modalData,newItem.field,newItem.defaultValue)}
+                size="middle"
+            >
+            </Input></>)}<Button style={{float:"right",marginTop:"20px"}} type="primary" onClick={()=>putModalData(endpoint+ModalUrl,getDefaultData("id"),mdata,theModalData)}>更改</Button></TabPane>):<></>}</Tabs>
+            {/* <Button onClick={()=>{showModal()}}>增加</Button> */}
+            <Modal
+                title={"新增配置"} visible={modalVisable} onCancel={cancel} onOk={()=>addModalData(endpoint+ModalUrl,getDefaultData("id"),theModalData)}
+            >
+                {item.items.map((newItem,It)=><>{newItem.label?<div>{newItem.label}：</div>:null}<Input
+                placeholder={newItem.placeholder||"请输入"+(newItem.label||"...")}
+                addonAfter={newItem.addonAfter}
+                onChange={(e)=>childChangeValue(newItem.field,e)}
+                key={getItemDefault(modalData,newItem.field,newItem.defaultValue)}
+                size="middle"
+            >
+            </Input></>)}
+            </Modal>
+            </>
+        }
+
+        const ActionModalEndpoint = (item,i)=>{
+            return <><Tabs style={{"padding":"10px"}} type="editable-card" onEdit={(e)=>showModal(e,endpoint+actionModalUrl)}>{actionModalData?actionModalData.map((mdata,m)=><TabPane  tab={`布局${m+1}`} key={`layout${mdata.id}`}>{item.items.map((newItem,It)=><>{newItem.label?<div>{newItem.label}：</div>:null}<Input
+                defaultValue={getItemDefault(mdata,newItem.field,newItem.defaultValue)}
+                placeholder={newItem.placeholder||"请输入"+(newItem.label||"...")}
+                addonAfter={newItem.addonAfter}
+                onChange={(e)=>ActionChangeValue(newItem.field,e,mdata)}
+                key={getItemDefault(actionModalData,newItem.field,newItem.defaultValue)}
+                size="middle"
+            >
+            </Input></>)}<Button style={{float:"right",marginTop:"20px"}} type="primary" onClick={()=>putModalData(endpoint+actionModalUrl,getDefaultData("id"),mdata,actionModalData)}>更改</Button></TabPane>):<></>}</Tabs>
+            {/* <Button onClick={()=>{showModal()}}>增加</Button> */}
+            <Modal
+                title={"新增配置"} visible={modalVisable} onCancel={cancel} onOk={()=>addModalData(endpoint+actionModalUrl,getDefaultData("id"),actionModalData)}
+            >
+                {item.items.map((newItem,It)=><>{newItem.label?<div>{newItem.label}：</div>:null}<Input
+                placeholder={newItem.placeholder||"请输入"+(newItem.label||"...")}
+                addonAfter={newItem.addonAfter}
+                onChange={(e)=>ActionChangeValue(newItem.field,e)}
+                key={getItemDefault(actionModalData,newItem.field,newItem.defaultValue)}
+                size="middle"
+            >
+            </Input></>)}
+            </Modal>
+            </>
+        }
 
         const AllFormType = (item,i) =>{
-            return <div className="dynamic_column"><div>{item.label}：</div>{ 
+            return <div className="dynamic_column">{item.label?<div>{item.label}：</div>:null}{ 
                 item.type==="JSON"?jsonEndpoint(item,i):
                item.type==="select"?selectEndpoint(item,i):
                item.type==="switch"?switchEndpoint(item,i):
                item.type==="number"?numberEndpoint(item,i):
+               item.type==="Modal"?ModalEndpoint(item,i):
+               item.type==="ActionModal"?ActionModalEndpoint(item,i):
                 inputEndpoint(item,i)}</div>
         }
     return <>

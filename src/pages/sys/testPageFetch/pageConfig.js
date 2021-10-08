@@ -142,10 +142,10 @@ export const fieldsConfig = [
             { "label":"表单项是否必填", "field":"formInputRequired","type":"switch" },
             { "label":"右侧说明", "field":"formFieldQuestion" },
         
-            {
-                "label":"列表项标识",
-                "field":"listColumnKey"
-            },
+            // {
+            //     "label":"列表项标识",
+            //     "field":"listColumnKey"
+            // },
             {
                 "label":"字体加粗",
                 "field":"listFontWeight",
@@ -211,14 +211,14 @@ export const fieldsConfig = [
                 "field":"listColumnWidth",
                 "type":"number"
             },
-            {
-                "label":"列表项接引路由",
-                "field":"listColumnReference"
-            },
-            {
-                "label":"列表项显示格式",
-                "field":"listColumnFormat"
-            },
+            // {
+            //     "label":"列表项接引路由",
+            //     "field":"listColumnReference"
+            // },
+            // {
+            //     "label":"列表项显示格式",
+            //     "field":"listColumnFormat"
+            // },
             {
                 "label":"列表项组件属性",
                 "field":"listColumnOptions",
@@ -445,8 +445,7 @@ export const ActionsConfig = [
             {"label":"request","value":"request"},
             {"label":"path","value":"path"},
             {"label":"delete","value":"delete"},
-            {"label":"modal.add","value":"modal.add"},
-            {"label":"modal.update","value":"modal.update"}
+            {"label":"modal","value":"modal"}
         ],"defaultValue":"path" },
         { "label":"请求API", "field":"requestApi","type":"select","options":[
             {"label":"getApi","value":"getApi"},
@@ -462,6 +461,16 @@ export const ActionsConfig = [
         ] },
         { "label":"请求数据", "field":"requestBody","type":"JSON" },
         { "label":"请求参数", "field":"requestOptions","type":"JSON" },
+        {"label":"模态框标题","field":"modalTitle"},
+        {"label":"模态框宽度","field":"modalWidth"},
+        {"label":"模态框外部布局","field":"modalLayout"},
+        {"label":"模态框配置","field":"items","type":"ActionModal","items":[
+            { "label":"模态框获取Api", "field":"modalContentGetApi" },
+            { "label":"模态框内容布局", "field":"modalContentLayout" },
+            { "label":"模态框更新Api", "field":"modalContentUpdateApi" },
+            { "label":"模态框内部布局", "field":"modalItemsLayout" },
+            { "label":"模态框组件", "field":"modalItemsComp" }
+        ]}
     ]}
     // { "label":"所属页面id", "field":"pageId" },
 ]
@@ -473,8 +482,7 @@ export const OperationsConfig = [
             {"label":"request","value":"request"},
             {"label":"path","value":"path"},
             {"label":"delete","value":"delete"},
-            {"label":"modal.add","value":"modal.add"},
-            {"label":"modal.update","value":"modal.update"}
+            {"label":"modal","value":"modal"}
         ],"defaultValue":"path" },
         { "label":"操作路由路径", "field":"path" },
         { "label":"是否显示在列表中", "field":"outside","type":"switch" },
@@ -495,6 +503,16 @@ export const OperationsConfig = [
         ] },
         { "label":"请求数据", "field":"requestBody","type":"JSON" },
         { "label":"请求参数", "field":"requestOptions","type":"JSON" },
+        {"label":"模态框标题","field":"modalTitle"},
+        {"label":"模态框宽度","field":"modalWidth"},
+        {"label":"模态框外部布局","field":"modalLayout"},
+        {"label":"模态框配置","field":"items","type":"Modal","items":[
+            { "label":"模态框获取Api", "field":"modalContentGetApi" },
+            { "label":"模态框内容布局", "field":"modalContentLayout" },
+            { "label":"模态框更新Api", "field":"modalContentUpdateApi" },
+            { "label":"模态框内部布局", "field":"modalItemsLayout" },
+            { "label":"模态框组件", "field":"modalItemsComp" }
+        ]}
     ]}
     // { "label":"所属页面ID", "field":"pageId" },
 ]
