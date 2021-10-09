@@ -6,3 +6,9 @@
 ### api地址：/api/config
 ### 方法：GET
 GET {{endpoint}}/api/config HTTP/1.1
+
+
+### 获取页面数据（包含item）
+### 必须带?id 否则查询不到页面数据 
+### 此api包含lowActions和lowOperations
+GET {{endpoint}}/api/mainpage?id=1 HTTP/1.1
