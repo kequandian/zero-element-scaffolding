@@ -284,7 +284,10 @@ export const fieldsConfig = [
                 "field":"listColumnMultiKeys",
                 "type":"JSON"
             },
-            { "label":"字段值下拉框选项", "field":"fieldValueOptions","type":"JSON"},
+            { "label":"字段值下拉框选项", "field":"fieldValueOptions","type":"JSON","expect":{
+                "field":"",
+                "value":""
+            }},
             { "label":"字段值过滤", "field":"fieldValueFilter","type":"JSON" },
             { "label":"表单输入组件属性", "field":"formInputOptions","type":"JSON" },
             { "label":"表单显示组件属性", "field":"formViewOptions","type":"JSON" },
@@ -341,7 +344,7 @@ export const MainPageConfig = [
             { "label":"Content", "value":"Content" },
             { "label":"Items", "value":"Items" },
         ] },
-        { "label":"表单模态框默认宽度", "field":"formDefaultWidth","type":"number" },
+        // { "label":"表单模态框默认宽度", "field":"formDefaultWidth","type":"number" },
     ]}
 ]
 // 组件类型，暂不用
@@ -445,13 +448,15 @@ export const ActionsConfig = [
             {"label":"request","value":"request"},
             {"label":"path","value":"path"},
             {"label":"delete","value":"delete"},
-            {"label":"modal","value":"modal"}
+            {"label":"modal","value":"modal"},
+            {"label":"import","value":"import"},
+            {"label":"export","value":"export"}
         ],"defaultValue":"path" },
-        { "label":"请求API", "field":"requestApi","type":"select","options":[
-            {"label":"getApi","value":"getApi"},
-            {"label":"updateApi","value":"updateApi"},
-            {"label":"createApi","value":"createApi"}
-        ]  },
+        // { "label":"请求API", "field":"requestApi","type":"select","options":[
+        //     {"label":"getApi","value":"getApi"},
+        //     {"label":"updateApi","value":"updateApi"},
+        //     {"label":"createApi","value":"createApi"}
+        // ]  },
         { "label":"请求结果刷新API", "field":"requestRefreshApi" },
         { "label":"请求方法", "field":"requestMethod","type":"select","options":[
             {"label":"GET","value":"GET"},
@@ -466,10 +471,10 @@ export const ActionsConfig = [
         {"label":"模态框外部布局","field":"modalLayout"},
         {"label":"模态框配置","field":"items","type":"ActionModal","items":[
             { "label":"模态框获取Api", "field":"modalContentGetApi" },
-            { "label":"模态框内容布局", "field":"modalContentLayout" },
+            { "label":"模态框内容布局", "field":"modalContentLayout","placeholder":"Grid" },
             { "label":"模态框更新Api", "field":"modalContentUpdateApi" },
-            { "label":"模态框内部布局", "field":"modalItemsLayout" },
-            { "label":"模态框组件", "field":"modalItemsComp" }
+            { "label":"模态框内部布局", "field":"modalItemsLayout","placeholder":"Empty" },
+            { "label":"模态框组件", "field":"modalItemsComp","placeholder":"Form" }
         ]}
     ]}
     // { "label":"所属页面id", "field":"pageId" },
@@ -488,11 +493,11 @@ export const OperationsConfig = [
         { "label":"是否显示在列表中", "field":"outside","type":"switch" },
         { "label":"过滤字段", "field":"expectField" },
         { "label":"过滤值", "field":"expectValue" },
-        { "label":"请求API", "field":"requestApi","type":"select","options":[
-            {"label":"getApi","value":"getApi"},
-            {"label":"updateApi","value":"updateApi"},
-            {"label":"createApi","value":"createApi"}
-        ]  },
+        // { "label":"请求API", "field":"requestApi","type":"select","options":[
+        //     {"label":"getApi","value":"getApi"},
+        //     {"label":"updateApi","value":"updateApi"},
+        //     {"label":"createApi","value":"createApi"}
+        // ]  },
         { "label":"请求结果API", "field":"requestRefreshApi" },
         { "label":"请求方法", "field":"requestMethod","type":"select","options":[
             {"label":"GET","value":"get"},

@@ -6,6 +6,7 @@ import _, { method } from 'lodash'
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 import TheJson from '@/../zero-antd-dep/formItemType/JSON'
 import {history} from 'umi'
+import Array from './Array/index'
 export default forwardRef((props,ref)=>{
     const {
         formData,
@@ -180,8 +181,8 @@ export default forwardRef((props,ref)=>{
              />
         }
         let endpoint = getEndpoint()
-        let actionModalUrl="/api/crud/modalItemBasicA/modalItemBasicAs"
-        let ModalUrl = "/api/crud/modalItemBasic/modalItemBasics"
+        let ModalUrl="/api/crud/modalItemBasicA/modalItemBasicAs"
+        let actionModalUrl = "/api/crud/modalItemBasic/modalItemBasics"
         const [ modalData,setModalData ] = useState()
         useDidMount(_=>{
             console.log(config,"FORMDATA")
@@ -335,6 +336,14 @@ export default forwardRef((props,ref)=>{
             </>
         }
 
+        function Thetest(e){
+            console.log(e,"Array")
+        }
+
+        const ArrayEndpoint = (item,i) =>{
+            return <><Array onChange={(e)=>Thetest(e)}></Array></>
+        }
+
         const AllFormType = (item,i) =>{
             return <div className="dynamic_column">{item.label?<div>{item.label}：</div>:null}{ 
                 item.type==="JSON"?jsonEndpoint(item,i):
@@ -343,6 +352,7 @@ export default forwardRef((props,ref)=>{
                item.type==="number"?numberEndpoint(item,i):
                item.type==="Modal"?ModalEndpoint(item,i):
                item.type==="ActionModal"?ActionModalEndpoint(item,i):
+               item.type==="Array"?ArrayEndpoint(item,i):
                 inputEndpoint(item,i)}</div>
         }
     return <>
