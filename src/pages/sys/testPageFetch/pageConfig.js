@@ -141,7 +141,7 @@ export const fieldsConfig = [
             { "label":"字段表单输入错误提示", "field":"formFieldTips" },
             { "label":"表单项是否必填", "field":"formInputRequired","type":"switch" },
             { "label":"右侧说明", "field":"formFieldQuestion" },
-        
+            
             // {
             //     "label":"列表项标识",
             //     "field":"listColumnKey"
@@ -321,6 +321,7 @@ export const MainPageConfig = [
             { "label":"Content", "value":"Content" },
             { "label":"Items", "value":"Items" },
         ] },
+        { "label":"页面最小宽度", "field":"pageMinWidth" },
         { "label":"组件列表排序", "field":"contentItems","type":"JSON" },
         { "label":"组件容器属性", "field":"contentItemContainerStyle","type":"JSON" },
         { "label":"列表字段", "field":"listFields","type":"JSON" },
@@ -471,10 +472,10 @@ export const ActionsConfig = [
         {"label":"模态框外部布局","field":"modalLayout"},
         {"label":"模态框配置","field":"items","type":"ActionModal","items":[
             { "label":"模态框获取Api", "field":"modalContentGetApi" },
-            { "label":"模态框内容布局", "field":"modalContentLayout","placeholder":"Grid" },
+            { "label":"模态框内容布局", "field":"modalContentLayout","defaultValue":"Grid" },
             { "label":"模态框更新Api", "field":"modalContentUpdateApi" },
-            { "label":"模态框内部布局", "field":"modalItemsLayout","placeholder":"Empty" },
-            { "label":"模态框组件", "field":"modalItemsComp","placeholder":"Form" }
+            { "label":"模态框内部布局", "field":"modalItemsLayout","defaultValue":"Empty" },
+            { "label":"模态框组件", "field":"modalItemsComp","defaultValue":"Form" }
         ]}
     ]}
     // { "label":"所属页面id", "field":"pageId" },
@@ -513,10 +514,10 @@ export const OperationsConfig = [
         {"label":"模态框外部布局","field":"modalLayout"},
         {"label":"模态框配置","field":"items","type":"Modal","items":[
             { "label":"模态框获取Api", "field":"modalContentGetApi" },
-            { "label":"模态框内容布局", "field":"modalContentLayout" },
+            { "label":"模态框内容布局", "field":"modalContentLayout","placeholder":"Grid" },
             { "label":"模态框更新Api", "field":"modalContentUpdateApi" },
-            { "label":"模态框内部布局", "field":"modalItemsLayout" },
-            { "label":"模态框组件", "field":"modalItemsComp" }
+            { "label":"模态框内部布局", "field":"modalItemsLayout","placeholder":"Empty" },
+            { "label":"模态框组件", "field":"modalItemsComp","placeholder":"Form" }
         ]}
     ]}
     // { "label":"所属页面ID", "field":"pageId" },

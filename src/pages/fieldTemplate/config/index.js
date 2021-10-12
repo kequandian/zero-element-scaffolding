@@ -2,6 +2,11 @@ const setting = require('./fieldTemplate-setting.json');
 
 module.exports = {
   layout: setting.layout.table,
+  config:{
+    style:{
+      "min-width":"1000px"
+    }
+  },
   title: setting.pageName.table,
   items: [
     // process.env.NODE_ENV === 'development' ?

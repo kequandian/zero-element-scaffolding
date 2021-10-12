@@ -1,5 +1,110 @@
 @import '../../../../theme.less';
 
+.rotateRight(@startDeg,@endDeg,@name){
+  @keyframes @name{
+    from {
+      transform: rotate(@startDeg);
+      transform-origin: right bottom;
+    }
+    to {
+      transform-origin: right bottom;
+      transform: rotate(@endDeg);
+    }
+  }
+  @-webkit-keyframes @name{
+    from {
+      transform-origin: right bottom;
+      transform: rotate(@startDeg);
+    }
+    to {
+      transform-origin: right bottom;
+      transform: rotate(@endDeg);
+    }
+  }
+  @-moz-keyframes @name{
+    from {
+      transform-origin: right bottom;
+      transform: rotate(@startDeg);
+    }
+    to {
+      transform-origin: right bottom;
+      transform: rotate(@endDeg);
+    }
+  }
+  @-o-keyframes @name{
+    from {
+      transform-origin: right bottom;
+      transform: rotate(@startDeg);
+    }
+    to {
+      transform-origin: right bottom;
+      transform: rotate(@endDeg);
+    }
+  }
+}
+
+.rotateLeft(@startDeg,@endDeg,@name){
+  @keyframes @name{
+    from {
+      transform-origin: right bottom;
+      transform: rotate(@startDeg);
+    }
+    to {
+      transform-origin: right bottom;
+      transform: rotate(@endDeg);
+    }
+  }
+  @-webkit-keyframes @name{
+    from {
+      transform-origin: right bottom;
+      transform: rotate(@startDeg);
+    }
+    to {
+      transform-origin: right bottom;
+      transform: rotate(@endDeg);
+    }
+  }
+  @-moz-keyframes @name{
+    from {
+      transform-origin: right bottom;
+      transform: rotate(@startDeg);
+    }
+    to {
+      transform-origin: right bottom;
+      transform: rotate(@endDeg);
+    }
+  }
+  @-o-keyframes @name{
+    from {
+      transform-origin: right bottom;
+      transform: rotate(@startDeg);
+    }
+    to {
+      transform-origin: right bottom;
+      transform: rotate(@endDeg);
+    }
+  }
+}
+
+.rotateRight(180deg,0deg,ArrowTop);
+.rotateLeft(-180deg,0deg,ArrowBottom);
+.animation(@animation-name,@animation-duration,@animation-timing-function,@animation-delay,@play-state){
+  -webkit-animation: @arguments;
+  -moz-animation: @arguments;
+  -ms-animation: @arguments;
+  -o-animation:  @arguments;
+  animation: @arguments;
+}
+
+.Arrow_top{
+  .animation(ArrowTop,.2s,Linear,0s,forwards)
+}
+
+.Arrow_bottom{
+  .animation(ArrowBottom,.2s,Linear,0s,forwards)
+}
+
+
 .LeftNav {
   background-color: @ZEle-menu-left-bgColor;
   display         : flex;
@@ -16,6 +121,13 @@
     // margin-top: 4px;
   }
 
+  .nav-titleBox{
+    position: relative;
+    cursor: pointer;
+  }
+  .nav-titleBox:hover {
+    // border-left: 2px solid #6c8cd5;
+  }
   .nav-item,
   .nav-item-container {
     width      : 100%;
@@ -24,27 +136,47 @@
     overflow   : hidden;
   }
 
-  .nav-item.selected .nav-title,
-  .nav-item:hover .nav-title {
+  .nav-item{
+    opacity: .7;
+  }
+
+  .nav-item.selected .nav-title{
     background-color: @ZEle-menu-left-active-bgColor;
-    border-right: 2px solid #1B7FCC;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
+    // border-top-right-radius: 3px;
+    // border-bottom-right-radius: 3px;
+    border-left: 4px solid #2D3E63;
+
     .nav-name {
       color: @ZEle-menu-left-active-fontColor;
     }
   }
-
-  .nav-item-container {
-    .nav-item {
-      padding-left: 1em;
+  .nav-item:hover .nav-title {
+    background-color: @ZEle-menu-left-hover-bgColor;
+    border-left: 4px solid #017D7B;
+    // border-top-right-radius: 3px;
+    // border-bottom-right-radius: 3px;
+    .nav-name {
+      color: @ZEle-menu-left-hover-fontColor;
     }
   }
 
+  .nav-item.selected,
+  .nav-item:hover{
+    opacity: 1;
+  }
+
+  a>.nav-title{
+    background-color: #F5F5F5;
+  }
+  .nav-item-container {
+    .nav-item {
+      text-indent: 3em;
+    }
+  }
   .nav-title {
     display    : flex;
     align-items: center;
-    padding    : 12px 8px;
+    padding    : 8px 8px;
     transition : all .3s;
 
     &:hover {

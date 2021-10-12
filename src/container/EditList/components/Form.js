@@ -17,17 +17,17 @@ export default forwardRef((props,ref)=>{
     const { Panel } = Collapse;
     const [data,setData] = useState(formData)
     const [ modalVisable,setModalVisable ] = useState(false)
-    const [actionModalData,setActionModalData] = useState()
-    const [theModalData,setTheModalData] = useState()
+    const [actionModalData,setActionModalData] = useState([])
+    const [theModalData,setTheModalData] = useState([])
     function getFormData(field){
         return _.get(formData,field,"")
     }
-    function getDefaultData(field,defaultValue){
+    function getDefaultData(field,defaultValue,isAdd){
         let defaultData;
         let dData = getFormData(field)
         if(dData){
             defaultData = dData
-        }else if(!unUseDefaultValue){
+        }else if(!unUseDefaultValue||isAdd){
             defaultData = defaultValue
         }
         return defaultData
@@ -285,7 +285,8 @@ export default forwardRef((props,ref)=>{
         }
         const {TabPane } = Tabs
         const ModalEndpoint = (item,i)=>{
-            return <><Tabs style={{"padding":"10px"}} type="editable-card" onEdit={(e)=>showModal(e,endpoint+ModalUrl)}>{modalData?modalData.map((mdata,m)=><TabPane  tab={`布局${m+1}`} key={`layout${mdata.id}`}>{item.items.map((newItem,It)=><>{newItem.label?<div>{newItem.label}：</div>:null}<Input
+            return <><Tabs style={{"padding":"10px"}} type="editable-card" onEdit={(e)=>showModal(e,endpoint+ModalUrl)}>{modalData?modalData.map((mdata,m)=><TabPane  tab={`布局${m+1}`} key={`layout${mdata.id}`}>{item.items.map((newItem,It)=><>{newItem.label?<div>{newItem.label}：</div>:null}
+            <Input
                 defaultValue={getItemDefault(mdata,newItem.field,newItem.defaultValue)}
                 placeholder={newItem.placeholder||"请输入"+(newItem.label||"...")}
                 addonAfter={newItem.addonAfter}
@@ -299,6 +300,7 @@ export default forwardRef((props,ref)=>{
                 title={"新增配置"} visible={modalVisable} onCancel={cancel} onOk={()=>addModalData(endpoint+ModalUrl,getDefaultData("id"),theModalData)}
             >
                 {item.items.map((newItem,It)=><>{newItem.label?<div>{newItem.label}：</div>:null}<Input
+                defaultValue={getDefaultData(newItem.field,newItem.defaultValue,true)}
                 placeholder={newItem.placeholder||"请输入"+(newItem.label||"...")}
                 addonAfter={newItem.addonAfter}
                 onChange={(e)=>childChangeValue(newItem.field,e)}
@@ -325,6 +327,7 @@ export default forwardRef((props,ref)=>{
                 title={"新增配置"} visible={modalVisable} onCancel={cancel} onOk={()=>addModalData(endpoint+actionModalUrl,getDefaultData("id"),actionModalData)}
             >
                 {item.items.map((newItem,It)=><>{newItem.label?<div>{newItem.label}：</div>:null}<Input
+                defaultValue={getDefaultData(newItem.field,newItem.defaultValue,true)}
                 placeholder={newItem.placeholder||"请输入"+(newItem.label||"...")}
                 addonAfter={newItem.addonAfter}
                 onChange={(e)=>ActionChangeValue(newItem.field,e)}

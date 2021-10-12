@@ -35,8 +35,8 @@ export default function Default() {
     const [spining,setSpining] = useState(true)
     const [pageId,setPageId] = useState(0)
     const [tips,setTips] = useState("获取数据中")
-    // let pageEndpoint = "/api/crud/lowMainPage/lowMainPages"
-    let pageEndpoint = "/api/mainpage"
+    let pageEndpoint = "/api/crud/lowMainPage/lowMainPages"
+    // let pageEndpoint = "/api/mainpage"
     let id;
     const getParams = () =>{
       var array = window.location.href.split("?");   
@@ -59,10 +59,10 @@ export default function Default() {
       // const apiUrl = `https://api.mock.smallsaas.cn/data`;
       let endpoint = getEndpoint()
       const apiUrl = `${endpoint}/toconfig`; //转换地址
-      // const pageUrl = `${endpoint}${pageEndpoint}/${id}`;
-      const pageUrl = `${endpoint}${pageEndpoint}`;//页面api获取地址
+      const pageUrl = `${endpoint}${pageEndpoint}/${id}`;
+      // const pageUrl = `${endpoint}${pageEndpoint}`;//页面api获取地址
       const defaultUrl = `/api/config`;//默认配置获取地址
-      promiseAjax(pageUrl,{id:id})
+      promiseAjax(pageUrl,{/* id:id */})
       .then(resp => {
         if (resp && resp.code === 200) {
           const Listdata = resp.data;
@@ -145,6 +145,11 @@ export default function Default() {
       const config = {
         layout: pageConfig.layout.table,
         title: pageConfig.pageName.table,
+        config:{
+          style:{
+            "min-width":pageConfig.minWidth
+          }
+        },
         items: [
 
           // {
