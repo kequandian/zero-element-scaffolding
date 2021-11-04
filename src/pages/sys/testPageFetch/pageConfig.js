@@ -24,128 +24,42 @@ export const fieldsConfig = [
     //     {"label":"add","value":"add"},
     //     {"label":"view","value":"view"}
     // ] },
-    { "label":"表单输入组件", "field":"formInputType","type":"select",
-    "options":[
-        { "label":"switch", "value":"switch" },
-        { "label":"avatars", "value":"avatars" },
-        { "label":"videoview", "value":"videoview" },
-        { "label":"Space", "value":"Space" },
-        { "label":"plain", "value":"plain" },
-        { "label":"image", "value":"image" },
-        { "label":"empty", "value":"empty" },
-        { "label":"hidden", "value":"hidden" },
-        { "label":"group", "value":"group" },
-        { "label":"input", "value":"input" },
-        { "label":"search", "value":"search" },
-        { "label":"inputType", "value":"inputType" },
-        { "label":"password", "value":"password" },
-        { "label":"number", "value":"number" },
-        { "label":"radio", "value":"radio" },
-        { "label":"select", "value":"select" },
-        { "label":"checkbox", "value":"checkbox" },
-        { "label":"map", "value":"map" },
-        { "label":"pcd", "value":"pcd" },
-        { "label":"captcha", "value":"captcha" },
-        { "label":"tags", "value":"tags" },
-        { "label":"download", "value":"download" },
-        { "label":"json", "value":"json" },
-        { "label":"date", "value":"date" },
-        { "label":"week", "value":"week" },
-        { "label":"month", "value":"month" },
-        { "label":"range", "value":"range" },
-        { "label":"direct-upload", "value":"direct-upload" },
-        { "label":"time-range", "value":"time-range" },
-        { "label":"table-select", "value":"table-select" },
-        { "label":"modal-radio", "value":"modal-radio" },
-        { "label":"modal-checkbox", "value":"modal-checkbox" },
-        { "label":"upload-image", "value":"upload-image" },
-        { "label":"upload-file", "value":"upload-file" },
-        { "label":"checkbox-fetch", "value":"checkbox-fetch" },
-        { "label":"select-fetch", "value":"select-fetch" },
-        { "label":"select-fetch-val", "value":"select-fetch-val" },
-        { "label":"select-field", "value":"select-field" },
-        { "label":"text-area", "value":"text-area" },
-        { "label":"rich-text", "value":"rich-text" },
-        { "label":"one-mary", "value":"one-mary" },
-        { "label":"number-range", "value":"number-range" },
-        { "label":"pcdm", "value":"pcdm" },
-        { "label":"pcdForSearch", "value":"pcdForSearch" },
-        { "label":"toptips", "value":"toptips" },
-        { "label":"imageBox", "value":"imageBox" },
-        { "label":"path", "value":"path" },
-        { "label":"upload_file_single", "value":"upload_file_single" },
-    ],"defaultValue":"input" },
-    { "label":"表单视图组件", "field":"formViewType","type":"select",
-    "options":[
-        { "label":"index", "value":"index" }, 
-        { "label":"video", "value":"video" },
-        { "label":"plain", "value":"plain" }, 
-        { "label":"join", "value":"join" }, 
-        { "label":"map", "value":"map" },
-        { "label":"image", "value":"image" }, 
-        { "label":"thumb", "value":"thumb" }, 
-        { "label":"tag", "value":"tag" }, 
-        { "label":"dot", "value":"dot" }, 
-        { "label":"currency", "value":"currency" }, 
-        { "label":"percentage", "value":"percentage" }, 
-        { "label":"url", "value":"url" }, 
-        { "label":"download", "value":"download" }, 
-        { "label":"ellipsis", "value":"ellipsis" }, 
-        { "label":"complex", "value":"complex" }, 
-        { "label":"count-down", "value":"count-down" }, 
-        { "label":"input-number", "value":"input-number" }, 
-        { "label":"input-text", "value":"input-text" }, 
-        { "label":"input-select", "value":"input-select" }, 
-        { "label":"input-select-fetch", "value":"input-select-fetch" }
-    ],"defaultValue":"plain" },
+
+
     {
-        "label":"列表项组件类型",
-        "field":"listColumnType",
-        "type":"select",
-        "options":[
-        { "label":"index", "value":"index" }, 
-        { "label":"video", "value":"video" },
-        { "label":"plain", "value":"plain" }, 
-        { "label":"join", "value":"join" }, 
-        { "label":"map", "value":"map" },
-        { "label":"image", "value":"image" }, 
-        { "label":"thumb", "value":"thumb" }, 
-        { "label":"tag", "value":"tag" }, 
-        { "label":"dot", "value":"dot" }, 
-        { "label":"currency", "value":"currency" }, 
-        { "label":"percentage", "value":"percentage" }, 
-        { "label":"url", "value":"url" }, 
-        { "label":"download", "value":"download" }, 
-        { "label":"ellipsis", "value":"ellipsis" }, 
-        { "label":"complex", "value":"complex" }, 
-        { "label":"count-down", "value":"count-down" }, 
-        { "label":"input-number", "value":"input-number" }, 
-        { "label":"input-text", "value":"input-text" }, 
-        { "label":"input-select", "value":"input-select" }, 
-        { "label":"input-select-fetch", "value":"input-select-fetch" }
-        ],"defaultValue":"plain"
-    },
-    {
-        "header":"高级设置",
+        "header":"列表设置",
         "children":[
-            { "label":"表单标签", "field":"formFieldTitle" },//新增、编辑、查看标签
+            {
+                "label":"列表项组件类型",
+                "field":"listColumnType",
+                "type":"select",
+                "options":[
+                { "label":"index", "value":"index" }, 
+                { "label":"video", "value":"video" },
+                { "label":"plain", "value":"plain" }, 
+                { "label":"join", "value":"join" }, 
+                { "label":"map", "value":"map" },
+                { "label":"image", "value":"image" }, 
+                { "label":"thumb", "value":"thumb" }, 
+                { "label":"tag", "value":"tag" }, 
+                { "label":"dot", "value":"dot" }, 
+                { "label":"currency", "value":"currency" }, 
+                { "label":"percentage", "value":"percentage" }, 
+                { "label":"url", "value":"url" }, 
+                { "label":"download", "value":"download" }, 
+                { "label":"ellipsis", "value":"ellipsis" }, 
+                { "label":"complex", "value":"complex" }, 
+                { "label":"count-down", "value":"count-down" }, 
+                { "label":"input-number", "value":"input-number" }, 
+                { "label":"input-text", "value":"input-text" }, 
+                { "label":"input-select", "value":"input-select" }, 
+                { "label":"input-select-fetch", "value":"input-select-fetch" }
+                ],"defaultValue":"plain"
+            },
             {
                 "label":"列表标签",
                 "field":"listColumnName"
             },
-            {
-                "label":"字段组件唯一名称", //未使用
-                "field":"fieldItemName"
-            },
-            { "label":"字段表单提示", "field":"formFieldHint" },
-            { "label":"字段表单输入错误提示", "field":"formFieldTips" },
-            { "label":"表单项是否必填", "field":"formInputRequired","type":"switch" },
-            { "label":"右侧说明", "field":"formFieldQuestion" },
-            
-            // {
-            //     "label":"列表项标识",
-            //     "field":"listColumnKey"
-            // },
             {
                 "label":"字体加粗",
                 "field":"listFontWeight",
@@ -165,15 +79,30 @@ export const fieldsConfig = [
                     { "label":"lighter", "value":"lighter" },
                 ]
             },
-            
             {
                 "label":"字体大小",
                 "field":"listFontSize",
-                "type":"number"
+                "type":"text",
+                "options":[
+                    {"value":"10"},
+                    {"value":"15"},
+                    {"value":"20"},
+                    {"value":"25"}
+                ]
             },
             {
                 "label":"字体颜色",
-                "field":"listFontColor"
+                "field":"listFontColor",
+                "type":"color",
+                "options":[
+                    {"label":"黑色","value":"#000"},
+                    {"label":"白色","value":"#FFF"},
+                    {"label":"红色","value":"#E64D45"},
+                    {"label":"棕色","value":"#9A3E3B"},
+                    {"label":"绿色","value":"#2F6534"},
+                    {"label":"蓝色","value":"#3D9CB2"},
+                    {"label":"黄色","value":"#FCC200"},
+                ]
             },
             {
                 "label":"列表布局",
@@ -200,9 +129,9 @@ export const fieldsConfig = [
                 "field":"listColumnAlign",
                 "type":"select",
                 "options":[
-                    { "label":"left", "value":"left" },
-                    { "label":"center", "value":"center" },
-                    { "label":"right", "value":"right" },
+                    { "label":"左对齐", "value":"left" },
+                    { "label":"居中对齐", "value":"center" },
+                    { "label":"右对齐", "value":"right" },
                 ],
                 "defaultValue":"left"
             },
@@ -211,88 +140,188 @@ export const fieldsConfig = [
                 "field":"listColumnWidth",
                 "type":"number"
             },
-            // {
-            //     "label":"列表项接引路由",
-            //     "field":"listColumnReference"
-            // },
-            // {
-            //     "label":"列表项显示格式",
-            //     "field":"listColumnFormat"
-            // },
             {
                 "label":"列表项组件属性",
                 "field":"listColumnOptions",
                 "type":"JSON"
             },
-            {
-                "label":"复合列表项组合类型",
-                "field":"listColumnMultiType",
-                "type":"select",
-                "options":[
-                    { "label":"switch", "value":"switch" },
-                    { "label":"avatars", "value":"avatars" },
-                    { "label":"videoview", "value":"videoview" },
-                    { "label":"Space", "value":"Space" },
-                    { "label":"plain", "value":"plain" },
-                    { "label":"image", "value":"image" },
-                    { "label":"empty", "value":"empty" },
-                    { "label":"hidden", "value":"hidden" },
-                    { "label":"group", "value":"group" },
-                    { "label":"input", "value":"input" },
-                    { "label":"search", "value":"search" },
-                    { "label":"inputType", "value":"inputType" },
-                    { "label":"password", "value":"password" },
-                    { "label":"number", "value":"number" },
-                    { "label":"radio", "value":"radio" },
-                    { "label":"select", "value":"select" },
-                    { "label":"checkbox", "value":"checkbox" },
-                    { "label":"map", "value":"map" },
-                    { "label":"pcd", "value":"pcd" },
-                    { "label":"captcha", "value":"captcha" },
-                    { "label":"tags", "value":"tags" },
-                    { "label":"download", "value":"download" },
-                    { "label":"json", "value":"json" },
-                    { "label":"date", "value":"date" },
-                    { "label":"week", "value":"week" },
-                    { "label":"month", "value":"month" },
-                    { "label":"range", "value":"range" },
-                    { "label":"direct-upload", "value":"direct-upload" },
-                    { "label":"time-range", "value":"time-range" },
-                    { "label":"table-select", "value":"table-select" },
-                    { "label":"modal-radio", "value":"modal-radio" },
-                    { "label":"modal-checkbox", "value":"modal-checkbox" },
-                    { "label":"upload-image", "value":"upload-image" },
-                    { "label":"upload-file", "value":"upload-file" },
-                    { "label":"checkbox-fetch", "value":"checkbox-fetch" },
-                    { "label":"select-fetch", "value":"select-fetch" },
-                    { "label":"select-fetch-val", "value":"select-fetch-val" },
-                    { "label":"select-field", "value":"select-field" },
-                    { "label":"text-area", "value":"text-area" },
-                    { "label":"rich-text", "value":"rich-text" },
-                    { "label":"one-mary", "value":"one-mary" },
-                    { "label":"number-range", "value":"number-range" },
-                    { "label":"pcdm", "value":"pcdm" },
-                    { "label":"pcdForSearch", "value":"pcdForSearch" },
-                    { "label":"toptips", "value":"toptips" },
-                    { "label":"imageBox", "value":"imageBox" },
-                    { "label":"path", "value":"path" },
-                    { "label":"upload_file_single", "value":"upload_file_single" },
-                ] 
-            },
-            {
-                "label":"复合列表项",
-                "field":"listColumnMultiKeys",
-                "type":"JSON"
-            },
+            { "label":"字段值过滤", "field":"fieldValueFilter","type":"JSON" },
+        ]
+    },
+    {
+        "header":"表单设置",
+        "children":[
+            { "label":"表单输入组件", "field":"formInputType","type":"select",
+            "options":[
+                { "label":"switch", "value":"switch" },
+                { "label":"avatars", "value":"avatars" },
+                { "label":"videoview", "value":"videoview" },
+                { "label":"Space", "value":"Space" },
+                { "label":"plain", "value":"plain" },
+                { "label":"image", "value":"image" },
+                { "label":"empty", "value":"empty" },
+                { "label":"hidden", "value":"hidden" },
+                { "label":"group", "value":"group" },
+                { "label":"input", "value":"input" },
+                { "label":"search", "value":"search" },
+                { "label":"inputType", "value":"inputType" },
+                { "label":"password", "value":"password" },
+                { "label":"number", "value":"number" },
+                { "label":"radio", "value":"radio" },
+                { "label":"select", "value":"select" },
+                { "label":"checkbox", "value":"checkbox" },
+                { "label":"map", "value":"map" },
+                { "label":"pcd", "value":"pcd" },
+                { "label":"captcha", "value":"captcha" },
+                { "label":"tags", "value":"tags" },
+                { "label":"download", "value":"download" },
+                { "label":"json", "value":"json" },
+                { "label":"date", "value":"date" },
+                { "label":"week", "value":"week" },
+                { "label":"month", "value":"month" },
+                { "label":"range", "value":"range" },
+                { "label":"direct-upload", "value":"direct-upload" },
+                { "label":"time-range", "value":"time-range" },
+                { "label":"table-select", "value":"table-select" },
+                { "label":"modal-radio", "value":"modal-radio" },
+                { "label":"modal-checkbox", "value":"modal-checkbox" },
+                { "label":"upload-image", "value":"upload-image" },
+                { "label":"upload-file", "value":"upload-file" },
+                { "label":"checkbox-fetch", "value":"checkbox-fetch" },
+                { "label":"select-fetch", "value":"select-fetch" },
+                { "label":"select-fetch-val", "value":"select-fetch-val" },
+                { "label":"select-field", "value":"select-field" },
+                { "label":"text-area", "value":"text-area" },
+                { "label":"rich-text", "value":"rich-text" },
+                { "label":"one-mary", "value":"one-mary" },
+                { "label":"number-range", "value":"number-range" },
+                { "label":"pcdm", "value":"pcdm" },
+                { "label":"pcdForSearch", "value":"pcdForSearch" },
+                { "label":"toptips", "value":"toptips" },
+                { "label":"imageBox", "value":"imageBox" },
+                { "label":"path", "value":"path" },
+                { "label":"upload_file_single", "value":"upload_file_single" },
+            ],"defaultValue":"input" },
+            { "label":"表单视图组件", "field":"formViewType","type":"select",
+            "options":[
+                { "label":"index", "value":"index" }, 
+                { "label":"video", "value":"video" },
+                { "label":"plain", "value":"plain" }, 
+                { "label":"join", "value":"join" }, 
+                { "label":"map", "value":"map" },
+                { "label":"image", "value":"image" }, 
+                { "label":"thumb", "value":"thumb" }, 
+                { "label":"tag", "value":"tag" }, 
+                { "label":"dot", "value":"dot" }, 
+                { "label":"currency", "value":"currency" }, 
+                { "label":"percentage", "value":"percentage" }, 
+                { "label":"url", "value":"url" }, 
+                { "label":"download", "value":"download" }, 
+                { "label":"ellipsis", "value":"ellipsis" }, 
+                { "label":"complex", "value":"complex" }, 
+                { "label":"count-down", "value":"count-down" }, 
+                { "label":"input-number", "value":"input-number" }, 
+                { "label":"input-text", "value":"input-text" }, 
+                { "label":"input-select", "value":"input-select" }, 
+                { "label":"input-select-fetch", "value":"input-select-fetch" }
+            ],"defaultValue":"plain" },
+            { "label":"表单标签", "field":"formFieldTitle" },//新增、编辑、查看标签
+            { "label":"字段表单提示", "field":"formFieldHint" },
+            { "label":"字段表单输入错误提示", "field":"formFieldTips" },
+            { "label":"表单项是否必填", "field":"formInputRequired","type":"switch" },
+            { "label":"右侧说明", "field":"formFieldQuestion" },
             { "label":"字段值下拉框选项", "field":"fieldValueOptions","type":"JSON","expect":{
                 "field":"",
                 "value":""
             }},
-            { "label":"字段值过滤", "field":"fieldValueFilter","type":"JSON" },
             { "label":"表单输入组件属性", "field":"formInputOptions","type":"JSON" },
             { "label":"表单显示组件属性", "field":"formViewOptions","type":"JSON" },
         ]
     },
+    // {
+    //     "header":"高级设置",
+    //     "children":[
+    //         // {
+    //         //     "label":"字段组件唯一名称", //未使用
+    //         //     "field":"fieldItemName"
+    //         // },
+    //         // {
+    //         //     "label":"列表项标识",
+    //         //     "field":"listColumnKey"
+    //         // },
+
+
+    //         // {
+    //         //     "label":"列表项接引路由",
+    //         //     "field":"listColumnReference"
+    //         // },
+    //         // {
+    //         //     "label":"列表项显示格式",
+    //         //     "field":"listColumnFormat"
+    //         // },
+
+    //         // {
+    //         //     "label":"复合列表项组合类型",
+    //         //     "field":"listColumnMultiType",
+    //         //     "type":"select",
+    //         //     "options":[
+    //         //         { "label":"switch", "value":"switch" },
+    //         //         { "label":"avatars", "value":"avatars" },
+    //         //         { "label":"videoview", "value":"videoview" },
+    //         //         { "label":"Space", "value":"Space" },
+    //         //         { "label":"plain", "value":"plain" },
+    //         //         { "label":"image", "value":"image" },
+    //         //         { "label":"empty", "value":"empty" },
+    //         //         { "label":"hidden", "value":"hidden" },
+    //         //         { "label":"group", "value":"group" },
+    //         //         { "label":"input", "value":"input" },
+    //         //         { "label":"search", "value":"search" },
+    //         //         { "label":"inputType", "value":"inputType" },
+    //         //         { "label":"password", "value":"password" },
+    //         //         { "label":"number", "value":"number" },
+    //         //         { "label":"radio", "value":"radio" },
+    //         //         { "label":"select", "value":"select" },
+    //         //         { "label":"checkbox", "value":"checkbox" },
+    //         //         { "label":"map", "value":"map" },
+    //         //         { "label":"pcd", "value":"pcd" },
+    //         //         { "label":"captcha", "value":"captcha" },
+    //         //         { "label":"tags", "value":"tags" },
+    //         //         { "label":"download", "value":"download" },
+    //         //         { "label":"json", "value":"json" },
+    //         //         { "label":"date", "value":"date" },
+    //         //         { "label":"week", "value":"week" },
+    //         //         { "label":"month", "value":"month" },
+    //         //         { "label":"range", "value":"range" },
+    //         //         { "label":"direct-upload", "value":"direct-upload" },
+    //         //         { "label":"time-range", "value":"time-range" },
+    //         //         { "label":"table-select", "value":"table-select" },
+    //         //         { "label":"modal-radio", "value":"modal-radio" },
+    //         //         { "label":"modal-checkbox", "value":"modal-checkbox" },
+    //         //         { "label":"upload-image", "value":"upload-image" },
+    //         //         { "label":"upload-file", "value":"upload-file" },
+    //         //         { "label":"checkbox-fetch", "value":"checkbox-fetch" },
+    //         //         { "label":"select-fetch", "value":"select-fetch" },
+    //         //         { "label":"select-fetch-val", "value":"select-fetch-val" },
+    //         //         { "label":"select-field", "value":"select-field" },
+    //         //         { "label":"text-area", "value":"text-area" },
+    //         //         { "label":"rich-text", "value":"rich-text" },
+    //         //         { "label":"one-mary", "value":"one-mary" },
+    //         //         { "label":"number-range", "value":"number-range" },
+    //         //         { "label":"pcdm", "value":"pcdm" },
+    //         //         { "label":"pcdForSearch", "value":"pcdForSearch" },
+    //         //         { "label":"toptips", "value":"toptips" },
+    //         //         { "label":"imageBox", "value":"imageBox" },
+    //         //         { "label":"path", "value":"path" },
+    //         //         { "label":"upload_file_single", "value":"upload_file_single" },
+    //         //     ] 
+    //         // },
+    //         // {
+    //         //     "label":"复合列表项",
+    //         //     "field":"listColumnMultiKeys",
+    //         //     "type":"JSON"
+    //         // },
+    //     ]
+    // },
 
     // { "label":"所属页面id", "field":"pageId" }
 ]
@@ -322,13 +351,12 @@ export const MainPageConfig = [
             { "label":"Items", "value":"Items" },
         ] },
         { "label":"页面最小宽度", "field":"pageMinWidth" },
-        { "label":"组件列表排序", "field":"contentItems","type":"JSON" },
-        { "label":"组件容器属性", "field":"contentItemContainerStyle","type":"JSON" },
-        { "label":"列表字段", "field":"listFields","type":"JSON" },
-        { "label":"列表操作排列", "field":"listOperationFields","type":"JSON" },
-        { "label":"表单新建字段排列", "field":"formAddFields","type":"JSON" },
-        { "label":"列表视图字段排列", "field":"formViewFields","type":"JSON" },
-        { "label":"列表编辑字段排列", "field":"formEditFields","type":"JSON" },
+        // { "label":"组件列表排序", "field":"contentItems","type":"JSON" },
+        // { "label":"列表字段", "field":"listFields","type":"JSON" },
+        // { "label":"列表操作排列", "field":"listOperationFields","type":"JSON" },
+        // { "label":"表单新建字段排列", "field":"formAddFields","type":"JSON" },
+        // { "label":"列表视图字段排列", "field":"formViewFields","type":"JSON" },
+        // { "label":"列表编辑字段排列", "field":"formEditFields","type":"JSON" },
         { "label":"表单默认内容布局", "field":"formDefaultContentLayout", "type":"select",
         "defaultValue":"TitleContent",
         "options":[
@@ -345,6 +373,15 @@ export const MainPageConfig = [
             { "label":"Content", "value":"Content" },
             { "label":"Items", "value":"Items" },
         ] },
+        { "label":"搜索布局", "field":"searchType","type":"select","defaultValue":"MoreSearch","options":[
+            { "label":"垂直 ", "value":"MoreSearch" },
+            { "label":"水平", "value":"Search" },
+        ] },
+        { "label":"搜索按钮类型", "field":"searchButtonType","type":"select","defaultValue":"text","options":[
+            { "label":"图标","value":"default" },
+            { "label":"文字", "value":"text" },
+        ] },
+        { "label":"组件容器属性", "field":"contentItemContainerStyle","type":"JSON" },
         // { "label":"表单模态框默认宽度", "field":"formDefaultWidth","type":"number" },
     ]}
 ]
@@ -436,7 +473,7 @@ export const FiltersConfig = [
             { "label":"Content", "value":"Content" },
             { "label":"Items", "value":"Items" },
         ] },
-        { "label":"字段组件排序", "field":"searchFields","type":"JSON" },
+        // { "label":"字段组件排序", "field":"searchFields","type":"JSON" },
     ]}
     // { "label":"所属页面ID", "field":"pageId" },
 ]
@@ -465,17 +502,18 @@ export const ActionsConfig = [
             {"label":"UPDATE","value":"UPDATE"},
             {"label":"DELETE","value":"DELETE"}
         ] },
-        { "label":"请求数据", "field":"requestBody","type":"JSON" },
-        { "label":"请求参数", "field":"requestOptions","type":"JSON" },
         {"label":"模态框标题","field":"modalTitle"},
         {"label":"模态框宽度","field":"modalWidth"},
         {"label":"模态框外部布局","field":"modalLayout"},
+        { "label":"请求数据", "field":"requestBody","type":"JSON" },
+        { "label":"请求参数", "field":"requestOptions","type":"JSON" },
         {"label":"模态框配置","field":"items","type":"ActionModal","items":[
             { "label":"模态框获取Api", "field":"modalContentGetApi" },
-            { "label":"模态框内容布局", "field":"modalContentLayout","defaultValue":"Grid" },
+            { "label":"模态框内容布局", "field":"modalContentLayout","placeholder":"Grid" },
             { "label":"模态框更新Api", "field":"modalContentUpdateApi" },
-            { "label":"模态框内部布局", "field":"modalItemsLayout","defaultValue":"Empty" },
-            { "label":"模态框组件", "field":"modalItemsComp","defaultValue":"Form" }
+            { "label":"模态框创建Api","field":"modalContentCreateApi" },
+            { "label":"模态框内部布局", "field":"modalItemsLayout","placeholder":"Empty" },
+            { "label":"模态框组件", "field":"modalItemsComp","placeholder":"Form" }
         ]}
     ]}
     // { "label":"所属页面id", "field":"pageId" },
@@ -507,15 +545,16 @@ export const OperationsConfig = [
             {"label":"DELETE","value":"delete"},
             {"label":"DOWNLOAD","value":"download"}
         ] },
-        { "label":"请求数据", "field":"requestBody","type":"JSON" },
-        { "label":"请求参数", "field":"requestOptions","type":"JSON" },
         {"label":"模态框标题","field":"modalTitle"},
         {"label":"模态框宽度","field":"modalWidth"},
         {"label":"模态框外部布局","field":"modalLayout"},
+        { "label":"请求数据", "field":"requestBody","type":"JSON" },
+        { "label":"请求参数", "field":"requestOptions","type":"JSON" },
         {"label":"模态框配置","field":"items","type":"Modal","items":[
             { "label":"模态框获取Api", "field":"modalContentGetApi" },
             { "label":"模态框内容布局", "field":"modalContentLayout","placeholder":"Grid" },
             { "label":"模态框更新Api", "field":"modalContentUpdateApi" },
+            { "label":"模态框创建Api","field":"modalContentCreateApi" },
             { "label":"模态框内部布局", "field":"modalItemsLayout","placeholder":"Empty" },
             { "label":"模态框组件", "field":"modalItemsComp","placeholder":"Form" }
         ]}

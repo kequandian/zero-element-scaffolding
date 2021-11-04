@@ -102,7 +102,7 @@ export default (props) => {
         <div style={{ textAlign: 'center', cursor: 'default', color: '#666' }}>{getUserName()}</div>
       </Menu.Item> */}
       <Menu.Item style={{ width: 200, height: 180, position: "relative", cursor: 'default' }}>
-        <Avatar src={getAvatar()} style={{ position: 'absolute', left: '50%', right: 35, transform: ' translate(-50%)' ,background:"white"}} icon={<UserOutlined style={{ fontSize: 60, paddingright: 8, paddingLeft: 5 }} />} size={90} />
+        <Avatar src={getAvatar()} style={{ position: 'relative', left: '50%', right: 35, top:"-10px", transform: ' translate(-50%)' ,background:"white"}} icon={<UserOutlined style={{ fontSize: 60, paddingright: 8, paddingLeft: 5 }} />} size={90} />
         <span style={{ fontSize: 17, textAlign: 'center', fontWeight: 'bolder', position: 'absolute', bottom: 20, left: '50%', transform: ' translate(-50%)' }}>{getUserName()}</span>
       </Menu.Item>
       <Menu.Item onClick={handleRouteTorofile}>
@@ -161,10 +161,10 @@ const formMenu = (
   // 右上角按钮
   const RightButton = (
     <>
-        <Tooltip title="前往流程设计" placement="right">
+        <Tooltip title="前往流程设计" placement="bottom">
           <a a className="Svg" href="https://r.zbsoft.top/sport" style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}><WorkflowSvg width="30" height="30"/></a>
         </Tooltip>
-        <Tooltip title="表单组件展示" placement="right">
+        <Tooltip title="表单组件展示" placement="bottom">
           <Dropdown
           trigger={['click']}
           placement="bottomLeft"
@@ -173,10 +173,10 @@ const formMenu = (
           <a className="Svg" style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}><TableSvg width="30" height="30"/></a>
         </Dropdown>
         </Tooltip>
-      <Tooltip title="系统设置" placement="right">
+      <Tooltip title="系统设置" placement="bottom">
         <a className="Svg" onClick={ConfigClick} style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}><ConfigSvg width="30" height="30"/></a>
       </Tooltip>
-      <Tooltip title="设计" placement="right">
+      <Tooltip title="设计" placement="bottom">
       <Dropdown
         trigger={['click']}
         placement="bottomLeft"
@@ -188,10 +188,10 @@ const formMenu = (
       </Tooltip>
 
       {/* <a href="http://docs.smallsaas.cn" className="RightNav docs"></a> */}
-      <Tooltip title="文档" placement="right">
+      <Tooltip title="文档" placement="bottom">
         <a className="Svg" href="http://docs.smallsaas.cn" style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}><DocSvg width="30" height="30"/></a>
       </Tooltip>
-      <Tooltip title="待办" placement="right">
+      <Tooltip title="待办" placement="bottom">
         <Dropdown
           trigger={['click']}
           placement="bottomLeft"

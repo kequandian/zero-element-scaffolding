@@ -7,7 +7,7 @@ import { LS } from 'zero-element/lib/utils/storage';
 
 let router = [];
 
-export default ({ path, breadcrumb }) => {
+export default ({ path, breadcrumb,isLeftCover=false }) => {
 
   const [ menuFirstPush, setMenuFirstPush ] = useState(0);
 
@@ -30,7 +30,7 @@ export default ({ path, breadcrumb }) => {
   }, [path]);
 
   if (breadcrumb.length) {
-    return <Breadcrumb className="ZEleA-Breadcrumb-margin">
+    return <Breadcrumb className={isLeftCover?"ZEleA-Breadcrumb-margin LeftCoverBreadcrumb":"ZEleA-Breadcrumb-margin"}>
       {breadcrumb.map((item, i) => {
         return <Breadcrumb.Item key={i}>
           {item.path ? (
@@ -53,7 +53,7 @@ export default ({ path, breadcrumb }) => {
     }
   }
 
-  return <Breadcrumb className="ZEleA-Breadcrumb-margin">
+  return <Breadcrumb className={isLeftCover?"ZEleA-Breadcrumb-margin LeftCoverBreadcrumb":"ZEleA-Breadcrumb-margin"}>
     {pathAry.map((path, i) => {
       if (path === '/') {
         return <Breadcrumb.Item key={path}>

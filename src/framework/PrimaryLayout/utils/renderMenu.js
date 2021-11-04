@@ -20,7 +20,7 @@ export default function renderMenu({
   const stack = [menuData];
   const rst = [];
   const { SubMenu, MenuItem } = component;
-  console.log(selectedKeys,"SELECT")
+  // console.log(selectedKeys,"SELECT")
   while (stack.length) {
     const menu = stack.shift();
 

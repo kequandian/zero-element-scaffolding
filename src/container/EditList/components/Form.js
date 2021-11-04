@@ -7,6 +7,8 @@ import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 import TheJson from '@/../zero-antd-dep/formItemType/JSON'
 import {history} from 'umi'
 import Array from './Array/index'
+import ColorSelect from "./colorSelect";
+import FontSelect from "./FontSelect";
 export default forwardRef((props,ref)=>{
     const {
         formData,
@@ -181,7 +183,7 @@ export default forwardRef((props,ref)=>{
              />
         }
         let endpoint = getEndpoint()
-        let ModalUrl="/api/crud/modalItemBasicA/modalItemBasicAs"
+        let ModalUrl="/api/crud/modalItemBasicO/modalItemBasicOs"
         let actionModalUrl = "/api/crud/modalItemBasic/modalItemBasics"
         const [ modalData,setModalData ] = useState()
         useDidMount(_=>{
@@ -213,6 +215,8 @@ export default forwardRef((props,ref)=>{
                 defaultData = dData
             }else if(!unUseDefaultValue){
                 defaultData = defaultValue
+                setTheModalData(defaultValue)
+                setActionModalData(defaultValue)
             }
             return defaultData
         }
@@ -304,7 +308,7 @@ export default forwardRef((props,ref)=>{
                 placeholder={newItem.placeholder||"请输入"+(newItem.label||"...")}
                 addonAfter={newItem.addonAfter}
                 onChange={(e)=>childChangeValue(newItem.field,e)}
-                key={getItemDefault(modalData,newItem.field,newItem.defaultValue)}
+                key={getDefaultData(newItem.field,newItem.defaultValue,true)}
                 size="middle"
             >
             </Input></>)}
@@ -331,7 +335,7 @@ export default forwardRef((props,ref)=>{
                 placeholder={newItem.placeholder||"请输入"+(newItem.label||"...")}
                 addonAfter={newItem.addonAfter}
                 onChange={(e)=>ActionChangeValue(newItem.field,e)}
-                key={getItemDefault(actionModalData,newItem.field,newItem.defaultValue)}
+                key={getDefaultData(newItem.field,newItem.defaultValue,true)}
                 size="middle"
             >
             </Input></>)}
@@ -356,8 +360,18 @@ export default forwardRef((props,ref)=>{
                item.type==="Modal"?ModalEndpoint(item,i):
                item.type==="ActionModal"?ActionModalEndpoint(item,i):
                item.type==="Array"?ArrayEndpoint(item,i):
+               item.type==="color"?<ColorSelect 
+               options={item.options} 
+               value={getDefaultData(item.field,item.defaultValue)}
+               onChange={(e)=>ChangeValue(item.field,e)}/>:
+               item.type==="text"?<FontSelect 
+               options={item.options} 
+               value={getDefaultData(item.field,item.defaultValue)}
+               onChange={(e)=>ChangeValue(item.field,e)}/>:
                 inputEndpoint(item,i)}</div>
         }
+
+
     return <>
         {config?config.map((item,i)=>
             item.children?<Collapse>

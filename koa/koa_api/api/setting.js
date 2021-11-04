@@ -70,4 +70,16 @@ let getMainPage = async(ctx) =>{
     ctx.response.body=res
 }
 
+let postNav = async(ctx) =>{
+    let header = ctx.request.header
+    let body = ctx.request.body
+    axios.post(body.endpoint,)
+    .then(res => {
+        console.log(res)
+    })
+    .catch(err => {
+        console.error(err); 
+    })
+}
+
 module.exports = {getJson,getMainPage}

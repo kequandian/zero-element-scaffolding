@@ -88,7 +88,7 @@ export default function Default() {
                 .then(rp=>{
                   if(rp&&rp.status===1){
                     const ldata = rp.data;
-                    setTips("加载完成，开始编译")
+                    setTips("加载默认配置")
                     setPageId(ldata.id)
                     setPageConfig(rp.data)
                   } else {
@@ -226,9 +226,9 @@ export default function Default() {
             }
           },
           {
-            component: 'Search',
+            component: pageConfig.searchType||'Search',
             config: {
-              type:"default",
+              type:pageConfig.searchButtonType||"default",
               fields: pageConfig.searchFields,
             },
           },

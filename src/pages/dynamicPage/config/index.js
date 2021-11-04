@@ -1,4 +1,4 @@
-const setting = require('./dynamicPage-setting.json');
+const {setting} = require('./dynamicPage-setting.js');
 
 module.exports = {
   layout: setting.layout.table,

@@ -9,7 +9,7 @@ module.exports = {
     //     component: 'EditList',
     //   } : { component: 'Empty' },
     {
-      component: 'Search',
+      component: 'MoreSearch',
       config: {
         fields: setting.searchFields,
       },

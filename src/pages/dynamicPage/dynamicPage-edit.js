@@ -6,7 +6,7 @@ import ShowModal from '@/container/EditList/components/showModal';
 import promiseAjax from '@/utils/promiseAjax';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 import { message,Drawer } from 'antd';
-import setting from './config/dynamicPage-setting.json'
+import {setting} from './config/dynamicPage-setting.js'
 import {history} from 'umi'
 import { AddSvg } from '@/container/EditList/svg';
 import { useDidMount } from 'zero-element/lib/utils/hooks/lifeCycle'

@@ -1,4 +1,7 @@
-{
+import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
+import { getToken } from 'zero-element/lib/utils/request/token';
+
+export const setting = {
   "pageName": {
     "table": "动态页面管理",
     "new": "新增动态页面",
@@ -257,6 +260,44 @@
       "options": {
         "outside": true,
         "path": "dynamicPage/dynamicPage-edit"
+      }
+    },
+    {
+      "title": "加载字段",
+      "type": "request",
+      "options": {
+        "outside": true,
+        "tips": "确定要加载该页面数据接口的字段吗?",
+        "API": "/addLowFields",
+        "method": "post",
+        "data":{
+          "endpoint":getEndpoint(),
+          "token":getToken()
+        },
+        "query":{
+          "pageId":"id",
+          "originApi": "apiEndpoint"
+        }
+      }
+    },
+    {
+      "title": "生成导航",
+      "type": "request",
+      "options": {
+        "outside": true,
+        "tips": "确定要生成该页面的导航吗?",
+        "API": "/api/crud/menu/menus",
+        "method": "post",
+        "data":{
+          "menuType":"M",
+          "pid": "62",
+          "endpoint":getEndpoint()
+        },
+        "query":{
+          "id":"id",
+          "menuName":"pageTitle",
+          "component":"/sys/testPageFetch?id=[id]"
+        }
       }
     },
     {
