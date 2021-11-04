@@ -14,6 +14,7 @@ import LayoutSet_TitleContent from '@/../zero-antd-dep/layout/TitleContent';
 import LayoutSet_Loading from '@/../zero-antd-dep/layout/Loading';
 import LayoutSet_Alone from '@/../zero-antd-dep/layout/Alone';
 import LayoutSet_Row from '@/../zero-antd-dep/layout/Row';
+import LayoutSet_MoreSearchLayout from '@/../zero-antd-dep/layout/MoreSearchLayout';
 import LayoutSet_SearchLayout from '@/../zero-antd-dep/layout/SearchLayout';
 import LayoutSet_Grid from '@/../zero-antd-dep/layout/Grid';
 import LayoutSet_Content from '@/../zero-antd-dep/layout/Content';
@@ -28,12 +29,15 @@ import CSet_AutoReport from '@/../zero-antd-dep/container/List/AutoReport';
 import CSet_TableSelect from '@/../zero-antd-dep/container/List/TableSelect';
 import CSet_ItemList from '@/../zero-antd-dep/container/List/ItemList';
 import CSet_Search from '@/../zero-antd-dep/container/Form/Search';
+import CSet_MoreSearch from '@/../zero-antd-dep/container/Form/MoreSearch';
 import CSet_AutoReportSearch from '@/../zero-antd-dep/container/Form/AutoReportSearch';
 import CSet_Form from '@/../zero-antd-dep/container/Form/Form';
 import CSet_ChildrenForm from '@/../zero-antd-dep/container/Form/ChildrenForm';
 import LASet_onRequest from '@/../zero-antd-dep/listAction/onRequest';
 import LASet_onTips from '@/../zero-antd-dep/listAction/onTips';
 import LASet_onPath from '@/../zero-antd-dep/listAction/onPath';
+import FITSet_switch from '@/../zero-antd-dep/formItemType/switch';
+import FITSet_avatars from '@/../zero-antd-dep/formItemType/Avatars/Avatars';
 import FITSet_videoview from '@/../zero-antd-dep/formItemType/VideoView/VideoView';
 import FITSet_Space from '@/../zero-antd-dep/formItemType/Space';
 import FITSet_plain from '@/../zero-antd-dep/formItemType/Plain';
@@ -42,6 +46,7 @@ import FITSet_empty from '@/../zero-antd-dep/formItemType/Empty';
 import FITSet_hidden from '@/../zero-antd-dep/formItemType/Hidden';
 import FITSet_group from '@/../zero-antd-dep/formItemType/Group';
 import FITSet_input from '@/../zero-antd-dep/formItemType/Input';
+import FITSet_search from '@/../zero-antd-dep/formItemType/Search';
 import FITSet_inputType from '@/../zero-antd-dep/formItemType/InputType';
 import FITSet_password from '@/../zero-antd-dep/formItemType/Password';
 import FITSet_number from '@/../zero-antd-dep/formItemType/Number';
@@ -76,6 +81,9 @@ import FITSet_numberRange from '@/../zero-antd-dep/formItemType/NumberRange';
 import FITSet_pcdm from '@/../zero-antd-dep/formItemType/PCDM';
 import FITSet_pcdForSearch from '@/../zero-antd-dep/formItemType/PCDForSearch';
 import FITSet_toptips from '@/../zero-antd-dep/formItemType/Toptips';
+import FITSet_imageBox from '@/../zero-antd-dep/formItemType/ImageBox';
+import FITSet_path from '@/../zero-antd-dep/formItemType/path';
+import FITSet_TimeSelect from '@/../zero-antd-dep/formItemType/TimeSelect';
 import AITSet_modal from '@/../zero-antd-dep/actionItemType/Modal';
 import AITSet_request from '@/../zero-antd-dep/actionItemType/Request';
 import AITSet_childrenModalAdd from '@/../zero-antd-dep/actionItemType/ChildrenModalAdd';
@@ -84,6 +92,7 @@ import AITSet_importModal from '@/../zero-antd-dep/actionItemType/ImportModal';
 import AITSet_export from '@/../zero-antd-dep/actionItemType/Export';
 import AITSet_tableCheckbox from '@/../zero-antd-dep/actionItemType/TableCheckbox';
 import VTSet_index from '@/../zero-antd-dep/valueType/index';
+import VTSet_video from '@/../zero-antd-dep/valueType/Video';
 import VTSet_plain from '@/../zero-antd-dep/valueType/plain';
 import VTSet_join from '@/../zero-antd-dep/valueType/join';
 import VTSet_map from '@/../zero-antd-dep/valueType/map';
@@ -112,6 +121,7 @@ LayoutSet({
 'Loading': LayoutSet_Loading,
 'Alone': LayoutSet_Alone,
 'Row': LayoutSet_Row,
+'MoreSearchLayout': LayoutSet_MoreSearchLayout,
 'SearchLayout': LayoutSet_SearchLayout,
 'Grid': LayoutSet_Grid,
 'Content': LayoutSet_Content,
@@ -130,6 +140,7 @@ CSet({
 'TableSelect': CSet_TableSelect,
 'ItemList': CSet_ItemList,
 'Search': CSet_Search,
+'MoreSearch': CSet_MoreSearch,
 'AutoReportSearch': CSet_AutoReportSearch,
 'Form': CSet_Form,
 'ChildrenForm': CSet_ChildrenForm,
@@ -144,6 +155,8 @@ LASet({
 });
 
 FITSet({
+'switch': FITSet_switch,
+'avatars': FITSet_avatars,
 'videoview': FITSet_videoview,
 'Space': FITSet_Space,
 'plain': FITSet_plain,
@@ -152,6 +165,7 @@ FITSet({
 'hidden': FITSet_hidden,
 'group': FITSet_group,
 'input': FITSet_input,
+'search': FITSet_search,
 'inputType': FITSet_inputType,
 'password': FITSet_password,
 'number': FITSet_number,
@@ -186,6 +200,9 @@ FITSet({
 'pcdm': FITSet_pcdm,
 'pcdForSearch': FITSet_pcdForSearch,
 'toptips': FITSet_toptips,
+'imageBox': FITSet_imageBox,
+'path': FITSet_path,
+'TimeSelect': FITSet_TimeSelect,
 
 });
 
@@ -202,6 +219,7 @@ AITSet({
 
 VTSet({
 'index': VTSet_index,
+'video': VTSet_video,
 'plain': VTSet_plain,
 'join': VTSet_join,
 'map': VTSet_map,

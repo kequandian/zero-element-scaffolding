@@ -20,7 +20,7 @@ export default function renderMenu({
   const stack = [menuData];
   const rst = [];
   const { SubMenu, MenuItem } = component;
-
+  // console.log(selectedKeys,"SELECT")
   while (stack.length) {
     const menu = stack.shift();
 
@@ -39,6 +39,7 @@ export default function renderMenu({
       if (Array.isArray(items)) {
         rst.push(<SubMenu key={path}
           collaps={collaps}
+          path={path}
           selected={selectedKeys.includes(path)}
           title={
             renderItem(icon, name, collaps)
@@ -91,5 +92,6 @@ function renderItem(icon, name, collaps) {
       }
     </div>
     <span className="nav-name">{name}</span>
+    
   </div>
 }

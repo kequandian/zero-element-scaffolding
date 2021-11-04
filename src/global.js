@@ -32,14 +32,14 @@ import './rewrite.less';
 
 //自定义组件--未使用
 import Setting from '@/container/Setting';
-import FieldListAdd from '@/pages/workFlowManageFR/activitiesFR/components/FieldListAdd';
-import FieldModalCheckbox from '@/pages/workFlowManageFR/activitiesFR/components/FieldModalCheckbox';
+// import FieldListAdd from '@/pages/workFlowManageFR/activitiesFR/components/FieldListAdd';
+// import FieldModalCheckbox from '@/pages/workFlowManageFR/activitiesFR/components/FieldModalCheckbox';
 import TreeSelectFetch from '@/components/TreeSelectFetch';
 //自定义组件--已使用
 import CSet_CustomForm from '@/components/CustomForm';
 import CSet_CustomFormFR from '@/components/CustomFormFR';
-import CSet_DataManageFormAdd from '@/pages/sys/activitiesCustom/config/dataManage/components/Form';
-import CSet_DataReportTreeList from '@/pages/sys/dataReport/components/DataReportTreeList';
+// import CSet_DataManageFormAdd from '@/pages/sys/activitiesCustom/config/dataManage/components/Form';
+// import CSet_DataReportTreeList from '@/pages/sys/dataReport/components/DataReportTreeList';
 import VTSet_InputSwitch from '@/components/ValueType/InputSwitch';
 import FITSet_group_title from '@/components/FormItemType/Group';
 import FITSet_dynamic_radio from '@/components/FormItemType/DynamicRadio';
@@ -51,12 +51,12 @@ import FITSet_UploadImageCard from '@/formItemType/UploadImageCard';
 import FITSet_Agree_Agreement from '@/formItemType/AgreeAgreement'
 
 import Dictionary from '@/container/Dictionary';
-import FITSet_upload_file_single from '@/components/FormItemType/UploadFileSingle';
+// import FITSet_upload_file_single from '@/components/FormItemType/UploadFileSingle';
 import FITSet_download_file from '@/components/FormItemType/DownloadFile';
 import FITSet_normal_download_file from '@/components/FormItemType/NormalDownloadFile';
 import CSet_activity_fields_form from '@/components/ActivityFieldsForm';
-import CSet_print_config_form from '@/pages/workFlowManageFR/activitiesFR/components/PrintConfigForm';
-import FITSet_field_table from '@/pages/workFlowManageFR/activitiesFR/components/FieldTable';
+// import CSet_print_config_form from '@/pages/workFlowManageFR/activitiesFR/components/PrintConfigForm';
+// import FITSet_field_table from '@/pages/workFlowManageFR/activitiesFR/components/FieldTable';
 import CSet_load_html_page from '@/components/LoadHtmlPage';
 import AITSet_export_file from '@/actionItemType/ExportFile';
 import FITSet_input_box from '@/components/FormItemType/InputBox';
@@ -141,10 +141,10 @@ CSet({
   'Setting': Setting,
   'custom_form_fr': CSet_CustomFormFR,
   'Dictionary': Dictionary,
-  'data_manage_form_add' : CSet_DataManageFormAdd,
+  // 'data_manage_form_add' : CSet_DataManageFormAdd,
   'activity_fields_form' : CSet_activity_fields_form,
-  'print_config_form': CSet_print_config_form,
-  'data_report_tree_list': CSet_DataReportTreeList,
+  // 'print_config_form': CSet_print_config_form,
+  // 'data_report_tree_list': CSet_DataReportTreeList,
   'LoadHtmlPage': CSet_load_html_page,
   'NewTreeList': CSet_new_tree_list,
 });
@@ -158,15 +158,15 @@ FITSet({
   'upload-image-card':FITSet_UploadImageCard,
   'agree-agreement':FITSet_Agree_Agreement,
   'perm': FITSet_Perm,
-  'FieldListAdd': FieldListAdd,
-  'FieldModalCheckbox': FieldModalCheckbox,
+  // 'FieldListAdd': FieldListAdd,
+  // 'FieldModalCheckbox': FieldModalCheckbox,
   'tree-select-fetch': TreeSelectFetch,
   'group-title' : FITSet_group_title,
   'dynamic_radio' : FITSet_dynamic_radio,
   'local_radio' : FITSet_local_radio,
   'local_modal_radio': FITSet_modal_radio,
-  'upload_file_single': FITSet_upload_file_single,
-  'field_table': FITSet_field_table,
+  // 'upload_file_single': FITSet_upload_file_single,
+  // 'field_table': FITSet_field_table,
   'download_file_btn': FITSet_download_file,
   'normal_download_file': FITSet_normal_download_file,
   'inputBox': FITSet_input_box,
