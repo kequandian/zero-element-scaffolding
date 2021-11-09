@@ -7,6 +7,7 @@ module.exports = {
   resolve: {
     alias: {
       '@': require('path').resolve(__dirname, 'src'),
+      "@/public":require("path").resolve(__dirname,'public')
     },
   },
 };
