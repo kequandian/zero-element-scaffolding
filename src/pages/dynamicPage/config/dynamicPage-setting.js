@@ -1,6 +1,17 @@
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 import { getToken } from 'zero-element/lib/utils/request/token';
 
+function getPort(){
+  let endpoint = getEndpoint()
+  let host = document.location.host
+  let url = document.location.href
+  let http = url.split("//")[0]
+  if(["",null,undefined].includes(endpoint)){
+    endpoint = http+ "//"+ host
+  }
+  return endpoint
+}
+getPort()
 export const setting = {
   "pageName": {
     "table": "动态页面管理",
@@ -271,7 +282,7 @@ export const setting = {
         "API": "/addLowFields",
         "method": "post",
         "data":{
-          "endpoint":getEndpoint(),
+          "endpoint":getPort(),
           "token":getToken()
         },
         "query":{
@@ -291,7 +302,7 @@ export const setting = {
         "data":{
           "menuType":"M",
           "pid": "62",
-          "endpoint":getEndpoint()
+          "endpoint":getPort()
         },
         "query":{
           "id":"id",
