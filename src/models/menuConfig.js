@@ -31,23 +31,23 @@ createModel({
         if(this.getFirstRequestCount() >= 1){
           return;
         }
-        if (!this.menuTree || Array.isArray(this.menuTree)) {
-          LS.del('menuList');
-          query('/api/crud/menu/custom/json')
-            .then(response => {
-              if (response.status === 200) {
-                const { data } = response.data;
-                LS.set('menuList', data);
-                this.setFirstRequestCount(this.getFirstRequestCount()+1);
-                this.setMenuTree(data);
-              }
-            })
-            .catch(_ => {
-              return sleep(5000).then(_ => {
-                this.clearMenuTree();
-              })
-            })
-        }
+        // if (!this.menuTree || Array.isArray(this.menuTree)) {
+        //   LS.del('menuList');
+        //   query('/api/crud/menu/custom/json')
+        //     .then(response => {
+        //       if (response.status === 200) {
+        //         const { data } = response.data;
+        //         LS.set('menuList', data);
+        //         this.setFirstRequestCount(this.getFirstRequestCount()+1);
+        //         this.setMenuTree(data);
+        //       }
+        //     })
+        //     .catch(_ => {
+        //       return sleep(5000).then(_ => {
+        //         this.clearMenuTree();
+        //       })
+        //     })
+        // }
       } else {
         sleep(5000).then(_ => {
           this.clearMenuTree();

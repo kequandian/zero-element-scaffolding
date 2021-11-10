@@ -123,6 +123,7 @@ if (process.env.NODE_ENV === 'development') {
   //# 192.168.3.239:8090 demo.smallsaas.cn:8080
   // setEndpoint('http://cn1.utools.club:58116');
   setEndpoint(Config.endpoint);
+  window.ZEle.pdfEndpint = Config.pdfEndpoint
   // setEndpoint('http://localhost:8080');
   // saveToken({
   //   token: '',

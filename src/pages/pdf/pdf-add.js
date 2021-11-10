@@ -1,14 +1,36 @@
 import React from 'react';
 import ZEle from 'zero-element';
-import config from './config/pdf-addconfig';
 import useBreadcrumb from "@/framework/useBreadcrumb"
 
-let pageConfig = require("@/../public/setting.json")
+import { theConfig } from './index';
 
 export default () => {
     useBreadcrumb([
         { title: '首页', path: '/' },
         { title: "PDF页增加"}
     ]);
-    return <ZEle namespace={`${pageConfig.pageName.name||"default"}_add`} config={config} />
+    if(theConfig){
+        const pageConfig = {
+            layout: theConfig.layout.form,
+            title: theConfig.pageName.new,
+            items: [
+              {
+                component: 'Form',
+                config: {
+                  API: {
+                    createAPI: theConfig.createAPI,
+                  },
+                  layout: 'Grid',
+                  layoutConfig: {
+                    value: Array(theConfig.columns).fill(~~(24 / theConfig.columns)),
+                  },
+                  fields: theConfig.createFields || theConfig.formFields,
+                },
+              },
+            ],
+        }
+        return <ZEle namespace={`${theConfig.pageName.name||"default"}_add`} config={pageConfig} />;        
+        }else{
+            return <div>无页面配置信息！</div>
+          }
 }
