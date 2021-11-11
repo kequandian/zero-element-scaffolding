@@ -12,7 +12,7 @@ export default function () {
   if (getToken()) {
     history.push('/pdf');
   } else {
-    history.push('/login');
+    history.push('/pdf');
   }
 
   return (

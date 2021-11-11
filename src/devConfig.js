@@ -9,6 +9,6 @@ export const Config ={
     breadcrumbType:"header", //header,top
     theme:"LeftCover",//TopCover,LeftCover
     aloneWindow:[   // 使用方法:在这里增加页面路径即可，如 /login
-        "/pdf"
+        // "/pdf"
     ]
 }
