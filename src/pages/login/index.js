@@ -194,7 +194,7 @@ function LoginForm(props) {
       className={styles.loginBG}
       style={{
         width: '100%',
-        height: '100%',
+        height: '100vh',
       }}
     >
     </div>

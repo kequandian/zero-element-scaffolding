@@ -1,4 +1,18 @@
-{
+import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
+import { getToken } from 'zero-element/lib/utils/request/token';
+
+function getPort(){
+  let endpoint = getEndpoint()
+  let host = document.location.host
+  let url = document.location.href
+  let http = url.split("//")[0]
+  if(["",null,undefined].includes(endpoint)){
+    endpoint = http+ "//"+ host
+  }
+  return endpoint
+}
+getPort()
+export const setting = {
   "pageName": {
     "table": "动态页面管理",
     "new": "新增动态页面",
@@ -11,6 +25,14 @@
   "deleteAPI": "/api/crud/lowMainPage/lowMainPages/(id)",
   "columns": 1,
   "createFields": [
+    { "label":"页面名称","field":"pageName","type":"input","rules": [
+      {
+        "type": "required"
+      }
+    ],
+    "props": {
+      "placeholder": "请输入"
+    } },
     {
       "label": "页面标题",
       "rules": [
@@ -111,6 +133,14 @@
       "type": "input" }
   ],
   "updateFields": [
+    { "label":"页面名称","field":"pageName","type":"input","rules": [
+      {
+        "type": "required"
+      }
+    ],
+    "props": {
+      "placeholder": "请输入"
+    } },
     {
       "label": "页面标题",
       "rules": [
@@ -236,6 +266,52 @@
       }
     },
     {
+      "title": "编辑页面",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "dynamicPage/dynamicPage-edit"
+      }
+    },
+    {
+      "title": "加载字段",
+      "type": "request",
+      "options": {
+        "outside": true,
+        "tips": "确定要加载该页面数据接口的字段吗?",
+        "API": "/addLowFields",
+        "method": "post",
+        "data":{
+          "endpoint":getPort(),
+          "token":getToken()
+        },
+        "query":{
+          "pageId":"id",
+          "originApi": "apiEndpoint"
+        }
+      }
+    },
+    {
+      "title": "生成导航",
+      "type": "request",
+      "options": {
+        "outside": true,
+        "tips": "确定要生成该页面的导航吗?",
+        "API": "/api/crud/menu/menus",
+        "method": "post",
+        "data":{
+          "menuType":"M",
+          "pid": "62",
+          "endpoint":getPort()
+        },
+        "query":{
+          "id":"id",
+          "menuName":"pageTitle",
+          "component":"/sys/testPageFetch?id=[id]"
+        }
+      }
+    },
+    {
       "title": "删除",
       "type": "delete",
       "options": {
@@ -254,6 +330,7 @@
     }
   ],
   "tableFields": [
+    { "label":"页面名称","field":"pageName" },
     { "label":"页面标题", "field":"pageTitle" },
     { "label":"新建页面标题", "field":"formAddTitle" },
     { "label":"页面视图标题", "field":"formViewTitle" },
@@ -268,6 +345,7 @@
       "title": "详情",
       "type": "plain",
       "fields": [
+        { "label":"页面名称","field":"pageName" },
         { "label":"页面标题", "field":"pageTitle" },
         { "label":"数据接口", "field":"apiEndpoint" },
         { "label":"新建页面标题", "field":"formAddTitle" },

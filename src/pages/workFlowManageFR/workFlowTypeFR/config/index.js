@@ -12,6 +12,9 @@ module.exports = {
       component: 'Search',
       config: {
         fields: setting.searchFields,
+        layoutConfig:{
+          collapse:2
+        }
       },
     },
     {

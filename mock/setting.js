@@ -5,7 +5,8 @@ export default {
       "pageName": {
         "table": "字段模板",
         "new": "新增字段模板",
-        "edit": "更改字段模板"
+        "edit": "更改字段模板",
+        "name":"", //对应传过去的pageName，起缓存作用
       },
       "listAPI": "/api/crud/fieldModel/fieldModels",
       "createAPI": "/api/crud/fieldModel/fieldModels",

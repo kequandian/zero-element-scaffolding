@@ -65,7 +65,7 @@ function renderCard(namespace, opt, props) {
   }  
 
   return <Fragment key={`${title}-${type}`}>
-    <Card title={title}>
+    <Card title={title} isBack={true}>
       <C
         {...props}
         {...restOpt}

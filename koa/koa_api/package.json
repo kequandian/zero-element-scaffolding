@@ -4,6 +4,7 @@
   "description": "动态页面setting",
   "main": "index.js",
   "dependencies": {
+    "axios": "^0.22.0",
     "koa": "^2.13.1",
     "koa-body": "^4.2.0",
     "koa-route": "^3.2.0"

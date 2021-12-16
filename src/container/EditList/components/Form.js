@@ -1,69 +1,113 @@
 import React,{useState,useRef,useImperativeHandle, forwardRef} from "react"
-import { Input,Select,Switch,InputNumber,Checkbox,Collapse } from 'antd'
-import _ from 'lodash'
+import { Input,Select,Switch,InputNumber,Checkbox,Collapse, Button, Tabs, message, Modal } from 'antd'
+import { useDidMount } from 'zero-element/lib/utils/hooks/lifeCycle'
+import promiseAjax from '@/utils/promiseAjax';
+import _, { method } from 'lodash'
+import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 import TheJson from '@/../zero-antd-dep/formItemType/JSON'
+import {history} from 'umi'
+import Array from './Array/index'
+import ColorSelect from "./colorSelect";
+import FontSelect from "./FontSelect";
 export default forwardRef((props,ref)=>{
     const {
         formData,
         config,
-        unUseDefaultValue = false
+        unUseDefaultValue = false //是否使用默认值
     }=props
     const CheckboxGroup = Checkbox.Group
     const { Panel } = Collapse;
     const [data,setData] = useState(formData)
+    const [ modalVisable,setModalVisable ] = useState(false)
+    const [actionModalData,setActionModalData] = useState([])
+    const [theModalData,setTheModalData] = useState([])
     function getFormData(field){
         return _.get(formData,field,"")
     }
-    function getSwitchData(field){
-        let data = getFormData(field)
+    function getDefaultData(field,defaultValue,isAdd){
+        let defaultData;
+        let dData = getFormData(field)
+        if(dData){
+            defaultData = dData
+        }else if(!unUseDefaultValue||isAdd){
+            defaultData = defaultValue
+        }
+        return defaultData
+    }
+    function getSwitchData(field,defaultValue){
+        let sData = getFormData(field)
         let value;
-        if(data === "1"||data === 1||data === true){
+        if(sData === "1"||sData === 1||sData === true){
             value = true
+        }else if(!unUseDefaultValue){
+            value = defaultValue
         }else{
             value = false
         }
         return value
     }
     function ChangeValue(field,e){
-        let newData = data||{}
-        newData[field]= e.target.value
-        setData(newData)
+        let newVData = data||{}
+        newVData[field]= e.target.value
+        setData(newVData)
     }
+
+    function childChangeValue(field,e,defaultValue){
+        if(defaultValue){
+            setTheModalData(defaultValue)
+        }
+        let childData=theModalData||{};
+        childData[field] = e.target.value
+        setTheModalData(childData)
+    }
+
+    function ActionChangeValue(field,e,defaultValue){
+        if(defaultValue){
+            setActionModalData(defaultValue)
+        }
+        let childData=actionModalData||{};
+        childData[field] = e.target.value
+        setActionModalData(childData)
+    }
+
     function defaultChange(field,e){
-        let newData = data||{}
-        newData[field]= e
+        let newCData = data||{}
+        newCData[field]= e
         console.log(e)
-        setData(newData)
+        setData(newCData)
     }
     function switchChange(field,e){
-        let newData = data||{}
-        newData[field]= e?1:0
+        let newSData = data||{}
+        newSData[field]= e?1:0
         console.log(e)
-        setData(newData)
+        setData(newSData)
     }
     function JsonChange(field,e){
-        let newData = data||{}
+        let newJData = data||{}
         console.log(e)
-        newData[field]= JSON.stringify(e)
-        setData(newData)
+        newJData[field]= JSON.stringify(e)
+        setData(newJData)
     }
     function GetJsonValue(field){
-        let formdata = getFormData(field)
+        let jData = getFormData(field)
         let json
-        if(formdata){
-             json = JSON.parse(formdata)
+        if(jData&&jData.indexOf("{")!==-1){
+            
+             json = JSON.parse(jData)
+        }else{
+            json = {}
         }
         return json
     }
     function handleSelect(field,e){
-        let newData = data||{}
+        let newSeData = data||{}
         console.log(e.toString())
-        newData[field]=e.toString()
-        console.log(newData)
+        newSeData[field]=e.toString()
+        console.log(newSeData)
     
-        setData(newData)
+        setData(newSeData)
     }
-    function getSelectData(field){
+    function getSelectData(field,defaultValue){
         let SelectData
         let theForm = getFormData(field)
         if(theForm){
@@ -75,6 +119,8 @@ export default forwardRef((props,ref)=>{
             let json = allValue.split(',')
             SelectData=json
             console.log(SelectData)
+        }else if(!unUseDefaultValue){
+            SelectData = defaultValue
         }
         return SelectData
     }
@@ -87,13 +133,13 @@ export default forwardRef((props,ref)=>{
         // 选择项
         const selectEndpoint = (item,i) => {
             return <>{item.mode==="multiple"?<CheckboxGroup
-            defaultValue={getSelectData(item.field)||item.defaultValue} 
+            defaultValue={getSelectData(item.field,item.defaultValue)} 
             style={{ width: "100%" }} 
             options={item.options} 
             onChange={(e)=>handleSelect(item.field,e)}
             >
             </CheckboxGroup>:<Select 
-            defaultValue={getSelectData(item.field)||item.defaultValue} 
+            defaultValue={getSelectData(item.field,item.defaultValue)} 
             mode={item.mode} style={{ width: "100%" }} 
             options={item.options} 
             onChange={(e)=>handleSelect(item.field,e)}
@@ -110,17 +156,18 @@ export default forwardRef((props,ref)=>{
         }
         // switch项
         const switchEndpoint = (item,i) => {
-            return <Switch defaultChecked={getSwitchData(item.field)||item.defaultValue}
+            return <Switch defaultChecked={getSwitchData(item.field,item.defaultValue)}
                         onChange={(e)=>switchChange(item.field,e)}
             />
         }
         // 默认input
         const inputEndpoint = (item,i) => {
             return <Input
-            defaultValue={getFormData(item.field)||item.defaultValue}
+            defaultValue={getDefaultData(item.field,item.defaultValue)}
+            placeholder={item.placeholder||"请输入"+item.label}
             addonAfter={item.addonAfter}
             onChange={(e)=>ChangeValue(item.field,e)}
-            key={i}
+            key={getDefaultData(item.field,item.defaultValue)}
             size="middle"
              />
         }
@@ -128,21 +175,203 @@ export default forwardRef((props,ref)=>{
         const numberEndpoint = (item,i) => {
             return <InputNumber
             addonAfter={item.addonAfter}
-            defaultValue={getFormData(item.field)||item.defaultValue}
+            defaultValue={getDefaultData(item.field,item.defaultValue)}
+            placeholder={item.placeholder||"请输入"+item.label}
             onChange={(e)=>defaultChange(item.field,e)}
             key={i}
             size="middle"
              />
         }
+        let endpoint = getEndpoint()
+        let ModalUrl="/api/crud/modalItemBasicO/modalItemBasicOs"
+        let actionModalUrl = "/api/crud/modalItemBasic/modalItemBasics"
+        const [ modalData,setModalData ] = useState()
+        useDidMount(_=>{
+            console.log(config,"FORMDATA")
+            let modalId = getDefaultData("id")
+            let queryData = {
+                modalId:modalId
+            }
+            let options =  {
+                method:"GET"
+            }
+            promiseAjax(endpoint+actionModalUrl,queryData,options)
+            .then(resp=>{
+                setActionModalData(resp.data.records)
+            })
+            promiseAjax(endpoint+ModalUrl,queryData,options)
+            .then(resp=>{
+                setModalData(resp.data.records)
+            })
+        })
+        function getData(value,field){
+            return _.get(value,field,"")
+        }
+        function getItemDefault(item,field,defaultValue){
+            let defaultData;
+            let dData = getData(item,field)
+            // console.log(item,"ITEM")
+            if(dData){
+                defaultData = dData
+            }else if(!unUseDefaultValue){
+                defaultData = defaultValue
+                setTheModalData(defaultValue)
+                setActionModalData(defaultValue)
+            }
+            return defaultData
+        }
+        function putModalData(url,modalId,defaultData,submitData){
+            let newdata = {
+                ...defaultData,
+                ...submitData,
+                modalId:modalId
+            }
+            let options = {
+                method:"PUT"
+            }
+            promiseAjax(`${url}/${defaultData.id}`,newdata,options)
+            .then(resp=>{
+                if(resp.code === 200){
+                    message.success("更改成功")
+                }else{
+                    message.success("更改失败")
+                }
+                history.go(0)
+            })
+        }
+        function addModalData(url,modalId,submitData){
+            setModalVisable(false)
+            let newdata = {
+                ...submitData,            
+                modalId:modalId
+            }
+            let options = {
+                method:"POST"
+            }
+            promiseAjax(url,newdata,options)
+            .then(resp=>{
+                if(resp.code === 200){
+                    message.success("增加成功")
+                }else{
+                    message.success("增加失败")
+                }
+                history.go(0)
+            })
+        }
+        function cancel(){
+            setModalVisable(false)
+        }
+        function deleteModal(url,id){
+            let newurl = url+"/"+id
+            let options = {
+                method:"delete"
+            }
+            promiseAjax(newurl,{},options)
+            .then(resp=>{
+                if(resp.code===200){
+                    message.success("删除成功")
+                }else{
+                    message.error("删除失败")
+                }
+                history.go(0)
+            })
+        }
+        function showModal(e,url){
+            if(typeof e === "string"){
+                if(e.indexOf("layout")!==-1){
+                    let id = e.replace(/layout/,"")
+                    console.log(id)
+                    deleteModal(url,id)
+                }
+            }else{
+                setModalVisable(true)
+            }
+        }
+        const {TabPane } = Tabs
+        const ModalEndpoint = (item,i)=>{
+            return <><Tabs style={{"padding":"10px"}} type="editable-card" onEdit={(e)=>showModal(e,endpoint+ModalUrl)}>{modalData?modalData.map((mdata,m)=><TabPane  tab={`布局${m+1}`} key={`layout${mdata.id}`}>{item.items.map((newItem,It)=><>{newItem.label?<div>{newItem.label}：</div>:null}
+            <Input
+                defaultValue={getItemDefault(mdata,newItem.field,newItem.defaultValue)}
+                placeholder={newItem.placeholder||"请输入"+(newItem.label||"...")}
+                addonAfter={newItem.addonAfter}
+                onChange={(e)=>childChangeValue(newItem.field,e,mdata)}
+                key={getItemDefault(modalData,newItem.field,newItem.defaultValue)}
+                size="middle"
+            >
+            </Input></>)}<Button style={{float:"right",marginTop:"20px"}} type="primary" onClick={()=>putModalData(endpoint+ModalUrl,getDefaultData("id"),mdata,theModalData)}>更改</Button></TabPane>):<></>}</Tabs>
+            {/* <Button onClick={()=>{showModal()}}>增加</Button> */}
+            <Modal
+                title={"新增配置"} visible={modalVisable} onCancel={cancel} onOk={()=>addModalData(endpoint+ModalUrl,getDefaultData("id"),theModalData)}
+            >
+                {item.items.map((newItem,It)=><>{newItem.label?<div>{newItem.label}：</div>:null}<Input
+                defaultValue={getDefaultData(newItem.field,newItem.defaultValue,true)}
+                placeholder={newItem.placeholder||"请输入"+(newItem.label||"...")}
+                addonAfter={newItem.addonAfter}
+                onChange={(e)=>childChangeValue(newItem.field,e)}
+                key={getDefaultData(newItem.field,newItem.defaultValue,true)}
+                size="middle"
+            >
+            </Input></>)}
+            </Modal>
+            </>
+        }
+
+        const ActionModalEndpoint = (item,i)=>{
+            return <><Tabs style={{"padding":"10px"}} type="editable-card" onEdit={(e)=>showModal(e,endpoint+actionModalUrl)}>{actionModalData?actionModalData.map((mdata,m)=><TabPane  tab={`布局${m+1}`} key={`layout${mdata.id}`}>{item.items.map((newItem,It)=><>{newItem.label?<div>{newItem.label}：</div>:null}<Input
+                defaultValue={getItemDefault(mdata,newItem.field,newItem.defaultValue)}
+                placeholder={newItem.placeholder||"请输入"+(newItem.label||"...")}
+                addonAfter={newItem.addonAfter}
+                onChange={(e)=>ActionChangeValue(newItem.field,e,mdata)}
+                key={getItemDefault(actionModalData,newItem.field,newItem.defaultValue)}
+                size="middle"
+            >
+            </Input></>)}<Button style={{float:"right",marginTop:"20px"}} type="primary" onClick={()=>putModalData(endpoint+actionModalUrl,getDefaultData("id"),mdata,actionModalData)}>更改</Button></TabPane>):<></>}</Tabs>
+            {/* <Button onClick={()=>{showModal()}}>增加</Button> */}
+            <Modal
+                title={"新增配置"} visible={modalVisable} onCancel={cancel} onOk={()=>addModalData(endpoint+actionModalUrl,getDefaultData("id"),actionModalData)}
+            >
+                {item.items.map((newItem,It)=><>{newItem.label?<div>{newItem.label}：</div>:null}<Input
+                defaultValue={getDefaultData(newItem.field,newItem.defaultValue,true)}
+                placeholder={newItem.placeholder||"请输入"+(newItem.label||"...")}
+                addonAfter={newItem.addonAfter}
+                onChange={(e)=>ActionChangeValue(newItem.field,e)}
+                key={getDefaultData(newItem.field,newItem.defaultValue,true)}
+                size="middle"
+            >
+            </Input></>)}
+            </Modal>
+            </>
+        }
+
+        function Thetest(e){
+            console.log(e,"Array")
+        }
+
+        const ArrayEndpoint = (item,i) =>{
+            return <><Array onChange={(e)=>Thetest(e)}></Array></>
+        }
 
         const AllFormType = (item,i) =>{
-            return <div className="dynamic_column"><div>{item.label}：</div>{ 
+            return <div className="dynamic_column">{item.label?<div>{item.label}：</div>:null}{ 
                 item.type==="JSON"?jsonEndpoint(item,i):
                item.type==="select"?selectEndpoint(item,i):
                item.type==="switch"?switchEndpoint(item,i):
                item.type==="number"?numberEndpoint(item,i):
+               item.type==="Modal"?ModalEndpoint(item,i):
+               item.type==="ActionModal"?ActionModalEndpoint(item,i):
+               item.type==="Array"?ArrayEndpoint(item,i):
+               item.type==="color"?<ColorSelect 
+               options={item.options} 
+               value={getDefaultData(item.field,item.defaultValue)}
+               onChange={(e)=>ChangeValue(item.field,e)}/>:
+               item.type==="text"?<FontSelect 
+               options={item.options} 
+               value={getDefaultData(item.field,item.defaultValue)}
+               onChange={(e)=>ChangeValue(item.field,e)}/>:
                 inputEndpoint(item,i)}</div>
         }
+
+
     return <>
         {config?config.map((item,i)=>
             item.children?<Collapse>

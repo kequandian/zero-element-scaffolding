@@ -21,7 +21,6 @@ const navMap = {
 
 function selectNavStyle(type, menuData, path, switchLeftNav) {
   const permMenu = filterMenu(menuData);
-
   if (navMap[type]) {
     return navMap[type](permMenu);
   }
@@ -55,12 +54,11 @@ function filterMenu(menuData) {
 
   while (stack.length) {
     const shift = stack.shift();
-
     if (!shift) {
       break;
     };
     if (Array.isArray(shift)) {
-      stack.push(...shift);
+      rst.push(...shift);
     } else {
       const menu = { ...shift };
 
@@ -74,12 +72,10 @@ function filterMenu(menuData) {
       if (Array.isArray(menu.items)) {
         menu.items = filterMenu(menu.items);
       }
-
       rst.push(menu);
     }
 
   }
-
   return rst;
 }
 

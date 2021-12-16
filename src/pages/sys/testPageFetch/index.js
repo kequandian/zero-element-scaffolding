@@ -20,16 +20,23 @@ import {
   FieldSvg,
   FieldProperitieSvg
 } from './svg/index'
-import {message} from 'antd'
-export default function () {
+import {message,Spin} from 'antd'
+
+export let TheConfig = {
+
+}
+export default function Default() {
     useBreadcrumb([
       { title: '首页', path: '/' },
       { title: '测试动态页面加载' },
     ]);
     
     const [pageConfig, setPageConfig] = useState('')
+    const [spining,setSpining] = useState(true)
     const [pageId,setPageId] = useState(0)
+    const [tips,setTips] = useState("获取数据中")
     let pageEndpoint = "/api/crud/lowMainPage/lowMainPages"
+    // let pageEndpoint = "/api/mainpage"
     let id;
     const getParams = () =>{
       var array = window.location.href.split("?");   
@@ -48,44 +55,101 @@ export default function () {
        } 
     }
     getParams()
-
     useDidMount(_ => {
-      const apiUrl = `/api/config`;
       // const apiUrl = `https://api.mock.smallsaas.cn/data`;
-      const queryData = {
-        id:1
-      };
-      promiseAjax(apiUrl, queryData)
-        .then(resp => {
-          if (resp.status===1) {
-            const data = resp.data;
-            setPageConfig(data)
-          } else {
-            console.error('获取页面配置信息失败')
-          }
-        })
       let endpoint = getEndpoint()
+      const apiUrl = `${endpoint}/toconfig`; //转换地址
       const pageUrl = `${endpoint}${pageEndpoint}/${id}`;
-        // const apiUrl = `/api/test`;
-
-      promiseAjax(pageUrl,{})
+      // const pageUrl = `${endpoint}${pageEndpoint}`;//页面api获取地址
+      const defaultUrl = `/api/config`;//默认配置获取地址
+      promiseAjax(pageUrl,{/* id:id */})
       .then(resp => {
         if (resp && resp.code === 200) {
           const Listdata = resp.data;
+          
+          setTips("加载完成，开始编译")
           // message.success("加载成功")
           setPageId(Listdata.id)
+          let options = {
+            method:"post"
+          }
+          promiseAjax(apiUrl, Listdata,options)
+            .then(value => {
+              console.log(value,"VALUE")
+              if (value.code===200) {
+                const data = value.data;
+                setPageConfig(data)
+                // console.log(data,"data")
+                setSpining(false)
+              } else {
+                message.error('获取页面配置信息失败')
+                setSpining(false)
+                promiseAjax(defaultUrl,{})
+                .then(rp=>{
+                  if(rp&&rp.status===1){
+                    const ldata = rp.data;
+                    setTips("加载默认配置")
+                    setPageId(ldata.id)
+                    setPageConfig(rp.data)
+                  } else {
+                    message.error('获取页面配置信息失败')
+                    setSpining(false)
+                  }
+                }).catch(err=>{
+                    // message.error('获取页面配置信息失败')
+                })
+              }
+            })
+            .catch(value=>{
+              
+            })
         } else {
           message.error('获取页面配置信息失败')
+          setSpining(false)
+          promiseAjax(defaultUrl,{})
+          .then(rp=>{
+            if(rp&&rp.status===1){
+              const ldata = rp.data;
+              setTips("加载完成，开始编译")
+              setPageId(ldata.id)
+              setPageConfig(rp.data)
+            } else {
+              message.error('获取页面配置信息失败')
+              setSpining(false)
+            }
+          }).catch(err=>{
+              // message.error('获取页面配置信息失败')
+          })
         }
       }).catch(err=>{
           // message.error('获取页面配置信息失败')
+          promiseAjax(defaultUrl,{})
+          .then(resp=>{
+            if(resp&&resp.status===1){
+              const Listdata = resp.data;
+              setTips("加载完成，开始编译")
+              setPageId(Listdata.id)
+              setPageConfig(resp.data)
+            } else {
+              message.error('获取页面配置信息失败')
+              setSpining(false)
+            }
+          }).catch(err=>{
+              // message.error('获取页面配置信息失败')
+          })
       })
     });
 
     if(pageConfig){
+      TheConfig = pageConfig
       const config = {
         layout: pageConfig.layout.table,
         title: pageConfig.pageName.table,
+        config:{
+          style:{
+            "min-width":pageConfig.minWidth
+          }
+        },
         items: [
 
           // {
@@ -150,7 +214,7 @@ export default function () {
           {
             component:"EditList",
             config:{
-              api:`${pageEndpoint}`,//lc_main_pages
+              api:`/api/crud/lowMainPage/lowMainPages`,//lc_main_pages
               ModelConfig:MainPageConfig,
               title:"pageTitle",
               name:"页面配置",
@@ -162,9 +226,9 @@ export default function () {
             }
           },
           {
-            component: 'Search',
+            component: pageConfig.searchType||'Search',
             config: {
-              type:"default",
+              type:pageConfig.searchButtonType||"default",
               fields: pageConfig.searchFields,
             },
           },
@@ -182,8 +246,9 @@ export default function () {
           },
         ],
       }
-      return <ZEle namespace="test_page" config={config} />;
+      return <ZEle namespace={`${pageConfig.pageName.name||"default"}_page`} config={config} />;
     }else{
-      return null
+      return <Spin spinning={spining} tip={tips}></Spin>
     }
  } 
+

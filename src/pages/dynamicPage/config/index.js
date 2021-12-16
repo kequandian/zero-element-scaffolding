@@ -1,4 +1,4 @@
-const setting = require('./dynamicPage-setting.json');
+const {setting} = require('./dynamicPage-setting.js');
 
 module.exports = {
   layout: setting.layout.table,
@@ -25,7 +25,12 @@ module.exports = {
         actions: setting.tableActions,
         fields: setting.tableFields,
         operation: setting.tableOperation,
-      },
+        props:{
+          style:{
+            "text-align":"center"
+          }
+        }
+      }
     },
   ],
 };
