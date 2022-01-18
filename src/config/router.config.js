@@ -159,6 +159,14 @@ module.exports = [
   //     //   "name": "微服务权限配置",
   //     //   "path": "/devops/appPermission"
   //     // },
+        // {
+        //   name: '配置管理',
+        //   path: '/devops/configManage'
+        // },
+        // {
+        //   name: '权限管理',
+        //   path: '/devops/permManage'
+        // }
   //   ]
   // }, 
   
