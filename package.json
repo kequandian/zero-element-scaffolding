@@ -17,7 +17,7 @@
     "braft-editor": "^2.3.9",
     "express": "^4.17.1",
     "form-render": "^0.9.12",
-    "fr-generator": "https://gitee.com/smallsaas/zero-element-generator.git",
+    "fr-generator": "git+https://gitee.com/smallsaas/zero-element-generator.git",
     "framer-motion": "^4.1.17",
     "jparticles": "^2.0.1",
     "lodash": "^4.17.21",
