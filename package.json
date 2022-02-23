@@ -27,8 +27,7 @@
     "umi": "3.2.17",
     "webpack-dev-server": "^2.9.1",
     "zero-element": "^1.0.0",
-    "zero-element-antd": "github:kequandian/zero-element-antd",
-    "zero-element-plugins": "github:kequandian/zero-element-plugins"
+    "zero-element-antd": "gitee:smallsaas/zero-element-antd.git"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",
