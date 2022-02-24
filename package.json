@@ -27,7 +27,7 @@
     "umi": "3.2.17",
     "webpack-dev-server": "^2.9.1",
     "zero-element": "^1.0.0",
-    "zero-element-antd": "github:kequandian/zero-element-antd",
+    "zero-element-antd": "git+https://gitee.com/smallsaas/zero-element-antd.git",
     "zero-element-plugins": "github:kequandian/zero-element-plugins"
   },
   "devDependencies": {
