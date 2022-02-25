@@ -4,7 +4,7 @@ import { Table } from 'antd';
 import { Render } from 'zero-element/lib/config/layout';
 
 import useListHandle from 'zero-element-antd/lib/container/List/utils/useListHandle';
-import { Flex } from 'layout-flex';
+import Flex from '@/../zero-antd-dep/layout/Flex';
 
 import Tree from './Tree';
 

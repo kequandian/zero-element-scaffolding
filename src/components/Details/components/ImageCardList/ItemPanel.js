@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import Panel from '@/components/Panel';
-import { Flex } from 'layout-flex';
+import Flex from '@/../zero-antd-dep/layout/Flex';
 import Item from './Item';
 import { formatAPI } from 'zero-element/lib/utils/format';
 import { formatTableFields } from 'zero-element-antd/lib//container/List/utils/format';

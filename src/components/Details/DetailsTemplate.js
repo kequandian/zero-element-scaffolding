@@ -7,7 +7,7 @@ import ImageCardList from '@/components/Details/components/ImageCardList';
 import Statuslog from '@/components/Details/components/Statuslog';
 import PreviewFile from '@/components/Details/components/previewFile';
 
-import { Flex } from 'layout-flex';
+import Flex from '@/../zero-antd-dep/layout/Flex';
 
 import './index.less';
 

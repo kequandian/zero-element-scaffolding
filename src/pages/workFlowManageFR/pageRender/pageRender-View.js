@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import ReactDOM from 'react-dom'
-import Page from './components/page'
+import Page from '../../../layouts/Page'
 import Return from './components/Return'
 import { Flex, FlexChild } from './layout/flex'
 

@@ -7,7 +7,7 @@ import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 import TheJson from '@/../zero-antd-dep/formItemType/JSON'
 import {history} from 'umi'
 import Array from './Array/index'
-import ColorSelect from "./colorSelect";
+import ColorSelect from "./ColorSelect";
 import FontSelect from "./FontSelect";
 export default forwardRef((props,ref)=>{
     const {

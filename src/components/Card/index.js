@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex } from 'layout-flex';
+import Flex from '@/../zero-antd-dep/layout/Flex';
 import { Button } from 'antd';
 import {history} from 'umi'
 import './index.less';

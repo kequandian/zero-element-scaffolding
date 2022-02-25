@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tabs } from 'antd';
 import { history, withRouter } from 'umi';
-import { Flex } from 'layout-flex';
+import Flex from '@/../zero-antd-dep/layout/Flex';
 
 const { TabPane } = Tabs;
 const { FlexItem } = Flex;

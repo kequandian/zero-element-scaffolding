@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined, KeyOutlined } from '@ant-design/icons';
-import { Flex } from 'layout-flex';
+import Flex from '@/../zero-antd-dep/layout/Flex';
 
 import ReactSimpleVerify from 'react-simple-verify'
 import 'react-simple-verify/dist/react-simple-verify.css'

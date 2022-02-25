@@ -11,7 +11,7 @@ import {
   SwapOutlined,
 } from '@ant-design/icons';
 
-import { TestUserSelection } from 'zero-element-plugins';
+// import { TestUserSelection } from 'zero-element-plugins';
 
 import { LS } from 'zero-element/lib/utils/storage';
 
@@ -154,10 +154,12 @@ const formMenu = (
   const userMenu = (
     <Menu>
       <Menu.Item style={{ padding: 0 }} key="userMenu">
-        <TestUserSelection onItemClickHandle={() => handleOnItemClickHandle()} />
+        测试用户
+        {/* <TestUserSelection onItemClickHandle={() => handleOnItemClickHandle()} /> */}
       </Menu.Item>
     </Menu>
   )
+
   // 右上角按钮
   const RightButton = (
     <>
