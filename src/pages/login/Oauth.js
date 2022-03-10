@@ -21,7 +21,7 @@ export default function Oauth(props) {
       });
       getUserInfo()
         .then(_ => {
-          model.queryPerm(true);
+          model.queryPerm();
           history.push('/');
         })
     } else {

@@ -56,7 +56,7 @@ function LoginForm(props) {
         remember: values.remember,
         extra: values.account,
       });
-      model.queryPerm(true);
+      model.queryPerm();
 
       if (data.status === 'PASS') {
         if (data.passwordIsEmpty === true) {

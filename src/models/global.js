@@ -26,12 +26,8 @@ createModel({
     getRequestCount(){
       return this.requestCount;
     },
-    queryPerm: async function (status) {
+    queryPerm: async function () {
       if (getToken()) {
-
-        if(status){
-          this.setRequestCount(1);
-        }
 
         if(process.env.NODE_ENV === 'development' && this.getRequestCount() >= 3){ //开发模式 并 限制只访问三次
           return;

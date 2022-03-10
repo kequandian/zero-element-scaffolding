@@ -36,6 +36,7 @@ function LoginForm(props) {
   const [ redirectUrl, setRedirectUrl ] = useState('');
 
   const model = useModel('global');
+  const menuConfigModel = useModel('menuConfig');
 
   useEffect(_ => {
     new JParticles.particle('#loginBG', {
@@ -61,7 +62,13 @@ function LoginForm(props) {
         remember: values.remember,
         extra: values.account,
       });
-      model.queryPerm(true);
+      menuConfigModel.clearMenuTree();
+      //获取菜单
+      menuConfigModel.queryMenu();
+      model.clearPerm();
+      model.setRequestCount(0);
+      //获取权限
+      model.queryPerm();
 
       // if (data.status === 'PASS') {
       //   if (data.passwordIsEmpty === true) {
