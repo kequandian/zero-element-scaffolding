@@ -59,7 +59,7 @@
         }
       ],
       "type": "input",
-      "field": "title",
+      "field": "name",
       "align": "center"
     },
     {
@@ -148,7 +148,7 @@
   "searchFields": [
     {
       "label": "分组名称",
-      "field": "title",
+      "field": "name",
       "type": "search",
       "props": {
         "placeholder": "请输入"
@@ -163,7 +163,7 @@
     },
     {
       "label": "分组名称",
-      "field": "title"
+      "field": "name"
     },
     {
       "label": "类型",

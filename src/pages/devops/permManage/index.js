@@ -5,6 +5,7 @@ import { Tabs } from 'antd';
 import Content from '@/layouts/Content';
 import Perm from '@/pages/devops/perm';
 import PermGroups from '@/pages/devops/permGroups';
+import PermDefine from '@/pages/devops/permDefine';
 
 const { TabPane } = Tabs;
 
@@ -46,6 +47,9 @@ export default function () {
         </TabPane>
         <TabPane tab="权限分组管理" key={`permgroups`}>
           <PermGroups />
+        </TabPane>
+        <TabPane tab="权限定义列表" key={`permDefine`}>
+          <PermDefine />
         </TabPane>
       </Tabs>
     </Content>
