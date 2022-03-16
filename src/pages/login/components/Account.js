@@ -15,10 +15,10 @@ export default function AccountForm(props) {
   const verifyRef = useRef();
 
   return <Form className={className} onFinish={onSubmit}>
-    <Form.Item name="account" rules={[{ required: true, message: '请输入用户名' }]}>
+    <Form.Item name="account" rules={[{ required: true, message: '请输入用户名/手机号/邮箱' }]}>
       <Input
         prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
-        placeholder="用户名/手机号"
+        placeholder="用户名/手机号/邮箱"
       />
     </Form.Item>
     <Form.Item name="password" rules={[{ required: true, message: '请输入密码' }]}>

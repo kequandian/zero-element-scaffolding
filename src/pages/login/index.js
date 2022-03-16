@@ -26,6 +26,14 @@ const cType = {
   'captchaLogin': CaptchaLigin
 };
 
+const titleText = {
+  'account': '登录',
+  'mailReg': '邮箱注册',
+  'phoneReg': '手机注册',
+  'RFP': '忘记密码',
+  'captchaLogin': '验证码登录'
+}
+
 function LoginForm(props) {
   const [formType, setFormType] = useState('account');
   const [loading, setLoading] = useState(false);
@@ -207,7 +215,7 @@ function LoginForm(props) {
     </div>
     <div className={styles.formContainer}>
       
-      <div className={styles.logo}>登录标题</div>
+      <div className={styles.logo}>{titleText[formType]}</div>
 
       <MatchC
         {...props}
@@ -233,7 +241,7 @@ function LoginForm(props) {
         {formType == 'account' ? (
           <>
             <Button type="link" size="small"
-              onClick={handleChangeFormType.bind(null, 'githubLogin')}
+              onClick={handleChangeFormType.bind(null, 'captchaLogin')}
             >验证码登录</Button>
           </>
         ) : null}
