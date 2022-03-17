@@ -56,6 +56,14 @@
     "form": "TitleContent"
   },
   "tableActions": [
+    {
+      "title": "新增",
+      "type": "path",
+      "options": {
+        "style": "primary",
+        "path": "fieldCustom/fieldCustom-add"
+      }
+    }
   ],
   "tableOperation": [
     {

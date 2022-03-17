@@ -10,7 +10,7 @@ export default function () {
   // }
 
   if (getToken()) {
-    history.push('/userAudit/applyManage');
+    history.push('/home');
   } else {
     history.push('/login');
   }
