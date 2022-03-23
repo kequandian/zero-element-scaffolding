@@ -175,11 +175,11 @@
   ],
   "searchFields": [
     {
-      "label": "菜单名称",
+      "label": "租户名",
       "field": "search",
       "type": "search",
       "props": {
-        "placeholder": ""
+        "placeholder": "请输入"
       }
     }
   ],

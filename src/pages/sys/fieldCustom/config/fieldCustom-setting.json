@@ -73,16 +73,6 @@
         "outside": true,
         "path": "fieldCustom/fieldCustom-editField"
       }
-    },
-    {
-      "title": "删除",
-      "type": "delete",
-      "options": {
-        "outside": false
-      },
-      "expect": {
-        "permission": ""
-      }
     }
   ],
   "searchFields": [
