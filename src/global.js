@@ -73,6 +73,7 @@ import VTSet_TimeConvert from '@/components/ValueType/TimeConvert';
 //Test
 import CSet_new_tree_list from '@/components/TList';
 
+import CSet_ErrorLayout from '@/components/Container/ErrorLayout';
 
 
 //配置 
@@ -102,14 +103,15 @@ golbalSet({
   goBack: () => {
     history.goBack();
   },
-  Unauthorized: () => {
+  Unauthorized: (data) => {
     removeToken();
-    history.push('/login');
+    history.push('/401');
   },
   getPerm() {
     return globalModel.getPerm();
   },
-  RequestError: ({ data = {} }) => {
+  RequestError: (props) => {
+    const { data = {} } = props
     if (data.errors && data.errors.length) {
       data.errors.forEach(msg => {
         message.error(JSON.stringify(msg));
@@ -159,6 +161,7 @@ CSet({
   // 'data_table':CSet_DataTable,
   'LoadHtmlPage': CSet_load_html_page,
   'NewTreeList': CSet_new_tree_list,
+  'ErrorLayout': CSet_ErrorLayout,
 });
 
 LASet({

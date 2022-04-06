@@ -7,6 +7,7 @@ import { BackTop } from 'antd';
 import router from '@/config/router.config';
 import profileMenuData from '@/config/profile.config';
 import toDoListMenuData from '@/config/toDoList.config';
+import router401Data from '@/config/401.config';
 
 let menuData = [...router];
 
@@ -77,13 +78,20 @@ function BasicLayout(props) {
 
 const reg = /^\/profile\//;
 const reg2 = /^\/toDoList\//;
+const reg3 = /^\/401\//;
 function switchMenuData(pathname, menuData) {
+  
   if (reg.test(pathname)) {
     return profileMenuData;
   }
   if(reg2.test(pathname)){
     return toDoListMenuData;
   }
+
+  if(reg3.test(pathname)){
+    return router401Data;
+  }
+
   return menuData;
 
 }
