@@ -51,6 +51,10 @@ export default forwardRef((props, ref) => {
         newVData[field] = e.target.value
         setData(newVData)
     }
+    let childData = actionModalData || {};
+    childData[field] = e.target.value
+    setActionModalData(childData)
+  }
 
     function childChangeValue(field, e, defaultValue) {
         if (defaultValue) {
@@ -60,6 +64,13 @@ export default forwardRef((props, ref) => {
         childData[field] = e.target.value
         setTheModalData(childData)
     }
+    return json
+  }
+  function handleSelect (field, e) {
+    let newSeData = data || {}
+    console.log(e.toString())
+    newSeData[field] = e.toString()
+    console.log(newSeData)
 
     function ActionChangeValue(field, e, defaultValue) {
         if (defaultValue) {
@@ -69,6 +80,55 @@ export default forwardRef((props, ref) => {
         childData[field] = e.target.value
         setActionModalData(childData)
     }
+    return SelectData
+  }
+  useImperativeHandle(ref,
+    () => {
+      return {
+        data
+      }
+    })
+  // 选择项
+  const selectEndpoint = (item, i) => {
+    return <>{item.mode === "multiple" ? <CheckboxGroup
+      defaultValue={getSelectData(item.field, item.defaultValue)}
+      style={{ width: "100%" }}
+      options={item.options}
+      onChange={(e) => handleSelect(item.field, e)}
+    >
+    </CheckboxGroup> : <Select
+      defaultValue={getSelectData(item.field, item.defaultValue)}
+      mode={item.mode} style={{ width: "100%" }}
+      options={item.options}
+      onChange={(e) => handleSelect(item.field, e)}
+    />}</>
+  }
+  //json项
+  const jsonEndpoint = (item, i) => {
+    return <TheJson
+      value={GetJsonValue(item.field)}
+      onChange={(e) => JsonChange(item.field, e)}
+      key={i}
+    >
+    </TheJson>
+  }
+  // switch项
+  const switchEndpoint = (item, i) => {
+    return <Switch defaultChecked={getSwitchData(item.field, item.defaultValue)}
+      onChange={(e) => switchChange(item.field, e)}
+    />
+  }
+  // 默认input
+  const inputEndpoint = (item, i) => {
+    return <Input
+      defaultValue={getDefaultData(item.field, item.defaultValue)}
+      placeholder={item.placeholder || "请输入" + item.label}
+      addonAfter={item.addonAfter}
+      onChange={(e) => ChangeValue(item.field, e)}
+      key={getDefaultData(item.field, item.defaultValue)}
+      size="middle"
+    />
+  }
 
     function defaultChange(field, e) {
         let newCData = data || {}
@@ -124,7 +184,14 @@ export default forwardRef((props, ref) => {
         } else if (!unUseDefaultValue) {
             SelectData = defaultValue
         }
-        return SelectData
+        history.go(0)
+      })
+  }
+  function addModalData (url, modalId, submitData) {
+    setModalVisable(false)
+    let newdata = {
+      ...submitData,
+      modalId: modalId
     }
     useImperativeHandle(ref,
         () => {
