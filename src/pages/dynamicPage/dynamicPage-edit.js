@@ -135,7 +135,7 @@ export default function DynamicPageAdd(props) {
   const onClose = () => {
     history.goBack(1)
   };
-  
+
   return <ShowModal title={"编辑页面"}
     // icon={<AddSvg/>}
     width="100%"

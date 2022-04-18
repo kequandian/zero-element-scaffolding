@@ -344,9 +344,9 @@ export const MainPageConfig = [
     {
         "label": "行对齐", "field": "columnAlign", "type": "select", "defaultValue": "left", 
         "options": [
-            { "label": "center", "value": "center" },
-            { "label": "left", "value": "left" },
-            { "label": "right", "value": "right" },
+            { "label": "居中", "value": "center" },
+            { "label": "左对齐", "value": "left" },
+            { "label": "右对齐", "value": "right" },
         ]
     },
     { "label": "数据接口", "field": "apiEndpoint", "defaultValue": "" },

@@ -1,6 +1,6 @@
-import React, { useState, useRef, useImperativeHandle, forwardRef } from "react"
+import React, { useState, useRef, useImperativeHandle, forwardRef, useEffect } from "react"
 import { Input, Select, Switch, InputNumber, Checkbox, Collapse, Button, Tabs, message, Modal } from 'antd'
-import { useDidMount } from 'zero-element/lib/utils/hooks/lifeCycle'
+import { useDidMount, useForceUpdate } from 'zero-element/lib/utils/hooks/lifeCycle'
 import promiseAjax from '@/utils/promiseAjax';
 import _, { method } from 'lodash'
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
@@ -10,23 +10,60 @@ import Array from './Array/index'
 import ColorSelect from "./ColorSelect";
 import FontSelect from "./FontSelect";
 export default forwardRef((props, ref) => {
+
   const {
     formData,
     config,
     unUseDefaultValue = false //是否使用默认值
   } = props
+
   const CheckboxGroup = Checkbox.Group
   const { Panel } = Collapse;
   const [data, setData] = useState(formData)
   const [modalVisable, setModalVisable] = useState(false)
   const [actionModalData, setActionModalData] = useState([])
   const [theModalData, setTheModalData] = useState([])
-  function getFormData (field) {
-    console.log('我是formData' + formData);
+  const forceUpdate = useForceUpdate();
+
+  useDidMount(_ => {
+    console.log(config, "FORMDATA")
+    let modalId = getDefaultData("id")
+
+    if (!modalId) {
+      return
+    }
+    console.log(modalId);
+    let queryData = {
+      modalId: modalId
+    }
+    let options = {
+      method: "GET"
+    }
+    promiseAjax(endpoint + actionModalUrl, queryData, options)
+      .then(resp => {
+        setActionModalData(resp.data.records)
+      })
+    promiseAjax(endpoint + ModalUrl, queryData, options)
+      .then(resp => {
+        setModalData(resp.data.records)
+      })
+  })
+
+  //回调参数
+  useImperativeHandle(ref,
+    () => {
+      return {
+        data
+      }
+    })
+
+
+  function getFormData(field) {
     return _.get(formData, field, "")
 
   }
-  function getDefaultData (field, defaultValue, isAdd) {
+
+  function getDefaultData(field, defaultValue, isAdd) {
     let defaultData;
     let dData = getFormData(field)
     if (dData) {
@@ -36,7 +73,8 @@ export default forwardRef((props, ref) => {
     }
     return defaultData
   }
-  function getSwitchData (field, defaultValue) {
+
+  function getSwitchData(field, defaultValue) {
     let sData = getFormData(field)
     let value;
     if (sData === "1" || sData === 1 || sData === true) {
@@ -48,13 +86,15 @@ export default forwardRef((props, ref) => {
     }
     return value
   }
-  function ChangeValue (field, e) {
+
+  function ChangeValue(field, e) {
     let newVData = data || {}
     newVData[field] = e.target.value
     setData(newVData)
+    forceUpdate()
   }
 
-  function childChangeValue (field, e, defaultValue) {
+  function childChangeValue(field, e, defaultValue) {
     if (defaultValue) {
       setTheModalData(defaultValue)
     }
@@ -63,7 +103,7 @@ export default forwardRef((props, ref) => {
     setTheModalData(childData)
   }
 
-  function ActionChangeValue (field, e, defaultValue) {
+  function ActionChangeValue(field, e, defaultValue) {
     if (defaultValue) {
       setActionModalData(defaultValue)
     }
@@ -72,25 +112,28 @@ export default forwardRef((props, ref) => {
     setActionModalData(childData)
   }
 
-  function defaultChange (field, e) {
+  function defaultChange(field, e) {
     let newCData = data || {}
     newCData[field] = e
-    console.log(e)
     setData(newCData)
+    forceUpdate()
   }
-  function switchChange (field, e) {
+
+  function switchChange(field, e) {
     let newSData = data || {}
     newSData[field] = e ? 1 : 0
-    console.log(e)
     setData(newSData)
+    forceUpdate()
   }
-  function JsonChange (field, e) {
+
+  function JsonChange(field, e) {
     let newJData = data || {}
-    console.log(e)
     newJData[field] = JSON.stringify(e)
     setData(newJData)
+    forceUpdate()
   }
-  function GetJsonValue (field) {
+
+  function GetJsonValue(field) {
     let jData = getFormData(field)
     let json
     if (jData && jData.indexOf("{") !== -1) {
@@ -101,52 +144,57 @@ export default forwardRef((props, ref) => {
     }
     return json
   }
-  function handleSelect (field, e) {
-    let newSeData = data || {}
-    console.log(e.toString())
-    newSeData[field] = e.toString()
-    console.log(newSeData)
 
+  function handleSelect(field, e) {
+    let newSeData = data || {}
+    newSeData[field] = e.toString()
     setData(newSeData)
+    forceUpdate()
   }
-  function getSelectData (field, defaultValue) {
+
+  function getSelectData(field, defaultValue) {
     let SelectData
     let theForm = getFormData(field)
     if (theForm) {
       let newData = theForm.toString()
-      console.log(newData)
-      let newValue = newData.replace(/\[/g, "")
-      let thenValue = newValue.replace(/\]/g, "")
-      let allValue = thenValue.replace(/\"/g, "")
-      let json = allValue.split(',')
-      SelectData = json
-      console.log(SelectData)
+      if (newData.indexOf('[') != -1) {
+        let newValue = newData.replace(/\[/g, "")
+        let thenValue = newValue.replace(/\]/g, "")
+        let allValue = thenValue.replace(/\"/g, "")
+        let json = allValue.split(',')
+        SelectData = json
+      } else {
+        SelectData = theForm
+      }
     } else if (!unUseDefaultValue) {
       SelectData = defaultValue
     }
     return SelectData
   }
-  useImperativeHandle(ref,
-    () => {
-      return {
-        data
-      }
-    })
+
   // 选择项
   const selectEndpoint = (item, i) => {
-    return <>{item.mode === "multiple" ? <CheckboxGroup
-      defaultValue={getSelectData(item.field, item.defaultValue)}
-      style={{ width: "100%" }}
-      options={item.options}
-      onChange={(e) => handleSelect(item.field, e)}
-    >
-    </CheckboxGroup> : <Select
-      defaultValue={getSelectData(item.field, item.defaultValue)}
-      mode={item.mode} style={{ width: "100%" }}
-      options={item.options}
-      onChange={(e) => handleSelect(item.field, e)}
-    />}</>
+    return <>{item.mode === "multiple" ? (
+      <CheckboxGroup
+        defaultValue={getSelectData(item.field, item.defaultValue)}
+        style={{ width: "100%" }}
+        options={item.options}
+        onChange={(e) => handleSelect(item.field, e)}
+      ></CheckboxGroup>
+    )
+      : (
+        <Select
+          defaultValue={ data && data[item.field] ? data[item.field] : getSelectData(item.field, item.defaultValue)}
+          value={ data && data[item.field] ? data[item.field] : getSelectData(item.field, item.defaultValue)}
+          style={{ width: "100%" }}
+          options={item.options}
+          placeholder='请选择'
+          onChange={(e) => handleSelect(item.field, e)}
+        />
+      )}
+    </>
   }
+
   //json项
   const jsonEndpoint = (item, i) => {
     return <TheJson
@@ -156,12 +204,14 @@ export default forwardRef((props, ref) => {
     >
     </TheJson>
   }
+
   // switch项
   const switchEndpoint = (item, i) => {
     return <Switch defaultChecked={getSwitchData(item.field, item.defaultValue)}
       onChange={(e) => switchChange(item.field, e)}
     />
   }
+
   // 默认input
   const inputEndpoint = (item, i) => {
     return <Input
@@ -184,33 +234,17 @@ export default forwardRef((props, ref) => {
       size="middle"
     />
   }
+
   let endpoint = getEndpoint()
   let ModalUrl = "/api/crud/modalItemBasicO/modalItemBasicOs"
   let actionModalUrl = "/api/crud/modalItemBasic/modalItemBasics"
   const [modalData, setModalData] = useState()
-  useDidMount(_ => {
-    console.log(config, "FORMDATA")
-    let modalId = getDefaultData("id")
-    console.log(modalId);
-    let queryData = {
-      modalId: modalId
-    }
-    let options = {
-      method: "GET"
-    }
-    promiseAjax(endpoint + actionModalUrl, queryData, options)
-      .then(resp => {
-        setActionModalData(resp.data.records)
-      })
-    promiseAjax(endpoint + ModalUrl, queryData, options)
-      .then(resp => {
-        setModalData(resp.data.records)
-      })
-  })
-  function getData (value, field) {
+
+  function getData(value, field) {
     return _.get(value, field, "")
   }
-  function getItemDefault (item, field, defaultValue) {
+
+  function getItemDefault(item, field, defaultValue) {
     let defaultData;
     let dData = getData(item, field)
     // console.log(item,"ITEM")
@@ -223,7 +257,8 @@ export default forwardRef((props, ref) => {
     }
     return defaultData
   }
-  function putModalData (url, modalId, defaultData, submitData) {
+
+  function putModalData(url, modalId, defaultData, submitData) {
     let newdata = {
       ...defaultData,
       ...submitData,
@@ -242,7 +277,8 @@ export default forwardRef((props, ref) => {
         history.go(0)
       })
   }
-  function addModalData (url, modalId, submitData) {
+
+  function addModalData(url, modalId, submitData) {
     setModalVisable(false)
     let newdata = {
       ...submitData,
@@ -261,10 +297,12 @@ export default forwardRef((props, ref) => {
         history.go(0)
       })
   }
-  function cancel () {
+
+  function cancel() {
     setModalVisable(false)
   }
-  function deleteModal (url, id) {
+
+  function deleteModal(url, id) {
     let newurl = url + "/" + id
     let options = {
       method: "delete"
@@ -279,7 +317,8 @@ export default forwardRef((props, ref) => {
         history.go(0)
       })
   }
-  function showModal (e, url) {
+
+  function showModal(e, url) {
     if (typeof e === "string") {
       if (e.indexOf("layout") !== -1) {
         let id = e.replace(/layout/, "")
@@ -290,6 +329,7 @@ export default forwardRef((props, ref) => {
       setModalVisable(true)
     }
   }
+  
   const { TabPane } = Tabs
   const ModalEndpoint = (item, i) => {
     return <><Tabs style={{ "padding": "10px" }} type="editable-card" onEdit={(e) => showModal(e, endpoint + ModalUrl)}>{modalData ? modalData.map((mdata, m) => <TabPane tab={`布局${m + 1}`} key={`layout${mdata.id}`}>{item.items.map((newItem, It) => <>{newItem.label ? <div>{newItem.label}：</div> : null}
@@ -346,7 +386,7 @@ export default forwardRef((props, ref) => {
     </>
   }
 
-  function Thetest (e) {
+  function Thetest(e) {
     console.log(e, "Array")
   }
 
@@ -376,12 +416,13 @@ export default forwardRef((props, ref) => {
 
 
   return <>
-    {config ? config.map((item, i) =>
-      item.children ? <Collapse>
-        <Panel header={item.header}>
-          {item.children.map((child, a) => AllFormType(child, a))}
-        </Panel>
-      </Collapse> :
-        AllFormType(item, i)) : null}
+    {
+      config && config.map((item, i) =>
+        item.children ? <Collapse>
+          <Panel header={item.header}>
+            {item.children.map((child, a) => AllFormType(child, a))}
+          </Panel>
+        </Collapse> : AllFormType(item, i))
+    }
   </>
 })
