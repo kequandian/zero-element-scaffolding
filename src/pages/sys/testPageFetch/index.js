@@ -40,6 +40,7 @@ export default function Default() {
     let id;
     const getParams = () =>{
       var array = window.location.href.split("?");   
+      console.log('array ==== ', array)
       if ((parseInt(array.length) - parseInt(1)) > 0) {   
            var array1 = array[1].split("&");   
            if (array1.length > 0) {   

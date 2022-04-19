@@ -526,11 +526,11 @@ export const ActionsConfig = [
                     { "label": "export", "value": "export" }
                 ], "defaultValue": "path"
             },
-            // { "label":"请求API", "field":"requestApi","type":"select","options":[
-            //     {"label":"getApi","value":"getApi"},
-            //     {"label":"updateApi","value":"updateApi"},
-            //     {"label":"createApi","value":"createApi"}
-            // ]  },
+            { "label":"请求API", "field":"requestApi","type":"select","options":[
+                {"label":"getApi","value":"getApi"},
+                {"label":"updateApi","value":"updateApi"},
+                {"label":"createApi","value":"createApi"}
+            ]  },
             { "label": "请求结果刷新API", "field": "requestRefreshApi" },
             {
                 "label": "请求方法", "field": "requestMethod", "type": "select", "options": [
@@ -576,11 +576,11 @@ export const OperationsConfig = [
             { "label": "是否显示在列表中", "field": "outside", "type": "switch" },
             { "label": "过滤字段", "field": "expectField" },
             { "label": "过滤值", "field": "expectValue" },
-            // { "label":"请求API", "field":"requestApi","type":"select","options":[
-            //     {"label":"getApi","value":"getApi"},
-            //     {"label":"updateApi","value":"updateApi"},
-            //     {"label":"createApi","value":"createApi"}
-            // ]  },
+            { "label":"请求API", "field":"requestApi","type":"select","options":[
+                {"label":"getApi","value":"getApi"},
+                {"label":"updateApi","value":"updateApi"},
+                {"label":"createApi","value":"createApi"}
+            ]  },
             { "label": "请求结果API", "field": "requestRefreshApi" },
             {
                 "label": "请求方法", "field": "requestMethod", "type": "select", "options": [
