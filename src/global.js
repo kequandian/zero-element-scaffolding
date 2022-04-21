@@ -69,6 +69,9 @@ import FITSet_input_box from '@/components/FormItemType/InputBox';
 import FITSet_link_button from '@/components/FormItemType/LinkButton';
 import VTSet_TimeConvert from '@/components/ValueType/TimeConvert';
 
+//动态页面组件
+import AITSet_FromModal from '@/actionItemType/FromModal'
+
 
 //Test
 import CSet_new_tree_list from '@/components/TList';
@@ -166,7 +169,9 @@ CSet({
 
 LASet({
   // 'onPath': onPath,
+  'onFromModal': AITSet_FromModal,
 });
+
 
 //表单组件
 FITSet({
@@ -188,15 +193,17 @@ FITSet({
   'LinkButton': FITSet_link_button
 });
 
+//
 AITSet({
   path,
   tabs,
   'exportFile': AITSet_export_file,
+  'fromModal': AITSet_FromModal,
 });
 
 //列表 & 详情
 VTSet({
   'path': vPath,
   'input-switch' : VTSet_InputSwitch,
-  'time-convert': VTSet_TimeConvert
+  'time-convert': VTSet_TimeConvert,
 });
