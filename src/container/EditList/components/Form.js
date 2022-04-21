@@ -91,7 +91,7 @@ export default forwardRef((props, ref) => {
     let newVData = data || {}
     newVData[field] = e.target.value
     setData(newVData)
-    forceUpdate()
+    //forceUpdate()
   }
 
   function childChangeValue(field, e, defaultValue) {
@@ -329,9 +329,9 @@ export default forwardRef((props, ref) => {
       setModalVisable(true)
     }
   }
-  
+
   const { TabPane } = Tabs
-  
+
   const ModalEndpoint = (item, i) => {
     return <><Tabs style={{ "padding": "10px" }} type="editable-card" onEdit={(e) => showModal(e, endpoint + ModalUrl)}>{modalData ? modalData.map((mdata, m) => <TabPane tab={`布局${m + 1}`} key={`layout${mdata.id}`}>{item.items.map((newItem, It) => <>{newItem.label ? <div>{newItem.label}：</div> : null}
       <Input
