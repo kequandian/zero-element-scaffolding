@@ -584,11 +584,11 @@ export const OperationsConfig = [
             { "label": "请求结果API", "field": "requestRefreshApi" },
             {
                 "label": "请求方法", "field": "requestMethod", "type": "select", "options": [
-                    { "label": "GET", "value": "get" },
-                    { "label": "POST", "value": "post" },
-                    { "label": "UPDATE", "value": "update" },
-                    { "label": "DELETE", "value": "delete" },
-                    { "label": "DOWNLOAD", "value": "download" }
+                    { "label": "GET", "value": "GET" },
+                    { "label": "POST", "value": "POST" },
+                    { "label": "UPDATE", "value": "UPDATE" },
+                    { "label": "DELETE", "value": "DELETE" },
+                    { "label": "DOWNLOAD", "value": "DOWNLOAD" }
                 ]
             },
             { "label": "模态框标题", "field": "modalTitle" },

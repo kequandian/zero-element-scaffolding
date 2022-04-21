@@ -331,6 +331,7 @@ export default forwardRef((props, ref) => {
   }
   
   const { TabPane } = Tabs
+  
   const ModalEndpoint = (item, i) => {
     return <><Tabs style={{ "padding": "10px" }} type="editable-card" onEdit={(e) => showModal(e, endpoint + ModalUrl)}>{modalData ? modalData.map((mdata, m) => <TabPane tab={`布局${m + 1}`} key={`layout${mdata.id}`}>{item.items.map((newItem, It) => <>{newItem.label ? <div>{newItem.label}：</div> : null}
       <Input
@@ -360,15 +361,16 @@ export default forwardRef((props, ref) => {
   }
 
   const ActionModalEndpoint = (item, i) => {
-    return <><Tabs style={{ "padding": "10px" }} type="editable-card" onEdit={(e) => showModal(e, endpoint + actionModalUrl)}>{actionModalData ? actionModalData.map((mdata, m) => <TabPane tab={`布局${m + 1}`} key={`layout${mdata.id}`}>{item.items.map((newItem, It) => <>{newItem.label ? <div>{newItem.label}：</div> : null}<Input
-      defaultValue={getItemDefault(mdata, newItem.field, newItem.defaultValue)}
-      placeholder={newItem.placeholder || "请输入" + (newItem.label || "...")}
-      addonAfter={newItem.addonAfter}
-      onChange={(e) => ActionChangeValue(newItem.field, e, mdata)}
-      key={getItemDefault(actionModalData, newItem.field, newItem.defaultValue)}
-      size="middle"
-    >
-    </Input></>)}<Button style={{ float: "right", marginTop: "20px" }} type="primary" onClick={() => putModalData(endpoint + actionModalUrl, getDefaultData("id"), mdata, actionModalData)}>更改</Button></TabPane>) : <></>}</Tabs>
+    return <>
+      <Tabs style={{ "padding": "10px" }} type="editable-card" onEdit={(e) => showModal(e, endpoint + actionModalUrl)}>{actionModalData ? actionModalData.map((mdata, m) => <TabPane tab={`布局${m + 1}`} key={`layout${mdata.id}`}>{item.items.map((newItem, It) => <>{newItem.label ? <div>{newItem.label}：</div> : null}<Input
+        defaultValue={getItemDefault(mdata, newItem.field, newItem.defaultValue)}
+        placeholder={newItem.placeholder || "请输入" + (newItem.label || "...")}
+        addonAfter={newItem.addonAfter}
+        onChange={(e) => ActionChangeValue(newItem.field, e, mdata)}
+        key={getItemDefault(actionModalData, newItem.field, newItem.defaultValue)}
+        size="middle"
+      >
+      </Input></>)}<Button style={{ float: "right", marginTop: "20px" }} type="primary" onClick={() => putModalData(endpoint + actionModalUrl, getDefaultData("id"), mdata, actionModalData)}>更改</Button></TabPane>) : <></>}</Tabs>
       {/* <Button onClick={()=>{showModal()}}>增加</Button> */}
       <Modal
         title={"新增配置"} visible={modalVisable} onCancel={cancel} onOk={() => addModalData(endpoint + actionModalUrl, getDefaultData("id"), actionModalData)}
@@ -395,23 +397,37 @@ export default forwardRef((props, ref) => {
   }
 
   const AllFormType = (item, i) => {
-    return <div className="dynamic_column">{item.label ? <div>{item.label}：</div> : null}{
-      item.type === "JSON" ? jsonEndpoint(item, i) :
-        item.type === "select" ? selectEndpoint(item, i) :
-          item.type === "switch" ? switchEndpoint(item, i) :
-            item.type === "number" ? numberEndpoint(item, i) :
-              item.type === "Modal" ? ModalEndpoint(item, i) :
-                item.type === "ActionModal" ? ActionModalEndpoint(item, i) :
-                  item.type === "Array" ? ArrayEndpoint(item, i) :
-                    item.type === "color" ? <ColorSelect
-                      options={item.options}
-                      value={getDefaultData(item.field, item.defaultValue)}
-                      onChange={(e) => ChangeValue(item.field, e)} /> :
-                      item.type === "text" ? <FontSelect
-                        options={item.options}
-                        value={getDefaultData(item.field, item.defaultValue)}
-                        onChange={(e) => ChangeValue(item.field, e)} /> :
-                        inputEndpoint(item, i)}</div>
+    return (
+      <div className="dynamic_column">
+        {
+          item.label ? (
+            <div>{item.label}：</div>
+          ) : null
+        }
+        {
+          item.type === "JSON" ? jsonEndpoint(item, i) :
+            item.type === "select" ? selectEndpoint(item, i) :
+              item.type === "switch" ? switchEndpoint(item, i) :
+                item.type === "number" ? numberEndpoint(item, i) :
+                  item.type === "Modal" ? ModalEndpoint(item, i) :
+                    item.type === "ActionModal" ? ActionModalEndpoint(item, i) :
+                      item.type === "Array" ? ArrayEndpoint(item, i) :
+                        item.type === "color" ? (
+                          <ColorSelect
+                            options={item.options}
+                            value={getDefaultData(item.field, item.defaultValue)}
+                            onChange={(e) => ChangeValue(item.field, e)} />
+                        ) : (
+                          item.type === "text" ? (
+                            <FontSelect
+                            options={item.options}
+                            value={getDefaultData(item.field, item.defaultValue)}
+                            onChange={(e) => ChangeValue(item.field, e)} />
+                          ) : ( inputEndpoint(item, i) )
+                        )
+          }
+        </div>
+    )
   }
 
 

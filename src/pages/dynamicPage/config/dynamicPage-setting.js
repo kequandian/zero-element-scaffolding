@@ -344,114 +344,112 @@ export const setting = {
         "path": "sys/testPageFetch"
       }
     },
-    // {
-    //   "title": "编辑页面", "type": "modal",
-    //   "options": {
-    //     "outside": true,
-    //     "modalTitle": "编辑",
-    //     "modalWidth": 600,
-    //     "layout":"Empty",
-    //     "items":[
-    //       {
-    //         layout: 'Empty',
-    //         component: 'Form',
-    //         config: {
-    //           layout: 'Grid',
-    //           API: {
-    //             "getAPI":"/api/crud/lowMainPage/lowMainPages/(id)",
-    //             "updateAPI":"/api/crud/lowMainPage/lowMainPages/(id)"
-    //           },
-    //           "fields": [
-    //             { "label": "页面名称", "field": "pageName", "defaultValue": "", "placeholder": "请输入页面名称,必须为英文" },
-    //             { "label": "页面标题", "field": "pageTitle", "defaultValue": "标题" },
-    //             { "label": "新建页面标题", "field": "formAddTitle", "defaultValue": "新增" },
-    //             { "label": "页面视图标题", "field": "formViewTitle", "defaultValue": "查看" },
-    //             { "label": "页面编辑标题", "field": "formEditTitle", "defaultValue": "编辑" },
-    //             // 行对齐 2022-04-08 新增选项 
-    //             {
-    //                 "label": "行对齐", "field": "columnAlign", "type": "select", "defaultValue": "left", 
-    //                 "options": [
-    //                     { "label": "居中", "value": "center" },
-    //                     { "label": "左对齐", "value": "left" },
-    //                     { "label": "右对齐", "value": "right" },
-    //                 ]
-    //             },
-    //             { "label": "数据接口", "field": "apiEndpoint", "defaultValue": "" },
-    //             {
-    //                 "header": "高级设置", "children": [
-    //                     {
-    //                         "label": "页面内容布局", "field": "contentLayout", "type": "select",
-    //                         "defaultValue": "Content",
-    //                         "options": [
-    //                             { "label": "Empty", "value": "Empty" },
-    //                             { "label": "Title", "value": "Title" },
-    //                             { "label": "BaseTitle", "value": "BaseTitle" },
-    //                             { "label": "NotTitleContent", "value": "NotTitleContent" },
-    //                             { "label": "TitleContent", "value": "TitleContent" },
-    //                             { "label": "Loading", "value": "Loading" },
-    //                             { "label": "Alone", "value": "Alone" },
-    //                             { "label": "Row", "value": "Row" },
-    //                             { "label": "SearchLayout", "value": "SearchLayout" },
-    //                             { "label": "Grid", "value": "Grid" },
-    //                             { "label": "Content", "value": "Content" },
-    //                             { "label": "Items", "value": "Items" },
-    //                         ]
-    //                     },
-    //                     { "label": "页面最小宽度", "field": "pageMinWidth" },
-    //                     // { "label":"组件列表排序", "field":"contentItems","type":"JSON" },
-    //                     // { "label":"列表字段", "field":"listFields","type":"JSON" },
-    //                     // { "label":"列表操作排列", "field":"listOperationFields","type":"JSON" },
-    //                     // { "label":"表单新建字段排列", "field":"formAddFields","type":"JSON" },
-    //                     // { "label":"列表视图字段排列", "field":"formViewFields","type":"JSON" },
-    //                     // { "label":"列表编辑字段排列", "field":"formEditFields","type":"JSON" },
-    //                     {
-    //                         "label": "表单默认内容布局", "field": "formDefaultContentLayout", "type": "select",
-    //                         "defaultValue": "TitleContent",
-    //                         "options": [
-    //                             { "label": "Empty", "value": "Empty" },
-    //                             { "label": "Title", "value": "Title" },
-    //                             { "label": "BaseTitle", "value": "BaseTitle" },
-    //                             { "label": "NotTitleContent", "value": "NotTitleContent" },
-    //                             { "label": "TitleContent", "value": "TitleContent" },
-    //                             { "label": "Loading", "value": "Loading" },
-    //                             { "label": "Alone", "value": "Alone" },
-    //                             { "label": "Row", "value": "Row" },
-    //                             { "label": "SearchLayout", "value": "SearchLayout" },
-    //                             { "label": "Grid", "value": "Grid" },
-    //                             { "label": "Content", "value": "Content" },
-    //                             { "label": "Items", "value": "Items" },
-    //                         ]
-    //                     },
-    //                     {
-    //                         "label": "搜索布局", "field": "searchType", "type": "select", "defaultValue": "MoreSearch", "options": [
-    //                             { "label": "垂直 ", "value": "MoreSearch" },
-    //                             { "label": "水平", "value": "Search" },
-    //                         ]
-    //                     },
-    //                     {
-    //                         "label": "搜索按钮类型", "field": "searchButtonType", "type": "select", "defaultValue": "text", "options": [
-    //                             { "label": "图标", "value": "default" },
-    //                             { "label": "文字", "value": "text" },
-    //                         ]
-    //                     },
-    //                     { "label": "组件容器属性", "field": "contentItemContainerStyle", "type": "JSON" },
-    //                     // { "label":"表单模态框默认宽度", "field":"formDefaultWidth","type":"number" },
-    //                 ]
-    //             }
-    //         ]
-    //         }
-    //       }
-    //     ]
-    //   }
-    // },
     {
-      "title": "编辑页面",
-      "type": "path",
+      "title": "编辑页面", "type": "modal",
       "options": {
         "outside": true,
-        "path": "dynamicPage/dynamicPage-edit"
+        "modalTitle": "编辑",
+        "modalWidth": 600,
+        "layout":"Empty",
+        "items":[
+          {
+            component: 'DynamicPageForm',
+            config: {
+              API: {
+                "getAPI":"/api/crud/lowMainPage/lowMainPages/(id)",
+                "updateAPI":"/api/crud/lowMainPage/lowMainPages/(id)"
+              },
+              "fields": [
+                { "label": "页面名称", "field": "pageName", "defaultValue": "", "placeholder": "请输入页面名称,必须为英文" },
+                { "label": "页面标题", "field": "pageTitle", "defaultValue": "标题" },
+                { "label": "新建页面标题", "field": "formAddTitle", "defaultValue": "新增" },
+                { "label": "页面视图标题", "field": "formViewTitle", "defaultValue": "查看" },
+                { "label": "页面编辑标题", "field": "formEditTitle", "defaultValue": "编辑" },
+                // 行对齐 2022-04-08 新增选项 
+                {
+                    "label": "行对齐", "field": "columnAlign", "type": "select", "defaultValue": "left", 
+                    "options": [
+                        { "label": "居中", "value": "center" },
+                        { "label": "左对齐", "value": "left" },
+                        { "label": "右对齐", "value": "right" },
+                    ]
+                },
+                { "label": "数据接口", "field": "apiEndpoint", "defaultValue": "" },
+                {
+                    "header": "高级设置", "children": [
+                        {
+                            "label": "页面内容布局", "field": "contentLayout", "type": "select",
+                            "defaultValue": "Content",
+                            "options": [
+                                { "label": "Empty", "value": "Empty" },
+                                { "label": "Title", "value": "Title" },
+                                { "label": "BaseTitle", "value": "BaseTitle" },
+                                { "label": "NotTitleContent", "value": "NotTitleContent" },
+                                { "label": "TitleContent", "value": "TitleContent" },
+                                { "label": "Loading", "value": "Loading" },
+                                { "label": "Alone", "value": "Alone" },
+                                { "label": "Row", "value": "Row" },
+                                { "label": "SearchLayout", "value": "SearchLayout" },
+                                { "label": "Grid", "value": "Grid" },
+                                { "label": "Content", "value": "Content" },
+                                { "label": "Items", "value": "Items" },
+                            ]
+                        },
+                        { "label": "页面最小宽度", "field": "pageMinWidth" },
+                        // { "label":"组件列表排序", "field":"contentItems","type":"JSON" },
+                        // { "label":"列表字段", "field":"listFields","type":"JSON" },
+                        // { "label":"列表操作排列", "field":"listOperationFields","type":"JSON" },
+                        // { "label":"表单新建字段排列", "field":"formAddFields","type":"JSON" },
+                        // { "label":"列表视图字段排列", "field":"formViewFields","type":"JSON" },
+                        // { "label":"列表编辑字段排列", "field":"formEditFields","type":"JSON" },
+                        {
+                            "label": "表单默认内容布局", "field": "formDefaultContentLayout", "type": "select",
+                            "defaultValue": "TitleContent",
+                            "options": [
+                                { "label": "Empty", "value": "Empty" },
+                                { "label": "Title", "value": "Title" },
+                                { "label": "BaseTitle", "value": "BaseTitle" },
+                                { "label": "NotTitleContent", "value": "NotTitleContent" },
+                                { "label": "TitleContent", "value": "TitleContent" },
+                                { "label": "Loading", "value": "Loading" },
+                                { "label": "Alone", "value": "Alone" },
+                                { "label": "Row", "value": "Row" },
+                                { "label": "SearchLayout", "value": "SearchLayout" },
+                                { "label": "Grid", "value": "Grid" },
+                                { "label": "Content", "value": "Content" },
+                                { "label": "Items", "value": "Items" },
+                            ]
+                        },
+                        {
+                            "label": "搜索布局", "field": "searchType", "type": "select", "defaultValue": "MoreSearch", "options": [
+                                { "label": "垂直 ", "value": "MoreSearch" },
+                                { "label": "水平", "value": "Search" },
+                            ]
+                        },
+                        {
+                            "label": "搜索按钮类型", "field": "searchButtonType", "type": "select", "defaultValue": "text", "options": [
+                                { "label": "图标", "value": "default" },
+                                { "label": "文字", "value": "text" },
+                            ]
+                        },
+                        { "label": "组件容器属性", "field": "contentItemContainerStyle", "type": "JSON" },
+                        // { "label":"表单模态框默认宽度", "field":"formDefaultWidth","type":"number" },
+                    ]
+                }
+            ]
+            }
+          }
+        ]
       }
     },
+    // {
+    //   "title": "编辑页面",
+    //   "type": "path",
+    //   "options": {
+    //     "outside": true,
+    //     "path": "dynamicPage/dynamicPage-edit"
+    //   }
+    // },
     {
       "title": "加载字段",
       "type": "request",

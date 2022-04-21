@@ -70,7 +70,8 @@ import FITSet_link_button from '@/components/FormItemType/LinkButton';
 import VTSet_TimeConvert from '@/components/ValueType/TimeConvert';
 
 //动态页面组件
-import AITSet_FromModal from '@/actionItemType/FromModal'
+import AITSet_FromModal from '@/actionItemType/FromModal';
+import CSet_DynamicPageForm from '@/components/DynamicPageForm';
 
 
 //Test
@@ -165,6 +166,7 @@ CSet({
   'LoadHtmlPage': CSet_load_html_page,
   'NewTreeList': CSet_new_tree_list,
   'ErrorLayout': CSet_ErrorLayout,
+  'DynamicPageForm': CSet_DynamicPageForm
 });
 
 LASet({

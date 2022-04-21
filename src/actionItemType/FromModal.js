@@ -137,7 +137,7 @@ export default (props) => {
         <Button key="back" onClick={handleClose}>
           取消
         </Button>,
-        <Button key="submit" type="primary" loading={loading} onClick={addMessage}>
+        <Button key="submit" type="primary" style={{marginRight: '20px'}} loading={loading} onClick={addMessage}>
           确定
         </Button>,
             
