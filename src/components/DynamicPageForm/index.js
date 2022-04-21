@@ -49,7 +49,7 @@ export default (props) => {
   const { data, model, handle } = formProps;
 
   const { onGetOne, onCreateForm, onUpdateForm, onClearForm } = handle;
-  const [defaultData, setDefaultData] = useState({});
+  const [currentId, setCurrentId] = useState('');
 
   useDidMount(_ => {
     if (getAPI) {
@@ -120,22 +120,67 @@ export default (props) => {
       })
   }
 
+  //获取详情数据
+  function updageMessage(){
 
-    //获取api数据
-    function handleGetData() {
-      setLoading(true);
-      onGetOne({}).then((response) => {
-        const { code, data } = response || {};
-        if (code === 200 && data) {
-          let formData = data;
-          console.log('formData === ', formData)
-  
+    setLoading(true)
+    let theData;
+    let endpoint = getEndpoint()
+    const apiUrl = `${endpoint}${getAPI.replace('(id)', currentId)}`;
+
+    let options = {
+      method:"PUT"
+    }
+
+    let initData={};
+    fields.map((item,i)=>{
+      if(item.children){
+        item.children.map((cItem,ci)=>{
+          initData[cItem.field] = IsType(cItem)
+        })
+      }else{
+        // 判断值的提交
+        initData[item.field] = IsType(item)
+      }
+    })
+    theData = {
+      ...initData,
+      ...addRef.current.data
+    }
+
+    promiseAjax(apiUrl, theData, options)
+      .then(resp => {
+        if (resp && resp.code === 200) {
+          // const listdata = resp.data;
+        } else {
+          message.error('修改失败')
         }
       })
-        .finally(_ => {
-          setLoading(false);
-        })
-    }
+      .finally(_ => {
+        if(onClose){
+          //关闭modal方法
+          onClose()
+        }
+        setLoading(false)
+      })
+  }
+
+
+  //获取api数据
+  function handleGetData() {
+    setLoading(true);
+    onGetOne({}).then((response) => {
+      const { code, data } = response || {};
+      if (code === 200 && data) {
+        let formData = data;
+        // console.log('formData === ', formData)
+        setCurrentId(formData.id)
+      }
+    })
+      .finally(_ => {
+        setLoading(false);
+      })
+  }
 
   function handleCancel() {
     if(onClose){
@@ -147,18 +192,11 @@ export default (props) => {
 
     //保存按钮点击事件
     function renderFooter() {
-
-      function onSubmit() {
-        // form.submit();
-        onClose()
-        // forceUpdate()
-      }
-  
   
       // const classes = MODAL ? 'ant-modal-footer' : 'ZEle-Form-footer';
       return <div className={'ant-modal-footer'}>
         <Button onClick={handleCancel}>取消</Button>
-        <Button type="primary" htmlType="submit" onClick={onSubmit}>确定</Button>
+        <Button type="primary" htmlType="submit" onClick={updageMessage}>确定</Button>
       </div>
     }
 
