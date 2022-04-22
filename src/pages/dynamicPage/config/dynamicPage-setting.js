@@ -328,7 +328,7 @@ export const setting = {
                       ]
                   },
                   { "label": "组件容器属性", "field": "contentItemContainerStyle", "type": "JSON" },
-                  // { "label":"表单模态框默认宽度", "field":"formDefaultWidth","type":"number" },
+                  { "label":"表单模态框默认宽度", "field":"formDefaultWidth","type":"number" },
               ]
           }
       ]
@@ -367,7 +367,7 @@ export const setting = {
                 { "label": "页面编辑标题", "field": "formEditTitle", "defaultValue": "编辑" },
                 // 行对齐 2022-04-08 新增选项 
                 {
-                    "label": "行对齐", "field": "columnAlign", "type": "select", "defaultValue": "left", 
+                    "label": "行对齐", "field": "columnAlign", "type": "select", 
                     "options": [
                         { "label": "居中", "value": "center" },
                         { "label": "左对齐", "value": "left" },
@@ -433,7 +433,7 @@ export const setting = {
                             ]
                         },
                         { "label": "组件容器属性", "field": "contentItemContainerStyle", "type": "JSON" },
-                        // { "label":"表单模态框默认宽度", "field":"formDefaultWidth","type":"number" },
+                        { "label":"表单模态框默认宽度", "field":"formDefaultWidth","type":"number" },
                     ]
                 }
             ]
@@ -477,7 +477,8 @@ export const setting = {
         "API": "/api/crud/menu/menus",
         "method": "post",
         "data":{
-          "menuType":"M",
+          // C 目录， M 菜单
+          "menuType":"C",
           "pid": "62",
           "endpoint":getPort()
         },

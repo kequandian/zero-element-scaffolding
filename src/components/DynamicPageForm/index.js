@@ -2,7 +2,7 @@
 import React, { useRef, useState } from 'react';
 import { Button, Spin, Form } from 'antd';
 import useBaseForm from 'zero-element/lib/helper/form/useBaseForm';
-import { useDidMount, useForceUpdate } from 'zero-element/lib/utils/hooks/lifeCycle'
+import { useDidMount, useForceUpdate, useWillUnmount } from 'zero-element/lib/utils/hooks/lifeCycle'
 import useFormHandle from 'zero-element-antd/lib/container/Form/utils/useFormHandle';
 import FormTools from '@/container/EditList/components/Form';
 import promiseAjax from '@/utils/promiseAjax';
@@ -17,7 +17,8 @@ export default (props) => {
     extraData = {},
     hooks = {},
     onClose,
-    forceInitForm
+    forceInitForm,
+    keepData=false
   } = props;
   const { API: { createAPI='', getAPI='', updateAPI='' }, fields } = config;
   const [loading, setLoading] = useState(undefined);
@@ -54,6 +55,13 @@ export default (props) => {
   useDidMount(_ => {
     if (getAPI) {
       handleGetData()
+    }
+  });
+
+  useWillUnmount(_ => {
+    // if (!keepData) {
+    if (!keepData || MODAL) {
+      onClearForm();
     }
   });
 
@@ -147,6 +155,8 @@ export default (props) => {
       ...initData,
       ...addRef.current.data
     }
+    // console.log('theData == ', theData)
+    // return
 
     promiseAjax(apiUrl, theData, options)
       .then(resp => {
@@ -157,11 +167,12 @@ export default (props) => {
         }
       })
       .finally(_ => {
+        setLoading(false)
         if(onClose){
           //关闭modal方法
           onClose()
         }
-        setLoading(false)
+        forceUpdate();
       })
   }
 
@@ -187,7 +198,7 @@ export default (props) => {
       //关闭modal方法
       onClose()
     }
-    // forceUpdate();
+    forceUpdate();
   }
 
     //保存按钮点击事件
@@ -207,6 +218,7 @@ export default (props) => {
               formData={data}
               config={fields}
               ref={addRef}
+              unUseDefaultValue={true}
               >
           </FormTools>
           { renderFooter() }

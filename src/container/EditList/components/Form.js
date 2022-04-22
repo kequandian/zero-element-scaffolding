@@ -19,14 +19,15 @@ export default forwardRef((props, ref) => {
 
   const CheckboxGroup = Checkbox.Group
   const { Panel } = Collapse;
-  const [data, setData] = useState(formData)
+  const [data, setData] = useState({})
   const [modalVisable, setModalVisable] = useState(false)
   const [actionModalData, setActionModalData] = useState([])
   const [theModalData, setTheModalData] = useState([])
   const forceUpdate = useForceUpdate();
 
   useDidMount(_ => {
-    console.log(config, "FORMDATA")
+    // console.log(config, "FORMDATA")
+
     let modalId = getDefaultData("id")
 
     if (!modalId) {
@@ -56,6 +57,14 @@ export default forwardRef((props, ref) => {
         data
       }
     })
+
+    useEffect(_=>{
+      //
+      if(formData){
+        setData(formData)
+      }
+
+    },[formData])
 
 
   function getFormData(field) {
@@ -116,21 +125,21 @@ export default forwardRef((props, ref) => {
     let newCData = data || {}
     newCData[field] = e
     setData(newCData)
-    forceUpdate()
+    // forceUpdate()
   }
 
   function switchChange(field, e) {
     let newSData = data || {}
     newSData[field] = e ? 1 : 0
     setData(newSData)
-    forceUpdate()
+    // forceUpdate()
   }
 
   function JsonChange(field, e) {
     let newJData = data || {}
     newJData[field] = JSON.stringify(e)
     setData(newJData)
-    forceUpdate()
+    // forceUpdate()
   }
 
   function GetJsonValue(field) {
@@ -149,7 +158,7 @@ export default forwardRef((props, ref) => {
     let newSeData = data || {}
     newSeData[field] = e.toString()
     setData(newSeData)
-    forceUpdate()
+    // forceUpdate()
   }
 
   function getSelectData(field, defaultValue) {
@@ -214,8 +223,10 @@ export default forwardRef((props, ref) => {
 
   // 默认input
   const inputEndpoint = (item, i) => {
+
     return <Input
-      defaultValue={getDefaultData(item.field, item.defaultValue)}
+      defaultValue={ data && data[item.field] ? data[item.field] : getSelectData(item.field, item.defaultValue)}
+      value={ data && data[item.field] ? data[item.field] : getSelectData(item.field, item.defaultValue)}
       placeholder={item.placeholder || "请输入" + item.label}
       addonAfter={item.addonAfter}
       onChange={(e) => ChangeValue(item.field, e)}
