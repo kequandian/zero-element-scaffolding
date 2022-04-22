@@ -9,6 +9,7 @@ import { history } from 'umi'
 import Array from './Array/index'
 import ColorSelect from "./ColorSelect";
 import FontSelect from "./FontSelect";
+import FetchSelect from "./fetchSelect";
 export default forwardRef((props, ref) => {
 
   const {
@@ -341,6 +342,15 @@ export default forwardRef((props, ref) => {
     }
   }
 
+  //通过API获取下拉框数据
+  function fetchSelectFunc (item, i) {
+    const { options } = item;
+    const callback = (data) => {
+      console.log('下拉框 data === ', data)
+    }
+    return <FetchSelect cb={callback}/>
+  }
+
   const { TabPane } = Tabs
 
   const ModalEndpoint = (item, i) => {
@@ -421,6 +431,7 @@ export default forwardRef((props, ref) => {
               item.type === "switch" ? switchEndpoint(item, i) :
                 item.type === "number" ? numberEndpoint(item, i) :
                   item.type === "Modal" ? ModalEndpoint(item, i) :
+                  item.type === "fetchSelect" ? fetchSelectFunc(item, i) :
                     item.type === "ActionModal" ? ActionModalEndpoint(item, i) :
                       item.type === "Array" ? ArrayEndpoint(item, i) :
                         item.type === "color" ? (

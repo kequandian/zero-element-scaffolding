@@ -4,18 +4,23 @@ export const fieldsConfig = [
         "label": "字段名称", //首选使用 含括表单标签和列表标签
         "field": "fieldLabel"
     },
+    // {
+    //     "label": "绑定字段名称",
+    //     "field": "fieldBinding"
+    // },
     {
         "label": "绑定字段名称",
-        "field": "fieldBinding"
+        "field": "fieldBinding",
+        "type": "fetchSelect"
     },
     {
-        "label": "字段范围", "field": "fieldScopes", "type": "select", "mode": "multiple", "options": [
+        "label": "展示范围", "field": "fieldScopes", "type": "select", "mode": "multiple", "options": [
             { "label": "page", "value": "page" },
-            { "label": "filter", "value": "filter" },
-            { "label": "table", "value": "table" },
-            { "label": "edit", "value": "edit" },
-            { "label": "add", "value": "add" },
-            { "label": "view", "value": "view" }
+            { "label": "搜索", "value": "filter" },
+            { "label": "列表", "value": "table" },
+            { "label": "编辑", "value": "edit" },
+            { "label": "新增", "value": "add" },
+            { "label": "详情", "value": "view" }
         ]
     },
     // { "label":"唯一范围", "field":"fieldScope","type":"select","options":[
