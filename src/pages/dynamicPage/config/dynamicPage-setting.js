@@ -249,7 +249,7 @@ export const setting = {
     {
       "title": "添加", "type": "fromModal",
       "options": {
-        "modalTitle": "添加用户",
+        "modalTitle": "添加",
         "modalWidth": 600,
         "api":{
           "createAPI":"/api/crud/lowMainPage/lowMainPages"

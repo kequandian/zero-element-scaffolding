@@ -190,6 +190,7 @@ export default forwardRef((props, ref) => {
         style={{ width: "100%" }}
         options={item.options}
         onChange={(e) => handleSelect(item.field, e)}
+        key={`${i}_checkbox`}
       ></CheckboxGroup>
     )
       : (
@@ -200,9 +201,18 @@ export default forwardRef((props, ref) => {
           options={item.options}
           placeholder='请选择'
           onChange={(e) => handleSelect(item.field, e)}
+          key={`${i}_select`}
         />
       )}
     </>
+  }
+
+  //通过API获取下拉框数据
+  function fetchSelectFunc (item, i) {
+    const callback = (data) => {
+      setData(...data)
+    }
+    return <FetchSelect cb={callback} formData={formData} {...item} key={`${i}_fetchselect`}/>
   }
 
   //json项
@@ -270,6 +280,7 @@ export default forwardRef((props, ref) => {
     return defaultData
   }
 
+  //修改
   function putModalData(url, modalId, defaultData, submitData) {
     let newdata = {
       ...defaultData,
@@ -279,6 +290,8 @@ export default forwardRef((props, ref) => {
     let options = {
       method: "PUT"
     }
+    console.log('newdata === ', newdata)
+    return
     promiseAjax(`${url}/${defaultData.id}`, newdata, options)
       .then(resp => {
         if (resp.code === 200) {
@@ -290,6 +303,7 @@ export default forwardRef((props, ref) => {
       })
   }
 
+  //新增
   function addModalData(url, modalId, submitData) {
     setModalVisable(false)
     let newdata = {
@@ -313,7 +327,8 @@ export default forwardRef((props, ref) => {
   function cancel() {
     setModalVisable(false)
   }
-
+  
+  //删除
   function deleteModal(url, id) {
     let newurl = url + "/" + id
     let options = {
@@ -340,15 +355,6 @@ export default forwardRef((props, ref) => {
     } else {
       setModalVisable(true)
     }
-  }
-
-  //通过API获取下拉框数据
-  function fetchSelectFunc (item, i) {
-    const { options } = item;
-    const callback = (data) => {
-      console.log('下拉框 data === ', data)
-    }
-    return <FetchSelect cb={callback}/>
   }
 
   const { TabPane } = Tabs

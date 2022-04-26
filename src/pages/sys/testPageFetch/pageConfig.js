@@ -11,7 +11,13 @@ export const fieldsConfig = [
     {
         "label": "绑定字段名称",
         "field": "fieldBinding",
-        "type": "fetchSelect"
+        "type": "fetchSelect",
+        "options":{
+            "API": "/api/crud/lowMainPage/lowMainPages/(id)",
+            "label": "fieldLabel",
+            "value": "fieldBinding",
+            "dataField": "data.lowFieldss"
+        }
     },
     {
         "label": "展示范围", "field": "fieldScopes", "type": "select", "mode": "multiple", "options": [

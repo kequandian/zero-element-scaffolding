@@ -7,7 +7,9 @@ export default (url, data, options = {}) => {
     let param = '';
     let payload = {};
     if (method === 'GET') {
-      param = `?${Object.keys(data).map(key => `${key}=${data[key]}`).join('&')}`;
+      if(data && JSON.stringify(data) != "{}"){
+        param = `?${Object.keys(data).map(key => `${key}=${data[key]}`).join('&')}`;
+      }
     } else {
       if (data) {
           payload = JSON.stringify(data);
