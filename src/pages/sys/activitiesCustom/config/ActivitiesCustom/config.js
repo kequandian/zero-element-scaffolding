@@ -1,6 +1,6 @@
 module.exports = {
   layout: 'Content',
-  title: '数据服务',
+  title: '表单射击',
   items: [
     {
       component: 'Search',

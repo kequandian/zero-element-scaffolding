@@ -457,7 +457,7 @@
       "options": {
         "map": {
           "tinyint": "小整数值(1字节)",
-          "smallint": "小整数值(2字节) ",
+          "smallint": "小整数值(2字节)",
           "mediumint": "中等整数值",
           "int": "正常整数值",
           "long": "长整数值",

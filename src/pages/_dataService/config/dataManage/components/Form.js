@@ -81,11 +81,13 @@ export default function BaseForm(props) {
   const [fields, setFields] = useState(fieldsCfg);
   const { onGetOne, onCreateForm, onUpdateForm, onClearForm } = handle;
   const [canRenderForm, setCanRenderForm] = useState(API.getAPI ? false : true);
-  const [currId, setCurrId ] = useState('');
+  const [queryUrlList, setQueryUrlList ] = useState('');
   // useMemo(recordDefaultValue, [fields]);
 
 
   useDidMount(_ => {
+    
+    getQueryUrlParam();
     recordDefaultValue();
     if (API.getAPI && API.createAPI) {
       handleGetAddData();
@@ -106,17 +108,54 @@ export default function BaseForm(props) {
     }
   });
 
+  //获取并封装路由问号参数
+  function getQueryUrlParam (url) {
+    const searchString = location.search
+    const urlList = {};
+    function handleData (value) {
+      const v = value.split('=')
+      console.log('slList v v v v v v  === ', v )
+      urlList[v[0]] = v[1]
+    }
+
+    if(searchString){
+      const sl = searchString.substring(searchString.indexOf('?')+1, searchString.length);
+      let slList;
+      if(sl.indexOf('&') != -1){
+        slList = sl.split('&')
+      }else{
+        slList = sl
+      }
+      if(Array.isArray(slList)){
+        slList.map(item => handleData(item))
+      }else{
+        handleData(slList)
+      }
+    }
+
+    if(urlList && JSON.stringify(urlList) != '{}'){
+      console.log('urlList === ', urlList)
+      setQueryUrlList(urlList)
+      forceUpdate();
+    }else{
+      console.log('获取不到路由参数')
+    }
+  }
+
   //获取添加页面配置数据
   function handleGetAddData() {
     setCanRenderForm(false);
     const searchList = location.search.split('=');
     const id = searchList[1];
-    setCurrId(id);
     const getFieldsAPI = API.getAPI;
-    const formatApi = getFieldsAPI.replace('(id)', id);
+    var rtValue= handleChangeApiParam(getFieldsAPI);
+    console.log('queryUrlList=== ', queryUrlList)
+    console.log('getFieldsAPI=== ', getFieldsAPI)
+    console.log('rtValue=== ', rtValue)
+    const formatApi = getFieldsAPI.replace(`(${rtValue})`, queryUrlList[rtValue]);
+
     const apiUrl = `${getEndpoint()}${formatApi}`
-    const queryData = {
-    }
+    const queryData = {}
     promiseAjax(apiUrl, queryData).then((response) => {
       const { code, data } = response || {};
       const applyFormInfo = handleApplyFormInfo(data.formInfo);
@@ -189,6 +228,7 @@ export default function BaseForm(props) {
 
           setFields([
             ...applyFormInfo,
+            ...fields
           ])
             
         }
@@ -301,9 +341,11 @@ export default function BaseForm(props) {
 
   }
 
+  //提交数据
   function handleCreateData(subData) {
     const createAPI = API.createAPI;
-    const formatApi = createAPI.replace('(id)', currId);
+    var rtValue= handleChangeApiParam(createAPI);
+    const formatApi = createAPI.replace(`(${rtValue})`, queryUrlList[rtValue]);
     const apiUrl = `${getEndpoint()}${formatApi}`
     const queryData = subData;
 
@@ -321,7 +363,7 @@ export default function BaseForm(props) {
       })
   }
 
-
+  //
   function handleResponse(data = {}, opt = {}) {
     const { message: msg = '操作成功' } = opt;
     if (data.code === 200) {
@@ -363,6 +405,7 @@ export default function BaseForm(props) {
     form.resetFields();
     forceUpdate();
   }
+
   function renderFooter() {
     function onSubmit() {
       form.submit();
@@ -377,6 +420,12 @@ export default function BaseForm(props) {
       <Button onClick={handleReset}>重置</Button>
       <Button type="primary" htmlType="submit" onClick={onSubmit}>保存</Button>
     </div>
+  }
+
+  //替换 api 参数值
+  function handleChangeApiParam(value){
+    var rt= /(.+)?(?:\(|（)(.+)(?=\)|）)/.exec(value);
+    return rt[2]
   }
 
   return <Spin spinning={propsLoading || loading}>

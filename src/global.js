@@ -41,7 +41,7 @@ import TreeSelectFetch from '@/components/TreeSelectFetch';
 import CSet_CustomForm from '@/components/CustomForm';
 import CSet_CustomFormFR from '@/components/CustomFormFR';
 import CSet_DataManageFormAdd from '@/pages/sys/activitiesCustom/config/dataManage/components/Form';
-import CSet_DataServiceFormAdd from '@/pages/dataService/config/dataManage/components/Form';
+import CSet_DataServiceFormAdd from '@/pages/_dataService/config/dataManage/components/Form';
 
 import CSet_DataReportTreeList from '@/pages/sys/dataReport/components/DataReportTreeList';
 // import CSet_DataTable from '@/pages/userAudit/table/components/DataReportTreeList';

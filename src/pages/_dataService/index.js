@@ -1,6 +1,6 @@
 import React from 'react';
 import useBreadcrumb from '@/framework/useBreadcrumb';
-import Activities from '@/pages/dataService/config/dataService';
+import Activities from '@/pages/_dataService/config/dataService';
 export default (props) => {
         useBreadcrumb([
         { title: '首页', path: '/' },

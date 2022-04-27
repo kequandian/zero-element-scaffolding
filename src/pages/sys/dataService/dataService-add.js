@@ -1,10 +1,10 @@
 import React from 'react';
-import ProjectActivities from '@/pages/dataService/config/dataService/add';
+import ProjectActivities from './config/dataService/add';
  import useBreadcrumb from '@/framework/useBreadcrumb';
 export default (props) => {
     useBreadcrumb([
         { title: '首页', path: '/' },
-        { title: '管理员选项', path: '/designpage/config' },
+        { title: '系统管理', path: '/sys' },
         { title: "新增数据" },
     ]);
 return <ProjectActivities />
