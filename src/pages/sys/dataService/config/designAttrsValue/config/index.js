@@ -2,7 +2,7 @@ const setting = require('./setting-page.json');
 
 module.exports = {
   layout: setting.layout.table,
-  title: setting.pageName.table,
+  // title: setting.pageName.table,
   items: [
     {
       component: 'Table',
