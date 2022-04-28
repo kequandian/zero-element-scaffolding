@@ -10,7 +10,7 @@ module.exports = {
         type:"default",
         fields: [
           {
-            field: 'name', label: '表单名称', type: 'search',
+            field: 'name', label: '名称', type: 'search',
             props: {
               placeholder: '请输入',
             }
@@ -28,16 +28,64 @@ module.exports = {
         actions: [
           {
             "title": "新增",
-            "type": "path",
+            "type": "modal",
             "options": {
-              style: "primary",
-              "path": "dataService/dataService-add"
+              "modalTitle": "新增",
+              "modalWidth": 600,
+              "outside": true,
+              "items": [
+                {
+                  "component": "Form",
+                  "config": {
+                    "layout": "Grid",
+                    "layoutConfig": {
+                      "value": [
+                        24
+                      ]
+                    },
+                    "API": {
+                      "createAPI": "/api/cfg/data/services",
+                    },
+                    "fields": [
+                      {
+                        "label": "名称",
+                        "rules": [
+                          {
+                            "type": "required"
+                          }
+                        ],
+                        "props": {
+                          "placeholder": "请输入"
+                        },
+                        "type": "input",
+                        "field": "name"
+                      },
+                      {
+                        "label": "实体名",
+                        "rules": [
+                          {
+                            "type": "required"
+                          }
+                        ],
+                        "props": {
+                          "placeholder": "请输入"
+                        },
+                        "type": "input",
+                        "field": "serviceName"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "expect": {
+              "permission": ""
             }
           },
         ],
         fields: [
-          { field: 'name', label: '表单名称' },
-          { field: 'note', label: '备注' },
+          { field: 'name', label: '名称' },
+          { field: 'serviceName', label: '实体名' },
         ],
         operation: [
           {
@@ -61,10 +109,60 @@ module.exports = {
             }
           },
           {
-            title: '编辑', type: 'path',
-            options:{
-              outside: true,
-              path: "dataService/dataService-edit"
+            "title": "编辑",
+            "type": "modal",
+            "options": {
+              "modalTitle": "编辑",
+              "modalWidth": 600,
+              "outside": true,
+              "items": [
+                {
+                  "component": "Form",
+                  "config": {
+                    "layout": "Grid",
+                    "layoutConfig": {
+                      "value": [
+                        24
+                      ]
+                    },
+                    "API": {
+                      "getAPI": "/api/cfg/data/services/(id)",
+                      "updateAPI": "/api/cfg/data/services/(id)",
+                    },
+                    "fields": [
+                      {
+                        "label": "名称",
+                        "rules": [
+                          {
+                            "type": "required"
+                          }
+                        ],
+                        "props": {
+                          "placeholder": "请输入"
+                        },
+                        "type": "input",
+                        "field": "name"
+                      },
+                      {
+                        "label": "实体名",
+                        "rules": [
+                          {
+                            "type": "required"
+                          }
+                        ],
+                        "props": {
+                          "placeholder": "请输入"
+                        },
+                        "type": "input",
+                        "field": "serviceName"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "expect": {
+              "permission": ""
             }
           },
           {

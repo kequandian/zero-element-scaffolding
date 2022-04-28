@@ -82,19 +82,19 @@ export default function BaseForm(props) {
   const [fields, setFields] = useState(fieldsCfg);
   const { onGetOne, onCreateForm, onUpdateForm, onClearForm } = handle;
   const [canRenderForm, setCanRenderForm] = useState(API.getAPI ? false : true);
-  const [queryUrlList, setQueryUrlList ] = useState('');
+  const [queryUrlList, setQueryUrlList] = useState('');
+  const [_loading, setLoading] = useState(false);
   // useMemo(recordDefaultValue, [fields]);
 
 
   useDidMount(_ => {
-    
-    getQueryUrlParam();
+
+    const urlList = getQueryUrlParam();
     recordDefaultValue();
-    if (API.getAPI && API.createAPI) {
-      handleGetAddData();
-    }
-    if (API.getAPI && API.updateAPI) {
-      handleGetData();
+
+    //getFormApi 为表单UI api
+    if (API.getFormApi) {
+      handleGetAddData(urlList);
     }
     if (typeof formRef === 'object') {
       formRef.current = form;
@@ -109,58 +109,53 @@ export default function BaseForm(props) {
     }
   });
 
-  //获取并封装路由问号参数
-  function getQueryUrlParam (url) {
+  //获取路由并封装为json
+  function getQueryUrlParam(url) {
     const searchString = location.search
     const urlList = {};
-    function handleData (value) {
+    function handleData(value) {
       const v = value.split('=')
-      console.log('slList v v v v v v  === ', v )
       urlList[v[0]] = v[1]
     }
 
-    if(searchString){
-      const sl = searchString.substring(searchString.indexOf('?')+1, searchString.length);
+    if (searchString) {
+      const sl = searchString.substring(searchString.indexOf('?') + 1, searchString.length);
       let slList;
-      if(sl.indexOf('&') != -1){
+      if (sl.indexOf('&') != -1) {
         slList = sl.split('&')
-      }else{
+      } else {
         slList = sl
       }
-      if(Array.isArray(slList)){
+      if (Array.isArray(slList)) {
         slList.map(item => handleData(item))
-      }else{
+      } else {
         handleData(slList)
       }
     }
 
-    if(urlList && JSON.stringify(urlList) != '{}'){
-      console.log('urlList === ', urlList)
+    if (urlList && JSON.stringify(urlList) != '{}') {
       setQueryUrlList(urlList)
-      forceUpdate();
-    }else{
+      return urlList
+    } else {
       console.log('获取不到路由参数')
     }
   }
 
   //获取添加页面配置数据
-  function handleGetAddData() {
+  function handleGetAddData(urlList) {
     setCanRenderForm(false);
-    const searchList = location.search.split('=');
-    const id = searchList[1];
-    const getFieldsAPI = API.getAPI;
-    var rtValue= handleChangeApiParam(getFieldsAPI);
-    console.log('queryUrlList=== ', queryUrlList)
-    console.log('getFieldsAPI=== ', getFieldsAPI)
-    console.log('rtValue=== ', rtValue)
-    const formatApi = getFieldsAPI.replace(`(${rtValue})`, queryUrlList[rtValue]);
+    setLoading(true)
+    const getFormApi = API.getFormApi;
+    var rtValue = handleChangeApiParam(getFormApi);
+    const formatApi = getFormApi.replace(`(${rtValue})`, urlList[rtValue]);
 
     const apiUrl = `${getEndpoint()}${formatApi}`
     const queryData = {}
     promiseAjax(apiUrl, queryData).then((response) => {
       const { code, data } = response || {};
-      const applyFormInfo = handleApplyFormInfo(data.formInfo);
+
       if (code === 200 && data) {
+        const applyFormInfo = handleFormInfo(data.formInfo);
         let formData = data;
         if (typeof onGetData === 'function') {
           formData = onGetData(data);
@@ -192,7 +187,8 @@ export default function BaseForm(props) {
           forceUpdate();
         }
 
-        if(applyFormInfo && applyFormInfo.length > 0){
+        console.log('applyFormInfo == ', applyFormInfo)
+        if (applyFormInfo && applyFormInfo.length > 0) {
           setFields([
             ...applyFormInfo
           ])
@@ -201,70 +197,92 @@ export default function BaseForm(props) {
     })
       .finally(_ => {
         setCanRenderForm(true);
+        setLoading(false)
+        if(API.getAPI && API.updateAPI){
+          handleGetData();
+        }
       })
   }
 
-    //获取编辑数据
-    function handleGetData() {
-      setCanRenderForm(false);
-      onGetOne({}).then((response) => {
-        const { code, data } = response || {};
-        const applyFormInfo = handleApplyFormInfo(data.formInfo);
-        if (code === 200 && data) {
-          let formData = data;
-          if (typeof onGetData === 'function') {
-            formData = onGetData(data);
-          }
-  
-          initData.current = formData;
-          const { extra, images, tags } = formData;
-          setPageData(namespace, 'formData', formData);
-          form.setFieldsValue({ ...initData.current });
-
-          if (extra && Array.isArray(extra.items)) {
-            setExtraFields(extra.items);
-          } else {
-            forceUpdate();
-          }
-
-          setFields([
-            ...applyFormInfo,
-            ...fields
-          ])
-            
+  //获取编辑数据
+  function handleGetData() {
+    setCanRenderForm(false);
+    onGetOne({}).then((response) => {
+      const { code, data } = response || {};
+      // const applyFormInfo = handleFormInfo(data.formInfo);
+      if (code === 200 && data) {
+        let formData = data;
+        if (typeof onGetData === 'function') {
+          formData = onGetData(data);
         }
-      })
-        .finally(_ => {
-          setCanRenderForm(true);
-        })
-    }
 
-    function handleApplyFormInfo(formInfo) {
-      if (formInfo && JSON.stringify(formInfo) != '{}') {
-  
-        const layoutJson = formInfo.layoutJson;
-  
-        const fieldList = [];
-  
-        layoutJson.map(item => {
-  
-          if (typeof item.title == 'string') {
-            const titleGroud = { "field": "_group", "type": "group-title", "defaultValue": `${item.title}` }
-            fieldList.push(titleGroud);
-          }
-  
-          if (Array.isArray(item.items) && item.items.length > 0) {
-            item.items.map(item => {
-              fieldList.push(item);
-            })
-          }
+        initData.current = formData;
+        // const { extra, images, tags } = formData;
+        setPageData(namespace, 'formData', formData);
+        form.setFieldsValue({ ...initData.current });
+
+        // if (extra && Array.isArray(extra.items)) {
+        //   setExtraFields(extra.items);
+        // } else {
+        //   forceUpdate();
+        // }
+
+        // setFields([
+        //   ...applyFormInfo,
+        //   ...fields
+        // ])
+
+      }
+    })
+      .finally(_ => {
+        setCanRenderForm(true);
+      })
+  }
+
+  function handleFormInfo(formInfo) {
+    if (formInfo && JSON.stringify(formInfo) != '{}') {
+
+      const items = formInfo.layoutJson[0].items;
+
+      const fieldList = [];
+
+      // layoutJson.map(item => {
+
+      //   if (typeof item.title == 'string') {
+      //     const titleGroud = { "field": "_group", "type": "group-title", "defaultValue": `${item.title}` }
+      //     fieldList.push(titleGroud);
+      //   }
+
+      //   if (Array.isArray(item.items) && item.items.length > 0) {
+      //     item.items.map(item => {
+      //       fieldList.push(item);
+      //     })
+      //   }
+      // })
+      // return fieldList;
+      if(items){
+        
+      const newFields = items.map((item, i) => {
+        extraFields.current.push(item.field);
+        return {
+          label: item.field,
+          field: item.field,
+          type: extraFieldType[item.type] || 'input'
+        }
         })
-        return fieldList;
-  
-      } else {
+      return [
+        ...fields,
+        ...newFields
+      ]
+      
+      }else{
         return [];
       }
+
+    } else {
+      return [];
     }
+  }
 
   function setExtraFields(items) {
     setFields([
@@ -304,32 +322,33 @@ export default function BaseForm(props) {
       ...pageDataFormData,
       ...values,
     };
+    delete submitData.formInfo
 
     handleFormatValue(submitData);
 
     // 修改并提交 extra 里面的数据
-    if (extraFields.current.length) {
-      const extraData = submitData.extra.items;
-      submitData.extra.items = pageDataFormData.extra.items;
+    // if (extraFields.current.length) {
+    //   const extraData = submitData.extra.items;
+    //   submitData.extra.items = pageDataFormData.extra.items;
 
-      extraFields.current.forEach(field => {
-        const index = submitData.extra.items.findIndex(item => item.attr === field);
-        const find = submitData.extra.items[index];
+    //   extraFields.current.forEach(field => {
+    //     const index = submitData.extra.items.findIndex(item => item.attr === field);
+    //     const find = submitData.extra.items[index];
 
-        if (find) {
-          find.value = extraData[index].value;
-        }
-      });
-    }
+    //     if (find) {
+    //       find.value = extraData[index].value;
+    //     }
+    //   });
+    // }
 
-    if (typeof onSubmit === 'function') {
-      onSubmit(submitData, handleResponse);
-      return false;
-    }
+    // if (typeof onSubmit === 'function') {
+    //   onSubmit(submitData, handleResponse);
+    //   return false;
+    // }
 
-    if (typeof onFormMap === 'function') {
-      submitData = onFormMap(submitData, pageDataFormData);
-    }
+    // if (typeof onFormMap === 'function') {
+    //   submitData = onFormMap(submitData, pageDataFormData);
+    // }
 
     if (API.updateAPI) {
       onUpdateForm({
@@ -344,8 +363,9 @@ export default function BaseForm(props) {
 
   //提交数据
   function handleCreateData(subData) {
+    setLoading(true)
     const createAPI = API.createAPI;
-    var rtValue= handleChangeApiParam(createAPI);
+    var rtValue = handleChangeApiParam(createAPI);
     const formatApi = createAPI.replace(`(${rtValue})`, queryUrlList[rtValue]);
     const apiUrl = `${getEndpoint()}${formatApi}`
     const queryData = subData;
@@ -361,6 +381,9 @@ export default function BaseForm(props) {
         } else {
           console.log('提交失败 = ', resp.message);
         }
+      })
+      .finally(_=>{
+        setLoading(false)
       })
   }
 
@@ -424,12 +447,12 @@ export default function BaseForm(props) {
   }
 
   //替换 api 参数值 用小括号包住， 如: /api/(id)
-  function handleChangeApiParam(value){
-    var rt= /(.+)?(?:\(|（)(.+)(?=\)|）)/.exec(value);
+  function handleChangeApiParam(value) {
+    var rt = /(.+)?(?:\(|（)(.+)(?=\)|）)/.exec(value);
     return rt[2]
   }
 
-  return <Spin spinning={propsLoading || loading}>
+  return <Spin spinning={propsLoading || loading || _loading}>
     {renderGoBack && canPortal(extraEl, <Button onClick={handleGoBack}>返回</Button>)}
     <div className={fields.length ? 'ant-modal-body' : undefined}>
       {canRenderForm ? (

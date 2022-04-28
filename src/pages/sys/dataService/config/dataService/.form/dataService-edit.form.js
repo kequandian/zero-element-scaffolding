@@ -33,7 +33,10 @@ module.exports = {
             "field": "entityName",
             "type": "input",
             "props": {
-              "placeholder": "请输入英文"
+              "placeholder": "请输入英文",
+              "style":{
+                "width":"240px"
+              }
             },
             "rules": [
               "required"
@@ -45,7 +48,10 @@ module.exports = {
             "field": "name",
             "type": "input",
             "props": {
-              "placeholder": "请输入表单的名称"
+              "placeholder": "请输入表单的名称",
+              "style":{
+                "width":"240px"
+              }
             },
             "rules": [
               "required"
@@ -57,7 +63,10 @@ module.exports = {
             "field": "note",
             "type": "text-area",
             "props": {
-              "placeholder": "请输入表单的更多信息"
+              "placeholder": "请输入表单的更多信息",
+              "style":{
+                "width":"240px"
+              }
             },
             "autoSize": {
               "minRows": 10

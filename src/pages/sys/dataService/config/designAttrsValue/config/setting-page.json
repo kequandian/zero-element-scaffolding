@@ -27,24 +27,10 @@
                 ]
               },
               "API": {
-                "getAPI": "/api/cfg/data/services/attrs/(entityName)/all",
+                "getFormApi": "/api/cfg/data/services/attrs/(entityName)/all",
                 "createAPI": "/api/data/services/(entityName)"
               },
               "fields": [
-                {
-                  "field": "name", "label": "名称", "width": "240px", 
-                  "type": "input","rules": ["required"],
-                  "props":{
-                    "placeholder":"请输入"
-                   }
-                },
-                {
-                  "field": "attributeName", "label": "字段名", "width": "240px", 
-                  "type": "input","rules": ["required"],
-                  "props":{
-                    "placeholder":"请输入"
-                   }
-                }
               ]
             }
           }
@@ -74,24 +60,11 @@
                 ]
               },
               "API": {
-                "getAPI": "/api/data/services/[entityName]/(id)",
-                "updateAPI": "/api/data/services/[entityName]/(id)"
+                "getFormApi": "/api/cfg/data/services/attrs/(entityName)/all",
+                "getAPI": "/api/data/services/[entityName]/(rowId)",
+                "updateAPI": "/api/data/services/[entityName]/(rowId)"
               },
               "fields": [
-                {
-                  "field": "name", "label": "名称", "width": "240px", 
-                  "type": "input","rules": ["required"],
-                  "props":{
-                    "placeholder":"请输入"
-                   }
-                },
-                {
-                  "field": "attributeName", "label": "字段名", "width": "240px", 
-                  "type": "input","rules": ["required"],
-                  "props":{
-                    "placeholder":"请输入"
-                   }
-                }
               ]
             }
           }
@@ -107,7 +80,7 @@
       "options": {
         "outside": true,
         "tips": "确定要删除吗?",
-        "API": "/api/data/services/[entityName]/(id)",
+        "API": "/api/data/services/[entityName]/(rowId)",
         "method": "delete"
       }
     }
