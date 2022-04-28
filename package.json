@@ -17,7 +17,7 @@
     "braft-editor": "^2.3.9",
     "express": "^4.17.1",
     "form-render": "^0.9.12",
-    "fr-generator": "file:../plugins/zero-element-generator",
+    "fr-generator": "git+https://gitee.com/smallsaas/zero-element-generator.git",
     "framer-motion": "^4.1.17",
     "jparticles": "^2.0.1",
     "lodash": "^4.17.21",
@@ -27,7 +27,7 @@
     "umi": "3.2.17",
     "webpack-dev-server": "^2.9.1",
     "zero-element": "^1.0.0",
-    "zero-element-antd": "git://github.com/kequandian/zero-element-antd.git#master"
+    "zero-element-antd": "git+https://gitee.com/smallsaas/zero-element-antd.git"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",

@@ -9,6 +9,11 @@ import './index.less'
 
 const { Option } = Select;
 
+/**
+ * 
+ * @param { 获取数据源字段 } dataField 
+ */
+
 export default function FetchSelect(props) {
 
     const { formData, options, onChange, field, cb } = props

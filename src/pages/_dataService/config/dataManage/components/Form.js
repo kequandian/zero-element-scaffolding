@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import React, { useRef, useMemo, useState } from 'react';
 import { Form } from 'antd';
 import { formatAPI } from 'zero-element/lib/utils/format';
@@ -422,7 +423,7 @@ export default function BaseForm(props) {
     </div>
   }
 
-  //替换 api 参数值
+  //替换 api 参数值 用小括号包住， 如: /api/(id)
   function handleChangeApiParam(value){
     var rt= /(.+)?(?:\(|（)(.+)(?=\)|）)/.exec(value);
     return rt[2]
