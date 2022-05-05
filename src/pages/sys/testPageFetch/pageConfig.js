@@ -14,8 +14,8 @@ export const fieldsConfig = [
         "type": "fetchSelect",
         "options":{
             "API": "/api/crud/lowMainPage/lowMainPages/(id)",
-            "label": "fieldLabel",
-            "value": "fieldBinding",
+            "label": "fieldItemName",
+            "value": "fieldItemName",
             "dataField": "data.lowFieldss"
         }
     },

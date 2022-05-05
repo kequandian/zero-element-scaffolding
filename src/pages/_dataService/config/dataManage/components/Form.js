@@ -265,7 +265,7 @@ export default function BaseForm(props) {
       const newFields = items.map((item, i) => {
         extraFields.current.push(item.field);
         return {
-          label: item.field,
+          label: item.label,
           field: item.field,
           type: extraFieldType[item.type] || 'input'
         }

@@ -16,7 +16,7 @@ import {
 import FormTools from './components/Form';
 
 export default withRouter(function EditList(props) {
-  const { config } = props
+  const { config, namespace } = props
   const {
     api = "/api/crud/fields/fieldses",
     ModelConfig = fieldModelConfig,
@@ -28,12 +28,11 @@ export default withRouter(function EditList(props) {
     NoModal = false,
     showAdd = true,
     showDelete = true,
-    svg = <Edit />
+    svg = <Edit />,
+    cb
   } = config;
   // message.loading("开始加载")
   const addRef = useRef()
-
-  // console.log('props ==== ', props)
 
   const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(true)
@@ -199,7 +198,7 @@ export default withRouter(function EditList(props) {
 
   // 提交更改
   function handleSuccess(id) {
-    console.log(id)
+    setLoading(true)
     let endpoint = getEndpoint()
     let apiUrl = `${endpoint}${api}/${id}`;
 
@@ -219,18 +218,26 @@ export default withRouter(function EditList(props) {
     } else {
       PutData = data
     }
-    console.log(data, "DATA")
+    // console.log('PutData === ', PutData)
+    // return
     promiseAjax(apiUrl, PutData, options)
       .then(resp => {
         if (resp && resp.code === 200) {
           // const Listdata = resp.data.records;
           // console.log(resp)
           message.success("更改成功")
-          history.go(0)
+          setVisible(false);
+          if(cb){
+            cb(true)
+          }
+          // history.go(0)
           // setData(Listdata)
         } else {
           message.error('更改失败')
         }
+      })
+      .finally(_ =>{
+        setLoading(false)
       })
   }
 
@@ -255,11 +262,11 @@ export default withRouter(function EditList(props) {
           type="card"
           onSuccess={() => handleSuccess(item.id)}
         >
-          <FormTools
-            formData={item}
-            config={ModelConfig}
-            unUseDefaultValue={true}
-          ></FormTools>
+            <FormTools
+              formData={item}
+              config={ModelConfig}
+              unUseDefaultValue={true}
+            />
         </ShowModal>
         {showDelete ? <div style={{ cursor: "pointer", fontWeight: "bolder", position: "relative", height: "50px", lineHeight: "50px", float: "right", top: "-50px", right: "20px" }} onClick={() => handleDelete(item.id)}><DeleteSvg />删除</div> : null}
       </>) : NoModal ? <>

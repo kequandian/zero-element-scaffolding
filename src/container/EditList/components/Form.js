@@ -34,7 +34,7 @@ export default forwardRef((props, ref) => {
     if (!modalId) {
       return
     }
-    console.log(modalId);
+    // console.log(modalId);
     let queryData = {
       modalId: modalId
     }
@@ -206,13 +206,14 @@ export default forwardRef((props, ref) => {
       )}
     </>
   }
-
-  //通过API获取下拉框数据
+  
+  //通过API获取数据下拉框
   function fetchSelectFunc (item, i) {
-    const callback = (data) => {
-      setData(...data)
+    console.log(' item === ', item)
+    const callback = (field, v) => {
+      defaultChange(field, v[field])
     }
-    return <FetchSelect cb={callback} formData={formData} {...item} key={`${i}_fetchselect`}/>
+    return <FetchSelect cb={(v) => callback(item.field, v)} formData={formData} {...item} key={`${i}_fetchselect`}/>
   }
 
   //json项
@@ -237,7 +238,6 @@ export default forwardRef((props, ref) => {
 
     return <Input
       defaultValue={ data && data[item.field] ? data[item.field] : getSelectData(item.field, item.defaultValue)}
-      value={ data && data[item.field] ? data[item.field] : getSelectData(item.field, item.defaultValue)}
       placeholder={item.placeholder || "请输入" + item.label}
       addonAfter={item.addonAfter}
       onChange={(e) => ChangeValue(item.field, e)}
@@ -290,8 +290,7 @@ export default forwardRef((props, ref) => {
     let options = {
       method: "PUT"
     }
-    console.log('newdata === ', newdata)
-    return
+    
     promiseAjax(`${url}/${defaultData.id}`, newdata, options)
       .then(resp => {
         if (resp.code === 200) {
