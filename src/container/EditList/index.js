@@ -154,7 +154,11 @@ export default withRouter(function EditList(props) {
           // const Listdata = resp.data.records;
           // console.log(resp)
           message.success("添加成功")
-          history.go(0)
+          // history.go(0)
+          setVisible(false);
+          if(cb){
+            cb(true)
+          }
           // setData(Listdata)
         } else {
           message.error('添加失败')
@@ -184,10 +188,14 @@ export default withRouter(function EditList(props) {
       .then(resp => {
         if (resp && resp.code === 200) {
           // const Listdata = resp.data.records;
-          console.log(resp)
+          // console.log(resp)
           message.success("删除成功")
           setTimeout(() => {
-            history.go(0)
+            // history.go(0)
+            setVisible(false);
+            if(cb){
+              cb(true)
+            }
           }, 500)
           // setData(Listdata)
         } else {
@@ -212,7 +220,7 @@ export default withRouter(function EditList(props) {
         if (_.get(data[i], "id") == id) {
           PutData = data[i]
           apiUrl = `${endpoint}${api}/${id}`;
-          console.log(PutData)
+          // console.log(PutData)
         }
       }
     } else {

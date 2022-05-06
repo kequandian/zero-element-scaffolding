@@ -187,7 +187,6 @@ export default function BaseForm(props) {
           forceUpdate();
         }
 
-        console.log('applyFormInfo == ', applyFormInfo)
         if (applyFormInfo && applyFormInfo.length > 0) {
           setFields([
             ...applyFormInfo
@@ -244,7 +243,7 @@ export default function BaseForm(props) {
 
       const items = formInfo.layoutJson[0].items;
 
-      const fieldList = [];
+      // const fieldList = [];
 
       // layoutJson.map(item => {
 

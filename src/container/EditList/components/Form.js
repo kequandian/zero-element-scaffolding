@@ -159,7 +159,7 @@ export default forwardRef((props, ref) => {
     let newSeData = data || {}
     newSeData[field] = e.toString()
     setData(newSeData)
-    // forceUpdate()
+    forceUpdate()
   }
 
   function getSelectData(field, defaultValue) {
@@ -181,6 +181,7 @@ export default forwardRef((props, ref) => {
     }
     return SelectData
   }
+
 
   // 选择项
   const selectEndpoint = (item, i) => {
@@ -423,6 +424,16 @@ export default forwardRef((props, ref) => {
   }
 
   const AllFormType = (item, i) => {
+
+    // expect 为是否显示组件判断
+    const { expect={} } = item;
+    if(JSON.stringify(expect) != '{}'){
+      const { field, value } = expect;
+      if(data[field] != value){
+        return
+      }
+    }
+
     return (
       <div className="dynamic_column">
         {

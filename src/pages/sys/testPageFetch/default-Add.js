@@ -5,6 +5,7 @@ import {message,Spin} from 'antd'
 
 
 export default function DefaultEdit(){
+  
     if(TheConfig){
     const pageConfig = {
         layout: TheConfig.layout.form,

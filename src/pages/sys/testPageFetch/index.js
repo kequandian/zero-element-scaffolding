@@ -201,7 +201,8 @@ export default function Default() {
             name: "操作",
             PageId: id,
             showAdd: true,
-            svg: <OperationSvg />
+            svg: <OperationSvg />,
+            cb: onRefresh
           }
         },
         {
@@ -213,7 +214,8 @@ export default function Default() {
             name: "按钮",
             PageId: id,
             showAdd: true,
-            svg: <ActionSvg />
+            svg: <ActionSvg />,
+            cb: onRefresh
           }
         },
         {
@@ -225,7 +227,8 @@ export default function Default() {
             name: "过滤",
             PageId: id,
             showAdd: true,
-            svg: <FIlterSvg />
+            svg: <FIlterSvg />,
+            cb: onRefresh
           }
         },
         {
@@ -239,7 +242,8 @@ export default function Default() {
             showAdd: false,
             showDelete: false,
             NoModal: true,
-            svg: <PageSvg />
+            svg: <PageSvg />,
+            cb: onRefresh
           }
         },
         {

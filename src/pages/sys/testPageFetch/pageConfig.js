@@ -12,7 +12,7 @@ export const fieldsConfig = [
         "label": "绑定字段名称",
         "field": "fieldBinding",
         "type": "fetchSelect",
-        "options":{
+        "options": {
             "API": "/api/crud/lowMainPage/lowMainPages/(id)",
             "label": "fieldItemName",
             "value": "fieldItemName",
@@ -353,7 +353,7 @@ export const MainPageConfig = [
     { "label": "页面编辑标题", "field": "formEditTitle", "defaultValue": "编辑" },
     // 行对齐 2022-04-08 新增选项 
     {
-        "label": "行对齐", "field": "columnAlign", "type": "select", "defaultValue": "left", 
+        "label": "行对齐", "field": "columnAlign", "type": "select", "defaultValue": "left",
         "options": [
             { "label": "居中", "value": "center" },
             { "label": "左对齐", "value": "left" },
@@ -535,13 +535,15 @@ export const ActionsConfig = [
                     { "label": "modal", "value": "modal" },
                     { "label": "import", "value": "import" },
                     { "label": "export", "value": "export" }
-                ], "defaultValue": "path"
+                ]
             },
-            { "label":"请求API", "field":"requestApi","type":"select","options":[
-                {"label":"getApi","value":"getApi"},
-                {"label":"updateApi","value":"updateApi"},
-                {"label":"createApi","value":"createApi"}
-            ]  },
+            {
+                "label": "请求API", "field": "requestApi", "type": "select", "options": [
+                    { "label": "getApi", "value": "getApi" },
+                    { "label": "updateApi", "value": "updateApi" },
+                    { "label": "createApi", "value": "createApi" }
+                ]
+            },
             { "label": "请求结果刷新API", "field": "requestRefreshApi" },
             {
                 "label": "请求方法", "field": "requestMethod", "type": "select", "options": [
@@ -587,11 +589,17 @@ export const OperationsConfig = [
             { "label": "是否显示在列表中", "field": "outside", "type": "switch" },
             { "label": "过滤字段", "field": "expectField" },
             { "label": "过滤值", "field": "expectValue" },
-            { "label":"请求API", "field":"requestApi","type":"select","options":[
-                {"label":"getApi","value":"getApi"},
-                {"label":"updateApi","value":"updateApi"},
-                {"label":"createApi","value":"createApi"}
-            ]  },
+            {
+                "label": "请求API", "field": "requestApi", "type": "select", "options": [
+                    { "label": "getApi", "value": "getApi" },
+                    { "label": "updateApi", "value": "updateApi" },
+                    { "label": "createApi", "value": "createApi" }
+                ], 
+                // "expect": {
+                //     "field": "type",
+                //     "value": "request"
+                // }
+            },
             { "label": "请求结果API", "field": "requestRefreshApi" },
             {
                 "label": "请求方法", "field": "requestMethod", "type": "select", "options": [
