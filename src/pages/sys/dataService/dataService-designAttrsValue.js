@@ -7,7 +7,7 @@ export default (props) => {
         { title: '首页', path: '/' },
         { title: '系统管理', path: '/sys' },
         { title: '数据服务', path: '/sys/dataService' },
-        { title: '设计字段值' },
+        { title: '字段值' },
     ]);
 
 return <ProjectActivities />

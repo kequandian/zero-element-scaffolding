@@ -23,7 +23,7 @@ export default () => {
                 margin: '0 16px 0 16px'
             }}>
                 <div style={{ color: 'rgba(0, 0, 0, 0.85)', fontSize: '1.5em', fontWeight: 500 }}>
-                    设计字段值
+                    字段值
                 </div>
                 <Button onClick={handleGoBack}>返回</Button>
             </div>

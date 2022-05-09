@@ -99,7 +99,7 @@ module.exports = {
             }
           },
           {
-            title: '设计字段值', type: 'path',
+            title: '字段值', type: 'path',
             options:{
               outside: true,
               path: "dataService/dataService-designAttrsValue",
