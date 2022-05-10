@@ -27,7 +27,7 @@
                 ]
               },
               "API": {
-                "createAPI": "/api/cfg/data/services/attrs/(entityName)"
+                "createAPI": "/api/cfg/data/services/attrs/[entityName]"
               },
               "fields": [
                 {

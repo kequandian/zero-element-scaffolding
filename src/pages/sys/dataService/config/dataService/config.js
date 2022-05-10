@@ -98,16 +98,16 @@ module.exports = {
               }
             }
           },
-          {
-            title: '字段值', type: 'path',
-            options:{
-              outside: true,
-              path: "dataService/dataService-designAttrsValue",
-              query:{
-                entityName: 'entityName'
-              }
-            }
-          },
+          // {
+          //   title: '字段值', type: 'path',
+          //   options:{
+          //     outside: true,
+          //     path: "dataService/dataService-designAttrsValue",
+          //     query:{
+          //       entityName: 'entityName'
+          //     }
+          //   }
+          // },
           {
             "title": "编辑",
             "type": "modal",
