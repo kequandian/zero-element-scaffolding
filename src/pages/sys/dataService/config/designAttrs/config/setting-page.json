@@ -224,8 +224,8 @@
   "deleteAPI": "/api/cfg/data/services/attrs/[entityName]/(id)",
   "searchFields": [
     {
-      "field": "search",
-      "label": "搜索",
+      "field": "attributeName",
+      "label": "字段名",
       "type": "input",
       "props": {
         "placeholder": "请输入..."

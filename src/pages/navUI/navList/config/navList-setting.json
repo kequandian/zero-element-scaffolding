@@ -1,14 +1,14 @@
 {
   "pageName": {
-    "table": "导航分类",
+    "table": "导航列表",
     "new": "",
     "edit": ""
   },
-  "listAPI": "/api/data/services/navCategory",
-  "createAPI": "/api/data/services/navCategory",
-  "getAPI": "/api/data/services/navCategory/[id]",
-  "updateAPI": "/api/data/services/navCategory/[id]",
-  "deleteAPI": "/api/data/services/navCategory/(id)",
+  "listAPI": "/api/data/services/navigation",
+  "createAPI": "/api/data/services/navigation",
+  "getAPI": "/api/data/services/navigation/[id]",
+  "updateAPI": "/api/data/services/navigation/[id]",
+  "deleteAPI": "/api/data/services/navigation/(id)",
   "columns": 1,
   "createFields": [
   ],
@@ -31,11 +31,11 @@
             "config": {
               "layout": "Grid",
               "API": {
-                "createAPI": "/api/data/services/navCategory"
+                "createAPI": "/api/data/services/navigation"
               },
               "fields": [
                 {
-                  "label": "类别名称",
+                  "label": "标题",
                   "rules": [
                     {
                       "type": "required"
@@ -46,6 +46,32 @@
                   },
                   "type": "input",
                   "field": "name"
+                },
+                {
+                  "label": "图片路径",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "url"
+                },
+                {
+                  "label": "页面链接",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "path"
                 },
                 {
                   "label": "描述",
@@ -64,7 +90,6 @@
     }
   ],
   "tableOperation": [
-    
     {
       "title": "编辑", "type": "modal",
       "options": {
@@ -77,12 +102,13 @@
             "config": {
               "layout": "Grid",
               "API": {
-                "getAPI": "/api/data/services/navCategory/(id)",
-                "updateAPI": "/api/data/services/navCategory/(id)"
+                "getAPI": "/api/data/services/navigation/(id)",
+                "updateAPI": "/api/data/services/navigation/(id)"
               },
               "fields": [
+                
                 {
-                  "label": "类别名称",
+                  "label": "标题",
                   "rules": [
                     {
                       "type": "required"
@@ -93,6 +119,32 @@
                   },
                   "type": "input",
                   "field": "name"
+                },
+                {
+                  "label": "图片路径",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "url"
+                },
+                {
+                  "label": "页面链接",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "path"
                 },
                 {
                   "label": "描述",
@@ -120,7 +172,7 @@
   ],
   "searchFields": [
     {
-      "label": "类别名称",
+      "label": "标题",
       "field": "name",
       "type": "input",
       "props": {
@@ -130,8 +182,17 @@
   ],
   "tableFields": [
     {
-      "label": "类别名称",
+      "label": "标题",
       "field": "name"
+    },
+    {
+      "label": "图片路径",
+      "field": "url",
+      "valueType": "image"
+    },
+    {
+      "label": "页面链接",
+      "field": "path"
     },
     {
       "label": "描述",
@@ -144,7 +205,7 @@
     "type": "plain",
     "fields": [
       {
-        "label": "类别名称",
+        "label": "类别标题",
         "field": "name"
       },
       {

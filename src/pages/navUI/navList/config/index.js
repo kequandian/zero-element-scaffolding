@@ -1,9 +1,13 @@
-const setting = require('./setting-page.json');
+const setting = require('./navList-setting.json');
 
 module.exports = {
   layout: setting.layout.table,
-  // title: setting.pageName.table,
+  title: setting.pageName.table,
   items: [
+    // process.env.NODE_ENV === 'development' ?
+    //   {
+    //     component: 'EditList',
+    //   } : { component: 'Empty' },
     {
       component: 'Search',
       config: {
