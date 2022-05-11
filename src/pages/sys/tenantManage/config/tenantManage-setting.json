@@ -11,36 +11,8 @@
   "deleteAPI": "/api/crud/tenants/(id)",
   "columns": 1,
   "type":"default",
-  "createFields": [
-    {
-      "label": "租户名",
-      "rules": [
-        {
-          "type": "required"
-        }
-      ],
-      "props": {
-        "placeholder": "请输入"
-      },
-      "type": "input",
-      "field": "name"
-    }
-  ],
-  "updateFields": [
-    {
-      "label": "租户名",
-      "rules": [
-        {
-          "type": "required"
-        }
-      ],
-      "props": {
-        "placeholder": "请输入"
-      },
-      "type": "search",
-      "field": "search"
-    }
-  ],
+  "createFields": [],
+  "updateFields": [],
   "map": {},
   "layout": {
     "table": "Content",
@@ -53,7 +25,7 @@
       "options": {
         "style": "primary",
         "modalTitle": "添加租户",
-        "modalWidth": 600,
+        "modalWidth": 750,
         "items": [
           {
             "component": "Form",
@@ -93,7 +65,8 @@
                   },
                   "type": "input",
                   "field": "domain"
-                }
+                },
+                { "field": "permIds", "label": "选择权限", "type": "perm" }
               ]
             }
           }
@@ -110,7 +83,7 @@
       "type": "modal",
       "options": {
         "modalTitle": "编辑租户",
-        "modalWidth": 600,
+        "modalWidth": 750,
         "outside": true,
         "items": [
           {
@@ -152,7 +125,8 @@
                   },
                   "type": "input",
                   "field": "domain"
-                }
+                },
+                { "field": "permIds", "label": "选择权限", "type": "perm" }
               ]
             }
           }

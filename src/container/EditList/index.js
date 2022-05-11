@@ -35,7 +35,7 @@ export default withRouter(function EditList(props) {
   const addRef = useRef()
 
   const [visible, setVisible] = useState(false);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [data, setData] = useState(null)
   const [itemId, setItemId] = useState(null)
   const showDrawer = () => {
@@ -43,6 +43,9 @@ export default withRouter(function EditList(props) {
   };
   const onClose = () => {
     setVisible(false);
+    if(cb){
+      cb(true)
+    }
   };
 
   // 获取id
@@ -68,6 +71,30 @@ export default withRouter(function EditList(props) {
   // getParams()
 
   useDidMount(_ => {
+    getListData()
+  });
+
+  function IsType(item) {
+    let data;
+    if (item.defaultValue) {
+      data = item.defaultValue
+    } else {
+      if (item.type) {
+        if (item.type === "number" || item.type === "switch") {
+          data = 0
+        } else {
+          data = ""
+        }
+      } else {
+        data = ""
+      }
+    }
+    return data
+  }
+  
+  //获取列表数据
+  function getListData(){
+    // setLoading(true)
     let endpoint = getEndpoint()
     let apiUrl = ""
     let queryData = {}
@@ -96,31 +123,14 @@ export default withRouter(function EditList(props) {
             setData(Listdata)
           }
         } else {
-          setLoading(false)
           message.error('获取页面配置信息失败')
         }
       }).catch(err => {
-        setLoading(false)
-        message.error('获取页面配置信息失败')
+        message.error('获取页面配置信息失败 == ', err)
+      }).finally(_=>{
+        // setLoading(false)
+        // getListData()
       })
-  });
-
-  function IsType(item) {
-    let data;
-    if (item.defaultValue) {
-      data = item.defaultValue
-    } else {
-      if (item.type) {
-        if (item.type === "number" || item.type === "switch") {
-          data = 0
-        } else {
-          data = ""
-        }
-      } else {
-        data = ""
-      }
-    }
-    return data
   }
 
   // 增加数据
@@ -154,15 +164,16 @@ export default withRouter(function EditList(props) {
           // const Listdata = resp.data.records;
           // console.log(resp)
           message.success("添加成功")
-          // history.go(0)
-          setVisible(false);
-          if(cb){
-            cb(true)
-          }
+          // setVisible(false);
+          // if(cb){
+          //   cb(true)
+          // }
           // setData(Listdata)
         } else {
           message.error('添加失败')
         }
+      }).finally(_=>{
+        getListData()
       })
   }
 
@@ -191,16 +202,17 @@ export default withRouter(function EditList(props) {
           // console.log(resp)
           message.success("删除成功")
           setTimeout(() => {
-            // history.go(0)
-            setVisible(false);
-            if(cb){
-              cb(true)
-            }
+            // setVisible(false);
+            // if(cb){
+            //   cb(true)
+            // }
           }, 500)
           // setData(Listdata)
         } else {
           message.error('删除失败')
         }
+      }).finally(_=>{
+        getListData()
       })
   }
 
@@ -234,10 +246,10 @@ export default withRouter(function EditList(props) {
           // const Listdata = resp.data.records;
           // console.log(resp)
           message.success("更改成功")
-          setVisible(false);
-          if(cb){
-            cb(true)
-          }
+          // setVisible(false);
+          // if(cb){
+          //   cb(true)
+          // }
           // history.go(0)
           // setData(Listdata)
         } else {
@@ -246,6 +258,7 @@ export default withRouter(function EditList(props) {
       })
       .finally(_ =>{
         setLoading(false)
+        getListData()
       })
   }
 
@@ -262,6 +275,8 @@ export default withRouter(function EditList(props) {
       visible={visible}
       width="300"
     >
+      <Spin spinning={false}>
+        
       {data ? Array.isArray(data) ? data.map((item, i) => <>
         <ShowModal title={_.get(item, title) || "组件无名称"}
           titleLabel={title}
@@ -310,6 +325,8 @@ export default withRouter(function EditList(props) {
         <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
       </Spin>
       }
+      
+      </Spin>
       {showAdd && data ? <ShowModal title={"添加" + name}
         icon={<AddSvg />}
         onSuccess={addMessage}
