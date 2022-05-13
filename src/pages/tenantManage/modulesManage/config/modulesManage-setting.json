@@ -254,22 +254,11 @@
   "tableFields": [
     {
       "label": "模块名",
-      "field": "appName"
+      "field": "name"
     },
     {
-      "options": {
-        "map": {
-          "NORMAL": "普通APP",
-          "SYS": "租户主页"
-        },
-        "color": {
-          "NORMAL": "#0099CC",
-          "SYS": "#00CC99"
-        }
-      },
-      "valueType": "tag",
-      "field": "type",
-      "label": "应用类型"
+      "label": "应用名",
+      "field": "appName"
     },
     {
       "label": "备注",
