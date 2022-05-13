@@ -81,6 +81,30 @@
                   },
                   "type": "input",
                   "field": "desc"
+                },
+                {
+                  "label": "类别",
+                  "field": "typeId",
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [
+                    "required"
+                  ],
+                  "options": {
+                    "title": "选择类别",
+                    "label": "name",
+                    "value": "id",
+                    "saveData":{
+                      "typeName": "name"
+                    },
+                    "API": "/api/data/services/navCategory",
+                    "fields": [
+                      {
+                        "label": "名称",
+                        "field": "name"
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -154,6 +178,31 @@
                   },
                   "type": "input",
                   "field": "desc"
+                },
+                {
+                  "label": "类别",
+                  "field": "typeId",
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [
+                    "required"
+                  ],
+                  "options": {
+                    "title": "选择类别",
+                    "label": "name",
+                    "editLabel": "typeName",
+                    "value": "id",
+                    "saveData":{
+                      "typeName": "name"
+                    },
+                    "API": "/api/data/services/navCategory",
+                    "fields": [
+                      {
+                        "label": "名称",
+                        "field": "name"
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -193,6 +242,10 @@
     {
       "label": "页面链接",
       "field": "path"
+    },
+    {
+      "label": "类别",
+      "field": "typeName"
     },
     {
       "label": "描述",
