@@ -1,0 +1,284 @@
+{
+  "pageName": {
+    "table": "应用管理",
+    "new": "添加",
+    "edit": "编辑"
+  },
+  "listAPI": "/api/crud/saasApplication/saasApplications",
+  "createAPI": "/api/crud/saasApplication/saasApplications",
+  "getAPI": "/api/crud/saasApplication/saasApplications/[id]",
+  "updateAPI": "/api/crud/saasApplication/saasApplications/[id]",
+  "deleteAPI": "/api/crud/saasApplication/saasApplications/(id)",
+  "columns": 1,
+  "type": "default",
+  "createFields": [],
+  "updateFields": [],
+  "map": {},
+  "layout": {
+    "table": "Content",
+    "form": "TitleContent"
+  },
+  "tableActions": [
+    {
+      "title": "添加",
+      "type": "modal",
+      "options": {
+        "style": "primary",
+        "modalTitle": "添加应用",
+        "modalWidth": 750,
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "layoutConfig": {
+                "value": [
+                  24
+                ]
+              },
+              "API": {
+                "createAPI": "/api/crud/saasApplication/saasApplications"
+              },
+              "fields": [
+                {
+                  "label": "应用名",
+                  "width": "400px",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "name"
+                },
+                {
+                  "label": "应用代码地址",
+                  "width": "400px",
+                  "rules": [],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "gitInfo"
+                },
+                {
+                  "label": "执行命令",
+                  "width": "400px",
+                  "rules": [],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "command"
+                },
+                {
+                  "label": "应用类型",
+                  "props": {
+                    "placeholder": "请选择",
+                    "style":{
+                      "width":"400px"
+                    }
+                  },
+                  "rules": [],
+                  "options": [
+                    {
+                      "label": "普通APP",
+                      "value": "NORMAL"
+                    },
+                    {
+                      "label": "租户主页",
+                      "value": "SYS"
+                    }
+                  ],
+                  "type": "select",
+                  "field": "type"
+                },
+                {
+                  "label": "备注",
+                  "field": "note",
+                  "type": "text-area",
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "autoSize": {
+                    "minRows": 10
+                  },
+                  "showCount": "true",
+                  "maxLength": "200",
+                  "rules": [],
+                  "span": 12
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "expect": {
+        "permission": ""
+      }
+    }
+  ],
+  "tableOperation": [
+    {
+      "title": "编辑",
+      "type": "modal",
+      "options": {
+        "modalTitle": "编辑应用",
+        "modalWidth": 750,
+        "outside": true,
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "layoutConfig": {
+                "value": [
+                  24
+                ]
+              },
+              "API": {
+                "getAPI": "/api/crud/saasApplication/saasApplications/(id)",
+                "updateAPI": "/api/crud/saasApplication/saasApplications/(id)"
+              },
+              "fields": [
+                {
+                  "label": "应用名",
+                  "width": "400px",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "name"
+                },
+                {
+                  "label": "应用代码地址",
+                  "width": "400px",
+                  "rules": [],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "gitInfo"
+                },
+                {
+                  "label": "执行命令",
+                  "width": "400px",
+                  "rules": [],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "command"
+                },
+                {
+                  "label": "应用类型",
+                  "props": {
+                    "placeholder": "请选择",
+                    "style":{
+                      "width":"400px"
+                    }
+                  },
+                  "rules": [],
+                  "options": [
+                    {
+                      "label": "普通APP",
+                      "value": "NORMAL"
+                    },
+                    {
+                      "label": "租户主页",
+                      "value": "SYS"
+                    }
+                  ],
+                  "type": "select",
+                  "field": "type"
+                },
+                {
+                  "label": "备注",
+                  "field": "note",
+                  "type": "text-area",
+                  "props": {
+                    "placeholder": "请输入",
+                    "style":{
+                      "width":"400px"
+                    }
+                  },
+                  "autoSize": {
+                    "minRows": 10
+                  },
+                  "showCount": "true",
+                  "maxLength": "200",
+                  "rules": [],
+                  "span": 12
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "expect": {
+        "permission": ""
+      }
+    },
+    {
+      "title": "删除",
+      "type": "delete",
+      "options": {
+        "outside": false
+      },
+      "expect": {
+        "permission": ""
+      }
+    }
+  ],
+  "searchFields": [
+    {
+      "label": "应用名",
+      "field": "search",
+      "type": "search",
+      "props": {
+        "placeholder": "请输入"
+      }
+    }
+  ],
+  "tableFields": [
+    {
+      "label": "应用名",
+      "field": "name"
+    },
+    {
+      "label": "应用代码地址",
+      "field": "gitInfo"
+    },
+    {
+      "label": "执行命令",
+      "field": "command"
+    },
+    {
+      "options": {
+        "map": {
+          "NORMAL": "普通APP",
+          "SYS": "租户主页"
+        },
+        "color": {
+          "NORMAL": "#0099CC",
+          "SYS": "#00CC99"
+        }
+      },
+      "valueType": "tag",
+      "field": "type",
+      "label": "应用类型"
+    },
+    {
+      "label": "备注",
+      "field": "note"
+    }
+  ]
+}
