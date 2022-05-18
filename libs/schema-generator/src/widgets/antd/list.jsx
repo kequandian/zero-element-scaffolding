@@ -251,7 +251,7 @@ class list extends React.Component {
         addUnfoldItem={this.addUnfoldItem}
         distance={6}
         useDragHandle
-        helperClass='fr-sort-help-class'
+        helperclassName='fr-sort-help-class'
         shouldCancelStart={e =>
           e.toElement && e.toElement.className === 'fr-tooltip-container'
         }

@@ -7,7 +7,7 @@ export default function (){
         { title: '管理员选项',path:"/designpage/config"},
     ]);
     // 默认一行四个
-    return <div class="FlexBox">
+    return <div className="FlexBox">
         <IBtn url="/" OptionUrl="/" color="#00897b" svg={
             <WorkSvg width="2vw" height="2vw" color="#fff"/>
         } Title="业务模型" SubTitle="业务模型"></IBtn>

@@ -49,7 +49,7 @@ function selectNavStyle(type, menuData, path, switchLeftNav) {
 function filterMenu(menuData) {
   const globalModel = getModel('global');
 
-  const stack = [menuData];
+  const stack = menuData;
   const rst = [];
 
   while (stack.length) {
