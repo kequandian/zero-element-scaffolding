@@ -66,6 +66,29 @@
                   "type": "input",
                   "field": "domain"
                 },
+                {
+                  "label": "关联合约",
+                  "field": "contractId",
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [],
+                  "options": {
+                    "title": "关联合约",
+                    "value": "id",
+                    "label": "contractName",
+                    "API": "/api/crud/saasContract/saasContracts",
+                    "fields": [
+                      {
+                        "label": "合约名称",
+                        "field": "name"
+                      },
+                      {
+                        "label": "备注",
+                        "field": "note"
+                      }
+                    ]
+                  }
+                },
                 { "field": "permIds", "label": "选择权限", "type": "perm" }
               ]
             }
@@ -126,6 +149,29 @@
                   "type": "input",
                   "field": "domain"
                 },
+                {
+                  "label": "关联合约",
+                  "field": "contractId",
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [],
+                  "options": {
+                    "title": "关联合约",
+                    "value": "id",
+                    "label": "contractName",
+                    "API": "/api/crud/saasContract/saasContracts",
+                    "fields": [
+                      {
+                        "label": "合约名称",
+                        "field": "name"
+                      },
+                      {
+                        "label": "备注",
+                        "field": "note"
+                      }
+                    ]
+                  }
+                },
                 { "field": "permIds", "label": "选择权限", "type": "perm" }
               ]
             }
@@ -165,6 +211,10 @@
     {
       "label": "域名地址",
       "field": "domain"
+    },
+    {
+      "label": "关联合约",
+      "field": "contractName"
     }
   ]
 }
