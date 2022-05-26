@@ -183,6 +183,17 @@
       }
     },
     {
+      "title": "查看合约",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "/tenantManage/contractManage"
+      },
+      "expect": {
+        "permission": ""
+      }
+    },
+    {
       "title": "删除",
       "type": "delete",
       "options": {
