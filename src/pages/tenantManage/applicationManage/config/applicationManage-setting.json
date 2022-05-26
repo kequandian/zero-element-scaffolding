@@ -228,6 +228,17 @@
       }
     },
     {
+      "title": "模块管理",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "/tenantManage/modulesManage"
+      },
+      "expect": {
+        "permission": ""
+      }
+    },
+    {
       "title": "删除",
       "type": "delete",
       "options": {

@@ -4,7 +4,7 @@
     "new": "添加",
     "edit": "编辑"
   },
-  "listAPI": "/api/crud/saasModule/saasModules",
+  "listAPI": "/api/crud/saasModule/saasModules/[id]",
   "createAPI": "/api/crud/saasModule/saasModules",
   "getAPI": "/api/crud/saasModule/saasModules/[id]",
   "updateAPI": "/api/crud/saasModule/saasModules/[id]",
