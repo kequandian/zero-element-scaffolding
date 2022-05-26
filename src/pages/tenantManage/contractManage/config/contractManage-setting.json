@@ -2,7 +2,8 @@
   "pageName": {
     "table": "合约管理",
     "new": "添加",
-    "edit": "编辑"
+    "edit": "编辑",
+    "view": "合约详情"
   },
   "listAPI": "/api/crud/saasContract/saasContracts",
   "createAPI": "/api/crud/saasContract/saasContracts",
@@ -177,6 +178,37 @@
     {
       "label": "创建时间",
       "field": "createdTime"
+    }
+  ],
+  "viewConfig": [
+    {
+      "label": "合约编号",
+      "field": "contractNumber",
+      "type": "plain"
+    },
+    {
+      "label": "合约名",
+      "field": "name",
+      "type": "plain"
+    },
+    {
+      "label": "备注",
+      "field": "note",
+      "type": "plain"
+    },
+    {
+      "label": "创建时间",
+      "field": "createdTime",
+      "type": "plain"
+    },
+    {
+      "label": "应用实例",
+      "field": "appNames",
+      "type": "LinkButton",
+      "options": {
+          "title": "点击查看",
+          "routePath": "/tenantManage/applicationExamplesManage?contractId=(id)"
+      }
     }
   ]
 }

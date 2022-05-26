@@ -187,7 +187,10 @@
       "type": "path",
       "options": {
         "outside": true,
-        "path": "/tenantManage/contractManage"
+        "path": "/tenantManage/contractManage/contractManage-view",
+        "query":{
+          "id" : "contractId"
+        }
       },
       "expect": {
         "permission": ""

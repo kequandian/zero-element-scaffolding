@@ -1,13 +1,9 @@
 import React from 'react';
-import DetailsTemplate from '@/components/Details/DetailsTemplate';
-import setting from './config/contractManage-setting';
-    
-export default () => {
+import ZEle from 'zero-element';
+import config from './config/contractManage-view';
 
-  return <DetailsTemplate
-    namespace="contractManage_view"
-    setting={setting}
-    config={setting.viewConfig}
-  />
-}
-    
+export default function () {
+
+    return <ZEle namespace="contractManage_view" config={config} />
+  }
+

@@ -4,7 +4,7 @@
     "new": "添加",
     "edit": "编辑"
   },
-  "listAPI": "/api/crud/saasApplicationExample/saasApplicationExamples",
+  "listAPI": "/api/crud/saasApplicationExample/saasApplicationExamples?contractId=[contractId]",
   "createAPI": "/api/crud/saasApplicationExample/saasApplicationExamples",
   "getAPI": "/api/crud/saasApplicationExample/saasApplicationExamples/[id]",
   "updateAPI": "/api/crud/saasApplicationExample/saasApplicationExamples/[id]",
@@ -37,7 +37,7 @@
                 ]
               },
               "API": {
-                "createAPI": "/api/crud/saasApplicationExample/saasApplicationExamples"
+                "createAPI": "/api/crud/saasApplicationExample/saasApplicationExamples?contractId=[contractId]"
               },
               "fields": [
                 {

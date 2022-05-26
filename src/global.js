@@ -209,5 +209,5 @@ AITSet({
 VTSet({
   'path': vPath,
   'input-switch' : VTSet_InputSwitch,
-  'time-convert': VTSet_TimeConvert,
+  'time-convert': VTSet_TimeConvert
 });

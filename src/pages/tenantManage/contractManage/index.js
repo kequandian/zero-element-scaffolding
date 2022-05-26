@@ -17,6 +17,7 @@ export default (props) => {
     }
 
     if(id){
+        const title = config.title
         config.title = ''
         return (
             <div className="ZEleA-Layout-Content" style={{padding: '16px 0 0 0', marginBottom: '0'}}>
@@ -29,7 +30,7 @@ export default (props) => {
                     margin: '0 16px 0 16px'
                 }}>
                     <div style={{ color: 'rgba(0, 0, 0, 0.85)', fontSize: '1.5em', fontWeight: 500 }}>
-                        合约管理
+                        {title}
                     </div>
                     <Button onClick={handleGoBack}>返回</Button>
                 </div>
