@@ -3,17 +3,18 @@ import { Typography, Table, Modal, Input, Form, Button, message, Spin } from 'an
 import promiseAjax from '@/utils/promiseAjax';
 import { useDidMount, useWillUnmount, useForceUpdate } from 'zero-element/lib/utils/hooks/lifeCycle';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
+import From from './Form'
 
 const { Title } = Typography;
 
-const layout = {
-  labelCol: { span: 5 },
-  wrapperCol: { span: 19 },
-};
+// const layout = {
+//   labelCol: { span: 5 },
+//   wrapperCol: { span: 19 },
+// };
 
-const tailLayout = {
-  wrapperCol: { offset: 14, span: 10 },
-};
+// const tailLayout = {
+//   wrapperCol: { offset: 14, span: 10 },
+// };
 
 export default function (props) {
 
@@ -27,7 +28,7 @@ export default function (props) {
   const [currentRecord, setCurrentRecord] = useState({});
 
   useDidMount(_ => {
-      getListAction()
+    getListAction()
   });
 
   useWillUnmount(_ => {
@@ -41,45 +42,45 @@ export default function (props) {
     const apiUrl = `${getEndpoint()}/api/adm/perm/allPermList`;
     const queryData = {}
     promiseAjax(apiUrl, queryData)
-    .then(resp => {
-      // console.log(resp , '获取权限信息')
-      setLoading(false)
-      if (resp.code===200) {
-        const data = resp.data;
-        if(data && data.length > 0){
-          data.map((item, index) => {
-            item.key = index+1
-            return item
-          })
-          setPermList(data)
+      .then(resp => {
+        // console.log(resp , '获取权限信息')
+        setLoading(false)
+        if (resp.code === 200) {
+          const data = resp.data;
+          if (data && data.length > 0) {
+            data.map((item, index) => {
+              item.key = index + 1
+              return item
+            })
+            setPermList(data)
+          }
+        } else {
+          console.error('获取权限信息失败')
         }
-      } else {
-        console.error('获取权限信息失败')
-      }
-    })
+      })
   }
 
   //添加权限
-  function postAction(addData) {
-    setLoading(true)
-    const apiUrl = `${getEndpoint()}/api/adm/perm/perms`;
-    const queryData = {...addData}
-    console.log('queryData === ', queryData)
-    promiseAjax( apiUrl, queryData, { method:'POST'})
-    .then(resp => {
-      // console.log(resp , '升级精灵操作')
-      setLoading(false)
-      if (resp.code===200) {
-        // const data = resp.data;
-        setShowModal(false)
-        message.success('提交成功')
-        getListAction()
-      } else {
-        message.success('提交失败')
-        console.error(resp, ' 提交失败 ')
-      }
-    })
-  }
+  // function postAction(addData) {
+  //   setLoading(true)
+  //   const apiUrl = `${getEndpoint()}/api/adm/perm/perms`;
+  //   const queryData = { ...addData }
+  //   console.log('queryData === ', queryData)
+  //   promiseAjax(apiUrl, queryData, { method: 'POST' })
+  //     .then(resp => {
+  //       // console.log(resp , '升级精灵操作')
+  //       setLoading(false)
+  //       if (resp.code === 200) {
+  //         // const data = resp.data;
+  //         setShowModal(false)
+  //         message.success('提交成功')
+  //         getListAction()
+  //       } else {
+  //         message.success('提交失败')
+  //         console.error(resp, ' 提交失败 ')
+  //       }
+  //     })
+  // }
 
   function showModalAction(record) {
     setShowModal(true)
@@ -91,16 +92,23 @@ export default function (props) {
     setShowModal(false)
   }
 
-  function onFinish(e) {
-    // console.log(e, ' 执行 ')
-    const data = e
-    e.identifier = currentRecord.permission
-    postAction(data)
-  }
+  // function onFinish(e) {
+  //   // console.log(e, ' 执行 ')
+  //   const data = e
+  //   e.identifier = currentRecord.permission
+  //   postAction(data)
+  // }
 
   const onReset = () => {
     form.resetFields();
   };
+
+  const callback = (value) => {
+    if(value){
+      //刷新
+      getListAction()
+    }
+  }
 
 
   const columns = [
@@ -119,8 +127,8 @@ export default function (props) {
     {
       dataIndex: 'operation', title: '操作',
       render: (text, record, index) => {
-        if(record.hasPermission === 0){
-          return <a href="#" onClick={() =>showModalAction(record)}>添加</a>
+        if (record.hasPermission === 0) {
+          return <a href="#" onClick={() => showModalAction(record)}>添加</a>
         }
       }
     },
@@ -130,16 +138,16 @@ export default function (props) {
     <div>
       <Title level={4}>{title}</Title>
       <Spin spinning={loading}>
-      <Table
-        rowKey="key"
-        bordered
-        columns={columns}
-        dataSource={permList}
-        pagination={false}
-      />
+        <Table
+          rowKey="key"
+          bordered
+          columns={columns}
+          dataSource={permList}
+          pagination={false}
+        />
       </Spin>
       <Modal title="添加权限" visible={showModal} footer={null} onCancel={handleCancel} >
-        <Form {...layout} form={form} name="control-hooks" onFinish={onFinish}>
+        {/* <Form {...layout} form={form} name="control-hooks" onFinish={onFinish}>
 
           <Form.Item name="name" label="权限名称" rules={[{ required: true }]}>
             <Input />
@@ -156,7 +164,10 @@ export default function (props) {
               提交
             </Button>
           </Form.Item>
-        </Form>
+        </Form> */}
+
+        <From itemData={currentRecord} cb={callback}/>
+
       </Modal>
     </div>
   )
