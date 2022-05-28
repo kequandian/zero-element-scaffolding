@@ -37,6 +37,7 @@
                 ]
               },
               "API": {
+                "getAPI": "/api/crud/saasContract/saasContracts/detail?contractId=[contractId]",
                 "createAPI": "/api/crud/saasApplicationExample/saasApplicationExamples?contractId=[contractId]"
               },
               "fields": [
@@ -59,6 +60,10 @@
                     "API": "/api/crud/saasContract/saasContracts",
                     "label": "name",
                     "value": "id"
+                  },
+                  "expect":{
+                    "field":"hideContractSelectBox",
+                    "value": false
                   }
                 },
                 {
@@ -116,6 +121,15 @@
                   "expect": {
                     "field": "type",
                     "value": "NORMAL"
+                  }
+                },
+                {
+                  "label": "",
+                  "type": "hidden",
+                  "field": "contractId",
+                  "expect": {
+                    "field":"hideContractSelectBox",
+                    "value": true
                   }
                 }
               ]
@@ -147,7 +161,7 @@
                 ]
               },
               "API": {
-                "getAPI": "/api/crud/saasApplicationExample/saasApplicationExamples/(id)",
+                "getAPI": "/api/crud/saasApplicationExample/saasApplicationExamples/(id)?contractId=[contractId]",
                 "updateAPI": "/api/crud/saasApplicationExample/saasApplicationExamples/(id)"
               },
               "fields": [
@@ -170,6 +184,10 @@
                     "API": "/api/crud/saasContract/saasContracts",
                     "label": "name",
                     "value": "id"
+                  },
+                  "expect":{
+                    "field":"hideContractSelectBox",
+                    "value": false
                   }
                 },
                 {
@@ -227,6 +245,15 @@
                   "expect": {
                     "field": "type",
                     "value": "NORMAL"
+                  }
+                },
+                {
+                  "label": "",
+                  "type": "hidden",
+                  "field": "contractId",
+                  "expect": {
+                    "field":"hideContractSelectBox",
+                    "value": true
                   }
                 }
               ]
