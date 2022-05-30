@@ -192,16 +192,16 @@ export default function (props) {
             {
                 postData.type === 'Multiple' ? (
                     <>
-                        <Form.Item name="addSuffix" label="新增" rules={[]}>
+                        <Form.Item name="addSuffix" label="新增" rules={[]} initialValue="new">
                             <Input placeholder='请输入' />
                         </Form.Item>
-                        <Form.Item name="updateSuffix" label="编辑" rules={[]}>
+                        <Form.Item name="updateSuffix" label="编辑" rules={[]} initialValue="edit">
                             <Input placeholder='请输入' />
                         </Form.Item>
-                        <Form.Item name="viewSuffix" label="详情" rules={[]}>
+                        <Form.Item name="viewSuffix" label="详情" rules={[]} initialValue="view">
                             <Input placeholder='请输入' />
                         </Form.Item>
-                        <Form.Item name="delSuffix" label="删除" rules={[]}>
+                        <Form.Item name="delSuffix" label="删除" rules={[]} initialValue="delete">
                             <Input placeholder='请输入' />
                         </Form.Item>
                     </>
