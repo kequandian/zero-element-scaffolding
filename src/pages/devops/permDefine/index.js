@@ -88,7 +88,6 @@ export default function (props) {
   }
 
   function handleCancel() {
-    onReset()
     setShowModal(false)
   }
 
@@ -107,6 +106,7 @@ export default function (props) {
     if(value){
       //刷新
       getListAction()
+      handleCancel()
     }
   }
 

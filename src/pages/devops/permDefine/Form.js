@@ -39,11 +39,11 @@ const typeOptions = {
     mapOpt: [
         {
             label: '单个创建',
-            value: 'SINGLE',
+            value: 'Single',
         },
         {
             label: '群创建',
-            value: 'MULTIPLE',
+            value: 'Multiple',
         }
     ]
 }
@@ -97,10 +97,11 @@ export default function (props) {
         promiseAjax(apiUrl, queryData, { method: 'POST' })
             .then(resp => {
                 // console.log(resp , '升级精灵操作')
-                setLoading(false)
                 if (resp.code === 200) {
                     // const data = resp.data;
                     message.success('提交成功')
+                    onReset()
+                    setPostData({})
                     if(cb){
                         cb(true)
                     }
@@ -109,6 +110,9 @@ export default function (props) {
                     message.success('提交失败')
                     console.error(resp, ' 提交失败 ')
                 }
+            })
+            .finally(_=>{
+                setLoading(false)
             })
     }
 
@@ -186,7 +190,7 @@ export default function (props) {
             </Form.Item>
 
             {
-                postData.type === 'MULTIPLE' ? (
+                postData.type === 'Multiple' ? (
                     <>
                         <Form.Item name="addSuffix" label="新增" rules={[]}>
                             <Input placeholder='请输入' />
