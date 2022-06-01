@@ -12,15 +12,39 @@ import GlobalContext from '@/framework/GlobalContext';
 import selectNavStyle from './utils/selectNavStyle';
 import { Config } from '@/devConfig';
 
+import profileMenuData from '@/config/profile.config';
+import toDoListMenuData from '@/config/toDoList.config';
+import router401Data from '@/config/401.config';
+
 const appLogo = require( '../../../public/cloud.png');
 
-
-
 const { Header, Content } = Layout;
+
+const reg = /^\/profile\//;
+const reg2 = /^\/toDoList\//;
+const reg3 = /^\/401\//;
+
+function switchMenuData(pathname, menuData) {
+  
+  if (reg.test(pathname)) {
+    return profileMenuData;
+  }
+  if(reg2.test(pathname)){
+    return toDoListMenuData;
+  }
+
+  if(reg3.test(pathname)){
+    return router401Data;
+  }
+
+  return menuData;
+
+}
 
 export default function PrimaryLayout({
   location, children,
   menuData, breadcrumb,
+  pathname
 }) {
   const { style } = useContext(GlobalContext);
   const { nav } = style;
@@ -39,15 +63,16 @@ export default function PrimaryLayout({
       menuConfigModel.queryMenu();
     }
   }, [permissions, menuTree, documentVisibility]);
-
+  
   menuData = LS.get('menuList');
+  const switchDDD = pathname && menuData ? switchMenuData(pathname, menuData) : menuData
 
   const [
     TopNav, TopNavData,
     LeftNav, LeftNavData
   ] = useMemo(_ => {
-    return selectNavStyle(nav, menuData, location.pathname, switchLeftNav);
-  }, [nav, menuData, location.pathname, switchLeftNav, permissions]);
+    return selectNavStyle(nav, switchDDD, location.pathname, switchLeftNav);
+  }, [nav, switchDDD, location.pathname, switchLeftNav, permissions]);
 
   // 当导航类型为 both 时, 应该在 top 渲染第一级菜单, left 渲染第二级
   // 此时, 点击 top 的导航时需要替换 left, 但不应该被路由
@@ -63,8 +88,6 @@ export default function PrimaryLayout({
   }else{
     aloneView = false
   }
-
-
 
   return <Layout>
     {Config.theme==="TopCover"?aloneView ? null : (

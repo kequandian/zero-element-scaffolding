@@ -70,6 +70,7 @@ function BasicLayout(props) {
         {...props}
         breadcrumb={state.breadcrumb}
         menuData={switchMenuData(pathname, menuData)}
+        pathname={pathname}
       >
       </PrimaryLayout>
     </GlobalContext.Provider>
