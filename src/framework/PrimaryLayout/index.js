@@ -27,16 +27,21 @@ const reg3 = /^\/401\//;
 function switchMenuData(pathname, menuData) {
   
   if (reg.test(pathname)) {
+    console.log(' pathname1111 === ', pathname)
+    console.log(' profileMenuData === ', profileMenuData)
     return profileMenuData;
   }
   if(reg2.test(pathname)){
+    console.log(' pathname2222 === ', pathname)
     return toDoListMenuData;
   }
 
   if(reg3.test(pathname)){
+    console.log(' pathname3333 === ', pathname)
     return router401Data;
   }
 
+  console.log(' menuData 444444 === ', menuData)
   return menuData;
 
 }
@@ -65,14 +70,15 @@ export default function PrimaryLayout({
   }, [permissions, menuTree, documentVisibility]);
   
   menuData = LS.get('menuList');
-  const switchDDD = pathname && menuData ? switchMenuData(pathname, menuData) : menuData
+  // const switchDDD = pathname ? switchMenuData(pathname, menuData) : menuData
+  // console.log(' switchMenuData === ', switchDDD)
 
   const [
     TopNav, TopNavData,
     LeftNav, LeftNavData
   ] = useMemo(_ => {
-    return selectNavStyle(nav, switchDDD, location.pathname, switchLeftNav);
-  }, [nav, switchDDD, location.pathname, switchLeftNav, permissions]);
+    return selectNavStyle(nav, menuData, location.pathname, switchLeftNav);
+  }, [nav, menuData, location.pathname, switchLeftNav, permissions]);
 
   // 当导航类型为 both 时, 应该在 top 渲染第一级菜单, left 渲染第二级
   // 此时, 点击 top 的导航时需要替换 left, 但不应该被路由

@@ -73,6 +73,7 @@ import FITSet_express from '@/components/FormItemType/Express';
 //动态页面组件
 import AITSet_FromModal from '@/actionItemType/FromModal';
 import CSet_DynamicPageForm from '@/components/DynamicPageForm';
+import AITSet_DownloadPage from '@/listAction/onDownloadPage'
 
 
 //Test
@@ -173,6 +174,7 @@ CSet({
 LASet({
   // 'onPath': onPath,
   'onFromModal': AITSet_FromModal,
+  'onDownloadPage': AITSet_DownloadPage
 });
 
 
