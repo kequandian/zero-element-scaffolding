@@ -12,44 +12,13 @@ import GlobalContext from '@/framework/GlobalContext';
 import selectNavStyle from './utils/selectNavStyle';
 import { Config } from '@/devConfig';
 
-import profileMenuData from '@/config/profile.config';
-import toDoListMenuData from '@/config/toDoList.config';
-import router401Data from '@/config/401.config';
-
 const appLogo = require( '../../../public/cloud.png');
 
 const { Header, Content } = Layout;
 
-const reg = /^\/profile\//;
-const reg2 = /^\/toDoList\//;
-const reg3 = /^\/401\//;
-
-function switchMenuData(pathname, menuData) {
-  
-  if (reg.test(pathname)) {
-    console.log(' pathname1111 === ', pathname)
-    console.log(' profileMenuData === ', profileMenuData)
-    return profileMenuData;
-  }
-  if(reg2.test(pathname)){
-    console.log(' pathname2222 === ', pathname)
-    return toDoListMenuData;
-  }
-
-  if(reg3.test(pathname)){
-    console.log(' pathname3333 === ', pathname)
-    return router401Data;
-  }
-
-  console.log(' menuData 444444 === ', menuData)
-  return menuData;
-
-}
-
 export default function PrimaryLayout({
   location, children,
-  menuData, breadcrumb,
-  pathname
+  menuData, breadcrumb
 }) {
   const { style } = useContext(GlobalContext);
   const { nav } = style;
