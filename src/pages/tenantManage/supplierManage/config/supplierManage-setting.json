@@ -205,6 +205,17 @@
       }
     },
     {
+      "title": "查看详情",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "/tenantManage/supplierManage/supplierManage-view"
+      },
+      "expect": {
+        "permission": ""
+      }
+    },
+    {
       "title": "删除",
       "type": "delete",
       "options": {
@@ -241,6 +252,30 @@
     {
       "label": "备注",
       "field": "note"
+    }
+  ],
+  "viewConfig": [
+    {
+      "title": "详情",
+      "type": "plain",
+      "fields": [
+          {
+            "label": "账号",
+            "field": "account"
+          },
+          {
+            "label": "名称",
+            "field": "name"
+          },
+          {
+            "label": "手机号",
+            "field": "phone"
+          },
+          {
+            "label": "备注",
+            "field": "note"
+          }
+      ]
     }
   ]
 }

@@ -61,8 +61,8 @@
                     "label": "name",
                     "value": "id"
                   },
-                  "expect":{
-                    "field":"hideContractSelectBox",
+                  "expect": {
+                    "field": "hideContractSelectBox",
                     "value": false
                   }
                 },
@@ -128,7 +128,7 @@
                   "type": "hidden",
                   "field": "contractId",
                   "expect": {
-                    "field":"hideContractSelectBox",
+                    "field": "hideContractSelectBox",
                     "value": true
                   }
                 }
@@ -185,8 +185,8 @@
                     "label": "name",
                     "value": "id"
                   },
-                  "expect":{
-                    "field":"hideContractSelectBox",
+                  "expect": {
+                    "field": "hideContractSelectBox",
                     "value": false
                   }
                 },
@@ -252,7 +252,7 @@
                   "type": "hidden",
                   "field": "contractId",
                   "expect": {
-                    "field":"hideContractSelectBox",
+                    "field": "hideContractSelectBox",
                     "value": true
                   }
                 }
@@ -260,6 +260,17 @@
             }
           }
         ]
+      },
+      "expect": {
+        "permission": ""
+      }
+    },
+    {
+      "title": "查看详情",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "/tenantManage/applicationExamplesManage/applicationExamplesManage-view"
       },
       "expect": {
         "permission": ""
@@ -309,6 +320,36 @@
       "valueType": "tag",
       "field": "type",
       "label": "应用类型"
+    }
+  ],
+  "viewConfig": [
+    {
+      "title": "详情",
+      "type": "plain",
+      "fields": [
+        {
+          "label": "应用名",
+          "field": "applicationName"
+        },
+        {
+          "label": "合约名",
+          "field": "contractName"
+        },
+        {
+          "field": "type",
+          "label": "应用类型",
+          "options": {
+            "map": {
+              "NORMAL": "普通APP",
+              "SYS": "租户主页"
+            },
+            "chy": {
+              "NORMAL": "open",
+              "SYS": "processing"
+            }
+          }
+        }
+      ]
     }
   ]
 }

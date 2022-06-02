@@ -2,7 +2,8 @@
   "pageName": {
     "table": "应用管理",
     "new": "添加",
-    "edit": "编辑"
+    "edit": "编辑",
+    "view": "应用详情"
   },
   "listAPI": "/api/crud/saasApplication/saasApplications",
   "createAPI": "/api/crud/saasApplication/saasApplications",
@@ -228,6 +229,17 @@
       }
     },
     {
+      "title": "查看详情",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "/tenantManage/applicationManage/applicationManage-view"
+      },
+      "expect": {
+        "permission": ""
+      }
+    },
+    {
       "title": "模块管理",
       "type": "path",
       "options": {
@@ -290,6 +302,44 @@
     {
       "label": "备注",
       "field": "note"
+    }
+  ],
+  "viewConfig": [
+    {
+      "title": "详情",
+      "type": "plain",
+      "fields": [
+        {
+          "label": "应用名",
+          "field": "name",
+          "type": "plain"
+        },
+        {
+          "label": "应用代码地址",
+          "field": "gitInfo",
+          "type": "plain"
+        },
+        {
+          "label": "执行命令",
+          "field": "command",
+          "type": "plain"
+        },
+        {"field":"type","label":"应用类型","options":{
+          "map":{
+            "NORMAL": "普通APP",
+            "SYS": "租户主页"
+          },
+          "chy":{
+            "NORMAL":"open",
+            "SYS":"processing"
+            }
+      }},
+        {
+          "label": "备注",
+          "field": "note",
+          "type": "plain"
+        }
+      ]
     }
   ]
 }

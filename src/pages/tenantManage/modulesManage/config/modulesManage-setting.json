@@ -267,6 +267,17 @@
       }
     },
     {
+      "title": "查看详情",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "/tenantManage/modulesManage/modulesManage-view"
+      },
+      "expect": {
+        "permission": ""
+      }
+    },
+    {
       "title": "删除",
       "type": "delete",
       "options": {
@@ -303,6 +314,30 @@
     {
       "label": "备注",
       "field": "note"
+    }
+  ],
+  "viewConfig": [
+    {
+      "title": "详情",
+      "type": "plain",
+      "fields": [
+          {
+            "label": "模块名",
+            "field": "name"
+          },
+          {
+            "label": "应用名",
+            "field": "appName"
+          },
+          {
+            "label": "菜单",
+            "field": "menuName"
+          },
+          {
+            "label": "备注",
+            "field": "note"
+          }
+      ]
     }
   ]
 }
