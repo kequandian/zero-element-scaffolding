@@ -193,6 +193,8 @@
         }
       },
       "expect": {
+        "field":"",
+        "value":"",
         "permission": ""
       }
     },

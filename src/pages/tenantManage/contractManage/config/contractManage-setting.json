@@ -142,6 +142,16 @@
       }
     },
     {
+      "title": "查看详情",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "/tenantManage/contractManage/contractManage-view"
+      },
+      "expect": {
+      }
+    },
+    {
       "title": "删除",
       "type": "delete",
       "options": {
