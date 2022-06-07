@@ -14,6 +14,7 @@ package-lock.json
 dist.rar
 
 # form-type-starter
+/form-type-starter/dist
 /form-type-starter/node_modules
 /form-type-starter/zero-antd-dep
 /form-type-starter/src/.umi
