@@ -69,30 +69,30 @@ export default (props) => {
   let token = getToken()
   useEffect(() => {
         
-    fetch(API,{
-        headers:{
-            "Content-Type":"application/json;charset=UTF-8",
-            "Authorization":`Bearer ${token}`
-        }
-    })
-    .then(res=>{
-        let json=res.json();
-        console.log(json);
-        Promise.resolve(json).then((val)=>{
-            // console.log(val.data.avatar)
-            if(val.code===200){
-              setAvatar(endpoint+val.data.avatar)
-              // setAvatar(endpoint+val.data)
-              console.log(Avatar);
-            }else{
-              console.error("错误")
-            }
-        })
+    // fetch(API,{
+    //     headers:{
+    //         "Content-Type":"application/json;charset=UTF-8",
+    //         "Authorization":`Bearer ${token}`
+    //     }
+    // })
+    // .then(res=>{
+    //     let json=res.json();
+    //     console.log(json);
+    //     Promise.resolve(json).then((val)=>{
+    //         // console.log(val.data.avatar)
+    //         if(val.code===200){
+    //           setAvatar(endpoint+val.data.avatar)
+    //           // setAvatar(endpoint+val.data)
+    //           console.log(Avatar);
+    //         }else{
+    //           console.error("错误")
+    //         }
+    //     })
 
-    })
-    .catch(err=>{
-        console.log(err);
-    })
+    // })
+    // .catch(err=>{
+    //     console.log(err);
+    // })
 },[])
   
 

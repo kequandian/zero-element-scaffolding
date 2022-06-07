@@ -1,14 +1,14 @@
-{
+module.exports = {
     "pageName": {
         "table": "框架组件管理",
         "new": "表单组件",
         "edit": "编辑菜单"
     },
     "listAPI": "/ap",
-    "createAPI": "/api",
-    "getAPI": "/api/[id]",
-    "updateAPI": "/api/[id]",
-    "deleteAPI": "api/(id)",
+    "createAPI": "/api/u/product/products",
+    "getAPI": "/api/u/product/products/[id]",
+    "updateAPI": "/api/u/product/products/[id]",
+    "deleteAPI": "/api/u/product/products/(id)",
     "columns": 1,
     "type": "default",
     "createFields": [
@@ -22,57 +22,78 @@
             }
         },
         {
-            "label": "plain",
+            "label": "文本",
             "type": "plain",
+            "value": '文本',
             "field": "type_1"
         },
         {
-            "label": "image",
+            "label": "图片",
             "type": "image",
             "field": "type_2",
-            "options": {
-                "value": [
-                    {
-                        "url": "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-                    }
-                ]
-            }
+            "value": [
+                {
+                    "url": "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+                }
+            ]
         },
         {
-            "label": "empty",
-            "type": "empty",
-            "field": "type_3"
+            "label": "头像",
+            "type": "avatars",
+            "field": "type_2",
+            "value": "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
         },
+        // {
+        //     "label": "empty",
+        //     "type": "empty",
+        //     "field": "type_3"
+        // },
         {
-            "label": "hidden",
-            "type": "hidden",
+            "label": "视频",
+            "type": "videoview",
+            "value": "/attachments/1b42a99b-41e1-42b7-8401-fcd9fd0ddbb0.mp4",
             "field": "type_4"
         },
         {
-            "label": "group",
-            "type": "group",
-            "field": "type_5"
+            "label": "隐藏域",
+            "type": "hidden",
+            "field": "type_4"
         },
+        // {
+        //     "label": "",
+        //     "type": "group",
+        //     "value": "group-分组",
+        //     "field": "type_5"
+        // },
         {
-            "label": "input",
+            "label": "输入框",
             "type": "input",
             "field": "type_6",
             "options":{
                 "width": "200"
             }
         },
+        // {
+        //     "label": "输入框(tips)",
+        //     "type": "inputType",
+        //     "field": "type_6",
+        //     "toptips": "输入框(tips)",
+        //     "options":{
+        //         "width": "200"
+        //     }
+        // },
         {
-            "label": "password",
+            "label": "密码输入框",
             "type": "password",
             "field": "type_7"
         },
         {
-            "label": "number",
+            "label": "数字输入框",
             "type": "number",
             "field": "type_8"
         },
         {
-            "label": "radio",
+            "label": "单选框",
             "type": "radio",
             "field": "type_9",
             "options": [
@@ -91,8 +112,13 @@
             ]
         },
         {
+            "label": "开关按钮",
+            "type": "switch",
+            "field": "type_8"
+        },
+        {
+            "label": "下拉框",
             "field": "type_10",
-            "label": "select",
             "type": "select",
             "options": [
                 {
@@ -110,7 +136,7 @@
             ]
         },
         {
-            "label": "checkbox",
+            "label": "复选框",
             "type": "checkbox",
             "field": "type_11",
             "options": [
@@ -128,16 +154,16 @@
                 }
             ]
         },
+        // {
+        //     "label": "pcd",
+        //     "type": "pcd",
+        //     "field": "type_12",
+        //     "options": {
+        //         "API": ""
+        //     }
+        // },
         {
-            "label": "pcd",
-            "type": "pcd",
-            "field": "type_12",
-            "options": {
-                "API": ""
-            }
-        },
-        {
-            "label": "captcha",
+            "label": "验证码",
             "type": "captcha",
             "field": "type_13",
             "options": {
@@ -145,12 +171,12 @@
             }
         },
         {
-            "label": "tags",
+            "label": "标签",
             "type": "tags",
             "field": "type_13"
         },
         {
-            "label": "download",
+            "label": "下载",
             "field": "type_14",
             "type": "download",
             "options": {
@@ -159,27 +185,37 @@
             }
         },
         {
-            "label": "json",
+            "label": "展示json格式",
             "field": "type_15",
+            "value": {
+                "label": "展示json格式",
+                "field": "type_15",
+                "type": "json"
+            },
             "type": "json"
         },
+        // {
+        //     "label": "week",
+        //     "field": "type_16",
+        //     "type": "week"
+        // },
         {
-            "label": "week",
+            "label": "日期",
             "field": "type_16",
-            "type": "week"
+            "type": "date"
         },
         {
-            "label": "month",
+            "label": "月份",
             "field": "type_17",
             "type": "month"
         },
         {
-            "label": "range",
+            "label": "日期范围",
             "field": "type_18",
             "type": "range"
         },
         {
-            "label": "direct-upload",
+            "label": "上传",
             "field": "type_19",
             "type": "direct-upload",
             "options": {
@@ -188,40 +224,40 @@
             }
         },
         {
-            "label": "time-range",
+            "label": "时分秒范围",
             "field": "type_20",
             "type": "time-range"
         },
+        // {
+        //     "label": "table-select",
+        //     "field": "type_21",
+        //     "type": "table-select"
+        // },
         {
-            "field": "type_21",
-            "label": "table-select",
-            "type": "table-select"
-        },
-        {
+            "label": "单选模态框",
             "field": "type_22",
-            "label": "modal-radio",
             "type": "modal-radio",
             "options": {
                 "title": "选择",
                 "label": "name",
                 "editLabel": "name",
                 "value": "projectId",
-                "API": "/api",
+                "API": "/api/u/product/products",
                 "fields": [
                     {
-                        "label": "选项一",
-                        "field": "选项一"
+                        "label": "商品名称",
+                        "field": "name"
                     },
                     {
-                        "label": "选项一",
-                        "field": "选项一"
+                        "label": "价格",
+                        "field": "price"
                     }
                 ]
             }
         },
         {
+            "label": "复选模态框",
             "field": "type_23",
-            "label": "modal-checkbox",
             "type": "modal-checkbox",
             "options": {
                 "title": "选择",
@@ -229,24 +265,24 @@
                 "editLabel": "name",
                 "value": "id",
                 "pagination": true,
-                "API": "/api",
+                "API": "/api/u/product/products",
                 "saveData": {
                     "masterRelations": "value"
                 },
                 "fields": [
                     {
-                        "label": "选项一",
-                        "field": "选项一"
+                        "label": "商品名称",
+                        "field": "name"
                     },
                     {
-                        "label": "选项二",
-                        "field": "选项二"
+                        "label": "价格",
+                        "field": "price"
                     }
                 ]
             }
         },
         {
-            "label": "upload-image",
+            "label": "上传图片",
             "field": "type_24",
             "type": "upload-image",
             "options": {
@@ -255,7 +291,7 @@
             }
         },
         {
-            "label": "upload-file",
+            "label": "上传文件",
             "field": "type_25",
             "type": "upload-file",
             "options": {
@@ -264,71 +300,77 @@
             }
         },
         {
-            "label": "checkbox-fetch",
+            "label": "复选框(网络)",
             "type": "checkbox-fetch",
             "field": "type_26",
             "options": {
-                "API": "/api"
+                "API": "/api/u/product/products",
+                "label": "name",
+                "value": "id"
             }
         },
         {
+            "label": "单选框(网络)",
             "field": "type_27",
-            "label": "select-fetch",
             "type": "select-fetch",
             "options": {
-                "API": "/api"
+                "API": "/api/u/product/products",
+                "label": "name",
+                "value": "id"
             }
         },
         {
-            "field": "type_28",
             "label": "select-field",
+            "field": "type_28",
             "type": "select-field",
             "options": {
-                "API": "/api"
+                "API": "/api/u/product/products",
+                "label": "name",
+                "value": "id"
             }
         },
         {
-            "label": "text-area",
+            "label": "文本域",
             "type": "text-area",
             "field": "type_29"
         },
         {
-            "label": "rich-text",
+            "label": "富文本",
             "type": "rich-text",
             "field": "type_30"
         },
-        {
-            "label": "one-mary",
-            "field": "type_31",
-            "type": "one-mary",
-            "options": {
-                "fields": [
-                    {
-                        "label": "选项一",
-                        "field": "选项一"
-                    },
-                    {
-                        "label": "选项二",
-                        "field": "选项二"
-                    }
-                ]
-            }
-        },
+        // {
+        //     "label": "one-mary",
+        //     "field": "type_31",
+        //     "type": "one-mary",
+        //     "options": {
+        //         "fields": [
+        //             {
+        //                 "label": "选项一",
+        //                 "field": "选项一"
+        //             },
+        //             {
+        //                 "label": "选项二",
+        //                 "field": "选项二"
+        //             }
+        //         ]
+        //     }
+        // },
         {
             "label": "number-range",
             "field": "type_32",
             "type": "number-range"
         },
-        {
-            "label": "pcdm",
-            "field": "type_33",
-            "type": "pcdm"
-        },
-        {
-            "label": "pcdForSearch",
-            "field": "type_34",
-            "type": "pcdForSearch"
-        }
+        // {
+        //     "label": "pcdm",
+        //     "field": "type_33",
+        //     "type": "pcdm"
+        // },
+        // {
+        //     "label": "pcdForSearch",
+        //     "field": "type_34",
+        //     "type": "pcdForSearch"
+        // }
     ],
     "updateFields": [],
     "map": {},

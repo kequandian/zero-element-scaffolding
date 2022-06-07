@@ -1,4 +1,4 @@
-const setting = require('./formItemTypeManage-setting.json');
+const setting = require('./formItemTypeManage-setting.js');
 
 module.exports = {
   layout: setting.layout.form,
