@@ -1,14 +1,10 @@
-/** 2021-6-29 新方法
- *  将原先旧方法做了更改，添加了endpoint节点，能够通过query来进行列表API获取传值的判断
- */
-import { query, post, update, remove, download } from 'zero-element/lib/utils/request';
 import { message as msg } from 'antd';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 import promiseAjax from '@/utils/promiseAjax';
 const endpoint = getEndpoint()
 
 
-export default function onRequest(props) {
+export default function onDownloadPage(props) {
   const {
     options,
     record
@@ -47,17 +43,17 @@ export default function onRequest(props) {
                 // console.log(' 页面配置信息 = ', data)
                 handleDownloadPage(data)
               } else {
-                message.error('获取页面配置信息失败')
+                msg.error('获取页面配置信息失败')
               }
             })
             .catch(value => {
 
             })
         } else {
-          message.error('获取页面配置信息失败')
+          msg.error('获取页面配置信息失败')
         }
       }).catch(err => {
-        message.error('获取页面配置信息失败 = ', err)
+        msg.error('获取页面配置信息失败 = ', err)
       })
   }
 
@@ -77,7 +73,7 @@ export default function onRequest(props) {
         downloadFileAction(data)
         console.log(' 下载地址 = ', data)
       } else {
-        message.error('下载失败')
+        msg.error('下载失败')
       }
     })
     .catch(value => {

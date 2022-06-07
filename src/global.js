@@ -73,6 +73,7 @@ import FITSet_express from '@/components/FormItemType/Express';
 //动态页面组件
 import AITSet_FromModal from '@/actionItemType/FromModal';
 import CSet_DynamicPageForm from '@/components/DynamicPageForm';
+import CSet_DynamicPageShowConfig from '@/components/DynamicPageShowConfig';
 import AITSet_DownloadPage from '@/listAction/onDownloadPage'
 
 
@@ -168,7 +169,8 @@ CSet({
   'LoadHtmlPage': CSet_load_html_page,
   'NewTreeList': CSet_new_tree_list,
   'ErrorLayout': CSet_ErrorLayout,
-  'DynamicPageForm': CSet_DynamicPageForm
+  'DynamicPageForm': CSet_DynamicPageForm,
+  'DynamicPageShowConfig': CSet_DynamicPageShowConfig
 });
 
 LASet({

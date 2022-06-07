@@ -136,7 +136,6 @@
               "fields": [
                 { "field": "level", "label": "级别" },
                 { "field": "name", "label": "级别名称" },
-                { "field": "value", "label": "每件分成", "align": "right" },
                 { "field": "rewardType", "label": "单位" }
               ]
           }
