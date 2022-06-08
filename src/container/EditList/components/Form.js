@@ -423,6 +423,12 @@ export default forwardRef((props, ref) => {
     return <><Array onChange={(e) => Thetest(e)}></Array></>
   }
 
+  function gotoComponentsExample() {
+    let path = `http://49.119.119.7:8004`
+    const w = window.open('about:blank');
+    w.location.href = path
+  }
+
   const AllFormType = (item, i) => {
 
     // expect 为是否显示组件判断
@@ -438,7 +444,7 @@ export default forwardRef((props, ref) => {
       <div className="dynamic_column">
         {
           item.label ? (
-            <div>{item.label}：</div>
+            <div>{item.label}： {item.toolTips?(<a href="#" onClick={gotoComponentsExample}>( {item.toolTips} )</a>):<></>}</div>
           ) : null
         }
         {
@@ -473,7 +479,7 @@ export default forwardRef((props, ref) => {
     {
       config && config.map((item, i) =>
         item.children ? <Collapse>
-          <Panel header={item.header}>
+          <Panel header={item.header} >
             {item.children.map((child, a) => AllFormType(child, a))}
           </Panel>
         </Collapse> : AllFormType(item, i))

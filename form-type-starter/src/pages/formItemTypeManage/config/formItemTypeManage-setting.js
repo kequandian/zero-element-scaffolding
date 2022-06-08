@@ -48,17 +48,17 @@ module.exports = {
         //     "type": "empty",
         //     "field": "type_3"
         // },
-        {
-            "label": "视频",
-            "type": "videoview",
-            "value": "/attachments/1b42a99b-41e1-42b7-8401-fcd9fd0ddbb0.mp4",
-            "field": "type_4"
-        },
-        {
-            "label": "隐藏域",
-            "type": "hidden",
-            "field": "type_4"
-        },
+        // {
+        //     "label": "视频",
+        //     "type": "videoview",
+        //     "value": "/attachments/1b42a99b-41e1-42b7-8401-fcd9fd0ddbb0.mp4",
+        //     "field": "type_4"
+        // },
+        // {
+        //     "label": "隐藏域",
+        //     "type": "hidden",
+        //     "field": "type_4"
+        // },
         // {
         //     "label": "",
         //     "type": "group",
