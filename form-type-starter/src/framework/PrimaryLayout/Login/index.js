@@ -218,9 +218,9 @@ const formMenu = (
         >
         <div>
           {/* <span style={{ fontSize: 22 }}>|</span> */}
-          <span style={{ paddingRight: 15, paddingLeft: 15, fontSize: 17 }}>{getUserName()}</span>
-          <span style={{ fontSize: 0 }}>{getExtra()}</span>
-          <Avatar src={getAvatar()} style={{background:"white"}} icon={<UserOutlined style={{ fontSize: 24 }} />} size={36} />
+          {/* <span style={{ paddingRight: 15, paddingLeft: 15, fontSize: 17 }}>{getUserName()}</span> */}
+          {/* <span style={{ fontSize: 0 }}>{getExtra()}</span> */}
+          {/* <Avatar src={getAvatar()} style={{background:"white"}} icon={<UserOutlined style={{ fontSize: 24 }} />} size={36} /> */}
         </div>
       </Dropdown>
     </div>

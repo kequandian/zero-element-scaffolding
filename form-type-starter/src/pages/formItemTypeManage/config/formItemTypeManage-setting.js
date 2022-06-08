@@ -154,14 +154,6 @@ module.exports = {
                 }
             ]
         },
-        // {
-        //     "label": "pcd",
-        //     "type": "pcd",
-        //     "field": "type_12",
-        //     "options": {
-        //         "API": ""
-        //     }
-        // },
         {
             "label": "验证码",
             "type": "captcha",
@@ -228,11 +220,11 @@ module.exports = {
             "field": "type_20",
             "type": "time-range"
         },
-        // {
-        //     "label": "table-select",
-        //     "field": "type_21",
-        //     "type": "table-select"
-        // },
+        {
+            "label": "表格选择",
+            "field": "type_21",
+            "type": "table-select"
+        },
         {
             "label": "单选模态框",
             "field": "type_22",
@@ -291,6 +283,11 @@ module.exports = {
             }
         },
         {
+            "label": "上传图片",
+            "field": "type_33",
+            "type": "imageBox"
+        },
+        {
             "label": "上传文件",
             "field": "type_25",
             "type": "upload-file",
@@ -319,16 +316,16 @@ module.exports = {
                 "value": "id"
             }
         },
-        {
-            "label": "select-field",
-            "field": "type_28",
-            "type": "select-field",
-            "options": {
-                "API": "/api/u/product/products",
-                "label": "name",
-                "value": "id"
-            }
-        },
+        // {
+        //     "label": "select-field",
+        //     "field": "type_28",
+        //     "type": "select-field",
+        //     "options": {
+        //         "API": "/api/u/product/products",
+        //         "label": "name",
+        //         "value": "id"
+        //     }
+        // },
         {
             "label": "文本域",
             "type": "text-area",
@@ -357,9 +354,18 @@ module.exports = {
         //     }
         // },
         {
-            "label": "number-range",
+            "label": "数字范围",
             "field": "type_32",
             "type": "number-range"
+        },
+        
+        {
+            "label": "省市区",
+            "type": "pcd",
+            "field": "type_12",
+            "options": {
+                "API": ""
+            }
         },
         // {
         //     "label": "pcdm",
@@ -371,6 +377,11 @@ module.exports = {
         //     "field": "type_34",
         //     "type": "pcdForSearch"
         // }
+        {
+            "label": "path",
+            "field": "type_32",
+            "type": "path"
+        },
     ],
     "updateFields": [],
     "map": {},

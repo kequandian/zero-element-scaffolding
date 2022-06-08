@@ -2,7 +2,7 @@ const setting = require('./formItemTypeManage-setting.js');
 
 module.exports = {
   layout: setting.layout.form,
-  title: setting.pageName.new,
+  title: "",
   items: [
     {
       component: 'custom_form',

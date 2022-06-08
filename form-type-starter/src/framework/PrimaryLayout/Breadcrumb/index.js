@@ -57,7 +57,7 @@ export default ({ path, breadcrumb,isLeftCover=false }) => {
     {pathAry.map((path, i) => {
       if (path === '/') {
         return <Breadcrumb.Item key={path}>
-          <Link to="/">首页</Link>
+          {/* <Link to="/">首页</Link> */}
         </Breadcrumb.Item>;
       }
       return <Breadcrumb.Item key={path}>
