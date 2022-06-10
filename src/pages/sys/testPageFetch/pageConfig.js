@@ -244,6 +244,12 @@ export const fieldsConfig = [
                     // { "label": "input-select-fetch", "value": "input-select-fetch" }
                 ], "defaultValue": "plain"
             },
+            {
+                "label": "一对多", "field": "fieldValueOptions", "type": "JSON", "expect": {
+                    "field": "formViewType",
+                    "value": "one-mary"
+                }
+            },
             { "label": "表单标签", "field": "formFieldTitle" },//新增、编辑、查看标签
             { "label": "字段表单提示", "field": "formFieldHint" },
             { "label": "字段表单输入错误提示", "field": "formFieldTips" },
