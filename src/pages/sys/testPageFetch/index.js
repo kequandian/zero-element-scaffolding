@@ -189,7 +189,11 @@ export default function Default() {
             PageId: id,
             showAdd: true,
             svg: <FieldSvg />,
-            cb: onRefresh
+            cb: onRefresh,
+            query:{
+              pageNum:1,
+              pageSize:100
+            }
           }
         },
         {

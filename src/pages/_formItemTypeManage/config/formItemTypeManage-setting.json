@@ -250,8 +250,8 @@
             "field": "type_24",
             "type": "upload-image",
             "options": {
-                "title": "点击上传",
-                "url": "templateUrl"
+                "API": "API",
+                "max": 1
             }
         },
         {

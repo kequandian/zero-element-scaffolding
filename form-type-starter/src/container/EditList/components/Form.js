@@ -210,7 +210,7 @@ export default forwardRef((props, ref) => {
   
   //通过API获取数据下拉框
   function fetchSelectFunc (item, i) {
-    console.log(' item === ', item)
+    // console.log(' item === ', item)
     const callback = (field, v) => {
       defaultChange(field, v[field])
     }

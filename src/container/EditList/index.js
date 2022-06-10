@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { withRouter, history } from 'umi';
 // import { Space, Button } from 'antd';
-import { Drawer, Button, message, Empty, Spin, Tooltip } from 'antd';
+import { Drawer, Button, message, Empty, Spin, Tooltip, Popconfirm } from 'antd';
 import { useDidMount } from 'zero-element/lib/utils/hooks/lifeCycle'
 import './public/index.less'
 import promiseAjax from '@/utils/promiseAjax';
 import { AddSvg, DeleteSvg, Edit } from './svg'
 import ShowModal from './components/showModal';
+import ShowAddModal from './components/showAddModal';
 import OneMany from './components/oneMany';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 import _, { set } from 'lodash'
@@ -14,6 +15,8 @@ import {
   fieldModelConfig
 } from './config/pageConfig'
 import FormTools from './components/Form';
+
+import styles from './index.less';
 
 export default withRouter(function EditList(props) {
   const { config, namespace } = props
@@ -29,11 +32,13 @@ export default withRouter(function EditList(props) {
     showAdd = true,
     showDelete = true,
     svg = <Edit />,
-    cb
+    cb,
+    query={}
   } = config;
   // message.loading("开始加载")
   const addRef = useRef()
 
+  
   const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState(null)
@@ -100,7 +105,8 @@ export default withRouter(function EditList(props) {
     let queryData = {}
     if (PageId) {
       queryData = {
-        pageId: PageId
+        pageId: PageId,
+        ...query
       };
     }
 
@@ -117,6 +123,7 @@ export default withRouter(function EditList(props) {
         if (resp && resp.code === 200) {
           const Listdata = resp.data;
           // message.success("加载成功")
+          // console.log('Listdata.records ==== ', Listdata.records)
           if (PageId !== "") {
             setData(Listdata.records)
           } else {
@@ -187,7 +194,6 @@ export default withRouter(function EditList(props) {
       method: "DELETE"
     }
     let PutData;
-
     for (var i = 0; i < data.length; i++) {
       // console.log("I",i)
       if (data[i].id === id) {
@@ -274,25 +280,57 @@ export default withRouter(function EditList(props) {
       onClose={onClose}
       visible={visible}
       width="300"
-    >
-      <Spin spinning={false}>
-        
-      {data ? Array.isArray(data) ? data.map((item, i) => <>
-        <ShowModal title={_.get(item, title) || "组件无名称"}
-          titleLabel={title}
-          field={_.get(item, field) || "空"}
-          fieldLabel={field}
-          type="card"
-          onSuccess={() => handleSuccess(item.id)}
+      bodyStyle={{paddingTop: '0px', overflowY:'scroll', maxHeight: '600px'}}
+      footer={showAdd && data ? [
+        <ShowAddModal title={"添加" + name}
+          icon={<AddSvg />}
+          onSuccess={addMessage}
+          key="show_add_modal"
         >
-            <FormTools
-              formData={item}
-              config={ModelConfig}
-              unUseDefaultValue={true}
-            />
-        </ShowModal>
-        {showDelete ? <div style={{ cursor: "pointer", fontWeight: "bolder", position: "relative", height: "50px", lineHeight: "50px", float: "right", top: "-50px", right: "20px" }} onClick={() => handleDelete(item.id)}><DeleteSvg />删除</div> : null}
-      </>) : NoModal ? <>
+          <FormTools
+            config={ModelConfig}
+            ref={addRef}
+          // unUseDefaultValue={true}//新增时候需要使用默认值
+          ></FormTools>
+        </ShowAddModal>
+      ]: null}
+    >
+        
+      {data ? Array.isArray(data) ? (
+        <Spin spinning={loading}> 
+          {data.map((item, i) => (
+            <div className={styles.listItem} key={`list_key_${i}`}>
+              <ShowModal title={_.get(item, title) || "组件无名称"}
+                titleLabel={title}
+                field={_.get(item, field) || "空"}
+                fieldLabel={field}
+                type="card"
+                onSuccess={() => handleSuccess(item.id)}
+              >
+                  <FormTools
+                    formData={item}
+                    config={ModelConfig}
+                    unUseDefaultValue={true}
+                  />
+              </ShowModal>
+              {showDelete ? (
+                <Popconfirm
+                  title={`确定要删除${_.get(item, title)}?`}
+                  onConfirm={() => handleDelete(item.id)}
+                  onCancel={()=>{}}
+                  okText="是"
+                  cancelText="否"
+                >
+                  <div className={[styles.delGroup]}>
+                    <DeleteSvg />
+                    删除
+                  </div>
+                </Popconfirm>
+              ) : null}
+            </div>
+          ))}
+        </Spin>
+      ) : NoModal ? <>
         <FormTools
           formData={data}
           config={ModelConfig}
@@ -326,8 +364,7 @@ export default withRouter(function EditList(props) {
       </Spin>
       }
       
-      </Spin>
-      {showAdd && data ? <ShowModal title={"添加" + name}
+      {/* {showAdd && data ? <ShowModal title={"添加" + name}
         icon={<AddSvg />}
         onSuccess={addMessage}
       >
@@ -336,7 +373,7 @@ export default withRouter(function EditList(props) {
           ref={addRef}
         // unUseDefaultValue={true}//新增时候需要使用默认值
         ></FormTools>
-      </ShowModal> : null}
+      </ShowModal> : null} */}
     </Drawer>
   </div>
 }

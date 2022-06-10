@@ -10,6 +10,9 @@ import Array from './Array/index'
 import ColorSelect from "./ColorSelect";
 import FontSelect from "./FontSelect";
 import FetchSelect from "./fetchSelect";
+
+import { TipsIconSvg } from '../components/public/svg';
+
 export default forwardRef((props, ref) => {
 
   const {
@@ -210,7 +213,7 @@ export default forwardRef((props, ref) => {
   
   //通过API获取数据下拉框
   function fetchSelectFunc (item, i) {
-    console.log(' item === ', item)
+    // console.log(' item === ', item)
     const callback = (field, v) => {
       defaultChange(field, v[field])
     }
@@ -424,7 +427,7 @@ export default forwardRef((props, ref) => {
   }
 
   function gotoComponentsExample() {
-    let path = `http://49.119.119.7:8004`
+    let path = `${endpoint || window.location.origin}/formItemTypeManage`
     const w = window.open('about:blank');
     w.location.href = path
   }
@@ -444,7 +447,7 @@ export default forwardRef((props, ref) => {
       <div className="dynamic_column">
         {
           item.label ? (
-            <div>{item.label}： {item.toolTips?(<a href="#" onClick={gotoComponentsExample}>( {item.toolTips} )</a>):<></>}</div>
+            <div>{item.label}： {item.toolTips?(<a href="#" onClick={gotoComponentsExample} title="查看组件效果页面" ><TipsIconSvg color={"#1890ff"}/></a>):<></>}</div>
           ) : null
         }
         {
