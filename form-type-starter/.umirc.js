@@ -3,9 +3,9 @@
 export default {
   title: 'SmallSaaS低代码开发平台',
   hash: true,
-  // history: {
-  //   type: 'hash',
-  // },
+  history: {
+    type: 'hash',
+  },
   dynamicImport: {
     loading: '@/framework/Loading'
   },
