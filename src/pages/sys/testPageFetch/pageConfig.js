@@ -166,7 +166,10 @@ export const fieldsConfig = [
         "children": [
             {
                 "label": "表单输入组件",
-                "toolTips": true,
+                "toolTips": {
+                    "type": "link",
+                    "tipsValue":  "查看组件效果页面"
+                },
                 "field": "formInputType", "type": "select",
                 "options": [
                     { "label": "头像", "value": "avatars" },
@@ -245,7 +248,12 @@ export const fieldsConfig = [
                 ], "defaultValue": "plain"
             },
             {
-                "label": "一对多", "field": "fieldValueOptions", "type": "JSON", "expect": {
+                "label": "一对多JSON配置", 
+                "toolTips": {
+                    "type": "one-mary",
+                    "tipsValue":  "配置模板"
+                },
+                "field": "fieldViewOneManyOptions", "type": "input", "expect": {
                     "field": "formViewType",
                     "value": "one-mary"
                 }
