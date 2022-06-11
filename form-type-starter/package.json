@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "start": "node init.js && umi dev",
-    "build": "node init.js && umi build",
+    "build": "node init.js && umi build && node gen",
     "buildA": "set ANALYZE=1 && umi build",
     "test": "umi test"
   },
