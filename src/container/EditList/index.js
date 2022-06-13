@@ -244,8 +244,12 @@ export default withRouter(function EditList(props) {
     } else {
       PutData = data
     }
-    // console.log('PutData === ', PutData)
-    // return
+
+    //formViewType不为one-mary时, 清空对应配置数据
+    if(PutData.formViewType != 'one-mary'){
+      PutData.fieldViewOneManyOptions = ''
+    }
+
     promiseAjax(apiUrl, PutData, options)
       .then(resp => {
         if (resp && resp.code === 200) {
