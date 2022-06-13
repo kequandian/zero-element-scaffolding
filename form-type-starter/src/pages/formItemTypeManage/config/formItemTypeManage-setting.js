@@ -22,13 +22,13 @@ module.exports = {
             }
         },
         {
-            "label": "文本",
+            "label": "文本（plain）",
             "type": "plain",
             "value": '文本',
             "field": "type_1"
         },
         {
-            "label": "图片",
+            "label": "图片（image）",
             "type": "image",
             "field": "type_2",
             "value": [
@@ -38,7 +38,7 @@ module.exports = {
             ]
         },
         {
-            "label": "头像",
+            "label": "头像（avatars）",
             "type": "avatars",
             "field": "type_2",
             "value": "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
@@ -66,7 +66,7 @@ module.exports = {
         //     "field": "type_5"
         // },
         {
-            "label": "输入框",
+            "label": "输入框（input）",
             "type": "input",
             "field": "type_6",
             "options":{
@@ -83,17 +83,17 @@ module.exports = {
         //     }
         // },
         {
-            "label": "密码输入框",
+            "label": "密码输入框（password）",
             "type": "password",
             "field": "type_7"
         },
         {
-            "label": "数字输入框",
+            "label": "数字输入框（number）",
             "type": "number",
             "field": "type_8"
         },
         {
-            "label": "单选框",
+            "label": "单选框（radio）",
             "type": "radio",
             "field": "type_9",
             "options": [
@@ -112,12 +112,12 @@ module.exports = {
             ]
         },
         {
-            "label": "开关按钮",
+            "label": "开关按钮（switch）",
             "type": "switch",
             "field": "type_8"
         },
         {
-            "label": "下拉框",
+            "label": "下拉框（select）",
             "field": "type_10",
             "type": "select",
             "options": [
@@ -136,7 +136,7 @@ module.exports = {
             ]
         },
         {
-            "label": "复选框",
+            "label": "复选框（checkbox）",
             "type": "checkbox",
             "field": "type_11",
             "options": [
@@ -155,7 +155,7 @@ module.exports = {
             ]
         },
         {
-            "label": "验证码",
+            "label": "验证码（captcha）",
             "type": "captcha",
             "field": "type_13",
             "options": {
@@ -163,12 +163,12 @@ module.exports = {
             }
         },
         {
-            "label": "标签",
+            "label": "标签（tags）",
             "type": "tags",
             "field": "type_13"
         },
         {
-            "label": "下载",
+            "label": "下载（download）",
             "field": "type_14",
             "type": "download",
             "options": {
@@ -177,7 +177,7 @@ module.exports = {
             }
         },
         {
-            "label": "展示json格式",
+            "label": "展示json格式（json）",
             "field": "type_15",
             "value": {
                 "label": "展示json格式",
@@ -192,22 +192,22 @@ module.exports = {
         //     "type": "week"
         // },
         {
-            "label": "日期",
+            "label": "日期（date）",
             "field": "type_16",
             "type": "date"
         },
         {
-            "label": "月份",
+            "label": "月份（month）",
             "field": "type_17",
             "type": "month"
         },
         {
-            "label": "日期范围",
+            "label": "日期范围（range）",
             "field": "type_18",
             "type": "range"
         },
         {
-            "label": "上传",
+            "label": "上传（direct-upload）",
             "field": "type_19",
             "type": "direct-upload",
             "options": {
@@ -216,17 +216,17 @@ module.exports = {
             }
         },
         {
-            "label": "时分秒范围",
+            "label": "时分秒范围（time-range）",
             "field": "type_20",
             "type": "time-range"
         },
         {
-            "label": "表格选择",
+            "label": "表格选择（table-select）",
             "field": "type_21",
             "type": "table-select"
         },
         {
-            "label": "单选模态框",
+            "label": "单选模态框（modal-radio）",
             "field": "type_22",
             "type": "modal-radio",
             "options": {
@@ -248,7 +248,7 @@ module.exports = {
             }
         },
         {
-            "label": "复选模态框",
+            "label": "复选模态框（modal-checkbox）",
             "field": "type_23",
             "type": "modal-checkbox",
             "options": {
@@ -274,7 +274,7 @@ module.exports = {
             }
         },
         {
-            "label": "上传图片",
+            "label": "上传图片（upload-image）",
             "field": "type_24",
             "type": "upload-image",
             "options": {
@@ -283,12 +283,12 @@ module.exports = {
             }
         },
         {
-            "label": "上传图片",
+            "label": "上传图片（imageBox）",
             "field": "type_33",
             "type": "imageBox"
         },
         {
-            "label": "上传文件",
+            "label": "上传文件（upload-file）",
             "field": "type_25",
             "type": "upload-file",
             "options": {
@@ -297,7 +297,7 @@ module.exports = {
             }
         },
         {
-            "label": "复选框(网络)",
+            "label": "复选框(网络)（checkbox-fetch）",
             "type": "checkbox-fetch",
             "field": "type_26",
             "options": {
@@ -307,7 +307,7 @@ module.exports = {
             }
         },
         {
-            "label": "单选框(网络)",
+            "label": "单选框(网络)（select-fetch）",
             "field": "type_27",
             "type": "select-fetch",
             "options": {
@@ -327,12 +327,12 @@ module.exports = {
         //     }
         // },
         {
-            "label": "文本域",
+            "label": "文本域（text-area）",
             "type": "text-area",
             "field": "type_29"
         },
         {
-            "label": "富文本",
+            "label": "富文本（rich-text）",
             "type": "rich-text",
             "field": "type_30"
         },
@@ -354,13 +354,13 @@ module.exports = {
         //     }
         // },
         {
-            "label": "数字范围",
+            "label": "数字范围（number-range）",
             "field": "type_32",
             "type": "number-range"
         },
         
         {
-            "label": "省市区",
+            "label": "省市区（pcd）",
             "type": "pcd",
             "field": "type_12",
             "options": {
@@ -377,11 +377,13 @@ module.exports = {
         //     "field": "type_34",
         //     "type": "pcdForSearch"
         // }
-        {
-            "label": "path",
-            "field": "type_32",
-            "type": "path"
-        },
+        // {
+        //     "label": "页面跳转（path）",
+        //     "field": "type_32",
+        //     "type": "path",
+        //     "value": "/TestPage",
+        //     "title": "TestPage"
+        // }
     ],
     "updateFields": [],
     "map": {},
