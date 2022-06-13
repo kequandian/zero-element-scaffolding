@@ -16,6 +16,8 @@ import {
 } from './config/pageConfig'
 import FormTools from './components/Form';
 
+import handleFormData from './utils/cleanFormRateData'
+
 import styles from './index.less';
 
 export default withRouter(function EditList(props) {
@@ -164,6 +166,10 @@ export default withRouter(function EditList(props) {
       ...addRef.current.data,
       "pageId": PageId
     }
+    
+    //处理冗余数据
+    theData = handleFormData(theData)
+
     // console.log(theData,"提交后的DATA")
     promiseAjax(apiUrl, theData, options)
       .then(resp => {
@@ -246,9 +252,12 @@ export default withRouter(function EditList(props) {
     }
 
     //formViewType不为one-mary时, 清空对应配置数据
-    if(PutData.formViewType != 'one-mary'){
-      PutData.fieldViewOneManyOptions = ''
-    }
+    // if(PutData.formViewType != 'one-mary'){
+    //   PutData.fieldViewOneManyOptions = ''
+    // }
+    
+    //处理冗余数据
+    PutData = handleFormData(PutData)
 
     promiseAjax(apiUrl, PutData, options)
       .then(resp => {
