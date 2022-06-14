@@ -440,13 +440,19 @@ export default forwardRef((props, ref) => {
         return <a href="#" onClick={gotoComponentsExample} title={data.tipsValue} ><TipsIconSvg color={"#1890ff"} /></a>
       }
       if(data.type === 'one-mary'){
-        const jsonTemp = '[\n {\n "label": "标题",\n "field": "字段" \n} \n]'
-        const content = <div style={{ whiteSpace: 'pre-wrap'}} >{jsonTemp}</div>
-        return  (
-          <Popover placement="right" title={'模板'} content={content} trigger="click">
-            <a href="#" title={data.tipsValue} ><TipsIconSvg color={"#1890ff"} /></a>
-          </Popover>
-        )
+        // const jsonTemp = '[\n {\n "label": "标题",\n "field": "字段" \n} \n]'
+        // const content = <div style={{ whiteSpace: 'pre-wrap'}} >{jsonTemp}</div>
+        // return  (
+        //   <Popover placement="right" title={'模板'} content={content} trigger="click">
+        //     <a href="#" title={data.tipsValue} ><TipsIconSvg color={"#1890ff"} /></a>
+        //   </Popover>
+        // )
+        function gotoOneMaryDocx() {
+          let path = `https://github.com/kequandian/zero-element-admin/blob/main/resource/docs/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E4%B8%80%E5%AF%B9%E5%A4%9A%E6%98%BE%E7%A4%BA.md`
+          const w = window.open('about:blank');
+          w.location.href = path
+        }
+        return <a href="#" onClick={gotoOneMaryDocx} title={data.tipsValue} ><TipsIconSvg color={"#1890ff"} /></a>
       }
     }
     return <></>

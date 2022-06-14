@@ -251,7 +251,7 @@ export const fieldsConfig = [
                 "label": "一对多JSON配置", 
                 "toolTips": {
                     "type": "one-mary",
-                    "tipsValue":  "配置模板"
+                    "tipsValue":  "配置说明"
                 },
                 "field": "fieldViewOneManyOptions", "type": "input", "expect": {
                     "field": "formViewType",
