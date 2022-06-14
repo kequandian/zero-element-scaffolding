@@ -101,7 +101,7 @@ export default withRouter(function EditList(props) {
   
   //获取列表数据
   function getListData(){
-    // setLoading(true)
+    setLoading(true)
     let endpoint = getEndpoint()
     let apiUrl = ""
     let queryData = {}
@@ -137,13 +137,14 @@ export default withRouter(function EditList(props) {
       }).catch(err => {
         message.error('获取页面配置信息失败 == ', err)
       }).finally(_=>{
-        // setLoading(false)
+        setLoading(false)
         // getListData()
       })
   }
 
   // 增加数据
   function addMessage() {
+    setLoading(true)
     let theData;
     let endpoint = getEndpoint()
     const apiUrl = `${endpoint}${api}`;
@@ -186,6 +187,7 @@ export default withRouter(function EditList(props) {
           message.error('添加失败')
         }
       }).finally(_=>{
+        setLoading(false)
         getListData()
       })
   }
@@ -193,6 +195,7 @@ export default withRouter(function EditList(props) {
   // 删除
   function handleDelete(id) {
     message.loading("开始删除")
+    setLoading(true)
     let endpoint = getEndpoint()
     console.log(id)
     const apiUrl = `${endpoint}${api}/${id}`;
@@ -224,6 +227,7 @@ export default withRouter(function EditList(props) {
           message.error('删除失败')
         }
       }).finally(_=>{
+        setLoading(false)
         getListData()
       })
   }

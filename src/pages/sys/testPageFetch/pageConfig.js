@@ -190,7 +190,7 @@ export const fieldsConfig = [
                     { "label": "复选框", "value": "checkbox" },
                     // { "label": "map", "value": "map" },
                     { "label": "验证码", "value": "captcha" },
-                    { "label": "标签", "value": "tags" },
+                    // { "label": "标签", "value": "tags" },
                     { "label": "下载", "value": "download" },
                     { "label": "展示json格式", "value": "json" },
                     { "label": "日期", "value": "date" },

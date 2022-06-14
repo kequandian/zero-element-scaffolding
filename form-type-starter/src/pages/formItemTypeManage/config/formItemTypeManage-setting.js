@@ -27,6 +27,12 @@ module.exports = {
             "value": '文本',
             "field": "type_1"
         },
+        // {
+        //     "label": "状态转换（map）",
+        //     "type": "map",
+        //     "value": '文本',
+        //     "field": "type_1"
+        // },
         {
             "label": "图片（image）",
             "type": "image",
@@ -69,28 +75,42 @@ module.exports = {
             "label": "输入框（input）",
             "type": "input",
             "field": "type_6",
-            "options":{
-                "width": "200"
+            "props":{
+                "style":{
+                    "width": "300px",
+                }
             }
         },
         // {
         //     "label": "输入框(tips)",
         //     "type": "inputType",
         //     "field": "type_6",
-        //     "toptips": "输入框(tips)",
-        //     "options":{
-        //         "width": "200"
+        //     "toptips": "输入提示",
+        //     "props":{
+        //         "style":{
+        //             "width": "300px",
+        //         }
         //     }
         // },
         {
             "label": "密码输入框（password）",
             "type": "password",
-            "field": "type_7"
+            "field": "type_7",
+            "props":{
+                "style":{
+                    "width": "300px",
+                }
+            }
         },
         {
             "label": "数字输入框（number）",
             "type": "number",
-            "field": "type_8"
+            "field": "type_8",
+            "props":{
+                "style":{
+                    "width": "300px",
+                }
+            }
         },
         {
             "label": "单选框（radio）",
@@ -120,6 +140,11 @@ module.exports = {
             "label": "下拉框（select）",
             "field": "type_10",
             "type": "select",
+            "props":{
+                "style":{
+                    "width": "300px",
+                }
+            },
             "options": [
                 {
                     "label": "选项一",
@@ -160,13 +185,18 @@ module.exports = {
             "field": "type_13",
             "options": {
                 "API": ""
+            },
+            "props":{
+                "style":{
+                    "width": "300px",
+                }
             }
         },
-        {
-            "label": "标签（tags）",
-            "type": "tags",
-            "field": "type_13"
-        },
+        // {
+        //     "label": "标签（tags）",
+        //     "type": "tags",
+        //     "field": "type_13"
+        // },
         {
             "label": "下载（download）",
             "field": "type_14",
@@ -194,17 +224,32 @@ module.exports = {
         {
             "label": "日期（date）",
             "field": "type_16",
-            "type": "date"
+            "type": "date",
+            "props":{
+                "style":{
+                    "width": "300px",
+                }
+            }
         },
         {
             "label": "月份（month）",
             "field": "type_17",
-            "type": "month"
+            "type": "month",
+            "props":{
+                "style":{
+                    "width": "300px",
+                }
+            }
         },
         {
             "label": "日期范围（range）",
             "field": "type_18",
-            "type": "range"
+            "type": "range",
+            "props":{
+                "style":{
+                    "width": "300px",
+                }
+            }
         },
         {
             "label": "上传（direct-upload）",
@@ -218,7 +263,12 @@ module.exports = {
         {
             "label": "时分秒范围（time-range）",
             "field": "type_20",
-            "type": "time-range"
+            "type": "time-range",
+            "props":{
+                "style":{
+                    "width": "300px",
+                }
+            }
         },
         {
             "label": "表格选择（table-select）",
@@ -314,6 +364,11 @@ module.exports = {
                 "API": "/api/u/product/products",
                 "label": "name",
                 "value": "id"
+            },
+            "props":{
+                "style":{
+                    "width": "300px",
+                }
             }
         },
         // {
@@ -329,7 +384,12 @@ module.exports = {
         {
             "label": "文本域（text-area）",
             "type": "text-area",
-            "field": "type_29"
+            "field": "type_29",
+            "props":{
+                "style":{
+                    "width": "400px",
+                }
+            }
         },
         {
             "label": "富文本（rich-text）",
@@ -356,15 +416,22 @@ module.exports = {
         {
             "label": "数字范围（number-range）",
             "field": "type_32",
-            "type": "number-range"
+            "type": "number-range",
+            "props":{
+                "style":{
+                    "width": "300px",
+                }
+            }
         },
         
         {
             "label": "省市区（pcd）",
             "type": "pcd",
             "field": "type_12",
-            "options": {
-                "API": ""
+            "props":{
+                "style":{
+                    "width": "300px",
+                }
             }
         },
         // {

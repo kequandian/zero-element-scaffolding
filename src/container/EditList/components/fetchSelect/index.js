@@ -27,7 +27,7 @@ export default function FetchSelect(props) {
     } = options;
 
 
-    const [defaultValue, setDefaultValue] = useState('')
+    const [defaultValue, setDefaultValue] = useState(undefined)
     const [loading, setLoading] = useState(undefined);
     const [listData, setListData] = useState('');
 
@@ -82,16 +82,22 @@ export default function FetchSelect(props) {
 
     //回调数据
     function handleChange(data) {
-        setDefaultValue(data)
+        let nData = []
+        if(data.length > 0) {
+            nData = data[data.length-1]
+            setDefaultValue(nData)
+        }else{
+            setDefaultValue(nData)
+        }
         if(cb){
             const value = {}
-            value[field] = data
+            value[field] = nData ? nData: ''
             cb(value)
         }
     }
 
     return <Spin spinning={loading}>
-        <Select placeholder='请选择' style={{ width: '100%' }} value={defaultValue} onChange={handleChange}>
+        <Select mode='tags' maxTagCount={1} placeholder='请选择' style={{ width: '100%' }} value={defaultValue} onChange={handleChange}>
             
             {
                 listData && listData.map((item, index) => (
