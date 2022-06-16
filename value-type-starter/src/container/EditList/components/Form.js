@@ -1,5 +1,5 @@
 import React, { useState, useRef, useImperativeHandle, forwardRef, useEffect } from "react"
-import { Input, Select, Switch, InputNumber, Checkbox, Collapse, Button, Tabs, message, Modal, Popover } from 'antd'
+import { Input, Select, Switch, InputNumber, Checkbox, Collapse, Button, Tabs, message, Modal } from 'antd'
 import { useDidMount, useForceUpdate } from 'zero-element/lib/utils/hooks/lifeCycle'
 import promiseAjax from '@/utils/promiseAjax';
 import _, { method } from 'lodash'
@@ -10,9 +10,6 @@ import Array from './Array/index'
 import ColorSelect from "./ColorSelect";
 import FontSelect from "./FontSelect";
 import FetchSelect from "./fetchSelect";
-
-import { TipsIconSvg } from '../components/public/svg';
-
 export default forwardRef((props, ref) => {
 
   const {
@@ -62,13 +59,13 @@ export default forwardRef((props, ref) => {
       }
     })
 
-  useEffect(_ => {
-    //
-    if (formData) {
-      setData(formData)
-    }
+    useEffect(_=>{
+      //
+      if(formData){
+        setData(formData)
+      }
 
-  }, [formData])
+    },[formData])
 
 
   function getFormData(field) {
@@ -199,8 +196,8 @@ export default forwardRef((props, ref) => {
     )
       : (
         <Select
-          defaultValue={data && data[item.field] ? data[item.field] : getSelectData(item.field, item.defaultValue)}
-          value={data && data[item.field] ? data[item.field] : getSelectData(item.field, item.defaultValue)}
+          defaultValue={ data && data[item.field] ? data[item.field] : getSelectData(item.field, item.defaultValue)}
+          value={ data && data[item.field] ? data[item.field] : getSelectData(item.field, item.defaultValue)}
           style={{ width: "100%" }}
           options={item.options}
           placeholder='请选择'
@@ -210,14 +207,14 @@ export default forwardRef((props, ref) => {
       )}
     </>
   }
-
+  
   //通过API获取数据下拉框
-  function fetchSelectFunc(item, i) {
+  function fetchSelectFunc (item, i) {
     // console.log(' item === ', item)
     const callback = (field, v) => {
       defaultChange(field, v[field])
     }
-    return <FetchSelect cb={(v) => callback(item.field, v)} formData={formData} {...item} key={`${i}_fetchselect`} />
+    return <FetchSelect cb={(v) => callback(item.field, v)} formData={formData} {...item} key={`${i}_fetchselect`}/>
   }
 
   //json项
@@ -241,7 +238,7 @@ export default forwardRef((props, ref) => {
   const inputEndpoint = (item, i) => {
 
     return <Input
-      defaultValue={data && data[item.field] ? data[item.field] : getSelectData(item.field, item.defaultValue)}
+      defaultValue={ data && data[item.field] ? data[item.field] : getSelectData(item.field, item.defaultValue)}
       placeholder={item.placeholder || "请输入" + item.label}
       addonAfter={item.addonAfter}
       onChange={(e) => ChangeValue(item.field, e)}
@@ -294,7 +291,7 @@ export default forwardRef((props, ref) => {
     let options = {
       method: "PUT"
     }
-
+    
     promiseAjax(`${url}/${defaultData.id}`, newdata, options)
       .then(resp => {
         if (resp.code === 200) {
@@ -330,7 +327,7 @@ export default forwardRef((props, ref) => {
   function cancel() {
     setModalVisable(false)
   }
-
+  
   //删除
   function deleteModal(url, id) {
     let newurl = url + "/" + id
@@ -426,46 +423,13 @@ export default forwardRef((props, ref) => {
     return <><Array onChange={(e) => Thetest(e)}></Array></>
   }
 
-  //跳转至表单实例页面
-  function gotoComponentsExample(pathUrl) {
-    let path = `${endpoint || window.location.origin}${pathUrl}`
-    const w = window.open('about:blank');
-    w.location.href = path
-  }
-
-  //表单项提示
-  function handleFormItemTips (data){
-    if(data){
-      if(data.type === 'link'){
-        return <a href="#" onClick={() => gotoComponentsExample(data.path)} title={data.tipsValue} ><TipsIconSvg color={"#1890ff"} /></a>
-      }
-      if(data.type === 'one-mary'){
-        // const jsonTemp = '[\n {\n "label": "标题",\n "field": "字段" \n} \n]'
-        // const content = <div style={{ whiteSpace: 'pre-wrap'}} >{jsonTemp}</div>
-        // return  (
-        //   <Popover placement="right" title={'模板'} content={content} trigger="click">
-        //     <a href="#" title={data.tipsValue} ><TipsIconSvg color={"#1890ff"} /></a>
-        //   </Popover>
-        // )
-        function gotoOneMaryDocx() {
-          let path = `https://github.com/kequandian/zero-element-admin/blob/main/resource/docs/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E4%B8%80%E5%AF%B9%E5%A4%9A%E6%98%BE%E7%A4%BA.md`
-          const w = window.open('about:blank');
-          w.location.href = path
-        }
-        return <a href="#" onClick={() => gotoOneMaryDocx()} title={data.tipsValue} ><TipsIconSvg color={"#1890ff"} /></a>
-      }
-    }
-    return <></>
-  }
-
-  //渲染表单项
   const AllFormType = (item, i) => {
 
     // expect 为是否显示组件判断
-    const { expect = {} } = item;
-    if (JSON.stringify(expect) != '{}') {
+    const { expect={} } = item;
+    if(JSON.stringify(expect) != '{}'){
       const { field, value } = expect;
-      if (data[field] != value) {
+      if(data[field] != value){
         return
       }
     }
@@ -474,7 +438,7 @@ export default forwardRef((props, ref) => {
       <div className="dynamic_column">
         {
           item.label ? (
-            <div>{item.label}： {handleFormItemTips(item.toolTips)}</div>
+            <div>{item.label}：</div>
           ) : null
         }
         {
@@ -483,24 +447,24 @@ export default forwardRef((props, ref) => {
               item.type === "switch" ? switchEndpoint(item, i) :
                 item.type === "number" ? numberEndpoint(item, i) :
                   item.type === "Modal" ? ModalEndpoint(item, i) :
-                    item.type === "fetchSelect" ? fetchSelectFunc(item, i) :
-                      item.type === "ActionModal" ? ActionModalEndpoint(item, i) :
-                        item.type === "Array" ? ArrayEndpoint(item, i) :
-                          item.type === "color" ? (
-                            <ColorSelect
-                              options={item.options}
-                              value={getDefaultData(item.field, item.defaultValue)}
-                              onChange={(e) => ChangeValue(item.field, e)} />
-                          ) : (
-                            item.type === "text" ? (
-                              <FontSelect
-                                options={item.options}
-                                value={getDefaultData(item.field, item.defaultValue)}
-                                onChange={(e) => ChangeValue(item.field, e)} />
-                            ) : (inputEndpoint(item, i))
-                          )
-        }
-      </div>
+                  item.type === "fetchSelect" ? fetchSelectFunc(item, i) :
+                    item.type === "ActionModal" ? ActionModalEndpoint(item, i) :
+                      item.type === "Array" ? ArrayEndpoint(item, i) :
+                        item.type === "color" ? (
+                          <ColorSelect
+                            options={item.options}
+                            value={getDefaultData(item.field, item.defaultValue)}
+                            onChange={(e) => ChangeValue(item.field, e)} />
+                        ) : (
+                          item.type === "text" ? (
+                            <FontSelect
+                            options={item.options}
+                            value={getDefaultData(item.field, item.defaultValue)}
+                            onChange={(e) => ChangeValue(item.field, e)} />
+                          ) : ( inputEndpoint(item, i) )
+                        )
+          }
+        </div>
     )
   }
 
@@ -509,7 +473,7 @@ export default forwardRef((props, ref) => {
     {
       config && config.map((item, i) =>
         item.children ? <Collapse>
-          <Panel header={item.header} >
+          <Panel header={item.header}>
             {item.children.map((child, a) => AllFormType(child, a))}
           </Panel>
         </Collapse> : AllFormType(item, i))

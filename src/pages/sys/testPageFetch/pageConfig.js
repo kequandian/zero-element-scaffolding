@@ -45,21 +45,26 @@ export const fieldsConfig = [
             {
                 "label": "列表项组件类型",
                 "field": "listColumnType",
+                "toolTips": {
+                    "type": "link",
+                    "path": "/valueType-ui.html",
+                    "tipsValue":  "查看组件效果页面"
+                },
                 "type": "select",
                 "options": [
-                    { "label": "编号", "value": "index" },
+                    { "label": "编号(索引)", "value": "index" },
                     { "label": "视频", "value": "video" },
                     { "label": "文本", "value": "plain" },
-                    // { "label": "join", "value": "join" },
+                    { "label": "文本数组", "value": "join" },
                     // { "label": "map", "value": "map" },
                     { "label": "图片", "value": "image" },
                     // { "label": "thumb", "value": "thumb" },
-                    { "label": "标签", "value": "tag" },
+                    { "label": "标签(背景)", "value": "tag" },
                     // { "label": "dot", "value": "dot" },
                     // { "label": "currency", "value": "currency" },
                     // { "label": "percentage", "value": "percentage" },
                     // { "label": "url", "value": "url" },
-                    // { "label": "download", "value": "download" },
+                    // { "label": "下载按钮", "value": "download" },
                     // { "label": "ellipsis", "value": "ellipsis" },
                     // { "label": "complex", "value": "complex" },
                     // { "label": "count-down", "value": "count-down" },
@@ -67,6 +72,7 @@ export const fieldsConfig = [
                     // { "label": "input-text", "value": "input-text" },
                     // { "label": "input-select", "value": "input-select" },
                     // { "label": "input-select-fetch", "value": "input-select-fetch" }
+                    { "label": "显示已过去时间", "value": "time-convert" }
                 ], "defaultValue": "plain"
             },
             {
@@ -168,6 +174,7 @@ export const fieldsConfig = [
                 "label": "表单输入组件",
                 "toolTips": {
                     "type": "link",
+                    "path": "/formItemType-ui.html",
                     "tipsValue":  "查看组件效果页面"
                 },
                 "field": "formInputType", "type": "select",
