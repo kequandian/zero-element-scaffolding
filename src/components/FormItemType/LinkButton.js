@@ -21,7 +21,10 @@ export default (props) => {
     ...rest
   } = props;
 
-  const { title, linkUrl, routePath, query={ id:'id'} } = options;
+  console.log('defaultValue = ', defaultValue)
+  console.log('value = ', value)
+
+  const { title, linkUrl = value, routePath, query={ id:'id'} } = options;
 
   const handleRouteAction = () => {
     let path = ''
@@ -39,7 +42,7 @@ export default (props) => {
   } else if(routePath){
     return <a href='#' onClick={handleRouteAction}>{value}</a>
   } else {
-    return "为设置linkUrl 或 routePath"
+    return "未设置linkUrl 或 routePath"
   }
 
 }

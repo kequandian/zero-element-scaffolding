@@ -18,6 +18,20 @@ export default {
               { label: '下架', value: 'OFFSELL' }
             ]
           },
+          {
+            label: "供应商",
+            type: "select-fetch",
+            props: {
+              placeholder: "供应商查询"
+            },
+            rules: [],
+            options: {
+              API: "/api/crud/supplier/suppliers",
+              label: "name",
+              value: "id"
+            },
+            field: "supplierId"
+          }
 
         ]
       }

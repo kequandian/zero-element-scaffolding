@@ -2,7 +2,8 @@
   "pageName": {
     "table": "供应商管理",
     "new": "添加",
-    "edit": "编辑"
+    "edit": "编辑",
+    "view": "详情"
   },
   "listAPI": "/api/crud/supplier/suppliers",
   "createAPI": "/api/crud/supplier/suppliers",
@@ -88,6 +89,28 @@
                   },
                   "type": "number",
                   "field": "phone"
+                },
+                {
+                  "label": "VR链接",
+                  "rules": [],
+                  "props": {
+                    "placeholder": "请输入",
+                    "style":{
+                      "width": "250px"
+                    }
+                  },
+                  "type": "input",
+                  "field": "link"
+                },
+                { 
+                  "field": "snapshot", 
+                  "label": "VR图片", 
+                  "type": "upload-image",
+                  "options": {
+                    "max": 1,
+                    "type": "string",
+                    "hasKey": false
+                  }
                 },
                 {
                   "label": "备注",
@@ -183,6 +206,29 @@
                   "type": "number",
                   "field": "phone"
                 },
+                
+                {
+                  "label": "VR链接",
+                  "rules": [],
+                  "props": {
+                    "placeholder": "请输入",
+                    "style":{
+                      "width": "250px"
+                    }
+                  },
+                  "type": "input",
+                  "field": "link"
+                },
+                { 
+                  "field": "snapshot", 
+                  "label": "VR图片", 
+                  "type": "upload-image",
+                  "options": {
+                    "max": 1,
+                    "type": "string",
+                    "hasKey": false
+                  }
+                },
                 {
                   "label": "备注",
                   "rules": [],
@@ -232,7 +278,10 @@
       "field": "search",
       "type": "search",
       "props": {
-        "placeholder": "请输入账号、名称、手机号"
+        "placeholder": "请输入账号、名称、手机号",
+        "style":{
+          "width": "250px"
+        }
       }
     }
   ],
@@ -250,32 +299,52 @@
       "field": "phone"
     },
     {
+      "label": "VR链接",
+      "field": "link"
+    },
+    {
+      "label": "VR图片",
+      "field": "snapshot",
+      "valueType": "image"
+    },
+    {
       "label": "备注",
       "field": "note"
     }
   ],
   "viewConfig": [
-    {
-      "title": "详情",
-      "type": "plain",
-      "fields": [
-          {
-            "label": "账号",
-            "field": "account"
-          },
-          {
-            "label": "名称",
-            "field": "name"
-          },
-          {
-            "label": "手机号",
-            "field": "phone"
-          },
-          {
-            "label": "备注",
-            "field": "note"
-          }
-      ]
-    }
+      {
+        "label": "账号",
+        "field": "account",
+        "type": "plain"
+      },
+      {
+        "label": "名称",
+        "field": "name",
+        "type": "plain"
+      },
+      {
+        "label": "手机号",
+        "field": "phone",
+        "type": "plain"
+      },
+      {
+        "label": "VR链接",
+        "field": "link",
+        "type": "LinkButton",
+        "options": {
+            "title": "点击查看"
+        }
+      },
+      {
+        "label": "VR图片",
+        "field": "snapshot",
+        "type": "image"
+      },
+      {
+        "label": "备注",
+        "field": "note",
+        "type": "plain"
+      }
   ]
 }
