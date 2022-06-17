@@ -41,6 +41,16 @@
                 "createAPI": "/api/crud/tenants"
               },
               "fields": [
+                { 
+                  "field": "logo", 
+                  "label": "Logo", 
+                  "type": "upload-image",
+                  "options": {
+                    "max": 1,
+                    "type": "string",
+                    "hasKey": false
+                  }
+                },
                 {
                   "label": "租户名",
                   "rules": [
@@ -124,6 +134,16 @@
                 "updateAPI": "/api/crud/tenants/(id)"
               },
               "fields": [
+                { 
+                  "field": "logo", 
+                  "label": "Logo", 
+                  "type": "upload-image",
+                  "options": {
+                    "max": 1,
+                    "type": "string",
+                    "hasKey": false
+                  }
+                },
                 {
                   "label": "租户名",
                   "rules": [
@@ -234,6 +254,10 @@
   ],
   "tableFields": [
     {
+      "label": "Logo",
+      "field": "logo"
+    },
+    {
       "label": "租户名",
       "field": "name"
     },
@@ -247,6 +271,11 @@
     }
   ],
   "viewConfig": [
+    {
+      "label": "Logo",
+      "field": "logo",
+      "type": "image"
+    },
     {
       "label": "租户名",
       "field": "name",
