@@ -13,6 +13,7 @@
         { "type":"plain","label": "品牌", "field": "brandName" },
         { "type":"plain","label": "条形码", "field": "barcode" },
         { "type":"plain","label": "类别", "field": "categoryName" },
+        { "type":"plain","label": "供应商", "field": "supplierName" },
         { "type":"plain","label": "排序号", "field": "sortOrder" },
 
         {

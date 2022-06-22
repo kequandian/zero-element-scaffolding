@@ -97,6 +97,10 @@ export default {
             align: 'right'
           },
           {
+            field: 'supplierName', label: '供应商',
+            align: 'right'
+          },
+          {
             field: 'sortOrder', label: '排序号',
             align: 'right'
           },
