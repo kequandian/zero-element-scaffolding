@@ -195,29 +195,13 @@ export default {
             }
           },
           {
-            label: "产品描述",
+            field: 'layout_5', label: '', type: 'plain', value: '产品描述:',
             span: 24,
-            props: {
-              placeholder: "请输入",
-              autoSize: {
-                minRows: 5
-              },
-              style:{
-                width: 500
-              }
-            },
-            type: "text-area",
-            field: "description"
+            style: {
+              fontSize: 18,
+            }
           },
-
-          // {
-          //   field: 'layout_5', label: '', type: 'plain', value: '产品描述:',
-          //   span: 24,
-          //   style: {
-          //     fontSize: 18,
-          //   }
-          // },
-          // { field: 'description', label: '', type: 'rich-text', span: 24 },
+          { field: 'description', label: '', type: 'rich-text', span: 24 },
 
           { field: 'group_2', type: 'group', value: '分成设置', span: 24 },
           {
