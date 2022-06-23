@@ -6,7 +6,7 @@ import useBreadcrumb from '@/framework/useBreadcrumb';
 export default function Setting() {
   useBreadcrumb([
     { title: '主页', path: '/' },
-    { title: '商城配置' },
+    { title: '配置管理', path: '/setting' },
     { title: '微信用户列表' },
   ]);
   return <ZEle namespace='setting' config={config} />;
