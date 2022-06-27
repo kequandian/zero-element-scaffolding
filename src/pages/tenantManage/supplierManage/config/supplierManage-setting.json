@@ -299,10 +299,6 @@
       "field": "phone"
     },
     {
-      "label": "VR链接",
-      "field": "link"
-    },
-    {
       "label": "VR图片",
       "field": "snapshot",
       "valueType": "image"
