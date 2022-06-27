@@ -6,6 +6,7 @@ import useBreadcrumb from '@/framework/useBreadcrumb';
 export default function productView() {
     useBreadcrumb([
         { title: '主页', path: '/' },
+        { title: '产品', path: '/mallManage/items' },
         { title: '产品详情' }
       ]);
     return <ZEle namespace="product_items_view" config={config} />;

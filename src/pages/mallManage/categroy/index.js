@@ -6,7 +6,7 @@ import config from './config/Categroy';
 export default function Categroy(props) {
   useBreadcrumb([
     { title: '主页', path: '/' },
-    { title: '产品管理' },
+    { title: '商城管理', path: '/mallManage' },
     { title: '产品类别' },
   ]);
 

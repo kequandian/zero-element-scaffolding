@@ -6,7 +6,6 @@ import config from './config/Items';
 export default function Items(props) {
   useBreadcrumb([
     { title: '主页', path: '/' },
-    { title: '产品管理' },
     { title: '产品' },
   ]);
 

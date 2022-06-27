@@ -6,8 +6,7 @@ import config from './config/ItemsEdit';
 export default function ItemsEdit(props) {
   useBreadcrumb([
     { title: '主页', path: '/' },
-    { title: '产品管理' },
-    { title: '产品', path: '/product/items' },
+    { title: '产品', path: '/mallManage/items' },
     { title: '编辑产品' },
   ]);
 

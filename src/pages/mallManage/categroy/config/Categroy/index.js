@@ -29,7 +29,7 @@ export default {
             title: '添加', type: 'path',
             options: {
               "style": "primary",
-              path: '/product/categroyAdd'
+              path: '/mallManage/categroy/categroyAdd'
             }
           }
         ],
@@ -47,7 +47,7 @@ export default {
             title: '查看', type: 'path',
             options: {
               outside: true,
-              path: '/product/categroyView',
+              path: '/mallManage/categroy/categroyView',
               // permission:'apply.view',
               // location:true
               queryData: (records) => {
@@ -62,7 +62,7 @@ export default {
             title: '编辑', type: 'path',
             options: {
               outside: true,
-              path: '/product/categroyEdit',
+              path: '/mallManage/categroy/categroyEdit',
               queryData: (records) => {
                 const data = {
                   id: records.id,

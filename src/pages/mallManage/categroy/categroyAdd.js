@@ -6,8 +6,7 @@ import config from './config/CategroyAdd';
 export default function CategroyAdd(props) {
   useBreadcrumb([
     { title: '主页', path: '/' },
-    { title: '产品管理' },
-    { title: '产品类别', path: '/product/categroy' },
+    { title: '产品类别', path: '/mallManage/categroy' },
     { title: '添加产品类别' },
   ]);
 

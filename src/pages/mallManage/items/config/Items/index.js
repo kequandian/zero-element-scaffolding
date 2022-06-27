@@ -1,6 +1,6 @@
 export default {
   layout: 'Content',
-  title: '产品列表',
+  title: '商品列表',
   items: [
     {
       span: 24,
@@ -52,7 +52,7 @@ export default {
             title: '添加', type: 'path',
             options: {
               "style": "primary",
-              path: '/product/itemsAdd'
+              path: '/mallManage/items/itemsAdd'
             }
           }
         ],
@@ -65,7 +65,7 @@ export default {
             field: 'name', label: '名称',
             valueType: 'path',
             options: {
-              path: '/product/productView',
+              path: '/mallManage/items/productView',
             }
           },
           { field: 'barcode', label: '条形码' },
@@ -111,7 +111,7 @@ export default {
             title: '查看', type: 'path',
             options: {
               outside: true,
-              path: '/product/productView',
+              path: '/mallManage/items/productView',
               // permission:'apply.view',
               // location:true
               queryData: (records) => {
@@ -126,7 +126,7 @@ export default {
             title: '编辑', type: 'path',
             options: {
 
-              path: '/product/itemsEdit',
+              path: '/mallManage/items/itemsEdit',
               queryData: (records) => {
                 const data = {
                   id: records.id,

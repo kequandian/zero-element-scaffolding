@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDidMount, useWillUnmount, useForceUpdate } from 'zero-element/lib/utils/hooks/lifeCycle';
 import useBreadcrumb from '@/framework/useBreadcrumb';
-import ConfigItems from '@/pages/setting/configItems';
-import ConfigGroups from '@/pages/setting/configGroups';
+import ConfigItems from '@/pages/devops/configItems';
+import ConfigGroups from '@/pages/devops/configGroups';
 import { Tabs } from 'antd';
 import Content from '@/layouts/Content';
 
@@ -12,6 +12,7 @@ export default function () {
 
   useBreadcrumb([
     { title: '首页', path: '' },
+    { title: '运维管理', path: '/mallManage' },
     { title: '配置管理' },
   ]);
 
