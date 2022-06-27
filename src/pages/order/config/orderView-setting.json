@@ -55,7 +55,6 @@
         },
           { "type":"plain","label": "下单时间", "field": "createdDate" }, { "type":"plain","label": "支付时间", "field": "payDate" }, { "type":"plain","label": "确认时间", "field": "confirmDate" }, { "type":"plain","label": "成交时间", "field": "dealDate" }, { "type":"plain","label": "购买用户", "field": "userName" },
   
-          { "type":"plain","label": "邀请人", "field": "inviterUserName" },
           { "type":"group","field":"group_2","value": "价格信息","span":24 },
           { "type":"plain","label": "总价",
             "field": "totalPrice" },

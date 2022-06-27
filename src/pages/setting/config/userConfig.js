@@ -13,7 +13,7 @@ module.exports = {
             "field": "search",
             "label": "搜索",
             "type": "input",
-            placeholder: '昵称/编号/手机',
+            placeholder: '昵称/手机',
           },
         ],
       },
@@ -24,7 +24,7 @@ module.exports = {
       config: {
         share: 'user',
         API: {
-          listAPI: '/api/crud/user/users',
+          listAPI: '/api/crud/user/accounts',
           deleteAPI: '',
         },
         actions: [],
@@ -41,31 +41,31 @@ module.exports = {
             "field": "name",
             "label": "微信昵称"
           },
-          {
-            "field": "realName",
-            "label": "真实姓名"
-          },
+          // {
+          //   "field": "realName",
+          //   "label": "真实姓名"
+          // },
           {
             "field": "phone",
             "label": "手机号"
           },
-          {
-            "field": "uid",
-            "label": "编号",
-          },
-          {
-            "valueType": "tag",
-            "field": "status",
-            "label": "状态",
-            "theme":"status",
-            "type":"Dot", 
-            "options":{
-              "chy":{
-                "NORMAL": 'open',
-                "FORBIDDEN": 'close'
-              }
-            }  
-          },
+          // {
+          //   "field": "uid",
+          //   "label": "编号",
+          // },
+          // {
+          //   "valueType": "tag",
+          //   "field": "status",
+          //   "label": "状态",
+          //   "theme":"status",
+          //   "type":"Dot", 
+          //   "options":{
+          //     "chy":{
+          //       "NORMAL": 'open',
+          //       "FORBIDDEN": 'close'
+          //     }
+          //   }  
+          // },
           /* {
              "field": "followed",
              "label": "关注公众号",
@@ -85,10 +85,14 @@ module.exports = {
              "field": "followTime",
              "label": "关注时间",
            },*/
+          // {
+          //   "field": "invitationQrcodeUrl",
+          //   "label": "我的邀请二维码",
+          //   valueType: 'image',
+          // },
           {
-            "field": "invitationQrcodeUrl",
-            "label": "我的邀请二维码",
-            valueType: 'image',
+            field: "orgUpdateTime",
+            label: "变更社区时间"
           },
         ],
         operation: []
