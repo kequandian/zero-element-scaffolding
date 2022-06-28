@@ -255,7 +255,7 @@
       "type": "path",
       "options": {
         "outside": true,
-        "path": "/tenantManage/supplierManage/supplierManage-view"
+        "path": "/userManage/supplierManage/supplierManage-view"
       },
       "expect": {
         "permission": ""

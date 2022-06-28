@@ -4,7 +4,7 @@ import Content from '@/layouts/Content';
 import ZEle from 'zero-element';
 import useBreadcrumb from '@/framework/useBreadcrumb';
 import config from './config/settingConfig.js';
-import dConfig from '../dictionary/config/dictionaryConfig.js';
+import dConfig from './config/dictionaryConfig.js';
 
 const { TabPane } = Tabs;
 

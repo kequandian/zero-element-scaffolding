@@ -80,7 +80,7 @@ export default {
             field: 'orderNumber', label: '订单号',
             valueType: 'path',
             options: {
-              path: '/order/orderView',
+              path: '/mallManage/orderOnline/orderView',
             }
           },
           { label: '购买用户', field: 'userName' },
@@ -206,7 +206,7 @@ export default {
             title: '查看', type: 'path',
             options: {
               outside: true,
-              path: '/order/orderView',
+              path: '/mallManage/orderOnline/orderView',
               // permission:'apply.view',
               // location:true
               queryData: (records) => {

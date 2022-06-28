@@ -1,5 +1,5 @@
 import React,{useRef,useState} from 'react';
-import { MainPageConfig } from '../sys/testPageFetch/pageConfig';
+import { MainPageConfig } from './testPageFetch/pageConfig';
 import useBreadcrumb from '@/framework/useBreadcrumb';
 import FormTools from '@/container/EditList/components/Form';
 import ShowModal from '@/container/EditList/components/showModal';

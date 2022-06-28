@@ -6,8 +6,8 @@ import useBreadcrumb from '@/framework/useBreadcrumb';
 export default function Setting() {
   useBreadcrumb([
     { title: '主页', path: '/' },
-    { title: '配置管理', path: '/setting' },
+    { title: '用户管理', path: '/userManage' },
     { title: '微信用户列表' },
   ]);
-  return <ZEle namespace='setting' config={config} />;
+  return <ZEle namespace='wechat_user' config={config} />;
 }

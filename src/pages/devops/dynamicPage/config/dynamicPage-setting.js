@@ -341,7 +341,7 @@ export const setting = {
       "type": "path",
       "options": {
         "outside": true,
-        "path": "sys/testPageFetch"
+        "path": "/devops/dynamicPage/testPageFetch"
       }
     },
     {
