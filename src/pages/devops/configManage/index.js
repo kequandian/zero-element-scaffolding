@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { useDidMount, useWillUnmount, useForceUpdate } from 'zero-element/lib/utils/hooks/lifeCycle';
 import useBreadcrumb from '@/framework/useBreadcrumb';
-import ConfigItems from '@/pages/devops/configItems';
-import ConfigGroups from '@/pages/devops/configGroups';
+// import ConfigItems from '@/pages/devops/configItems';
+// import ConfigGroups from '@/pages/devops/configGroups';
+import ZEle from 'zero-element';
 import { Tabs } from 'antd';
 import Content from '@/layouts/Content';
+import itemsConfig from '@/pages/devops/configItems/config';
+import groupsConfig from '@/pages/devops/configGroups/config';
+
 
 const { TabPane } = Tabs;
 
@@ -20,6 +24,7 @@ export default function () {
 
   useDidMount(_ => {
     const currentKey = localStorage.getItem("cConfigKey"); 
+    console.log('currentKey == ', currentKey)
     if(currentKey){
       setCKey(currentKey);
     }
@@ -34,6 +39,8 @@ export default function () {
     setCKey(key);
   }
 
+  console.log('cKey == ', cKey)
+
   return (
     <Content>
       <Tabs
@@ -42,10 +49,12 @@ export default function () {
         activeKey={cKey}
       >
         <TabPane tab="配置项" key="configItems">
-          <ConfigItems />
+          {/* <ConfigItems /> */}
+          <ZEle namespace="configItems" config={itemsConfig} />
         </TabPane>
         <TabPane tab="配置分组" key="configgroups">
-          <ConfigGroups />
+          {/* <ConfigGroups /> */}
+          <ZEle namespace="configItems" config={groupsConfig} />
         </TabPane>
       </Tabs>
     </Content>
