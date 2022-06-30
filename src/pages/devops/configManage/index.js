@@ -24,7 +24,6 @@ export default function () {
 
   useDidMount(_ => {
     const currentKey = localStorage.getItem("cConfigKey"); 
-    console.log('currentKey == ', currentKey)
     if(currentKey){
       setCKey(currentKey);
     }
@@ -39,7 +38,6 @@ export default function () {
     setCKey(key);
   }
 
-  console.log('cKey == ', cKey)
 
   return (
     <Content>
