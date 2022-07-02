@@ -126,15 +126,27 @@ export default (props) => {
 
     </Menu>
   );
-
-  const messageMenu = (
+  const processMenu = (
     <Menu>
-      <Menu.Item key="1" onClick={_ => openToDoListPage(true)}>
-        待办事项
+    <Menu.Item key="More1">
+      <a href="https://r.zbsoft.top/sport">前往流程设计</a>
       </Menu.Item>
     </Menu>
   )
-
+  const formMenu = (
+    <Menu>
+    <Menu.Item key="More1">
+      <a href="/formItemTypeManage">表单组件</a>
+      </Menu.Item>
+    </Menu>
+  )
+  const systemMenu = (
+    <Menu>
+    <Menu.Item key="More1">
+      <a>系统设置</a>
+      </Menu.Item>
+    </Menu>
+  )
   const MoreMenu = (
     <Menu>
       <Menu.Item key="More1">
@@ -142,14 +154,20 @@ export default (props) => {
       </Menu.Item>
     </Menu>
   )
-
-const formMenu = (
-  <Menu>
-  <Menu.Item key="More1">
-    <a href="/formItemTypeManage">表单组件</a>
-    </Menu.Item>
-  </Menu>
-)
+  const documentMenu = (
+    <Menu>
+    <Menu.Item key="More1">
+      <a>文档</a>
+      </Menu.Item>
+    </Menu>
+  )
+  const messageMenu = (
+    <Menu>
+      <Menu.Item key="1" onClick={_ => openToDoListPage(true)}>
+        待办事项
+      </Menu.Item>
+    </Menu>
+  )
 
   const userMenu = (
     <Menu>
@@ -163,45 +181,69 @@ const formMenu = (
   // 右上角按钮
   const RightButton = (
     <>
-        <Tooltip title="前往流程设计" placement="bottom">
+      {/* 前往流程设计 */}
+        <Dropdown
+          placement="bottomLeft"
+          overlay={processMenu}
+          arrow
+        >
           <a className="Svg" href="https://r.zbsoft.top/sport" style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}><WorkflowSvg width="30" height="30"/></a>
-        </Tooltip>
-        <Tooltip title="表单组件展示" placement="bottom">
-          <Dropdown
-          trigger={['click']}
+        </Dropdown>
+
+      {/* 表单组件展示 */}
+        <Dropdown
           placement="bottomLeft"
           overlay={formMenu}
+          arrow
         >
-          <a className="Svg" style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}><TableSvg width="30" height="30"/></a>
+          <a className="Svg" href='/formItemTypeManage' style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}><TableSvg width="30" height="30"/></a>
         </Dropdown>
-        </Tooltip>
-      <Tooltip title="系统设置" placement="bottom">
-        <a className="Svg" onClick={ConfigClick} style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}><ConfigSvg width="30" height="30"/></a>
-      </Tooltip>
-      <Tooltip title="设计" placement="bottom">
-      <Dropdown
-        trigger={['click']}
-        placement="bottomLeft"
-        overlay={MoreMenu}
-      >
-      <a className="Svg" href="/Tag/TagView" style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}><MoreSvg width="30" height="30"/></a>
-        {/* <a href="Tag/TagView" className="RightNav more"></a> */}
-      </Dropdown>
-      </Tooltip>
+
+      {/* 系统设置 */}
+        <Dropdown
+          placement="bottomLeft"
+          overlay={systemMenu}
+          arrow
+        >
+          <a className="Svg" onClick={ConfigClick} style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}>
+          <ConfigSvg width="30" height="30"/></a>
+        </Dropdown>
+
+      {/* 设计 */}
+        <Dropdown
+          placement="bottomLeft"
+          overlay={MoreMenu}
+          arrow
+        >
+        <a className="Svg" href="/Tag/TagView" style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}><MoreSvg width="30" height="30"/></a>
+          {/* <a href="Tag/TagView" className="RightNav more"></a> */}
+        </Dropdown>
 
       {/* <a href="http://docs.smallsaas.cn" className="RightNav docs"></a> */}
-      <Tooltip title="文档" placement="bottom">
-        <a className="Svg" href="http://docs.smallsaas.cn" style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}><DocSvg width="30" height="30"/></a>
-      </Tooltip>
-      <Tooltip title="待办" placement="bottom">
+      {/* 文档 */}
         <Dropdown
-          trigger={['click']}
           placement="bottomLeft"
-          overlay={messageMenu}
-        >
-          <BellOutlined style={{ fontSize: 25, paddingRight: 20 }} />
+          overlay={documentMenu}
+          arrow
+          >
+          <a className="Svg" href="http://docs.smallsaas.cn" style={{height: "60px",lineHeight: "80px",width:"32px",marginRight:"10px"}}>
+            <DocSvg width="30" height="30"/>
+          </a>
         </Dropdown>
-      </Tooltip>
+
+      {/* 待办事项*/}
+        <Dropdown 
+            placement="bottomLeft"
+            overlay={messageMenu}
+            arrow
+          >
+            <a className="Svg" style={{color:'#fff',height: "60px",width:"32px",marginRight:"10px",marginLeft:'-2px'}}>
+            <BellOutlined style={{ fontSize: 25, paddingRight: 20 ,paddingLeft:0}} />
+            </a>
+        </Dropdown>
+        
+     
+
     </>
   )
 
