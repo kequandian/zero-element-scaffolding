@@ -6,7 +6,8 @@ import { Render } from 'zero-element/lib/config/layout';
 
 import Flex from '@/../zero-antd-dep/layout/Flex';
 
-import Tree from 'zero-element-antd/lib/components/Tree';
+// import Tree from 'zero-element-antd/lib/components/Tree';
+import Tree from './Tree';
 
 import DictionaryItem from './DictionaryItem';
 import Modal from './Modal';
