@@ -57,7 +57,7 @@ export default {
           }
         ],
         fields: [
-          // { field: 'skuCode', label: '编号' },
+          { field: 'skuCode', label: '编号' },
           { field: 'cover', label: '封面', valueType: 'image' },
           { field: 'categoryName', label: '类别' },
           { field: 'brandName', label: '品牌' },
