@@ -9,7 +9,7 @@ module.exports = {
       config: {
         API: {
           listAPI: '/api/crud/configmanagement/configs/group/',
-          getAPI: '/api/crud/configmanagement/configs/group/<id>/<name>',
+          getAPI: '/api/crud/configmanagement/configs/group/<id>/<name>/1',
           updateAPI: '/api/crud/configmanagement/configs/group/<id>',
         },
       },
