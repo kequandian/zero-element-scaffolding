@@ -7,7 +7,7 @@ export default function ShopConfig() {
   useBreadcrumb([
     { title: '主页', path: '/' },
     { title: '商城管理', path: '/mallManage' },
-    { title: '小匠商城配置' },
+    { title: '匠链配置' },
   ]);
-  return <ZEle namespace='shopConfigXiaoJiang' config={config} />;
+  return <ZEle namespace='shopConfigJianglian' config={config} />;
 }
