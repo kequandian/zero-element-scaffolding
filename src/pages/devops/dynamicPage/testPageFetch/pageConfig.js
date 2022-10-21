@@ -562,13 +562,13 @@ export const ActionsConfig = [
                     { "label": "export", "value": "export" }
                 ]
             },
-            {
-                "label": "请求API", "field": "requestApi", "type": "select", "options": [
-                    { "label": "getApi", "value": "getApi" },
-                    { "label": "updateApi", "value": "updateApi" },
-                    { "label": "createApi", "value": "createApi" }
-                ]
-            },
+            // {
+            //     "label": "请求API", "field": "requestApi", "type": "select", "options": [
+            //         { "label": "getApi", "value": "getApi" },
+            //         { "label": "updateApi", "value": "updateApi" },
+            //         { "label": "createApi", "value": "createApi" }
+            //     ]
+            // },
             { "label": "请求结果刷新API", "field": "requestRefreshApi" },
             {
                 "label": "请求方法", "field": "requestMethod", "type": "select", "options": [
@@ -614,25 +614,25 @@ export const OperationsConfig = [
             { "label": "是否显示在列表中", "field": "outside", "type": "switch" },
             { "label": "过滤字段", "field": "expectField" },
             { "label": "过滤值", "field": "expectValue" },
-            {
-                "label": "请求API", "field": "requestApi", "type": "select", "options": [
-                    { "label": "getApi", "value": "getApi" },
-                    { "label": "updateApi", "value": "updateApi" },
-                    { "label": "createApi", "value": "createApi" }
-                ], 
-                // "expect": {
-                //     "field": "type",
-                //     "value": "request"
-                // }
-            },
+            // {
+            //     "label": "请求API", "field": "requestApi", "type": "select", "options": [
+            //         { "label": "getApi", "value": "getApi" },
+            //         { "label": "updateApi", "value": "updateApi" },
+            //         { "label": "createApi", "value": "createApi" }
+            //     ], 
+            //     // "expect": {
+            //     //     "field": "type",
+            //     //     "value": "request"
+            //     // }
+            // },
             { "label": "请求结果API", "field": "requestRefreshApi" },
             {
                 "label": "请求方法", "field": "requestMethod", "type": "select", "options": [
-                    { "label": "GET", "value": "GET" },
-                    { "label": "POST", "value": "POST" },
-                    { "label": "UPDATE", "value": "UPDATE" },
-                    { "label": "DELETE", "value": "DELETE" },
-                    { "label": "DOWNLOAD", "value": "DOWNLOAD" }
+                    { "label": "GET", "value": "get" },
+                    { "label": "POST", "value": "post" },
+                    { "label": "UPDATE", "value": "update" },
+                    { "label": "DELETE", "value": "delete" },
+                    { "label": "DOWNLOAD", "value": "download" }
                 ]
             },
             { "label": "模态框标题", "field": "modalTitle" },
