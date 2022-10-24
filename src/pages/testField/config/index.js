@@ -1,4 +1,4 @@
-const setting = require('./testField-setting.json');
+const setting = require('./settings.json');
 
 module.exports = {
   layout: setting.layout.table,
