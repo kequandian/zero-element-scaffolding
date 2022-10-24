@@ -9,11 +9,13 @@ export default function () {
   //   history.push(win.ZEle.indexPage);
   // }
 
-  if (getToken()) {
-    history.push('/home');
-  } else {
-    history.push('/login');
-  }
+  // if (getToken()) {
+  //   history.push('/profile');
+  // } else {
+  //   history.push('/profile');
+  // }
+
+  history.push('/profile');
 
   return (
     <div>

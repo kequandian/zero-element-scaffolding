@@ -20,11 +20,6 @@ import { set as VTSet } from 'zero-element/lib/config/valueType';
 
 // import onPath from '@/../zero-antd-dep/listAction/onPath';
 
-import path from '@/actionItemType/path';
-import tabs from '@/actionItemType/tabs';
-
-import vPath from '@/valueType/path';
-
 import { message } from 'antd';
 
 // import Content from '@/../zero-antd-dep/layout/Content';
@@ -34,52 +29,7 @@ import './rewrite.less';
 //自定义组件--未使用
 import Setting from '@/container/Setting';
 import EditList from '@/container/EditList/index';
-import FieldListAdd from '@/pages/workFlowManageFR/activitiesFR/components/FieldListAdd';
-import FieldModalCheckbox from '@/pages/workFlowManageFR/activitiesFR/components/FieldModalCheckbox';
-import TreeSelectFetch from '@/components/TreeSelectFetch';
-//自定义组件--已使用
-import CSet_CustomForm from '@/components/CustomForm';
-import CSet_CustomFormFR from '@/components/CustomFormFR';
-import CSet_DataManageFormAdd from '@/pages/sys/activitiesCustom/config/dataManage/components/Form';
-import CSet_DataServiceFormAdd from '@/pages/_dataService/config/dataManage/components/Form';
-
-import CSet_DataReportTreeList from '@/pages/sys/dataReport/components/DataReportTreeList';
-// import CSet_DataTable from '@/pages/userAudit/table/components/DataReportTreeList';
-import VTSet_InputSwitch from '@/components/ValueType/InputSwitch';
-import FITSet_group_title from '@/components/FormItemType/Group';
-import FITSet_dynamic_radio from '@/components/FormItemType/DynamicRadio';
-import FITSet_local_radio from '@/components/FormItemType/LocalRadio';
-import FITSet_modal_radio from '@/components/FormItemType/ModalRadio';
-import FITSet_Perm from '@/formItemType/Perm';
-
-
-import FITSet_UploadImageCard from '@/formItemType/UploadImageCard';
-import FITSet_Agree_Agreement from '@/formItemType/AgreeAgreement'
-
 import Dictionary from '@/container/Dictionary';
-import FITSet_upload_file_single from '@/components/FormItemType/UploadFileSingle';
-import FITSet_download_file from '@/components/FormItemType/DownloadFile';
-import FITSet_normal_download_file from '@/components/FormItemType/NormalDownloadFile';
-import CSet_activity_fields_form from '@/components/ActivityFieldsForm';
-import CSet_print_config_form from '@/pages/workFlowManageFR/activitiesFR/components/PrintConfigForm';
-import FITSet_field_table from '@/pages/workFlowManageFR/activitiesFR/components/FieldTable';
-import CSet_load_html_page from '@/components/LoadHtmlPage';
-import AITSet_export_file from '@/actionItemType/ExportFile';
-import FITSet_input_box from '@/components/FormItemType/InputBox';
-import FITSet_link_button from '@/components/FormItemType/LinkButton';
-import VTSet_TimeConvert from '@/components/ValueType/TimeConvert';
-import FITSet_express from '@/components/FormItemType/Express';
-
-//动态页面组件
-import AITSet_FromModal from '@/actionItemType/FromModal';
-import CSet_DynamicPageForm from '@/components/DynamicPageForm';
-import CSet_DynamicPageShowConfig from '@/components/DynamicPageShowConfig';
-import AITSet_DownloadPage from '@/listAction/onDownloadPage'
-
-
-//Test
-import CSet_new_tree_list from '@/components/TList';
-
 import CSet_ErrorLayout from '@/components/Container/ErrorLayout';
 
 
@@ -155,63 +105,24 @@ LayoutSet({
 });
 
 CSet({
-  'custom_form': CSet_CustomForm,
   'Setting': Setting,
   'EditList':EditList,
-  'custom_form_fr': CSet_CustomFormFR,
   'Dictionary': Dictionary,
-  'data_manage_form_add' : CSet_DataManageFormAdd,
-  "data_service_add":CSet_DataServiceFormAdd,
-  'activity_fields_form' : CSet_activity_fields_form,
-  'print_config_form': CSet_print_config_form,
-  'data_report_tree_list': CSet_DataReportTreeList,
-  // 'data_table':CSet_DataTable,
-  'LoadHtmlPage': CSet_load_html_page,
-  'NewTreeList': CSet_new_tree_list,
   'ErrorLayout': CSet_ErrorLayout,
-  'DynamicPageForm': CSet_DynamicPageForm,
-  'DynamicPageShowConfig': CSet_DynamicPageShowConfig
 });
 
 LASet({
-  // 'onPath': onPath,
-  'onFromModal': AITSet_FromModal,
-  'onDownloadPage': AITSet_DownloadPage
 });
 
 
 //表单组件
 FITSet({
-  'upload-image-card':FITSet_UploadImageCard,
-  'agree-agreement':FITSet_Agree_Agreement,
-  'perm': FITSet_Perm,
-  'FieldListAdd': FieldListAdd,
-  'FieldModalCheckbox': FieldModalCheckbox,
-  'tree-select-fetch': TreeSelectFetch,
-  'group-title' : FITSet_group_title,
-  'dynamic_radio' : FITSet_dynamic_radio,
-  'local_radio' : FITSet_local_radio,
-  'local_modal_radio': FITSet_modal_radio,
-  'upload_file_single': FITSet_upload_file_single,
-  'field_table': FITSet_field_table,
-  'download_file_btn': FITSet_download_file,
-  'normal_download_file': FITSet_normal_download_file,
-  'inputBox': FITSet_input_box,
-  'LinkButton': FITSet_link_button,
-  "express":FITSet_express
 });
 
 //
 AITSet({
-  path,
-  tabs,
-  'exportFile': AITSet_export_file,
-  'fromModal': AITSet_FromModal,
 });
 
 //列表 & 详情
 VTSet({
-  'path': vPath,
-  'input-switch' : VTSet_InputSwitch,
-  'time-convert': VTSet_TimeConvert
 });

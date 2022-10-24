@@ -1,5 +1,4 @@
 import React from 'react';
-import useBreadcrumb from '@/framework/useBreadcrumb';
 import ZEle from 'zero-element';
 
 const config = {
@@ -72,11 +71,5 @@ const config = {
 };
 
 export default function (props) {
-  useBreadcrumb(props, [
-    { title: '首页', path: '/' },
-    { title: '账号安全' },
-  ]);
-
   return <ZEle namespace='security_password' config={config} />
-
 }
