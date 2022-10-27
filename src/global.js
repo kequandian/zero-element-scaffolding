@@ -22,8 +22,6 @@ import { set as VTSet } from 'zero-element/lib/config/valueType';
 
 import { message } from 'antd';
 
-// import Content from '@/../zero-antd-dep/layout/Content';
-
 import './rewrite.less';
 
 //配置 
