@@ -111,7 +111,6 @@ import VTSet_inputNumber from '@/../zero-antd-dep/valueType/inputNumber';
 import VTSet_inputText from '@/../zero-antd-dep/valueType/inputText';
 import VTSet_inputSelect from '@/../zero-antd-dep/valueType/inputSelect';
 import VTSet_inputSelectFetch from '@/../zero-antd-dep/valueType/inputSelectFetch';
-import VTSet_timeConvert from '@/../zero-antd-dep/valueType/timeConvert';
 
 LayoutSet({
 'Empty': LayoutSet_Empty,
@@ -239,6 +238,5 @@ VTSet({
 'input-text': VTSet_inputText,
 'input-select': VTSet_inputSelect,
 'input-select-fetch': VTSet_inputSelectFetch,
-'time-convert': VTSet_timeConvert,
 
 });
