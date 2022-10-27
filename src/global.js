@@ -26,13 +26,6 @@ import { message } from 'antd';
 
 import './rewrite.less';
 
-//自定义组件--未使用
-import Setting from '@/container/Setting';
-import EditList from '@/container/EditList/index';
-import Dictionary from '@/container/Dictionary';
-import CSet_ErrorLayout from '@/components/Container/ErrorLayout';
-
-
 //配置 
 import { Config } from './devConfig'
 const globalModel = getModel('global');
@@ -105,15 +98,10 @@ LayoutSet({
 });
 
 CSet({
-  'Setting': Setting,
-  'EditList':EditList,
-  'Dictionary': Dictionary,
-  'ErrorLayout': CSet_ErrorLayout,
 });
 
 LASet({
 });
-
 
 //表单组件
 FITSet({
