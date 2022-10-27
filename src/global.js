@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-import model from '@/models';
 import zeroAntd from './zero-antd-dep';
 
 import { history } from 'umi';
