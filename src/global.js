@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-import model from '@/models';
 import zeroAntd from './zero-antd-dep';
 
 import { history } from 'umi';
@@ -22,16 +21,7 @@ import { set as VTSet } from 'zero-element/lib/config/valueType';
 
 import { message } from 'antd';
 
-// import Content from '@/../zero-antd-dep/layout/Content';
-
 import './rewrite.less';
-
-//自定义组件--未使用
-import Setting from '@/container/Setting';
-import EditList from '@/container/EditList/index';
-import Dictionary from '@/container/Dictionary';
-import CSet_ErrorLayout from '@/components/Container/ErrorLayout';
-
 
 //配置 
 import { Config } from './devConfig'
@@ -105,15 +95,10 @@ LayoutSet({
 });
 
 CSet({
-  'Setting': Setting,
-  'EditList':EditList,
-  'Dictionary': Dictionary,
-  'ErrorLayout': CSet_ErrorLayout,
 });
 
 LASet({
 });
-
 
 //表单组件
 FITSet({
