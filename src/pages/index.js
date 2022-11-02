@@ -4,7 +4,7 @@ import { history } from 'umi';
 export default function () {
   
   // history.push('/testField');
-  history.push('/checkfiles');
+  history.push('/dynamicPage');
 
   return (
     <div>
