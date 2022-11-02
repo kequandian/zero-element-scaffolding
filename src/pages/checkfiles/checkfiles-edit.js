@@ -1,8 +1,29 @@
 import React from 'react';
 import ZEle from 'zero-element';
-import config from './config/checkfiles-edit';
+const setting = require('./checkfiles-setting.json');
 
 export default function () {
+
+    const config = {
+        layout: setting.layout.form,
+        title: setting.pageName.edit,
+        items: [
+          {
+            component: 'Form',
+            config: {
+              API: {
+                  getAPI: setting.getAPI,
+                  updateAPI: setting.updateAPI,
+              },
+              layout: 'Grid',
+              layoutConfig: {
+                value: Array(setting.columns).fill(~~(24 / setting.columns)),
+              },
+              fields: setting.updateFields || setting.formFields,
+            },
+          },
+        ],
+      }
 
 		return <ZEle namespace="checkfiles-edit" config={config} />
   }

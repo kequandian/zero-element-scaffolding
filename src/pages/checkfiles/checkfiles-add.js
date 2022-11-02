@@ -1,8 +1,26 @@
 import React from 'react';
 import ZEle from 'zero-element';
-import config from './config/checkfiles-add';
+const setting = require('./checkfiles-setting.json');
 
 export default function () {
-
-		return <ZEle namespace="checkfiles-add" config={config} />
+    const config = {
+        layout: setting.layout.form,
+        title: setting.pageName.new,
+        items: [
+          {
+            component: 'Form',
+            config: {
+              API: {
+                createAPI: setting.createAPI,
+              },
+              layout: 'Grid',
+              layoutConfig: {
+                value: Array(setting.columns).fill(~~(24 / setting.columns)),
+              },
+              fields: setting.createFields || setting.formFields,
+            },
+          },
+        ],
+      }
+    return <ZEle namespace="checkfiles-add" config={config} />
   }
