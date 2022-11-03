@@ -1,6 +1,7 @@
 import React from 'react';
 import ZEle from 'zero-element';
-const setting = require('./config/checkfiles-setting.json');
+// const setting = require('./config/checkfiles-setting.json');
+import setting from './config/checkfiles-setting.json';
 
 export default function () {
 
