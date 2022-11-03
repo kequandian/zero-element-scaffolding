@@ -5,5 +5,6 @@
  * @说明 此地方为开发环境的endpoint配置
 */
 export const Config ={
-    endpoint:"https://static.smallsaas.cn"
+    // endpoint:"https://static.smallsaas.cn"
+    endpoint:"http://demo.smallsaas.cn"
 }

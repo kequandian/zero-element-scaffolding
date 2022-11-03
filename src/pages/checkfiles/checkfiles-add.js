@@ -1,6 +1,6 @@
 import React from 'react';
 import ZEle from 'zero-element';
-const setting = require('./checkfiles-setting.json');
+const setting = require('./config/checkfiles-setting.json');
 
 export default function () {
     const config = {
