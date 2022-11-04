@@ -17,11 +17,11 @@ import { set as FITSet } from 'zero-element/lib/config/formItemType';
 import { set as AITSet } from 'zero-element/lib/config/actionItemType';
 import { set as VTSet } from 'zero-element/lib/config/valueType';
 
-import path from '@/actionItemType/path';
+import path from '@/pages/dynamicPageTool/actionItemType/path';
 // import onPath from '@/../zero-antd-dep/listAction/onPath';
 //动态页面组件
-import EditList from '@/container/EditList/index';
-import AITSet_FromModal from '@/actionItemType/FromModal';
+import EditList from '@/pages/dynamicPageTool/container/EditList/index';
+import AITSet_FromModal from '@/pages/dynamicPageTool/actionItemType/FromModal';
 
 import { message } from 'antd';
 

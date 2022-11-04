@@ -1,14 +1,14 @@
 import React, { useRef, useState } from 'react';
-import { MainPageConfig } from './testPageFetch/pageConfig';
+import { MainPageConfig } from '@/pages/dynamicPageTool/pageConfig';
 // import useBreadcrumb from '@/framework/useBreadcrumb';
-import FormTools from '@/container/EditList/components/Form';
-import ShowModal from '@/container/EditList/components/showModal';
+import FormTools from '@/pages/dynamicPageTool/container/EditList/components/Form';
+import ShowModal from '@/pages/dynamicPageTool/container/EditList/components/showModal';
 import { query, post } from 'zero-element/lib/utils/request';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 import { message, Drawer } from 'antd';
-import { setting } from './config/dynamicPageTool-setting.js'
+import { setting } from './config/dynamicPageManage-setting.js'
 import { history } from 'umi'
-import { AddSvg } from '@/container/EditList/svg';
+import { AddSvg } from '@/pages/dynamicPageTool/container/EditList/svg';
 import { useDidMount } from 'zero-element/lib/utils/hooks/lifeCycle'
 
 /**

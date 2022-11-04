@@ -11,7 +11,7 @@ import ColorSelect from "./ColorSelect";
 import FontSelect from "./FontSelect";
 import FetchSelect from "./fetchSelect";
 
-import { TipsIconSvg } from '../components/public/svg';
+import { TipsIconSvg } from './public/svg';
 
 export default forwardRef((props, ref) => {
 

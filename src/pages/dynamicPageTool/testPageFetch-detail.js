@@ -1,7 +1,7 @@
 import React from 'react';
 import ZEle from 'zero-element';
 // import DetailsTemplate from '@/components/Details/DetailsTemplate';
-import setting from './config/testPageFetch-detail.config.json';
+import setting from './config/dynamicPageTool-detail.config.json';
     
 export default () => 
 
@@ -30,5 +30,5 @@ export default () =>
       ],
     }
 
-  return <ZEle namespace="testPageFetch_detail-view" config={config} />
+  return <ZEle namespace="dynamicPageTool_detail-view" config={config} />
 }

@@ -34,6 +34,8 @@ export default (props) => {
           pageConfigUrl = `${pageConfigUrl}?${routeParam}`
         }
 
+        console.log('pageConfigUrl == ', pageConfigUrl)
+
         query(pageConfigUrl, {})
           .then(resp => {
             setSpining(false)

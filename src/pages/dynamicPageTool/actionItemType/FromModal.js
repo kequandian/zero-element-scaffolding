@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Button, Modal } from 'antd';
 import { useDidMount, useForceUpdate } from 'zero-element/lib/utils/hooks/lifeCycle'
-import FormTools from '@/container/EditList/components/Form';
+import FormTools from '@/pages/dynamicPageTool/container/EditList/components/Form';
 import { query, post } from 'zero-element/lib/utils/request';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 import { message, Drawer } from 'antd';
