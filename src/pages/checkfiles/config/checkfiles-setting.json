@@ -131,6 +131,18 @@
 		{
 			"options": {
 				"method": "get",
+				"data": {
+					"data": "data"
+				},
+				"outside": true,
+				"API": "/api/doswagger/putstorage?swagger=(swagger)&force=true"
+			},
+			"title": "强制入库",
+			"type": "request"
+		},
+		{
+			"options": {
+				"method": "get",
 				"data": {},
 				"outside": true,
 				"API": "/api/doswagger/execConfig?swagger=(swagger)"
