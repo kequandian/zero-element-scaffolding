@@ -1,0 +1,58 @@
+{
+    "columns":1,
+    "listAPI":"/form/101020",
+    "createAPI":"/form/101020",
+    "getAPI":"/form/101020/[id]",
+    "updateAPI":"/form/101020/[id]",
+    "deleteAPI":"/form/101020/(id)",
+    "searchType":"MoreSearch",
+    "searchButtonType":"text",
+    "pageName":{
+        "table":"标题",
+        "new":"新增",
+        "edit":"编辑",
+        "name":"registry",
+        "view":"registry"
+    },
+    "createFields":[
+        {
+            "field":"repositories",
+            "label":"仓库镜像",
+            "type":"input"
+        }
+    ],
+    "updateFields":[
+        {
+            "field":"repositories",
+            "label":"仓库镜像",
+            "type":"input"
+        }
+    ],
+    "layout":{
+        "table":"Content",
+        "form":"TitleContent"
+    },
+    "tableActions":[
+
+    ],
+    "tableOperation":[
+
+    ],
+    "searchFields":[
+
+    ],
+    "tableFields":[
+        {
+            "field":"repositories",
+            "label":"仓库镜像",
+            "align":"left"
+        }
+    ],
+    "viewConfig":[
+        {
+            "field":"repositories",
+            "label":"仓库镜像",
+            "type":"plain"
+        }
+    ]
+}
