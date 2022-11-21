@@ -86,9 +86,9 @@ if (process.env.NODE_ENV === 'development') {
   // setEndpoint('http://cn1.utools.club:45688');
   setEndpoint(Config.endpoint);
   // setEndpoint('http://localhost:8080');
-  saveToken({
-    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJvcmdJZCI6IjEiLCJ1c2VySWQiOiIxIiwidGVuYW50T3JnSWQiOjEsImFjY291bnQiOiJhZG1pbiIsInVzZXJUeXBlIjoxMDAsImRldlVzZXJUeXBlIjowLCJiVXNlclR5cGUiOiJTWVNURU0iLCJpYXQiOjE2NjczNTQ0MzYsImp0aSI6IjEiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTY2NzYxMzYzNn0.qULp2dw5_oLrFYYTDakpD0onZAiQ4Eo5OOJczD7qWN0Q8ZNSw6frFihGxD1tM4J22wEDEd4dK7gqaA05SBitjA',
-  });
+  // saveToken({
+  //   token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJvcmdJZCI6IjEiLCJ1c2VySWQiOiIxIiwidGVuYW50T3JnSWQiOjEsImFjY291bnQiOiJhZG1pbiIsInVzZXJUeXBlIjoxMDAsImRldlVzZXJUeXBlIjowLCJiVXNlclR5cGUiOiJTWVNURU0iLCJpYXQiOjE2Njg2NTYwNDgsImp0aSI6IjEiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTY2ODkxNTI0OH0.o_GSr1qdIfcsKzzCSLlgoj2ZXTc57PlyNbmrXHCNn28d90ktvrVlKin04eS9eKfuYiE932ljI5YECqRKRb2UoA',
+  // });
 }else {
   // setEndpoint('http://localhost:8080');
   // setEndpoint('http://192.168.3.239:8090');
