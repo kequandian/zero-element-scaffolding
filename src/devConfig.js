@@ -6,5 +6,5 @@
 */
 export const Config ={
     // endpoint:"https://static.smallsaas.cn"
-    endpoint:"http://demo.smallsaas.cn"
+    endpoint:"http://static.smallsaas.cn"
 }
