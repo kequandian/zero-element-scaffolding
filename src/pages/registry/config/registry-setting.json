@@ -1,3 +1,4 @@
+
 {
 	"columns": 1,
 	"listAPI": "http://192.168.3.224:5000/v2/_catalog",
@@ -8,20 +9,20 @@
 	"searchType": "MoreSearch",
 	"searchButtonType": "text",
 	"pageName": {
-		"table": "标题",
+		"table": "registry",
 		"new": "新增",
 		"edit": "编辑",
-		"name": "test",
-		"view": "test"
+		"name": "registry",
+		"view": "registry"
 	},
 	"createFields": [{
-		"field": "repositories",
-		"label": "镜像",
+		"field": "image",
+		"label": "镜像名",
 		"type": "input"
 	}],
 	"updateFields": [{
-		"field": "repositories",
-		"label": "镜像",
+		"field": "image",
+		"label": "镜像名",
 		"type": "input"
 	}],
 	"layout": {
@@ -32,13 +33,13 @@
 	"tableOperation": [],
 	"searchFields": [],
 	"tableFields": [{
-		"field": "repositories",
-		"label": "镜像",
+		"field": "image",
+		"label": "镜像名",
 		"align": "left"
 	}],
 	"viewConfig": [{
-		"field": "repositories",
-		"label": "镜像",
+		"field": "image",
+		"label": "镜像名",
 		"type": "plain"
 	}]
 }
