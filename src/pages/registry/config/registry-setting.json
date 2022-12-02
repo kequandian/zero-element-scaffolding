@@ -1,4 +1,3 @@
-
 {
 	"columns": 1,
 	"listAPI": "http://192.168.3.224:5000/v2/_catalog",
@@ -30,7 +29,15 @@
 		"form": "TitleContent"
 	},
 	"tableActions": [],
-	"tableOperation": [],
+	"tableOperation": [{
+	
+		"title":"详情",
+		"type":"path",
+		"options":{
+			"outside":true,
+			"path":"tagslist"
+		}
+	}],
 	"searchFields": [],
 	"tableFields": [{
 		"field": "image",
