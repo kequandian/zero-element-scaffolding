@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex } from 'layout-flex';
+import Flex from '@/../zero-antd-dep/layout/Flex';
 import ImageView from '@/../zero-antd-dep/components/ImageView';
 import { Render } from 'zero-element/lib/config/valueType';
 

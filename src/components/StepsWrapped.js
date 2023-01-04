@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Steps, Button, message } from 'antd';
 import Content from '@/layouts/Content';
-import { Flex } from 'layout-flex';
+import Flex from '@/../zero-antd-dep/layout/Flex';
 import { RollbackOutlined, LeftOutlined, RightOutlined, CheckOutlined } from '@ant-design/icons';
 import { history, withRouter } from 'umi';
 import { useDidMount } from 'zero-element/lib/utils/hooks/lifeCycle';

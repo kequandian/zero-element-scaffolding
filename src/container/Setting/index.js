@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useDidMount } from 'zero-element/lib/utils/hooks/lifeCycle';
-import { Flex } from 'layout-flex';
+import Flex from '@/../zero-antd-dep/layout/Flex';
 import { Render } from 'zero-element/lib/config/layout';
 import { Card } from 'antd';
 import NavMenu from './NavMenu';

@@ -7,7 +7,7 @@ import ImageCardList from '@/components/Details/components/ImageCardList';
 import Statuslog from '@/components/Details/components/Statuslog';
 import PreviewFile from '@/components/Details/components/previewFile';
 
-import { Flex } from 'layout-flex';
+import Flex from '@/../zero-antd-dep/layout/Flex';
 
 import './index.less';
 
@@ -65,7 +65,7 @@ function renderCard(namespace, opt, props) {
   }  
 
   return <Fragment key={`${title}-${type}`}>
-    <Card title={title}>
+    <Card title={title} isBack={true}>
       <C
         {...props}
         {...restOpt}

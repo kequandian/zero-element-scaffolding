@@ -4,7 +4,7 @@ import { useDidMount, useWillUnmount } from 'zero-element/lib/utils/hooks/lifeCy
 import { Card } from 'antd';
 import { Render } from 'zero-element/lib/config/layout';
 
-import { Flex } from 'layout-flex';
+import Flex from '@/../zero-antd-dep/layout/Flex';
 
 import Tree from 'zero-element-antd/lib/components/Tree';
 

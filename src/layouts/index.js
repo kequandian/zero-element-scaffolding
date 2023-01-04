@@ -7,6 +7,7 @@ import { BackTop } from 'antd';
 import router from '@/config/router.config';
 import profileMenuData from '@/config/profile.config';
 import toDoListMenuData from '@/config/toDoList.config';
+import router401Data from '@/config/401.config';
 import { useDocumentVisibility } from 'ahooks';
 import { useModel, getModel } from 'zero-element/lib/Model';
 // import { LS } from 'zero-element/lib/utils/storage';
@@ -102,6 +103,7 @@ function BasicLayout(props) {
 }
 
 const reg = /^\/profile\//;
+const reg3 = /^\/401\//;
 const reg2 = /^\/toDoList\//;
 function switchMenuData(pathname, menuData) {
   if (reg.test(pathname)) {
@@ -109,6 +111,9 @@ function switchMenuData(pathname, menuData) {
   }
   if(reg2.test(pathname)){
     return toDoListMenuData;
+  }
+  if(reg3.test(pathname)){
+    return router401Data;
   }
   return menuData;
 

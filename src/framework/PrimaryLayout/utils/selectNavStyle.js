@@ -60,7 +60,7 @@ function filterMenu(menuData) {
       break;
     };
     if (Array.isArray(shift)) {
-      stack.push(...shift);
+      rst.push(...shift);
     } else {
       const menu = { ...shift };
 
