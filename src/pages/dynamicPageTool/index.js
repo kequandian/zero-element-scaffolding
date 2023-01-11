@@ -103,7 +103,7 @@ export default function Default() {
       title: pageConfig.pageName.table,
       config: {
         style: {
-          "min-width": pageConfig.minWidth || ''
+          "minWidth": pageConfig.minWidth || ''
         }
       },
       items: [

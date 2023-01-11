@@ -17,11 +17,15 @@ import { set as FITSet } from 'zero-element/lib/config/formItemType';
 import { set as AITSet } from 'zero-element/lib/config/actionItemType';
 import { set as VTSet } from 'zero-element/lib/config/valueType';
 
-import path from '@/pages/dynamicPageTool/actionItemType/path';
+import path from '@/pages/dynamicPageTool/compx/actionItemType/path';
 // import onPath from '@/../zero-antd-dep/listAction/onPath';
+
 //动态页面组件
 import EditList from '@/pages/dynamicPageTool/container/EditList/index';
-import AITSet_FromModal from '@/pages/dynamicPageTool/actionItemType/FromModal';
+import AITSet_FromModal from '@/pages/dynamicPageTool/compx/actionItemType/FromModal';
+import CSet_DynamicPageForm from '@/pages/dynamicPageManage/compx/DynamicPageForm';
+import CSet_DynamicPageShowConfig from '@/pages/dynamicPageManage/compx/DynamicPageShowConfig';
+import AITSet_DownloadPage from '@/pages/dynamicPageManage/compx/onDownloadPage'
 
 import { message } from 'antd';
 
@@ -100,10 +104,13 @@ LayoutSet({
 
 CSet({
   'EditList':EditList,
+  'DynamicPageForm': CSet_DynamicPageForm,
+  'DynamicPageShowConfig': CSet_DynamicPageShowConfig
 });
 
 LASet({
   'onFromModal': AITSet_FromModal,
+  'onDownloadPage': AITSet_DownloadPage
 });
 
 //表单组件

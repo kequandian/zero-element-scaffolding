@@ -1,5 +1,6 @@
 import React, { useState, useRef, useImperativeHandle, forwardRef, useEffect } from "react"
-import { Input, Select, Switch, InputNumber, Checkbox, Collapse, Button, Tabs, message, Modal, Popover } from 'antd'
+import { Input, Select, Switch, InputNumber, Checkbox, Collapse, Button, Tabs, message, Modal, Popover, Tooltip } from 'antd'
+import { QuestionOutlined } from '@ant-design/icons';
 import { useDidMount, useForceUpdate } from 'zero-element/lib/utils/hooks/lifeCycle'
 import { query, post, update, remove } from 'zero-element/lib/utils/request';
 import _, { method } from 'lodash'
@@ -23,7 +24,7 @@ export default forwardRef((props, ref) => {
 
   const CheckboxGroup = Checkbox.Group
   const { Panel } = Collapse;
-  const [data, setData] = useState({})
+  const [data, setData] = useState({type: 'path'})
   const [modalVisable, setModalVisable] = useState(false)
   const [actionModalData, setActionModalData] = useState([])
   const [theModalData, setTheModalData] = useState([])
@@ -233,6 +234,7 @@ export default forwardRef((props, ref) => {
   const switchEndpoint = (item, i) => {
     return <Switch defaultChecked={getSwitchData(item.field, item.defaultValue)}
       onChange={(e) => switchChange(item.field, e)}
+      key={`${i}_switch`}
     />
   }
 
@@ -362,7 +364,8 @@ export default forwardRef((props, ref) => {
   const { TabPane } = Tabs
 
   const ModalEndpoint = (item, i) => {
-    return <><Tabs style={{ "padding": "10px" }} type="editable-card" onEdit={(e) => showModal(e, endpoint + ModalUrl)}>{modalData ? modalData.map((mdata, m) => <TabPane tab={`布局${m + 1}`} key={`layout${mdata.id}`}>{item.items.map((newItem, It) => <>{newItem.label ? <div>{newItem.label}：</div> : null}
+    return <>
+      <Tabs style={{ "padding": "10px" }} type="editable-card" onEdit={(e) => showModal(e, endpoint + ModalUrl)}>{modalData ? modalData.map((mdata, m) => <TabPane tab={`布局${m + 1}`} key={`layout${mdata.id}`}>{item.items.map((newItem, It) => <>{newItem.label ? <div>{newItem.label}：</div> : null}
       <Input
         defaultValue={getItemDefault(mdata, newItem.field, newItem.defaultValue)}
         placeholder={newItem.placeholder || "请输入" + (newItem.label || "...")}
@@ -427,9 +430,11 @@ export default forwardRef((props, ref) => {
 
   //跳转至表单实例页面
   function gotoComponentsExample(pathUrl) {
-    let path = `${endpoint || window.location.origin}${pathUrl}`
-    const w = window.open('about:blank');
-    w.location.href = path
+    if(pathUrl){
+      let path = `${endpoint || window.location.origin}${pathUrl}`
+      const w = window.open('about:blank');
+      w.location.href = path
+    }
   }
 
   //表单项提示
@@ -453,27 +458,34 @@ export default forwardRef((props, ref) => {
         }
         return <a href="#" onClick={() => gotoOneMaryDocx()} title={data.tipsValue} ><TipsIconSvg color={"#1890ff"} /></a>
       }
+      if(data.type === 'toolTip'){
+        return (
+          <Tooltip placement="rightTop" title={data.tipsValue}>
+              <a href="#" ><TipsIconSvg color={"#1890ff"} /></a>
+          </Tooltip>
+        )
+      }
     }
     return <></>
   }
-
+  
   //渲染表单项
   const AllFormType = (item, i) => {
 
     // expect 为是否显示组件判断
     const { expect = {} } = item;
-    if (JSON.stringify(expect) != '{}') {
+    if (JSON.stringify(expect) !== '{}') {
       const { field, value } = expect;
-      if (data[field] != value) {
+      if (data[field] !== value) {
         return
       }
     }
 
     return (
-      <div className="dynamic_column">
+      <div className="dynamic_column" key={`${i}`}>
         {
           item.label ? (
-            <div>{item.label}： {handleFormItemTips(item.toolTips)}</div>
+            <div key={i}>{item.label}： {handleFormItemTips(item.toolTips)}</div>
           ) : null
         }
         {
@@ -507,7 +519,7 @@ export default forwardRef((props, ref) => {
   return <>
     {
       config && config.map((item, i) =>
-        item.children ? <Collapse>
+        item.children ? <Collapse key={`${i}_collapse`}>
           <Panel header={item.header} >
             {item.children.map((child, a) => AllFormType(child, a))}
           </Panel>

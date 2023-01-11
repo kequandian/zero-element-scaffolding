@@ -35,12 +35,12 @@ export default withRouter(function EditList(props) {
     showDelete = true,
     svg = <Edit />,
     cb,
-    query={}
+    query = {}
   } = config;
   // message.loading("开始加载")
   const addRef = useRef()
 
-  
+
   const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState(null)
@@ -50,7 +50,7 @@ export default withRouter(function EditList(props) {
   };
   const onClose = () => {
     setVisible(false);
-    if(cb){
+    if (cb) {
       cb(true)
     }
   };
@@ -98,9 +98,9 @@ export default withRouter(function EditList(props) {
     }
     return data
   }
-  
+
   //获取列表数据
-  function getListData(){
+  function getListData() {
     setLoading(true)
     let endpoint = getEndpoint()
     let apiUrl = ""
@@ -135,7 +135,7 @@ export default withRouter(function EditList(props) {
         }
       }).catch(err => {
         message.error('获取页面配置信息失败 == ', err)
-      }).finally(_=>{
+      }).finally(_ => {
         setLoading(false)
         // getListData()
       })
@@ -166,14 +166,14 @@ export default withRouter(function EditList(props) {
       ...addRef.current.data,
       "pageId": PageId
     }
-    
+
     //处理冗余数据
     theData = handleFormData(theData)
 
     // console.log(theData,"提交后的DATA")
     post(apiUrl, theData, options)
       .then(resp => {
-        
+
         const restData = resp.data
         if (restData && restData.code === 200) {
           // const Listdata = resp.data.records;
@@ -187,7 +187,7 @@ export default withRouter(function EditList(props) {
         } else {
           message.error('添加失败')
         }
-      }).finally(_=>{
+      }).finally(_ => {
         setLoading(false)
         getListData()
       })
@@ -228,7 +228,7 @@ export default withRouter(function EditList(props) {
         } else {
           message.error('删除失败')
         }
-      }).finally(_=>{
+      }).finally(_ => {
         setLoading(false)
         getListData()
       })
@@ -261,7 +261,7 @@ export default withRouter(function EditList(props) {
     // if(PutData.formViewType != 'one-mary'){
     //   PutData.fieldViewOneManyOptions = ''
     // }
-    
+
     //处理冗余数据
     PutData = handleFormData(PutData)
 
@@ -282,7 +282,7 @@ export default withRouter(function EditList(props) {
           message.error('更改失败')
         }
       })
-      .finally(_ =>{
+      .finally(_ => {
         setLoading(false)
         getListData()
       })
@@ -300,7 +300,7 @@ export default withRouter(function EditList(props) {
       onClose={onClose}
       visible={visible}
       width="300"
-      bodyStyle={{paddingTop: '0px', overflowY:'scroll', maxHeight: '600px'}}
+      bodyStyle={{ paddingTop: '0px', overflowY: 'scroll', maxHeight: '600px' }}
       footer={showAdd && data ? [
         <ShowAddModal title={"添加" + name}
           icon={<AddSvg />}
@@ -313,11 +313,11 @@ export default withRouter(function EditList(props) {
           // unUseDefaultValue={true}//新增时候需要使用默认值
           ></FormTools>
         </ShowAddModal>
-      ]: null}
+      ] : null}
     >
-        
+
       {data ? Array.isArray(data) ? (
-        <Spin spinning={loading}> 
+        <Spin spinning={loading}>
           {data.map((item, i) => (
             <div className={styles.listItem} key={`list_key_${i}`}>
               <ShowModal title={_.get(item, title) || "组件无名称"}
@@ -328,17 +328,17 @@ export default withRouter(function EditList(props) {
                 onSuccess={() => handleSuccess(item.id)}
                 key={i}
               >
-                  <FormTools
-                    formData={item}
-                    config={ModelConfig}
-                    unUseDefaultValue={true}
-                  />
+                <FormTools
+                  formData={item}
+                  config={ModelConfig}
+                  unUseDefaultValue={true}
+                />
               </ShowModal>
               {showDelete ? (
                 <Popconfirm
                   title={`确定要删除${_.get(item, title)}?`}
                   onConfirm={() => handleDelete(item.id)}
-                  onCancel={()=>{}}
+                  onCancel={() => { }}
                   okText="是"
                   cancelText="否"
                 >
@@ -384,7 +384,7 @@ export default withRouter(function EditList(props) {
         <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
       </Spin>
       }
-      
+
       {/* {showAdd && data ? <ShowModal title={"添加" + name}
         icon={<AddSvg />}
         onSuccess={addMessage}

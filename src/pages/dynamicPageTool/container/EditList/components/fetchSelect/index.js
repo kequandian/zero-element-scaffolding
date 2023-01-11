@@ -1,6 +1,7 @@
 /* eslint-disable no-restricted-globals */
 import React, { useState, useEffect } from 'react';
 import { message, Select, Spin } from 'antd';
+import qs from 'qs';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 import { useDidMount, useForceUpdate } from 'zero-element/lib/utils/hooks/lifeCycle';
 import { query } from 'zero-element/lib/utils/request';
@@ -32,8 +33,10 @@ export default function FetchSelect(props) {
     const [listData, setListData] = useState('');
 
     
-    const searchList = location.search.split('=');
-    const id = searchList[1];
+    // const searchList = location.search.split('=');
+    const searchList = location.href.split('?');
+    const id = searchList && searchList[1] ? qs.parse(searchList[1]).id : '';
+    console.log('id == ', id)
 
     useEffect(_ => {
         if(id && API){

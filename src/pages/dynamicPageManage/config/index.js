@@ -27,7 +27,7 @@ module.exports = {
         operation: setting.tableOperation,
         props:{
           style:{
-            "text-align":"center"
+            "textAlign":"center"
           }
         }
       }
