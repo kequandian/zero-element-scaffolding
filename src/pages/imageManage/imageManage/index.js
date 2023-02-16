@@ -1,6 +1,5 @@
 import React from 'react';
 import ZEle from 'zero-element';
-import useBreadcrumb from '@/framework/useBreadcrumb';
 
 const formFields = require('./formFields');
 
@@ -55,9 +54,9 @@ const config = {
           // }
         ],
         fields: [
-          { "label": "编号(索引)", "value": "index" },
+          { "label": "编号", "field": "code", "valueType": "index" },
           {
-            "field": "cover",
+            "field": "url",
             "label": "图片",
             "valueType": "image"
           },
@@ -68,7 +67,7 @@ const config = {
         ],
         operation: [
           {
-            title: '编辑', action: 'modal',
+            title: '编辑', type: 'modal',
             options: {
               outside: true,
               modalTitle: '编辑图片',
