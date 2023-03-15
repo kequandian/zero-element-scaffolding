@@ -1,7 +1,7 @@
 
 // ref: https://umijs.org/config/
 export default {
-  title: 'Web-Tool',
+  title: 'swagger-manage',
   hash: true,
   // history: {
   //   type: 'hash',
@@ -24,10 +24,10 @@ export default {
     type: 'hash'
   },
   chainWebpack(memo, { env, webpack, createCSSRule }) {
-     memo.output.set('path', require('path').resolve(__dirname, 'dist/dynamic-tool'))
+     memo.output.set('path', require('path').resolve(__dirname, 'dist/swagger-manage'))
      memo.output.set('filename', 'bundle.js')
   },
    
   // outputPath: '/dist/swagger-manage',
-  publicPath: process.env.NODE_ENV === 'production' ? './dynamic-tool/' : '/',  //设置 dist/index.html 访问 js和css路径
+  publicPath: process.env.NODE_ENV === 'production' ? './' : '/',  //设置 dist/index.html 访问 js和css路径
 }
