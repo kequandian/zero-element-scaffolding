@@ -49,6 +49,9 @@ function selectNavStyle(type, menuData, path, switchLeftNav) {
 function filterMenu(menuData) {
   const globalModel = getModel('global');
 
+  if(!Array.isArray(menuData)){
+    return
+  }
   const stack = menuData;
   const rst = [];
 
