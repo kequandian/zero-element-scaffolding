@@ -1,9 +1,10 @@
 /* eslint-disable no-restricted-globals */
 import React, { useState, useEffect } from 'react';
 import { message, Select, Spin } from 'antd';
+import qs from 'qs';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 import { useDidMount, useForceUpdate } from 'zero-element/lib/utils/hooks/lifeCycle';
-import promiseAjax from '@/utils/promiseAjax';
+import { query } from 'zero-element/lib/utils/request';
 import _ from 'lodash';
 import './index.less'
 
@@ -23,7 +24,7 @@ export default function FetchSelect(props) {
         dataField = 'records',
         label: optLabel = 'label',
         value: optValue = 'value',
-        query,
+        // query,
     } = options;
 
 
@@ -32,8 +33,10 @@ export default function FetchSelect(props) {
     const [listData, setListData] = useState('');
 
     
-    const searchList = location.search.split('=');
-    const id = searchList[1];
+    // const searchList = location.search.split('=');
+    const searchList = location.href.split('?');
+    const id = searchList && searchList[1] ? qs.parse(searchList[1]).id : '';
+    console.log('id == ', id)
 
     useEffect(_ => {
         if(id && API){
@@ -53,13 +56,15 @@ export default function FetchSelect(props) {
     const getData = (id) =>  {
         const url = API.replace('(id)', id)
         setLoading(true)
-        promiseAjax(`${getEndpoint()}${url}`)
+        query(`${getEndpoint()}${url}`)
             .then(resp => {
-                if (resp && resp.code === 200) {
-                    const respData = formatListData(_.get(resp, dataField, []))
+                const rData = resp.data
+                if (rData && rData.code === 200) {
+                    const respData = formatListData(_.get(rData, dataField, []))
                     setListData(respData)
                 } else {
-                    message.error('修改失败')
+                    // message.error('获取失败')
+                    console.log('获取下拉框数据失败')
                 }
             })
             .finally(_ => {

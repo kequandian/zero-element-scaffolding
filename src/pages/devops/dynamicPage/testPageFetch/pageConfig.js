@@ -48,7 +48,7 @@ export const fieldsConfig = [
                 "toolTips": {
                     "type": "link",
                     "path": "/valueType-ui.html",
-                    "tipsValue":  "查看组件效果页面"
+                    "tipsValue": "查看组件效果页面"
                 },
                 "type": "select",
                 "options": [
@@ -175,7 +175,7 @@ export const fieldsConfig = [
                 "toolTips": {
                     "type": "link",
                     "path": "/formItemType-ui.html",
-                    "tipsValue":  "查看组件效果页面"
+                    "tipsValue": "查看组件效果页面"
                 },
                 "field": "formInputType", "type": "select",
                 "options": [
@@ -255,10 +255,10 @@ export const fieldsConfig = [
                 ], "defaultValue": "plain"
             },
             {
-                "label": "一对多JSON配置", 
+                "label": "一对多JSON配置",
                 "toolTips": {
                     "type": "one-mary",
-                    "tipsValue":  "配置说明"
+                    "tipsValue": "配置说明"
                 },
                 "field": "fieldViewOneManyOptions", "type": "input", "expect": {
                     "field": "formViewType",
@@ -473,7 +473,7 @@ export const FiltersConfig = [
                 "toolTips": true,
                 "field": "fieldType", "type": "select",
                 "options": [
-                    
+
                     // { "label": "头像", "value": "avatars" },
                     // { "label": "视频", "value": "videoview" },
                     // { "label": "分割", "value": "Space" },
@@ -551,16 +551,22 @@ export const ActionsConfig = [
     { "label": "标题", "field": "title", "defaultValue": "新增" },
     {
         "header": "高级设置", "children": [
-            { "label": "操作路由路径", "field": "path" },
             {
                 "label": "操作类型", "field": "type", "type": "select", "options": [
-                    { "label": "request", "value": "request" },
                     { "label": "path", "value": "path" },
+                    { "label": "request", "value": "request" },
                     { "label": "delete", "value": "delete" },
                     { "label": "modal", "value": "modal" },
                     { "label": "import", "value": "import" },
                     { "label": "export", "value": "export" }
-                ]
+                ], "defaultValue": "path"
+            },
+            {
+                "label": "操作路由路径", "field": "path",
+                expect: {
+                    field: 'type',
+                    value: 'path'
+                }
             },
             // {
             //     "label": "请求API", "field": "requestApi", "type": "select", "options": [
@@ -569,51 +575,91 @@ export const ActionsConfig = [
             //         { "label": "createApi", "value": "createApi" }
             //     ]
             // },
-            { "label": "请求结果刷新API", "field": "requestRefreshApi" },
+            {
+                "label": "请求结果刷新API", "field": "requestRefreshApi",
+                expect: {
+                    field: 'type',
+                    value: 'request'
+                }
+            },
             {
                 "label": "请求方法", "field": "requestMethod", "type": "select", "options": [
                     { "label": "GET", "value": "GET" },
                     { "label": "POST", "value": "POST" },
                     { "label": "UPDATE", "value": "UPDATE" },
                     { "label": "DELETE", "value": "DELETE" }
-                ]
+                ],
+                expect: {
+                    field: 'type',
+                    value: 'request'
+                }
             },
-            { "label": "模态框标题", "field": "modalTitle" },
-            { "label": "模态框宽度", "field": "modalWidth" },
-            { "label": "模态框外部布局", "field": "modalLayout" },
-            { "label": "请求数据", "field": "requestBody", "type": "JSON" },
+            {
+                "label": "请求数据", "field": "requestBody", "type": "JSON",
+                expect: {
+                    field: 'type',
+                    value: 'request'
+                }
+            },
             { "label": "请求参数", "field": "requestOptions", "type": "JSON" },
             {
+                "label": "模态框标题", "field": "modalTitle",
+                expect: {
+                    field: 'type',
+                    value: 'modal'
+                }
+            },
+            {
+                "label": "模态框宽度", "field": "modalWidth",
+                expect: {
+                    field: 'type',
+                    value: 'modal'
+                }
+            },
+            // {
+            //     "label": "模态框外部布局", "field": "modalLayout",
+            //     expect: {
+            //         field: 'type',
+            //         value: 'modal'
+            //     }
+            // },
+            {
                 "label": "模态框配置", "field": "items", "type": "ActionModal", "items": [
-                    { "label": "模态框获取Api", "field": "modalContentGetApi" },
                     { "label": "模态框内容布局", "field": "modalContentLayout", "placeholder": "Grid" },
-                    { "label": "模态框更新Api", "field": "modalContentUpdateApi" },
                     { "label": "模态框创建Api", "field": "modalContentCreateApi" },
                     { "label": "模态框内部布局", "field": "modalItemsLayout", "placeholder": "Empty" },
                     { "label": "模态框组件", "field": "modalItemsComp", "placeholder": "Form" }
-                ]
+                ],
+                expect: {
+                    field: 'type',
+                    value: 'modal'
+                }
             }
         ]
     }
     // { "label":"所属页面id", "field":"pageId" },
 ]
-// 过滤配置
+
+// 操作栏配置
 export const OperationsConfig = [
     { "label": "标题", "field": "title", "defaultValue": "编辑" },
     {
         "header": "高级设置", "children": [
             {
                 "label": "操作类型", "field": "type", "type": "select", "options": [
-                    { "label": "request", "value": "request" },
                     { "label": "path", "value": "path" },
+                    { "label": "request", "value": "request" },
                     { "label": "delete", "value": "delete" },
                     { "label": "modal", "value": "modal" }
                 ], "defaultValue": "path"
             },
-            { "label": "操作路由路径", "field": "path" },
-            { "label": "是否显示在列表中", "field": "outside", "type": "switch" },
-            { "label": "过滤字段", "field": "expectField" },
-            { "label": "过滤值", "field": "expectValue" },
+            {
+                "label": "操作路由路径", "field": "path",
+                expect: {
+                    field: 'type',
+                    value: 'path'
+                }
+            },
             // {
             //     "label": "请求API", "field": "requestApi", "type": "select", "options": [
             //         { "label": "getApi", "value": "getApi" },
@@ -625,7 +671,13 @@ export const OperationsConfig = [
             //     //     "value": "request"
             //     // }
             // },
-            { "label": "请求结果API", "field": "requestRefreshApi" },
+            {
+                "label": "请求结果API", "field": "requestRefreshApi",
+                expect: {
+                    field: 'type',
+                    value: 'request'
+                }
+            },
             {
                 "label": "请求方法", "field": "requestMethod", "type": "select", "options": [
                     { "label": "GET", "value": "get" },
@@ -633,22 +685,85 @@ export const OperationsConfig = [
                     { "label": "UPDATE", "value": "update" },
                     { "label": "DELETE", "value": "delete" },
                     { "label": "DOWNLOAD", "value": "download" }
-                ]
+                ],
+                expect: {
+                    field: 'type',
+                    value: 'request'
+                }
             },
-            { "label": "模态框标题", "field": "modalTitle" },
-            { "label": "模态框宽度", "field": "modalWidth" },
-            { "label": "模态框外部布局", "field": "modalLayout" },
-            { "label": "请求数据", "field": "requestBody", "type": "JSON" },
-            { "label": "请求参数", "field": "requestOptions", "type": "JSON" },
             {
-                "label": "模态框配置", "field": "items", "type": "Modal", "items": [
+                "label": "请求数据", "field": "requestBody", "type": "JSON",
+                expect: {
+                    field: 'type',
+                    value: 'request'
+                }
+            },
+            { "label": "请求参数", "field": "requestOptions", "type": "JSON" },
+
+            {
+                "label": "模态框标题", "field": "modalTitle",
+                expect: {
+                    field: 'type',
+                    value: 'modal'
+                }
+            },
+            {
+                "label": "模态框宽度", "field": "modalWidth",
+                expect: {
+                    field: 'type',
+                    value: 'modal'
+                }
+            },
+            // {
+            //     "label": "模态框外部布局", "field": "modalLayout",
+            //     expect: {
+            //         field: 'type',
+            //         value: 'modal'
+            //     }
+            // },
+            {
+                "label": "模态框配置", "field": "items", "type": "ActionModal", "items": [
+                    { "label": "模态框内容布局", "field": "modalContentLayout", "placeholder": "Grid", "defaultValue": "Grid" },
                     { "label": "模态框获取Api", "field": "modalContentGetApi" },
-                    { "label": "模态框内容布局", "field": "modalContentLayout", "placeholder": "Grid" },
                     { "label": "模态框更新Api", "field": "modalContentUpdateApi" },
-                    { "label": "模态框创建Api", "field": "modalContentCreateApi" },
-                    { "label": "模态框内部布局", "field": "modalItemsLayout", "placeholder": "Empty" },
-                    { "label": "模态框组件", "field": "modalItemsComp", "placeholder": "Form" }
-                ]
+                    { "label": "模态框内部布局", "field": "modalItemsLayout", "placeholder": "Empty", "defaultValue": "Empty" },
+                    { "label": "模态框组件", "field": "modalItemsComp", "placeholder": "Form", "defaultValue": "Form" }
+                ],
+                expect: {
+                    field: 'type',
+                    value: 'modal'
+                }
+            },
+            { "label": "是否显示在列表中", "field": "outside", "type": "switch" },
+            {
+                "label": "过滤字段", "field": "expectField",
+                "toolTips": {
+                    "type": "toolTip",
+                    "tipsValue": (
+                        <p>例子:
+                            <br />过滤字段为status, status是后台返回字段, 当status值为"0"时, 则显示此操作按钮
+                            <br />&nbsp;expect: {'{'}
+                            <br />&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;"status"
+                            <br />&nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;"0"
+                            <br />&nbsp;{'}'}
+                        </p>
+                    )
+                },
+            },
+            {
+                "label": "过滤值", "field": "expectValue",
+                "toolTips": {
+                    "type": "toolTip",
+                    "tipsValue": (
+                        <p>例子:
+                            <br />过滤值为"0", status是后台返回字段, 当status值为"0"时, 则显示此操作按钮
+                            <br />&nbsp;expect: {'{'}
+                            <br />&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;"status"
+                            <br />&nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;"0"
+                            <br />&nbsp;{'}'}
+                        </p>
+                    )
+                }
             }
         ]
     }

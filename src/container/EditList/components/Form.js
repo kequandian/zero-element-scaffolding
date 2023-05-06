@@ -1,12 +1,13 @@
 import React, { useState, useRef, useImperativeHandle, forwardRef, useEffect } from "react"
-import { Input, Select, Switch, InputNumber, Checkbox, Collapse, Button, Tabs, message, Modal, Popover } from 'antd'
+import { Input, Select, Switch, InputNumber, Checkbox, Collapse, Button, Tabs, message, Modal, Popover, Tooltip } from 'antd'
+import { QuestionOutlined } from '@ant-design/icons';
 import { useDidMount, useForceUpdate } from 'zero-element/lib/utils/hooks/lifeCycle'
-import promiseAjax from '@/utils/promiseAjax';
+import { query, post, update, remove } from 'zero-element/lib/utils/request';
 import _, { method } from 'lodash'
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
 import TheJson from '@/../zero-antd-dep/formItemType/JSON'
 import { history } from 'umi'
-import Array from './Array/index'
+import ArrayComponent from './Array/index'
 import ColorSelect from "./ColorSelect";
 import FontSelect from "./FontSelect";
 import FetchSelect from "./fetchSelect";
@@ -23,7 +24,7 @@ export default forwardRef((props, ref) => {
 
   const CheckboxGroup = Checkbox.Group
   const { Panel } = Collapse;
-  const [data, setData] = useState({})
+  const [data, setData] = useState({type: 'path'})
   const [modalVisable, setModalVisable] = useState(false)
   const [actionModalData, setActionModalData] = useState([])
   const [theModalData, setTheModalData] = useState([])
@@ -44,11 +45,9 @@ export default forwardRef((props, ref) => {
     let options = {
       method: "GET"
     }
-    promiseAjax(endpoint + actionModalUrl, queryData, options)
-      .then(resp => {
-        setActionModalData(resp.data.records)
-      })
-    promiseAjax(endpoint + ModalUrl, queryData, options)
+    //获取模态框数据
+    getActionModalData()
+    query(endpoint + ModalUrl, queryData, options)
       .then(resp => {
         setModalData(resp.data.records)
       })
@@ -69,6 +68,17 @@ export default forwardRef((props, ref) => {
     }
 
   }, [formData])
+
+  function getActionModalData(){
+    let modalId = getDefaultData("id")
+    let queryData = {
+      modalId: modalId
+    }
+    query(endpoint + actionModalUrl, queryData, 'GET')
+    .then(resp => {
+      setActionModalData(resp.data.records)
+    })
+  }
 
 
   function getFormData(field) {
@@ -234,6 +244,7 @@ export default forwardRef((props, ref) => {
   const switchEndpoint = (item, i) => {
     return <Switch defaultChecked={getSwitchData(item.field, item.defaultValue)}
       onChange={(e) => switchChange(item.field, e)}
+      key={`${i}_switch`}
     />
   }
 
@@ -295,7 +306,7 @@ export default forwardRef((props, ref) => {
       method: "PUT"
     }
 
-    promiseAjax(`${url}/${defaultData.id}`, newdata, options)
+    update(`${url}/${defaultData.id}`, newdata, options)
       .then(resp => {
         if (resp.code === 200) {
           message.success("更改成功")
@@ -316,15 +327,49 @@ export default forwardRef((props, ref) => {
     let options = {
       method: "POST"
     }
-    promiseAjax(url, newdata, options)
+    post(url, newdata, options)
       .then(resp => {
         if (resp.code === 200) {
-          message.success("增加成功")
+          //
+          getActionModalData()
         } else {
           message.success("增加失败")
         }
-        history.go(0)
+        // history.go(0)
       })
+  }
+
+  //本地新增模态框数据
+  function addlocalModalData(url, modalId, submitData){
+    if(!submitData.modalContentLayout){
+      submitData.modalContentLayout = 'Gird'
+    }
+    if(!submitData.modalItemsLayout){
+      submitData.modalItemsLayout = 'Empty'
+    }
+    if(!submitData.modalItemsComp){
+      submitData.modalItemsComp = 'Form'
+    }
+    // setActionModalData(ls)  
+    let newdata = {
+      ...submitData,
+      modalId: modalId
+    }
+    let options = {
+      method: "POST"
+    }
+    post(url, newdata, options)
+      .then(resp => {
+        if (resp.code === 200) {
+          //
+          getActionModalData()
+          setModalVisable(false)
+        } else {
+          message.success("增加失败")
+        }
+        // history.go(0)
+      })
+
   }
 
   function cancel() {
@@ -337,7 +382,7 @@ export default forwardRef((props, ref) => {
     let options = {
       method: "delete"
     }
-    promiseAjax(newurl, {}, options)
+    remove(newurl, {}, options)
       .then(resp => {
         if (resp.code === 200) {
           message.success("删除成功")
@@ -363,7 +408,8 @@ export default forwardRef((props, ref) => {
   const { TabPane } = Tabs
 
   const ModalEndpoint = (item, i) => {
-    return <><Tabs style={{ "padding": "10px" }} type="editable-card" onEdit={(e) => showModal(e, endpoint + ModalUrl)}>{modalData ? modalData.map((mdata, m) => <TabPane tab={`布局${m + 1}`} key={`layout${mdata.id}`}>{item.items.map((newItem, It) => <>{newItem.label ? <div>{newItem.label}：</div> : null}
+    return <>
+      <Tabs style={{ "padding": "10px" }} type="editable-card" onEdit={(e) => showModal(e, endpoint + ModalUrl)}>{modalData ? modalData.map((mdata, m) => <TabPane tab={`布局${m + 1}`} key={`layout${mdata.id}`}>{item.items.map((newItem, It) => <>{newItem.label ? <div>{newItem.label}：</div> : null}
       <Input
         defaultValue={getItemDefault(mdata, newItem.field, newItem.defaultValue)}
         placeholder={newItem.placeholder || "请输入" + (newItem.label || "...")}
@@ -391,22 +437,33 @@ export default forwardRef((props, ref) => {
   }
 
   const ActionModalEndpoint = (item, i) => {
+// console.log('item11111 = ', item)
+// console.log('actionModalData = ', actionModalData)
     return <>
-      <Tabs style={{ "padding": "10px" }} type="editable-card" onEdit={(e) => showModal(e, endpoint + actionModalUrl)}>{actionModalData ? actionModalData.map((mdata, m) => <TabPane tab={`布局${m + 1}`} key={`layout${mdata.id}`}>{item.items.map((newItem, It) => <>{newItem.label ? <div>{newItem.label}：</div> : null}<Input
-        defaultValue={getItemDefault(mdata, newItem.field, newItem.defaultValue)}
-        placeholder={newItem.placeholder || "请输入" + (newItem.label || "...")}
-        addonAfter={newItem.addonAfter}
-        onChange={(e) => ActionChangeValue(newItem.field, e, mdata)}
-        key={getItemDefault(actionModalData, newItem.field, newItem.defaultValue)}
-        size="middle"
-      >
-      </Input></>)}<Button style={{ float: "right", marginTop: "20px" }} type="primary" onClick={() => putModalData(endpoint + actionModalUrl, getDefaultData("id"), mdata, actionModalData)}>更改</Button></TabPane>) : <></>}</Tabs>
+      <Tabs style={{ "padding": "10px" }} type="editable-card" onEdit={(e) => showModal(e, endpoint + actionModalUrl)}>
+        {
+          actionModalData && Array.isArray(actionModalData) ? actionModalData.map((mdata, m) => <TabPane tab={`布局${m + 1}`} key={`layout${mdata.id}`}>
+          {/* {
+            item.items.map((newItem, It) => <>{newItem.label ? <div>{newItem.label}：</div> : null}
+              <Input
+                defaultValue={getItemDefault(mdata, newItem.field, newItem.defaultValue)}
+                placeholder={newItem.placeholder || "请输入" + (newItem.label || "...")}
+                addonAfter={newItem.addonAfter}
+                onChange={(e) => ActionChangeValue(newItem.field, e, mdata)}
+                key={getItemDefault(actionModalData, newItem.field, newItem.defaultValue)}
+                size="middle"
+              >
+              </Input></>
+          )} */}
+          <Button style={{ float: "right", marginTop: "20px" }} type="primary" onClick={() => putModalData(endpoint + actionModalUrl, getDefaultData("id"), mdata, actionModalData)}>更改</Button></TabPane>) : <></>
+        }
+      </Tabs>
       {/* <Button onClick={()=>{showModal()}}>增加</Button> */}
       <Modal
-        title={"新增配置"} visible={modalVisable} onCancel={cancel} onOk={() => addModalData(endpoint + actionModalUrl, getDefaultData("id"), actionModalData)}
+        title={"配置"} visible={modalVisable} onCancel={cancel} onOk={() => addlocalModalData(endpoint + actionModalUrl, getDefaultData("id"), actionModalData)}
       >
         {item.items.map((newItem, It) => <>{newItem.label ? <div>{newItem.label}：</div> : null}<Input
-          defaultValue={getDefaultData(newItem.field, newItem.defaultValue, true)}
+          defaultValue={getDefaultData(newItem.field, newItem.defaultValue || actionModalData[newItem.field], true)}
           placeholder={newItem.placeholder || "请输入" + (newItem.label || "...")}
           addonAfter={newItem.addonAfter}
           onChange={(e) => ActionChangeValue(newItem.field, e)}
@@ -423,18 +480,21 @@ export default forwardRef((props, ref) => {
   }
 
   const ArrayEndpoint = (item, i) => {
-    return <><Array onChange={(e) => Thetest(e)}></Array></>
+    return <><ArrayComponent onChange={(e) => Thetest(e)}></ArrayComponent></>
   }
 
   //跳转至表单实例页面
   function gotoComponentsExample(pathUrl) {
-    let path = `${endpoint || window.location.origin}${pathUrl}`
-    const w = window.open('about:blank');
-    w.location.href = path
+    if(pathUrl){
+      let path = `${endpoint || window.location.origin}${pathUrl}`
+      const w = window.open('about:blank');
+      w.location.href = path
+    }
   }
 
   //表单项提示
   function handleFormItemTips (data){
+    console.log('data == ', data)
     if(data){
       if(data.type === 'link'){
         return <a href="#" onClick={() => gotoComponentsExample(data.path)} title={data.tipsValue} ><TipsIconSvg color={"#1890ff"} /></a>
@@ -454,6 +514,13 @@ export default forwardRef((props, ref) => {
         }
         return <a href="#" onClick={() => gotoOneMaryDocx()} title={data.tipsValue} ><TipsIconSvg color={"#1890ff"} /></a>
       }
+      if(data.type === 'toolTip'){
+        return (
+          <Tooltip placement="rightTop" title={data.tipsValue}>
+              <a href="#" ><TipsIconSvg color={"#1890ff"} /></a>
+          </Tooltip>
+        )
+      }
     }
     return <></>
   }
@@ -463,18 +530,48 @@ export default forwardRef((props, ref) => {
 
     // expect 为是否显示组件判断
     const { expect = {} } = item;
-    if (JSON.stringify(expect) != '{}') {
+    
+    if (JSON.stringify(expect) !== '{}') {
       const { field, value } = expect;
-      if (data[field] != value) {
-        return
-      }
+      // if(field.indexOf(',') != -1){
+      //   const fieldList = field.split(',')
+      //   const valueList = value.split(',')
+
+      //   console.log('valueList = ', valueList)
+      //   let fieldCount = 0
+      //   let valueCount = 0
+      //   Object.keys(data).map(key => {
+      //     fieldList.map(fileItem => {
+      //       if(fileItem === key){
+      //         fieldCount++
+      //       }
+      //       if(valueList === data[fileItem]){
+      //         valueCount++
+      //       }
+      //     })
+      //   })
+
+      //   console.log('fieldCount = ', fieldCount)
+      //   console.log('valueCount = ', valueCount)
+
+      //   if(fieldCount != fieldList.length && valueCount != valueList.length){
+      //     return
+      //   }
+
+      // }else{
+        if (data[field] !== value) {
+          return
+        }
+      // }
+      
     }
+    
 
     return (
-      <div className="dynamic_column">
+      <div className="dynamic_column" key={`${i}`}>
         {
           item.label ? (
-            <div>{item.label}： {handleFormItemTips(item.toolTips)}</div>
+            <div key={i}>{item.label}： {handleFormItemTips(item.toolTips)}</div>
           ) : null
         }
         {
@@ -508,7 +605,7 @@ export default forwardRef((props, ref) => {
   return <>
     {
       config && config.map((item, i) =>
-        item.children ? <Collapse>
+        item.children ? <Collapse key={`${i}_collapse`}>
           <Panel header={item.header} >
             {item.children.map((child, a) => AllFormType(child, a))}
           </Panel>

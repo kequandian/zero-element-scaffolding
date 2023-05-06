@@ -4,7 +4,7 @@ import { withRouter, history } from 'umi';
 import { Drawer, Button, message, Empty, Spin, Tooltip, Popconfirm } from 'antd';
 import { useDidMount } from 'zero-element/lib/utils/hooks/lifeCycle'
 import './public/index.less'
-import promiseAjax from '@/utils/promiseAjax';
+import { query as queryMethod, post, update, remove } from 'zero-element/lib/utils/request';
 import { AddSvg, DeleteSvg, Edit } from './svg'
 import ShowModal from './components/showModal';
 import ShowAddModal from './components/showAddModal';
@@ -35,12 +35,12 @@ export default withRouter(function EditList(props) {
     showDelete = true,
     svg = <Edit />,
     cb,
-    query={}
+    query = {}
   } = config;
   // message.loading("开始加载")
   const addRef = useRef()
 
-  
+
   const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState(null)
@@ -98,9 +98,9 @@ export default withRouter(function EditList(props) {
     }
     return data
   }
-  
+
   //获取列表数据
-  function getListData(){
+  function getListData() {
     setLoading(true)
     let endpoint = getEndpoint()
     let apiUrl = ""
@@ -118,14 +118,13 @@ export default withRouter(function EditList(props) {
     } else {
       apiUrl = `${endpoint}${api}/${projectId}`
     }
-    // const apiUrl = `/api/test`;
 
-    promiseAjax(apiUrl, queryData)
+    queryMethod(apiUrl, queryData)
       .then(resp => {
-        if (resp && resp.code === 200) {
-          const Listdata = resp.data;
+        const restData = resp.data
+        if (restData && restData.code === 200) {
+          const Listdata = restData.data;
           // message.success("加载成功")
-          // console.log('Listdata.records ==== ', Listdata.records)
           if (PageId !== "") {
             setData(Listdata.records)
           } else {
@@ -167,14 +166,16 @@ export default withRouter(function EditList(props) {
       ...addRef.current.data,
       "pageId": PageId
     }
-    
+
     //处理冗余数据
     theData = handleFormData(theData)
 
     // console.log(theData,"提交后的DATA")
-    promiseAjax(apiUrl, theData, options)
+    post(apiUrl, theData, options)
       .then(resp => {
-        if (resp && resp.code === 200) {
+
+        const restData = resp.data
+        if (restData && restData.code === 200) {
           // const Listdata = resp.data.records;
           // console.log(resp)
           message.success("添加成功")
@@ -210,9 +211,10 @@ export default withRouter(function EditList(props) {
         PutData = data[i]
       }
     }
-    promiseAjax(apiUrl, PutData, options)
+    remove(apiUrl, PutData, options)
       .then(resp => {
-        if (resp && resp.code === 200) {
+        const restData = resp.data
+        if (restData && restData.code === 200) {
           // const Listdata = resp.data.records;
           // console.log(resp)
           message.success("删除成功")
@@ -263,9 +265,10 @@ export default withRouter(function EditList(props) {
     //处理冗余数据
     PutData = handleFormData(PutData)
 
-    promiseAjax(apiUrl, PutData, options)
+    update(apiUrl, PutData)
       .then(resp => {
-        if (resp && resp.code === 200) {
+        const restData = resp.data
+        if (restData && restData.code === 200) {
           // const Listdata = resp.data.records;
           // console.log(resp)
           message.success("更改成功")
@@ -323,6 +326,7 @@ export default withRouter(function EditList(props) {
                 fieldLabel={field}
                 type="card"
                 onSuccess={() => handleSuccess(item.id)}
+                key={i}
               >
                   <FormTools
                     formData={item}
