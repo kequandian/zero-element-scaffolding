@@ -2,7 +2,7 @@
 import { getToken } from 'zero-element/lib/utils/request/token';
 
 export default (url, data, options = {}) => {
-    const { method = 'GET', async = true, token = getToken() } = options;
+    const { method = 'GET', async = true, token = getToken(), AccessKey } = options;
   
     let param = '';
     let payload = {};
@@ -25,6 +25,11 @@ export default (url, data, options = {}) => {
       
       if(token){
         xhr.setRequestHeader("Authorization", `Bearer ${token}`);
+      }
+
+      if(AccessKey){
+        xhr.setRequestHeader("Accept", "application/json, text/plain, */*");
+        xhr.setRequestHeader("AccessKey", `${AccessKey}`);
       }
   
       xhr.onreadystatechange = () => {

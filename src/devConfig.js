@@ -5,11 +5,8 @@
  * @说明 此地方为开发环境的endpoint配置
 */
 export const Config ={
-    // endpoint:"http://192.168.3.194:8081",//api接口endpoint 
-    // endpoint:"http://49.119.119.7:8001",//api接口endpoint
-    // endpoint:"http://app1.console.smallsaas.cn:8003",//api接口endpoint
+    // endpoint:"http://192.168.3.72:8001",//api接口endpoint 
     // endpoint:"https://house.cloud.smallsaas.cn",//api接口endpoint
-    // endpoint:"http://demo.smallsaas.cn",//api接口endpoint
     endpoint:"https://static.smallsaas.cn",//api接口endpoint
     breadcrumbType:"header", //header,top
     theme:"LeftCover",//TopCover,LeftCover

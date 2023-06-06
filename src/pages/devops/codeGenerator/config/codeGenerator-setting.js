@@ -106,15 +106,16 @@ module.exports = {
     }
   ],
   "tableOperation": [
-    // {
-    //   "title": "编辑",
-    //   "type": "path",
-    //   "options": {
-    //     "style": "path",
-    //     "path": "perm/perm-edit",
-    //     "outside": true
-    //   }
-    // },
+
+    {
+      "title": "下载", 
+      "type": "request",
+      "options": {
+        "outside": true,
+        "API": "/api/cg/generate/download/(name)",
+        "method": "download"
+      }
+    },
     
     {
       "title": "删除",
