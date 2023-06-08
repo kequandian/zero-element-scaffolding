@@ -34,6 +34,7 @@ const initChartsData = () => {
 export default function () {
     useBreadcrumb([
         { title: '首页', path: '/' },
+        { title: 'AKStreamNVR', path: '/akstreamnvr' },
         { title: '控制台' },
     ]);
 

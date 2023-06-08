@@ -40,7 +40,7 @@ export default function Index (props) {
             if(res){
                 setChanelsData(res.videoChannelMediaInfo)
                 setPage(res.request.pageIndex)
-                setDataTotal(res.total)
+                setDataTotal(res.request.total)
                 setPageSize(res.request.pageSize)
             }
         })
@@ -71,7 +71,7 @@ export default function Index (props) {
                             <List.Item className={"channel-py"}>
                                 <div className={"channel-py-snap"} onClick={()=>{
                                     const w=window.open('about:blank');
-                                    w.location.href=`/play?mediaServerIp=${item.mediaServerStreamInfo.mediaServerIp}&mediaServerId=${mediaServerId}&vhost=${item.vhost}&app=${item.app}&stream=${item.mediaServerStreamInfo.stream}`;
+                                    w.location.href= apiDomin + `/play?mediaServerIp=${item.mediaServerStreamInfo.mediaServerIp}&mediaServerId=${mediaServerId}&vhost=${item.vhost}&app=${item.app}&stream=${item.mediaServerStreamInfo.stream}`;
                                 }}>
                                     <RvImage src={snapshotPath} fallbackSrc={black}/>
                                 </div>

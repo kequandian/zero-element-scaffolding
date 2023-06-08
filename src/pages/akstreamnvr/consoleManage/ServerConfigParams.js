@@ -46,7 +46,7 @@ export default (props) => {
                 <List
                     size="small"
                     header={null}
-                    footer={null}
+                    footer={<div style={{height: '10px'}}></div>}
                     bordered
                     dataSource={formatData(serverConfigParams)}
                     renderItem={([pName, pVal]) => {
