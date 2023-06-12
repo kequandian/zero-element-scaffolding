@@ -33,9 +33,11 @@ export default forwardRef((props, ref) => {
 
         promiseAjax(apiAKStream+apiPath, {secret:secret}, { method: 'GET', AccessKey: `${AccessKey}` })
             .then(res => {
-                if(res && Array.isArray(res)) {
-                    setMediaServer(res)
+                if(res.code === 200) {
+                    setMediaServer(res.data)
                     forceUpdate()
+                }else{
+                    console.error('获取楼媒体服务列表异常 == ', res)
                 }
             })
             .finally(_=>{
@@ -50,8 +52,8 @@ export default forwardRef((props, ref) => {
 
         promiseAjax(apiAKStream+apiPath, { mediaServerId: record.mediaServerId, secret:secret}, { method: 'GET', AccessKey: `${AccessKey}` })
             .then(res => {
-                if (res.isRunning) {
-                    message.info(`启动 -> ${record.mediaServerId} -> 成功!`);
+                if (res.code === 200) {
+                    message.info(`启动 -> ${record.data.mediaServerId} -> 成功!`);
                     loadMediaServerData();
                 }
             })
@@ -63,8 +65,8 @@ export default forwardRef((props, ref) => {
 
         promiseAjax(apiAKStream+apiPath, { mediaServerId: record.mediaServerId, secret:secret}, { method: 'GET', AccessKey: `${AccessKey}` })
             .then(res => {
-                if (!res.isRunning) {
-                    message.info(`停止 -> ${record.mediaServerId} -> 成功!`);
+                if (res.code === 200) {
+                    message.info(`停止 -> ${record.data.mediaServerId} -> 成功!`);
                     loadMediaServerData();
                 }
             })
@@ -76,8 +78,8 @@ export default forwardRef((props, ref) => {
 
         promiseAjax(apiAKStream+apiPath, { mediaServerId: record.mediaServerId, secret:secret}, { method: 'GET', AccessKey: `${AccessKey}` })
             .then(res => {
-                if (res.isRunning) {
-                    message.info(`重启 -> ${record.mediaServerId} -> 成功!`);
+                if (res.code === 200) {
+                    message.info(`重启 -> ${record.data.mediaServerId} -> 成功!`);
                     loadMediaServerData();
                 }
             })

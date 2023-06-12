@@ -31,9 +31,8 @@ export default function Index () {
         const apiPath = '/MediaServer/GetMediaServerList'
         promiseAjax(apiAKStream+apiPath, {secret:secret}, { method: 'GET', AccessKey: `${AccessKey}` })
         .then(res => {
-            console.log('res == ', res)
-            if(res && Array.isArray(res)){
-                setData(res)
+            if(res.code === 200){
+                setData(res.data)
             }
         })
         .finally(_=>{

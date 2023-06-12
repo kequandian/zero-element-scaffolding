@@ -38,17 +38,25 @@ export default (url, data, options = {}) => {
           return;
         }
   
+        let result;
         if (xhr.readyState === 4 && xhr.status === 200) {
-          let result
           try {
             result = JSON.parse(xhr.responseText);
-            resolve(result);
+            let newData = result
+            if(!result.code){
+              newData = {
+                code: xhr.status,
+                data: result
+              }
+            }
+            resolve(newData);
   
           } catch (error) {
             reject("返回的数据非 json 格式");
           }
         } else {
-          reject(xhr.statusText);
+          result = JSON.parse(xhr.responseText);
+          resolve(result);
         }
       }
       xhr.onerror = (err) => {

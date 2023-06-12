@@ -37,11 +37,11 @@ export default function Index (props) {
         }
         promiseAjax(apiAKStream+apiPath, query, { method: 'POST', AccessKey: `${AccessKey}` })
         .then(res => {
-            if(res){
-                setChanelsData(res.videoChannelMediaInfo)
-                setPage(res.request.pageIndex)
-                setDataTotal(res.request.total)
-                setPageSize(res.request.pageSize)
+            if(res.code === 200){
+                setChanelsData(res.data.videoChannelMediaInfo)
+                setPage(res.data.request.pageIndex)
+                setDataTotal(res.data.request.total)
+                setPageSize(res.data.request.pageSize)
             }
         })
         .finally(_=>{

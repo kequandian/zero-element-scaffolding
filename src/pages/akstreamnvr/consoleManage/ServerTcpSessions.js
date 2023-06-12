@@ -33,8 +33,8 @@ export default forwardRef((props, ref) => {
 
         promiseAjax(apiDomin+apiPath, {secret:secret}, { method: 'GET', AccessKey: `${AccessKey}` })
             .then(res => {
-                if(res.code === 0){
-                    setServerTcpSessions(res.data);
+                if(res.code === 200){
+                    setServerTcpSessions(res.data.data);
                     forceUpdate()
                 }
             })

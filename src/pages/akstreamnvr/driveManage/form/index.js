@@ -25,7 +25,7 @@ export default function Index (props) {
         form.resetFields()
     }
 
-    const matchType = (item, index, changeValues) => {
+    const MatchType = ({item, changeValues}) => {
         if(!formItem){
             return
         }
@@ -34,7 +34,7 @@ export default function Index (props) {
         if(C){
             return (
                 <>
-                    <Form.Item key={index} label={item.label} name={item.field} 
+                    <Form.Item label={item.label} name={item.field} 
                         rules={ item.tips ? [{ required: true, message: item.tips }] : []}>
                         <C {...item} defaultValue={fromData[item.field]} changeValues={changeValues} />
                     </Form.Item> 
@@ -68,7 +68,7 @@ export default function Index (props) {
                 
                 {
                     formItemList.map((item, index) => (
-                        matchType(item, index, changeValues)
+                        <MatchType key={index} item={item} changeValues={changeValues} />
                     ))
                 }
                 

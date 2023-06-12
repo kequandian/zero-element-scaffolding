@@ -17,9 +17,10 @@ export default function Index () {
         { title: '设备管理' },
     ]);
 
-    const createCnuterRef = useRef();
-    const editCnuterRef = useRef();
-    const playCnuterRef = useRef();
+    const createCnuterRef = useRef(); //创建
+    const editCnuterRef = useRef(); //编辑
+    const activeCnuterRef = useRef(); //激活
+    const playCnuterRef = useRef(); //播放
     const apiDomin = `${location.protocol}//${window._env_.REACT_APP_API_HOST}`;
     const apiAKStream = `${location.protocol}//${window._env_.AKSTREAM_WEB_API}`;
     const secret = `${window._env_.ZlMediaKit_Secret}`;
@@ -58,11 +59,13 @@ export default function Index () {
         }
         promiseAjax(apiAKStream+apiPath, query, { method: 'POST', AccessKey: `${AccessKey}` })
         .then(res => {
-            if(res){
-                setData(res.videoChannelList)
-                setPage(res.request.pageIndex)
-                setDataTotal(res.request.total)
-                setPageSize(res.request.pageSize)
+            if(res.code === 200){
+                setData(res.data.videoChannelList)
+                setPage(res.data.request.pageIndex)
+                setDataTotal(res.data.request.total)
+                setPageSize(res.data.request.pageSize)
+            }else{
+                console.error('获取设备列表异常 = ', res)
             }
         })
         .finally(_=>{
@@ -78,12 +81,12 @@ export default function Index () {
         }
         promiseAjax(apiAKStream+apiPath, query, { method: 'POST', AccessKey: `${AccessKey}` })
         .then(res => {
-            if (res.id && res.id > 0) {
+            if (res.code === 200 && res.data.id && res.data.id > 0) {
                 message.info("添加设备成功!");
                 createCnuterRef.current.onClose();
                 loadChanelsData();
             } else {
-                message.error(res);
+                message.error(res.Message);
             }
         })
         .finally(_=>{
@@ -99,12 +102,12 @@ export default function Index () {
         }
         promiseAjax(apiAKStream+apiPath, query, { method: 'POST', AccessKey: `${AccessKey}` })
         .then(res => {
-            if (res.id && res.id > 0) {
+            if (res.code === 200) {
                 message.info("编辑设备成功!");
                 editCnuterRef.current.onClose();
                 loadChanelsData();
             } else {
-                message.error(res);
+                message.error(res.Message);
             }
         })
         .finally(_=>{
@@ -119,15 +122,34 @@ export default function Index () {
         }
         promiseAjax(apiAKStream+apiPath, query, { method: 'POST', AccessKey: `${AccessKey}` })
         .then(res => {
-            if (res.id && res.id > 0) {
+            if (res.code === 200) {
                 message.info("激活设备成功!");
-                editCnuterRef.current.onClose();
+                activeCnuterRef.current.onClose();
                 loadChanelsData();
             } else {
-                message.error(res);
+                message.error(res.Message);
             }
         })
         .finally(_=>{
+        })
+    }
+    
+    // 结束推流
+    const getStreamStop = (channel) => {
+        const apiPath = '/MediaServer/StreamStop';
+        const query = {
+            mediaServerId: channel.mediaServerId,
+            mainId: channel.mainId,
+            secret
+        }
+        promiseAjax(apiAKStream+apiPath, query, { method: 'GET', AccessKey: `${AccessKey}` })
+        .then(res => {
+            if (res.code === 200) {
+                message.info("结束推流成功!");
+                loadChanelsData();
+            } else {
+                message.error(res.Message);
+            }
         })
     }
 	
@@ -135,7 +157,7 @@ export default function Index () {
     //激活
 	const activeVideoRecord = (channelData) => {
         setChannelData(channelData)
-	    editCnuterRef.current.onShow(channelData)
+	    activeCnuterRef.current.onShow(channelData)
 	}
 
     //编辑
@@ -151,8 +173,7 @@ export default function Index () {
 
     //
     const onRequest = (data, mode) => {
-        console.log('data = ', data)
-        console.log('mode = ', mode)
+        console.log(mode)
         if(mode === 'create'){
             createVideoChannel(data)
         }else if(mode === 'edit'){
@@ -264,11 +285,11 @@ export default function Index () {
                                 {
                                     record.mediaServerId && record.mediaServerId.indexOf('unknown_server') ? <a href="#" onClick={()=>getStreamLive(record)}>播放</a> : ""
                                 }
-                                {/* <Divider type="vertical" />
+                                <Divider type="vertical" />
                                 {
                                     record.mediaServerId && record.mediaServerId.indexOf('unknown_server') ? <a href="#" onClick={()=>getStreamStop(record)}>结束推流</a> : ""
                                 }  
-                                <Divider type="vertical" />
+                                {/* <Divider type="vertical" />
                                 {
                                     record.mediaServerId && record.mediaServerId.indexOf('unknown_server') ? <a href="#" onClick={()=>getStartRecord(record)}>录制文件</a> : ""
                                 }  
@@ -299,7 +320,7 @@ export default function Index () {
 
             <FromModal ref={editCnuterRef} mode="edit" onRequest={onRequest}/>
 
-            <FromModal ref={editCnuterRef} mode="active" onRequest={onRequest}/>
+            <FromModal ref={activeCnuterRef} mode="active" onRequest={onRequest}/>
 
             <PlayFormModal ref={playCnuterRef}/>
        

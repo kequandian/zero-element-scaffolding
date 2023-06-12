@@ -29,8 +29,8 @@ export default function Index (props) {
         promiseAjax(apiAKStream+api, {secret:secret}, { method: 'GET', AccessKey: `${AccessKey}` })
         .then(res => {
 
-            if(res){
-                setSelectList(res)
+            if(res.code === 200){
+                setSelectList(res.data)
             }else{
                 console.error('获取select列表异常 = ', res)
             }

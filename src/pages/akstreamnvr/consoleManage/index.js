@@ -72,8 +72,8 @@ export default function () {
         const apiPath = '/index/api/getThreadsLoad'
         promiseAjax(apiDomin + apiPath, { secret: secret }, { method: 'GET', AccessKey: `${AccessKey}` })
             .then(res => {
-                if (res.code === 0) {
-                    const data = res.data;
+                if (res.code === 200) {
+                    const data = res.data.data;
                     const average = list => list.reduce((prev, curr) => prev + curr) / list.length;
 
                     //计算多个线程的平均负载率和平均延时
@@ -84,7 +84,7 @@ export default function () {
                         time: now.valueOf(),
                         averageLoad: averageLoad,
                         averageDelay,
-                        detail: res.data
+                        detail: res.data.data
                     }
                     chartsData.push(ret);
                     chartsData.shift();
@@ -102,8 +102,8 @@ export default function () {
         const apiPath = '/index/api/getServerConfig'
         promiseAjax(apiDomin+apiPath, {secret:secret}, { method: 'GET', AccessKey: `${AccessKey}` })
         .then(res => {
-            if(res.code === 0){
-                setServerConfigParams(res.data[0]);
+            if(res.code === 200){
+                setServerConfigParams(res.data.data[0]);
             }else{
                 console.error('获取ZLMedia NVR配置参数异常 = ', res)
             }
