@@ -4,8 +4,9 @@ import { useDidMount, useWillUnmount, useForceUpdate } from 'zero-element/lib/ut
 import promiseAjax from '@/utils/promiseAjax';
 import {Button, Table, Tag, Modal, Spin, message, Divider} from "antd";
 
-import FromModal from './modal';
-import PlayFormModal from './modal/playForm';
+import FromModal from '../ctrl/component/modal';
+import PlayFormModal from '../ctrl/component/modal/playForm';
+import formConfig from './config/driveFormConfig'
 
 import './index.less';
 
@@ -145,10 +146,48 @@ export default function Index () {
         promiseAjax(apiAKStream+apiPath, query, { method: 'GET', AccessKey: `${AccessKey}` })
         .then(res => {
             if (res.code === 200) {
-                message.info("结束推流成功!");
+                message.info("结束推流!");
                 loadChanelsData();
             } else {
                 message.error(res.Message);
+            }
+        })
+    }
+
+    //开始录制
+    const getStartRecord = (channel) => {
+        const apiPath = '/MediaServer/StartRecord';
+        const query = {
+            mediaServerId: channel.mediaServerId,
+            mainId: channel.mainId,
+            secret
+        }
+        promiseAjax(apiAKStream+apiPath, query, { method: 'GET', AccessKey: `${AccessKey}` })
+        .then(res => {
+            if (res.code === 200) {
+				message.success('开始录制!');
+            } else {
+				message.error('录制失败!');
+                console.error(res.Message);
+            }
+        })
+    }
+
+    //暂停录制
+    const getStopRecord = (channel) => {
+        const apiPath = '/MediaServer/StopRecord';
+        const query = {
+            mediaServerId: channel.mediaServerId,
+            mainId: channel.mainId,
+            secret
+        }
+        promiseAjax(apiAKStream+apiPath, query, { method: 'GET', AccessKey: `${AccessKey}` })
+        .then(res => {
+            if (res.code === 200) {
+				message.success('暂停成功!');
+            } else {
+				message.error('暂停失败!');
+                console.error(res.Message);
             }
         })
     }
@@ -191,7 +230,7 @@ export default function Index () {
     return (
         <Spin spinning={loading}>
             <div style={{width: '100%', display: "flex", padding: "10px", backgroundColor: 'white' }}>
-                <Button icon={"plus"} type="primary" onClick={() => showCreateModal()}>
+                <Button type="primary" onClick={() => showCreateModal()}>
                     添加设备
                 </Button>
             </div>
@@ -289,14 +328,14 @@ export default function Index () {
                                 {
                                     record.mediaServerId && record.mediaServerId.indexOf('unknown_server') ? <a href="#" onClick={()=>getStreamStop(record)}>结束推流</a> : ""
                                 }  
-                                {/* <Divider type="vertical" />
+                                <Divider type="vertical" />
                                 {
                                     record.mediaServerId && record.mediaServerId.indexOf('unknown_server') ? <a href="#" onClick={()=>getStartRecord(record)}>录制文件</a> : ""
                                 }  
                                 <Divider type="vertical" />
                                 {
                                     record.mediaServerId && record.mediaServerId.indexOf('unknown_server') ? <a href="#" onClick={()=>getStopRecord(record)}>暂停录制</a> : ""
-                                }   */}
+                                }
                             </span>
                         ),
                     },
@@ -316,11 +355,11 @@ export default function Index () {
                 scroll={{ x: 'calc(1320px + 50%)' }}
             />    
 
-            <FromModal ref={createCnuterRef} mode="create" onRequest={onRequest}/>
+            <FromModal ref={createCnuterRef} mode="create" formConfig={formConfig} onRequest={onRequest}/>
 
-            <FromModal ref={editCnuterRef} mode="edit" onRequest={onRequest}/>
+            <FromModal ref={editCnuterRef} mode="edit" formConfig={formConfig} onRequest={onRequest}/>
 
-            <FromModal ref={activeCnuterRef} mode="active" onRequest={onRequest}/>
+            <FromModal ref={activeCnuterRef} mode="active" formConfig={formConfig} onRequest={onRequest}/>
 
             <PlayFormModal ref={playCnuterRef}/>
        

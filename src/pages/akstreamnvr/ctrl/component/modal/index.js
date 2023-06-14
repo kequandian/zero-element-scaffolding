@@ -5,10 +5,10 @@ import FromConfig from '../form';
 
 export default forwardRef(function Index (props, ref) {
 
-    const { mode, onRequest } = props;
+    const { width=620, mode, onRequest, formConfig={} } = props;
 
     const [ visible, setVisible ] = useState(false); 
-    const [ channelData, setChannelData ] = useState({});
+    const [ fromData, setFromData ] = useState({});
 
     //回调
     useImperativeHandle(ref,
@@ -21,7 +21,7 @@ export default forwardRef(function Index (props, ref) {
 
     const onShow = (data) => {
         if(data){
-            setChannelData(data)
+            setFromData(data)
         }
         setVisible(true)
     };
@@ -43,10 +43,10 @@ export default forwardRef(function Index (props, ref) {
             onCancel={onClose}
             maskClosable={false}
             footer={null}
-            width={620}
+            width={width}
             destroyOnClose={true}
         >
-            <FromConfig visible={visible} fromData={channelData} handleSubmit={handleSubmit}/>
+            <FromConfig visible={visible} fromData={fromData} formConfig={formConfig} handleSubmit={handleSubmit}/>
         </Modal>
     )
 

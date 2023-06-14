@@ -55,7 +55,7 @@ export default (url, data, options = {}) => {
             reject("返回的数据非 json 格式");
           }
         } else {
-          result = JSON.parse(xhr.responseText);
+          result = xhr.responseText ? JSON.parse(xhr.responseText) : '';
           resolve(result);
         }
       }

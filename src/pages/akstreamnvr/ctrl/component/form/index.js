@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Form, Input, Button } from "antd";
-import formConfig from './config';
 const formItem = require('./compx/export') ;
 
 import './index.less'
@@ -14,6 +13,8 @@ const defaultWrapperCol = {
 };
 
 export default function Index (props) {
+
+    const { formConfig } = props;
 
     const { fromData={}, handleSubmit, mode='create' } = props;
 
