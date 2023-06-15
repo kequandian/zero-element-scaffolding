@@ -72,13 +72,14 @@ export default forwardRef(function Index(props, ref) {
             width={1120}
             destroyOnClose={true}
         >
-            <div className={"playback-play-container"}>
+            <div className={"playForm-play-container"}>
 
-                <div className={"playback-play-header"}>
-                    <div className={"playback-player"}>
+                <div className={"playForm-play-header"}>
+                    <div className={"playForm-player"}>
 
                         <live-player 
                             video-url={ playUrlData.flv === undefined ? `${apiDomin}/`+channelData.app+'/'+channelData.mainId+'.live.flv':playUrlData.flv}
+                            live="true"
                             >
                         </live-player>
 
@@ -86,8 +87,8 @@ export default forwardRef(function Index(props, ref) {
 
                 </div>
 
-                <div className={"playback-play-bottom"}>
-                    <div className={"playback-calendar"}>
+                <div className={"playForm-play-bottom"}>
+                    <div className={"playForm-calendar"}>
                         <Tabs>
                             <Tabs.TabPane tab="分享地址&视频源地址" key="1">
                                 <div className={"zpplayer-bottom-tab-pane"}>

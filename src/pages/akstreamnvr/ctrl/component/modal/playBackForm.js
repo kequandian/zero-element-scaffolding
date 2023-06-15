@@ -1,5 +1,5 @@
 import React, { useState, forwardRef, useImperativeHandle } from 'react';
-import { Modal, Input, Tabs, Icon } from "antd";
+import { Modal, Calendar } from "antd";
 import promiseAjax from '@/utils/promiseAjax';
 import moment from "moment";
 import ReactPlayer from "../../component/ReactPlayer";
@@ -44,16 +44,18 @@ export default forwardRef(function Index(props, ref) {
 
     //
     const loadChannelRecord = (data) => {
+        data.calValue = calValue
         loadChannelRecordMonthly(data);
     }
 
     const loadChannelRecordMonthly = (params) => {
 
+        console.log('date1111 == ', params.calValue.format("YYYY-MM-DD 00:00:00"))
         const apiPath = `/SipGate/GetHistroyRecordFileList?deviceId=${params.deviceId}&channelId=${params.channelId}`;
         const query = {
             sipRecordFileQueryType: 0,
-            startTime: calValue.format("YYYY-MM-DD 00:00:00"),
-            endTime: calValue.format("YYYY-MM-DD 23:59:59"),
+            startTime: params.calValue.format("YYYY-MM-DD 00:00:00"),
+            endTime: params.calValue.format("YYYY-MM-DD 23:59:59"),
             taskId: 0,
         }
         promiseAjax(apiAKStream + apiPath, query, { method: 'POST', AccessKey: `${AccessKey}` })
@@ -122,9 +124,8 @@ export default forwardRef(function Index(props, ref) {
 
     //日历
     const handleCalendarSelect = (date) => {
-        setCalValue(date).then(_=>{
-            loadChannelRecord();
-        })
+        setCalValue(date);
+        loadChannelRecordMonthly({...channelData, calValue:date });
     }
 
     return (
@@ -139,19 +140,19 @@ export default forwardRef(function Index(props, ref) {
         >
 
 
-            <div className={"playback-play-container"}>
+            <div className={"playBackForm-play-container"}>
 
-                <div className={"playback-play-header"}>
-                    <div className={"playback-player"}>
+                <div className={"playBackForm-play-header"}>
+                    <div className={"playBackForm-player"}>
                         {
                             playSrcIdx != null && recordDaily && recordDaily.list && recordDaily.list.length > 0 && recordDaily.list[playSrcIdx] &&
                             <ReactPlayer
                                 ref={(rPlayer) => setReactPlayer(rPlayer)}
-                                className={"playback-zpplayer-player"}
+                                className={"playBackForm-zpplayer-player"}
                                 {...playinfo}
                                 // src={recordDaily.list[playSrcIdx].mp4Full}
                                 src={recordDaily.list[0].mediaServerStreamInfo.playUrl[1]}
-                                // onRateChange={handlePlaybackRateChange}
+                                // onRateChange={handleplayBackFormRateChange}
                                 // onEnded={handlePlayerEnded}
                                 // onPlay={handlePlayerPlay}
                                 // onTimeUpdate={handlePlayeTimeUpdate}
@@ -159,7 +160,7 @@ export default forwardRef(function Index(props, ref) {
                         }
 
                     </div>
-                    <div className={"playback-calendar"}>
+                    <div className={"playBackForm-calendar"}>
                         <Calendar fullscreen={false}
                             value={calValue}
                             onChange={handleCalendarSelect}
@@ -168,7 +169,7 @@ export default forwardRef(function Index(props, ref) {
                     </div>
                 </div>
 
-                <div className={"playback-play-bottom"}>
+                <div className={"playBackForm-play-bottom"}>
                     时间轴
                 </div>
             </div>

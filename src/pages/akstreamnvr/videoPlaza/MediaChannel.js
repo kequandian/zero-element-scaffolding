@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import useBreadcrumb from '@/framework/useBreadcrumb';
+import React, { useState, useRef } from 'react';
 import { useDidMount, useWillUnmount, useForceUpdate } from 'zero-element/lib/utils/hooks/lifeCycle';
 import promiseAjax from '@/utils/promiseAjax';
 import { List, Spin } from 'antd';
 import RvImage from '../ctrl/component/RvImage/RvImage';
 import black from '../ctrl/style/black.png'
+import VideoPlayFormModal from '../ctrl/component/modal/videoPlayForm';
 
 export default function Index (props) {
 
     const { mediaServerId } = props;
 
+    const cnuterRef = useRef(); //播放
     const apiDomin = `${location.protocol}//${window._env_.REACT_APP_API_HOST}`;
     const apiAKStream = `${location.protocol}//${window._env_.AKSTREAM_WEB_API}`;
     const secret = `${window._env_.ZlMediaKit_Secret}`;
@@ -48,6 +49,10 @@ export default function Index (props) {
             setLoading(false)
         })
     }
+
+    const openVideo = e =>{
+        cnuterRef.current.onShow(e)
+    }
     
     return (
         <div style={{display: "flex", flexDirection: 'column', backgroundColor: "white", minHeight: '550px'}}>
@@ -64,15 +69,12 @@ export default function Index (props) {
                         if (item.vhost && item.vhost != "__defaultVhost__") {
                             snapshotPath += item.vhost;
                         }
-                        console.log(snapshotPath)
+                        // console.log(snapshotPath)
                         // snapshotPath += "/"+ item.app+"/"+item.stream+".png"
                         snapshotPath += `${apiDomin}/`+item.app+"/"+item.mediaServerStreamInfo.stream+".live.flv"
                         return (
                             <List.Item className={"channel-py"}>
-                                <div className={"channel-py-snap"} onClick={()=>{
-                                    const w=window.open('about:blank');
-                                    w.location.href= apiDomin + `/play?mediaServerIp=${item.mediaServerStreamInfo.mediaServerIp}&mediaServerId=${mediaServerId}&vhost=${item.vhost}&app=${item.app}&stream=${item.mediaServerStreamInfo.stream}`;
-                                }}>
+                                <div className={"channel-py-snap"} onClick={()=>openVideo(item)}>
                                     <RvImage src={snapshotPath} fallbackSrc={black}/>
                                 </div>
                                 <div className={"channel-py-des"}>
@@ -84,6 +86,8 @@ export default function Index (props) {
                     }}
                 />
             </Spin>
+
+            <VideoPlayFormModal ref={cnuterRef} />
         </div>
     )
 }
