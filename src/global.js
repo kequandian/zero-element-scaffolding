@@ -82,6 +82,9 @@ import CSet_new_tree_list from '@/components/TList';
 
 import CSet_ErrorLayout from '@/components/Container/ErrorLayout';
 
+// wms components
+import VTSet_pcdFormat from '@/valueType/pcdFormat';
+
 
 //配置 
 import { Config } from './devConfig'
@@ -219,5 +222,6 @@ AITSet({
 VTSet({
   'path': vPath,
   'input-switch' : VTSet_InputSwitch,
-  'time-convert': VTSet_TimeConvert
+  'time-convert': VTSet_TimeConvert,
+  'pcd-format': VTSet_pcdFormat
 });
