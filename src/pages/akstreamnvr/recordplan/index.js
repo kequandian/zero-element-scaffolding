@@ -13,7 +13,7 @@ export default function Index () {
 
     useBreadcrumb([
         { title: '首页', path: '/' },
-        { title: 'AKStreamNVR', path: '/akstreamnvr' },
+        { title: '视频管理', path: '/akstreamnvr' },
         { title: '录像计划' },
     ]);
 

@@ -169,9 +169,9 @@ export default forwardRef(function Index(props, ref) {
                     </div>
                 </div>
 
-                <div className={"playBackForm-play-bottom"}>
+                {/* <div className={"playBackForm-play-bottom"}>
                     时间轴
-                </div>
+                </div> */}
             </div>
 
         </Modal>
