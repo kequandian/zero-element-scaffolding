@@ -44,7 +44,7 @@ module.exports = {
                       ]
                     },
                     "API": {
-                      "createAPI": "/api/cfg/data/services",
+                      "createAPI": "/api/ds/cfg/data/services",
                     },
                     "fields": [
                       {
@@ -126,8 +126,8 @@ module.exports = {
                       ]
                     },
                     "API": {
-                      "getAPI": "/api/cfg/data/services/(id)",
-                      "updateAPI": "/api/cfg/data/services/(id)",
+                      "getAPI": "/api/ds/cfg/data/services/(id)",
+                      "updateAPI": "/api/ds/cfg/data/services/(id)",
                     },
                     "fields": [
                       {

@@ -9,9 +9,9 @@
 
 module.exports = {
   "pageName": "",
-  "listAPI": "/api/eav/entities",
-  "deleteAPI": "/api/eav/entities/(id)",
-  "getAPI": "/api/eav/entities/[id]",
-  "createAPI": "/api/eav/entities",
-  "updateAPI": "/api/eav/entities/(id)"
+  "listAPI": "/api/ds/eav/entities",
+  "deleteAPI": "/api/ds/eav/entities/(id)",
+  "getAPI": "/api/ds/eav/entities/[id]",
+  "createAPI": "/api/ds/eav/entities",
+  "updateAPI": "/api/ds/eav/entities/(id)"
 }

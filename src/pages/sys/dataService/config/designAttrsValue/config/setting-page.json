@@ -27,7 +27,7 @@
                 ]
               },
               "API": {
-                "getFormApi": "/api/cfg/data/services/attrs/(entityName)/all",
+                "getFormApi": "/api/ds/cfg/data/services/attrs/(entityName)/all",
                 "createAPI": "/api/data/services/(entityName)"
               },
               "fields": [
