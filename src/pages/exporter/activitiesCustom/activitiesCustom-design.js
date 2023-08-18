@@ -7,8 +7,8 @@ export default (props) => {
 
     useBreadcrumb([
         { title: '首页', path: '/' },
-        { title: '系统管理', path: '/sys' },
-        { title: '自定义表单', path: '/sys/activitiesCustom' },
+        { title: '高级配置', path: '/exporter' },
+        { title: '自定义表单', path: '/exporter/activitiesCustom' },
         { title: '可视化设计' },
     ]);
 

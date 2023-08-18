@@ -40,10 +40,10 @@ import TreeSelectFetch from '@/components/TreeSelectFetch';
 //自定义组件--已使用
 import CSet_CustomForm from '@/components/CustomForm';
 import CSet_CustomFormFR from '@/components/CustomFormFR';
-import CSet_DataManageFormAdd from '@/pages/sys/activitiesCustom/config/dataManage/components/Form';
+import CSet_DataManageFormAdd from '@/pages/exporter/activitiesCustom/config/dataManage/components/Form';
 import CSet_DataServiceFormAdd from '@/pages/_dataService/config/dataManage/components/Form';
 
-import CSet_DataReportTreeList from '@/pages/sys/dataReport/components/DataReportTreeList';
+import CSet_DataReportTreeList from '@/pages/exporter/dataReport/components/DataReportTreeList';
 // import CSet_DataTable from '@/pages/userAudit/table/components/DataReportTreeList';
 import VTSet_InputSwitch from '@/components/ValueType/InputSwitch';
 import FITSet_group_title from '@/components/FormItemType/Group';
