@@ -104,6 +104,36 @@
                   ]
                 },
                 {
+                  "label": "实体名",
+                  "field": "entityName",
+                  "span": 24,
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [],
+                  "options": {
+                    "title": "选择实体",
+                    "label": "name",
+                    "editLabel": "name",
+                    "value": "entityName",
+                    "pagination": true,
+                    "API": "/api/ds/eav/entities",
+                    "fields": [
+                      {
+                        "label": "名称",
+                        "field": "name"
+                      },
+                      {
+                        "label": "实体名",
+                        "field": "entityName"
+                      }
+                    ]
+                  },
+                  "expect":{
+                    "field": "menuType",
+                    "value": "M"
+                  }
+                },
+                {
                   "label": "选择权限",
                   "field": "permId",
                   "span": 24,
@@ -275,6 +305,37 @@
                         "valueType": "ellipsis"
                       }
                     ]
+                  }
+                },
+                
+                {
+                  "label": "实体名",
+                  "field": "entityName",
+                  "span": 24,
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [],
+                  "options": {
+                    "title": "选择实体",
+                    "label": "name",
+                    "editLabel": "name",
+                    "value": "entityName",
+                    "pagination": true,
+                    "API": "/api/ds/eav/entities",
+                    "fields": [
+                      {
+                        "label": "名称",
+                        "field": "name"
+                      },
+                      {
+                        "label": "实体名",
+                        "field": "entityName"
+                      }
+                    ]
+                  },
+                  "expect":{
+                    "field": "menuType",
+                    "value": "M"
                   }
                 },
                 {
