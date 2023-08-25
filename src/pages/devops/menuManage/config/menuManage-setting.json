@@ -8,7 +8,7 @@
   "createAPI": "/api/crud/menu/custom/group",
   "getAPI": "/api/crud/menu/custom/group/[id]",
   "updateAPI": "/api/crud/menu/custom/group/[id]",
-  "deleteAPI": "api/crud/menu/menus/(id)",
+  "deleteAPI": "/api/crud/menu/menus/(id)",
   "columns": 1,
   "type":"default",
   "createFields": [
