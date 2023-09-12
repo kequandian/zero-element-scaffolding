@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ZEle from 'zero-element';
 import qs from 'qs';
 import { message, Spin } from 'antd'
@@ -13,18 +13,23 @@ import { getPageId } from '@/utils/dynamicPageTools';
 export default (props) => {
 
     const pathname = window.location.pathname;
+    const routeParam = window.location.search.replace('?', '');
     
     const [pageConfig, setPageConfig] = useState('')
     const [spining, setSpining] = useState(true)
     const [namespace, setNamespace ] = useState('dynamicPage')
 
-    useDidMount(_ => {
-        initPageConfig()
-    });
+    useEffect(_ => {
+      if(routeParam){
+        setSpining(true)
+        const pageId = routeParam.split('=')[1]
+        initPageConfig(pageId)
+      }
+    }, [routeParam]);
 
-    function initPageConfig() {
+    function initPageConfig(pageId) {
 
-      const { pageId, entityName } = getPageId(pathname)
+      const { entityName } = getPageId(pathname)
       //用于设置namespace
       setNamespace(entityName)
 
@@ -53,39 +58,39 @@ export default (props) => {
           message.error('获取页面配置信息失败')
         })
     }
-
-    if(pageConfig){
-        const config = {
-            layout: pageConfig.layout.table,
-            title: pageConfig.pageName.table,
-            items: [
-              {
-                component: 'Search',
-                config: {
-                  fields: pageConfig.searchFields,
-                },
+    
+    function handlePage(){
+      const config = {
+        layout: pageConfig.layout.table,
+        title: pageConfig.pageName.table,
+        items: [
+          {
+            component: 'Search',
+            config: {
+              fields: pageConfig.searchFields,
+            },
+          },
+          {
+            component: 'Table',
+            config: {
+              API: {
+                listAPI: pageConfig.listAPI,
+                deleteAPI: pageConfig.deleteAPI,
               },
-              {
-                component: 'Table',
-                config: {
-                  API: {
-                    listAPI: pageConfig.listAPI,
-                    deleteAPI: pageConfig.deleteAPI,
-                  },
-                  actions: pageConfig.tableActions,
-                  fields: pageConfig.tableFields,
-                  operation: pageConfig.tableOperation,
-                },
-              },
-            ],
-        }
+              actions: pageConfig.tableActions,
+              fields: pageConfig.tableFields,
+              operation: pageConfig.tableOperation,
+            },
+          },
+        ],
+      }
 
-        return (
-            <ZEle namespace={namespace} config={config} />
-        )
-    } else {
-        return <Spin spinning={spining} ></Spin>
+      return <ZEle namespace={namespace} config={config} />
     }
+
+    return <Spin spinning={spining} >
+      {pageConfig && handlePage()}
+    </Spin>
 
 
    
