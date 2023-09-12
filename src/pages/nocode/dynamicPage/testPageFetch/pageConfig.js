@@ -660,17 +660,17 @@ export const OperationsConfig = [
                     value: 'path'
                 }
             },
-            // {
-            //     "label": "请求API", "field": "requestApi", "type": "select", "options": [
-            //         { "label": "getApi", "value": "getApi" },
-            //         { "label": "updateApi", "value": "updateApi" },
-            //         { "label": "createApi", "value": "createApi" }
-            //     ], 
-            //     // "expect": {
-            //     //     "field": "type",
-            //     //     "value": "request"
-            //     // }
-            // },
+            {
+                "label": "请求API", "field": "requestApi", "type": "select", "options": [
+                    { "label": "getApi", "value": "getApi" },
+                    { "label": "updateApi", "value": "updateApi" },
+                    { "label": "createApi", "value": "createApi" }
+                ], 
+                "expect": {
+                    "field": "type",
+                    "value": "modal"
+                }
+            },
             {
                 "label": "请求结果API", "field": "requestRefreshApi",
                 expect: {

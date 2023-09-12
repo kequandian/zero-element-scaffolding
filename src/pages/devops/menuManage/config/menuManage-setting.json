@@ -65,7 +65,7 @@
                 ]
               },
               "API": {
-                "createAPI": "/api/crud/menu/menus"
+                "createAPI": "/vallation/node/api/create-menu"
               },
               "fields": [
                 {

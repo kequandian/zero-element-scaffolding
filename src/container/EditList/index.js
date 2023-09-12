@@ -5,7 +5,7 @@ import { Drawer, Button, message, Empty, Spin, Tooltip, Popconfirm } from 'antd'
 import { useDidMount } from 'zero-element/lib/utils/hooks/lifeCycle'
 import './public/index.less'
 import { query as queryMethod, post, update, remove } from 'zero-element/lib/utils/request';
-import { AddSvg, DeleteSvg, Edit } from './svg'
+import { AddSvg, DeleteSvg, Edit, UpSvg, DownSvg } from './svg'
 import ShowModal from './components/showModal';
 import ShowAddModal from './components/showAddModal';
 import OneMany from './components/oneMany';
@@ -35,7 +35,8 @@ export default withRouter(function EditList(props) {
     showDelete = true,
     svg = <Edit />,
     cb,
-    query = {}
+    query = {},
+    moduleType=''
   } = config;
   // message.loading("开始加载")
   const addRef = useRef()
@@ -287,7 +288,7 @@ export default withRouter(function EditList(props) {
         getListData()
       })
   }
-
+  
   return <div className="Drawer-edit-box">
     <Tooltip title={name} placement="bottom">
       <Button onClick={showDrawer} className="edit-box" icon={svg}>
@@ -300,7 +301,7 @@ export default withRouter(function EditList(props) {
       onClose={onClose}
       visible={visible}
       width="300"
-      bodyStyle={{paddingTop: '0px', overflowY:'scroll', maxHeight: '600px'}}
+      bodyStyle={{padding: '0 0 0 10px', overflowY:'scroll', maxHeight: '600px'}}
       footer={showAdd && data ? [
         <ShowAddModal title={"添加" + name}
           icon={<AddSvg />}
@@ -334,6 +335,24 @@ export default withRouter(function EditList(props) {
                     unUseDefaultValue={true}
                   />
               </ShowModal>
+
+              { moduleType == 'field' && (
+                <>
+                  <div className={[styles.delGroup]} 
+                    style={{marginRight:'5px', padding: '0 3px'}}
+                    onClick={()=>{}}
+                  >
+                    <UpSvg />
+                  </div>
+                  <div className={[styles.delGroup]} 
+                    style={{marginRight:'5px', padding: '0 3px'}}
+                    onClick={()=>{}}
+                  >
+                    <DownSvg />
+                  </div>
+                </>
+              )}
+              
               {showDelete ? (
                 <Popconfirm
                   title={`确定要删除${_.get(item, title)}?`}

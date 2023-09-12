@@ -71,3 +71,7 @@ header.ant-layout-header {
 .LeftCoverBreadcrumb > span:last-child span{
   color:#FFF8!important;
 }
+
+.ant-col.ant-form-item-label.ant-col-xs-8{
+  max-width: 150px;
+}

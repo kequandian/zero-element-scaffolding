@@ -185,6 +185,7 @@ export default function Default() {
             api: "/api/crud/lowFields/lowFieldses",//lc_fields
             ModelConfig: fieldsConfig,
             title: "fieldLabel",
+            moduleType:'field',
             name: "字段",
             PageId: id,
             showAdd: true,

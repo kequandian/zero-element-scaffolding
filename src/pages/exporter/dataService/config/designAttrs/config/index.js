@@ -1,4 +1,4 @@
-const setting = require('./setting-page.json');
+const setting = require('./setting-page.js');
 
 module.exports = {
   layout: setting.layout.table,

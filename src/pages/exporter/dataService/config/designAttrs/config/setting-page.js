@@ -1,4 +1,4 @@
-{
+module.exports = {
   "pageName": {
     "table": "设计字段"
   },
@@ -66,7 +66,7 @@
                       { "label":"大整数值", "value":"bigint" },
                       { "label":"单精度浮点型", "value":"float" },
                       { "label":"双精度浮点型", "value":"double" },
-                      {"label":"定点数","value":"decimal"},
+                      { "label":"定点数","value":"decimal" },
                       { "label":"年", "value":"year" },
                       { "label":"时间", "value":"time" },
                       { "label":"日期", "value":"date" },
@@ -88,8 +88,6 @@
                       { "label":"中blob", "value":"mediumblob" },
                       { "label":"长blob", "value":"longblob" }
                   ],
-                  "span":"24",
-                  
                   "type":"select",
                   "field":"dataType"
               }
