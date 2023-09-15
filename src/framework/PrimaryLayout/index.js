@@ -12,7 +12,7 @@ import GlobalContext from '@/framework/GlobalContext';
 import selectNavStyle from './utils/selectNavStyle';
 import { Config } from '@/devConfig';
 
-const appLogo = require( '../../../public/cloud.png');
+const appLogo = require('../../../public/cloud.png');
 
 const { Header, Content } = Layout;
 
@@ -37,11 +37,10 @@ export default function PrimaryLayout({
       menuConfigModel.queryMenu();
     }
   }, [permissions, menuTree, documentVisibility]);
-  
+
   menuData = LS.get('menuList');
   // const switchDDD = pathname ? switchMenuData(pathname, menuData) : menuData
   // console.log(' switchMenuData === ', switchDDD)
-
   const [
     TopNav, TopNavData,
     LeftNav, LeftNavData
@@ -56,21 +55,30 @@ export default function PrimaryLayout({
   }
 
   let aloneView;
-  if(location.pathname === '/login'){
+  if (location.pathname === '/login') {
     aloneView = true
-  }else if(Config.aloneWindow.indexOf(location.pathname)!==-1){
+  } else if (Config.aloneWindow.indexOf(location.pathname) !== -1) {
     aloneView = true
-  }else{
+  } else {
     aloneView = false
   }
 
+  function formatCurrentPath(){
+    const { pathname, search, query } = location
+    //判断是否动态页面
+    if(search.indexOf('pageId') != -1){
+      return pathname+search
+    }
+    return pathname
+  }
+
   return <Layout>
-    {Config.theme==="TopCover"?aloneView ? null : (
+    {Config.theme === "TopCover" ? aloneView ? null : (
       <Header className="header topNav">
         <div className="logo">
           <a href="/">
-          <img src={appLogo}></img>
-          SmallSaaS低代码开发平台
+            <img src={appLogo}></img>
+            SmallSaaS低代码开发平台
           </a>
         </div>
         <TopNav
@@ -83,48 +91,48 @@ export default function PrimaryLayout({
           <Login />
         </div>
       </Header>
-    ):aloneView ? null :<div style={{background:"#277AAD",position:"relative",top:"0",bottom:"0",left:"0","minHeight":"100vh"}}><div className="logo">
-      <div  style={{height:"64px",position:"relative"}}>
-          <a href="/"  style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)"}}>
-            <div>
-              <img width={40} src={appLogo} style={LeftNavData&&LeftNavData.length>1?{}:{display:"none"}}></img>
-            </div>
-        {/* SmallSaaS低代码开发平台 */}
+    ) : aloneView ? null : <div style={{ background: "#277AAD", position: "relative", top: "0", bottom: "0", left: "0", "minHeight": "100vh" }}><div className="logo">
+      <div style={{ height: "64px", position: "relative" }}>
+        <a href="/" style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)" }}>
+          <div>
+            <img width={40} src={appLogo} style={LeftNavData && LeftNavData.length > 1 ? {} : { display: "none" }}></img>
+          </div>
+          {/* SmallSaaS低代码开发平台 */}
         </a>
       </div>
 
-  </div>
-  <LeftNav navType={nav} path={location.pathname} menuData={LeftNavData} />
+    </div>
+      <LeftNav navType={nav} path={formatCurrentPath()} menuData={LeftNavData} />
     </div>
     }
-    
-    <Layout className="pageContainer">
-      {Config.theme==="TopCover"?aloneView && LeftNav ? null : (
-        <LeftNav navType={nav} path={location.pathname} menuData={LeftNavData} />
-      ):aloneView ? null :<Header className="header topNav">
 
-      <TopNav
-        path={location.pathname}
-        menuData={TopNavData}
-        navType={nav}
-        onClick={nav === 'both' ? handleSwitchLeftNav : undefined}
-      />
-        {Config.theme==="TopCover"?null:aloneView ? null : (
+    <Layout className="pageContainer">
+      {Config.theme === "TopCover" ? aloneView && LeftNav ? null : (
+        <LeftNav navType={nav} path={location.pathname} menuData={LeftNavData} />
+      ) : aloneView ? null : <Header className="header topNav">
+
+        <TopNav
+          path={location.pathname}
+          menuData={TopNavData}
+          navType={nav}
+          onClick={nav === 'both' ? handleSwitchLeftNav : undefined}
+        />
+        {Config.theme === "TopCover" ? null : aloneView ? null : (
           <div>
-            <Breadcrumb path={location.pathname} breadcrumb={breadcrumb} isLeftCover={true}/>
+            <Breadcrumb path={location.pathname} breadcrumb={breadcrumb} isLeftCover={true} />
           </div>
         )}
-      <div className="login">
-        <Login />
-      </div>
-    </Header>}
+        <div className="login">
+          <Login />
+        </div>
+      </Header>}
       <Layout id="contentContainer" className="contentContainer" style={
         aloneView ? undefined : { padding: '0 24px 24px' }
       }>
-        {Config.theme==="TopCover"?aloneView ? null : (
+        {Config.theme === "TopCover" ? aloneView ? null : (
           <Breadcrumb path={location.pathname} breadcrumb={breadcrumb} />
-        ):<div style={{height:"20px"}}></div>}
-        
+        ) : <div style={{ height: "20px" }}></div>}
+
         <Content>
           {children}
         </Content>

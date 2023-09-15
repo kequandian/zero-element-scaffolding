@@ -4,15 +4,21 @@ import qs from 'qs';
 import { message, Spin } from 'antd'
 import { useDidMount, useWillUnmount, useForceUpdate } from 'zero-element/lib/utils/hooks/lifeCycle';
 import { query } from 'zero-element/lib/utils/request';
-import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
+import useBreadcrumb from '@/framework/useBreadcrumb';
 import { LS } from 'zero-element/lib/utils/storage';
 
 import { pageUrl } from './config';
 import { getPageId } from '@/utils/dynamicPageTools';
 
 export default () => {
+
+  useBreadcrumb([
+    { title: '首页', path: '/' },
+    { title: '在线开发', path: '/nocode' },
+  ]);
   
-  const pathname = window.location.pathname;
+  // const pathname = window.location.pathname;
+  const pageId = LS.get('currentPageId') || '';
 
     const [pageConfig, setPageConfig] = useState('')
     const [spining, setSpining] = useState(true)
@@ -25,13 +31,13 @@ export default () => {
 
     function initPageConfig() {
       
-      const index = pathname.lastIndexOf("\/");
-      const pathNameStr = pathname.substring(0,index);
+      // const index = pathname.lastIndexOf("\/");
+      // const pathNameStr = pathname.substring(0,index);
 
-      const { pageId, entityName } = getPageId(pathNameStr)
+      // const { pageId, entityName } = getPageId(pathNameStr)
 
       //用于设置namespace
-      setNamespace(`${entityName}_edit`)
+      setNamespace(`dynamicPage_edit_${pageId}`)
 
       let pageConfigUrl = `${pageUrl}?id=${pageId}`
 
