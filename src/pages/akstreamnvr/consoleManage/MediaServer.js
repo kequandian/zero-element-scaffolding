@@ -53,7 +53,8 @@ export default forwardRef((props, ref) => {
         promiseAjax(apiAKStream+apiPath, { mediaServerId: record.mediaServerId, secret:secret}, { method: 'GET', AccessKey: `${AccessKey}` })
             .then(res => {
                 if (res.code === 200) {
-                    message.info(`启动 -> ${record.data.mediaServerId} -> 成功!`);
+                    // message.info(`启动 -> ${record.data.mediaServerId} -> 成功!`);
+                    message.info(`启动 -> 成功!`);
                     loadMediaServerData();
                 }
             })
@@ -66,7 +67,8 @@ export default forwardRef((props, ref) => {
         promiseAjax(apiAKStream+apiPath, { mediaServerId: record.mediaServerId, secret:secret}, { method: 'GET', AccessKey: `${AccessKey}` })
             .then(res => {
                 if (res.code === 200) {
-                    message.info(`停止 -> ${record.data.mediaServerId} -> 成功!`);
+                    // message.info(`停止 -> ${record.data.mediaServerId} -> 成功!`);
+                    message.info(`停止 -> 成功!`);
                     loadMediaServerData();
                 }
             })
@@ -79,7 +81,8 @@ export default forwardRef((props, ref) => {
         promiseAjax(apiAKStream+apiPath, { mediaServerId: record.mediaServerId, secret:secret}, { method: 'GET', AccessKey: `${AccessKey}` })
             .then(res => {
                 if (res.code === 200) {
-                    message.info(`重启 -> ${record.data.mediaServerId} -> 成功!`);
+                    // message.info(`重启 -> ${record.data.mediaServerId} -> 成功!`);
+                    message.info(`重启 -> 成功!`);
                     loadMediaServerData();
                 }
             })

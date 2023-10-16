@@ -46,7 +46,7 @@ export default forwardRef(function Index (props, ref) {
             width={width}
             destroyOnClose={true}
         >
-            <FromConfig visible={visible} fromData={fromData} formConfig={formConfig} handleSubmit={handleSubmit}/>
+            <FromConfig visible={visible} fromData={fromData} formConfig={formConfig} handleSubmit={handleSubmit} mode={mode}/>
         </Modal>
     )
 

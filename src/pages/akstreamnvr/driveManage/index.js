@@ -119,7 +119,7 @@ export default function Index () {
     const activeVideoChannel = (channelData) => {
         const apiPath = '/MediaServer/ActiveVideoChannel?mainId='+channelData.mainId;
         const query = {
-            ...data
+            ...channelData
         }
         promiseAjax(apiAKStream+apiPath, query, { method: 'POST', AccessKey: `${AccessKey}` })
         .then(res => {

@@ -83,11 +83,6 @@
                 },
                 {
                   "label": "路径",
-                  "rules": [
-                    {
-                      "type": "required"
-                    }
-                  ],
                   "props": {
                     "placeholder": "请输入"
                   },
@@ -162,7 +157,11 @@
                   "span": 24,
                   "type": "modal-radio",
                   "props": {},
-                  "rules": [],
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
                   "options": {
                     "title": "选择父类别",
                     "label": "menuName",

@@ -54,6 +54,9 @@ export default function Index (props) {
     
     function handleSubmitForm(values) {
         // console.log("values == ", values)
+        if(mode=='active'){
+            values.mainId = fromData.mainId
+        }
         handleSubmit(values)
     }
     
