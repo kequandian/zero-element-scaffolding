@@ -8,7 +8,9 @@ export const Config ={
     // endpoint:"http://192.168.3.72:8001",//api接口endpoint 
     // endpoint:"https://house.cloud.smallsaas.cn",//api接口endpoint
     // endpoint:"http://static.smallsaas.cn",//api接口endpoint
-    endpoint:"http://local.static.smallsaas.cn",//api接口endpoint
+    // endpoint:"http://local.static.smallsaas.cn",//api接口endpoint
+    endpoint:"http://demo.cdnline.cn:81",//api接口endpoint
+    akstreamEndpoint:"demo.cdnline.cn:81",//api接口endpoint
     breadcrumbType:"header", //header,top
     theme:"LeftCover",//TopCover,LeftCover
     aloneWindow:[   // 使用方法:在这里增加页面路径即可，如 /login

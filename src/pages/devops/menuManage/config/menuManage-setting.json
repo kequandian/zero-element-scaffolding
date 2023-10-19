@@ -157,11 +157,7 @@
                   "span": 24,
                   "type": "modal-radio",
                   "props": {},
-                  "rules": [
-                    {
-                      "type": "required"
-                    }
-                  ],
+                  "rules": [],
                   "options": {
                     "title": "选择父类别",
                     "label": "menuName",

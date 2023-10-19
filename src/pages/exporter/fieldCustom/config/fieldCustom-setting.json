@@ -91,6 +91,10 @@
       "field": "name"
     },
     {
+      "label": "实体名",
+      "field": "entityName"
+    },
+    {
       "label": "备注",
       "field": "note"
     }
