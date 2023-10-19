@@ -16,7 +16,7 @@
     "@umijs/preset-react": "^1.5.12",
     "braft-editor": "^2.3.9",
     "express": "^4.17.1",
-    "form-render": "^0.9.12",
+    "form-render": "^1.0.0",
     "fr-generator": "git+https://gitee.com/smallsaas/zero-element-generator.git",
     "framer-motion": "^4.1.17",
     "jparticles": "^2.0.1",
