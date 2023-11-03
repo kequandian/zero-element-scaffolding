@@ -1,0 +1,83 @@
+{
+  "pageName": {
+    "table": "页面配置管理",
+    "new": "添加",
+    "edit": "编辑"
+  },
+  "listAPI": "/api/crud/menu/custom/group",
+  "createAPI": "/api/crud/menu/custom/group",
+  "getAPI": "/api/crud/menu/custom/group/[id]",
+  "updateAPI": "/api/crud/menu/custom/group/[id]",
+  "deleteAPI": "/api/crud/menu/menus/(id)",
+  "columns": 1,
+  "type":"default",
+  "createFields": [
+    {
+      "label": "菜单名称",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "field": "name"
+    }
+  ],
+  "updateFields": [
+    {
+      "label": "菜单名称",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "search",
+      "field": "search"
+    }
+  ],
+  "map": {},
+  "layout": {
+    "table": "Content",
+    "form": "TitleContent"
+  },
+  "tableActions": [
+    
+  ],
+  "tableOperation": [
+    {
+      "title": "转换",
+      "type": "request",
+      "options": {
+        "method": "post",
+        "outside": true,
+        "API": "/toField",
+        "query":{
+          "pageId":"id",
+          "path": "component"
+        }
+      },
+      "expect": {
+        "field": "pageId",
+        "value": "IS_NULL"
+      }
+    }
+  ],
+  "searchFields": [
+  ],
+  "tableFields": [
+    {
+      "label": "菜单名称",
+      "field": "menuName"
+    },
+    {
+      "label": "路径",
+      "field": "component"
+    }
+  ]
+}
