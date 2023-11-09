@@ -66,6 +66,23 @@
         "field": "pageId",
         "value": "IS_NULL"
       }
+    },
+    {
+      "title": "更新",
+      "type": "request",
+      "options": {
+        "method": "post",
+        "outside": true,
+        "API": "/update",
+        "query":{
+          "pageId":"id",
+          "path": "component"
+        }
+      },
+      "expect": {
+        "field": "pageId",
+        "value": "IS_NOT_NULL"
+      }
     }
   ],
   "searchFields": [
