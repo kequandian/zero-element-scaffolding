@@ -74,7 +74,9 @@ import FITSet_express from '@/components/FormItemType/Express';
 import AITSet_FromModal from '@/actionItemType/FromModal';
 import CSet_DynamicPageForm from '@/components/DynamicPageForm';
 import CSet_DynamicPageShowConfig from '@/components/DynamicPageShowConfig';
-import AITSet_DownloadPage from '@/listAction/onDownloadPage'
+import AITSet_DownloadPage from '@/listAction/onDownloadPage';
+import AITSet_ConvertPage from '@/listAction/onConvertPage';
+import AITSet_UpdateToSetting from '@/listAction/onUpdateToSettingJson';
 
 
 //Test
@@ -187,7 +189,9 @@ CSet({
 LASet({
   // 'onPath': onPath,
   'onFromModal': AITSet_FromModal,
-  'onDownloadPage': AITSet_DownloadPage
+  'onDownloadPage': AITSet_DownloadPage,
+  'onConvertPage': AITSet_ConvertPage,
+  'onUpdateToSetting': AITSet_UpdateToSetting
 });
 
 

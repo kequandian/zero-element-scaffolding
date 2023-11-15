@@ -67,8 +67,7 @@
                   },
                   "showCount": "true",
                   "maxLength": "200",
-                  "rules": [],
-                  "span": 12
+                  "rules": []
                 }
               ]
             }
@@ -129,8 +128,7 @@
                   },
                   "showCount": "true",
                   "maxLength": "200",
-                  "rules": [],
-                  "span": 12
+                  "rules": []
                 }
               ]
             }

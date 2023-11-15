@@ -51,8 +51,8 @@
   ],
   "tableOperation": [
     {
-      "title": "转换",
-      "type": "request",
+      "title": "导入",
+      "type": "convertPage",
       "options": {
         "method": "post",
         "outside": true,
@@ -68,16 +68,30 @@
       }
     },
     {
-      "title": "更新",
-      "type": "request",
+      "title": "同步",
+      "type": "updateToSetting",
       "options": {
-        "method": "post",
         "outside": true,
-        "API": "/update",
-        "query":{
-          "pageId":"id",
+        "API":{
+          "getAPI":"/api/crud/lowMainPage/lowMainPages/(pageId)",
+          "updateAPI": "/vallation/node/api/get-setting"
+        },
+        
+        "query": {
           "path": "component"
         }
+      },
+      "expect": {
+        "field": "pageId",
+        "value": "IS_NOT_NULL"
+      }
+    },
+    {
+      "title": "跳转",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "/nocode/dynamicPage/testPageFetch"
       },
       "expect": {
         "field": "pageId",
