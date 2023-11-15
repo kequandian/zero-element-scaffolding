@@ -4,6 +4,7 @@
 import { query, post, update, remove, download } from 'zero-element/lib/utils/request';
 import { message as msg } from 'antd';
 import { get as getEndpoint } from 'zero-element/lib/utils/request/endpoint';
+import { getToken } from 'zero-element/lib/utils/request/token';
 const endpoint = getEndpoint()
 const methodMap = {
   'get': query,
@@ -43,11 +44,16 @@ export default function onRequest(props) {
   
   loading = true
 
-  return match(endpoint+API, data).then(rsp => {
+  const queryData = {
+    token: getToken(),
+    data: data
+  }
+
+  return match(endpoint+API, queryData).then(rsp => {
     loading = false
     const rspData = rsp.data
     if(rspData){
-        if(rsp == 200){
+        if(rspData.code == 200){
             message && msg.success(message);
         }else{
             msg.error(rspData.message)
