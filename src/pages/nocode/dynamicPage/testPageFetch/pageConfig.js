@@ -601,7 +601,19 @@ export const ActionsConfig = [
                     value: 'request'
                 }
             },
-            { "label": "请求参数", "field": "requestOptions", "type": "JSON" },
+            { 
+                "label": "请求参数", "field": "requestOptions", "type": "modalFrom",
+                "options": {
+                    "API": "/api/crud/lowMainPage/lowMainPages/(id)",
+                    "label": "fieldItemName",
+                    "value": "fieldItemName",
+                    "dataField": "data.lowFieldss"
+                },
+                expect: {
+                    field: 'type',
+                    value: 'modal'
+                }
+            },
             {
                 "label": "模态框标题", "field": "modalTitle",
                 expect: {
@@ -625,10 +637,10 @@ export const ActionsConfig = [
             // },
             {
                 "label": "模态框配置", "field": "items", "type": "ActionModal", "items": [
-                    { "label": "模态框内容布局", "field": "modalContentLayout", "placeholder": "Grid" },
-                    { "label": "模态框创建Api", "field": "modalContentCreateApi" },
-                    { "label": "模态框内部布局", "field": "modalItemsLayout", "placeholder": "Empty" },
-                    { "label": "模态框组件", "field": "modalItemsComp", "placeholder": "Form" }
+                    { "label": "模态框内容布局", "field": "modalContentLayout", "placeholder": "Grid", "defaultValue": "Grid" },
+                    { "label": "模态框创建Api", "field": "modalContentCreateApi", "placeholder": "CreateApi" },
+                    { "label": "模态框内部布局", "field": "modalItemsLayout", "placeholder": "Empty", "defaultValue": "Empty" },
+                    { "label": "模态框组件", "field": "modalItemsComp", "placeholder": "Form", "defaultValue": "Form" }
                 ],
                 expect: {
                     field: 'type',

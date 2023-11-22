@@ -59,7 +59,8 @@
         "API": "/toField",
         "query":{
           "pageId":"id",
-          "path": "component"
+          "path": "component",
+          "menuId": "id"
         }
       },
       "expect": {
@@ -73,12 +74,12 @@
       "options": {
         "outside": true,
         "API":{
-          "getAPI":"/api/crud/lowMainPage/lowMainPages/(pageId)",
-          "updateAPI": "/vallation/node/api/get-setting"
+          "updateAPI": "/vallation/node/api/push-setting"
         },
         
         "query": {
-          "path": "component"
+          "path": "component",
+          "pageId": "pageId"
         }
       },
       "expect": {
@@ -91,7 +92,10 @@
       "type": "path",
       "options": {
         "outside": true,
-        "path": "/nocode/dynamicPage/testPageFetch"
+        "path": "/nocode/dynamicPage/testPageFetch",
+        "query":{
+          "id": "pageId"
+        }
       },
       "expect": {
         "field": "pageId",
@@ -117,6 +121,17 @@
     {
       "label": "路径",
       "field": "component"
+    },
+    { "title": "状态", "field": "status", "valueType": "tag",
+        "theme":"status",
+        "options": {
+          "map": {
+            "0": "动态页面",
+            "1": "配置页面",
+            "2": "关联页面",
+            "3": " "
+          }
+        }
     }
   ]
 }

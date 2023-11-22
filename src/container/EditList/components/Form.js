@@ -11,6 +11,7 @@ import ArrayComponent from './Array/index'
 import ColorSelect from "./ColorSelect";
 import FontSelect from "./FontSelect";
 import FetchSelect from "./fetchSelect";
+import ModalFrom from "./modalForm";
 
 import { TipsIconSvg } from '../components/public/svg';
 
@@ -219,6 +220,11 @@ export default forwardRef((props, ref) => {
         />
       )}
     </>
+  }
+
+  //模态框表单
+  function handleModalFrom(item, i){
+    return <ModalFrom {...item} formData={formData} key={`${i}_modalFrom`}/>;
   }
 
   //通过API获取数据下拉框
@@ -435,10 +441,9 @@ export default forwardRef((props, ref) => {
       </Modal>
     </>
   }
-
   const ActionModalEndpoint = (item, i) => {
 // console.log('item11111 = ', item)
-// console.log('actionModalData = ', actionModalData)
+console.log('actionModalData = ', actionModalData)
     return <>
       <Tabs style={{ "padding": "10px" }} type="editable-card" onEdit={(e) => showModal(e, endpoint + actionModalUrl)}>
         {
@@ -463,7 +468,7 @@ export default forwardRef((props, ref) => {
         title={"配置"} visible={modalVisable} onCancel={cancel} onOk={() => addlocalModalData(endpoint + actionModalUrl, getDefaultData("id"), actionModalData)}
       >
         {item.items.map((newItem, It) => <>{newItem.label ? <div>{newItem.label}：</div> : null}<Input
-          defaultValue={getDefaultData(newItem.field, newItem.defaultValue || actionModalData[newItem.field], true)}
+          defaultValue={getDefaultData(newItem.field, newItem.defaultValue || (actionModalData && actionModalData[newItem.field]), true)}
           placeholder={newItem.placeholder || "请输入" + (newItem.label || "...")}
           addonAfter={newItem.addonAfter}
           onChange={(e) => ActionChangeValue(newItem.field, e)}
@@ -494,7 +499,6 @@ export default forwardRef((props, ref) => {
 
   //表单项提示
   function handleFormItemTips (data){
-    console.log('data == ', data)
     if(data){
       if(data.type === 'link'){
         return <a href="#" onClick={() => gotoComponentsExample(data.path)} title={data.tipsValue} ><TipsIconSvg color={"#1890ff"} /></a>
@@ -574,7 +578,8 @@ export default forwardRef((props, ref) => {
             <div key={i}>{item.label}： {handleFormItemTips(item.toolTips)}</div>
           ) : null
         }
-        {
+        { 
+          item.type === "modalFrom" ? handleModalFrom(item, i) :
           item.type === "JSON" ? jsonEndpoint(item, i) :
             item.type === "select" ? selectEndpoint(item, i) :
               item.type === "switch" ? switchEndpoint(item, i) :

@@ -8,7 +8,7 @@ export default function ShowModal(props) {
         field,
         fieldLabel,
         icon,
-        width,
+        width = 600,
         height,
         type = "button",
         background = "#1B7FBC",
