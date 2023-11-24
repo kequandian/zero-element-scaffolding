@@ -1,0 +1,196 @@
+{
+  "pageName": {
+    "table": "自定义字段new",
+    "new": "",
+    "edit": ""
+  },
+  "listAPI": "/api/eav/entities?entityType=EXPAND_FORM",
+  "createAPI": "",
+  "getAPI": "/api/eav/entities/[id]",
+  "updateAPI": "/api/[id]",
+  "deleteAPI": "/api/ds/eav/entities/(id)",
+  "columns": 1,
+  "createFields": [
+    {
+      "label": "类别名称",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "field": "name"
+    },
+    {
+      "label": "",
+      "type": "hidden",
+      "field": "identifier"
+    }
+  ],
+  "updateFields": [
+    {
+      "label": "类别名称",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "field": "name"
+    },
+    {
+      "label": "",
+      "type": "hidden",
+      "field": "identifier"
+    }
+  ],
+  "map": {},
+  "layout": {
+    "table": "Content",
+    "form": "TitleContent"
+  },
+  "tableActions": [
+    {
+      "title": "新增",
+      "type": "path",
+      "options": {
+        "style": "primary",
+        "path": "fieldCustomNew/fieldCustom-add"
+      }
+    }
+  ],
+  "tableOperation": [
+    {
+      "title": "编辑字段",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "fieldCustomNew/fieldCustom-editField"
+      }
+    },
+    {
+      "title": "编辑",
+      "type": "modal",
+      "options": {
+        "modalTitle": "编辑",
+        "modalWidth": 600,
+        "outside": true,
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "layoutConfig": {
+                "value": [
+                  24
+                ]
+              },
+              "API": {
+                "getAPI": "/api/ds/cfg/data/services/(id)",
+                "updateAPI": "/api/ds/cfg/data/services/(id)"
+              },
+              "fields": [
+                {
+                  "label": "表单名字",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "name"
+                },
+                {
+                  "label": "实体名",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "serviceName"
+                },
+                {
+                  "label": "备注",
+                  "rules": [],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "note"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "expect": {
+        "permission": ""
+      }
+    },
+    {
+      "title": "删除", 
+      "type": "delete"
+    }
+  ],
+  "searchFields": [
+    {
+      "label": "表单名字",
+      "field": "name",
+      "type": "search",
+      "props": {
+        "placeholder": ""
+      }
+    }
+  ],
+  "tableFields": [
+    {
+      "label": "表单名字",
+      "field": "name"
+    },
+    {
+      "label": "实体名",
+      "field": "entityName"
+    },
+    {
+      "label": "备注",
+      "field": "note"
+    }
+  ],
+  "viewConfig": [
+    {
+      "title": "详情",
+      "type": "plain",
+      "fields": [
+        {
+          "label": "表单名字",
+          "field": "name"
+        },
+        {
+          "label": "标识",
+          "field": "entityName"
+        },
+        {
+          "label": "表名",
+          "field": "tableName"
+        },
+        {
+          "label": "备注",
+          "field": "note"
+        }
+      ]
+    }
+  ]
+}
