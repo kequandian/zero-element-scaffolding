@@ -224,7 +224,11 @@ export default forwardRef((props, ref) => {
 
   //模态框表单
   function handleModalFrom(item, i){
-    return <ModalFrom {...item} formData={formData} key={`${i}_modalFrom`}/>;
+    return (
+      <ModalFrom {...item} formData={formData} key={`${i}_modalFrom`}
+        cbChange={JsonChange}
+      />
+    );
   }
 
   //通过API获取数据下拉框
@@ -366,7 +370,8 @@ export default forwardRef((props, ref) => {
     }
     post(url, newdata, options)
       .then(resp => {
-        if (resp.code === 200) {
+        const response = resp.data
+        if (response.code === 200) {
           //
           getActionModalData()
           setModalVisable(false)
@@ -442,8 +447,7 @@ export default forwardRef((props, ref) => {
     </>
   }
   const ActionModalEndpoint = (item, i) => {
-// console.log('item11111 = ', item)
-console.log('actionModalData = ', actionModalData)
+  // console.log('item11111 = ', item)
     return <>
       <Tabs style={{ "padding": "10px" }} type="editable-card" onEdit={(e) => showModal(e, endpoint + actionModalUrl)}>
         {

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, forwardRef, useImperativeHandle, useState } from 'react';
 import { Button, Form, Input, Select, Popconfirm, Table, Switch } from 'antd';
 import qs from 'qs';
 import './tableForm.less'
@@ -24,31 +24,14 @@ const EditableCell = ({
     ...restProps
 }) => {
     const [editing, setEditing] = useState(false);
-    const inputRef = useRef(null);
     const form = useContext(EditableContext);
-    useEffect(() => {
-        if (editing) {
-            inputRef.current.focus();
-        }
-    }, [editing]);
     const toggleEdit = () => {
         setEditing(!editing);
         form.setFieldsValue({
             [dataIndex]: record[dataIndex],
         });
     };
-    const save = async () => {
-        try {
-            const values = await form.validateFields();
-            toggleEdit();
-            handleSave({
-                ...record,
-                ...values,
-            });
-        } catch (errInfo) {
-            console.log('Save failed:', errInfo);
-        }
-    };
+
     let childNode = children;
     if (editable) {
         childNode = editing ? (
@@ -64,7 +47,7 @@ const EditableCell = ({
                     },
                 ]}
             >
-                <Input ref={inputRef} onPressEnter={save} onBlur={save} />
+                <Input />
             </Form.Item>
         ) : (
             <div
@@ -82,7 +65,7 @@ const EditableCell = ({
 };
 
 // Index
-export default function Index(props) {
+export default (props) => {
 
     const { formData, fields, options={}, onChange, field, cb } = props;
 
@@ -93,39 +76,38 @@ export default function Index(props) {
         value: optValue = 'value',
         // query,
     } = options;
-    const { id } = qs.parse(location.search.replace('?', ''));
 
     const [ currentPage, setCurrentPage]  = useState(1)
     const [dataSource, setDataSource] = useState([]);
     const [count, setCount] = useState(0);
-
-
-    useEffect(_=>{
-
-    },[])
-console.log('dataSource == ', dataSource)
+    
     const handleDelete = (key) => {
         const newData = dataSource.filter((item) => item.key !== key);
         setDataSource(newData);
     };
+    
     const defaultColumns = [
         {
             title: '标题',
             dataIndex: 'label',
+            rules: [{ required: true, message: 'Please input your username!' }],
             render: (_, record) => {
-                console.log('Input = ', record)
-                return <Input defaultValue={record.label}  />
+                return (
+                    <Input 
+                        defaultValue={record.label} 
+                        onChange={(e) => _handleSave(record.key, e.target.value, 'label')} 
+                    />
+                )
             }
         },
         {
             title: '字段',
             dataIndex: 'field',
             render: (_, record) => {
-                console.log('Select = ', record)
                 return (
                     <Select
                         style={{ width: 120 }}
-                        onChange={handleChange}
+                        onChange={(e) => _handleSave(record.key, e, 'field')}
                         defaultValue={record.field}
                         options={fields}
                     />
@@ -137,8 +119,12 @@ console.log('dataSource == ', dataSource)
             dataIndex: 'rules',
             width: 90,
             render: (_, record) => {
-                console.log('Switch = ', record)
-                return <Switch checked={record.rules && record.rules.length > 0 ? true : false} />
+                return (
+                    <Switch 
+                        checked={record.rules} 
+                        onChange={(e) => _handleSave(record.key, e, 'rules') } 
+                    />
+                )
             }
         },
         {
@@ -152,11 +138,6 @@ console.log('dataSource == ', dataSource)
         },
     ];
 
-    //选择字段
-    const handleChange = (value) => {
-        console.log(value);
-    }
-
     const handleAdd = () => {
         const newData = {
             key: count,
@@ -166,8 +147,20 @@ console.log('dataSource == ', dataSource)
         };
         setDataSource([...dataSource, newData]);
         setCount(count + 1);
-        console.log('count = ', count)
     };
+
+    const _handleSave = (key, value, field) => {
+        const newData = [...dataSource];
+        const index = newData.findIndex((item) => key === item.key);
+        const item = newData[index];
+        item[field] = value;
+        newData.splice(index, 1, {
+            ...item,
+        });
+        setDataSource(newData);
+        cb(newData)
+    };
+
     const handleSave = (row) => {
         const newData = [...dataSource];
         const index = newData.findIndex((item) => row.key === item.key);
@@ -178,6 +171,7 @@ console.log('dataSource == ', dataSource)
         });
         setDataSource(newData);
     };
+
     const components = {
         body: {
             row: EditableRow,
@@ -219,7 +213,7 @@ console.log('dataSource == ', dataSource)
                     marginBottom: 8,
                 }}
             >
-                新增
+                添加
             </Button>
             <Table
                 components={components}

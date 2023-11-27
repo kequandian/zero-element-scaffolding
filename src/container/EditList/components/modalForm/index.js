@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { message as msg } from 'antd';
 import qs from 'qs';
 import { query, post, update, remove, download } from 'zero-element/lib/utils/request';
@@ -21,11 +21,12 @@ function getFieldList(pageId){
 // Index
 export default function Index(props) {
 
+    const { field, type, cbChange } = props;
     const { id } = qs.parse(location.search.replace('?', ''));
     const getFieldApi = `/api/crud/lowMainPage/lowMainPages/${id}`;
     const [loading, setLoading] = useState(false);
     const [fields, setFields] = useState([]);
-
+    
     const endpoint = getEndpoint();
     
     useEffect(_=>{
@@ -52,7 +53,16 @@ export default function Index(props) {
           }); // 
     },[])
 
+    const callback = (data) => {
+        let newData = []
+        data && data.length > 0 && data.map(item =>{
+            delete item.key
+            newData.push(item)
+        })
+        cbChange(field, newData)
+    }
+
     return (
-        <TableForm fields={fields} {...props} />
+        <TableForm fields={fields} {...props} cb={callback} />
     );
 };
