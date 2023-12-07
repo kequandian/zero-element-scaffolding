@@ -42,9 +42,9 @@ module.exports = {
             "props": {
               "placeholder": "请输入……"
             },
-            "rules": [
-              "required"
-            ],
+            // "rules": [
+            //   "required"
+            // ],
             span: 24,
           },
           {

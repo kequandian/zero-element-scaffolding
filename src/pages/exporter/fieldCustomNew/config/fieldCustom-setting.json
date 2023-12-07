@@ -4,7 +4,7 @@
     "new": "",
     "edit": ""
   },
-  "listAPI": "/api/eav/entities?entityType=EXPAND_FORM",
+  "listAPI": "/api/ds/eav/entities?entityType=EXPAND_FORM",
   "createAPI": "",
   "getAPI": "/api/eav/entities/[id]",
   "updateAPI": "/api/[id]",
