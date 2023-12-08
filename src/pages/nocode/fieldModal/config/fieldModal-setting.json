@@ -1,14 +1,14 @@
 {
   "pageName": {
-    "table": "表模型管理",
+    "table": "字段模型管理",
     "new": "",
     "edit": ""
   },
-  "listAPI": "/api/crud/apicode/apiTableModel/apiTableModels",
-  "createAPI": "/api/crud/apicode/apiTableModel/apiTableModels",
-  "getAPI": "/api/crud/apicode/apiTableModel/apiTableModels/[id]",
-  "updateAPI": "/api/crud/apicode/apiTableModel/apiTableModels/[id]",
-  "deleteAPI": "/api/crud/apicode/apiTableModel/apiTableModels/(id)",
+  "listAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields",
+  "createAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields",
+  "getAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/[id]",
+  "updateAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/[id]",
+  "deleteAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/(id)",
   "columns": 1,
   "createFields": [
   ],
@@ -31,11 +31,36 @@
             "config": {
               "layout": "Grid",
               "API": {
-                "createAPI": "/api/crud/apicode/apiTableModel/apiTableModels"
+                "createAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields"
               },
               "fields": [
                 {
-                  "label": "名称",
+                  "label": "标准字段绑定名称",
+                  "field": "defaultFieldName",
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "options": {
+                    "title": "选择",
+                    "API": "/api/crud/fieldModel/fieldModels",
+                    "fields": [
+                      {
+                        "label": "标题",
+                        "field": "name"
+                      },
+                      {
+                        "label": "字段名",
+                        "field": "modelName"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "字段名",
                   "rules": [
                     {
                       "type": "required"
@@ -45,29 +70,7 @@
                     "placeholder": "请输入"
                   },
                   "type": "input",
-                  "field": "name"
-                },
-                {
-                  "label": "实体名",
-                  "rules": [
-                    {
-                      "type": "required"
-                    }
-                  ],
-                  "props": {
-                    "placeholder": "请输入"
-                  },
-                  "type": "input",
-                  "field": "modelName"
-                },
-                {
-                  "label": "描述",
-                  "rules": [],
-                  "props": {
-                    "placeholder": "请输入"
-                  },
-                  "type": "input",
-                  "field": "notes"
+                  "field": "fieldName"
                 }
               ]
             }
@@ -90,8 +93,8 @@
             "config": {
               "layout": "Grid",
               "API": {
-                "getAPI": "/api/crud/apicode/apiTableModel/apiTableModels/(id)",
-                "updateAPI": "/api/crud/apicode/apiTableModel/apiTableModels/(id)"
+                "getAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/(id)",
+                "updateAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/(id)"
               },
               "fields": [
                 {
@@ -156,7 +159,7 @@
                                   "value": [24]
                                 },
                                 "API": {
-                                  "createAPI": "/api/crud/apicode/apiTableModel/apiTableModels/(id)"
+                                  "createAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/(id)"
                                 },
                                 "fields": [
                                   {
@@ -232,16 +235,16 @@
   ],
   "tableFields": [
     {
-      "label": "名称",
-      "field": "name"
+      "label": "字段名",
+      "field": "fieldName"
     },
     {
-      "label": "实体名",
-      "field": "modelName"
+      "label": "字段类型",
+      "field": "dataType"
     },
     {
-      "label": "描述",
-      "field": "notes"
+      "label": "绑定的实体",
+      "field": "tableModelId"
     }
     
   ],
