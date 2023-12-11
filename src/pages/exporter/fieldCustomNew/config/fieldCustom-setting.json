@@ -92,8 +92,8 @@
                 ]
               },
               "API": {
-                "getAPI": "/api/ds/cfg/data/services/(id)",
-                "updateAPI": "/api/ds/cfg/data/services/(id)"
+                "getAPI": "/api/ds/eav/entities/(id)",
+                "updateAPI": "/api/ds/eav/entities/(id)"
               },
               "fields": [
                 {
@@ -120,7 +120,7 @@
                     "placeholder": "请输入"
                   },
                   "type": "input",
-                  "field": "serviceName"
+                  "field": "entityName"
                 },
                 {
                   "label": "备注",
