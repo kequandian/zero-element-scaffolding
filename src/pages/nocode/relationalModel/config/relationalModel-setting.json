@@ -1,0 +1,136 @@
+{
+  "pageName": {
+    "table": "关系模型管理",
+    "new": "",
+    "edit": ""
+  },
+  "listAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels",
+  "createAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels",
+  "getAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels/[id]",
+  "updateAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels/[id]",
+  "deleteAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels/(id)",
+  "columns": 1,
+  "createFields": [
+  ],
+  "updateFields": [
+  ],
+  "map": {},
+  "layout": {
+    "table": "Content",
+    "form": "TitleContent"
+  },
+  "tableActions": [
+  ],
+  "tableOperation": [
+    
+    {
+      "title": "编辑", "type": "modal",
+      "options": {
+        "outside": true,
+        "modalTitle": "编辑",
+        "modalWidth": 600,
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "API": {
+                "getAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels/(tableModelId)",
+                "updateAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels/(tableModelId)"
+              },
+              "fields": [
+                {
+                  "label": "绑定子表",
+                  "field": "subTableId",
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "options": {
+                    "title": "选择",
+                    "API": "/api/crud/apicode/apiTableModel/apiTableModels",
+                    "label": "name",
+                    "editLabel": "subTableName",
+                    "value": "id",
+                    "fields": [
+                      {
+                        "label": "名称",
+                        "field": "name"
+                      },
+                      {
+                        "label": "表名",
+                        "field": "modelName"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "title": "删除",
+      "type": "delete",
+      "options": {
+        "method": "delete",
+        "outside": false
+      }
+    }
+  ],
+  "searchFields": [
+    {
+      "label": "搜索",
+      "field": "search",
+      "type": "input",
+      "props": {
+        "placeholder": "请输入"
+      }
+    }
+  ],
+  "tableFields": [
+    {
+      "label": "主表显示名称",
+      "field": "tableName"
+    },
+    {
+      "label": "主表标识名称",
+      "field": "tableModelName"
+    },
+    {
+      "label": "子表显示名称",
+      "field": "subTableName"
+    },
+    {
+      "label": "子表标识名称",
+      "field": "subTableModelName"
+    }
+    
+  ],
+  "viewConfig": [{
+    "title": "详情",
+    "type": "plain",
+    "fields": [
+      {
+        "label": "主表显示名称",
+        "field": "tableName"
+      },
+      {
+        "label": "主表标识名称",
+        "field": "tableModelName"
+      },
+      {
+        "label": "子表显示名称",
+        "field": "subTableName"
+      },
+      {
+        "label": "子表标识名称",
+        "field": "subTableModelName"
+      }
+    ]
+  }]
+}

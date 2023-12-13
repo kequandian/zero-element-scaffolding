@@ -128,19 +128,106 @@
                   },
                   "type": "input",
                   "field": "notes"
+                },
+                {
+                  "label": "",
+                  "field": "fields",
+                  "type": "one-mary",
+                  "span": 24,
+                  "options": {
+                    "layoutConfig":{
+                      "style":{
+                        "min-width":"530px"
+                      }
+                    },
+                    "JSONString": false,
+                    "actions": [
+                      {
+                        "title": "添加", "type": "children-modal-add", "options": {
+                          "modalTitle": "添加字段",
+                          "modalWidth": 500,
+                          "items": [
+                            {
+                              "layout": "Empty",
+                              "component": "ChildrenForm",
+                              "config": {
+                                "layout": "Grid",
+                                "layoutConfig": {
+                                  "value": [24]
+                                },
+                                "API": {
+                                  "createAPI": "/api/crud/apicode/apiTableModel/apiTableModels/(id)"
+                                },
+                                "fields": [
+                                  
+                                  {
+                                    "label": "标准字段绑定名称",
+                                    "field": "defaultFieldName",
+                                    "type": "modal-radio",
+                                    "props": {},
+                                    "rules": [
+                                      {
+                                        "type": "required"
+                                      }
+                                    ],
+                                    "options": {
+                                      "title": "选择",
+                                      "API": "/api/crud/fieldModel/fieldModels",
+                                      "label": "modelName",
+                                      "editLabel": "defaultFieldName",
+                                      "value": "modelName",
+                                      "fields": [
+                                        {
+                                          "label": "标题",
+                                          "field": "modelLabel"
+                                        },
+                                        {
+                                          "label": "绑定名称",
+                                          "field": "modelName"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  
+                                  {
+                                    "label": "字段名称", "field": "fieldName", "type": "input",
+                                    "rules": ["required"],
+                                    "props": {
+                                      "placeholder": "字段名称",
+                                      "style": {
+                                        "width": 300
+                                      }
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "fields": [
+                      {
+                        "label": "标准字段绑定名称", "field": "defaultFieldName"
+                      },
+                      {
+                        "label": "字段名称", "field": "fieldName"
+                      }
+                    ],
+                    "operation": [
+                      {
+                        "title": "移除", "type": "removeChild",
+                        "options": {
+                          "outside": true
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
             }
           }
         ]
-      }
-    },
-    {
-      "title": "绑定字段",
-      "type": "path",
-      "options": {
-        "outside": true,
-        "path": "tableModal/tableModal-bindingField"
       }
     },
     {
