@@ -69,6 +69,7 @@ import FITSet_input_box from '@/components/FormItemType/InputBox';
 import FITSet_link_button from '@/components/FormItemType/LinkButton';
 import VTSet_TimeConvert from '@/components/ValueType/TimeConvert';
 import FITSet_express from '@/components/FormItemType/Express';
+import FITSet_hidden_matchRouteParams from '@/formItemType/Hidden';
 
 //动态页面组件
 import AITSet_FromModal from '@/actionItemType/FromModal';
@@ -213,7 +214,8 @@ FITSet({
   'normal_download_file': FITSet_normal_download_file,
   'inputBox': FITSet_input_box,
   'LinkButton': FITSet_link_button,
-  "express":FITSet_express
+  "express":FITSet_express,
+  'hidden_matchRouteParam': FITSet_hidden_matchRouteParams
 });
 
 //

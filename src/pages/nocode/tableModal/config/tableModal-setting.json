@@ -42,7 +42,7 @@
                     }
                   ],
                   "props": {
-                    "placeholder": "请输入"
+                    "placeholder": "'职位'"
                   },
                   "type": "input",
                   "field": "name"
@@ -55,7 +55,7 @@
                     }
                   ],
                   "props": {
-                    "placeholder": "请输入"
+                    "placeholder": "'jobs'"
                   },
                   "type": "input",
                   "field": "modelName"
@@ -64,7 +64,7 @@
                   "label": "描述",
                   "rules": [],
                   "props": {
-                    "placeholder": "请输入"
+                    "placeholder": "'描述'"
                   },
                   "type": "input",
                   "field": "notes"
@@ -141,6 +141,14 @@
       "options": {
         "outside": true,
         "path": "tableModal/tableModal-bindingField"
+      }
+    },
+    {
+      "title": "绑定子表",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "tableModal/tableModal-bindingSubTable"
       }
     },
     {
