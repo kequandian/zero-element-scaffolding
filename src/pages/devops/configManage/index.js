@@ -20,12 +20,14 @@ export default function () {
     { title: '配置管理' },
   ]);
 
-  const [cKey, setCKey] = useState('configItems');
+  const [cKey, setCKey] = useState('');
 
   useDidMount(_ => {
     const currentKey = localStorage.getItem("cConfigKey"); 
     if(currentKey){
       setCKey(currentKey);
+    }else{
+      setCKey('configItems');
     }
   });
 
