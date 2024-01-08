@@ -35,7 +35,7 @@
               },
               "fields": [
                 {
-                  "label": "实体",
+                  "label": "模型",
                   "field": "tableModelId",
                   "type": "modal-radio",
                   "props": {},
@@ -56,7 +56,7 @@
                         "field": "name"
                       },
                       {
-                        "label": "实体名",
+                        "label": "模型名",
                         "field": "modelName"
                       }
                     ]
@@ -180,7 +180,7 @@
               },
               "fields": [
                 {
-                  "label": "实体",
+                  "label": "模型",
                   "field": "tableModelId",
                   "type": "modal-radio",
                   "props": {},
@@ -201,7 +201,7 @@
                         "field": "name"
                       },
                       {
-                        "label": "实体名",
+                        "label": "模型名",
                         "field": "modelName"
                       }
                     ]
@@ -334,8 +334,13 @@
       "field": "dataType"
     },
     {
-      "label": "绑定的实体",
+      "label": "绑定的模型",
       "field": "tableModelName"
+    },
+    {
+      "label": "来源",
+      "valueType": "field-model-status-convert",
+      "field": "defaultFieldName"
     },
     {
       "label": "注释",
@@ -352,7 +357,7 @@
         "field": "name"
       },
       {
-        "label": "实体名",
+        "label": "模型名",
         "field": "modelName"
       },
       {

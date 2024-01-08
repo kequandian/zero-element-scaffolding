@@ -70,6 +70,7 @@ import FITSet_link_button from '@/components/FormItemType/LinkButton';
 import VTSet_TimeConvert from '@/components/ValueType/TimeConvert';
 import FITSet_express from '@/components/FormItemType/Express';
 import FITSet_hidden_matchRouteParams from '@/formItemType/Hidden';
+import VTSet_FieldModelStatusConvert from '@/components/ValueType/FieldModelStatusConvert';
 
 //动态页面组件
 import AITSet_FromModal from '@/actionItemType/FromModal';
@@ -231,5 +232,6 @@ VTSet({
   'path': vPath,
   'input-switch' : VTSet_InputSwitch,
   'time-convert': VTSet_TimeConvert,
-  'pcd-format': VTSet_pcdFormat
+  'pcd-format': VTSet_pcdFormat,
+  'field-model-status-convert': VTSet_FieldModelStatusConvert
 });
