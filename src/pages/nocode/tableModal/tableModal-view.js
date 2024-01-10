@@ -1,13 +1,13 @@
 import React from 'react';
-import DetailsTemplate from '@/components/Details/DetailsTemplate';
-import setting from './config/tableModal-setting.json';
-    
-export default () => {
+import useBreadcrumb from '@/framework/useBreadcrumb';
+import TableModalDetails from '@/pages/nocode/tableModal/config/tableModal-view';
 
-  return <DetailsTemplate
-    namespace="tableModal_view"
-    setting={setting}
-    config={setting.viewConfig}
-  />
-}
-    
+export default function AllianceManageAdd(props) {
+  useBreadcrumb([
+    { title: '主页', path: '/' },
+    { title: '', path: '/表模型' },
+    { title: '详情' },
+  ]);
+
+  return <TableModalDetails location={props.location} />;
+};

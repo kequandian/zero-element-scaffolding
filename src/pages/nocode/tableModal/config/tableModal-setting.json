@@ -136,11 +136,23 @@
       }
     },
     {
+      "title": "详情",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "tableModal/tableModal-view"
+      }
+    },
+    {
       "title": "绑定字段",
       "type": "path",
       "options": {
         "outside": true,
         "path": "tableModal/tableModal-bindingField"
+      },
+      "expect": {
+        "field": "ttt",
+        "value": "test"
       }
     },
     {
@@ -149,6 +161,10 @@
       "options": {
         "outside": true,
         "path": "tableModal/tableModal-bindingSubTable"
+      },
+      "expect": {
+        "field": "ttt",
+        "value": "test"
       }
     },
     {

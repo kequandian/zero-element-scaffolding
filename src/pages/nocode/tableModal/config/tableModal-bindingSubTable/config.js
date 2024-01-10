@@ -11,7 +11,7 @@ module.exports = {
           listAPI: setting.listAPI,
           deleteAPI: setting.deleteAPI,
         },
-        pageSize: 100,
+        pageSize: 10,
         actions: setting.tableActions,
         fields: setting.tableFields,
         operation: setting.tableOperation,
