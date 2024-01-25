@@ -95,8 +95,8 @@ export default {
           },
           {
             field: 'status', label: '状态', valueType: 'tag',
-            type:"default",
-            theme:"option",
+            type: "default",
+            theme: "option",
             options: {
               map: {
                 'CREATED_PAY_PENDING': '待支付',
@@ -132,8 +132,8 @@ export default {
 
           {
             field: 'paymentType', label: '支付类型', valueType: 'tag',
-            type:"Dot",
-            theme:"priority",
+            type: "Dot",
+            theme: "priority",
             options: {
               map: {
                 'WECHAT': '微信支付',
@@ -144,7 +144,7 @@ export default {
                 'CASH': '现金',
                 'CARD': '银行卡'
               },
-              chy:{
+              chy: {
                 'WECHAT': 'P1',
                 'ALIPAY': 'P2',
                 'POINT': 'P3',
@@ -157,15 +157,15 @@ export default {
           },
           {
             field: 'deliveryType', label: '配送方式', valueType: 'tag',
-            type:"Online",
-            theme:"option",
+            type: "Online",
+            theme: "option",
             options: {
               map: {
                 'EXPRESS': '快递',
                 'SELF_PICK': '自提',
                 'FLASH': '极速送达'
               },
-              chy:{
+              chy: {
                 'EXPRESS': 'purple',
                 'SELF_PICK': 'blue',
                 'FLASH': 'cyan'
@@ -174,8 +174,8 @@ export default {
           },
           {
             field: 'origin', label: '来源', valueType: 'tag',
-            type:"default",
-            theme:"priority",
+            type: "default",
+            theme: "priority",
             options: {
               map: {
                 'WPA': '微信公众号',
@@ -185,7 +185,7 @@ export default {
                 'IPAD': '手机应用程序',
                 'OTHER': '其他'
               },
-              chy:{
+              chy: {
                 'WPA': 'P1',
                 'MINI_PROGRAM': 'P2',
                 'APP_ANDROID': 'P3',
@@ -198,6 +198,9 @@ export default {
 
 
           { field: 'createdDate', label: '下单时间' },
+
+          // 显示分配的客服
+          { field: 'assistantName', label: '客服' },
 
           { field: 'operation' }
         ],
@@ -255,6 +258,66 @@ export default {
             "expect": {
               "field": "status",
               "value": "CONFIRMED_DELIVER_PENDING"
+            }
+          },
+          // 分配客服按钮
+          {
+            "title": "分配客服",
+            "type": "modal",
+            "options": {
+              "modalTitle": "分配客服",
+              "modalWidth": 750,
+              "outside": true,
+              "items": [
+                {
+                  "component": "Form",
+                  "config": {
+                    "layout": "Grid",
+                    "layoutConfig": {
+                      "value": [
+                        24
+                      ]
+                    },
+                    "API": {
+                      "getAPI": "/api/crud/order/orders/(id)",
+                      "updateAPI": "/api/crud/order/orders/(id)"
+                    },
+                    "fields": [
+                      {
+                        "label": "订单号",
+                        "type": "plain",  
+                        "field": "orderNumber"
+                      },
+                      {
+                        "label": "分配客服",
+                        "field": "assistantName",
+                        "type": "modal-radio",
+                        "props": {},
+                        "rules": [],
+                        "options": {
+                          "title": "选择客服",
+                          "placeholder": "请选择",
+                          "value": "id",
+                          "label": "name",
+                          "API": "/api/adm/users/select-custom-service",
+                          "saveData": {
+                            "assistantName": "name"
+                          },
+                          "fields": [
+                            {
+                              "label": "客服名称",
+                              "field": "name"
+                            }
+                          ]
+                        }
+                      },
+                    ]
+                  }
+                }
+              ]
+            },
+            "expect": {
+              "permission": ""
             }
           },
         ],
