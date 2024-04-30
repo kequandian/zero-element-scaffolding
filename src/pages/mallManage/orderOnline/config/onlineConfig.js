@@ -264,6 +264,9 @@ export default {
           {
             "title": "分配客服",
             "type": "modal",
+            "expect": {
+              "permission": "service.edit"
+            },
             "options": {
               "modalTitle": "分配客服",
               "modalWidth": 750,
@@ -290,7 +293,7 @@ export default {
                       },
                       {
                         "label": "分配客服",
-                        "field": "assistantName",
+                        "field": "assistantId",
                         "type": "modal-radio",
                         "props": {},
                         "rules": [],
@@ -299,6 +302,7 @@ export default {
                           "placeholder": "请选择",
                           "value": "id",
                           "label": "name",
+                          "editLabel": "assistantName",
                           "API": "/api/adm/users/select-custom-service",
                           "saveData": {
                             "assistantName": "name"
@@ -315,9 +319,6 @@ export default {
                   }
                 }
               ]
-            },
-            "expect": {
-              "permission": ""
             }
           },
         ],

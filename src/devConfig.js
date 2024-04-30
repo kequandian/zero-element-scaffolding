@@ -8,7 +8,7 @@ export const Config ={
     // endpoint:"http://192.168.3.72:8001",//api接口endpoint 
     // endpoint:"https://house.cloud.smallsaas.cn",//api接口endpoint
     endpoint:"http://local.static.smallsaas.cn",//api接口endpoint
-    // endpoint:"http://localhost:8081",//api接口endpoint
+    // endpoint:"http://localhost:8080",//api接口endpoint
 
     //akstreamEndpoint:"demo.local.smallsaas.cn",//api接口endpoint
     breadcrumbType:"header", //header,top
