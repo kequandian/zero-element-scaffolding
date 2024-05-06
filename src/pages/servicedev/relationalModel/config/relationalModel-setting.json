@@ -181,7 +181,7 @@
                 {
                   "label": "描述",
                   "field": "notes",
-                  "type": "input",
+                  "type": "text-area",
                   "props": {},
                   "rules": []
                 }
@@ -197,6 +197,22 @@
       "options": {
         "outside": true,
         "path": "relationalModel/relationalModel-view"
+      }
+    },
+    {
+      "title": "下载建表sql",
+      "type": "request",
+      "options": {
+        "outside": true,
+        "path": ""
+      }
+    },
+    {
+      "title": "下载代码",
+      "type": "request",
+      "options": {
+        "outside": true,
+        "path": ""
       }
     },
     {
