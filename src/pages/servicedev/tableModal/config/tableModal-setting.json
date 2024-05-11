@@ -168,6 +168,15 @@
       }
     },
     {
+      "title": "下载建表sql",
+      "type": "request",
+      "options": {
+        "method": "download",
+        "outside": true,
+        "API": "/api/crud/apicode/apiTableModel/apiTableModels/download-create-table-sql/(id)"
+      }
+    },
+    {
       "title": "删除",
       "type": "delete",
       "options": {
