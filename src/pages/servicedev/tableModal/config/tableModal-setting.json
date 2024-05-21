@@ -177,6 +177,15 @@
       }
     },
     {
+      "title": "转换为eav",
+      "type": "path",
+      "options": {
+        "style": "primary",
+        "path": "tableModal/tableModal-switchEav",
+        "outside": true
+      }
+    },
+    {
       "title": "删除",
       "type": "delete",
       "options": {

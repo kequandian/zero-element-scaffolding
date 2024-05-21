@@ -9,8 +9,8 @@ import switchEndpoint from '@/components/switchEndpoint';
 export default function workFlowListStep() {
     useBreadcrumb([
         { title: '首页', path: '/' },
-        { title: '系统管理', path: '/sys' },
-        { title: '自定义字段', path: '/sys/fieldCustom' },
+        { title: '服务开发', path: '/servicedev' },
+        { title: '自定义字段', path: '/servicedev/fieldCustomNew' },
         { title: '编辑字段' },
     ]);
     useWillUnmount(switchEndpoint)
