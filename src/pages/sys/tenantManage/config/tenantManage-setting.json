@@ -4,11 +4,11 @@
     "new": "添加",
     "edit": "编辑"
   },
-  "listAPI": "/api/crud/tenants",
-  "createAPI": "/api/crud/tenants",
-  "getAPI": "/api/crud/tenants/[id]",
-  "updateAPI": "/api/crud/tenants/[id]",
-  "deleteAPI": "/api/crud/tenants/(id)",
+  "listAPI": "/api/adm/tenants",
+  "createAPI": "/api/adm/tenants",
+  "getAPI": "/api/adm/tenants/[id]",
+  "updateAPI": "/api/adm/tenants/[id]",
+  "deleteAPI": "/api/adm/tenants/(id)",
   "columns": 1,
   "type":"default",
   "createFields": [],
@@ -37,7 +37,7 @@
                 ]
               },
               "API": {
-                "createAPI": "/api/crud/tenants"
+                "createAPI": "/api/adm/tenants"
               },
               "fields": [
                 {
@@ -96,8 +96,8 @@
                 ]
               },
               "API": {
-                "getAPI": "/api/crud/tenants/(id)",
-                "updateAPI": "/api/crud/tenants/(id)"
+                "getAPI": "/api/adm/tenants/(id)",
+                "updateAPI": "/api/adm/tenants/(id)"
               },
               "fields": [
                 {

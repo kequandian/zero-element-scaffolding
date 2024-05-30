@@ -63,7 +63,7 @@ module.exports = {
               "editLabel": "typeName",
               "value": "id",
               pagination: true,
-              "API": "/api/crud/tenants",
+              "API": "/api/adm/tenants",
               "fields": [
                 {
                   "label": "名称",

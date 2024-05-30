@@ -15,7 +15,7 @@ module.exports = [
     "options": {
       "title": "选择部门",
       "value": "id",       //最终传入的数据
-      "API": "/api/sys/org/department",
+      "API": "/api/sys/org",
       "label": "name",       //编辑的时候返显
       pagination: true,
       "fields": [
