@@ -1,0 +1,184 @@
+{
+    "pageName":{
+        "view":"订单详情"
+    },
+    "getAPI":"/api/crud/order/orders/[id]",
+    "columns":2,
+    "type":"default",
+    "fields":[
+        {"field":"group_1","type":"group","value":"基本信息","span":24},
+        { "type":"plain","label": "订单号", "field": "orderNumber" },
+        { "type":"plain","label": "交易号", "field": "tradeNumber" },
+        {
+            "label": "状态", "field": "status","type":"plain",
+            "options":{
+                "map": {
+                    "CREATED_PAY_PENDING": "待支付",
+                    "CLOSED_PAY_TIMEOUT": "支付超时关闭",
+                    "CLOSED_CANCELED": "已取消",
+                    "PAID_CONFIRM_PENDING": "已支付",
+                    "CONFIRMED_DELIVER_PENDING": "待发货",
+                    "DELIVERING": "发货中",
+                    "DELIVERED_CONFIRM_PENDING": "已发货",
+                    "CANCELED_RETURN_PENDING": "待退货",
+                    "CLOSED_CONFIRMED": "已确认收货",
+                    "CANCELED_REFUND_PENDING": "待退款",
+                    "CLOSED_REFUNDED": "已退款",
+                    "CONFIRMED_PICK_PENDING": "待取货"
+                  }
+            }
+          },
+          {
+            "label": "支付类型", "field": "paymentType","type":"plain",
+            "options":{
+                "map": {
+                    "WECHAT": "微信支付",
+                    "ALIPAY": "支付宝",
+                    "POINT": "积分支付",
+                    "STORE": "线下支付",
+                    "WALLET": "零钱钱包",
+                    "CASH": "现金",
+                    "CARD": "银行卡"
+                  }
+            }
+
+          },
+          { "type":"plain","label": "配送方式", "field": "deliveryType",
+            "options":{
+                "map": { "EXPRESS": "快递", "SELF_PICK": "自提", "FLASH": "极速送达"} 
+            }
+            },
+          { "type":"plain","label": "来源", "field": "origin", 
+            "options":{
+                "map": { "WPA": "微信公众号", "MINI_PROGRAM": "小程序", "APP_ANDROID": "手机应用程序", "APP_IOS": "手机应用程序", "IPAD": "手机应用程序", "OTHER": "其他" } 
+            }
+        },
+          { "type":"plain","label": "下单时间", "field": "createdDate" }, { "type":"plain","label": "支付时间", "field": "payDate" }, { "type":"plain","label": "确认时间", "field": "confirmDate" }, { "type":"plain","label": "成交时间", "field": "dealDate" }, { "type":"plain","label": "购买用户", "field": "userName" },
+  
+          { "type":"group","field":"group_2","value": "价格信息","span":24 },
+          { "type":"plain","label": "总价",
+            "field": "totalPrice" },
+            { "type":"plain","label": "原价",
+            "field": "originPrice" },
+            { "type":"plain","label": "优惠券价钱",
+            "field": "couponPrice" },
+            { "type":"plain","label": "运费",
+            "field": "freight" },
+            { "type":"plain","label": "积分抵扣价钱",
+            "field": "creditPrice" },
+            { "type":"plain","label": "积分",
+            "field": "payCredit" },
+            { "type":"plain","label": "退款金额",
+            "field": "refundFee" },
+            { "type":"plain","label": "补交金额",
+            "field": "supplementaryFee" },
+            { "type":"plain","label": "优惠券信息",
+            "field": "couponInfo" },
+  
+            { "value": "快递信息","type":"group","field":"group_3","span":24  },
+            { "label": "快递公司","type":"plain",
+            "field": "expressCompany" },
+            { "label": "快递单号","type":"plain",
+            "field": "expressNumber" },
+            { "label": "开始发货时间","type":"plain",
+            "field": "deliverDate" },
+            { "label": "完成发货时间","type":"plain",
+            "field": "deliveredDate" },
+  
+            { "type":"group","field":"group_4","value": "联系人信息","span":24  },
+            { "label": "收货用户","type":"plain",
+            "field": "contactUser" },
+            { "label": "电话","type":"plain",
+            "field": "phone" },
+            { "label": "地址","type":"plain",
+                "field": "detail" },
+            { "type":"group","value": "订单项","field":"group_5","span":24  },
+            {
+                "label": "",
+                "type":"one-mary",
+                "field": "orderItemList",
+                "span":24,
+                "options":{
+                    "fields": [ 
+                        {
+                        "label": "产品封面",
+                        "field": "cover",
+                        "valueType": "image"
+                        },
+                        {
+                        "label": "产品名称",
+                        "field": "productName",
+                        "valueType": "path",
+                        "options": {
+                        "path": "/product/productView",
+                        "query": {
+                        "id": "productId"
+                        }
+                        
+                        }
+                        },
+                        {
+                        "label": "条码",
+                        "field": "barcode"
+                        },
+                        {
+                        "label": "价格",
+                        "field": "price",
+                        "align": "right",
+                        "valueType": "currency"
+                        },
+                        {
+                        "label": "成本价",
+                        "field": "costPrice",
+                        "align": "right",
+                        "valueType": "currency"
+                        },
+                        {
+                        "label": "数量",
+                        "field": "quantity",
+                        "align": "right"
+                        },
+                        {
+                        "label": "总价",
+                        "field": "finalPrice",
+                        "align": "right",
+                        "valueType": "currency"
+                        }
+                    ]
+                }
+            },
+            {
+                "type":"express","field":"status","span":24 
+            },
+            {
+                "type":"group","field":"group_6","value": "处理记录","span":24 
+            },
+            {
+                "label": "",
+                "field": "orderProcessLogList",
+                "type":"one-mary",
+                "span":24,
+                "options":{
+                    "fields": [ {
+                        "label": "时间",
+                        "field": "processDate"
+                        },
+                        {
+                            "label": "内容",
+                            "field": "content"
+                        }
+                    ]
+                }
+        }
+    ],
+    "map":{},
+    "layout":{
+        "table": "Content",
+        "form": "TitleContent"
+    },
+    "tableActions": [
+    ],
+    "tableOperation": [],
+    "searchFields": [],
+    "tableFields": []
+}

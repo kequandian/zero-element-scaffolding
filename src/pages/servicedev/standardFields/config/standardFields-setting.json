@@ -1,0 +1,276 @@
+{
+  "pageName": {
+    "table": "标准字段管理",
+    "new": "",
+    "edit": ""
+  },
+  "listAPI": "/api/crud/fieldModel/fieldModels",
+  "createAPI": "/api/crud/fieldModel/fieldModels",
+  "getAPI": "/api/crud/fieldModel/fieldModels/[id]",
+  "updateAPI": "/api/crud/fieldModel/fieldModels/[id]",
+  "deleteAPI": "/api/crud/fieldModel/fieldModels/(id)",
+  "columns": 1,
+  "createFields": [
+  ],
+  "updateFields": [
+  ],
+  "map": {},
+  "layout": {
+    "table": "Content",
+    "form": "TitleContent"
+  },
+  "tableActions": [
+    {
+      "title": "添加", "type": "modal",
+      "options": {
+        "modalTitle": "添加",
+        "modalWidth": 600,
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "API": {
+                "createAPI": "/api/crud/fieldModel/fieldModels"
+              },
+              "fields": [
+                {
+                  "label": "显示名称",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "'名称'"
+                  },
+                  "type": "input",
+                  "field": "name"
+                },
+                {
+                  "label": "标识名称",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "'NAME'"
+                  },
+                  "type": "input",
+                  "field": "modelName"
+                },
+                {
+                  "label": "类型",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "'varchar'"
+                  },
+                  "type": "input",
+                  "field": "dataType"
+                },
+                {
+                  "label": "字段长度",
+                  "rules": [],
+                  "props": {
+                    "placeholder": "length"
+                  },
+                  "type": "number",
+                  "field": "fieldLength"
+                },
+                {
+                  "label": "是否为空",
+                  "rules": [],
+                  "type": "radio",
+                  "field": "isNotNull",
+                  "options": [
+                      {
+                          "label": "是",
+                          "value": 1
+                      },
+                      {
+                          "label": "否",
+                          "value": 0
+                      }
+                  ]
+                },
+                {
+                  "label": "是否唯一",
+                  "rules": [],
+                  "type": "radio",
+                  "field": "isUnique",
+                  "options": [
+                      {
+                          "label": "是",
+                          "value": 1
+                      },
+                      {
+                          "label": "否",
+                          "value": 0
+                      }
+                  ]
+                },
+                {
+                  "label": "注释",
+                  "rules": [],
+                  "props": {
+                    "placeholder": ""
+                  },
+                  "type": "input",
+                  "field": "comments"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "tableOperation": [
+    
+    {
+      "title": "编辑", "type": "modal",
+      "options": {
+        "outside": true,
+        "modalTitle": "编辑",
+        "modalWidth": 600,
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "API": {
+                "getAPI": "/api/crud/fieldModel/fieldModels/(id)",
+                "updateAPI": "/api/crud/fieldModel/fieldModels/(id)"
+              },
+              "fields": [
+                {
+                  "label": "显示名称",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "'名称'"
+                  },
+                  "type": "input",
+                  "field": "name"
+                },
+                {
+                  "label": "标识名称",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "'NAME'"
+                  },
+                  "type": "input",
+                  "field": "modelName"
+                },
+                {
+                  "label": "类型",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "data type"
+                  },
+                  "type": "input",
+                  "field": "dataType"
+                },
+                {
+                  "label": "字段长度",
+                  "rules": [],
+                  "props": {
+                    "placeholder": "length"
+                  },
+                  "type": "number",
+                  "field": "fieldLength"
+                },
+                {
+                  "label": "是否为空",
+                  "rules": [],
+                  "type": "radio",
+                  "field": "isNotNull",
+                  "options": [
+                      {
+                          "label": "是",
+                          "value": 1
+                      },
+                      {
+                          "label": "否",
+                          "value": 0
+                      }
+                  ]
+                },
+                {
+                  "label": "是否唯一",
+                  "rules": [],
+                  "type": "radio",
+                  "field": "isUnique",
+                  "options": [
+                      {
+                          "label": "是",
+                          "value": 1
+                      },
+                      {
+                          "label": "否",
+                          "value": 0
+                      }
+                  ]
+                },
+                {
+                  "label": "注释",
+                  "rules": [],
+                  "props": {
+                    "placeholder": ""
+                  },
+                  "type": "input",
+                  "field": "comments"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "title": "删除",
+      "type": "delete",
+      "options": {
+        "method": "delete",
+        "outside": false
+      }
+    }
+  ],
+  "searchFields": [],
+  "tableFields": [
+    {
+      "label": "显示名称",
+      "field": "name"
+    },
+    {
+      "label": "标识名称",
+      "field": "modelName"
+    },
+    {
+      "label": "类型",
+      "field": "dataType"
+    },
+    {
+      "label": "注释",
+      "field": "comments"
+    }
+    
+  ],
+  "viewConfig": []
+}

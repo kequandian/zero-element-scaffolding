@@ -1,0 +1,187 @@
+{
+  "pageName": {
+    "table": "合约模板管理",
+    "new": "添加",
+    "edit": "编辑",
+    "view": "合约模板详情"
+  },
+  "listAPI": "/api/crud/saasContractTemplate/saasContractTemplates",
+  "createAPI": "/api/crud/saasContractTemplate/saasContractTemplates",
+  "getAPI": "/api/crud/saasContractTemplate/saasContractTemplates/[id]",
+  "updateAPI": "/api/crud/saasContractTemplate/saasContractTemplates/[id]",
+  "deleteAPI": "/api/crud/saasContractTemplate/saasContractTemplates/(id)",
+  "columns": 1,
+  "type": "default",
+  "createFields": [],
+  "updateFields": [],
+  "map": {},
+  "layout": {
+    "table": "Content",
+    "form": "TitleContent"
+  },
+  "tableActions": [
+    {
+      "title": "添加",
+      "type": "modal",
+      "options": {
+        "style": "primary",
+        "modalTitle": "添加合约模板",
+        "modalWidth": 750,
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "layoutConfig": {
+                "value": [
+                  24
+                ]
+              },
+              "API": {
+                "createAPI": "/api/crud/saasContractTemplate/saasContractTemplates"
+              },
+              "fields": [
+                {
+                  "label": "合约模板名",
+                  "width": "400px",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "name"
+                },
+                {
+                  "label": "备注",
+                  "field": "note",
+                  "type": "text-area",
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "autoSize": {
+                    "minRows": 10
+                  },
+                  "showCount": "true",
+                  "maxLength": "200",
+                  "rules": [],
+                  "span": 12
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "expect": {
+        "permission": ""
+      }
+    }
+  ],
+  "tableOperation": [
+    {
+      "title": "编辑",
+      "type": "modal",
+      "options": {
+        "modalTitle": "编辑合约模板",
+        "modalWidth": 750,
+        "outside": true,
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "layoutConfig": {
+                "value": [
+                  24
+                ]
+              },
+              "API": {
+                "getAPI": "/api/crud/saasContractTemplate/saasContractTemplates/(id)",
+                "updateAPI": "/api/crud/saasContractTemplate/saasContractTemplates/(id)"
+              },
+              "fields": [
+                {
+                  "label": "合约模板名",
+                  "width": "400px",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "name"
+                },
+                {
+                  "label": "备注",
+                  "field": "note",
+                  "type": "text-area",
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "autoSize": {
+                    "minRows": 10
+                  },
+                  "showCount": "true",
+                  "maxLength": "200",
+                  "rules": [],
+                  "span": 12
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "expect": {
+        "permission": ""
+      }
+    },
+    {
+      "title": "删除",
+      "type": "delete",
+      "options": {
+        "outside": false
+      },
+      "expect": {
+        "permission": ""
+      }
+    }
+  ],
+  "searchFields": [
+    {
+      "label": "合约模板名",
+      "field": "search",
+      "type": "search",
+      "props": {
+        "placeholder": "请输入"
+      }
+    }
+  ],
+  "tableFields": [
+    {
+      "label": "合约模板名",
+      "field": "name"
+    },
+    {
+      "label": "备注",
+      "field": "note"
+    }
+  ],
+  "viewConfig": [
+    {
+      "label": "合约模板名",
+      "field": "name",
+      "type": "plain"
+    },
+    {
+      "label": "备注",
+      "field": "note",
+      "type": "plain"
+    }
+  ]
+}

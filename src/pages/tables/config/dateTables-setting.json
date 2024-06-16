@@ -1,0 +1,299 @@
+{
+  "pageName": {
+    "table": "报表信息",
+    "new": "新建报表",
+    "edit": "报表编辑"
+  },
+  "listAPI": "/api/adm/stat/meta/[id]",
+  "createAPI": "/api/adm/stat/meta/[id]",
+  "getAPI": "/api/adm/stat/meta/getOne/[id]",
+  "updateAPI": "/api/adm/stat/meta/[id]",
+  "deleteAPI": "/api/adm/stat/meta/(id)",
+  "columns": 1,
+  "createFields": [
+    {
+      "field":"groupMenuId",
+      "label":"所属菜单组",
+      "type":"select-fetch",
+      "props":{
+        "style":{
+          "width":"240px"
+        }
+      },
+      "rules": [
+        {
+          "type": "required"       
+        }
+      ],
+      "options":{
+        "API":"/api/crud/menu/custom/group?_t=1622176307848",
+        "label":"menuName",
+        "value":"id"
+      }
+    },
+    {
+      "label": "报表标识",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "唯一标识,不可重复"
+      },
+      "type": "input",
+      "field": "field"
+    },
+    {
+      "label": "报表标题",
+      "props": {
+        "placeholder": "请输入当前报表的报表标题"
+      },
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "type": "input",
+      "field": "title"
+    },
+    {
+      "label": "搜索字段",
+      "props": {
+        "placeholder": "可通过搜索字段查询报表信息"
+      },
+      "type": "input",
+      "field": "search",
+      "toptips":"填写数据库表的子类，如名称，年龄，性别等，可通过这些字段查询数据库中对应的类"
+    },
+    {
+      "label": "字段类型",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "toptips":"格式：S,D,等等，格式用逗号隔开，可选值：金钱D,百分比P,时间T,数量C,字符串S",
+      "props": {
+        "placeholder": "通过此项来定义数据库字段"
+      },
+      
+      "type": "input",
+      "field": "type"
+    },
+    {
+      "label": "查询语句",
+      "props": {
+        "placeholder": "请输入查询语句，如 select t_ user.name as '名称’ ",
+        "autoSize": {
+          "minRows": 10
+        }
+      }, 
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "type": "text-area",
+      "field": "querySql"
+    },
+    {
+      "label": "字段备注",
+      "props": {
+        "placeholder": "请输入额外的备注，如计算公式等，格式遵循 1:内容,2:内容 ...等等 ",
+        "autoSize": {
+          "minRows": 10
+        },
+        "showCount":"true",
+        "maxLength":"200"
+      },
+      "type": "text-area",
+      "field": "tips"
+    }
+  ],
+  "updateFields": [
+    {
+      "field":"groupMenuId",
+      "label":"所属菜单组",
+      "type":"select-fetch",
+      "props":{
+        "style":{
+          "width":"240px"
+        }
+      },
+      "rules": [
+        {
+          "type": "required"       
+        }
+      ],
+      "options":{
+        "API":"/api/crud/menu/custom/group?_t=1622176307848",
+        "label":"menuName",
+        "value":"id"
+      }
+    },
+    {
+      "label": "报表标识",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "唯一标识,不可重复"
+      },
+      "type": "input",
+      "field": "field"
+    },
+    {
+      "label": "报表标题",
+      "props": {
+        "placeholder": "请输入当前报表的报表标题"
+      },
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "type": "input",
+      "field": "title"
+    },
+    {
+      "label": "搜索字段",
+      "props": {
+        "placeholder": "可通过搜索字段查询报表信息"
+      },
+      "type": "input",
+      "field": "search",
+      "toptips":"填写数据库表的子类，如名称，年龄，性别等，可通过这些字段查询数据库中对应的类"
+    },
+    {
+      "label": "字段类型",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "toptips":"格式：S,D,等等，格式用逗号隔开，可选值：金钱D,百分比P,时间T,数量C,字符串S",
+      "props": {
+        "placeholder": "通过此项来定义数据库字段"
+      },
+      
+      "type": "input",
+      "field": "type"
+    },
+    {
+      "label": "查询语句",
+      "props": {
+        "placeholder": "请输入查询语句，如 select t_ user.name as '名称’ ",
+        "autoSize": {
+          "minRows": 10
+        }
+      }, 
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "type": "text-area",
+      "field": "querySql"
+    },
+    {
+      "label": "字段备注",
+      "props": {
+        "placeholder": "请输入额外的备注，如计算公式等，格式遵循 1:内容,2:内容 ...等等 ",
+        "autoSize": {
+          "minRows": 10
+        },
+        "showCount":"true",
+        "maxLength":"200"
+      },
+      "type": "text-area",
+      "field": "tips"
+    }
+  ],
+  "map": {},
+  "layout": {
+    "table": "Content",
+    "form": "TitleContent"
+  },
+  
+  "tableOperation": [
+    {
+      "title": "详情",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "tables/tableField-view"
+      }
+    },
+    {
+      "title": "编辑",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "tables/tableField-edit"
+      }
+    },
+    {
+      "title": "删除",
+      "type": "delete",
+      "options": {
+        "outside": false
+      },
+      "expect": {
+        "permission": ""
+      }
+    }
+  ],
+  "searchFields": [
+    {
+      "label": "报表标识",
+      "field": "field",
+      "type": "search",
+      "props": {
+        "placeholder": "唯一标识,不可重复"
+      }
+    }
+  ],
+  "tableFields": [
+    {
+      "label": "报表标识",
+      "field": "field"
+      
+    },
+    {
+      "label": "报表标题",
+      "field": "title"
+    },
+    {
+      "label": "菜单组标题",
+      "field": "groupMenuName"
+    },
+
+    {
+      "label": "字段类型",
+      "field": "type"
+    },
+    {
+      "label": "搜索字段",
+      "field": "search"
+    }
+  ],
+  "viewConfig": [
+    {
+      "title": "详情",
+      "type": "plain",
+      "fields": [
+        {
+          "label": "字段备注",
+          "field": "tips"
+        },
+        {
+          "label": "查询语句",
+          "field": "querySql"
+        }
+      ]
+    }
+  ]
+}

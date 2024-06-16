@@ -1,0 +1,223 @@
+{
+  "pageName": {
+    "table": "表模型管理",
+    "new": "",
+    "edit": ""
+  },
+  "listAPI": "/api/crud/apicode/apiTableModel/apiTableModels",
+  "createAPI": "/api/crud/apicode/apiTableModel/apiTableModels",
+  "getAPI": "/api/crud/apicode/apiTableModel/apiTableModels/[id]",
+  "updateAPI": "/api/crud/apicode/apiTableModel/apiTableModels/[id]",
+  "deleteAPI": "/api/crud/apicode/apiTableModel/apiTableModels/(id)",
+  "columns": 1,
+  "createFields": [
+  ],
+  "updateFields": [
+  ],
+  "map": {},
+  "layout": {
+    "table": "Content",
+    "form": "TitleContent"
+  },
+  "tableActions": [
+    {
+      "title": "添加", "type": "modal",
+      "options": {
+        "modalTitle": "添加",
+        "modalWidth": 600,
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "API": {
+                "createAPI": "/api/crud/apicode/apiTableModel/apiTableModels"
+              },
+              "fields": [
+                {
+                  "label": "名称",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "'职位'"
+                  },
+                  "type": "input",
+                  "field": "name"
+                },
+                {
+                  "label": "表名",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "'jobs'"
+                  },
+                  "type": "input",
+                  "field": "modelName"
+                },
+                {
+                  "label": "描述",
+                  "rules": [],
+                  "props": {
+                    "placeholder": "'描述'"
+                  },
+                  "type": "input",
+                  "field": "notes"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "tableOperation": [
+    
+    {
+      "title": "编辑", "type": "modal",
+      "options": {
+        "outside": true,
+        "modalTitle": "编辑",
+        "modalWidth": 600,
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "API": {
+                "getAPI": "/api/crud/apicode/apiTableModel/apiTableModels/(id)",
+                "updateAPI": "/api/crud/apicode/apiTableModel/apiTableModels/(id)"
+              },
+              "fields": [
+                {
+                  "label": "名称",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "name"
+                },
+                {
+                  "label": "表名",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "modelName"
+                },
+                {
+                  "label": "描述",
+                  "rules": [],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "notes"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "title": "详情",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "tableModal/tableModal-view"
+      }
+    },
+    {
+      "title": "绑定字段",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "tableModal/tableModal-bindingField"
+      },
+      "expect": {
+        "field": "ttt",
+        "value": "test"
+      }
+    },
+    {
+      "title": "绑定子表",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "tableModal/tableModal-bindingSubTable"
+      },
+      "expect": {
+        "field": "ttt",
+        "value": "test"
+      }
+    },
+    {
+      "title": "下载建表sql",
+      "type": "request",
+      "options": {
+        "method": "download",
+        "outside": true,
+        "API": "/api/crud/apicode/apiTableModel/apiTableModels/download-create-table-sql/(id)"
+      }
+    },
+    {
+      "title": "转换为eav",
+      "type": "path",
+      "options": {
+        "style": "primary",
+        "path": "tableModal/tableModal-switchEav",
+        "outside": true
+      }
+    },
+    {
+      "title": "删除",
+      "type": "delete",
+      "options": {
+        "method": "delete",
+        "outside": false
+      }
+    }
+  ],
+  "searchFields": [
+    {
+      "label": "名称",
+      "field": "name",
+      "type": "input",
+      "props": {
+        "placeholder": "请输入"
+      }
+    }
+  ],
+  "tableFields": [
+    {
+      "label": "名称",
+      "field": "name"
+    },
+    {
+      "label": "表名",
+      "field": "modelName"
+    },
+    {
+      "label": "描述",
+      "field": "notes"
+    }
+    
+  ],
+  "viewConfig": []
+}

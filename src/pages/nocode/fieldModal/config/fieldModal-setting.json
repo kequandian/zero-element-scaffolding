@@ -1,0 +1,369 @@
+{
+  "pageName": {
+    "table": "字段模型管理",
+    "new": "",
+    "edit": ""
+  },
+  "listAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields",
+  "createAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields",
+  "getAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/[id]",
+  "updateAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/[id]",
+  "deleteAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/(id)",
+  "columns": 1,
+  "createFields": [
+  ],
+  "updateFields": [
+  ],
+  "map": {},
+  "layout": {
+    "table": "Content",
+    "form": "TitleContent"
+  },
+  "tableActions": [
+    {
+      "title": "添加", "type": "modal",
+      "options": {
+        "modalTitle": "添加",
+        "modalWidth": 600,
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "API": {
+                "createAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields"
+              },
+              "fields": [
+                {
+                  "label": "模型",
+                  "field": "tableModelId",
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "options": {
+                    "title": "选择",
+                    "label": "name",
+                    "editLabel": "name",
+                    "value": "id",
+                    "API": "/api/crud/apicode/apiTableModel/apiTableModels",
+                    "fields": [
+                      {
+                        "label": "名称",
+                        "field": "name"
+                      },
+                      {
+                        "label": "模型名",
+                        "field": "modelName"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "标准字段绑定名称",
+                  "field": "defaultFieldName",
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "options": {
+                    "title": "选择",
+                    "API": "/api/crud/fieldModel/fieldModels",
+                    "label": "modelName",
+                    "editLabel": "defaultFieldName",
+                    "value": "modelName",
+                    "fields": [
+                      {
+                        "label": "标题",
+                        "field": "modelLabel"
+                      },
+                      {
+                        "label": "绑定名称",
+                        "field": "modelName"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "字段名",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "fieldName"
+                },
+                {
+                  "label": "默认值",
+                  "rules": [],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "defaultValue"
+                },
+                {
+                  "label": "是否为空",
+                  "rules": [],
+                  "type": "radio",
+                  "field": "isNotNull",
+                  "options": [
+                      {
+                          "label": "是",
+                          "value": 1
+                      },
+                      {
+                          "label": "否",
+                          "value": 0
+                      }
+                  ]
+                },
+                {
+                  "label": "是否唯一",
+                  "rules": [],
+                  "type": "radio",
+                  "field": "isUnique",
+                  "options": [
+                      {
+                          "label": "是",
+                          "value": 1
+                      },
+                      {
+                          "label": "否",
+                          "value": 0
+                      }
+                  ]
+                },
+                
+                {
+                  "label": "注释",
+                  "rules": [],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "comments"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "tableOperation": [
+    
+    {
+      "title": "编辑", "type": "modal",
+      "options": {
+        "outside": true,
+        "modalTitle": "编辑",
+        "modalWidth": 600,
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "API": {
+                "getAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/(id)",
+                "updateAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/(id)"
+              },
+              "fields": [
+                {
+                  "label": "模型",
+                  "field": "tableModelId",
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "options": {
+                    "title": "选择",
+                    "label": "name",
+                    "editLabel": "tableModelName",
+                    "value": "id",
+                    "API": "/api/crud/apicode/apiTableModel/apiTableModels",
+                    "fields": [
+                      {
+                        "label": "名称",
+                        "field": "name"
+                      },
+                      {
+                        "label": "模型名",
+                        "field": "modelName"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "标准字段绑定名称",
+                  "field": "defaultFieldName",
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "options": {
+                    "title": "选择",
+                    "API": "/api/crud/fieldModel/fieldModels",
+                    "label": "modelName",
+                    "editLabel": "defaultFieldName",
+                    "value": "modelName",
+                    "fields": [
+                      {
+                        "label": "标题",
+                        "field": "modelLabel"
+                      },
+                      {
+                        "label": "绑定名称",
+                        "field": "modelName"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "字段名",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "fieldName"
+                },
+                {
+                  "label": "默认值",
+                  "rules": [],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "defaultValue"
+                },
+                {
+                  "label": "是否为空",
+                  "rules": [],
+                  "type": "radio",
+                  "field": "isNotNull",
+                  "options": [
+                      {
+                          "label": "是",
+                          "value": 1
+                      },
+                      {
+                          "label": "否",
+                          "value": 0
+                      }
+                  ]
+                },
+                {
+                  "label": "是否唯一",
+                  "rules": [],
+                  "type": "radio",
+                  "field": "isUnique",
+                  "options": [
+                      {
+                          "label": "是",
+                          "value": 1
+                      },
+                      {
+                          "label": "否",
+                          "value": 0
+                      }
+                  ]
+                },
+                
+                {
+                  "label": "注释",
+                  "rules": [],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "comments"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "title": "删除",
+      "type": "delete",
+      "options": {
+        "method": "delete",
+        "outside": false
+      }
+    }
+  ],
+  "searchFields": [
+    {
+      "label": "字段名",
+      "field": "fieldName",
+      "type": "input",
+      "props": {
+        "placeholder": "请输入"
+      }
+    }
+  ],
+  "tableFields": [
+    {
+      "label": "字段名",
+      "field": "fieldName"
+    },
+    {
+      "label": "字段类型",
+      "field": "dataType"
+    },
+    {
+      "label": "绑定的模型",
+      "field": "tableModelName"
+    },
+    {
+      "label": "来源",
+      "valueType": "field-model-status-convert",
+      "field": "defaultFieldName"
+    },
+    {
+      "label": "注释",
+      "field": "comments"
+    }
+    
+  ],
+  "viewConfig": [{
+    "title": "详情",
+    "type": "plain",
+    "fields": [
+      {
+        "label": "类别名称",
+        "field": "name"
+      },
+      {
+        "label": "模型名",
+        "field": "modelName"
+      },
+      {
+        "label": "描述",
+        "field": "desc"
+      }
+    ]
+  }]
+}

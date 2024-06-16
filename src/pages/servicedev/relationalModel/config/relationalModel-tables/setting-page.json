@@ -1,0 +1,232 @@
+{
+  "pageName": "",
+  "columns": 2,
+  "layout": {
+    "table": "Content",
+    "form": "TitleContent"
+  },
+  "map": {
+  },
+  "tableActions": [
+    {
+      "title": "添加", "type": "modal",
+      "options": {
+        "outside": true,
+        "modalTitle": "添加",
+        "modalWidth": 600,
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "API": {
+                "createAPI": "/api/crud/apicode/apiRelationModelTables/apiRelationModelTables"
+              },
+              "fields": [
+                {
+                  "label": "添加表",
+                  "field": "tableModelId",
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "options": {
+                    "title": "选择",
+                    "API": "/api/crud/apicode/apiTableModel/apiTableModels",
+                    "label": "name",
+                    "editLabel": "subTableName",
+                    "value": "id",
+                    "fields": [
+                      {
+                        "label": "名称",
+                        "field": "name"
+                      },
+                      {
+                        "label": "表名",
+                        "field": "modelName"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "关联关系",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请选择关联关系",
+                    "style": {
+                      "width": "240px"
+                    }
+                  },
+                  "options": [
+                    {
+                      "label": "主表",
+                      "value": "MASTER"
+                    },
+                    {
+                      "label": "从表",
+                      "value": "SLAVE"
+                    },
+                    {
+                      "label": "多对多次主表",
+                      "value": "PEER"
+                    },
+                    {
+                      "label": "多对多中间表",
+                      "value": "RELATION"
+                    },
+                    {
+                      "label": "分类表",
+                      "value": "CATEGORY"
+                    }
+                  ],
+                  "type": "select",
+                  "field": "relationType"
+                },
+                {
+                  "label": "绑定主表字段",
+                  "field": "relationData",
+                  "type": "input",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ]
+                },
+                {
+                  "label": "",
+                  "type": "hidden_matchRouteParam",
+                  "field": "relationModelId"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+   
+  ],
+  "tableOperation": [
+    {
+      "title": "编辑", "type": "modal",
+      "options": {
+        "outside": true,
+        "modalTitle": "编辑",
+        "modalWidth": 600,
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "API": {
+                "getAPI": "/api/crud/apicode/apiRelationModelTables/apiRelationModelTables/detail/(id)",
+                "updateAPI": "/api/crud/apicode/apiRelationModelTables/apiRelationModelTables/[id]"
+              },
+              "fields": [
+                {
+                  "label": "表",
+                  "field": "tableModelName",
+                  "type": "plain"
+                },
+                {
+                  "label": "关联关系",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请选择关联关系",
+                    "style": {
+                      "width": "240px"
+                    }
+                  },
+                  "options": [
+                    {
+                      "label": "主表",
+                      "value": "MASTER"
+                    },
+                    {
+                      "label": "从表",
+                      "value": "SLAVE"
+                    },
+                    {
+                      "label": "多对多次主表",
+                      "value": "PEER"
+                    },
+                    {
+                      "label": "多对多中间表",
+                      "value": "RELATION"
+                    },
+                    {
+                      "label": "分类表",
+                      "value": "CATEGORY"
+                    }
+                  ],
+                  "type": "select",
+                  "field": "relationType"
+                },
+                {
+                  "label": "绑定主表字段",
+                  "field": "relationData",
+                  "type": "input",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "title": "删除",
+      "type": "delete",
+      "options": {
+        "method": "delete",
+        "outside": false
+      }
+    }
+  ],
+  "createFields": [
+    {}
+  ],
+  "updateFields": [
+    {}
+  ],
+  "viewFields": [
+    {}
+  ],
+  "listAPI": "/api/crud/apicode/apiRelationModelTables/apiRelationModelTables/view?relationModelId=[id]",
+  "createAPI": "/api/crud/apicode/apiRelationModelTables/apiRelationModelTables[id]",
+  "getAPI": "/api/crud/apicode/apiRelationModelTables/apiRelationModelTables/(id)",
+  "updateAPI": "/api/crud/apicode/apiRelationModelTables/apiRelationModelTables/(id)",
+  "deleteAPI": "/api/crud/apicode/apiRelationModelTables/apiRelationModelTables/(id)",
+  "tableFields": [
+    {
+      "label": "表模型名称",
+      "field": "tableModelName"
+    },
+    {
+      "label": "表模型描述",
+      "field": "tableModelNotes"
+    },
+    {
+      "label": "关联关系",
+      "field": "relationType"
+    },
+    {
+      "label": "绑定主表字段",
+      "field": "relationData"
+    }
+  ]
+}

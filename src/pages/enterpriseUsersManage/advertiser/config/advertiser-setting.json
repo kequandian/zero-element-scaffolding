@@ -1,0 +1,620 @@
+{
+  "pageName": {
+    "table": "广告主列表",
+    "view": "广告主详情",
+    "new": "新增"
+  },
+  "listAPI": "/api/crud/advertiser/advertisers",
+  "createAPI": "/api/crud/advertiser/advertisers",
+  "getAPI": "/api/crud/advertiser/advertisers/[id]",
+  "updateAPI": "/api/crud/advertiser/advertisers/[id]",
+  "deleteAPI": "/api/crud/advertiser/advertisers/(id)",
+  "columns": 1,
+  "createFields": [
+    {
+      "label": "账号",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入手机号" 
+      },
+      "type": "input",
+      "field": "contactPhone"
+    },
+    {
+      "label": "密码",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "field": "password"
+    },
+    {
+      "label": "公司名称",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "field": "companyName"
+    },
+    {
+      "label": "联系人",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "field": "contactName"
+    },
+    {
+      "label": "所在地区",
+      "type": "pcd",
+      "field": "address"
+    },
+    {
+      "label": "所在行业",
+      "options": {
+        "API": "/api/crud/industry/query",
+        "map": [
+          {
+            "type": "X",
+            "value": "xIndustry"
+          },
+          {
+            "type": "L",
+            "value": "lIndustry"
+          },
+          {
+            "type": "M",
+            "value": "mIndustry"
+          }
+        ]
+      },
+      "type": "pcd",
+      "field": "industry"
+    },
+    {
+      "label": "备注",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "text-area",
+      "field": "note",
+      "span": 24
+    }
+  ],
+  "updateFields": [
+    {
+      "label": "公司名称",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "field": "companyName"
+    },
+    {
+      "label": "联系人",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "field": "contactName"
+    },
+    {
+      "label": "所在地区",
+      "type": "pcd",
+      "field": "address"
+    },
+    {
+      "label": "所在行业",
+      "options": {
+        "API": "/api/crud/industry/query",
+        "map": [
+          {
+            "type": "X",
+            "value": "xIndustry"
+          },
+          {
+            "type": "L",
+            "value": "lIndustry"
+          },
+          {
+            "type": "M",
+            "value": "mIndustry"
+          }
+        ]
+      },
+      "type": "pcd",
+      "field": "industry"
+    },
+    {
+      "label": "备注",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "text-area",
+      "field": "note",
+      "span": 24
+    }
+  ],
+  "map": {
+    "comeFrom": {
+      "map": {
+        "0": "系统创建",
+        "1": "用户注册"
+      },
+      "options": [
+        {
+          "label": {
+            "label": "系统创建",
+            "color": "#0099CC"
+          },
+          "value": "0"
+        },
+        {
+          "label": {
+            "label": "用户注册",
+            "color": "#00CC99"
+          },
+          "value": "1"
+        }
+      ],
+      "color": {
+        "0": "#0099CC",
+        "1": "#00CC99"
+      }
+    },
+    "status": {
+      "map": {
+        "PASS": "使用中",
+        "STOP": "停用",
+        "PENDING_APPROVAL": "待审核",
+        "REFUSE": "已拒绝"
+      },
+      "options": [
+        {
+          "label": {
+            "label": "使用中",
+            "color": "#123456"
+          },
+          "value": "PASS"
+        },
+        {
+          "label": {
+            "label": "停用",
+            "color": "#778899"
+          },
+          "value": "STOP"
+        },
+        {
+          "label": {
+            "label": "待审核",
+            "color": "#d8330e"
+          },
+          "value": "PENDING_APPROVAL"
+        },
+        {
+          "label": {
+            "label": "已拒绝",
+            "color": "#bdbdbd"
+          },
+          "value": "REFUSE"
+        }
+      ],
+      "color": {
+        "PASS": "#123456",
+        "STOP": "#778899",
+        "PENDING_APPROVAL": "#d8330e",
+        "REFUSE": "#bdbdbd"
+      }
+    }
+  },
+  "layout": {
+    "table": "Content",
+    "form": "TitleContent"
+  },
+  "tableActions": [
+    {
+      "title": "添加",
+      "type": "path",
+      "options": {
+        "style": "primary",
+        "path": "advertiser/advertiser-add"
+      }
+    },
+    {
+      "title": "导出",
+      "type": "export",
+      "options": {
+        "API":"/api/io/excel/export/<后台未提供exportName>"
+      }
+    },
+    {
+      "title": "导入",
+      "type": "import",
+      "options": {
+        "API":"/api/io/excel/import/广告主.xlsx"
+      }
+    },
+    {
+      "title": "打印广告主列表",
+      "type": "export",
+      "options": {
+        "API": "/api/io/pdf/export/广告主列表",
+        "method": "get"
+      }
+    }
+  ],
+  "tableOperation": [
+    {
+      "title": "编辑",
+      "type": "path",
+      "options": {
+        "path": "advertiser/advertiser-edit",
+        "outside": false
+      }
+    },
+    {
+      "title": "查看",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "advertiser/advertiser-view"
+      }
+    },
+    {
+      "title": "禁用",
+      "type": "request",
+      "options": {
+        "tips": "确定禁用广告主吗？",
+        "outside": false,
+        "method": "delete",
+        "API": "/api/crud/advertiser/advertisers/(id)"
+      },
+      "expect": {
+        "field": "status",
+        "value": "PASS"
+      }
+    },
+    {
+      "title": "启用",
+      "type": "request",
+      "options": {
+        "tips": "确定启用广告主吗？",
+        "outside": false,
+        "method": "delete",
+        "API": "/api/crud/advertiser/advertisers/(id)"
+      },
+      "expect": {
+        "field": "status",
+        "value": "STOP"
+      }
+    },
+    {
+      "title": "通过",
+      "type": "request",
+      "options": {
+        "tips": "确定通过广告主吗？",
+        "outside": true,
+        "method": "put",
+        "API": "/api/crud/advertiser/advertisers/pass/(id)/PASS"
+      },
+      "expect": {
+        "field": [
+          "status",
+          "assistantName"
+        ],
+        "value": [
+          "PENDING_APPROVAL",
+          "IS_NOT_NULL"
+        ]
+      }
+    },
+    {
+      "title": "不通过",
+      "type": "modal",
+      "options": {
+        "modalTitle": "拒绝原因",
+        "modalWidth": 550,
+        "outside": true,
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "layoutConfig": {
+                "value": [
+                  24
+                ]
+              },
+              "API": {
+                "updateAPI": "/api/crud/advertiser/advertisers/pass/(id)/REFUSE"
+              },
+              "fields": [
+                {
+                  "label": "拒绝原因",
+                  "type": "text-area",
+                  "span": 24,
+                  "field": "note",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "expect": {
+        "field": [
+          "status",
+          "assistantName"
+        ],
+        "value": [
+          "PENDING_APPROVAL",
+          "IS_NOT_NULL"
+        ]
+      }
+    },
+    {
+      "title": "分配店小二",
+      "type": "modal",
+      "options": {
+        "modalTtile": "分配店小二",
+        "modalWidth": 640,
+        "outside": false,
+        "layout": "Empty",
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "layoutConfig": {
+                "value": [
+                  24
+                ]
+              },
+              "API": {
+                "updateAPI": "/api/crud/advertiser/advertisers/setAssistant/(id)"
+              },
+              "fields": [
+                {
+                  "label": "选择店小二",
+                  "field": "assistantId",
+                  "type": "modal-radio",
+                  "rules": [
+                    "required"
+                  ],
+                  "options": {
+                    "title": "选择店小二",
+                    "value": "id",
+                    "API": "/api/crud/cinema/user?roleCode=104",
+                    "label": "name",
+                    "editLabel": "assistantName",
+                    "pagination": true,
+                    "fields": [
+                      {
+                        "label": "店小二",
+                        "field": "name"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "expect": {
+        "field": "status",
+        "value": "PENDING_APPROVAL",
+        "permission": "advertiser.setAssistant"
+      }
+    },
+    {
+      "title": "创建计划",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "/advertismanage/advertingPlan/advertingPlan-help",
+        "query": {
+          "advertiserId": "id"
+        }
+      },
+      "expect": {
+        "field": "status",
+        "value": [
+          [
+            "PASS",
+            "STOP"
+          ]
+        ]
+      }
+    }
+  ],
+  "searchFields": [
+    {
+      "label": "广告主",
+      "field": "search",
+      "props": {
+        "placeholder": "广告主/联系人/电话"
+      },
+      "type": "search"
+    }
+  ],
+  "tableFields": [
+    {
+      "className": "",
+      "field": "contactPhone",
+      "label": "账号"
+    },
+    {
+      "options": {
+        "format": [
+          "<companyName>",
+          "<contactName>",
+          "<province><city><district>"
+        ]
+      },
+      "valueType": "plain",
+      "className": "",
+      "field": "advertiserMessage",
+      "label": "广告主信息"
+    },
+    {
+      "className": "",
+      "field": "assistantName",
+      "label": "店小二"
+    },
+    {
+      "options": {
+        "map": {
+          "0": "系统创建",
+          "1": "用户注册"
+        },
+        "color": {
+          "0": "#0099CC",
+          "1": "#00CC99"
+        }
+      },
+      "valueType": "tag",
+      "className": "",
+      "field": "comeFrom",
+      "label": "来源"
+    },
+    {
+      "options": {
+        "map": {
+          "PASS": "使用中",
+          "STOP": "停用",
+          "PENDING_APPROVAL": "待审核",
+          "REFUSE": "已拒绝"
+        },
+        "color": {
+          "PASS": "#123456",
+          "STOP": "#778899",
+          "PENDING_APPROVAL": "#d8330e",
+          "REFUSE": "#bdbdbd"
+        }
+      },
+      "valueType": "tag",
+      "className": "",
+      "field": "status",
+      "label": "状态"
+    },
+    {
+      "align": "right",
+      "className": "",
+      "field": "countHistoryOrder",
+      "label": "历史广告订单"
+    },
+    {
+      "align": "center",
+      "options": {},
+      "sqlInfo": {
+        "field": "testNumber",
+        "type": "varchar(100)",
+        "defaultValue": "0",
+        "comment": "测试字段"
+      },
+      "className": "",
+      "field": "testNumber",
+      "label": "测试编号"
+    }
+  ],
+  "viewConfig": {
+    "left": [
+      {
+        "title": "广告主详情",
+        "type": "plain",
+        "fields": [
+          {
+            "label": "账号",
+            "field": "contactPhone"
+          },
+          {
+            "label": "名称",
+            "field": "companyName"
+          },
+          {
+            "label": "广告主",
+            "field": "contactName"
+          },
+          {
+            "label": "地址",
+            "field": "address",
+            "type": "plain",
+            "format": [
+              "<province><city><district>"
+            ]
+          },
+          {
+            "label": "店小二",
+            "field": "assistantName"
+          },
+          {
+            "label": "所在行业",
+            "field": "industry",
+            "type": "plain",
+            "format": [
+              "<xIndustry>/<lIndustry>/<mIndustry>"
+            ]
+          },
+          {
+            "label": "备注",
+            "field": "note"
+          },
+          {
+            "label": "营业执照",
+            "field": "businessLicenseProve",
+            "type": "image"
+          }
+        ]
+      },
+      {
+        "title": "广告计划信息",
+        "type": "cardList",
+        "api": "/api/crud/advertingPlan/advertingPlans?advertiserId=[id]",
+        "map": {
+          "title": "计划单号:<planNumber>",
+          "subTitle": false,
+          "image": false,
+          "imageTitle": false
+        },
+        "format": [
+          "广告名称: <name>",
+          "投放日期: <releaseStartTime> ~ <releaseEndTime>",
+          "广告时长: <duration>秒",
+          "投放区域: <cinemaCity>",
+          "销售助理: <assistantName>"
+        ]
+      }
+    ],
+    "right": [
+      {
+        "title": "审核状态",
+        "type": "statusLog",
+        "api": "/api/crud/advertiser/advertisers/operateLog/[id]"
+      }
+    ]
+  }
+}

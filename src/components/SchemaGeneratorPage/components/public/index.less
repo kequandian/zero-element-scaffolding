@@ -1,0 +1,42 @@
+@Form-title-FontWeight        : bolder;
+@Form-title-FontSize          : 20px;
+@Form-title-BorderBottom      : 1px dashed #efefef;
+@Form-title-paddingbottom     : 10px;
+@Form-Skeleton-padding        : 20px 15px;
+@Form-Skeleton-border         : 2px dashed #ccc;
+@Form-Skeleton-borderRadius   : 5px;
+@Form-Skeleton-BackgroundColor: transparent;
+.Form-title{
+    font-weight   : @Form-title-FontWeight;
+    font-size     : @Form-title-FontSize;
+    padding-bottom: @Form-title-paddingbottom;
+    border-bottom : @Form-title-BorderBottom;
+    text-align    : center;
+}
+.Form-Skeleton{
+    padding         : @Form-Skeleton-padding;
+    border          : @Form-Skeleton-border;
+    border-radius   : @Form-Skeleton-borderRadius;
+    background-color: @Form-Skeleton-BackgroundColor;
+}
+.Form-list{
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -40px;
+}
+.Form-list>li{
+    flex: 1 0 50%;
+    // background-color: #fff;
+    // text-align: center;
+    font-weight: bolder;
+    background-color: #ccc;
+    border-right:2px solid #fff;
+    text-align: center;
+    // color:white;
+}
+.Form-list li+li+li{
+    font-weight: 500;
+    // color:black;
+    background-color: transparent;
+}

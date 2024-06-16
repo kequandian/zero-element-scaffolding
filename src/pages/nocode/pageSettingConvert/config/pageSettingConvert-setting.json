@@ -1,0 +1,137 @@
+{
+  "pageName": {
+    "table": "页面配置管理",
+    "new": "添加",
+    "edit": "编辑"
+  },
+  "listAPI": "/api/crud/menu/custom/group",
+  "createAPI": "/api/crud/menu/custom/group",
+  "getAPI": "/api/crud/menu/custom/group/[id]",
+  "updateAPI": "/api/crud/menu/custom/group/[id]",
+  "deleteAPI": "/api/crud/menu/menus/(id)",
+  "columns": 1,
+  "type":"default",
+  "createFields": [
+    {
+      "label": "菜单名称",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "field": "name"
+    }
+  ],
+  "updateFields": [
+    {
+      "label": "菜单名称",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "search",
+      "field": "search"
+    }
+  ],
+  "map": {},
+  "layout": {
+    "table": "Content",
+    "form": "TitleContent"
+  },
+  "tableActions": [
+    
+  ],
+  "tableOperation": [
+    {
+      "title": "导入",
+      "type": "convertPage",
+      "options": {
+        "method": "post",
+        "outside": true,
+        "API": "/toField",
+        "query":{
+          "pageId":"id",
+          "path": "component",
+          "menuId": "id"
+        }
+      },
+      "expect": {
+        "field": "pageId",
+        "value": "IS_NULL"
+      }
+    },
+    {
+      "title": "同步",
+      "type": "updateToSetting",
+      "options": {
+        "outside": true,
+        "API":{
+          "updateAPI": "/vallation/node/api/push-setting"
+        },
+        
+        "query": {
+          "path": "component",
+          "pageId": "pageId"
+        }
+      },
+      "expect": {
+        "field": "pageId",
+        "value": "IS_NOT_NULL"
+      }
+    },
+    {
+      "title": "跳转",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "/nocode/dynamicPage/testPageFetch",
+        "query":{
+          "id": "pageId"
+        }
+      },
+      "expect": {
+        "field": "pageId",
+        "value": "IS_NOT_NULL"
+      }
+    }
+  ],
+  "searchFields": [
+    {
+      "label": "菜单名称",
+      "field": "search",
+      "type": "search",
+      "props": {
+        "placeholder": ""
+      }
+    }
+  ],
+  "tableFields": [
+    {
+      "label": "菜单名称",
+      "field": "menuName"
+    },
+    {
+      "label": "路径",
+      "field": "component"
+    },
+    { "title": "状态", "field": "status", "valueType": "tag",
+        "theme":"status",
+        "options": {
+          "map": {
+            "0": "动态页面",
+            "1": "配置页面",
+            "2": "关联页面",
+            "3": " "
+          }
+        }
+    }
+  ]
+}

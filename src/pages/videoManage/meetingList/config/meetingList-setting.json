@@ -1,0 +1,108 @@
+{
+  "pageName": {
+    "table": "会议列表",
+    "new": "添加会议",
+    "edit": "编辑会议"
+  },
+  "listAPI": "/api/adm/newconf/meetings",
+  "createAPI": "/api/adm/newconf/meetings",
+  "getAPI": "/api/adm/newconf/meetings/(id)",
+  "updateAPI": "/api/adm/newconf/meetings",
+  "deleteAPI": "/api/adm/newconf/meetings/(id)",
+  "columns": 1,
+  "type":"default",
+  "createFields": [
+    {
+      "label": "名称",
+      "field": "name",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "align": "center"
+    }
+  ],
+  "updateFields": [
+    {
+      "label": "名称",
+      "field": "name",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "align": "center"
+    }
+  ],
+  "map": {},
+  "layout": {
+    "table": "Content",
+    "form": "TitleContent"
+  },
+  "tableActions": [
+    {
+      "title": "添加会议",
+      "type": "path",
+      "options": {
+        "style": "primary",
+        "path": "meetingList/meetingList-add"
+      }
+    }
+  ],
+  "tableOperation": [
+    {
+      "title": "编辑",
+      "type": "path",
+      "options": {
+        "style": "path",
+        "path": "meetingList/meetingList-edit",
+        "outside": true
+      }
+    },
+    {
+      "title": "删除",
+      "type": "delete",
+      "options": {
+        "outside": false,
+        "API": "/api/adm/newconf/meetings/(id)",
+        "method": "delete"
+      },
+      "expect": {
+        "permission": ""
+      }
+    }
+  ],
+  "searchFields": [
+    {
+      "label": "关键字搜索",
+      "field": "search",
+      "type": "search",
+      "props": {
+        "placeholder": ""
+      }
+    }
+  ],
+  "tableFields": [
+    {
+      "label": "名称",
+      "field": "name"
+    }
+  ],
+  "viewConfig": [
+    {
+      "label": "名称",
+      "field": "name",
+      "type": "plain",
+      "span": 24
+    }
+  ]
+}

@@ -1,0 +1,295 @@
+{
+  "pageName": {
+    "table": "租户管理",
+    "new": "添加",
+    "edit": "编辑",
+    "view": "租户详情"
+  },
+  "listAPI": "/api/adm/tenants",
+  "createAPI": "/api/adm/tenants",
+  "getAPI": "/api/adm/tenants/[id]",
+  "updateAPI": "/api/adm/tenants/[id]",
+  "deleteAPI": "/api/adm/tenants/(id)",
+  "columns": 1,
+  "type":"default",
+  "createFields": [],
+  "updateFields": [],
+  "map": {},
+  "layout": {
+    "table": "Content",
+    "form": "TitleContent"
+  },
+  "tableActions": [
+    {
+      "title": "添加",
+      "type": "modal",
+      "options": {
+        "style": "primary",
+        "modalTitle": "添加租户",
+        "modalWidth": 750,
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "layoutConfig": {
+                "value": [
+                  24
+                ]
+              },
+              "API": {
+                "createAPI": "/api/adm/tenants"
+              },
+              "fields": [
+                { 
+                  "field": "logo", 
+                  "label": "Logo", 
+                  "type": "upload-image",
+                  "options": {
+                    "max": 1,
+                    "type": "string",
+                    "hasKey": false
+                  }
+                },
+                {
+                  "label": "租户名",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "name"
+                },
+                {
+                  "label": "域名地址",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "domain"
+                },
+                {
+                  "label": "关联合约",
+                  "field": "contractId",
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [],
+                  "options": {
+                    "title": "关联合约",
+                    "value": "id",
+                    "label": "contractName",
+                    "API": "/api/crud/saasContract/saasContracts",
+                    "fields": [
+                      {
+                        "label": "合约名称",
+                        "field": "name"
+                      },
+                      {
+                        "label": "备注",
+                        "field": "note"
+                      }
+                    ]
+                  }
+                },
+                { "field": "permIds", "label": "选择权限", "type": "perm" }
+              ]
+            }
+          }
+        ]
+      },
+      "expect": {
+        "permission": ""
+      }
+    }
+  ],
+  "tableOperation": [
+    {
+      "title": "编辑",
+      "type": "modal",
+      "options": {
+        "modalTitle": "编辑租户",
+        "modalWidth": 750,
+        "outside": true,
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "layoutConfig": {
+                "value": [
+                  24
+                ]
+              },
+              "API": {
+                "getAPI": "/api/adm/tenants/(id)",
+                "updateAPI": "/api/adm/tenants/(id)"
+              },
+              "fields": [
+                { 
+                  "field": "logo", 
+                  "label": "Logo", 
+                  "type": "upload-image",
+                  "options": {
+                    "max": 1,
+                    "type": "string",
+                    "hasKey": false
+                  }
+                },
+                {
+                  "label": "租户名",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "name"
+                },
+                {
+                  "label": "域名地址",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入"
+                  },
+                  "type": "input",
+                  "field": "domain"
+                },
+                {
+                  "label": "关联合约",
+                  "field": "contractId",
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [],
+                  "options": {
+                    "title": "关联合约",
+                    "placeholder": "请选择",
+                    "value": "id",
+                    "label": "contractName",
+                    "API": "/api/crud/saasContract/saasContracts",
+                    "fields": [
+                      {
+                        "label": "合约名称",
+                        "field": "name"
+                      },
+                      {
+                        "label": "备注",
+                        "field": "note"
+                      }
+                    ]
+                  }
+                },
+                { "field": "permIds", "label": "选择权限", "type": "perm" }
+              ]
+            }
+          }
+        ]
+      },
+      "expect": {
+        "permission": ""
+      }
+    },
+    {
+      "title": "查看详情",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "/tenantManage/tenantManage/tenantManage-view"
+      },
+      "expect": {
+        "permission": ""
+      }
+    },
+    {
+      "title": "查看合约",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "/tenantManage/contractManage/contractManage-view",
+        "query":{
+          "id" : "contractId"
+        }
+      },
+      "expect": {
+        "field":"hasContract",
+        "value": true,
+        "permission": ""
+      }
+    },
+    {
+      "title": "删除",
+      "type": "delete",
+      "options": {
+        "outside": false
+      },
+      "expect": {
+        "permission": ""
+      }
+    }
+  ],
+  "searchFields": [
+    {
+      "label": "租户名",
+      "field": "search",
+      "type": "search",
+      "props": {
+        "placeholder": "请输入"
+      }
+    }
+  ],
+  "tableFields": [
+    {
+      "label": "Logo",
+      "field": "logo"
+    },
+    {
+      "label": "租户名",
+      "field": "name"
+    },
+    {
+      "label": "域名地址",
+      "field": "domain"
+    },
+    {
+      "label": "关联合约",
+      "field": "contractName"
+    }
+  ],
+  "viewConfig": [
+    {
+      "label": "Logo",
+      "field": "logo",
+      "type": "image"
+    },
+    {
+      "label": "租户名",
+      "field": "name",
+      "type": "plain"
+    },
+    {
+      "label": "域名地址",
+      "field": "domain",
+      "type": "plain"
+    },
+    {
+      "label": "关联合约",
+      "field": "contractName",
+      "type": "plain"
+    }
+  ]
+}

@@ -1,0 +1,418 @@
+{
+  "pageName": {
+    "table": "供应商管理",
+    "new": "添加",
+    "edit": "编辑",
+    "view": "详情"
+  },
+  "listAPI": "/api/crud/supplier/suppliers",
+  "createAPI": "/api/crud/supplier/suppliers",
+  "getAPI": "/api/crud/supplier/suppliers/[id]",
+  "updateAPI": "/api/crud/supplier/suppliers/[id]",
+  "deleteAPI": "/api/crud/supplier/suppliers/(id)",
+  "columns": 1,
+  "type":"default",
+  "createFields": [],
+  "updateFields": [],
+  "map": {},
+  "layout": {
+    "table": "Content",
+    "form": "TitleContent"
+  },
+  "tableActions": [
+    {
+      "title": "添加",
+      "type": "modal",
+      "options": {
+        "style": "primary",
+        "modalTitle": "添加供应商",
+        "modalWidth": 550,
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "layoutConfig": {
+                "value": [
+                  24
+                ]
+              },
+              "API": {
+                "createAPI": "/api/crud/supplier/suppliers"
+              },
+              "fields": [
+                
+                {
+                  "label": "账号",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入",
+                    "style":{
+                      "width": "250px"
+                    }
+                  },
+                  "type": "input",
+                  "field": "account"
+                },
+                {
+                  "label": "名称",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入",
+                    "style":{
+                      "width": "250px"
+                    }
+                  },
+                  "type": "input",
+                  "field": "name"
+                },
+                {
+                  "label": "手机号",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入",
+                    "style":{
+                      "width": "245px"
+                    }
+                  },
+                  "type": "number",
+                  "field": "phone"
+                },
+                {
+                  "label": "VR链接",
+                  "rules": [],
+                  "props": {
+                    "placeholder": "请输入",
+                    "style":{
+                      "width": "250px"
+                    }
+                  },
+                  "type": "input",
+                  "field": "link"
+                },
+                { 
+                  "field": "snapshot", 
+                  "label": "VR图片", 
+                  "type": "upload-image",
+                  "options": {
+                    "max": 1,
+                    "type": "string",
+                    "hasKey": false
+                  }
+                },
+                {
+                  "label": "备注",
+                  "rules": [],
+                  "props": {
+                    "placeholder": "请输入",
+                    "style":{
+                      "width": "250px"
+                    }
+                  },
+                  "type": "input",
+                  "field": "note"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "expect": {
+        "permission": ""
+      }
+    }
+  ],
+  "tableOperation": [
+    {
+      "title": "编辑",
+      "type": "modal",
+      "options": {
+        "modalTitle": "编辑供应商",
+        "modalWidth": 750,
+        "outside": true,
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "layoutConfig": {
+                "value": [
+                  24
+                ]
+              },
+              "API": {
+                "getAPI": "/api/crud/supplier/suppliers/(id)",
+                "updateAPI": "/api/crud/supplier/suppliers/(id)"
+              },
+              "fields": [
+                
+                {
+                  "label": "账号",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入",
+                    "style":{
+                      "width": "250px"
+                    }
+                  },
+                  "type": "input",
+                  "field": "account"
+                },
+                {
+                  "label": "名称",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入",
+                    "style":{
+                      "width": "250px"
+                    }
+                  },
+                  "type": "input",
+                  "field": "name"
+                },
+                {
+                  "label": "手机号",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请输入",
+                    "style":{
+                      "width": "250px"
+                    }
+                  },
+                  "type": "number",
+                  "field": "phone"
+                },
+                
+                {
+                  "label": "VR链接",
+                  "rules": [],
+                  "props": {
+                    "placeholder": "请输入",
+                    "style":{
+                      "width": "250px"
+                    }
+                  },
+                  "type": "input",
+                  "field": "link"
+                },
+                { 
+                  "field": "snapshot", 
+                  "label": "VR图片", 
+                  "type": "upload-image",
+                  "options": {
+                    "max": 1,
+                    "type": "string",
+                    "hasKey": false
+                  }
+                },
+                {
+                  "label": "备注",
+                  "rules": [],
+                  "props": {
+                    "placeholder": "请输入",
+                    "style":{
+                      "width": "250px"
+                    }
+                  },
+                  "type": "input",
+                  "field": "note"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "expect": {
+        "permission": ""
+      }
+    },
+    {
+      "title": "绑定",
+      "type": "modal",
+      "options": {
+        "outside": true,
+        "modalTitle": "绑定微信用户",
+        "modalWidth": 600,
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "layoutConfig": {
+                "value": [
+                  24
+                ]
+              },
+              "API": {
+                "getAPI": "/api/crud/supplier/suppliers/(id)",
+                "updateAPI": "/api/crud/supplier/suppliers/bind/(id)"
+              },
+              "fields": [
+                {
+                  "label": "选择用户",
+                  "field": "endUserId",
+                  "span": 24,
+                  "type": "modal-radio",
+                  "props": {},
+                  "rules": [],
+                  "options": {
+                    "title": "请选择",
+                    "label": "name",
+                    "editLabel": "endUserName",
+                    "value": "id",
+                    "pagination": true,
+                    "API": "/api/crud/user/accounts",
+                    "fields": [
+                      {
+                        "label": "微信昵称",
+                        "field": "name"
+                      },
+                      {
+                        "label": "手机号",
+                        "field": "phone"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "expect": {
+        "field": "bindType",
+        "value": 0
+      }
+    },
+    {
+      "title": "解绑",
+      "type": "request",
+      "options": {
+        "tips": "确定解绑微信用户吗？",
+        "outside": true,
+        "method": "put",
+        "API": "/api/crud/supplier/suppliers/unBind/(id)"
+      },
+      "expect": {
+        "field": "bindType",
+        "value": 2
+      }
+    },
+    {
+      "title": "查看详情",
+      "type": "path",
+      "options": {
+        "outside": false,
+        "path": "/userManage/supplierManage/supplierManage-view"
+      },
+      "expect": {
+        "permission": ""
+      }
+    },
+    {
+      "title": "删除",
+      "type": "delete",
+      "options": {
+        "outside": false
+      },
+      "expect": {
+        "permission": ""
+      }
+    }
+  ],
+  "searchFields": [
+    {
+      "label": "供应商",
+      "field": "search",
+      "type": "search",
+      "props": {
+        "placeholder": "请输入账号、名称、手机号",
+        "style":{
+          "width": "250px"
+        }
+      }
+    }
+  ],
+  "tableFields": [
+    {
+      "label": "账号",
+      "field": "account"
+    },
+    {
+      "label": "名称",
+      "field": "name"
+    },
+    {
+      "label": "手机号",
+      "field": "phone"
+    },
+    {
+      "label": "VR图片",
+      "field": "snapshot",
+      "valueType": "image"
+    },
+    {
+      "label": "备注",
+      "field": "note"
+    }
+  ],
+  "viewConfig": [
+      {
+        "label": "账号",
+        "field": "account",
+        "type": "plain"
+      },
+      {
+        "label": "名称",
+        "field": "name",
+        "type": "plain"
+      },
+      {
+        "label": "手机号",
+        "field": "phone",
+        "type": "plain"
+      },
+      {
+        "label": "VR链接",
+        "field": "link",
+        "type": "LinkButton",
+        "options": {
+            "title": "点击查看"
+        }
+      },
+      {
+        "label": "VR图片",
+        "field": "snapshot",
+        "type": "image"
+      },
+      {
+        "label": "备注",
+        "field": "note",
+        "type": "plain"
+      }
+  ]
+}

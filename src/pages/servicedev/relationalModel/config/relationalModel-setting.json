@@ -1,0 +1,265 @@
+{
+  "pageName": {
+    "table": "关系模型管理",
+    "new": "",
+    "edit": ""
+  },
+  "listAPI": "/api/crud/apicode/apiRelationModel/apiRelationModels",
+  "createAPI": "/api/crud/apicode/apiRelationModel/apiRelationModels",
+  "getAPI": "/api/crud/apicode/apiRelationModel/apiRelationModels/[id]",
+  "updateAPI": "/api/crud/apicode/apiRelationModel/apiRelationModels/[id]",
+  "deleteAPI": "/api/crud/apicode/apiRelationModel/apiRelationModels/(id)",
+  "columns": 1,
+  "createFields": [],
+  "updateFields": [],
+  "map": {},
+  "layout": {
+    "table": "Content",
+    "form": "TitleContent"
+  },
+  "tableActions": [
+    {
+      "title": "添加",
+      "type": "modal",
+      "options": {
+        "outside": true,
+        "modalTitle": "添加",
+        "modalWidth": 600,
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "API": {
+                "createAPI": "/api/crud/apicode/apiRelationModel/apiRelationModels"
+              },
+              "fields": [
+                {
+                  "label": "关系模型名称",
+                  "field": "modelName",
+                  "type": "input",
+                  "props": {},
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ]
+                },
+                {
+                  "label": "模型标题",
+                  "field": "name",
+                  "type": "input",
+                  "props": {},
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ]
+                },
+                {
+                  "label": "业务关系",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请选择业务关系",
+                    "style": {
+                      "width": "240px"
+                    }
+                  },
+                  "options": [
+                    {
+                      "label": "单表",
+                      "value": "ONE"
+                    },
+                    {
+                      "label": "一对多",
+                      "value": "ONEMANY"
+                    },
+                    {
+                      "label": "多对多",
+                      "value": "MANYMANY"
+                    },
+                    {
+                      "label": "实体层次分类",
+                      "value": "CATEGORY"
+                    }
+                  ],
+                  "type": "select",
+                  "field": "relationship"
+                },
+                {
+                  "label": "描述",
+                  "field": "notes",
+                  "type": "input",
+                  "props": {},
+                  "rules": []
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "tableOperation": [
+    {
+      "title": "编辑",
+      "type": "modal",
+      "options": {
+        "outside": true,
+        "modalTitle": "编辑",
+        "modalWidth": 600,
+        "items": [
+          {
+            "component": "Form",
+            "config": {
+              "layout": "Grid",
+              "API": {
+                "getAPI": "/api/crud/apicode/apiRelationModel/apiRelationModels/(id)",
+                "updateAPI": "/api/crud/apicode/apiRelationModel/apiRelationModels/(id)"
+              },
+              "fields": [
+                {
+                  "label": "关系模型名称",
+                  "field": "modelName",
+                  "type": "input",
+                  "props": {},
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ]
+                },
+                {
+                  "label": "模型标题",
+                  "field": "name",
+                  "type": "input",
+                  "props": {},
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ]
+                },
+                {
+                  "label": "业务关系",
+                  "rules": [
+                    {
+                      "type": "required"
+                    }
+                  ],
+                  "props": {
+                    "placeholder": "请选择业务关系",
+                    "style": {
+                      "width": "240px"
+                    }
+                  },
+                  "options": [
+                    {
+                      "label": "单表",
+                      "value": "ONE"
+                    },
+                    {
+                      "label": "一对多",
+                      "value": "ONEMANY"
+                    },
+                    {
+                      "label": "多对多",
+                      "value": "MANYMANY"
+                    },
+                    {
+                      "label": "实体层次分类",
+                      "value": "CATEGORY"
+                    }
+                  ],
+                  "type": "select",
+                  "field": "relationship"
+                },
+                {
+                  "label": "描述",
+                  "field": "notes",
+                  "type": "text-area",
+                  "props": {},
+                  "rules": []
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "title": "详情",
+      "type": "path",
+      "options": {
+        "outside": true,
+        "path": "relationalModel/relationalModel-view"
+      }
+    },
+    {
+      "title": "生成代码",
+      "type": "request",
+      "options": {
+        "outside": true,
+        "method": "post",
+        "API": "/api/crud/apicode/apiRelationModel/apiRelationModels/generate-project-code/(id)"
+      }
+    },
+    {
+      "title": "删除",
+      "type": "delete",
+      "options": {
+        "method": "delete",
+        "outside": false
+      }
+    }
+  ],
+  "searchFields": [
+    {
+      "label": "搜索",
+      "field": "search",
+      "type": "input",
+      "props": {
+        "placeholder": "请输入"
+      }
+    }
+  ],
+  "tableFields": [
+    {
+      "label": "关系模型名称",
+      "field": "modelName"
+    },
+    {
+      "label": "模型标题",
+      "field": "name"
+    },
+    {
+      "label": "业务关系",
+      "field": "relationship",
+      "valueType": "tag",
+      "options": {
+        "map": {
+          "ONE": "单表",
+          "ONEMANY": "一对多",
+          "MANYMANY": "多对多 ",
+          "CATEGORY": "实体层次分类"
+        },
+        "chy": {
+          "ONE": "purple_dark",
+          "ONEMANY": "cyan",
+          "MANYMANY": "orange",
+          "CATEGORY": "red"
+        }
+      },
+      "theme": "option",
+      "type": "Dot"
+    },
+    {
+      "label": "描述",
+      "field": "notes"
+    }
+  ]
+}
