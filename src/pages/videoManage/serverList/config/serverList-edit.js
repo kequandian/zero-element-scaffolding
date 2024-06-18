@@ -1,3 +1,4 @@
+const { method } = require('lodash');
 const setting = require('./serverList-setting.json');
 
 module.exports = {

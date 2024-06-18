@@ -10,6 +10,9 @@ export default () => {
     { title: '编辑服务器' }
   ]);
   return (
-    <ZEle namespace="serverList_edit" config={config} />
+    <ZEle 
+      namespace="serverList_edit" 
+      config={config}
+    />
   )
 };

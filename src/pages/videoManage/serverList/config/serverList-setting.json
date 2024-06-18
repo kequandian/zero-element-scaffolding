@@ -6,7 +6,7 @@
   },
   "listAPI": "/api/newconf/server",
   "createAPI": "/api/newconf/server",
-  "getAPI": "/api/newconf/server/(id)",
+  "getAPI": "/api/newconf/server/[id]",
   "updateAPI": "/api/newconf/server",
   "deleteAPI": "/api/newconf/server/(id)",
   "columns": 1,
@@ -48,9 +48,12 @@
         }
       ],
       "props": {
-        "placeholder": "请输入"
+        "placeholder": "请输入",
+        "style": {
+          "width": 240
+        }
       },
-      "type": "input",
+      "type": "number",
       "field": "cpuCores",
       "align": "center"
     },
@@ -149,9 +152,12 @@
         }
       ],
       "props": {
-        "placeholder": "请输入"
+        "placeholder": "请输入",
+        "style": {
+          "width": 240
+        }
       },
-      "type": "input",
+      "type": "number",
       "field": "cpuCores",
       "align": "center"
     },
