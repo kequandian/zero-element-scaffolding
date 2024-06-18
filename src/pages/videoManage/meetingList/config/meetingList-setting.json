@@ -48,61 +48,53 @@
     "table": "Content",
     "form": "TitleContent"
   },
-  "tableActions": [
-    {
-      "title": "添加会议",
-      "type": "path",
-      "options": {
-        "style": "primary",
-        "path": "meetingList/meetingList-add"
-      }
-    }
-  ],
-  "tableOperation": [
-    {
-      "title": "编辑",
-      "type": "path",
-      "options": {
-        "style": "path",
-        "path": "meetingList/meetingList-edit",
-        "outside": true
-      }
-    },
-    {
-      "title": "删除",
-      "type": "delete",
-      "options": {
-        "outside": false,
-        "API": "/api/adm/newconf/meetings/(id)",
-        "method": "delete"
-      },
-      "expect": {
-        "permission": ""
-      }
-    }
-  ],
-  "searchFields": [
-    {
-      "label": "关键字搜索",
-      "field": "search",
-      "type": "search",
-      "props": {
-        "placeholder": ""
-      }
-    }
-  ],
+  "tableActions": [],
+  "tableOperation": [],
+  "searchFields": [],
   "tableFields": [
     {
-      "label": "名称",
-      "field": "name"
-    }
-  ],
-  "viewConfig": [
+      "label": "会议类型",
+      "field": "meetingType"
+    },
     {
-      "label": "名称",
-      "field": "name",
-      "type": "plain",
-      "span": 24
+      "label": "会议状态",
+      "field": "meetingStatus"
+    },
+    {
+      "label": "会议号",
+      "field": "meetingNumber"
+    },
+    {
+      "label": "会议类型",
+      "field": "meetingType"
+    },
+    {
+      "label": "会议日期",
+      "field": "meetingDate"
+    },
+    {
+      "label": "开始时间",
+      "field": "startTime"
+    },
+    {
+      "label": "结束时间",
+      "field": "endTime"
+    },
+    {
+      "label": "实际开始时间",
+      "field": "realityEndTime"
+    },
+    {
+      "label": "实际结束时间",
+      "field": "realityStartTime"
+    },
+    {
+      "label": "创建时间",
+      "field": "createTime"
+    },
+    {
+      "label": "描述",
+      "field": "description"
     }
   ]
 }

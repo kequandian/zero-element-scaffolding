@@ -1,5 +1,10 @@
 const setting = require('./meetingList-setting.json');
 
+let userInfo = {};
+try {
+  userInfo = JSON.parse(window.sessionStorage.getItem('userData'));
+} catch {};
+
 module.exports = {
   layout: setting.layout.table,
   title: setting.pageName.table,
@@ -19,7 +24,7 @@ module.exports = {
       component: 'Table',
       config: {
         API: {
-          listAPI: setting.listAPI,
+          listAPI: `${setting.listAPI}?orgId=${userInfo?.orgId || ''}`,
           appendAPI: '',
           deleteAPI: setting.deleteAPI,
         },
