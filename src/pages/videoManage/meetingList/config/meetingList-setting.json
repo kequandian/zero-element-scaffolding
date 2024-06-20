@@ -53,12 +53,8 @@
   "searchFields": [],
   "tableFields": [
     {
-      "label": "会议类型",
-      "field": "meetingType"
-    },
-    {
-      "label": "会议状态",
-      "field": "meetingStatus"
+      "label": "会议名称",
+      "field": "title"
     },
     {
       "label": "会议号",
@@ -67,6 +63,10 @@
     {
       "label": "会议类型",
       "field": "meetingType"
+    },
+    {
+      "label": "会议状态",
+      "field": "meetingStatus"
     },
     {
       "label": "会议日期",
@@ -89,8 +89,24 @@
       "field": "realityStartTime"
     },
     {
+      "label": "设备ID",
+      "field": "deviceId"
+    },
+    {
+      "label": "MCS服务IP",
+      "field": "mcsServerIp"
+    },
+    {
+      "label": "MCS服务端口",
+      "field": "mcsServerPort"
+    },
+    {
       "label": "创建时间",
       "field": "createTime"
+    },
+    {
+      "label": "创建人",
+      "field": "creatorUserName"
     },
     {
       "label": "描述",

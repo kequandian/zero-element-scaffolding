@@ -373,12 +373,10 @@
     },
     {
       "title": "设定默认参会人",
-      "type": "request",
+      "type": "function",
       "options": {
-        "outside": false,
-        "API": "/api/adm/newconf/devices/(sn)/default/participants",
-        "method": "post",
-        "tips": "确定要设定默认参会人吗？"
+        "modalTitle": "设定默认参会人",
+        "outside": false
       },
       "expect": {
         "permission": ""
