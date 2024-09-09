@@ -8,11 +8,11 @@ export default {
         "edit": "更改字段模板",
         "name":"", //对应传过去的pageName，起缓存作用
       },
-      "listAPI": "/api/crud/fieldModel/fieldModels",
-      "createAPI": "/api/crud/fieldModel/fieldModels",
-      "getAPI": "/api/crud/fieldModel/fieldModels/[id]",
-      "updateAPI": "/api/crud/fieldModel/fieldModels/[id]",
-      "deleteAPI": "/api/crud/fieldModel/fieldModels/(id)",
+      "listAPI": "/api/crud/apicode/fieldModel/fieldModels",
+      "createAPI": "/api/crud/apicode/fieldModel/fieldModels",
+      "getAPI": "/api/crud/apicode/fieldModel/fieldModels/[id]",
+      "updateAPI": "/api/crud/apicode/fieldModel/fieldModels/[id]",
+      "deleteAPI": "/api/crud/apicode/fieldModel/fieldModels/(id)",
       "columns": 1,
       "createFields": [
           {

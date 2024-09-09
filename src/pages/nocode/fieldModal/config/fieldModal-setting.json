@@ -74,7 +74,7 @@
                   ],
                   "options": {
                     "title": "选择",
-                    "API": "/api/crud/fieldModel/fieldModels",
+                    "API": "/api/crud/apicode/fieldModel/fieldModels",
                     "label": "modelName",
                     "editLabel": "defaultFieldName",
                     "value": "modelName",
@@ -219,7 +219,7 @@
                   ],
                   "options": {
                     "title": "选择",
-                    "API": "/api/crud/fieldModel/fieldModels",
+                    "API": "/api/crud/apicode/fieldModel/fieldModels",
                     "label": "modelName",
                     "editLabel": "defaultFieldName",
                     "value": "modelName",
