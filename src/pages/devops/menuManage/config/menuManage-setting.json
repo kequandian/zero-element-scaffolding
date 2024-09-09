@@ -111,7 +111,7 @@
                     "editLabel": "name",
                     "value": "entityName",
                     "pagination": true,
-                    "API": "/api/ds/eav/entities",
+                    "API": "/api/eav/entities",
                     "fields": [
                       {
                         "label": "名称",
