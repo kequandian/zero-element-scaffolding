@@ -23,7 +23,7 @@ export default ({ location }) => {
   }, [location.query.id]);
 
   function fetchData() {
-    const api = formatAPI('/api/crud/apicode/apiTableModel/apiTableModels/[id]', {
+    const api = formatAPI('/api/apicode/apiTableModel/apiTableModels/[id]', {
       namespace: 'table-modal',
     });
     setLoading(true);

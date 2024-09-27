@@ -36,7 +36,7 @@ export default function Default() {
   const [spining, setSpining] = useState(true)
   const [pageId, setPageId] = useState(0)
   const [tips, setTips] = useState("获取数据中")
-  let pageEndpoint = "/api/crud/lowMainPage/lowMainPages"
+  let pageEndpoint = "/api/lc/lowMainPage/lowMainPages"
 
   // let pageEndpoint = "/api/mainpage"
   let id;
@@ -238,7 +238,7 @@ export default function Default() {
         {
           component: "EditList",
           config: {
-            api: `/api/crud/lowMainPage/lowMainPages`,//lc_main_pages
+            api: `/api/lc/lowMainPage/lowMainPages`,//lc_main_pages
             ModelConfig: MainPageConfig,
             title: "pageTitle",
             name: "页面配置",

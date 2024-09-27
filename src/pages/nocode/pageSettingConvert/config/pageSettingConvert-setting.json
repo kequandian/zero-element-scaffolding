@@ -56,7 +56,7 @@
       "options": {
         "method": "post",
         "outside": true,
-        "API": "/toField",
+        "API": "/pageconfig/toField",
         "query":{
           "pageId":"id",
           "path": "component",
@@ -74,7 +74,7 @@
       "options": {
         "outside": true,
         "API":{
-          "updateAPI": "/vallation/node/api/push-setting"
+          "updateAPI": "/sideapi/pageconfig/push-setting"
         },
         
         "query": {

@@ -4,11 +4,11 @@
     "new": "",
     "edit": ""
   },
-  "listAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields",
-  "createAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields",
-  "getAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/[id]",
-  "updateAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/[id]",
-  "deleteAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/(id)",
+  "listAPI": "/api/apicode/apiTableModelField/apiTableModelFields",
+  "createAPI": "/api/apicode/apiTableModelField/apiTableModelFields",
+  "getAPI": "/api/apicode/apiTableModelField/apiTableModelFields/[id]",
+  "updateAPI": "/api/apicode/apiTableModelField/apiTableModelFields/[id]",
+  "deleteAPI": "/api/apicode/apiTableModelField/apiTableModelFields/(id)",
   "columns": 1,
   "createFields": [
   ],
@@ -31,7 +31,7 @@
             "config": {
               "layout": "Grid",
               "API": {
-                "createAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields"
+                "createAPI": "/api/apicode/apiTableModelField/apiTableModelFields"
               },
               "fields": [
                 {
@@ -49,7 +49,7 @@
                     "label": "name",
                     "editLabel": "name",
                     "value": "id",
-                    "API": "/api/crud/apicode/apiTableModel/apiTableModels",
+                    "API": "/api/apicode/apiTableModel/apiTableModels",
                     "fields": [
                       {
                         "label": "名称",
@@ -74,7 +74,7 @@
                   ],
                   "options": {
                     "title": "选择",
-                    "API": "/api/crud/fieldModel/fieldModels",
+                    "API": "/api/apicode/fieldModel/fieldModels",
                     "label": "modelName",
                     "editLabel": "defaultFieldName",
                     "value": "modelName",
@@ -175,8 +175,8 @@
             "config": {
               "layout": "Grid",
               "API": {
-                "getAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/(id)",
-                "updateAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/(id)"
+                "getAPI": "/api/apicode/apiTableModelField/apiTableModelFields/(id)",
+                "updateAPI": "/api/apicode/apiTableModelField/apiTableModelFields/(id)"
               },
               "fields": [
                 {
@@ -194,7 +194,7 @@
                     "label": "name",
                     "editLabel": "tableModelName",
                     "value": "id",
-                    "API": "/api/crud/apicode/apiTableModel/apiTableModels",
+                    "API": "/api/apicode/apiTableModel/apiTableModels",
                     "fields": [
                       {
                         "label": "名称",
@@ -219,7 +219,7 @@
                   ],
                   "options": {
                     "title": "选择",
-                    "API": "/api/crud/fieldModel/fieldModels",
+                    "API": "/api/apicode/fieldModel/fieldModels",
                     "label": "modelName",
                     "editLabel": "defaultFieldName",
                     "value": "modelName",

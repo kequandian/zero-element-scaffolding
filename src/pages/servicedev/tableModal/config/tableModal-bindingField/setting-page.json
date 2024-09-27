@@ -19,7 +19,7 @@
             "config": {
               "layout": "Grid",
               "API": {
-                "createAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/[id]"
+                "createAPI": "/api/apicode/apiTableModelField/apiTableModelFields/[id]"
               },
               "fields": [
                 {
@@ -34,7 +34,7 @@
                   ],
                   "options": {
                     "title": "选择",
-                    "API": "/api/crud/fieldModel/fieldModels",
+                    "API": "/api/apicode/fieldModel/fieldModels",
                     "label": "modelName",
                     "editLabel": "modelName",
                     "value": "id",
@@ -72,7 +72,7 @@
             "config": {
               "layout": "Grid",
               "API": {
-                "createAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields"
+                "createAPI": "/api/apicode/apiTableModelField/apiTableModelFields"
               },
               "fields": [
                 
@@ -202,8 +202,8 @@
                 ]
               },
               "API": {
-                "getAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/(id)",
-                "updateAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/(id)"
+                "getAPI": "/api/apicode/apiTableModelField/apiTableModelFields/(id)",
+                "updateAPI": "/api/apicode/apiTableModelField/apiTableModelFields/(id)"
               },
               "fields": [
                 
@@ -324,11 +324,11 @@
   "viewFields": [
     {}
   ],
-  "listAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields?tableModelId=[id]",
-  "createAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/[id]",
-  "getAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/(id)",
-  "updateAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/(id)",
-  "deleteAPI": "/api/crud/apicode/apiTableModelField/apiTableModelFields/(id)",
+  "listAPI": "/api/apicode/apiTableModelField/apiTableModelFields?tableModelId=[id]",
+  "createAPI": "/api/apicode/apiTableModelField/apiTableModelFields/[id]",
+  "getAPI": "/api/apicode/apiTableModelField/apiTableModelFields/(id)",
+  "updateAPI": "/api/apicode/apiTableModelField/apiTableModelFields/(id)",
+  "deleteAPI": "/api/apicode/apiTableModelField/apiTableModelFields/(id)",
   "searchFields": [
     {
       "field": "search",

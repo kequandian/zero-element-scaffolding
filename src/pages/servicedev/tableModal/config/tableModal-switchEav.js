@@ -120,7 +120,7 @@ module.exports = {
             }
           ],
           "API": {
-            createAPI: "/api/crud/apicode/apiTableModel/apiTableModels/switch-eav/[id]"
+            createAPI: "/api/apicode/apiTableModel/apiTableModels/switch-eav/[id]"
           },
         }
       },

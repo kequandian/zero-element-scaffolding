@@ -1,0 +1,348 @@
+{
+  "pageName": {
+    "table": "服务器列表",
+    "new": "添加服务器",
+    "edit": "编辑服务器"
+  },
+  "listAPI": "/api/newconf/server",
+  "createAPI": "/api/newconf/server",
+  "getAPI": "/api/newconf/server/[id]",
+  "updateAPI": "/api/newconf/server",
+  "deleteAPI": "/api/newconf/server/(id)",
+  "columns": 1,
+  "type":"default",
+  "createFields": [
+    {
+      "label": "服务器的主机名",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "field": "hostname",
+      "align": "center"
+    },
+    {
+      "label": "服务器的ip地址",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "field": "ip",
+      "align": "center"
+    },
+    {
+      "label": "CPU核心数量",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入",
+        "style": {
+          "width": 240
+        }
+      },
+      "type": "number",
+      "field": "cpuCores",
+      "align": "center"
+    },
+    {
+      "label": "服务器所在地理位置或数据中心",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "field": "location",
+      "align": "center"
+    },
+    {
+      "label": "服务器的操作系统",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "field": "os",
+      "align": "center"
+    },
+    {
+      "label": "操作系统的版本",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "field": "osVersion",
+      "align": "center"
+    },
+    {
+      "label": "备注信息",
+      "props": {
+        "placeholder": "请输入",
+        "autoSize": {
+          "minRows": 3
+        },
+        "style":{
+          "width": 240
+        }
+      },
+      "type": "text-area",
+      "field": "notes",
+      "align": "center"
+    }
+  ],
+  "updateFields": [
+    {
+      "label": "服务器的主机名",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "field": "hostname",
+      "align": "center"
+    },
+    {
+      "label": "服务器的ip地址",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "field": "ip",
+      "align": "center"
+    },
+    {
+      "label": "CPU核心数量",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入",
+        "style": {
+          "width": 240
+        }
+      },
+      "type": "number",
+      "field": "cpuCores",
+      "align": "center"
+    },
+    {
+      "label": "服务器所在地理位置或数据中心",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "field": "location",
+      "align": "center"
+    },
+    {
+      "label": "服务器的操作系统",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "field": "os",
+      "align": "center"
+    },
+    {
+      "label": "操作系统的版本",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "field": "osVersion",
+      "align": "center"
+    },
+    {
+      "label": "备注信息",
+      "props": {
+        "placeholder": "请输入",
+        "autoSize": {
+          "minRows": 3
+        },
+        "style":{
+          "width": 240
+        }
+      },
+      "type": "text-area",
+      "field": "notes",
+      "align": "center"
+    }
+  ],
+  "map": {},
+  "layout": {
+    "table": "Content",
+    "form": "TitleContent"
+  },
+  "tableActions": [
+    {
+      "title": "添加服务器",
+      "type": "path",
+      "options": {
+        "style": "primary",
+        "path": "serverList/serverList-add"
+      }
+    }
+  ],
+  "tableOperation": [
+    {
+      "title": "编辑",
+      "type": "path",
+      "options": {
+        "style": "path",
+        "path": "serverList/serverList-edit",
+        "outside": true
+      }
+    },
+    {
+      "title": "删除",
+      "type": "delete",
+      "options": {
+        "outside": false,
+        "API": "/api/newconf/server/(id)",
+        "method": "delete"
+      },
+      "expect": {
+        "permission": ""
+      }
+    }
+  ],
+  "searchFields": [
+    {
+      "label": "关键字搜索",
+      "field": "search",
+      "type": "search",
+      "props": {
+        "placeholder": ""
+      }
+    }
+  ],
+  "tableFields": [
+    {
+      "label": "服务器的主机名",
+      "field": "hostname"
+    },
+    {
+      "label": "服务器的ip地址",
+      "field": "ip"
+    },
+    {
+      "label": "CPU核心数量",
+      "field": "cpuCores"
+    },
+    {
+      "label": "服务器所在地理位置或数据中心",
+      "field": "location"
+    },
+    {
+      "label": "服务器的操作系统",
+      "field": "os"
+    },
+    {
+      "label": "操作系统的版本",
+      "field": "osVersion"
+    },
+    {
+      "label": "备注信息",
+      "field": "notes"
+    },
+    {
+      "label": "创建时间",
+      "field": "createTime"
+    }
+  ],
+  "viewConfig": [
+    {
+      "label": "服务器的主机名",
+      "field": "hostname",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "服务器的ip地址",
+      "field": "ip",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "CPU核心数量",
+      "field": "cpuCores",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "服务器所在地理位置或数据中心",
+      "field": "location",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "服务器的操作系统",
+      "field": "os",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "操作系统的版本",
+      "field": "osVersion",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "备注信息",
+      "field": "notes",
+      "type": "plain",
+      "span": 24
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "pageName": {
+    "table": "会议列表",
+    "new": "添加会议",
+    "edit": "编辑会议"
+  },
+  "listAPI": "/api/adm/newconf/meetings",
+  "createAPI": "/api/adm/newconf/meetings",
+  "getAPI": "/api/adm/newconf/meetings/(id)",
+  "updateAPI": "/api/adm/newconf/meetings",
+  "deleteAPI": "/api/adm/newconf/meetings/(id)",
+  "columns": 1,
+  "type":"default",
+  "createFields": [
+    {
+      "label": "名称",
+      "field": "name",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "align": "center"
+    }
+  ],
+  "updateFields": [
+    {
+      "label": "名称",
+      "field": "name",
+      "rules": [
+        {
+          "type": "required"
+        }
+      ],
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "align": "center"
+    }
+  ],
+  "map": {},
+  "layout": {
+    "table": "Content",
+    "form": "TitleContent"
+  },
+  "tableActions": [],
+  "tableOperation": [],
+  "searchFields": [],
+  "tableFields": [
+    {
+      "label": "会议名称",
+      "field": "title"
+    },
+    {
+      "label": "会议号",
+      "field": "meetingNumber"
+    },
+    {
+      "label": "会议类型",
+      "field": "meetingType"
+    },
+    {
+      "label": "会议状态",
+      "field": "meetingStatus"
+    },
+    {
+      "label": "会议日期",
+      "field": "meetingDate"
+    },
+    {
+      "label": "开始时间",
+      "field": "startTime"
+    },
+    {
+      "label": "结束时间",
+      "field": "endTime"
+    },
+    {
+      "label": "实际开始时间",
+      "field": "realityEndTime"
+    },
+    {
+      "label": "实际结束时间",
+      "field": "realityStartTime"
+    },
+    {
+      "label": "设备ID",
+      "field": "deviceId"
+    },
+    {
+      "label": "MCS服务IP",
+      "field": "mcsServerIp"
+    },
+    {
+      "label": "MCS服务端口",
+      "field": "mcsServerPort"
+    },
+    {
+      "label": "创建时间",
+      "field": "createTime"
+    },
+    {
+      "label": "创建人",
+      "field": "creatorUserName"
+    },
+    {
+      "label": "描述",
+      "field": "description"
+    }
+  ]
+}

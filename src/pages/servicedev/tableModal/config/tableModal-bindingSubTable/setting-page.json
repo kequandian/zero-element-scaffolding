@@ -20,7 +20,7 @@
             "config": {
               "layout": "Grid",
               "API": {
-                "createAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels"
+                "createAPI": "/api/apicode/apiSubTableModel/apiSubTableModels"
               },
               "fields": [
                 {
@@ -35,7 +35,7 @@
                   ],
                   "options": {
                     "title": "选择",
-                    "API": "/api/crud/apicode/apiTableModel/apiTableModels",
+                    "API": "/api/apicode/apiTableModel/apiTableModels",
                     "label": "name",
                     "editLabel": "subTableName",
                     "value": "id",
@@ -81,8 +81,8 @@
             "config": {
               "layout": "Grid",
               "API": {
-                "getAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels/(id)",
-                "updateAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels/(id)"
+                "getAPI": "/api/apicode/apiSubTableModel/apiSubTableModels/(id)",
+                "updateAPI": "/api/apicode/apiSubTableModel/apiSubTableModels/(id)"
               },
               "fields": [
                 {
@@ -97,7 +97,7 @@
                   ],
                   "options": {
                     "title": "选择",
-                    "API": "/api/crud/apicode/apiTableModel/apiTableModels",
+                    "API": "/api/apicode/apiTableModel/apiTableModels",
                     "label": "name",
                     "editLabel": "subTableName",
                     "value": "id",
@@ -141,11 +141,11 @@
   "viewFields": [
     {}
   ],
-  "listAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels?tableModelId=[id]",
-  "createAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels/[id]",
-  "getAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels/(id)",
-  "updateAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels/(id)",
-  "deleteAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels/(id)",
+  "listAPI": "/api/apicode/apiSubTableModel/apiSubTableModels?tableModelId=[id]",
+  "createAPI": "/api/apicode/apiSubTableModel/apiSubTableModels/[id]",
+  "getAPI": "/api/apicode/apiSubTableModel/apiSubTableModels/(id)",
+  "updateAPI": "/api/apicode/apiSubTableModel/apiSubTableModels/(id)",
+  "deleteAPI": "/api/apicode/apiSubTableModel/apiSubTableModels/(id)",
   "searchFields": [
     {
       "field": "search",

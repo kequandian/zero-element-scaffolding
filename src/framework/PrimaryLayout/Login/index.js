@@ -18,6 +18,7 @@ import { LS } from 'zero-element/lib/utils/storage';
 import { ConfigSvg, DocSvg, MoreSvg, TableSvg,WorkflowSvg } from './svg/Svg'
 
 import './index.less'
+import window from 'zero-element/lib/utils/window';
 
 
 
@@ -79,7 +80,10 @@ export default (props) => {
         let json=res.json();
         console.log(json);
         Promise.resolve(json).then((val)=>{
-            // console.log(val.data.avatar)
+            console.log('登录返回=', val?.data)
+            if (val?.code === 200) {
+              window.sessionStorage.setItem('userData', JSON.stringify(val?.data || {}));
+            }
             if(val.code===200){
               setAvatar(endpoint+val.data.avatar)
               // setAvatar(endpoint+val.data)

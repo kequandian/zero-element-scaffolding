@@ -4,11 +4,11 @@
     "new": "",
     "edit": ""
   },
-  "listAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels",
-  "createAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels",
-  "getAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels/[id]",
-  "updateAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels/[id]",
-  "deleteAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels/(id)",
+  "listAPI": "/api/apicode/apiSubTableModel/apiSubTableModels",
+  "createAPI": "/api/apicode/apiSubTableModel/apiSubTableModels",
+  "getAPI": "/api/apicode/apiSubTableModel/apiSubTableModels/[id]",
+  "updateAPI": "/api/apicode/apiSubTableModel/apiSubTableModels/[id]",
+  "deleteAPI": "/api/apicode/apiSubTableModel/apiSubTableModels/(id)",
   "columns": 1,
   "createFields": [
   ],
@@ -32,7 +32,7 @@
             "config": {
               "layout": "Grid",
               "API": {
-                "createAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels"
+                "createAPI": "/api/apicode/apiSubTableModel/apiSubTableModels"
               },
               "fields": [
                 {
@@ -47,7 +47,7 @@
                   ],
                   "options": {
                     "title": "选择",
-                    "API": "/api/crud/apicode/apiTableModel/apiTableModels",
+                    "API": "/api/apicode/apiTableModel/apiTableModels",
                     "label": "name",
                     "value": "id",
                     "fields": [
@@ -74,7 +74,7 @@
                   ],
                   "options": {
                     "title": "选择",
-                    "API": "/api/crud/apicode/apiTableModel/apiTableModels",
+                    "API": "/api/apicode/apiTableModel/apiTableModels",
                     "label": "name",
                     "value": "id",
                     "saveData":{
@@ -114,8 +114,8 @@
             "config": {
               "layout": "Grid",
               "API": {
-                "getAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels/(id)",
-                "updateAPI": "/api/crud/apicode/apiSubTableModel/apiSubTableModels/(id)"
+                "getAPI": "/api/apicode/apiSubTableModel/apiSubTableModels/(id)",
+                "updateAPI": "/api/apicode/apiSubTableModel/apiSubTableModels/(id)"
               },
               "fields": [
                 {
@@ -130,7 +130,7 @@
                   ],
                   "options": {
                     "title": "选择",
-                    "API": "/api/crud/apicode/apiTableModel/apiTableModels",
+                    "API": "/api/apicode/apiTableModel/apiTableModels",
                     "label": "name",
                     "editLabel": "tableName",
                     "value": "id",
@@ -158,7 +158,7 @@
                   ],
                   "options": {
                     "title": "选择",
-                    "API": "/api/crud/apicode/apiTableModel/apiTableModels",
+                    "API": "/api/apicode/apiTableModel/apiTableModels",
                     "label": "name",
                     "editLabel": "subTableName",
                     "value": "id",

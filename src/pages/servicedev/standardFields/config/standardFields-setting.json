@@ -4,11 +4,11 @@
     "new": "",
     "edit": ""
   },
-  "listAPI": "/api/crud/fieldModel/fieldModels",
-  "createAPI": "/api/crud/fieldModel/fieldModels",
-  "getAPI": "/api/crud/fieldModel/fieldModels/[id]",
-  "updateAPI": "/api/crud/fieldModel/fieldModels/[id]",
-  "deleteAPI": "/api/crud/fieldModel/fieldModels/(id)",
+  "listAPI": "/api/apicode/fieldModel/fieldModels",
+  "createAPI": "/api/apicode/fieldModel/fieldModels",
+  "getAPI": "/api/apicode/fieldModel/fieldModels/[id]",
+  "updateAPI": "/api/apicode/fieldModel/fieldModels/[id]",
+  "deleteAPI": "/api/apicode/fieldModel/fieldModels/(id)",
   "columns": 1,
   "createFields": [
   ],
@@ -31,7 +31,7 @@
             "config": {
               "layout": "Grid",
               "API": {
-                "createAPI": "/api/crud/fieldModel/fieldModels"
+                "createAPI": "/api/apicode/fieldModel/fieldModels"
               },
               "fields": [
                 {
@@ -144,8 +144,8 @@
             "config": {
               "layout": "Grid",
               "API": {
-                "getAPI": "/api/crud/fieldModel/fieldModels/(id)",
-                "updateAPI": "/api/crud/fieldModel/fieldModels/(id)"
+                "getAPI": "/api/apicode/fieldModel/fieldModels/(id)",
+                "updateAPI": "/api/apicode/fieldModel/fieldModels/(id)"
               },
               "fields": [
                 {

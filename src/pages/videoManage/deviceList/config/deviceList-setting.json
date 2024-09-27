@@ -1,0 +1,598 @@
+{
+  "pageName": {
+    "table": "设备列表",
+    "new": "添加设备",
+    "edit": "编辑设备"
+  },
+  "listAPI": "/api/adm/newconf/devices",
+  "createAPI": "/api/adm/newconf/devices",
+  "getAPI": "/api/adm/newconf/devices/[id]",
+  "updateAPI": "/api/adm/newconf/devices",
+  "deleteAPI": "/api/adm/newconf/devices/(id)",
+  "columns": 1,
+  "type":"default",
+  "createFields": [
+    {
+      "label": "授权状态",
+      "field": "authorize",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "客户端id",
+      "field": "clientId",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "客户端密钥",
+      "field": "clientSecret",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "设备id",
+      "field": "deviceId",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "mac地址",
+      "field": "mac",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "制造商",
+      "field": "manufacturer",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "会议号",
+      "field": "meetingNumber",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "会议服务器id",
+      "field": "meetingServerId",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "会议服务器ip",
+      "field": "meetingServerIp",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "会议状态",
+      "field": "meetingStatus",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "型号",
+      "field": "model",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "名称",
+      "field": "name",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "所属组织",
+      "field": "orgId",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "产品码",
+      "field": "productKey",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "序列号",
+      "field": "sn",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "状态",
+      "field": "status",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "类型",
+      "field": "type",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    }
+  ],
+  "updateFields": [
+    {
+      "label": "授权状态",
+      "field": "authorize",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "客户端id",
+      "field": "clientId",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "客户端密钥",
+      "field": "clientSecret",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "设备id",
+      "field": "deviceId",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "mac地址",
+      "field": "mac",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "制造商",
+      "field": "manufacturer",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "会议号",
+      "field": "meetingNumber",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "会议服务器id",
+      "field": "meetingServerId",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "会议服务器ip",
+      "field": "meetingServerIp",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "会议状态",
+      "field": "meetingStatus",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "型号",
+      "field": "model",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "名称",
+      "field": "name",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "所属组织",
+      "field": "orgId",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "产品码",
+      "field": "productKey",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "序列号",
+      "field": "sn",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "状态",
+      "field": "status",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    },
+    {
+      "label": "类型",
+      "field": "type",
+      "props": {
+        "placeholder": "请输入"
+      },
+      "type": "input",
+      "span": 12
+    }
+  ],
+  "map": {},
+  "layout": {
+    "table": "Content",
+    "form": "TitleContent"
+  },
+  "tableActions": [
+    {
+      "title": "添加设备",
+      "type": "path",
+      "options": {
+        "style": "primary",
+        "path": "deviceList/deviceList-add"
+      }
+    }
+  ],
+  "tableOperation": [
+    {
+      "title": "编辑",
+      "type": "path",
+      "options": {
+        "style": "path",
+        "path": "deviceList/deviceList-edit",
+        "outside": true
+      }
+    },
+    {
+      "title": "删除",
+      "type": "delete",
+      "options": {
+        "outside": false,
+        "API": "/api/adm/newconf/devices/(id)",
+        "method": "delete"
+      },
+      "expect": {
+        "permission": ""
+      }
+    },
+    {
+      "title": "设备授权",
+      "type": "request",
+      "options": {
+        "outside": false,
+        "API": "/api/adm/newconf/devices/authorize/(id)",
+        "method": "post",
+        "tips": "确定要进行设备授权吗？"
+      },
+      "expect": {
+        "permission": ""
+      }
+    },
+    {
+      "title": "设定默认参会人",
+      "type": "function",
+      "options": {
+        "modalTitle": "设定默认参会人",
+        "outside": false
+      },
+      "expect": {
+        "permission": ""
+      }
+    }
+  ],
+  "searchFields": [
+    {
+      "label": "关键字搜索",
+      "field": "search",
+      "type": "search",
+      "props": {
+        "placeholder": ""
+      }
+    }
+  ],
+  "tableFields": [
+    {
+      "label": "授权状态",
+      "field": "authorize",
+      "width": 120
+    },
+    {
+      "label": "客户端id",
+      "field": "clientId",
+      "width": 200
+    },
+    {
+      "label": "客户端密钥",
+      "field": "clientSecret",
+      "width": 300
+    },
+    {
+      "label": "设备id",
+      "field": "deviceId",
+      "width": 200
+    },
+    {
+      "label": "mac地址",
+      "field": "mac",
+      "width": 200
+    },
+    {
+      "label": "制造商",
+      "field": "manufacturer",
+      "width": 200
+    },
+    {
+      "label": "会议号",
+      "field": "meetingNumber",
+      "width": 150
+    },
+    {
+      "label": "会议服务器id",
+      "field": "meetingServerId",
+      "width": 150
+    },
+    {
+      "label": "会议服务器ip",
+      "field": "meetingServerIp",
+      "width": 150
+    },
+    {
+      "label": "会议状态",
+      "field": "meetingStatus",
+      "width": 150
+    },
+    {
+      "label": "型号",
+      "field": "model",
+      "width": 150
+    },
+    {
+      "label": "名称",
+      "field": "name",
+      "width": 250
+    },
+    {
+      "label": "所属组织",
+      "field": "orgId",
+      "width": 150
+    },
+    {
+      "label": "产品码",
+      "field": "productKey",
+      "width": 150
+    },
+    {
+      "label": "序列号",
+      "field": "sn",
+      "width": 200
+    },
+    {
+      "label": "状态",
+      "field": "status",
+      "width": 150
+    },
+    {
+      "label": "类型",
+      "field": "type",
+      "width": 150
+    },
+    {
+      "label": "创建时间",
+      "field": "createTime",
+      "width": 150
+    }
+  ],
+  "viewConfig": [
+    {
+      "label": "授权状态",
+      "field": "authorize",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "客户端id",
+      "field": "clientId",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "客户端密钥",
+      "field": "clientSecret",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "设备id",
+      "field": "deviceId",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "mac地址",
+      "field": "mac",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "制造商",
+      "field": "manufacturer",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "会议号",
+      "field": "meetingNumber",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "会议服务器id",
+      "field": "meetingServerId",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "会议服务器ip",
+      "field": "meetingServerIp",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "会议状态",
+      "field": "meetingStatus",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "型号",
+      "field": "model",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "名称",
+      "field": "name",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "所属组织",
+      "field": "orgId",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "产品码",
+      "field": "productKey",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "序列号",
+      "field": "sn",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "状态",
+      "field": "status",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "类型",
+      "field": "type",
+      "type": "plain",
+      "span": 24
+    },
+    {
+      "label": "创建时间",
+      "field": "createTime",
+      "type": "plain",
+      "span": 24
+    }
+  ]
+}

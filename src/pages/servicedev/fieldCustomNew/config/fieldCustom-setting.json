@@ -4,11 +4,11 @@
     "new": "",
     "edit": ""
   },
-  "listAPI": "/api/ds/eav/entities?entityType=EXPAND_FORM",
+  "listAPI": "/api/eav/entities?entityType=EXPAND_FORM",
   "createAPI": "",
   "getAPI": "/api/eav/entities/[id]",
   "updateAPI": "/api/[id]",
-  "deleteAPI": "/api/ds/eav/entities/(id)",
+  "deleteAPI": "/api/eav/entities/(id)",
   "columns": 1,
   "createFields": [
     {
@@ -92,8 +92,8 @@
                 ]
               },
               "API": {
-                "getAPI": "/api/ds/eav/entities/(id)",
-                "updateAPI": "/api/ds/eav/entities/(id)"
+                "getAPI": "/api/eav/entities/(id)",
+                "updateAPI": "/api/eav/entities/(id)"
               },
               "fields": [
                 {

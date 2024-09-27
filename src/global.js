@@ -19,6 +19,7 @@ import { set as AITSet } from 'zero-element/lib/config/actionItemType';
 import { set as VTSet } from 'zero-element/lib/config/valueType';
 
 // import onPath from '@/../zero-antd-dep/listAction/onPath';
+import onFunction from '@/listAction/onFunction';
 
 import path from '@/actionItemType/path';
 import tabs from '@/actionItemType/tabs';
@@ -79,7 +80,6 @@ import CSet_DynamicPageShowConfig from '@/components/DynamicPageShowConfig';
 import AITSet_DownloadPage from '@/listAction/onDownloadPage';
 import AITSet_ConvertPage from '@/listAction/onConvertPage';
 import AITSet_UpdateToSetting from '@/listAction/onUpdateToSettingJson';
-
 
 //Test
 import CSet_new_tree_list from '@/components/TList';
@@ -193,7 +193,8 @@ LASet({
   'onFromModal': AITSet_FromModal,
   'onDownloadPage': AITSet_DownloadPage,
   'onConvertPage': AITSet_ConvertPage,
-  'onUpdateToSetting': AITSet_UpdateToSetting
+  'onUpdateToSetting': AITSet_UpdateToSetting,
+  "onFunction": onFunction
 });
 
 
@@ -224,7 +225,7 @@ AITSet({
   path,
   tabs,
   'exportFile': AITSet_export_file,
-  'fromModal': AITSet_FromModal,
+  'fromModal': AITSet_FromModal
 });
 
 //列表 & 详情

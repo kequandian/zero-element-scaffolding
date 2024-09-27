@@ -20,7 +20,7 @@
             "config": {
               "layout": "Grid",
               "API": {
-                "createAPI": "/api/crud/apicode/apiRelationModelTables/apiRelationModelTables"
+                "createAPI": "/api/apicode/apiRelationModelTables/apiRelationModelTables"
               },
               "fields": [
                 {
@@ -35,7 +35,7 @@
                   ],
                   "options": {
                     "title": "选择",
-                    "API": "/api/crud/apicode/apiTableModel/apiTableModels",
+                    "API": "/api/apicode/apiTableModel/apiTableModels",
                     "label": "name",
                     "editLabel": "subTableName",
                     "value": "id",
@@ -125,8 +125,8 @@
             "config": {
               "layout": "Grid",
               "API": {
-                "getAPI": "/api/crud/apicode/apiRelationModelTables/apiRelationModelTables/detail/(id)",
-                "updateAPI": "/api/crud/apicode/apiRelationModelTables/apiRelationModelTables/[id]"
+                "getAPI": "/api/apicode/apiRelationModelTables/apiRelationModelTables/detail/(id)",
+                "updateAPI": "/api/apicode/apiRelationModelTables/apiRelationModelTables/[id]"
               },
               "fields": [
                 {
@@ -206,11 +206,11 @@
   "viewFields": [
     {}
   ],
-  "listAPI": "/api/crud/apicode/apiRelationModelTables/apiRelationModelTables/view?relationModelId=[id]",
-  "createAPI": "/api/crud/apicode/apiRelationModelTables/apiRelationModelTables[id]",
-  "getAPI": "/api/crud/apicode/apiRelationModelTables/apiRelationModelTables/(id)",
-  "updateAPI": "/api/crud/apicode/apiRelationModelTables/apiRelationModelTables/(id)",
-  "deleteAPI": "/api/crud/apicode/apiRelationModelTables/apiRelationModelTables/(id)",
+  "listAPI": "/api/apicode/apiRelationModelTables/apiRelationModelTables/view?relationModelId=[id]",
+  "createAPI": "/api/apicode/apiRelationModelTables/apiRelationModelTables[id]",
+  "getAPI": "/api/apicode/apiRelationModelTables/apiRelationModelTables/(id)",
+  "updateAPI": "/api/apicode/apiRelationModelTables/apiRelationModelTables/(id)",
+  "deleteAPI": "/api/apicode/apiRelationModelTables/apiRelationModelTables/(id)",
   "tableFields": [
     {
       "label": "表模型名称",

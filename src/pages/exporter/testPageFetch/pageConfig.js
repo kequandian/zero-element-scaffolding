@@ -13,7 +13,7 @@ export const fieldsConfig = [
         "field": "fieldBinding",
         "type": "fetchSelect",
         "options": {
-            "API": "/api/crud/lowMainPage/lowMainPages/(id)",
+            "API": "/api/lc/lowMainPage/lowMainPages/(id)",
             "label": "fieldItemName",
             "value": "fieldItemName",
             "dataField": "data.lowFieldss"
