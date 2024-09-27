@@ -4,11 +4,11 @@
     "new": "",
     "edit": ""
   },
-  "listAPI": "/api/crud/apicode/apiRelationModel/apiRelationModels",
-  "createAPI": "/api/crud/apicode/apiRelationModel/apiRelationModels",
-  "getAPI": "/api/crud/apicode/apiRelationModel/apiRelationModels/[id]",
-  "updateAPI": "/api/crud/apicode/apiRelationModel/apiRelationModels/[id]",
-  "deleteAPI": "/api/crud/apicode/apiRelationModel/apiRelationModels/(id)",
+  "listAPI": "/api/apicode/apiRelationModel/apiRelationModels",
+  "createAPI": "/api/apicode/apiRelationModel/apiRelationModels",
+  "getAPI": "/api/apicode/apiRelationModel/apiRelationModels/[id]",
+  "updateAPI": "/api/apicode/apiRelationModel/apiRelationModels/[id]",
+  "deleteAPI": "/api/apicode/apiRelationModel/apiRelationModels/(id)",
   "columns": 1,
   "createFields": [],
   "updateFields": [],
@@ -31,7 +31,7 @@
             "config": {
               "layout": "Grid",
               "API": {
-                "createAPI": "/api/crud/apicode/apiRelationModel/apiRelationModels"
+                "createAPI": "/api/apicode/apiRelationModel/apiRelationModels"
               },
               "fields": [
                 {
@@ -118,8 +118,8 @@
             "config": {
               "layout": "Grid",
               "API": {
-                "getAPI": "/api/crud/apicode/apiRelationModel/apiRelationModels/(id)",
-                "updateAPI": "/api/crud/apicode/apiRelationModel/apiRelationModels/(id)"
+                "getAPI": "/api/apicode/apiRelationModel/apiRelationModels/(id)",
+                "updateAPI": "/api/apicode/apiRelationModel/apiRelationModels/(id)"
               },
               "fields": [
                 {
@@ -205,7 +205,7 @@
       "options": {
         "outside": true,
         "method": "post",
-        "API": "/api/crud/apicode/apiRelationModel/apiRelationModels/generate-project-code/(id)"
+        "API": "/api/apicode/apiRelationModel/apiRelationModels/generate-project-code/(id)"
       }
     },
     {

@@ -4,11 +4,11 @@
       "new": "新增字段模板",
       "edit": "更改字段模板"
     },
-    "listAPI": "/api/crud/apicode/fieldModel/fieldModels",
-    "createAPI": "/api/crud/apicode/fieldModel/fieldModels",
-    "getAPI": "/api/crud/apicode/fieldModel/fieldModels/[id]",
-    "updateAPI": "/api/crud/apicode/fieldModel/fieldModels/[id]",
-    "deleteAPI": "/api/crud/apicode/fieldModel/fieldModels/(id)",
+    "listAPI": "/api/apicode/fieldModel/fieldModels",
+    "createAPI": "/api/apicode/fieldModel/fieldModels",
+    "getAPI": "/api/apicode/fieldModel/fieldModels/[id]",
+    "updateAPI": "/api/apicode/fieldModel/fieldModels/[id]",
+    "deleteAPI": "/api/apicode/fieldModel/fieldModels/(id)",
     "columns": 1,
     "createFields": [
         {

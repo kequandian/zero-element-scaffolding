@@ -4,11 +4,11 @@
     "new": "",
     "edit": ""
   },
-  "listAPI": "/api/crud/apicode/apiTableModel/apiTableModels",
-  "createAPI": "/api/crud/apicode/apiTableModel/apiTableModels",
-  "getAPI": "/api/crud/apicode/apiTableModel/apiTableModels/[id]",
-  "updateAPI": "/api/crud/apicode/apiTableModel/apiTableModels/[id]",
-  "deleteAPI": "/api/crud/apicode/apiTableModel/apiTableModels/(id)",
+  "listAPI": "/api/apicode/apiTableModel/apiTableModels",
+  "createAPI": "/api/apicode/apiTableModel/apiTableModels",
+  "getAPI": "/api/apicode/apiTableModel/apiTableModels/[id]",
+  "updateAPI": "/api/apicode/apiTableModel/apiTableModels/[id]",
+  "deleteAPI": "/api/apicode/apiTableModel/apiTableModels/(id)",
   "columns": 1,
   "createFields": [
   ],
@@ -31,7 +31,7 @@
             "config": {
               "layout": "Grid",
               "API": {
-                "createAPI": "/api/crud/apicode/apiTableModel/apiTableModels"
+                "createAPI": "/api/apicode/apiTableModel/apiTableModels"
               },
               "fields": [
                 {
@@ -90,8 +90,8 @@
             "config": {
               "layout": "Grid",
               "API": {
-                "getAPI": "/api/crud/apicode/apiTableModel/apiTableModels/(id)",
-                "updateAPI": "/api/crud/apicode/apiTableModel/apiTableModels/(id)"
+                "getAPI": "/api/apicode/apiTableModel/apiTableModels/(id)",
+                "updateAPI": "/api/apicode/apiTableModel/apiTableModels/(id)"
               },
               "fields": [
                 {
@@ -173,7 +173,7 @@
       "options": {
         "method": "download",
         "outside": true,
-        "API": "/api/crud/apicode/apiTableModel/apiTableModels/download-create-table-sql/(id)"
+        "API": "/api/apicode/apiTableModel/apiTableModels/download-create-table-sql/(id)"
       }
     },
     {
