@@ -74,7 +74,7 @@ import CSet_new_tree_list from '@/components/TList';
 import CSet_ErrorLayout from '@/components/Container/ErrorLayout';
 
 
-//配置 
+//配置
 import { Config } from './devConfig'
 const globalModel = getModel('global');
 
@@ -120,7 +120,7 @@ golbalSet({
   }
 });
 
-/** 
+/**
  * @开发环境配置
  * @关于Config配置 配置来源 src/devConfig.js > endpoint 项
  * @优先级 src/devConfig.js 中 endpoint 高于 public/config.js 中 window.ZEle.endpoint

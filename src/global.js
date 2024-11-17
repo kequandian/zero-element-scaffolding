@@ -90,7 +90,7 @@ import CSet_ErrorLayout from '@/components/Container/ErrorLayout';
 import VTSet_pcdFormat from '@/valueType/pcdFormat';
 
 
-//配置 
+//配置
 import { Config } from './devConfig'
 const globalModel = getModel('global');
 
@@ -136,7 +136,7 @@ golbalSet({
   }
 });
 
-/** 
+/**
  * @开发环境配置
  * @关于Config配置 配置来源 src/devConfig.js > endpoint 项
  * @优先级 src/devConfig.js 中 endpoint 高于 public/config.js 中 window.ZEle.endpoint
@@ -147,7 +147,7 @@ if (process.env.NODE_ENV === 'development') {
   //# $ cat /c/Windows/System32/drivers/etc/hosts
   //# 192.168.3.239:8090 demo.smallsaas.cn:8080
   // setEndpoint('http://cn1.utools.club:45688');
-  setEndpoint(Config.endpoint);
+  // setEndpoint(Config.endpoint);
   // setEndpoint('http://localhost:8080');
   // saveToken({
   //   token: '',
