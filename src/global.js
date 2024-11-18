@@ -147,7 +147,7 @@ if (process.env.NODE_ENV === 'development') {
   //# $ cat /c/Windows/System32/drivers/etc/hosts
   //# 192.168.3.239:8090 demo.smallsaas.cn:8080
   // setEndpoint('http://cn1.utools.club:45688');
-  setEndpoint(Config.endpoint);
+  // setEndpoint(Config.endpoint);
   // setEndpoint('http://localhost:8080');
   // saveToken({
   //   token: '',
