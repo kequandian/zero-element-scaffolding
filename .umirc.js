@@ -19,4 +19,10 @@ export default {
   antd: {},
   dva: false,
   ignoreMomentLocale: true, // 忽略 moment 的 locale 文件
+  proxy: {
+    '/api': {
+      target: 'http://202.63.172.178:8999',
+      changeOrigin: true
+    }
+  }
 }
