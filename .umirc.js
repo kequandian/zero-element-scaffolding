@@ -1,6 +1,15 @@
 
 // ref: https://umijs.org/config/
 export default {
+  devServer: {
+    port: 8080
+  },
+  proxy: {
+    '/api': {
+      target: 'http://192.168.137.1:8080',
+      changeOrigin: true
+    }
+  },
   title: 'swaggerhub',
   hash: true,
   // history: {

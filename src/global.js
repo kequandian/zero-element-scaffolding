@@ -88,7 +88,7 @@ if (process.env.NODE_ENV === 'development') {
   //# $ cat /c/Windows/System32/drivers/etc/hosts
   //# 192.168.3.239:8090 demo.smallsaas.cn:8080
   // setEndpoint('http://cn1.utools.club:45688');
-  setEndpoint(Config.endpoint);
+  // setEndpoint(Config.endpoint);
   // setEndpoint('http://localhost:8080');
   saveToken({
     token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJvcmdJZCI6IjEiLCJ1c2VySWQiOiIxIiwidGVuYW50T3JnSWQiOjEsImFjY291bnQiOiJhZG1pbiIsInVzZXJUeXBlIjoxMDAsImRldlVzZXJUeXBlIjowLCJiVXNlclR5cGUiOiJTWVNURU0iLCJhcHBpZCI6IiIsImlhdCI6MTY3ODY3NTYyMiwianRpIjoiMSIsInN1YiI6ImFkbWluIiwiZXhwIjoxNjc4OTM0ODIyfQ.quSUbUPbqkXXRJRmaa6kq3oy8t6HvjqXtF_ndDlecikDlbQPZjTUNq2ZY1qo8hM4uXiAhRuGrqTE38pzFUv0YQ',
