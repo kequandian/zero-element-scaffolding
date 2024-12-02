@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import ZEle from 'zero-element';
 import qs from 'qs';
 import { message, Spin } from 'antd'
@@ -17,77 +17,84 @@ export default (props) => {
     // const [tips, setTips] = useState("获取数据中")
 
     useDidMount(_ => {
-        initPageConfig()
+      initPageConfig()
     });
 
     function initPageConfig() {
-        let endpoint = getEndpoint()
-        let pageConfigUrl = pageUrl
+      let endpoint = getEndpoint()
+      let pageConfigUrl = pageUrl
 
-        if(!pageUrl.startsWith('http')){
-          pageConfigUrl = `${endpoint}${pageUrl}`
-        }
+      if(!pageUrl.startsWith('http')){
+        pageConfigUrl = `${endpoint}${pageUrl}`
+      }
 
-        if(pageUrl.indexOf('?') != -1){
-          //TODO, merge routeParam with this pageUrl param
-        }else{
-          pageConfigUrl = `${pageConfigUrl}?${routeParam}`
-        }
+      if(pageUrl.indexOf('?') != -1){
+        //TODO, merge routeParam with this pageUrl param
+      }else{
+        pageConfigUrl = `${pageConfigUrl}?${routeParam}`
+      }
 
-        console.log('pageConfigUrl == ', pageConfigUrl)
+      console.log('pageConfigUrl == ', pageConfigUrl)
 
-        query(pageConfigUrl, {})
-          .then(resp => {
-            setSpining(false)
-            const response = resp.data
-            if (response && response.code === 200) {
-                const configData = response.data;
-                setPageConfig(configData)
-                // setTips("加载完成")
+      query(pageConfigUrl, {})
+        .then(resp => {
+          setSpining(false)
+          const response = resp.data
+          if (response && response.code === 200) {
+              const configData = response.data;
+              setPageConfig(configData)
+              // setTips("加载完成")
 
-            } else {
-                message.error('获取页面配置信息失败')
-                // setTips("加载完成")
-            }
-          }).catch(err => {
-            setSpining(false)
-            message.error('获取页面配置信息失败')
-          })
+          } else {
+              message.error('获取页面配置信息失败')
+              // setTips("加载完成")
+          }
+        }).catch(err => {
+          setSpining(false)
+          message.error('获取页面配置信息失败')
+        })
     }
 
-    if(pageConfig){
-        const config = {
-            layout: pageConfig.layout.table,
-            title: pageConfig.pageName.table,
-            items: [
-              {
-                component: 'Search',
-                config: {
-                  fields: pageConfig.searchFields,
-                },
+    const ZEleElement = useMemo(() => {
+      if (!pageConfig) {
+        return null;
+      }
+      const config = {
+        layout: pageConfig.layout.table,
+        title: pageConfig.pageName.table,
+        items: [
+          {
+            component: 'Search',
+            config: {
+              fields: pageConfig.searchFields,
+            },
+          },
+          {
+            component: 'Table',
+            config: {
+              API: {
+                listAPI: pageConfig.listAPI,
+                deleteAPI: pageConfig.deleteAPI,
               },
-              {
-                component: 'Table',
-                config: {
-                  API: {
-                    listAPI: pageConfig.listAPI,
-                    deleteAPI: pageConfig.deleteAPI,
-                  },
-                  actions: pageConfig.tableActions,
-                  fields: pageConfig.tableFields,
-                  operation: pageConfig.tableOperation,
-                },
-              },
-            ],
+              actions: pageConfig.tableActions,
+              fields: pageConfig.tableFields,
+              operation: pageConfig.tableOperation,
+            },
+          },
+        ],
+      }
+      return (
+        <ZEle namespace="dynamicPage" config={config} />
+      )
+    }, [pageConfig]);
+
+    return (
+      <>
+        {
+          pageConfig ? ZEleElement : (
+            <Spin spinning={spining} ></Spin>
+          )
         }
-
-        return (
-            <ZEle namespace="dynamicPage" config={config} />
-        )
-    } else {
-        return <Spin spinning={spining} ></Spin>
-    }
-
-
-   
+      </>
+    )
 };

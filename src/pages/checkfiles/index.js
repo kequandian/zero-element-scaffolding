@@ -33,3 +33,4 @@ export default function () {
 
 	return <ZEle namespace="checkfiles" config={config} />
   }
+  
