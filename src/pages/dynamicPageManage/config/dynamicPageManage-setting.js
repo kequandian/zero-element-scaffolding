@@ -18,11 +18,11 @@ export const setting = {
     "new": "新增动态页面",
     "edit": "编辑动态页面"
   },
-  "listAPI": "/api/crud/lowMainPage/lowMainPages",
-  "createAPI": "/api/crud/lowMainPage/lowMainPages",
-  "getAPI": "/api/crud/lowMainPage/lowMainPages/[id]",
-  "updateAPI": "/api/crud/lowMainPage/lowMainPages/[id]",
-  "deleteAPI": "/api/crud/lowMainPage/lowMainPages/(id)",
+  "listAPI": "/api/pageconfig/lowMainPage/lowMainPages",
+  "createAPI": "/api/pageconfig/lowMainPage/lowMainPages",
+  "getAPI": "/api/pageconfig/lowMainPage/lowMainPages/[id]",
+  "updateAPI": "/api/pageconfig/lowMainPage/lowMainPages/[id]",
+  "deleteAPI": "/api/pageconfig/lowMainPage/lowMainPages/(id)",
   "columns": 1,
   "createFields": [
     { "label":"页面名称","field":"pageName","type":"input","rules": [
@@ -252,7 +252,7 @@ export const setting = {
         "modalTitle": "添加",
         "modalWidth": 600,
         "api":{
-          "createAPI":"/api/crud/lowMainPage/lowMainPages"
+          "createAPI":"/api/pageconfig/lowMainPage/lowMainPages"
         },
         "fields": [
           { "label": "页面名称", "field": "pageName", "defaultValue": "", "placeholder": "请输入页面名称,必须为英文" },
@@ -356,8 +356,8 @@ export const setting = {
             component: 'DynamicPageForm',
             config: {
               API: {
-                "getAPI":"/api/crud/lowMainPage/lowMainPages/(id)",
-                "updateAPI":"/api/crud/lowMainPage/lowMainPages/(id)"
+                "getAPI":"/api/pageconfig/lowMainPage/lowMainPages/(id)",
+                "updateAPI":"/api/pageconfig/lowMainPage/lowMainPages/(id)"
               },
               "fields": [
                 { "label": "页面名称", "field": "pageName", "defaultValue": "", "placeholder": "请输入页面名称,必须为英文" },
@@ -473,7 +473,7 @@ export const setting = {
       "type": "downloadPage",
       "options": {
         "outside": false,
-        "API": "/api/crud/lowMainPage/lowMainPages/(id)",
+        "API": "/api/pageconfig/lowMainPage/lowMainPages/(id)",
       }
     },
     
@@ -489,7 +489,7 @@ export const setting = {
             "component": 'DynamicPageShowConfig',
             "config": {
               "API":{
-                "getAPI":"/api/crud/lowMainPage/lowMainPages/(id)",
+                "getAPI":"/api/pageconfig/lowMainPage/lowMainPages/(id)",
               }
             }
           }
@@ -502,7 +502,7 @@ export const setting = {
     //   "options": {
     //     "outside": true,
     //     "tips": "确定要生成该页面的导航吗?",
-    //     "API": "/api/crud/menu/menus",
+    //     "API": "/api/pageconfig/menu/menus",
     //     "method": "post",
     //     "data":{
     //       // C 目录， M 菜单

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Button, Modal } from 'antd';
+import _ from 'lodash';
 import { useDidMount, useForceUpdate } from 'zero-element/lib/utils/hooks/lifeCycle'
 import FormTools from '@/pages/dynamicPageTool/container/EditList/components/Form';
 import { query, post } from 'zero-element/lib/utils/request';
@@ -73,7 +74,7 @@ export default (props) => {
 
     post(apiUrl,theData,options)
       .then(resp => {
-        if (resp && resp.code === 200) {
+        if (_.get(resp, 'status') === 200 && _.get(resp, 'data.code') === 200) {
           // const Listdata = resp.data.records;
           // console.log(resp)
           message.success("添加成功")
