@@ -37,7 +37,7 @@ export default function Default() {
   const [spining, setSpining] = useState(true)
   const [pageId, setPageId] = useState(0)
   const [tips, setTips] = useState("获取数据中")
-  let pageEndpoint = "/api/crud/lowMainPage/lowMainPages/config"
+  let pageEndpoint = "/api/pageconfig/lowMainPage/lowMainPages/config"
 
   // let pageEndpoint = "/api/mainpage"
   let id;
@@ -111,7 +111,7 @@ export default function Default() {
         // {
         //   component:"EditList",
         //   config:{
-        //     api:"/api/crud/lowFieldProperties/lowFieldPropertieses",//lc_field_properties
+        //     api:"/api/pageconfig/lowFieldProperties/lowFieldPropertieses",//lc_field_properties
         //     ModelConfig:ComponentTypeConfig,
         //     title:"propertyName",
         //     field:"fieldItemName",
@@ -122,7 +122,7 @@ export default function Default() {
         {
           component: "EditList",
           config: {
-            api: "/api/crud/lowFields/lowFieldses",//lc_fields
+            api: "/api/pageconfig/lowFields/lowFieldses",//lc_fields
             ModelConfig: fieldsConfig,
             title: "fieldLabel",
             name: "字段",
@@ -139,7 +139,7 @@ export default function Default() {
         {
           component: "EditList",
           config: {
-            api: "/api/crud/lowOperations/lowOperationses",//lc_operations
+            api: "/api/pageconfig/lowOperations/lowOperationses",//lc_operations
             ModelConfig: OperationsConfig,
             title: "title",
             name: "操作",
@@ -152,7 +152,7 @@ export default function Default() {
         {
           component: "EditList",
           config: {
-            api: "/api/crud/lowActions/lowActionses",//lc_actions
+            api: "/api/pageconfig/lowActions/lowActionses",//lc_actions
             ModelConfig: ActionsConfig,
             title: "title",
             name: "按钮",
@@ -165,7 +165,7 @@ export default function Default() {
         {
           component: "EditList",
           config: {
-            api: "/api/crud/lowFilters/lowFilterses",//lc_filters
+            api: "/api/pageconfig/lowFilters/lowFilterses",//lc_filters
             ModelConfig: FiltersConfig,
             title: "fieldTitle",
             name: "过滤",
@@ -178,7 +178,7 @@ export default function Default() {
         {
           component: "EditList",
           config: {
-            api: `/api/crud/lowMainPage/lowMainPages`,//lc_main_pages
+            api: `/api/pageconfig/lowMainPage/lowMainPages`,//lc_main_pages
             ModelConfig: MainPageConfig,
             title: "pageTitle",
             name: "页面配置",
