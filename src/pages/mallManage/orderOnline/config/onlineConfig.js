@@ -303,7 +303,7 @@ export default {
                           "value": "id",
                           "label": "name",
                           "editLabel": "assistantName",
-                          "API": "/api/adm/users/select-custom-service",
+                          "API": "/api/adm/sys/users/select-custom-service",
                           "saveData": {
                             "assistantName": "name"
                           },

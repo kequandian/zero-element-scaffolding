@@ -35,7 +35,7 @@ createModel({
           return;
         }
         if (!this.permissions || Array.isArray(this.permissions)) {
-          query('/api/adm/users/self/permissions')
+          query('/api/adm/sys/users/self/permissions')
             .then(response => {
               if (response.status === 200) {
                 const { perms } = response.data.data;
