@@ -21,7 +21,7 @@
         }
       },
       "options":{
-        "API":"/api/crud/menu/custom/group",
+        "API":"/api/adm/menu/custom/group",
         "label":"menuName",
         "value":"id"
       }

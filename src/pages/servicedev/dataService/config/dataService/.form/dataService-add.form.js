@@ -24,7 +24,7 @@ module.exports = {
               }
             },
             "options":{
-              "API":"/api/crud/menu/custom/group?_t=1622176307848",
+              "API":"/api/adm/menu/custom/group?_t=1622176307848",
               "label":"menuName",
               "value":"id"
             }

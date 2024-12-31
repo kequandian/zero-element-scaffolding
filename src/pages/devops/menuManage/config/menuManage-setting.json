@@ -4,11 +4,11 @@
     "new": "添加菜单",
     "edit": "编辑菜单"
   },
-  "listAPI": "/api/crud/menu/custom/group",
-  "createAPI": "/api/crud/menu/custom/group",
-  "getAPI": "/api/crud/menu/custom/group/[id]",
-  "updateAPI": "/api/crud/menu/custom/group/[id]",
-  "deleteAPI": "/api/crud/menu/menus/(id)",
+  "listAPI": "/api/adm/menu/custom/group",
+  "createAPI": "/api/adm/menu/custom/group",
+  "getAPI": "/api/adm/menu/custom/group/[id]",
+  "updateAPI": "/api/adm/menu/custom/group/[id]",
+  "deleteAPI": "/api/adm/menu/menus/(id)",
   "columns": 1,
   "type":"default",
   "createFields": [
@@ -164,7 +164,7 @@
                     "editLabel": "pName",
                     "value": "id",
                     "pagination": true,
-                    "API": "/api/crud/menu/custom/group",
+                    "API": "/api/adm/menu/custom/group",
                     "fields": [
                       {
                         "label": "菜单名称",
@@ -202,7 +202,7 @@
       "options": {
         "method": "put",
         "outside": true,
-        "API": "/api/crud/menu/custom/status/(id)"
+        "API": "/api/adm/menu/custom/status/(id)"
       },
       "expect": {
         "field": "status",
@@ -215,7 +215,7 @@
       "options": {
         "method": "put",
         "outside": true,
-        "API": "/api/crud/menu/custom/status/(id)"
+        "API": "/api/adm/menu/custom/status/(id)"
       },
       "expect": {
         "field": "status",
@@ -240,8 +240,8 @@
                 ]
               },
               "API": {
-                "getAPI": "/api/crud/menu/menus/(id)",
-                "updateAPI": "/api/crud/menu/menus/(id)"
+                "getAPI": "/api/adm/menu/menus/(id)",
+                "updateAPI": "/api/adm/menu/menus/(id)"
               },
               "fields": [
                 {
@@ -315,7 +315,7 @@
                     "editLabel": "pName",
                     "value": "id",
                     "pagination": true,
-                    "API": "/api/crud/menu/custom/group",
+                    "API": "/api/adm/menu/custom/group",
                     "fields": [
                       {
                         "label": "菜单名称",

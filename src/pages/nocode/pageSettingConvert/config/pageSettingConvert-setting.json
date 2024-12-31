@@ -4,11 +4,11 @@
     "new": "添加",
     "edit": "编辑"
   },
-  "listAPI": "/api/crud/menu/custom/group",
-  "createAPI": "/api/crud/menu/custom/group",
-  "getAPI": "/api/crud/menu/custom/group/[id]",
-  "updateAPI": "/api/crud/menu/custom/group/[id]",
-  "deleteAPI": "/api/crud/menu/menus/(id)",
+  "listAPI": "/api/adm/menu/custom/group",
+  "createAPI": "/api/adm/menu/custom/group",
+  "getAPI": "/api/adm/menu/custom/group/[id]",
+  "updateAPI": "/api/adm/menu/custom/group/[id]",
+  "deleteAPI": "/api/adm/menu/menus/(id)",
   "columns": 1,
   "type":"default",
   "createFields": [

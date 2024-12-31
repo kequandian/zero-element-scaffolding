@@ -33,7 +33,7 @@ createModel({
         }
         if (!this.menuTree || Array.isArray(this.menuTree)) {
           LS.del('menuList');
-          query('/api/crud/menu/custom/json')
+          query('/api/adm/menu/custom/json')
             .then(response => {
               if (response.status === 200) {
                 const { data } = response.data;

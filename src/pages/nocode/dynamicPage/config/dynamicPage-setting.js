@@ -502,7 +502,7 @@ export const setting = {
     //   "options": {
     //     "outside": true,
     //     "tips": "确定要生成该页面的导航吗?",
-    //     "API": "/api/crud/menu/menus",
+    //     "API": "/api/adm/menu/menus",
     //     "method": "post",
     //     "data":{
     //       // C 目录， M 菜单

@@ -110,7 +110,7 @@
                     "label": "menuName",
                     "value": "id",
                     "pagination": true,
-                    "API": "/api/crud/menu/custom/group",
+                    "API": "/api/adm/menu/custom/group",
                     "fields": [
                       { "label": "菜单名称", "field": "menuName" },
                       { "label": "路径", "field": "component" }
@@ -211,7 +211,7 @@
                     "label": "menuName",
                     "value": "id",
                     "pagination": true,
-                    "API": "/api/crud/menu/custom/group",
+                    "API": "/api/adm/menu/custom/group",
                     "fields": [
                       { "label": "菜单名称", "field": "menuName" },
                       { "label": "路径", "field": "component" }
