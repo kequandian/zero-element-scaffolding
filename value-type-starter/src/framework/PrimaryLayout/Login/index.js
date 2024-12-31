@@ -65,7 +65,7 @@ export default (props) => {
   let endpoint= getEndpoint()
   
   // const API = `${endpoint}/api/crud/avatar/${Random}`
-  const API = `${endpoint}/api/adm/users/userInfo`
+  const API = `${endpoint}/api/adm/sys/users/userInfo`
   let token = getToken()
   useEffect(() => {
         

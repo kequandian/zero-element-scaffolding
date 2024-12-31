@@ -8,7 +8,7 @@ export const config = {
         config: {
           goBack: false,
           API: {
-            getAPI: '/api/adm/users/userInfo',
+            getAPI: '/api/adm/sys/users/userInfo',
             updateAPI: '/api/adm/users/self',
           },
           layout: 'Grid',

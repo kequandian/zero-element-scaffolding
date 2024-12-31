@@ -5,7 +5,7 @@ import { saveToken } from 'zero-element/lib/utils/request/token';
 // 
 export default function getUserInfo() {
 
-  const url = ['/api/adm/users/userInfo', '/api/u/crud/accounts/userInfo']
+  const url = ['/api/adm/sys/users/userInfo', '/api/u/crud/accounts/userInfo']
 
   return query(url[0])
     .then(data => {

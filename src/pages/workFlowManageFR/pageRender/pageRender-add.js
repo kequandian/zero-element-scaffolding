@@ -18,7 +18,7 @@ function PageRenderAdd(){
     const JSONRef = useRef()
     const [APIdata,SetAPIdata] = useState([])
     const publicConfig={
-        API:"/api/adm/users/userInfo",
+        API:"/api/adm/sys/users/userInfo",
         method:"GET",
         field:[
             "orgs",
